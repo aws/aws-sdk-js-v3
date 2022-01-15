@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ChoiceReason {
   ARCHITECTURE_CONSTRAINTS = "ARCHITECTURE_CONSTRAINTS",
   BUSINESS_PRIORITIES = "BUSINESS_PRIORITIES",
@@ -372,15 +363,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   ResourceType: string | undefined;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There is a problem with the Well-Architected Tool API service.</p>
  */
@@ -391,15 +373,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
    * <p>Description of the error.</p>
    */
   Message: string | undefined;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -424,15 +397,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceType: string | undefined;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request was denied due to request throttling.</p>
  */
@@ -453,15 +417,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>Service Quotas requirement to identify originating service.</p>
    */
   ServiceCode?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -515,15 +470,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The fields that caused the error, if applicable.</p>
    */
   Fields?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -667,15 +613,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>Service Quotas requirement to identify originating service.</p>
    */
   ServiceCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLensVersionInput {

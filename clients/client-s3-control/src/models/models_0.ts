@@ -854,30 +854,12 @@ export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer 
   $fault: "client";
 }
 
-export namespace BucketAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Outposts bucket you tried to create already exists, and you own it. </p>
  */
 export interface BucketAlreadyOwnedByYou extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyOwnedByYou";
   $fault: "client";
-}
-
-export namespace BucketAlreadyOwnedByYou {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketAlreadyOwnedByYou): any => ({
-    ...obj,
-  });
 }
 
 export type BucketCannedACL = "authenticated-read" | "private" | "public-read" | "public-read-write";
@@ -1043,15 +1025,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains the information required to locate a manifest object.</p>
  */
@@ -1191,16 +1164,16 @@ export enum S3GlacierJobTier {
  */
 export interface S3InitiateRestoreObjectOperation {
   /**
-   * <p>This argument specifies how long the S3 Glacier or S3 Glacier Deep Archive object remains available in Amazon S3.
+   * <p>This argument specifies how long the S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive object remains available in Amazon S3.
    *          S3 Initiate Restore Object jobs that
-   *          target S3 Glacier and S3 Glacier Deep Archive objects require <code>ExpirationInDays</code> set to 1
+   *          target S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive objects require <code>ExpirationInDays</code> set to 1
    *          or greater.</p>
    *          <p>Conversely, do <i>not</i> set <code>ExpirationInDays</code> when
    *          creating S3 Initiate Restore Object jobs that target
    *          S3 Intelligent-Tiering Archive Access and Deep Archive Access tier objects. Objects in
    *          S3 Intelligent-Tiering archive access tiers are not subject to restore expiry, so
    *          specifying <code>ExpirationInDays</code> results in restore request failure.</p>
-   *          <p>S3 Batch Operations jobs can operate either on S3 Glacier and S3 Glacier Deep Archive storage class
+   *          <p>S3 Batch Operations jobs can operate either on S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage class
    *          objects or on S3 Intelligent-Tiering Archive Access and Deep Archive Access storage tier
    *          objects, but not both types in the same job. If you need to restore objects of both types
    *          you <i>must</i> create separate Batch Operations jobs. </p>
@@ -1957,15 +1930,6 @@ export interface IdempotencyException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace IdempotencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotencyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1975,15 +1939,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1991,15 +1946,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMultiRegionAccessPointRequest {
@@ -2266,15 +2212,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   name: "NotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMultiRegionAccessPointRequest {
@@ -3767,15 +3704,6 @@ export interface NoSuchPublicAccessBlockConfiguration extends __SmithyException,
   Message?: string;
 }
 
-export namespace NoSuchPublicAccessBlockConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchPublicAccessBlockConfiguration): any => ({
-    ...obj,
-  });
-}
-
 export interface GetStorageLensConfigurationRequest {
   /**
    * <p>The ID of the Amazon S3 Storage Lens configuration.</p>
@@ -4312,15 +4240,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -4328,15 +4247,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListJobsRequest {
@@ -4941,15 +4851,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutMultiRegionAccessPointPolicyRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
@@ -5144,15 +5045,6 @@ export interface JobStatusException extends __SmithyException, $MetadataBearer {
   name: "JobStatusException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace JobStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobStatusException): any => ({
-    ...obj,
-  });
 }
 
 export enum RequestedJobStatus {

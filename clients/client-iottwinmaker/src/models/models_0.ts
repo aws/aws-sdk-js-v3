@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An object that uniquely identifies an entity property.</p>
  */
@@ -85,15 +76,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource wasn't found.</p>
  */
@@ -101,15 +83,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -121,15 +94,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Failed</p>
  */
@@ -139,15 +103,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A conflict occurred.</p>
  */
@@ -155,15 +110,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -319,15 +265,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum PropertyUpdateType {
@@ -761,15 +698,6 @@ export interface ConnectorFailureException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ConnectorFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The connector timed out.</p>
  */
@@ -777,15 +705,6 @@ export interface ConnectorTimeoutException extends __SmithyException, $MetadataB
   name: "ConnectorTimeoutException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConnectorTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorTimeoutException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetPropertyValueRequest {
@@ -1595,15 +1514,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

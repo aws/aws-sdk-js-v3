@@ -169,15 +169,6 @@ export interface InvalidResourceArnException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidResourceArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceArnException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource for which you want to get information
@@ -236,15 +227,6 @@ export interface ResourceArnRequiredException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ResourceArnRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceArnRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified target branch is not valid.</p>
  */
@@ -255,15 +237,6 @@ export interface InvalidTargetBranchException extends __SmithyException, $Metada
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTargetBranchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetBranchException): any => ({
-    ...obj,
-  });
 }
 
 export interface MergeBranchesByFastForwardInput {
@@ -573,15 +546,6 @@ export interface PullRequestApprovalRulesNotSatisfiedException extends __SmithyE
   message?: string;
 }
 
-export namespace PullRequestApprovalRulesNotSatisfiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestApprovalRulesNotSatisfiedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tip of the source branch in the destination repository does not match the tip of the source branch specified in your request.
  *             The pull request might have been updated. Make sure that you have the latest changes.</p>
@@ -593,15 +557,6 @@ export interface TipOfSourceReferenceIsDifferentException extends __SmithyExcept
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace TipOfSourceReferenceIsDifferentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TipOfSourceReferenceIsDifferentException): any => ({
-    ...obj,
-  });
 }
 
 export interface MergePullRequestBySquashInput {
@@ -792,15 +747,6 @@ export interface InvalidOverrideStatusException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidOverrideStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOverrideStatusException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The pull request has already had its approval rules set to override.</p>
  */
@@ -811,15 +757,6 @@ export interface OverrideAlreadySetException extends __SmithyException, $Metadat
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace OverrideAlreadySetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverrideAlreadySetException): any => ({
-    ...obj,
-  });
 }
 
 export interface OverridePullRequestApprovalRulesInput {
@@ -864,15 +801,6 @@ export interface OverrideStatusRequiredException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace OverrideStatusRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OverrideStatusRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
  */
@@ -885,15 +813,6 @@ export interface CommentContentRequiredException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace CommentContentRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentContentRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The comment is too large. Comments are limited to 1,000 characters.</p>
  */
@@ -904,15 +823,6 @@ export interface CommentContentSizeLimitExceededException extends __SmithyExcept
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommentContentSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentContentSizeLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -928,15 +838,6 @@ export interface InvalidFileLocationException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace InvalidFileLocationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFileLocationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The position is not valid. Make sure that the line number exists in the version of the file you want to comment on.</p>
  */
@@ -949,15 +850,6 @@ export interface InvalidFilePositionException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace InvalidFilePositionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFilePositionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Either the enum is not in a valid format, or the specified file version enum is not valid in respect to the current file version.</p>
  */
@@ -968,15 +860,6 @@ export interface InvalidRelativeFileVersionEnumException extends __SmithyExcepti
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRelativeFileVersionEnumException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRelativeFileVersionEnumException): any => ({
-    ...obj,
-  });
 }
 
 export interface PostCommentForComparedCommitInput {
@@ -1234,15 +1117,6 @@ export interface InvalidReactionValueException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidReactionValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReactionValueException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutCommentReactionInput {
   /**
    * <p>The ID of the comment to which you want to add or update a reaction.</p>
@@ -1277,15 +1151,6 @@ export interface ReactionLimitExceededException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ReactionLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactionLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A reaction value is required. </p>
  */
@@ -1298,15 +1163,6 @@ export interface ReactionValueRequiredException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ReactionValueRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReactionValueRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The file cannot be added because it is empty. Empty files cannot be added to the repository with this API.</p>
  */
@@ -1317,15 +1173,6 @@ export interface FileContentRequiredException extends __SmithyException, $Metada
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace FileContentRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FileContentRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutFileInput {
@@ -1434,15 +1281,6 @@ export interface SameFileContentException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace SameFileContentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SameFileContentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more branch names specified for the trigger is not valid.</p>
  */
@@ -1453,15 +1291,6 @@ export interface InvalidRepositoryTriggerBranchNameException extends __SmithyExc
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRepositoryTriggerBranchNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerBranchNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1476,15 +1305,6 @@ export interface InvalidRepositoryTriggerCustomDataException extends __SmithyExc
   message?: string;
 }
 
-export namespace InvalidRepositoryTriggerCustomDataException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerCustomDataException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Resource Name (ARN) for the trigger is not valid for the specified destination. The most common reason for this error is that the ARN does not meet the requirements for the service type.</p>
  */
@@ -1495,15 +1315,6 @@ export interface InvalidRepositoryTriggerDestinationArnException extends __Smith
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRepositoryTriggerDestinationArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerDestinationArnException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1518,15 +1329,6 @@ export interface InvalidRepositoryTriggerEventsException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace InvalidRepositoryTriggerEventsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerEventsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The name of the trigger is not valid.</p>
  */
@@ -1537,15 +1339,6 @@ export interface InvalidRepositoryTriggerNameException extends __SmithyException
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRepositoryTriggerNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1562,15 +1355,6 @@ export interface InvalidRepositoryTriggerRegionException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace InvalidRepositoryTriggerRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRepositoryTriggerRegionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of branches for the trigger was exceeded.</p>
  */
@@ -1583,15 +1367,6 @@ export interface MaximumBranchesExceededException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace MaximumBranchesExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumBranchesExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of triggers allowed for the repository was exceeded.</p>
  */
@@ -1602,15 +1377,6 @@ export interface MaximumRepositoryTriggersExceededException extends __SmithyExce
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace MaximumRepositoryTriggersExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumRepositoryTriggersExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1669,15 +1435,6 @@ export interface RepositoryTriggerBranchNameListRequiredException extends __Smit
   message?: string;
 }
 
-export namespace RepositoryTriggerBranchNameListRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTriggerBranchNameListRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A destination ARN for the target service for the trigger is required, but was not
  *             specified.</p>
@@ -1689,15 +1446,6 @@ export interface RepositoryTriggerDestinationArnRequiredException extends __Smit
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RepositoryTriggerDestinationArnRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTriggerDestinationArnRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1712,15 +1460,6 @@ export interface RepositoryTriggerEventsListRequiredException extends __SmithyEx
   message?: string;
 }
 
-export namespace RepositoryTriggerEventsListRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTriggerEventsListRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A name for the trigger is required, but was not specified.</p>
  */
@@ -1733,15 +1472,6 @@ export interface RepositoryTriggerNameRequiredException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace RepositoryTriggerNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTriggerNameRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The list of triggers for the repository is required, but was not specified.</p>
  */
@@ -1752,15 +1482,6 @@ export interface RepositoryTriggersListRequiredException extends __SmithyExcepti
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace RepositoryTriggersListRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RepositoryTriggersListRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceInput {
@@ -1794,15 +1515,6 @@ export interface TagsMapRequiredException extends __SmithyException, $MetadataBe
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace TagsMapRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagsMapRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1890,15 +1602,6 @@ export interface InvalidTagKeysListException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidTagKeysListException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagKeysListException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of tag keys is required. The list cannot be empty or null.</p>
  */
@@ -1909,15 +1612,6 @@ export interface TagKeysListRequiredException extends __SmithyException, $Metada
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace TagKeysListRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagKeysListRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceInput {
@@ -1951,15 +1645,6 @@ export interface InvalidRuleContentSha256Exception extends __SmithyException, $M
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRuleContentSha256Exception {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRuleContentSha256Exception): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateApprovalRuleTemplateContentInput {
@@ -2091,15 +1776,6 @@ export interface CommentNotCreatedByCallerException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace CommentNotCreatedByCallerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CommentNotCreatedByCallerException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateCommentInput {
@@ -2265,15 +1941,6 @@ export interface InvalidApprovalStateException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidApprovalStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApprovalStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
  */
@@ -2284,15 +1951,6 @@ export interface MaximumNumberOfApprovalsExceededException extends __SmithyExcep
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace MaximumNumberOfApprovalsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumNumberOfApprovalsExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2306,15 +1964,6 @@ export interface PullRequestCannotBeApprovedByAuthorException extends __SmithyEx
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace PullRequestCannotBeApprovedByAuthorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestCannotBeApprovedByAuthorException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePullRequestApprovalStateInput {
@@ -2393,15 +2042,6 @@ export interface InvalidPullRequestStatusUpdateException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace InvalidPullRequestStatusUpdateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPullRequestStatusUpdateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A pull request status is required, but none was provided.</p>
  */
@@ -2412,15 +2052,6 @@ export interface PullRequestStatusRequiredException extends __SmithyException, $
    * <p>Any message associated with the exception.</p>
    */
   message?: string;
-}
-
-export namespace PullRequestStatusRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PullRequestStatusRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdatePullRequestStatusInput {

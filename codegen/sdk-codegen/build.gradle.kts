@@ -105,6 +105,12 @@ tasks.register("generate-smithy-build") {
     }
 }
 
+tasks.register("generate-default-configs-provider", JavaExec::class) {
+    classpath = sourceSets["main"].runtimeClasspath
+    main = "software.amazon.smithy.aws.typescript.codegen.DefaultsModeConfigGenerator"
+    args(listOf(project.properties["defaultsModeConfigOutput"]))
+}
+
 // Run the `buildSdk` automatically.
 tasks["build"]
         .dependsOn(tasks["generate-smithy-build"])

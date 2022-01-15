@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Updating or deleting a resource can cause an inconsistent state.
  */
@@ -41,15 +32,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * Type of the resource affected.
    */
   resourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -169,15 +151,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   retryAfterSeconds?: number;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Request references a resource which does not exist.
  */
@@ -198,15 +171,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * Type of the resource affected.
    */
   resourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -241,15 +205,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   quotaCode: string | undefined;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * Request was denied due to request throttling.
  */
@@ -276,15 +231,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * Advice to clients on when the call can be safely retried.
    */
   retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -338,15 +284,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * The field that caused the error, if applicable. If more than one field caused the error, pick one and elaborate in the message.
    */
   fieldList?: ValidationExceptionField[];
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**

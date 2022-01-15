@@ -220,15 +220,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A new stream started with the same session ID. The current stream has been
  *       terminated.</p>
@@ -237,15 +228,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum ContentIdentificationType {
@@ -264,15 +246,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   name: "InternalFailureException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
 }
 
 export enum LanguageCode {
@@ -328,15 +301,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum MediaEncoding {
@@ -582,15 +546,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the transcription result stream from Amazon Transcribe Medical to your application.</p>
  */
@@ -731,18 +686,12 @@ export namespace MedicalTranscriptResultStream {
   export const filterSensitiveLog = (obj: MedicalTranscriptResultStream): any => {
     if (obj.TranscriptEvent !== undefined)
       return { TranscriptEvent: MedicalTranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
-    if (obj.BadRequestException !== undefined)
-      return { BadRequestException: BadRequestException.filterSensitiveLog(obj.BadRequestException) };
-    if (obj.LimitExceededException !== undefined)
-      return { LimitExceededException: LimitExceededException.filterSensitiveLog(obj.LimitExceededException) };
-    if (obj.InternalFailureException !== undefined)
-      return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
-    if (obj.ConflictException !== undefined)
-      return { ConflictException: ConflictException.filterSensitiveLog(obj.ConflictException) };
+    if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
+    if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
+    if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
+    if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
     if (obj.ServiceUnavailableException !== undefined)
-      return {
-        ServiceUnavailableException: ServiceUnavailableException.filterSensitiveLog(obj.ServiceUnavailableException),
-      };
+      return { ServiceUnavailableException: obj.ServiceUnavailableException };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -1344,18 +1293,12 @@ export namespace TranscriptResultStream {
   export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
     if (obj.TranscriptEvent !== undefined)
       return { TranscriptEvent: TranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
-    if (obj.BadRequestException !== undefined)
-      return { BadRequestException: BadRequestException.filterSensitiveLog(obj.BadRequestException) };
-    if (obj.LimitExceededException !== undefined)
-      return { LimitExceededException: LimitExceededException.filterSensitiveLog(obj.LimitExceededException) };
-    if (obj.InternalFailureException !== undefined)
-      return { InternalFailureException: InternalFailureException.filterSensitiveLog(obj.InternalFailureException) };
-    if (obj.ConflictException !== undefined)
-      return { ConflictException: ConflictException.filterSensitiveLog(obj.ConflictException) };
+    if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
+    if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
+    if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
+    if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
     if (obj.ServiceUnavailableException !== undefined)
-      return {
-        ServiceUnavailableException: ServiceUnavailableException.filterSensitiveLog(obj.ServiceUnavailableException),
-      };
+      return { ServiceUnavailableException: obj.ServiceUnavailableException };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }

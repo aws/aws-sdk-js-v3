@@ -152,15 +152,6 @@ export interface CloudHsmAccessDeniedException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace CloudHsmAccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmAccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
  *       be retried.</p>
@@ -171,15 +162,6 @@ export interface CloudHsmInternalFailureException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace CloudHsmInternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmInternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because it is not a valid request.</p>
  */
@@ -187,15 +169,6 @@ export interface CloudHsmInvalidRequestException extends __SmithyException, $Met
   name: "CloudHsmInvalidRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CloudHsmInvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmInvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -208,15 +181,6 @@ export interface CloudHsmResourceNotFoundException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace CloudHsmResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because an error occurred.</p>
  */
@@ -226,15 +190,6 @@ export interface CloudHsmServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace CloudHsmServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because of a tagging failure. Verify the tag conditions in all applicable policies, and then retry the request.</p>
  */
@@ -242,15 +197,6 @@ export interface CloudHsmTagException extends __SmithyException, $MetadataBearer
   name: "CloudHsmTagException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CloudHsmTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudHsmTagException): any => ({
-    ...obj,
-  });
 }
 
 export interface CopyBackupToRegionRequest {

@@ -12,15 +12,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   code?: number;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A conflict occurred.</p>
  */
@@ -30,15 +21,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message?: string;
   className?: string;
   code?: number;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionType {
@@ -232,15 +214,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   code?: number;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal server error occurred.</p>
  */
@@ -250,15 +223,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
   message?: string;
   className?: string;
   code?: number;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -272,15 +236,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   code?: number;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The target resource cannot be found.</p>
  */
@@ -292,15 +247,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   code?: number;
 }
 
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Too many service requests were made over the given time period.</p>
  */
@@ -310,15 +256,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   message?: string;
   className?: string;
   code?: number;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export enum MemberPermissions {
@@ -986,15 +923,6 @@ export interface ConcurrentAccessException extends __SmithyException, $MetadataB
   message?: string;
   className?: string;
   code?: number;
-}
-
-export namespace ConcurrentAccessException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentAccessException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

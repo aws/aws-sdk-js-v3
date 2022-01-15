@@ -22,7 +22,10 @@ export interface DescribeStaleSecurityGroupsCommandInput extends DescribeStaleSe
 export interface DescribeStaleSecurityGroupsCommandOutput extends DescribeStaleSecurityGroupsResult, __MetadataBearer {}
 
 /**
- * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+ * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC.
+ *           Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC,
+ *           or if they reference a security group in a peer VPC for which the VPC peering connection has
+ *           been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

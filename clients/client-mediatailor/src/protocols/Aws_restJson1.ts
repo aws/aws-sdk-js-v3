@@ -1354,6 +1354,8 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.FillerSlate !== undefined &&
+      input.FillerSlate !== null && { FillerSlate: serializeAws_restJson1SlateSource(input.FillerSlate, context) }),
     ...(input.Outputs !== undefined &&
       input.Outputs !== null && { Outputs: serializeAws_restJson1RequestOutputs(input.Outputs, context) }),
   });

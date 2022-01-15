@@ -28,15 +28,6 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
   Nested?: ComplexNestedErrorData;
 }
 
-export namespace ComplexError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ComplexError): any => ({
-    ...obj,
-  });
-}
-
 export interface EmptyStruct {}
 
 export namespace EmptyStruct {
@@ -92,15 +83,6 @@ export interface ErrorWithoutMembers extends __SmithyException, $MetadataBearer 
   $fault: "server";
 }
 
-export namespace ErrorWithoutMembers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorWithoutMembers): any => ({
-    ...obj,
-  });
-}
-
 /**
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
@@ -108,15 +90,6 @@ export namespace ErrorWithoutMembers {
 export interface FooError extends __SmithyException, $MetadataBearer {
   name: "FooError";
   $fault: "server";
-}
-
-export namespace FooError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FooError): any => ({
-    ...obj,
-  });
 }
 
 export interface GreetingWithErrorsOutput {
@@ -139,15 +112,6 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
   name: "InvalidGreeting";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidGreeting {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGreeting): any => ({
-    ...obj,
-  });
 }
 
 export enum FooEnum {
@@ -492,13 +456,4 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
    * abc
    */
   StringField?: string;
-}
-
-export namespace ErrorWithMembers {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ErrorWithMembers): any => ({
-    ...obj,
-  });
 }

@@ -202,15 +202,6 @@ export interface DBClusterNotFoundFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace DBClusterNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
  */
@@ -218,15 +209,6 @@ export interface DBClusterRoleAlreadyExistsFault extends __SmithyException, $Met
   name: "DBClusterRoleAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBClusterRoleAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterRoleAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -238,15 +220,6 @@ export interface DBClusterRoleQuotaExceededFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace DBClusterRoleQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterRoleQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation can't be performed while the cluster is in this state.</p>
  */
@@ -254,15 +227,6 @@ export interface InvalidDBClusterStateFault extends __SmithyException, $Metadata
   name: "InvalidDBClusterStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBClusterStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBClusterStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface AddRoleToDBInstanceMessage {
@@ -305,15 +269,6 @@ export interface DBInstanceNotFoundFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace DBInstanceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>
  */
@@ -321,15 +276,6 @@ export interface DBInstanceRoleAlreadyExistsFault extends __SmithyException, $Me
   name: "DBInstanceRoleAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBInstanceRoleAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceRoleAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -341,15 +287,6 @@ export interface DBInstanceRoleQuotaExceededFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace DBInstanceRoleQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceRoleQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DB instance isn't in a valid state.</p>
  */
@@ -357,15 +294,6 @@ export interface InvalidDBInstanceStateFault extends __SmithyException, $Metadat
   name: "InvalidDBInstanceStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBInstanceStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBInstanceStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -505,15 +433,6 @@ export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace SourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The subscription name does not exist.</p>
  */
@@ -521,15 +440,6 @@ export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataB
   name: "SubscriptionNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -592,15 +502,6 @@ export interface DBProxyNotFoundFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace DBProxyNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified target group isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
@@ -608,15 +509,6 @@ export interface DBProxyTargetGroupNotFoundFault extends __SmithyException, $Met
   name: "DBProxyTargetGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBProxyTargetGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTargetGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -628,15 +520,6 @@ export interface DBSnapshotNotFoundFault extends __SmithyException, $MetadataBea
   name: "DBSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSnapshotNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -798,15 +681,6 @@ export interface ResourceNotFoundFault extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace ResourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for
  *             the specified DB security group.</p>
@@ -817,15 +691,6 @@ export interface AuthorizationAlreadyExistsFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace AuthorizationAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DB security group authorization quota has been reached.</p>
  */
@@ -833,15 +698,6 @@ export interface AuthorizationQuotaExceededFault extends __SmithyException, $Met
   name: "AuthorizationQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AuthorizationQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1066,15 +922,6 @@ export interface DBSecurityGroupNotFoundFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DBSecurityGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the DB security group doesn't allow deletion.</p>
  */
@@ -1082,15 +929,6 @@ export interface InvalidDBSecurityGroupStateFault extends __SmithyException, $Me
   name: "InvalidDBSecurityGroupStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBSecurityGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSecurityGroupStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1371,15 +1209,6 @@ export interface ExportTaskNotFoundFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace ExportTaskNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportTaskNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can't cancel an export task that has completed.</p>
  */
@@ -1387,15 +1216,6 @@ export interface InvalidExportTaskStateFault extends __SmithyException, $Metadat
   name: "InvalidExportTaskStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidExportTaskStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExportTaskStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CopyDBClusterParameterGroupMessage {
@@ -1524,15 +1344,6 @@ export interface DBParameterGroupAlreadyExistsFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace DBParameterGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBParameterGroupName</code> doesn't refer to an
@@ -1545,15 +1356,6 @@ export interface DBParameterGroupNotFoundFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace DBParameterGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed number of DB parameter
  *             groups.</p>
@@ -1562,15 +1364,6 @@ export interface DBParameterGroupQuotaExceededFault extends __SmithyException, $
   name: "DBParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBParameterGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1750,7 +1543,24 @@ export interface DBClusterSnapshot {
   AllocatedStorage?: number;
 
   /**
-   * <p>Specifies the status of this DB cluster snapshot.</p>
+   * <p>Specifies the status of this DB cluster snapshot. Valid statuses are the following:</p>
+   *          <ul>
+   *             <li>
+   *               <p>
+   *                   <code>available</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>copying</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>creating</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   Status?: string;
 
@@ -1867,15 +1677,6 @@ export interface DBClusterSnapshotAlreadyExistsFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace DBClusterSnapshotAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.
@@ -1887,15 +1688,6 @@ export interface DBClusterSnapshotNotFoundFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace DBClusterSnapshotNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The supplied value isn't a valid DB cluster snapshot state.</p>
  */
@@ -1903,15 +1695,6 @@ export interface InvalidDBClusterSnapshotStateFault extends __SmithyException, $
   name: "InvalidDBClusterSnapshotStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBClusterSnapshotStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBClusterSnapshotStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1923,15 +1706,6 @@ export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSKeyNotAccessibleFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed number of DB
  *             snapshots.</p>
@@ -1940,15 +1714,6 @@ export interface SnapshotQuotaExceededFault extends __SmithyException, $Metadata
   name: "SnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2575,15 +2340,6 @@ export interface CustomAvailabilityZoneNotFoundFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace CustomAvailabilityZoneNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAvailabilityZoneNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.
@@ -2595,15 +2351,6 @@ export interface DBSnapshotAlreadyExistsFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DBSnapshotAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the DB snapshot doesn't allow deletion.</p>
  */
@@ -2611,15 +2358,6 @@ export interface InvalidDBSnapshotStateFault extends __SmithyException, $Metadat
   name: "InvalidDBSnapshotStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBSnapshotStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSnapshotStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2957,15 +2695,6 @@ export interface OptionGroupAlreadyExistsFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace OptionGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified option group could not be found.</p>
  */
@@ -2975,15 +2704,6 @@ export interface OptionGroupNotFoundFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace OptionGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota of 20 option groups was exceeded for this Amazon Web Services account.</p>
  */
@@ -2991,15 +2711,6 @@ export interface OptionGroupQuotaExceededFault extends __SmithyException, $Metad
   name: "OptionGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace OptionGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OptionGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3163,15 +2874,6 @@ export interface CustomAvailabilityZoneAlreadyExistsFault extends __SmithyExcept
   message?: string;
 }
 
-export namespace CustomAvailabilityZoneAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAvailabilityZoneAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded the maximum number of custom Availability Zones.</p>
  */
@@ -3179,15 +2881,6 @@ export interface CustomAvailabilityZoneQuotaExceededFault extends __SmithyExcept
   name: "CustomAvailabilityZoneQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CustomAvailabilityZoneQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomAvailabilityZoneQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateCustomDBEngineVersionMessage {
@@ -3200,7 +2893,7 @@ export interface CreateCustomDBEngineVersionMessage {
   /**
    * <p>The name of your CEV. The name format is <code>19.<i>customized_string</i>
    *             </code>. For example,
-   *             a valid name is <code>19.my_cev1</code>. This setting is required for RDS Custom, but optional for Amazon RDS.
+   *             a valid name is <code>19.my_cev1</code>. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS.
    *             The combination of <code>Engine</code> and <code>EngineVersion</code> is unique per customer per Region.</p>
    */
   EngineVersion: string | undefined;
@@ -3293,15 +2986,6 @@ export interface CustomDBEngineVersionAlreadyExistsFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace CustomDBEngineVersionAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDBEngineVersionAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded your CEV quota.</p>
  */
@@ -3309,15 +2993,6 @@ export interface CustomDBEngineVersionQuotaExceededFault extends __SmithyExcepti
   name: "CustomDBEngineVersionQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CustomDBEngineVersionQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDBEngineVersionQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3767,7 +3442,7 @@ export interface CreateDBClusterMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3795,7 +3470,7 @@ export interface CreateDBClusterMessage {
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *          <p>To list all of the available engine versions for MySQL 5.7-compatible Aurora, use the following command:</p>
+   *          <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -4203,15 +3878,13 @@ export interface CreateDBClusterMessage {
    * <p>Specifies the storage type to be associated with the DB cluster.</p>
    *         <p>This setting is required to create a Multi-AZ DB cluster.</p>
    *         <p>
-   *             Valid values: <code>standard | gp2 | io1</code>
+   *             Valid values: <code>io1</code>
    *         </p>
    *         <p>
-   *             If you specify <code>io1</code>, also include a value for the
-   *             <code>Iops</code> parameter.
+   *             When specified, a value for the <code>Iops</code> parameter is required.
    *         </p>
    *         <p>
-   *             Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
+   *             Default: <code>io1</code>
    *         </p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
@@ -4964,7 +4637,7 @@ export interface DBCluster {
   DBClusterInstanceClass?: string;
 
   /**
-   * <p>The storage type associated with DB instance.</p>
+   * <p>The storage type associated with the DB cluster.</p>
    *         <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   StorageType?: string;
@@ -5081,15 +4754,6 @@ export interface DBClusterAlreadyExistsFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace DBClusterAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
@@ -5099,15 +4763,6 @@ export interface DBClusterParameterGroupNotFoundFault extends __SmithyException,
   name: "DBClusterParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBClusterParameterGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5120,15 +4775,6 @@ export interface DBClusterQuotaExceededFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace DBClusterQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  */
@@ -5136,15 +4782,6 @@ export interface DBSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $
   name: "DBSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupDoesNotCoverEnoughAZs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5158,15 +4795,6 @@ export interface DBSubnetGroupNotFoundFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace DBSubnetGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>Domain</code> doesn't refer to an existing Active Directory domain.
@@ -5178,15 +4806,6 @@ export interface DomainNotFoundFault extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace DomainNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DomainNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster. </p>
  */
@@ -5194,15 +4813,6 @@ export interface GlobalClusterNotFoundFault extends __SmithyException, $Metadata
   name: "GlobalClusterNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace GlobalClusterNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5216,15 +4826,6 @@ export interface InsufficientStorageClusterCapacityFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace InsufficientStorageClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientStorageClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DB subnet group cannot be deleted because it's in use.</p>
  */
@@ -5232,15 +4833,6 @@ export interface InvalidDBSubnetGroupStateFault extends __SmithyException, $Meta
   name: "InvalidDBSubnetGroupStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBSubnetGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSubnetGroupStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5252,15 +4844,6 @@ export interface InvalidGlobalClusterStateFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidGlobalClusterStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGlobalClusterStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
  */
@@ -5268,15 +4851,6 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
   name: "InvalidSubnet";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5289,15 +4863,6 @@ export interface InvalidVPCNetworkStateFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidVPCNetworkStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed amount of storage
  *             available across all DB instances.</p>
@@ -5306,15 +4871,6 @@ export interface StorageQuotaExceededFault extends __SmithyException, $MetadataB
   name: "StorageQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace StorageQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDBClusterEndpointMessage {
@@ -5464,15 +5020,6 @@ export interface DBClusterEndpointAlreadyExistsFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace DBClusterEndpointAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterEndpointAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The cluster already has the maximum number of custom endpoints.</p>
  */
@@ -5480,15 +5027,6 @@ export interface DBClusterEndpointQuotaExceededFault extends __SmithyException, 
   name: "DBClusterEndpointQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBClusterEndpointQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterEndpointQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5515,7 +5053,7 @@ export interface CreateDBClusterParameterGroupMessage {
    *          <p>
    *             <b>Aurora MySQL</b>
    *          </p>
-   *          <p>Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code>
+   *          <p>Example: <code>aurora5.6</code>, <code>aurora-mysql5.7</code>, <code>aurora-mysql8.0</code>
    *          </p>
    *          <p>
    *             <b>Aurora PostgreSQL</b>
@@ -5551,7 +5089,7 @@ export interface CreateDBClusterParameterGroupMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5694,28 +5232,10 @@ export interface AuthorizationNotFoundFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace AuthorizationNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface BackupPolicyNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "BackupPolicyNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace BackupPolicyNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BackupPolicyNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5789,7 +5309,7 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *          </ul>
    *          <p>
-   *             <b>Amazon RDS Custom</b>
+   *             <b>Amazon RDS Custom for Oracle</b>
    *          </p>
    *          <p>The Oracle System ID (SID) of the created RDS Custom DB instance.
    *           If you don't specify a value, the default value is <code>ORCL</code>.
@@ -5808,6 +5328,10 @@ export interface CreateDBInstanceMessage {
    *                <p>It can't be a word reserved by the database engine.</p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <b>Amazon RDS Custom for SQL Server</b>
+   *          </p>
+   *          <p>Not applicable. Must be null.</p>
    *          <p>
    *             <b>SQL Server</b>
    *          </p>
@@ -5886,10 +5410,12 @@ export interface CreateDBInstanceMessage {
    *       </p>
    *          <ul>
    *             <li>
-   *                <p>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536.</p>
+   *                <p>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
+   *               16384 for RDS Custom for SQL Server.</p>
    *             </li>
    *             <li>
-   *                <p>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536.</p>
+   *                <p>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
+   *               16384 for RDS Custom for SQL Server.</p>
    *             </li>
    *          </ul>
    *
@@ -5971,7 +5497,7 @@ export interface CreateDBInstanceMessage {
    *                <p>General Purpose (SSD) storage (gp2):</p>
    *                <ul>
    *                   <li>
-   *                      <p>Enterprise and Standard editions: Must be an integer from 200 to 16384.</p>
+   *                      <p>Enterprise and Standard editions: Must be an integer from 20 to 16384.</p>
    *                   </li>
    *                   <li>
    *                      <p>Web and Express editions: Must be an integer from 20 to 16384.</p>
@@ -5982,7 +5508,7 @@ export interface CreateDBInstanceMessage {
    *                <p>Provisioned IOPS storage (io1):</p>
    *               <ul>
    *                   <li>
-   *                      <p>Enterprise and Standard editions: Must be an integer from 200 to 16384.</p>
+   *                      <p>Enterprise and Standard editions: Must be an integer from 100 to 16384.</p>
    *                   </li>
    *                   <li>
    *                      <p>Web and Express editions: Must be an integer from 100 to 16384.</p>
@@ -5993,7 +5519,7 @@ export interface CreateDBInstanceMessage {
    *                <p>Magnetic storage (standard):</p>
    *               <ul>
    *                   <li>
-   *                      <p>Enterprise and Standard editions: Must be an integer from 200 to 1024.</p>
+   *                      <p>Enterprise and Standard editions: Must be an integer from 20 to 1024.</p>
    *                   </li>
    *                   <li>
    *                      <p>Web and Express editions: Must be an integer from 20 to 1024.</p>
@@ -6030,7 +5556,7 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6039,7 +5565,22 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>custom-oracle-ee (for RDS Custom instances)</code>
+   *                   <code>custom-oracle-ee (for RDS Custom for Oracle instances)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-ee (for RDS Custom for SQL Server instances)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-se (for RDS Custom for SQL Server instances)</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-sqlserver-web (for RDS Custom for SQL Server instances)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -6193,6 +5734,11 @@ export interface CreateDBInstanceMessage {
    *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
    *         and Availability Zones</a>.
    *         </p>
+   *          <p>
+   *             <b>Amazon Aurora</b>
+   *          </p>
+   *          <p>Not applicable. Availability Zones are managed by the DB cluster.
+   *       </p>
    *          <p>Default: A random, system-chosen Availability Zone in the endpoint's Amazon Web Services Region.</p>
    *          <p>
    *             Example: <code>us-east-1d</code>
@@ -6272,7 +5818,7 @@ export interface CreateDBInstanceMessage {
    *                <p>Can't be set to 0 if the DB instance is a source to read replicas</p>
    *             </li>
    *             <li>
-   *                <p>Can't be set to 0 or 35 for an RDS Custom DB instance</p>
+   *                <p>Can't be set to 0 or 35 for an RDS Custom for Oracle DB instance</p>
    *             </li>
    *          </ul>
    */
@@ -6389,18 +5935,24 @@ export interface CreateDBInstanceMessage {
    *             instance is managed by the DB cluster.</p>
    *
    *          <p>
-   *             <b>Amazon RDS Custom</b>
+   *             <b>Amazon RDS Custom for Oracle</b>
    *          </p>
-   *          <p>A custom engine version (CEV) that you have previously created. This setting is required for RDS Custom. The CEV
+   *          <p>A custom engine version (CEV) that you have previously created. This setting is required for RDS Custom for Oracle. The CEV
    *           name has the following format: <code>19.<i>customized_string</i>
    *             </code>. An example identifier is
    *           <code>19.my_cev1</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
-   *               Creating an RDS Custom DB instance</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *               Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide.</i>.</p>
+   *
+   *          <p>
+   *             <b>Amazon RDS Custom for SQL Server</b>
+   *          </p>
+   *          <p>See <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.reqsMS">RDS Custom for SQL Server general requirements</a>
+   *           in the <i>Amazon RDS User Guide.</i>
+   *          </p>
    *
    *          <p>
    *             <b>MariaDB</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt">MariaDB on Amazon RDS Versions</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6408,7 +5960,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>Microsoft SQL Server</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport">Microsoft SQL Server Versions on Amazon RDS</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6416,7 +5967,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>MySQL</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt">MySQL on Amazon RDS Versions</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6424,7 +5974,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>Oracle</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html">Oracle Database Engine Release Notes</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6432,7 +5981,6 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>PostgreSQL</b>
    *          </p>
-   *
    *          <p>For information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts">Amazon RDS for PostgreSQL versions and extensions</a> in the
    *           <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -6565,7 +6113,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.</p>
-   *          <p>For RDS Custom Oracle instances, either set this parameter to <code>true</code> or leave it unset.
+   *          <p>For RDS Custom instances, either set this parameter to <code>true</code> or leave it unset.
    *           If you set this parameter to <code>false</code>, RDS reports an error.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
@@ -6591,8 +6139,8 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             <b>Amazon RDS Custom</b>
    *          </p>
-   *          <p>A KMS key is required for RDS Custom Oracle instances. For most RDS engines, if you leave this parameter empty
-   *           while enabling <code>StorageEncrypted</code>, the engine uses the default KMS key. However, RDS Custom for Oracle
+   *          <p>A KMS key is required for RDS Custom instances. For most RDS engines, if you leave this parameter empty
+   *           while enabling <code>StorageEncrypted</code>, the engine uses the default KMS key. However, RDS Custom
    *           doesn't use the default key when this parameter is empty. You must explicitly specify a key.</p>
    */
   KmsKeyId?: string;
@@ -7882,15 +7430,6 @@ export interface DBInstanceAlreadyExistsFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DBInstanceAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed number of DB
  *             instances.</p>
@@ -7899,15 +7438,6 @@ export interface InstanceQuotaExceededFault extends __SmithyException, $Metadata
   name: "InstanceQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InstanceQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7920,15 +7450,6 @@ export interface InsufficientDBInstanceCapacityFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace InsufficientDBInstanceCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDBInstanceCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Provisioned IOPS not available in the specified Availability Zone.</p>
  */
@@ -7936,15 +7457,6 @@ export interface ProvisionedIopsNotAvailableInAZFault extends __SmithyException,
   name: "ProvisionedIopsNotAvailableInAZFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ProvisionedIopsNotAvailableInAZFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedIopsNotAvailableInAZFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7955,15 +7467,6 @@ export interface StorageTypeNotSupportedFault extends __SmithyException, $Metada
   name: "StorageTypeNotSupportedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace StorageTypeNotSupportedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageTypeNotSupportedFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateDBInstanceReadReplicaMessage {
@@ -8469,15 +7972,6 @@ export interface DBSubnetGroupNotAllowedFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DBSubnetGroupNotAllowedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupNotAllowedFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
  *             cross-region read replica of the same source instance.</p>
@@ -8486,15 +7980,6 @@ export interface InvalidDBSubnetGroupFault extends __SmithyException, $MetadataB
   name: "InvalidDBSubnetGroupFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBSubnetGroupFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSubnetGroupFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8542,7 +8027,7 @@ export interface CreateDBParameterGroupMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8952,15 +8437,6 @@ export interface DBProxyAlreadyExistsFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace DBProxyAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your Amazon Web Services account already has the maximum number of proxies in the specified Amazon Web Services Region.</p>
  */
@@ -8968,15 +8444,6 @@ export interface DBProxyQuotaExceededFault extends __SmithyException, $MetadataB
   name: "DBProxyQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBProxyQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export enum DBProxyEndpointTargetRole {
@@ -9147,15 +8614,6 @@ export interface DBProxyEndpointAlreadyExistsFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace DBProxyEndpointAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyEndpointAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DB proxy already has the maximum number of endpoints.</p>
  */
@@ -9165,15 +8623,6 @@ export interface DBProxyEndpointQuotaExceededFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace DBProxyEndpointQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyEndpointQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation can't be performed while the proxy is in this state.</p>
  */
@@ -9181,15 +8630,6 @@ export interface InvalidDBProxyStateFault extends __SmithyException, $MetadataBe
   name: "InvalidDBProxyStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBProxyStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBProxyStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9270,15 +8710,6 @@ export interface DBSecurityGroupAlreadyExistsFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace DBSecurityGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A DB security group isn't allowed for this action.</p>
  */
@@ -9286,15 +8717,6 @@ export interface DBSecurityGroupNotSupportedFault extends __SmithyException, $Me
   name: "DBSecurityGroupNotSupportedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSecurityGroupNotSupportedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupNotSupportedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9305,15 +8727,6 @@ export interface DBSecurityGroupQuotaExceededFault extends __SmithyException, $M
   name: "DBSecurityGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSecurityGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9458,15 +8871,6 @@ export interface DBSubnetGroupAlreadyExistsFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace DBSubnetGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed number of DB subnet
  *             groups.</p>
@@ -9477,15 +8881,6 @@ export interface DBSubnetGroupQuotaExceededFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace DBSubnetGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would result in the user exceeding the allowed number of subnets in a
  *             DB subnet groups.</p>
@@ -9494,15 +8889,6 @@ export interface DBSubnetQuotaExceededFault extends __SmithyException, $Metadata
   name: "DBSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSubnetQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9617,15 +9003,6 @@ export interface EventSubscriptionQuotaExceededFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace EventSubscriptionQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>SNS has responded that there is a problem with the SND topic specified.</p>
  */
@@ -9633,15 +9010,6 @@ export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer
   name: "SNSInvalidTopicFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SNSInvalidTopicFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9653,15 +9021,6 @@ export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace SNSNoAuthorizationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The SNS topic ARN does not exist.</p>
  */
@@ -9669,15 +9028,6 @@ export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBe
   name: "SNSTopicArnNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SNSTopicArnNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9689,15 +9039,6 @@ export interface SubscriptionAlreadyExistFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace SubscriptionAlreadyExistFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The supplied category does not exist.</p>
  */
@@ -9705,15 +9046,6 @@ export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $M
   name: "SubscriptionCategoryNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionCategoryNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGlobalClusterMessage {
@@ -9989,15 +9321,6 @@ export interface GlobalClusterAlreadyExistsFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace GlobalClusterAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of global database clusters for this account is already at the maximum allowed.</p>
  */
@@ -10005,15 +9328,6 @@ export interface GlobalClusterQuotaExceededFault extends __SmithyException, $Met
   name: "GlobalClusterQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace GlobalClusterQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10192,15 +9506,6 @@ export interface CustomDBEngineVersionNotFoundFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace CustomDBEngineVersionNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomDBEngineVersionNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCustomDBEngineVersionMessage {
   /**
    * <p>The database engine. The only supported engine is <code>custom-oracle-ee</code>.</p>
@@ -10231,15 +9536,6 @@ export interface InvalidCustomDBEngineVersionStateFault extends __SmithyExceptio
   name: "InvalidCustomDBEngineVersionStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidCustomDBEngineVersionStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCustomDBEngineVersionStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10349,15 +9645,6 @@ export interface DBClusterEndpointNotFoundFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace DBClusterEndpointNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterEndpointNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBClusterEndpointMessage {
   /**
    * <p>The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.</p>
@@ -10381,15 +9668,6 @@ export interface InvalidDBClusterEndpointStateFault extends __SmithyException, $
   name: "InvalidDBClusterEndpointStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBClusterEndpointStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBClusterEndpointStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10432,15 +9710,6 @@ export interface InvalidDBParameterGroupStateFault extends __SmithyException, $M
   name: "InvalidDBParameterGroupStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBParameterGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBParameterGroupStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10492,15 +9761,6 @@ export interface DBInstanceAutomatedBackupQuotaExceededFault extends __SmithyExc
   name: "DBInstanceAutomatedBackupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBInstanceAutomatedBackupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceAutomatedBackupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10607,15 +9867,6 @@ export interface DBInstanceAutomatedBackupNotFoundFault extends __SmithyExceptio
   name: "DBInstanceAutomatedBackupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBInstanceAutomatedBackupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceAutomatedBackupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -10872,15 +10123,6 @@ export interface InvalidDBInstanceAutomatedBackupStateFault extends __SmithyExce
   message?: string;
 }
 
-export namespace InvalidDBInstanceAutomatedBackupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBInstanceAutomatedBackupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -10953,15 +10195,6 @@ export interface DBProxyEndpointNotFoundFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DBProxyEndpointNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyEndpointNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDBProxyEndpointRequest {
   /**
    * <p>The name of the DB proxy endpoint to delete.</p>
@@ -11001,15 +10234,6 @@ export interface InvalidDBProxyEndpointStateFault extends __SmithyException, $Me
   name: "InvalidDBProxyEndpointStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBProxyEndpointStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBProxyEndpointStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11126,15 +10350,6 @@ export interface InvalidDBSubnetStateFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidDBSubnetStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSubnetStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -11177,15 +10392,6 @@ export interface InvalidEventSubscriptionStateFault extends __SmithyException, $
   name: "InvalidEventSubscriptionStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidEventSubscriptionStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventSubscriptionStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGlobalClusterMessage {
@@ -11324,15 +10530,6 @@ export interface InstallationMediaNotFoundFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InstallationMediaNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstallationMediaNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -11366,15 +10563,6 @@ export interface InvalidOptionGroupStateFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace InvalidOptionGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOptionGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
@@ -11382,15 +10570,6 @@ export interface DBProxyTargetNotFoundFault extends __SmithyException, $Metadata
   name: "DBProxyTargetNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBProxyTargetNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTargetNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterDBProxyTargetsRequest {
@@ -11544,15 +10723,6 @@ export interface CertificateNotFoundFault extends __SmithyException, $MetadataBe
   name: "CertificateNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CertificateNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11766,15 +10936,6 @@ export interface DBClusterBacktrackNotFoundFault extends __SmithyException, $Met
   name: "DBClusterBacktrackNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBClusterBacktrackNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterBacktrackNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -12649,7 +11810,7 @@ export interface DescribeDBEngineVersionsMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>

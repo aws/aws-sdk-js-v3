@@ -5643,6 +5643,11 @@ export enum HlsProgramDateTime {
   INCLUDE = "INCLUDE",
 }
 
+export enum HlsProgramDateTimeClock {
+  INITIALIZE_FROM_OUTPUT_TIMECODE = "INITIALIZE_FROM_OUTPUT_TIMECODE",
+  SYSTEM_CLOCK = "SYSTEM_CLOCK",
+}
+
 export enum HlsRedundantManifest {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -5854,9 +5859,18 @@ export interface HlsGroupSettings {
   OutputSelection?: HlsOutputSelection | string;
 
   /**
-   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestampOffset.
+   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated using the program date time clock.
    */
   ProgramDateTime?: HlsProgramDateTime | string;
+
+  /**
+   * Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME clock. Options include:
+   *
+   * INITIALIZE_FROM_OUTPUT_TIMECODE: The PDT clock is initialized as a function of the first output timecode, then incremented by the EXTINF duration of each encoded segment.
+   *
+   * SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall clock, then incremented by the EXTINF duration of each encoded segment. If the PDT clock diverges from the wall clock by more than 500ms, it is resynchronized to the wall clock.
+   */
+  ProgramDateTimeClock?: HlsProgramDateTimeClock | string;
 
   /**
    * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
@@ -5920,25 +5934,6 @@ export namespace HlsGroupSettings {
    * @internal
    */
   export const filterSensitiveLog = (obj: HlsGroupSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * Media Package Group Settings
- */
-export interface MediaPackageGroupSettings {
-  /**
-   * MediaPackage channel destination.
-   */
-  Destination: OutputLocationRef | undefined;
-}
-
-export namespace MediaPackageGroupSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MediaPackageGroupSettings): any => ({
     ...obj,
   });
 }

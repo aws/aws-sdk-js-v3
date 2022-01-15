@@ -11,8 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeModelBiasJobDefinitionRequest } from "../models/models_1";
-import { DescribeModelBiasJobDefinitionResponse } from "../models/models_2";
+import { DescribeModelBiasJobDefinitionRequest, DescribeModelBiasJobDefinitionResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeModelBiasJobDefinitionCommand,
   serializeAws_json1_1DescribeModelBiasJobDefinitionCommand,

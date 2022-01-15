@@ -273,15 +273,6 @@ export interface CFNRegistryException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace CFNRegistryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CFNRegistryException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified extension does not exist in the CloudFormation registry.</p>
  */
@@ -291,15 +282,6 @@ export interface TypeNotFoundException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace TypeNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource with the name requested already exists.</p>
  */
@@ -307,15 +289,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -537,15 +510,6 @@ export interface TypeConfigurationNotFoundException extends __SmithyException, $
   Message?: string;
 }
 
-export namespace TypeConfigurationNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TypeConfigurationNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export enum CallAs {
   DELEGATED_ADMIN = "DELEGATED_ADMIN",
   SELF = "SELF",
@@ -586,15 +550,6 @@ export interface TokenAlreadyExistsException extends __SmithyException, $Metadat
   name: "TokenAlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TokenAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TokenAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export enum Capability {
@@ -945,15 +900,6 @@ export interface ChangeSetNotFoundException extends __SmithyException, $Metadata
   name: "ChangeSetNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ChangeSetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ChangeSetNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum ChangeSetStatus {
@@ -1633,15 +1579,6 @@ export interface InsufficientCapabilitiesException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace InsufficientCapabilitiesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientCapabilitiesException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for the resource has already been reached.</p>
  *          <p>For information on resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">Limits</a> in
@@ -1651,15 +1588,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum OnFailure {
@@ -2219,15 +2147,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified operation ID already exists.</p>
  */
@@ -2235,15 +2154,6 @@ export interface OperationIdAlreadyExistsException extends __SmithyException, $M
   name: "OperationIdAlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OperationIdAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationIdAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2256,15 +2166,6 @@ export interface OperationInProgressException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace OperationInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationInProgressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified stack set doesn't exist.</p>
  */
@@ -2272,15 +2173,6 @@ export interface StackSetNotFoundException extends __SmithyException, $MetadataB
   name: "StackSetNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace StackSetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2293,15 +2185,6 @@ export interface StaleRequestException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace StaleRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StaleRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource exists, but has been changed.</p>
  */
@@ -2309,15 +2192,6 @@ export interface CreatedButModifiedException extends __SmithyException, $Metadat
   name: "CreatedButModifiedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CreatedButModifiedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreatedButModifiedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2628,15 +2502,6 @@ export interface NameAlreadyExistsException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace NameAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NameAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeactivateTypeInput {
   /**
    * <p>The type name of the extension, in this account and region. If you specified a type name
@@ -2729,15 +2594,6 @@ export interface InvalidChangeSetStatusException extends __SmithyException, $Met
   name: "InvalidChangeSetStatusException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidChangeSetStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidChangeSetStatusException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2950,15 +2806,6 @@ export interface StackSetNotEmptyException extends __SmithyException, $MetadataB
   name: "StackSetNotEmptyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace StackSetNotEmptyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackSetNotEmptyException): any => ({
-    ...obj,
-  });
 }
 
 export type RegistryType = "MODULE" | "RESOURCE";
@@ -3839,15 +3686,6 @@ export interface StackInstanceNotFoundException extends __SmithyException, $Meta
   name: "StackInstanceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace StackInstanceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackInstanceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5337,15 +5175,6 @@ export interface OperationNotFoundException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace OperationNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeTypeInput {
   /**
    * <p>The kind of extension. </p>
@@ -6535,15 +6364,6 @@ export interface StackNotFoundException extends __SmithyException, $MetadataBear
   name: "StackNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace StackNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StackNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8484,15 +8304,6 @@ export interface InvalidStateTransitionException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace InvalidStateTransitionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Error reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. CloudFormation does not return this error to
  *          users.</p>
@@ -8501,15 +8312,6 @@ export interface OperationStatusCheckFailedException extends __SmithyException, 
   name: "OperationStatusCheckFailedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OperationStatusCheckFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationStatusCheckFailedException): any => ({
-    ...obj,
-  });
 }
 
 export enum OperationStatus {

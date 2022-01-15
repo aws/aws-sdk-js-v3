@@ -40,7 +40,7 @@ export interface AddTagsRequest {
   /**
    * <p>Contains a list of tags, up to a limit of 50</p>
    */
-  TagsList?: Tag[];
+  TagsList: Tag[] | undefined;
 }
 
 export namespace AddTagsRequest {
@@ -81,13 +81,42 @@ export interface CloudTrailARNInvalidException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace CloudTrailARNInvalidException {
+/**
+ * <p>This exception is thrown when the specified resource is not ready for an operation.
+ *          This can occur when you try to run an operation on a trail before CloudTrail has time to fully load the trail.
+ *          If this exception occurs, wait a few minutes, and then try the operation again.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
   /**
-   * @internal
+   * <p>Brief description of the exception returned by the request.</p>
    */
-  export const filterSensitiveLog = (obj: CloudTrailARNInvalidException): any => ({
-    ...obj,
-  });
+  Message?: string;
+}
+
+/**
+ * <p>The specified event data store was not found.</p>
+ */
+export interface EventDataStoreNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "EventDataStoreNotFoundException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The event data store against which you ran your query is inactive.</p>
+ */
+export interface InactiveEventDataStoreException extends __SmithyException, $MetadataBearer {
+  name: "InactiveEventDataStoreException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
 }
 
 /**
@@ -101,15 +130,6 @@ export interface InvalidTagParameterException extends __SmithyException, $Metada
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidTagParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -142,15 +162,6 @@ export interface InvalidTrailNameException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidTrailNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTrailNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the Amazon Web Services account making the request to create or update an organization trail is not the management account for an
  *          organization in Organizations. For more information, see
@@ -165,15 +176,6 @@ export interface NotOrganizationMasterAccountException extends __SmithyException
   Message?: string;
 }
 
-export namespace NotOrganizationMasterAccountException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotOrganizationMasterAccountException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the requested operation is not permitted.</p>
  */
@@ -184,15 +186,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -207,15 +200,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  */
@@ -226,15 +210,6 @@ export interface ResourceTypeNotSupportedException extends __SmithyException, $M
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceTypeNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceTypeNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -249,15 +224,6 @@ export interface TagsLimitExceededException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace TagsLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagsLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the requested operation is not supported.</p>
  */
@@ -268,15 +234,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -604,6 +561,107 @@ export namespace AdvancedEventSelector {
   });
 }
 
+export interface CancelQueryRequest {
+  /**
+   * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified query is running.</p>
+   */
+  EventDataStore: string | undefined;
+
+  /**
+   * <p>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the response of a <code>StartQuery</code>
+   *       operation.</p>
+   */
+  QueryId: string | undefined;
+}
+
+export namespace CancelQueryRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelQueryRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum QueryStatus {
+  CANCELLED = "CANCELLED",
+  FAILED = "FAILED",
+  FINISHED = "FINISHED",
+  QUEUED = "QUEUED",
+  RUNNING = "RUNNING",
+}
+
+export interface CancelQueryResponse {
+  /**
+   * <p>The ID of the canceled query.</p>
+   */
+  QueryId: string | undefined;
+
+  /**
+   * <p>Shows the status of a query after a <code>CancelQuery</code> request. Typically, the values shown are either
+   *          <code>RUNNING</code> or <code>CANCELLED</code>.</p>
+   */
+  QueryStatus: QueryStatus | string | undefined;
+}
+
+export namespace CancelQueryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelQueryResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified event data store ARN is not valid or does not map to an event data store in your account.</p>
+ */
+export interface EventDataStoreARNInvalidException extends __SmithyException, $MetadataBearer {
+  name: "EventDataStoreARNInvalidException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The specified query cannot be canceled because it is in the <code>FINISHED</code>, <code>FAILED</code>, or
+ *          <code>CANCELLED</code> state.</p>
+ */
+export interface InactiveQueryException extends __SmithyException, $MetadataBearer {
+  name: "InactiveQueryException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The request includes a parameter that is not valid.</p>
+ */
+export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
+  name: "InvalidParameterException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The query ID does not exist or does not map to a query.</p>
+ */
+export interface QueryIdNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "QueryIdNotFoundException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
 /**
  * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information,
  *          see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a>
@@ -618,13 +676,193 @@ export interface CloudTrailAccessNotEnabledException extends __SmithyException, 
   Message?: string;
 }
 
-export namespace CloudTrailAccessNotEnabledException {
+export interface CreateEventDataStoreRequest {
+  /**
+   * <p>The name of the event data store.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event
+   *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">Log events by using advanced event selectors</a> in the CloudTrail
+   *          User Guide.</p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+
+  /**
+   * <p>Specifies whether the event data store includes events from all regions, or only from the region in which the event data store
+   *          is created.</p>
+   */
+  MultiRegionEnabled?: boolean;
+
+  /**
+   * <p>Specifies whether an event data store collects events logged for an organization in Organizations.</p>
+   */
+  OrganizationEnabled?: boolean;
+
+  /**
+   * <p>The retention period of the event data store, in days. You can set a retention period of up to 2555 days,
+   *       the equivalent of seven years.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you
+   *       cannot delete the event data store until termination protection is disabled.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+
+  /**
+   * <p>A list of tags.</p>
+   */
+  TagsList?: Tag[];
+}
+
+export namespace CreateEventDataStoreRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: CloudTrailAccessNotEnabledException): any => ({
+  export const filterSensitiveLog = (obj: CreateEventDataStoreRequest): any => ({
     ...obj,
   });
+}
+
+export enum EventDataStoreStatus {
+  CREATED = "CREATED",
+  ENABLED = "ENABLED",
+  PENDING_DELETION = "PENDING_DELETION",
+}
+
+export interface CreateEventDataStoreResponse {
+  /**
+   * <p>The ARN of the event data store.</p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * <p>The name of the event data store.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of event data store creation.</p>
+   */
+  Status?: EventDataStoreStatus | string;
+
+  /**
+   * <p>The advanced event selectors that were used to select the events for the data store.</p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+
+  /**
+   * <p>Indicates whether the event data store collects events from all regions, or only from the region in which it was created.</p>
+   */
+  MultiRegionEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether an event data store is collecting logged events for an organization in Organizations.</p>
+   */
+  OrganizationEnabled?: boolean;
+
+  /**
+   * <p>The retention period of an event data store, in days.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>Indicates whether termination protection is enabled for the event data store.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+
+  /**
+   * <p>A list of tags.</p>
+   */
+  TagsList?: Tag[];
+
+  /**
+   * <p>The timestamp that shows when the event data store was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The timestamp that shows when an event data store was updated, if applicable.
+   *          <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace CreateEventDataStoreResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEventDataStoreResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An event data store with that name already exists.</p>
+ */
+export interface EventDataStoreAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "EventDataStoreAlreadyExistsException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Your account has used the maximum number of event data stores.</p>
+ */
+export interface EventDataStoreMaxLimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "EventDataStoreMaxLimitExceededException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>This exception is thrown when the IAM user or role that is used to create the organization trail is lacking one or more required permissions for
+ *          creating an organization trail in a required service. For more information, see
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
+ */
+export interface InsufficientDependencyServiceAccessPermissionException extends __SmithyException, $MetadataBearer {
+  name: "InsufficientDependencyServiceAccessPermissionException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support
+ *          creating an organization trail. For more information, see
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
+ */
+export interface OrganizationNotInAllFeaturesModeException extends __SmithyException, $MetadataBearer {
+  name: "OrganizationNotInAllFeaturesModeException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization.
+ *          To make this request, sign in using the credentials of an account that belongs to an organization.</p>
+ */
+export interface OrganizationsNotInUseException extends __SmithyException, $MetadataBearer {
+  name: "OrganizationsNotInUseException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
 }
 
 /**
@@ -641,15 +879,6 @@ export interface CloudTrailInvalidClientTokenIdException extends __SmithyExcepti
   Message?: string;
 }
 
-export namespace CloudTrailInvalidClientTokenIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudTrailInvalidClientTokenIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cannot set a CloudWatch Logs delivery for this region.</p>
  */
@@ -660,15 +889,6 @@ export interface CloudWatchLogsDeliveryUnavailableException extends __SmithyExce
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace CloudWatchLogsDeliveryUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudWatchLogsDeliveryUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -888,29 +1108,6 @@ export namespace CreateTrailResponse {
 }
 
 /**
- * <p>This exception is thrown when the IAM user or role that is used to create the organization trail is lacking one or more required permissions for
- *          creating an organization trail in a required service. For more information, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
- */
-export interface InsufficientDependencyServiceAccessPermissionException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientDependencyServiceAccessPermissionException";
-  $fault: "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-}
-
-export namespace InsufficientDependencyServiceAccessPermissionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDependencyServiceAccessPermissionException): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>This exception is thrown when the policy on the S3 bucket or KMS key is not sufficient.</p>
  */
 export interface InsufficientEncryptionPolicyException extends __SmithyException, $MetadataBearer {
@@ -920,15 +1117,6 @@ export interface InsufficientEncryptionPolicyException extends __SmithyException
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InsufficientEncryptionPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientEncryptionPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -943,15 +1131,6 @@ export interface InsufficientS3BucketPolicyException extends __SmithyException, 
   Message?: string;
 }
 
-export namespace InsufficientS3BucketPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the policy on the Amazon SNS topic is not sufficient.</p>
  */
@@ -962,15 +1141,6 @@ export interface InsufficientSnsTopicPolicyException extends __SmithyException, 
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InsufficientSnsTopicPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientSnsTopicPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -985,15 +1155,6 @@ export interface InvalidCloudWatchLogsLogGroupArnException extends __SmithyExcep
   Message?: string;
 }
 
-export namespace InvalidCloudWatchLogsLogGroupArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCloudWatchLogsLogGroupArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the provided role is not valid.</p>
  */
@@ -1004,15 +1165,6 @@ export interface InvalidCloudWatchLogsRoleArnException extends __SmithyException
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidCloudWatchLogsRoleArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCloudWatchLogsRoleArnException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1027,15 +1179,6 @@ export interface InvalidKmsKeyIdException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidKmsKeyIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKmsKeyIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the combination of parameters provided is not valid.</p>
  */
@@ -1046,15 +1189,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1069,15 +1203,6 @@ export interface InvalidS3BucketNameException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace InvalidS3BucketNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3BucketNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the provided S3 prefix is not valid.</p>
  */
@@ -1088,15 +1213,6 @@ export interface InvalidS3PrefixException extends __SmithyException, $MetadataBe
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidS3PrefixException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3PrefixException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1111,15 +1227,6 @@ export interface InvalidSnsTopicNameException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace InvalidSnsTopicNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSnsTopicNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when there is an issue with the specified KMS key and the trail can’t be updated.</p>
  */
@@ -1130,15 +1237,6 @@ export interface KmsException extends __SmithyException, $MetadataBearer {
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace KmsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1155,15 +1253,6 @@ export interface KmsKeyDisabledException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace KmsKeyDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsKeyDisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the KMS key does not exist, when the S3 bucket and the
  *          KMS key are not in the same region, or when the KMS key associated with the Amazon SNS
@@ -1178,15 +1267,6 @@ export interface KmsKeyNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace KmsKeyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KmsKeyNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the maximum number of trails is reached.</p>
  */
@@ -1197,60 +1277,6 @@ export interface MaximumNumberOfTrailsExceededException extends __SmithyExceptio
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace MaximumNumberOfTrailsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaximumNumberOfTrailsExceededException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This exception is thrown when Organizations is not configured to support all features. All features must be enabled in Organizations to support
- *          creating an organization trail. For more information, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>.</p>
- */
-export interface OrganizationNotInAllFeaturesModeException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationNotInAllFeaturesModeException";
-  $fault: "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-}
-
-export namespace OrganizationNotInAllFeaturesModeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationNotInAllFeaturesModeException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This exception is thrown when the request is made from an Amazon Web Services account that is not a member of an organization.
- *          To make this request, sign in using the credentials of an account that belongs to an organization.</p>
- */
-export interface OrganizationsNotInUseException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationsNotInUseException";
-  $fault: "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-}
-
-export namespace OrganizationsNotInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationsNotInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1265,15 +1291,6 @@ export interface S3BucketDoesNotExistException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace S3BucketDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3BucketDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
@@ -1284,15 +1301,6 @@ export interface TrailAlreadyExistsException extends __SmithyException, $Metadat
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace TrailAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrailAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1307,36 +1315,43 @@ export interface TrailNotProvidedException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace TrailNotProvidedException {
+export interface DeleteEventDataStoreRequest {
+  /**
+   * <p>The ARN (or the ID suffix of the ARN) of the event data store to delete.</p>
+   */
+  EventDataStore: string | undefined;
+}
+
+export namespace DeleteEventDataStoreRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TrailNotProvidedException): any => ({
+  export const filterSensitiveLog = (obj: DeleteEventDataStoreRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEventDataStoreResponse {}
+
+export namespace DeleteEventDataStoreResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEventDataStoreResponse): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>This exception is thrown when the specified resource is not ready for an operation.
- *          This can occur when you try to run an operation on a trail before CloudTrail has time to fully load the trail.
- *          If this exception occurs, wait a few minutes, and then try the operation again.</p>
+ * <p>The event data store cannot be deleted because termination protection is enabled for it.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
+export interface EventDataStoreTerminationProtectedException extends __SmithyException, $MetadataBearer {
+  name: "EventDataStoreTerminationProtectedException";
   $fault: "client";
   /**
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1387,15 +1402,6 @@ export interface InvalidHomeRegionException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InvalidHomeRegionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidHomeRegionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the trail with the given name is not found.</p>
  */
@@ -1408,11 +1414,97 @@ export interface TrailNotFoundException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace TrailNotFoundException {
+export interface DescribeQueryRequest {
+  /**
+   * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified query was run.</p>
+   */
+  EventDataStore: string | undefined;
+
+  /**
+   * <p>The query ID.</p>
+   */
+  QueryId: string | undefined;
+}
+
+export namespace DescribeQueryRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: TrailNotFoundException): any => ({
+  export const filterSensitiveLog = (obj: DescribeQueryRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Gets metadata about a query, including the number of events that were matched, the total number of events scanned, the query run time
+ *          in milliseconds, and the query's creation time.</p>
+ */
+export interface QueryStatisticsForDescribeQuery {
+  /**
+   * <p>The number of events that matched a query.</p>
+   */
+  EventsMatched?: number;
+
+  /**
+   * <p>The number of events that the query scanned in the event data store.</p>
+   */
+  EventsScanned?: number;
+
+  /**
+   * <p>The query's run time, in milliseconds.</p>
+   */
+  ExecutionTimeInMillis?: number;
+
+  /**
+   * <p>The creation time of the query.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace QueryStatisticsForDescribeQuery {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryStatisticsForDescribeQuery): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeQueryResponse {
+  /**
+   * <p>The ID of the query.</p>
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The SQL code of a query.</p>
+   */
+  QueryString?: string;
+
+  /**
+   * <p>The status of a query. Values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
+   *          <code>FINISHED</code>, <code>FAILED</code>, or <code>CANCELLED</code>
+   *          </p>
+   */
+  QueryStatus?: QueryStatus | string;
+
+  /**
+   * <p>Metadata about a query, including the number of events that were matched, the total number of events scanned, the query run time
+   *          in milliseconds, and the query's creation time.</p>
+   */
+  QueryStatistics?: QueryStatisticsForDescribeQuery;
+
+  /**
+   * <p>The error message returned if a query failed.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace DescribeQueryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeQueryResponse): any => ({
     ...obj,
   });
 }
@@ -1588,6 +1680,83 @@ export namespace DescribeTrailsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeTrailsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEventDataStoreRequest {
+  /**
+   * <p>The ARN (or ID suffix of the ARN) of the event data store about which you want information.</p>
+   */
+  EventDataStore: string | undefined;
+}
+
+export namespace GetEventDataStoreRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventDataStoreRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEventDataStoreResponse {
+  /**
+   * <p>The event data store Amazon Resource Number (ARN).</p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * <p>The name of the event data store.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of an event data store. Values can be <code>ENABLED</code> and <code>PENDING_DELETION</code>.</p>
+   */
+  Status?: EventDataStoreStatus | string;
+
+  /**
+   * <p>The advanced event selectors used to select events for the data store.</p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+
+  /**
+   * <p>Indicates whether the event data store includes events from all regions, or only from the region in which it was created.</p>
+   */
+  MultiRegionEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether an event data store is collecting logged events for an organization in Organizations.</p>
+   */
+  OrganizationEnabled?: boolean;
+
+  /**
+   * <p>The retention period of the event data store, in days.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>Indicates that termination protection is enabled.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+
+  /**
+   * <p>The timestamp of the event data store's creation.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>Shows the time that an event data store was updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace GetEventDataStoreResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventDataStoreResponse): any => ({
     ...obj,
   });
 }
@@ -1945,7 +2114,7 @@ export enum InsightType {
  */
 export interface InsightSelector {
   /**
-   * <p>The type of Insights events to log on a trail. The valid Insights type in this release is <code>ApiCallRateInsight</code>.</p>
+   * <p>The type of insights to log on a trail. <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid insight types.</p>
    */
   InsightType?: InsightType | string;
 }
@@ -1966,7 +2135,8 @@ export interface GetInsightSelectorsResponse {
   TrailARN?: string;
 
   /**
-   * <p>A JSON string that contains the insight types you want to log on a trail. In this release, only <code>ApiCallRateInsight</code> is supported as an insight type.</p>
+   * <p>A JSON string that contains the insight types you want to log on a trail. In this release, <code>ApiErrorRateInsight</code> and
+   *          <code>ApiCallRateInsight</code> are supported as insight types.</p>
    */
   InsightSelectors?: InsightSelector[];
 }
@@ -1992,13 +2162,120 @@ export interface InsightNotEnabledException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InsightNotEnabledException {
+export interface GetQueryResultsRequest {
+  /**
+   * <p>The ARN (or ID suffix of the ARN) of the event data store against which the query was run.</p>
+   */
+  EventDataStore: string | undefined;
+
+  /**
+   * <p>The ID of the query for which you want to get results.</p>
+   */
+  QueryId: string | undefined;
+
+  /**
+   * <p>A token you can use to get the next page of query results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of query results to display on a single page.</p>
+   */
+  MaxQueryResults?: number;
+}
+
+export namespace GetQueryResultsRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InsightNotEnabledException): any => ({
+  export const filterSensitiveLog = (obj: GetQueryResultsRequest): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>Metadata about a query, such as the number of results.</p>
+ */
+export interface QueryStatistics {
+  /**
+   * <p>The number of results returned.</p>
+   */
+  ResultsCount?: number;
+
+  /**
+   * <p>The total number of results returned by a query.</p>
+   */
+  TotalResultsCount?: number;
+}
+
+export namespace QueryStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QueryStatistics): any => ({
+    ...obj,
+  });
+}
+
+export interface GetQueryResultsResponse {
+  /**
+   * <p>The status of the query. Values include <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>, <code>FAILED</code>,
+   *          or <code>CANCELLED</code>.</p>
+   */
+  QueryStatus?: QueryStatus | string;
+
+  /**
+   * <p>Shows the count of query results.</p>
+   */
+  QueryStatistics?: QueryStatistics;
+
+  /**
+   * <p>Contains the individual event results of the query.</p>
+   */
+  QueryResultRows?: { [key: string]: string }[][];
+
+  /**
+   * <p>A token you can use to get the next page of query results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The error message returned if a query failed.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace GetQueryResultsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetQueryResultsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This exception is thrown if the limit specified is not valid.</p>
+ */
+export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
+  name: "InvalidMaxResultsException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
+ */
+export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
+  name: "InvalidNextTokenException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
 }
 
 export interface GetTrailRequest {
@@ -2173,6 +2450,115 @@ export namespace GetTrailStatusResponse {
   });
 }
 
+export interface ListEventDataStoresRequest {
+  /**
+   * <p>A token you can use to get the next page of event data store results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of event data stores to display on a single page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListEventDataStoresRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventDataStoresRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events
+ *          that you have logged on your account from the last 90 to 2555 days
+ *          (about three months to up to seven years). To select events for an event data store,
+ *          use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">advanced event selectors</a>.</p>
+ */
+export interface EventDataStore {
+  /**
+   * <p>The ARN of the event data store.</p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * <p>The name of the event data store.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Indicates whether the event data store is protected from termination.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+
+  /**
+   * <p>The status of an event data store. Values are <code>ENABLED</code> and <code>PENDING_DELETION</code>.</p>
+   */
+  Status?: EventDataStoreStatus | string;
+
+  /**
+   * <p>The advanced event selectors that were used to select events for the data store.</p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+
+  /**
+   * <p>Indicates whether the event data store includes events from all regions, or only from the region in which it was created.</p>
+   */
+  MultiRegionEnabled?: boolean;
+
+  /**
+   * <p>Indicates that an event data store is collecting logged events for an organization.</p>
+   */
+  OrganizationEnabled?: boolean;
+
+  /**
+   * <p>The retention period, in days.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>The timestamp of the event data store's creation.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The timestamp showing when an event data store was updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace EventDataStore {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventDataStore): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEventDataStoresResponse {
+  /**
+   * <p>Contains information about event data stores in the account, in the current region.</p>
+   */
+  EventDataStores?: EventDataStore[];
+
+  /**
+   * <p>A token you can use to get the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEventDataStoresResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventDataStoresResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Occurs if the timestamp values are not valid. Either the start time occurs after the end time, or the time range is outside the range of possible values.</p>
  */
@@ -2185,15 +2571,6 @@ export interface InvalidTimeRangeException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidTimeRangeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reserved for future use.</p>
  */
@@ -2204,15 +2581,6 @@ export interface InvalidTokenException extends __SmithyException, $MetadataBeare
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2303,6 +2671,127 @@ export namespace ListPublicKeysResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListPublicKeysResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A date range for the query was specified that is not valid. For more information
+ *          about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create
+ *             or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+ */
+export interface InvalidDateRangeException extends __SmithyException, $MetadataBearer {
+  name: "InvalidDateRangeException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>The query status is not valid for the operation.</p>
+ */
+export interface InvalidQueryStatusException extends __SmithyException, $MetadataBearer {
+  name: "InvalidQueryStatusException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+export interface ListQueriesRequest {
+  /**
+   * <p>The ARN (or the ID suffix of the ARN) of an event data store on which queries were run.</p>
+   */
+  EventDataStore: string | undefined;
+
+  /**
+   * <p>A token you can use to get the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of queries to show on a page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Use with <code>EndTime</code> to bound a <code>ListQueries</code> request, and limit its results to only those queries run
+   *          within a specified time period.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Use with <code>StartTime</code> to bound a <code>ListQueries</code> request, and limit its results to only those queries run
+   *       within a specified time period.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>The status of queries that you want to return in results. Valid values for <code>QueryStatus</code> include <code>QUEUED</code>, <code>RUNNING</code>,
+   *          <code>FINISHED</code>, <code>FAILED</code>, or <code>CANCELLED</code>.</p>
+   */
+  QueryStatus?: QueryStatus | string;
+}
+
+export namespace ListQueriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueriesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A SQL string of criteria about events that you want to collect in an event data store.</p>
+ */
+export interface Query {
+  /**
+   * <p>The ID of a query.</p>
+   */
+  QueryId?: string;
+
+  /**
+   * <p>The status of the query. This can be <code>QUEUED</code>, <code>RUNNING</code>, <code>FINISHED</code>, <code>FAILED</code>,
+   *          or <code>CANCELLED</code>.</p>
+   */
+  QueryStatus?: QueryStatus | string;
+
+  /**
+   * <p>The creation time of a query.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace Query {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Query): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQueriesResponse {
+  /**
+   * <p>Lists matching query results, and shows query ID, status, and creation time of each query.</p>
+   */
+  Queries?: Query[];
+
+  /**
+   * <p>A token you can use to get the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListQueriesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueriesResponse): any => ({
     ...obj,
   });
 }
@@ -2467,15 +2956,6 @@ export interface InvalidEventCategoryException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace InvalidEventCategoryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventCategoryException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Occurs when a lookup attribute is specified that is not valid.</p>
  */
@@ -2486,57 +2966,6 @@ export interface InvalidLookupAttributesException extends __SmithyException, $Me
    * <p>Brief description of the exception returned by the request.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidLookupAttributesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLookupAttributesException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>This exception is thrown if the limit specified is not valid.</p>
- */
-export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMaxResultsException";
-  $fault: "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidMaxResultsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMaxResultsException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A token that is not valid, or a token that was previously used in a request with different parameters. This exception is thrown if the token is not valid.</p>
- */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export enum EventCategory {
@@ -2772,15 +3201,6 @@ export interface InvalidEventSelectorsException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace InvalidEventSelectorsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventSelectorsException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutEventSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
@@ -2882,15 +3302,6 @@ export interface InvalidInsightSelectorsException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace InvalidInsightSelectorsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInsightSelectorsException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutInsightSelectorsRequest {
   /**
    * <p>The name of the CloudTrail trail for which you want to change or add Insights selectors.</p>
@@ -2898,7 +3309,7 @@ export interface PutInsightSelectorsRequest {
   TrailName: string | undefined;
 
   /**
-   * <p>A JSON string that contains the Insights types that you want to log on a trail. The valid Insights type in this release is <code>ApiCallRateInsight</code>.</p>
+   * <p>A JSON string that contains the insight types you want to log on a trail. <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid insight types.</p>
    */
   InsightSelectors: InsightSelector[] | undefined;
 }
@@ -2919,7 +3330,8 @@ export interface PutInsightSelectorsResponse {
   TrailARN?: string;
 
   /**
-   * <p>A JSON string that contains the Insights event types that you want to log on a trail. The valid Insights type in this release is <code>ApiCallRateInsight</code>.</p>
+   * <p>A JSON string that contains the Insights event types that you want to log on a trail. The valid Insights types in this release are
+   *          <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code>.</p>
    */
   InsightSelectors?: InsightSelector[];
 }
@@ -2948,7 +3360,7 @@ export interface RemoveTagsRequest {
   /**
    * <p>Specifies a list of tags to be removed.</p>
    */
-  TagsList?: Tag[];
+  TagsList: Tag[] | undefined;
 }
 
 export namespace RemoveTagsRequest {
@@ -2970,6 +3382,97 @@ export namespace RemoveTagsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: RemoveTagsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The event data store is not in a status that supports the operation.</p>
+ */
+export interface InvalidEventDataStoreStatusException extends __SmithyException, $MetadataBearer {
+  name: "InvalidEventDataStoreStatusException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+export interface RestoreEventDataStoreRequest {
+  /**
+   * <p>The ARN (or the ID suffix of the ARN) of the event data store that you want to restore.</p>
+   */
+  EventDataStore: string | undefined;
+}
+
+export namespace RestoreEventDataStoreRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreEventDataStoreRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreEventDataStoreResponse {
+  /**
+   * <p>The event data store ARN.</p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * <p>The name of the event data store.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of the event data store.</p>
+   */
+  Status?: EventDataStoreStatus | string;
+
+  /**
+   * <p>The advanced event selectors that were used to select events.</p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+
+  /**
+   * <p>Indicates whether the event data store is collecting events from all regions, or only from the region in which the event data
+   *       store was created.</p>
+   */
+  MultiRegionEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether an event data store is collecting logged events for an organization in Organizations.</p>
+   */
+  OrganizationEnabled?: boolean;
+
+  /**
+   * <p>The retention period, in days.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>Indicates that termination protection is enabled and the event data store cannot be automatically deleted.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+
+  /**
+   * <p>The timestamp of an event data store's creation.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The timestamp that shows when an event data store was updated, if applicable.
+   *          <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace RestoreEventDataStoreResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreEventDataStoreResponse): any => ({
     ...obj,
   });
 }
@@ -3012,6 +3515,65 @@ export namespace StartLoggingResponse {
 }
 
 /**
+ * <p>The query that was submitted has validation errors, or uses incorrect syntax or unsupported keywords. For more information
+ *          about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create
+ *             or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+ */
+export interface InvalidQueryStatementException extends __SmithyException, $MetadataBearer {
+  name: "InvalidQueryStatementException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>You are already running the maximum number of concurrent queries. Wait a minute for some queries to finish, and then
+ *          run the query again.</p>
+ */
+export interface MaxConcurrentQueriesException extends __SmithyException, $MetadataBearer {
+  name: "MaxConcurrentQueriesException";
+  $fault: "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+}
+
+export interface StartQueryRequest {
+  /**
+   * <p>The SQL code of your query.</p>
+   */
+  QueryStatement: string | undefined;
+}
+
+export namespace StartQueryRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartQueryRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartQueryResponse {
+  /**
+   * <p>The ID of the started query.</p>
+   */
+  QueryId?: string;
+}
+
+export namespace StartQueryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartQueryResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Passes the request to CloudTrail to stop logging Amazon Web Services API calls for the specified account.</p>
  */
 export interface StopLoggingRequest {
@@ -3044,6 +3606,113 @@ export namespace StopLoggingResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StopLoggingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventDataStoreRequest {
+  /**
+   * <p>The ARN (or the ID suffix of the ARN) of the event data store that you want to update.</p>
+   */
+  EventDataStore: string | undefined;
+
+  /**
+   * <p>The event data store name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The advanced event selectors used to select events for the event data store.</p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+
+  /**
+   * <p>Specifies whether an event data store collects events from all regions, or only from the region in which it was created.</p>
+   */
+  MultiRegionEnabled?: boolean;
+
+  /**
+   * <p>Specifies whether an event data store collects events logged for an organization in Organizations.</p>
+   */
+  OrganizationEnabled?: boolean;
+
+  /**
+   * <p>The retention period, in days.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>Indicates that termination protection is enabled and the event data store cannot be automatically deleted.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+}
+
+export namespace UpdateEventDataStoreRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventDataStoreRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventDataStoreResponse {
+  /**
+   * <p>The ARN of the event data store.</p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * <p>The name of the event data store.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of an event data store. Values can be <code>ENABLED</code> and <code>PENDING_DELETION</code>.</p>
+   */
+  Status?: EventDataStoreStatus | string;
+
+  /**
+   * <p>The advanced event selectors that are applied to the event data store.</p>
+   */
+  AdvancedEventSelectors?: AdvancedEventSelector[];
+
+  /**
+   * <p>Indicates whether the event data store includes events from all regions, or only from the region in which it was created.</p>
+   */
+  MultiRegionEnabled?: boolean;
+
+  /**
+   * <p>Indicates whether an event data store is collecting logged events for an organization in Organizations.</p>
+   */
+  OrganizationEnabled?: boolean;
+
+  /**
+   * <p>The retention period, in days.</p>
+   */
+  RetentionPeriod?: number;
+
+  /**
+   * <p>Indicates whether termination protection is enabled for the event data store.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
+
+  /**
+   * <p>The timestamp that shows when an event data store was first created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The timestamp that shows when the event data store was last updated. <code>UpdatedTimestamp</code> is always either the same or newer than the time shown in <code>CreatedTimestamp</code>.</p>
+   */
+  UpdatedTimestamp?: Date;
+}
+
+export namespace UpdateEventDataStoreResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventDataStoreResponse): any => ({
     ...obj,
   });
 }

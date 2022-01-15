@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "glue.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "glue-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "glue.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "glue-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-gov-east-1": {
     variants: [
       {
-        hostname: "glue.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "glue-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "glue.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "glue-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
@@ -53,10 +37,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "glue.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "glue-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -64,10 +44,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "glue.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "glue-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

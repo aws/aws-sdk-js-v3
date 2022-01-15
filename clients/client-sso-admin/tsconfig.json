@@ -1,32 +1,12 @@
 {
+  "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "alwaysStrict": true,
-    "target": "ES2018",
-    "module": "commonjs",
-    "strict": true,
     "downlevelIteration": true,
     "importHelpers": true,
-    "noEmitHelpers": true,
     "incremental": true,
+    "removeComments": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "rootDir": "src",
-    "outDir": "dist-cjs",
-    "removeComments": true
+    "rootDir": "src"
   },
-  "typedocOptions": {
-    "exclude": ["**/node_modules/**", "**/*.spec.ts", "**/protocols/*.ts", "**/e2e/*.ts", "**/endpoints.ts"],
-    "excludeNotExported": true,
-    "excludePrivate": true,
-    "hideGenerator": true,
-    "ignoreCompilerErrors": true,
-    "includeDeclarations": true,
-    "stripInternal": true,
-    "readme": "README.md",
-    "mode": "file",
-    "out": "docs",
-    "theme": "minimal",
-    "plugin": ["@aws-sdk/service-client-documentation-generator"]
-  },
-  "exclude": ["test/**/*"]
+  "exclude": ["test/"]
 }

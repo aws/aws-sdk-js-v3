@@ -14,10 +14,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "sts.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "sts-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -25,10 +21,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "sts.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "sts-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -39,20 +31,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "sts.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "sts.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
     ],
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "sts.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "sts.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
@@ -62,10 +46,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "sts.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "sts-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -73,10 +53,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "sts.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "sts-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

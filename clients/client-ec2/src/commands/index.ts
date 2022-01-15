@@ -442,6 +442,7 @@ export * from "./ModifyVpcAttributeCommand";
 export * from "./ModifyVpcEndpointCommand";
 export * from "./ModifyVpcEndpointConnectionNotificationCommand";
 export * from "./ModifyVpcEndpointServiceConfigurationCommand";
+export * from "./ModifyVpcEndpointServicePayerResponsibilityCommand";
 export * from "./ModifyVpcEndpointServicePermissionsCommand";
 export * from "./ModifyVpcPeeringConnectionOptionsCommand";
 export * from "./ModifyVpcTenancyCommand";

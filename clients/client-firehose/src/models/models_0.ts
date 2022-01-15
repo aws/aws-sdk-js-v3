@@ -777,15 +777,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 export enum ContentEncoding {
   GZIP = "GZIP",
   NONE = "NONE",
@@ -2274,15 +2265,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
  *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
@@ -2297,15 +2279,6 @@ export interface InvalidKMSResourceException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidKMSResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKMSResourceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have already reached the limit for a requested resource.</p>
  */
@@ -2318,15 +2291,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource is already in use and not available for this operation.</p>
  */
@@ -2337,15 +2301,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDeliveryStreamInput {
@@ -2397,15 +2352,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum DeliveryStreamFailureType {
@@ -3578,15 +3524,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p>A message that provides information about the error.</p>
    */
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRecordBatchInput {

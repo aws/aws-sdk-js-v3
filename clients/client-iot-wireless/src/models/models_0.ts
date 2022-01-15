@@ -116,15 +116,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Information about a Sidewalk account.</p>
  */
@@ -241,15 +232,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   ResourceType?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An unexpected error occurred while processing a request.</p>
  */
@@ -257,15 +239,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   name: "InternalServerException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -286,15 +259,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceType?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied because it exceeded the allowed API request rate.</p>
  */
@@ -304,15 +268,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input did not meet the specified constraints.</p>
  */
@@ -320,15 +275,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateMulticastGroupWithFuotaTaskRequest {
@@ -1697,6 +1643,43 @@ export namespace DeleteMulticastGroupResponse {
   });
 }
 
+export interface DeleteQueuedMessagesRequest {
+  /**
+   * <p>Id of a given wireless device which messages will be deleted </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>if messageID=="*", the queue for a particular wireless deviceId will be purged, otherwise, the specific message with messageId will be deleted </p>
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>The wireless device type, it is either Sidewalk or LoRaWAN. </p>
+   */
+  WirelessDeviceType?: WirelessDeviceType | string;
+}
+
+export namespace DeleteQueuedMessagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteQueuedMessagesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteQueuedMessagesResponse {}
+
+export namespace DeleteQueuedMessagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteQueuedMessagesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteServiceProfileRequest {
   /**
    * <p>The ID of the resource to delete.</p>
@@ -2166,6 +2149,59 @@ export namespace DisassociateWirelessGatewayFromThingResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateWirelessGatewayFromThingResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>LoRaWAN router info.</p>
+ */
+export interface LoRaWANSendDataToDevice {
+  /**
+   * <p>The Fport value.</p>
+   */
+  FPort?: number;
+}
+
+export namespace LoRaWANSendDataToDevice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANSendDataToDevice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The message in downlink queue.</p>
+ */
+export interface DownlinkQueueMessage {
+  /**
+   * <p> The messageId allocated by IoT Wireless for tracing purpose</p>
+   */
+  MessageId?: string;
+
+  /**
+   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code> for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
+   */
+  TransmitMode?: number;
+
+  /**
+   * <p>The timestamp that Iot Wireless received the message.</p>
+   */
+  ReceivedAt?: string;
+
+  /**
+   * <p>LoRaWAN router info.</p>
+   */
+  LoRaWAN?: LoRaWANSendDataToDevice;
+}
+
+export namespace DownlinkQueueMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DownlinkQueueMessage): any => ({
     ...obj,
   });
 }
@@ -4107,6 +4143,58 @@ export namespace ListPartnerAccountsResponse {
   });
 }
 
+export interface ListQueuedMessagesRequest {
+  /**
+   * <p>Id of a given wireless device which the downlink packets are targeted </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The wireless device type, it is either Sidewalk or LoRaWAN.</p>
+   */
+  WirelessDeviceType?: WirelessDeviceType | string;
+}
+
+export namespace ListQueuedMessagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuedMessagesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListQueuedMessagesResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The messages in downlink queue.</p>
+   */
+  DownlinkQueueMessagesList?: DownlinkQueueMessage[];
+}
+
+export namespace ListQueuedMessagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListQueuedMessagesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListServiceProfilesRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -4767,25 +4855,6 @@ export namespace SendDataToMulticastGroupResponse {
   });
 }
 
-/**
- * <p>LoRaWAN router info.</p>
- */
-export interface LoRaWANSendDataToDevice {
-  /**
-   * <p>The Fport value.</p>
-   */
-  FPort?: number;
-}
-
-export namespace LoRaWANSendDataToDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoRaWANSendDataToDevice): any => ({
-    ...obj,
-  });
-}
-
 export enum MessageType {
   CUSTOM_COMMAND_ID_GET = "CUSTOM_COMMAND_ID_GET",
   CUSTOM_COMMAND_ID_NOTIFY = "CUSTOM_COMMAND_ID_NOTIFY",
@@ -5088,15 +5157,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>Name of the resource that exceeds maximum number of tags allowed.</p>
    */
   ResourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface TestWirelessDeviceRequest {

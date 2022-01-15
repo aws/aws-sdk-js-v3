@@ -104,15 +104,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request is not valid.</p>
  */
@@ -123,15 +114,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -146,15 +128,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is temporarily unavailable.</p>
  */
@@ -167,15 +140,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The rate exceeds the limit.</p>
  */
@@ -186,15 +150,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -210,15 +165,6 @@ export interface TransferAlreadyCompletedException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace TransferAlreadyCompletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransferAlreadyCompletedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You are not authorized to perform this operation.</p>
  */
@@ -229,15 +175,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2281,15 +2218,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachPolicyRequest {
   /**
    * <p>The name of the policy to attach.</p>
@@ -2380,15 +2308,6 @@ export interface VersionConflictException extends __SmithyException, $MetadataBe
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace VersionConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3564,15 +3483,6 @@ export interface InvalidStateTransitionException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidStateTransitionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateTransitionException): any => ({
-    ...obj,
-  });
-}
-
 export interface ClearDefaultAuthorizerRequest {}
 
 export namespace ClearDefaultAuthorizerRequest {
@@ -3635,15 +3545,6 @@ export interface ConflictingResourceUpdateException extends __SmithyException, $
   message?: string;
 }
 
-export namespace ConflictingResourceUpdateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictingResourceUpdateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An unexpected error has occurred.</p>
  */
@@ -3654,15 +3555,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAuditSuppressionRequest {
@@ -3749,15 +3641,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>The ARN of the resource that caused the exception.</p>
    */
   resourceArn?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4156,15 +4039,6 @@ export interface CertificateValidationException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace CertificateValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateValidationException): any => ({
-    ...obj,
-  });
-}
-
 export enum ServiceType {
   CREDENTIAL_PROVIDER = "CREDENTIAL_PROVIDER",
   DATA = "DATA",
@@ -4376,15 +4250,6 @@ export interface InvalidQueryException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidQueryException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidQueryException): any => ({
-    ...obj,
-  });
-}
-
 export enum FleetMetricUnit {
   Bits = "Bits",
   BitsSecond = "Bits/Second",
@@ -4510,15 +4375,6 @@ export interface IndexNotReadyException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace IndexNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexNotReadyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The aggregation is invalid.</p>
  */
@@ -4528,11 +4384,54 @@ export interface InvalidAggregationException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidAggregationException {
+export enum RetryableFailureType {
+  ALL = "ALL",
+  FAILED = "FAILED",
+  TIMED_OUT = "TIMED_OUT",
+}
+
+/**
+ * <p>The criteria that determines how many retries are allowed for each failure
+ *             type for a job.</p>
+ */
+export interface RetryCriteria {
+  /**
+   * <p>The type of job execution failures that can initiate a job retry.</p>
+   */
+  failureType: RetryableFailureType | string | undefined;
+
+  /**
+   * <p>The number of retries allowed for a failure type for the job.</p>
+   */
+  numberOfRetries: number | undefined;
+}
+
+export namespace RetryCriteria {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidAggregationException): any => ({
+  export const filterSensitiveLog = (obj: RetryCriteria): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration that determines how many retries are allowed for each failure
+ *             type for a job.</p>
+ */
+export interface JobExecutionsRetryConfig {
+  /**
+   * <p>The list of criteria that determines how many retries are allowed for each failure
+   *             type for a job.</p>
+   */
+  criteriaList: RetryCriteria[] | undefined;
+}
+
+export namespace JobExecutionsRetryConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobExecutionsRetryConfig): any => ({
     ...obj,
   });
 }
@@ -4729,7 +4628,7 @@ export interface CreateJobRequest {
   jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
 
   /**
-   * <p>Allows you to create criteria to abort a job.</p>
+   * <p>Allows you to create the criteria to abort a job.</p>
    */
   abortConfig?: AbortConfig;
 
@@ -4763,6 +4662,11 @@ export interface CreateJobRequest {
    * <p>The ARN of the job template used to create the job.</p>
    */
   jobTemplateArn?: string;
+
+  /**
+   * <p>Allows you to create the criteria to retry a job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 
   /**
    * <p>Parameters of a managed template that you can specify to create the job document.</p>
@@ -4812,15 +4716,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateJobTemplateRequest {
@@ -4885,6 +4780,11 @@ export interface CreateJobTemplateRequest {
    * <p>Metadata that can be used to manage the job template.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>Allows you to create the criteria to retry a job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 }
 
 export namespace CreateJobTemplateRequest {
@@ -5956,15 +5856,6 @@ export interface MalformedPolicyException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace MalformedPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedPolicyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the CreatePolicyVersion operation.</p>
  */
@@ -6041,15 +5932,6 @@ export interface VersionsLimitExceededException extends __SmithyException, $Meta
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace VersionsLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionsLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateProvisioningClaimRequest {
@@ -6883,15 +6765,6 @@ export interface SqlParseException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace SqlParseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SqlParseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>HTTP URL destination configuration used by the topic rule's HTTP action.</p>
  */
@@ -7246,15 +7119,6 @@ export interface DeleteConflictException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace DeleteConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -7300,15 +7164,6 @@ export interface CertificateStateException extends __SmithyException, $MetadataB
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace CertificateStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateStateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7841,56 +7696,6 @@ export namespace DeleteRoleAliasResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteRoleAliasResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteScheduledAuditRequest {
-  /**
-   * <p>The name of the scheduled audit you want to delete.</p>
-   */
-  scheduledAuditName: string | undefined;
-}
-
-export namespace DeleteScheduledAuditRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledAuditRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteScheduledAuditResponse {}
-
-export namespace DeleteScheduledAuditResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteScheduledAuditResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteSecurityProfileRequest {
-  /**
-   * <p>The name of the security profile to be deleted.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The expected version of the security profile. A new version is generated whenever
-   *         the security profile is updated. If you specify a value that is different from the actual
-   *         version, a <code>VersionConflictException</code> is thrown.</p>
-   */
-  expectedVersion?: number;
-}
-
-export namespace DeleteSecurityProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
     ...obj,
   });
 }

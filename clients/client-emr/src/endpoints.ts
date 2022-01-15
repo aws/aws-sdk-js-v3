@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "elasticmapreduce.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "elasticmapreduce-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -17,10 +13,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "elasticmapreduce.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "elasticmapreduce-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -28,10 +20,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "elasticmapreduce.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticmapreduce-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -42,20 +30,12 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "elasticmapreduce.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "elasticmapreduce.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
     ],
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "elasticmapreduce.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticmapreduce.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
@@ -65,10 +45,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "elasticmapreduce.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "elasticmapreduce-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -76,10 +52,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "elasticmapreduce.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "elasticmapreduce-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

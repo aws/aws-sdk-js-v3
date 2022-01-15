@@ -404,15 +404,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The request that you made is invalid. Check your request to determine why it's invalid
  *       and then retry the request.</p>
@@ -421,15 +412,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -442,15 +424,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again. Contact customer support for more information about a service
@@ -460,15 +433,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   name: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeICD10CMInferenceJobRequest {
@@ -757,15 +721,6 @@ export interface InvalidEncodingException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidEncodingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEncodingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
  *     </p>
@@ -776,15 +731,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
@@ -793,15 +739,6 @@ export interface TextSizeLimitExceededException extends __SmithyException, $Meta
   name: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TextSizeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TextSizeLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface DetectEntitiesV2Request {
@@ -1952,15 +1889,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListICD10CMInferenceJobsRequest {

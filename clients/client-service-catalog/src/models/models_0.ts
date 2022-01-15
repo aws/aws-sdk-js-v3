@@ -83,15 +83,6 @@ export interface InvalidParametersException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InvalidParametersException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParametersException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The current limits of the service would have been exceeded by this operation. Decrease your
  *          resource use or increase your service limits and retry the operation.</p>
@@ -102,15 +93,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource was not found.</p>
  */
@@ -118,15 +100,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum AccessLevelFilterKey {
@@ -243,15 +216,6 @@ export interface DuplicateResourceException extends __SmithyException, $Metadata
   name: "DuplicateResourceException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DuplicateResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
-    ...obj,
-  });
 }
 
 export enum PrincipalType {
@@ -468,15 +432,6 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An operation requiring TagOptions failed because the TagOptions migration process has
  *          not been performed for this account. Please use the AWS console to perform the migration
@@ -486,15 +441,6 @@ export interface TagOptionNotMigratedException extends __SmithyException, $Metad
   name: "TagOptionNotMigratedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TagOptionNotMigratedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagOptionNotMigratedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1226,15 +1172,6 @@ export interface OperationNotSupportedException extends __SmithyException, $Meta
   name: "OperationNotSupportedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OperationNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 export enum ProductType {
@@ -2195,15 +2132,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeletePortfolioShareInput {

@@ -14,15 +14,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A structure containing an LF-tag key-value pair.</p>
  */
@@ -500,15 +491,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specified entity does not exist</p>
  */
@@ -519,15 +501,6 @@ export interface EntityNotFoundException extends __SmithyException, $MetadataBea
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace EntityNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -542,15 +515,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input provided was not valid.</p>
  */
@@ -563,15 +527,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation timed out.</p>
  */
@@ -582,15 +537,6 @@ export interface OperationTimeoutException extends __SmithyException, $MetadataB
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace OperationTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -654,11 +600,21 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace AlreadyExistsException {
+/**
+ * <p>A structure used to include auditing information on the privileged API. </p>
+ */
+export interface AuditContext {
+  /**
+   * <p>The filter engine can populate the 'AdditionalAuditContext' information with the request ID for you to track. This information will be displayed in CloudTrail log in your account.</p>
+   */
+  AdditionalAuditContext?: string;
+}
+
+export namespace AuditContext {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+  export const filterSensitiveLog = (obj: AuditContext): any => ({
     ...obj,
   });
 }
@@ -682,7 +638,8 @@ export enum Permission {
 }
 
 /**
- * <p>The AWS Lake Formation principal. Supported principals are IAM users or IAM roles.</p>
+ * <p>The Lake Formation principal. Supported principals are IAM users
+ *       or IAM roles.</p>
  */
 export interface DataLakePrincipal {
   /**
@@ -876,15 +833,6 @@ export interface TransactionCommitInProgressException extends __SmithyException,
   Message?: string;
 }
 
-export namespace TransactionCommitInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionCommitInProgressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
  */
@@ -895,15 +843,6 @@ export interface TransactionCommittedException extends __SmithyException, $Metad
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace TransactionCommittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionCommittedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CommitTransactionRequest {
@@ -955,15 +894,6 @@ export interface TransactionCanceledException extends __SmithyException, $Metada
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace TransactionCanceledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransactionCanceledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1026,6 +956,9 @@ export interface DataCellsFilter {
 
   /**
    * <p>A wildcard with exclusions.</p>
+   *
+   *          <p>You must specify either a <code>ColumnNames</code> list or the
+   *       <code>ColumnWildCard</code>. </p>
    */
   ColumnWildcard?: ColumnWildcard;
 }
@@ -1076,15 +1009,6 @@ export interface ResourceNumberLimitExceededException extends __SmithyException,
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNumberLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNumberLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateLFTagRequest {
@@ -1280,15 +1204,6 @@ export interface ResourceNotReadyException extends __SmithyException, $MetadataB
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterResourceRequest {
@@ -1549,6 +1464,27 @@ export interface DataLakeSettings {
    * 	        <p>You may want to specify this property when you are in a high-trust boundary, such as the same team or company. </p>
    */
   TrustedResourceOwners?: string[];
+
+  /**
+   * <p>Whether to allow Amazon EMR clusters to access data managed by Lake Formation. </p>
+   *
+   *          <p>If true, you allow Amazon EMR clusters to access data in Amazon S3 locations that are registered with Lake Formation.</p>
+   *
+   *          <p>If false or null, no Amazon EMR clusters will be able to access data in Amazon S3 locations that are registered with Lake Formation.</p>
+   *
+   *          <p>For more information, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#emr-switch">(Optional) Allow Data Filtering on Amazon EMR</a>.</p>
+   */
+  AllowExternalDataFiltering?: boolean;
+
+  /**
+   * <p>A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.></p>
+   */
+  ExternalDataFilteringAllowList?: DataLakePrincipal[];
+
+  /**
+   * <p>Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it. Lake Formation will publish the acceptable key-value pair, for example key = "LakeFormationTrustedCaller" and value = "TRUE" and the third party integrator must properly tag the temporary security credentials that will be used to call Lake Formation's administrative APIs.</p>
+   */
+  AuthorizedSessionTagValueList?: string[];
 }
 
 export namespace DataLakeSettings {
@@ -1810,15 +1746,6 @@ export interface ExpiredException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ExpiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredException): any => ({
-    ...obj,
-  });
-}
-
 export interface GetQueryStatisticsRequest {
   /**
    * <p>The ID of the plan query operation.</p>
@@ -1936,15 +1863,6 @@ export interface StatisticsNotReadyYetException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace StatisticsNotReadyYetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatisticsNotReadyYetException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains details about an error where the query request was throttled.</p>
  */
@@ -1958,15 +1876,6 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace ThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetResourceLFTagsRequest {
@@ -2055,15 +1964,6 @@ export interface GlueEncryptionException extends __SmithyException, $MetadataBea
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace GlueEncryptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueEncryptionException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTableObjectsRequest {
@@ -2198,6 +2098,181 @@ export namespace GetTableObjectsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetTableObjectsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a list of values defining partitions.</p>
+ */
+export interface PartitionValueList {
+  /**
+   * <p>The list of partition values.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export namespace PartitionValueList {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PartitionValueList): any => ({
+    ...obj,
+  });
+}
+
+export enum PermissionType {
+  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION = "COLUMN_PERMISSION",
+}
+
+export interface GetTemporaryGluePartitionCredentialsRequest {
+  /**
+   * <p>The ARN of the partitions' table.</p>
+   */
+  TableArn: string | undefined;
+
+  /**
+   * <p>A list of partition values identifying a single partition.</p>
+   */
+  Partition: PartitionValueList | undefined;
+
+  /**
+   * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
+   */
+  Permissions?: (Permission | string)[];
+
+  /**
+   * <p>The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.</p>
+   */
+  DurationSeconds?: number;
+
+  /**
+   * <p>A structure representing context to access a resource (column names, query ID, etc).</p>
+   */
+  AuditContext?: AuditContext;
+
+  /**
+   * <p>A list of supported permission types for the partition. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
+   */
+  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+}
+
+export namespace GetTemporaryGluePartitionCredentialsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTemporaryGluePartitionCredentialsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTemporaryGluePartitionCredentialsResponse {
+  /**
+   * <p>The access key ID for the temporary credentials.</p>
+   */
+  AccessKeyId?: string;
+
+  /**
+   * <p>The secret key for the temporary credentials.</p>
+   */
+  SecretAccessKey?: string;
+
+  /**
+   * <p>The session token for the temporary credentials.</p>
+   */
+  SessionToken?: string;
+
+  /**
+   * <p>The date and time when the temporary credentials expire.</p>
+   */
+  Expiration?: Date;
+}
+
+export namespace GetTemporaryGluePartitionCredentialsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTemporaryGluePartitionCredentialsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The engine does not support filtering data based on the enforced permissions. For example, if you call the <code>GetTemporaryGlueTableCredentials</code> operation with <code>SupportedPermissionType</code> equal to <code>ColumnPermission</code>, but cell-level permissions exist on the table, this exception is thrown.</p>
+ */
+export interface PermissionTypeMismatchException extends __SmithyException, $MetadataBearer {
+  name: "PermissionTypeMismatchException";
+  $fault: "client";
+  /**
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+}
+
+export interface GetTemporaryGlueTableCredentialsRequest {
+  /**
+   * <p>The ARN identifying a table in the Data Catalog for the temporary credentials request.</p>
+   */
+  TableArn: string | undefined;
+
+  /**
+   * <p>Filters the request based on the user having been granted a list of specified permissions on the requested resource(s).</p>
+   */
+  Permissions?: (Permission | string)[];
+
+  /**
+   * <p>The time period, between 900 and 21,600 seconds, for the timeout of the temporary credentials.</p>
+   */
+  DurationSeconds?: number;
+
+  /**
+   * <p>A structure representing context to access a resource (column names, query ID, etc).</p>
+   */
+  AuditContext?: AuditContext;
+
+  /**
+   * <p>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>
+   */
+  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+}
+
+export namespace GetTemporaryGlueTableCredentialsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTemporaryGlueTableCredentialsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTemporaryGlueTableCredentialsResponse {
+  /**
+   * <p>The access key ID for the temporary credentials.</p>
+   */
+  AccessKeyId?: string;
+
+  /**
+   * <p>The secret key for the temporary credentials.</p>
+   */
+  SecretAccessKey?: string;
+
+  /**
+   * <p>The session token for the temporary credentials.</p>
+   */
+  SessionToken?: string;
+
+  /**
+   * <p>The date and time when the temporary credentials expire.</p>
+   */
+  Expiration?: Date;
+}
+
+export namespace GetTemporaryGlueTableCredentialsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTemporaryGlueTableCredentialsResponse): any => ({
     ...obj,
   });
 }
@@ -2342,15 +2417,6 @@ export interface WorkUnitsNotReadyYetException extends __SmithyException, $Metad
    * <p>A message describing the error.</p>
    */
   Message?: string;
-}
-
-export namespace WorkUnitsNotReadyYetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WorkUnitsNotReadyYetException): any => ({
-    ...obj,
-  });
 }
 
 export interface GrantPermissionsRequest {

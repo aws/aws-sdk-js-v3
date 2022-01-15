@@ -82,15 +82,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   RequestId?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon Chime SDK attendee fields to create, used with the BatchCreateAttendee action.</p>
  */
@@ -202,15 +193,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   RequestId?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request exceeds the resource limit.</p>
  */
@@ -225,15 +207,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   RequestId?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
@@ -246,15 +219,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -276,15 +240,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   RetryAfterSeconds?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user isn't authorized to request a resource.</p>
  */
@@ -297,15 +252,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
-}
-
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAttendeeRequest {
@@ -359,15 +305,6 @@ export interface UnprocessableEntityException extends __SmithyException, $Metada
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
-}
-
-export namespace UnprocessableEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnprocessableEntityException): any => ({
-    ...obj,
-  });
 }
 
 /**

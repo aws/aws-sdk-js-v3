@@ -179,15 +179,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 export interface InternalFailureException extends __SmithyException, $MetadataBearer {
   name: "InternalFailureException";
   $fault: "server";
@@ -202,15 +193,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
@@ -223,15 +205,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>The 400 error message returned by the web server.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeDeviceRequest {
@@ -278,15 +251,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The requested device could not be found.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface FinalizeDeviceClaimRequest {
@@ -344,15 +308,6 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace PreconditionFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
-    ...obj,
-  });
-}
-
 export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
@@ -365,15 +320,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
    * <p>An error message explaining the error or its remedy.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDeviceMethodsRequest {
@@ -495,15 +441,6 @@ export interface RangeNotSatisfiableException extends __SmithyException, $Metada
    *  satisfied.</p>
    */
   Message?: string;
-}
-
-export namespace RangeNotSatisfiableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RangeNotSatisfiableException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListDeviceEventsRequest {

@@ -139,15 +139,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export enum ConnectionMode {
   PRIVATE = "Private",
   PUBLIC = "Public",
@@ -160,15 +151,6 @@ export interface ConnectorAuthenticationException extends __SmithyException, $Me
   name: "ConnectorAuthenticationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ConnectorAuthenticationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorAuthenticationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2593,15 +2575,6 @@ export interface ConnectorServerException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace ConnectorServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConnectorServerException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateConnectorProfileRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -2670,15 +2643,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The request would cause a service quota (such as the number of flows) to be exceeded.
  *     </p>
@@ -2689,15 +2653,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The request has invalid or missing parameters. </p>
  */
@@ -2705,15 +2660,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4033,15 +3979,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteConnectorProfileRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
@@ -4861,15 +4798,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   name: "UnsupportedOperationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

@@ -35,6 +35,11 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
   const merged = {};
   for (const name of Object.keys(fromContent)) {
     if (fromContent[name].constructor.name === "Object") {
+      if (name === "devDependencies") {
+        // Remove devDeps defined in monorepo root
+        const devDepsInRoot = ["@tsconfig/recommended", "downlevel-dts", "rimraf", "typedoc", "typescript"];
+        devDepsInRoot.forEach((devDep) => delete fromContent[name][devDep]);
+      }
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
       if (name === "scripts" || name === "devDependencies") {
         // Allow target package.json(toContent) has its own special script or
@@ -129,6 +134,11 @@ const copyToClients = async (sourceDir, destinationDir) => {
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
+      } else if (packageSub === "typedoc.json") {
+        const typedocJson = {
+          extends: "../../typedoc.client.json",
+        };
+        writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {

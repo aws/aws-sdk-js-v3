@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains a request to associate a client device with a core device. The <a href="https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html">BatchAssociateClientDeviceWithCoreDevice</a> operation consumes a list of these
  *       requests.</p>
@@ -94,40 +85,36 @@ export namespace AssociatedClientDevice {
   });
 }
 
-export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
+export interface AssociateServiceRoleToAccountRequest {
   /**
-   * <p>The list of client devices to associate.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role to associate with IoT Greengrass for your
+   *       Amazon Web Services account in this Amazon Web Services Region.</p>
    */
-  entries?: AssociateClientDeviceWithCoreDeviceEntry[];
-
-  /**
-   * <p>The name of the core device. This is also the name of the IoT thing.</p>
-   */
-  coreDeviceThingName: string | undefined;
+  roleArn: string | undefined;
 }
 
-export namespace BatchAssociateClientDeviceWithCoreDeviceRequest {
+export namespace AssociateServiceRoleToAccountRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceRequest): any => ({
+  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountRequest): any => ({
     ...obj,
   });
 }
 
-export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
+export interface AssociateServiceRoleToAccountResponse {
   /**
-   * <p>The list of any errors for the entries in the request. Each error entry contains the name
-   *       of the IoT thing that failed to associate.</p>
+   * <p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
    */
-  errorEntries?: AssociateClientDeviceWithCoreDeviceErrorEntry[];
+  associatedAt?: string;
 }
 
-export namespace BatchAssociateClientDeviceWithCoreDeviceResponse {
+export namespace AssociateServiceRoleToAccountResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceResponse): any => ({
+  export const filterSensitiveLog = (obj: AssociateServiceRoleToAccountResponse): any => ({
     ...obj,
   });
 }
@@ -143,75 +130,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
    * <p>The amount of time to wait before you retry the request.</p>
    */
   retryAfterSeconds?: number;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The requested resource can't be found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
-  /**
-   * <p>The ID of the resource that isn't found.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * <p>The type of the resource that isn't found.</p>
-   */
-  resourceType: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Your request exceeded a request rate quota. For example, you might have exceeded the
- *       amount of times that you can retrieve device or deployment status per second.</p>
- */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
-  /**
-   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>The amount of time to wait before you retry the request.</p>
-   */
-  retryAfterSeconds?: number;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -264,13 +182,84 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   fields?: ValidationExceptionField[];
 }
 
-export namespace ValidationException {
+export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
+  /**
+   * <p>The list of client devices to associate.</p>
+   */
+  entries?: AssociateClientDeviceWithCoreDeviceEntry[];
+
+  /**
+   * <p>The name of the core device. This is also the name of the IoT thing.</p>
+   */
+  coreDeviceThingName: string | undefined;
+}
+
+export namespace BatchAssociateClientDeviceWithCoreDeviceRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
+  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceRequest): any => ({
     ...obj,
   });
+}
+
+export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
+  /**
+   * <p>The list of any errors for the entries in the request. Each error entry contains the name
+   *       of the IoT thing that failed to associate.</p>
+   */
+  errorEntries?: AssociateClientDeviceWithCoreDeviceErrorEntry[];
+}
+
+export namespace BatchAssociateClientDeviceWithCoreDeviceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchAssociateClientDeviceWithCoreDeviceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested resource can't be found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message: string | undefined;
+  /**
+   * <p>The ID of the resource that isn't found.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The type of the resource that isn't found.</p>
+   */
+  resourceType: string | undefined;
+}
+
+/**
+ * <p>Your request exceeded a request rate quota. For example, you might have exceeded the
+ *       amount of times that you can retrieve device or deployment status per second.</p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  message: string | undefined;
+  /**
+   * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>The amount of time to wait before you retry the request.</p>
+   */
+  retryAfterSeconds?: number;
 }
 
 /**
@@ -347,8 +336,8 @@ export namespace DisassociateClientDeviceFromCoreDeviceErrorEntry {
 
 export interface BatchDisassociateClientDeviceFromCoreDeviceResponse {
   /**
-   * <p>The list of errors (if any) for the entries in the request. Each error entry contains the
-   *       name of the IoT thing that failed to disassociate.</p>
+   * <p>The list of any errors for the entries in the request. Each error entry contains the name
+   *       of the IoT thing that failed to disassociate.</p>
    */
   errorEntries?: DisassociateClientDeviceFromCoreDeviceErrorEntry[];
 }
@@ -411,15 +400,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The type of the resource that conflicts with the request.</p>
    */
   resourceType: string | undefined;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 export enum CloudComponentState {
@@ -825,6 +805,43 @@ export enum ComponentVisibilityScope {
   PUBLIC = "PUBLIC",
 }
 
+/**
+ * <p>Contains information about an endpoint and port where client devices can connect to an
+ *       MQTT broker on a Greengrass core device.</p>
+ */
+export interface ConnectivityInfo {
+  /**
+   * <p>An ID for the connectivity information.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The IP address or DNS address where client devices can connect to an MQTT broker on the
+   *       Greengrass core device.</p>
+   */
+  hostAddress?: string;
+
+  /**
+   * <p>The port where the MQTT broker operates on the core device. This port is typically 8883,
+   *       which is the default port for the MQTT broker component that runs on core devices.</p>
+   */
+  portNumber?: number;
+
+  /**
+   * <p>Additional metadata to provide to client devices that connect to this core device.</p>
+   */
+  metadata?: string;
+}
+
+export namespace ConnectivityInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectivityInfo): any => ({
+    ...obj,
+  });
+}
+
 export enum CoreDeviceStatus {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
@@ -841,7 +858,8 @@ export interface CoreDevice {
   coreDeviceThingName?: string;
 
   /**
-   * <p>The status of the core device. Core devices can have the following statuses:</p>
+   * <p>The status of the core device. Core devices can have the following
+   *       statuses:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1303,15 +1321,6 @@ export interface RequestAlreadyInProgressException extends __SmithyException, $M
   message: string | undefined;
 }
 
-export namespace RequestAlreadyInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestAlreadyInProgressException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request exceeds a service quota. For example, you might have the maximum number of
  *       components that you can create.</p>
@@ -1339,15 +1348,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    */
   serviceCode: string | undefined;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum DeploymentComponentUpdatePolicyAction {
@@ -1940,6 +1940,34 @@ export namespace DescribeComponentResponse {
   });
 }
 
+export interface DisassociateServiceRoleFromAccountRequest {}
+
+export namespace DisassociateServiceRoleFromAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateServiceRoleFromAccountResponse {
+  /**
+   * <p>The time when the service role was disassociated from IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
+   */
+  disassociatedAt?: string;
+}
+
+export namespace DisassociateServiceRoleFromAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateServiceRoleFromAccountResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum EffectiveDeploymentExecutionStatus {
   CANCELED = "CANCELED",
   COMPLETED = "COMPLETED",
@@ -2107,6 +2135,43 @@ export namespace GetComponentVersionArtifactResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetComponentVersionArtifactResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectivityInfoRequest {
+  /**
+   * <p>The name of the core device. This is also the name of the IoT thing.</p>
+   */
+  thingName: string | undefined;
+}
+
+export namespace GetConnectivityInfoRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectivityInfoRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetConnectivityInfoResponse {
+  /**
+   * <p>The connectivity information for the core device.</p>
+   */
+  connectivityInfo?: ConnectivityInfo[];
+
+  /**
+   * <p>A message about the connectivity information request.</p>
+   */
+  message?: string;
+}
+
+export namespace GetConnectivityInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetConnectivityInfoResponse): any => ({
     ...obj,
   });
 }
@@ -2283,6 +2348,40 @@ export namespace GetDeploymentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDeploymentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetServiceRoleForAccountRequest {}
+
+export namespace GetServiceRoleForAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetServiceRoleForAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetServiceRoleForAccountResponse {
+  /**
+   * <p>The time when the service role was associated with IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
+   */
+  associatedAt?: string;
+
+  /**
+   * <p>The ARN of the service role that is associated with IoT Greengrass for your Amazon Web Services account in this
+   *       Amazon Web Services Region.</p>
+   */
+  roleArn?: string;
+}
+
+export namespace GetServiceRoleForAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetServiceRoleForAccountResponse): any => ({
     ...obj,
   });
 }
@@ -2873,6 +2972,48 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConnectivityInfoRequest {
+  /**
+   * <p>The name of the core device. This is also the name of the IoT thing.</p>
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The connectivity information for the core device.</p>
+   */
+  connectivityInfo: ConnectivityInfo[] | undefined;
+}
+
+export namespace UpdateConnectivityInfoRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectivityInfoRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConnectivityInfoResponse {
+  /**
+   * <p>The new version of the connectivity information for the core device.</p>
+   */
+  version?: string;
+
+  /**
+   * <p>A message about the connectivity information update request.</p>
+   */
+  message?: string;
+}
+
+export namespace UpdateConnectivityInfoResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectivityInfoResponse): any => ({
     ...obj,
   });
 }

@@ -185,15 +185,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 export enum ServiceQuotaExceededExceptionReason {
   SERVICE_QUOTA_EXCEEDED = "SERVICE_QUOTA_EXCEEDED",
 }
@@ -209,15 +200,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The reason for the exception.</p>
    */
   Reason?: ServiceQuotaExceededExceptionReason | string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export enum ValidationExceptionReason {
@@ -236,15 +218,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The reason for the exception.</p>
    */
   Reason?: ValidationExceptionReason | string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRuleRequest {
@@ -289,15 +262,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The reason for the exception.</p>
    */
   Reason?: ResourceNotFoundExceptionReason | string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetRuleRequest {

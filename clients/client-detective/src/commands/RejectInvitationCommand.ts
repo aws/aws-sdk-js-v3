@@ -23,7 +23,12 @@ export interface RejectInvitationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation
- *          must be called by a member account that has the <code>INVITED</code> status.</p>
+ *          must be called by an invited member account that has the <code>INVITED</code>
+ *          status.</p>
+ *          <p>
+ *             <code>RejectInvitation</code> cannot be called by an organization account in the
+ *          organization behavior graph. In the organization behavior graph, organization accounts do
+ *          not receive an invitation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

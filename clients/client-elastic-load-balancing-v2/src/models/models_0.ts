@@ -520,15 +520,6 @@ export interface CertificateNotFoundException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace CertificateNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified listener does not exist.</p>
  */
@@ -538,15 +529,6 @@ export interface ListenerNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ListenerNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've reached the limit on the number of certificates per load balancer.</p>
  */
@@ -554,15 +536,6 @@ export interface TooManyCertificatesException extends __SmithyException, $Metada
   name: "TooManyCertificatesException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyCertificatesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCertificatesException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -630,15 +603,6 @@ export interface DuplicateTagKeysException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace DuplicateTagKeysException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified load balancer does not exist.</p>
  */
@@ -646,15 +610,6 @@ export interface LoadBalancerNotFoundException extends __SmithyException, $Metad
   name: "LoadBalancerNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LoadBalancerNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LoadBalancerNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -666,15 +621,6 @@ export interface RuleNotFoundException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace RuleNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified target group does not exist.</p>
  */
@@ -682,15 +628,6 @@ export interface TargetGroupNotFoundException extends __SmithyException, $Metada
   name: "TargetGroupNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TargetGroupNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -702,15 +639,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified allocation ID does not exist.</p>
  */
@@ -720,15 +648,6 @@ export interface AllocationIdNotFoundException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace AllocationIdNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AllocationIdNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified ALPN policy is not supported.</p>
  */
@@ -736,15 +655,6 @@ export interface ALPNPolicyNotSupportedException extends __SmithyException, $Met
   name: "ALPNPolicyNotSupportedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ALPNPolicyNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ALPNPolicyNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -826,15 +736,6 @@ export interface AvailabilityZoneNotSupportedException extends __SmithyException
   name: "AvailabilityZoneNotSupportedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AvailabilityZoneNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailabilityZoneNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1035,15 +936,6 @@ export interface DuplicateListenerException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace DuplicateListenerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateListenerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified configuration is not valid with this protocol.</p>
  */
@@ -1051,15 +943,6 @@ export interface IncompatibleProtocolsException extends __SmithyException, $Meta
   name: "IncompatibleProtocolsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace IncompatibleProtocolsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleProtocolsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1071,15 +954,6 @@ export interface InvalidConfigurationRequestException extends __SmithyException,
   Message?: string;
 }
 
-export namespace InvalidConfigurationRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConfigurationRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested action is not valid.</p>
  */
@@ -1087,15 +961,6 @@ export interface InvalidLoadBalancerActionException extends __SmithyException, $
   name: "InvalidLoadBalancerActionException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidLoadBalancerActionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLoadBalancerActionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1107,15 +972,6 @@ export interface SSLPolicyNotFoundException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace SSLPolicyNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SSLPolicyNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've reached the limit on the number of load balancers per target group.</p>
  */
@@ -1123,15 +979,6 @@ export interface TargetGroupAssociationLimitException extends __SmithyException,
   name: "TargetGroupAssociationLimitException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TargetGroupAssociationLimitException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetGroupAssociationLimitException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1143,15 +990,6 @@ export interface TooManyActionsException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace TooManyActionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyActionsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've reached the limit on the number of listeners per load balancer.</p>
  */
@@ -1159,15 +997,6 @@ export interface TooManyListenersException extends __SmithyException, $MetadataB
   name: "TooManyListenersException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyListenersException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyListenersException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1180,15 +1009,6 @@ export interface TooManyRegistrationsForTargetIdException extends __SmithyExcept
   Message?: string;
 }
 
-export namespace TooManyRegistrationsForTargetIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRegistrationsForTargetIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've reached the limit on the number of targets.</p>
  */
@@ -1196,15 +1016,6 @@ export interface TooManyTargetsException extends __SmithyException, $MetadataBea
   name: "TooManyTargetsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyTargetsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTargetsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1218,15 +1029,6 @@ export interface TooManyUniqueTargetGroupsPerLoadBalancerException extends __Smi
   Message?: string;
 }
 
-export namespace TooManyUniqueTargetGroupsPerLoadBalancerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyUniqueTargetGroupsPerLoadBalancerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified protocol is not supported.</p>
  */
@@ -1234,15 +1036,6 @@ export interface UnsupportedProtocolException extends __SmithyException, $Metada
   name: "UnsupportedProtocolException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedProtocolException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedProtocolException): any => ({
-    ...obj,
-  });
 }
 
 export enum IpAddressType {
@@ -1538,15 +1331,6 @@ export interface DuplicateLoadBalancerNameException extends __SmithyException, $
   Message?: string;
 }
 
-export namespace DuplicateLoadBalancerNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateLoadBalancerNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested scheme is not valid.</p>
  */
@@ -1554,15 +1338,6 @@ export interface InvalidSchemeException extends __SmithyException, $MetadataBear
   name: "InvalidSchemeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidSchemeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSchemeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1574,15 +1349,6 @@ export interface InvalidSecurityGroupException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace InvalidSecurityGroupException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSecurityGroupException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified subnet is out of available addresses.</p>
  */
@@ -1590,15 +1356,6 @@ export interface InvalidSubnetException extends __SmithyException, $MetadataBear
   name: "InvalidSubnetException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidSubnetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnetException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1610,15 +1367,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specified resource is in use.</p>
  */
@@ -1626,15 +1374,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1646,15 +1385,6 @@ export interface SubnetNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace SubnetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've reached the limit on the number of load balancers for your Amazon Web Services
  *       account.</p>
@@ -1663,15 +1393,6 @@ export interface TooManyLoadBalancersException extends __SmithyException, $Metad
   name: "TooManyLoadBalancersException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyLoadBalancersException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyLoadBalancersException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2107,15 +1828,6 @@ export interface PriorityInUseException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace PriorityInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PriorityInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You've reached the limit on the number of rules per load balancer.</p>
  */
@@ -2123,15 +1835,6 @@ export interface TooManyRulesException extends __SmithyException, $MetadataBeare
   name: "TooManyRulesException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRulesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRulesException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2142,15 +1845,6 @@ export interface TooManyTargetGroupsException extends __SmithyException, $Metada
   name: "TooManyTargetGroupsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyTargetGroupsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTargetGroupsException): any => ({
-    ...obj,
-  });
 }
 
 export enum TargetGroupIpAddressTypeEnum {
@@ -2502,15 +2196,6 @@ export interface DuplicateTargetGroupNameException extends __SmithyException, $M
   Message?: string;
 }
 
-export namespace DuplicateTargetGroupNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateTargetGroupNameException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteListenerInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -2707,15 +2392,6 @@ export interface InvalidTargetException extends __SmithyException, $MetadataBear
   name: "InvalidTargetException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidTargetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAccountLimitsInput {
@@ -3806,15 +3482,6 @@ export interface HealthUnavailableException extends __SmithyException, $Metadata
   name: "HealthUnavailableException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace HealthUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HealthUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface ModifyListenerInput {

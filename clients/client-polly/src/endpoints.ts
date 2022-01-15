@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "polly.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "polly-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "polly.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "polly-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "polly.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "polly-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -41,10 +29,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "polly.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "polly-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -52,10 +36,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "polly.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "polly-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

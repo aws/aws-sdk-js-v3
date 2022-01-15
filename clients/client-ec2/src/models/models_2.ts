@@ -36,6 +36,7 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  BgpStatus,
   DiskImageFormat,
   GroupIdentifier,
   Ipam,
@@ -49,10 +50,48 @@ import {
   ProtocolValue,
   SubnetCidrReservation,
   TransitGateway,
-  TransitGatewayAttachmentBgpConfiguration,
   TransitGatewayConnect,
   VolumeType,
 } from "./models_1";
+
+/**
+ * <p>The BGP configuration information.</p>
+ */
+export interface TransitGatewayAttachmentBgpConfiguration {
+  /**
+   * <p>The transit gateway Autonomous System Number (ASN).</p>
+   */
+  TransitGatewayAsn?: number;
+
+  /**
+   * <p>The peer Autonomous System Number (ASN).</p>
+   */
+  PeerAsn?: number;
+
+  /**
+   * <p>The interior BGP peer IP address for the transit gateway.</p>
+   */
+  TransitGatewayAddress?: string;
+
+  /**
+   * <p>The interior BGP peer IP address for the appliance.</p>
+   */
+  PeerAddress?: string;
+
+  /**
+   * <p>The BGP status.</p>
+   */
+  BgpStatus?: BgpStatus | string;
+}
+
+export namespace TransitGatewayAttachmentBgpConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayAttachmentBgpConfiguration): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the Connect peer details.</p>
@@ -1695,6 +1734,10 @@ export namespace CreateVpcEndpointServiceConfigurationRequest {
   });
 }
 
+export enum PayerResponsibility {
+  ServiceOwner = "ServiceOwner",
+}
+
 export enum DnsNameState {
   Failed = "failed",
   PendingVerification = "pendingVerification",
@@ -1838,6 +1881,11 @@ export interface ServiceConfiguration {
    * <p>Information about the endpoint service private DNS name configuration.</p>
    */
   PrivateDnsNameConfiguration?: PrivateDnsNameConfiguration;
+
+  /**
+   * <p>The payer responsibility.</p>
+   */
+  PayerResponsibility?: PayerResponsibility | string;
 
   /**
    * <p>Any tags assigned to the service.</p>
@@ -2193,7 +2241,7 @@ export interface VpnTunnelOptionsSpecification {
 
   /**
    * <p>The number of seconds after which a DPD timeout occurs.</p>
-   *         <p>Constraints: A value between 0 and 30.</p>
+   *         <p>Constraints: A value greater than or equal to 30.</p>
    *         <p>Default: <code>30</code>
    *          </p>
    */
@@ -6126,6 +6174,8 @@ export namespace DescribeAccountAttributesResult {
 /**
  * <p>A filter name and value pair that is used to return a more specific list of results from a describe operation.
  *          Filters can be used to match a set of resources by specific criteria, such as tags, attributes, or IDs.</p>
+ *          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
+ *            results that match all of the specified filters.</p>
  */
 export interface Filter {
   /**
@@ -6134,7 +6184,9 @@ export interface Filter {
   Name?: string;
 
   /**
-   * <p>The filter values. Filter values are case-sensitive.</p>
+   * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for a
+   *          filter, the values are joined with an <code>OR</code>, and the request returns all results
+   *          that match any of the specified values.</p>
    */
   Values?: string[];
 }
@@ -6986,15 +7038,11 @@ export interface DescribeCapacityReservationsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>availability-zone-id</code> - The Availability Zone ID of the Capacity Reservation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>instance-platform</code> - The type of operating system for which the Capacity Reservation reserves capacity.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone ID of the Capacity Reservation.</p>
+   *                   <code>availability-zone</code> - The Availability Zone of the Capacity Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8556,44 +8604,3 @@ export namespace ImportInstanceTaskDetails {
     ...obj,
   });
 }
-
-/**
- * <p>Describes an import volume task.</p>
- */
-export interface ImportVolumeTaskDetails {
-  /**
-   * <p>The Availability Zone where the resulting volume will reside.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   */
-  BytesConverted?: number;
-
-  /**
-   * <p>The description you provided when starting the import volume task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The image.</p>
-   */
-  Image?: DiskImageDescription;
-
-  /**
-   * <p>The volume.</p>
-   */
-  Volume?: DiskImageVolumeDescription;
-}
-
-export namespace ImportVolumeTaskDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportVolumeTaskDetails): any => ({
-    ...obj,
-  });
-}
-
-export type ConversionTaskState = "active" | "cancelled" | "cancelling" | "completed";

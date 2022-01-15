@@ -1,4 +1,20 @@
-import { Queue, QueueStatus, ReservationPlanSettings } from "./models_1";
+import { Preset, Queue, QueueStatus, ReservationPlanSettings } from "./models_1";
+
+export interface UpdatePresetResponse {
+  /**
+   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
+   */
+  Preset?: Preset;
+}
+
+export namespace UpdatePresetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePresetResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateQueueRequest {
   /**

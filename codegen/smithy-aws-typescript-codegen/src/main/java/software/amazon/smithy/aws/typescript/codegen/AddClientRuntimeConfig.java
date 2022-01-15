@@ -116,7 +116,8 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
                             writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("(() => Promise.resolve(DEFAULT_RETRY_MODE))");
+                            writer.write(
+                                    "(async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE)");
                         },
                         "useDualstackEndpoint", writer -> {
                             writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
@@ -148,7 +149,13 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                             writer.addDependency(TypeScriptDependency.MIDDLEWARE_RETRY);
                             writer.addImport("NODE_RETRY_MODE_CONFIG_OPTIONS", "NODE_RETRY_MODE_CONFIG_OPTIONS",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
-                            writer.write("loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS)");
+                            writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
+                                    TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
+                            writer.openBlock("loadNodeConfig({", "})", () -> {
+                                writer.write("...NODE_RETRY_MODE_CONFIG_OPTIONS,");
+                                writer.write("default: async () => "
+                                        + "(await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,");
+                            });
                         },
                         "useDualstackEndpoint", writer -> {
                             writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);

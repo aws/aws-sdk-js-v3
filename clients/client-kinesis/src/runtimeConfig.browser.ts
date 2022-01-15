@@ -4,7 +4,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@aws-sdk/config-resolver";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
-import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
+import { FetchHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
@@ -13,16 +13,21 @@ import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { KinesisClientConfig } from "./KinesisClient";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import { loadConfigsForDefaultMode } from "@aws-sdk/smithy-client";
+import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-browser";
 
 /**
  * @internal
  */
 export const getRuntimeConfig = (config: KinesisClientConfig) => {
+  const defaultsMode = resolveDefaultsModeConfig(config);
+  const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
   return {
     ...clientSharedValues,
     ...config,
     runtime: "browser",
+    defaultsMode,
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
@@ -34,8 +39,8 @@ export const getRuntimeConfig = (config: KinesisClientConfig) => {
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
-    requestHandler: config?.requestHandler ?? new FetchHttpHandler(),
-    retryMode: config?.retryMode ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
+    requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
+    retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
     useDualstackEndpoint: config?.useDualstackEndpoint ?? (() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT)),

@@ -96,15 +96,6 @@ export interface OriginRequestPolicyInUse extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace OriginRequestPolicyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicyInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePublicKeyRequest {
   /**
    * <p>The ID of the public key you want to remove from CloudFront.</p>
@@ -136,15 +127,6 @@ export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace PublicKeyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicKeyInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteRealtimeLogConfigRequest {
   /**
    * <p>The name of the real-time log configuration to delete.</p>
@@ -174,15 +156,6 @@ export interface RealtimeLogConfigInUse extends __SmithyException, $MetadataBear
   name: "RealtimeLogConfigInUse";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RealtimeLogConfigInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeLogConfigInUse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResponseHeadersPolicyRequest {
@@ -221,15 +194,6 @@ export interface ResponseHeadersPolicyInUse extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace ResponseHeadersPolicyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyInUse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request to delete a streaming distribution.</p>
  */
@@ -264,15 +228,6 @@ export interface NoSuchStreamingDistribution extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace NoSuchStreamingDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchStreamingDistribution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified CloudFront distribution is not disabled. You must disable
  * 			the distribution before you can delete it.</p>
@@ -281,15 +236,6 @@ export interface StreamingDistributionNotDisabled extends __SmithyException, $Me
   name: "StreamingDistributionNotDisabled";
   $fault: "client";
   Message?: string;
-}
-
-export namespace StreamingDistributionNotDisabled {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingDistributionNotDisabled): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeFunctionRequest {
@@ -844,15 +790,6 @@ export interface NoSuchInvalidation extends __SmithyException, $MetadataBearer {
   name: "NoSuchInvalidation";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchInvalidation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchInvalidation): any => ({
-    ...obj,
-  });
 }
 
 export interface GetKeyGroupRequest {
@@ -3494,15 +3431,6 @@ export interface TestFunctionFailed extends __SmithyException, $MetadataBearer {
   name: "TestFunctionFailed";
   $fault: "server";
   Message?: string;
-}
-
-export namespace TestFunctionFailed {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestFunctionFailed): any => ({
-    ...obj,
-  });
 }
 
 export interface TestFunctionRequest {

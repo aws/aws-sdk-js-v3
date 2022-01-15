@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specifies configuration properties of a notification.</p>
  */
@@ -104,11 +95,15 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace AlreadyExistsException {
+export interface AuditContext {
+  AdditionalAuditContext?: string;
+}
+
+export namespace AuditContext {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
+  export const filterSensitiveLog = (obj: AuditContext): any => ({
     ...obj,
   });
 }
@@ -308,6 +303,7 @@ export interface StorageDescriptor {
    */
   Location?: string;
 
+  AdditionalLocations?: string[];
   /**
    * <p>The input format: <code>SequenceFileInputFormat</code> (binary),
    *       or <code>TextInputFormat</code>, or a custom format.</p>
@@ -534,15 +530,6 @@ export interface EntityNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace EntityNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An encryption operation failed.</p>
  */
@@ -553,15 +540,6 @@ export interface GlueEncryptionException extends __SmithyException, $MetadataBea
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace GlueEncryptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlueEncryptionException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -576,15 +554,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input provided was not valid.</p>
  */
@@ -595,15 +564,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -618,15 +578,6 @@ export interface OperationTimeoutException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace OperationTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource numerical limit was exceeded.</p>
  */
@@ -637,15 +588,6 @@ export interface ResourceNumberLimitExceededException extends __SmithyException,
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNumberLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNumberLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteConnectionRequest {
@@ -845,15 +787,6 @@ export interface ResourceNotReadyException extends __SmithyException, $MetadataB
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchDeleteTableVersionRequest {
@@ -1125,6 +1058,20 @@ export namespace BatchGetCrawlersRequest {
   });
 }
 
+export interface LakeFormationConfiguration {
+  UseLakeFormationCredentials?: boolean;
+  AccountId?: string;
+}
+
+export namespace LakeFormationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LakeFormationConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum LastCrawlStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -1325,6 +1272,11 @@ export interface CatalogTarget {
    * <p>A list of the tables to be synchronized.</p>
    */
   Tables: string[] | undefined;
+
+  /**
+   * <p>The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a <code>Catalog</code> connection type paired with a <code>NETWORK</code> Connection type.</p>
+   */
+  ConnectionName?: string;
 }
 
 export namespace CatalogTarget {
@@ -1332,6 +1284,35 @@ export namespace CatalogTarget {
    * @internal
    */
   export const filterSensitiveLog = (obj: CatalogTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a Delta data store to crawl one or more Delta tables.</p>
+ */
+export interface DeltaTarget {
+  /**
+   * <p>A list of the Amazon S3 paths to the Delta tables.</p>
+   */
+  DeltaTables?: string[];
+
+  /**
+   * <p>The name of the connection to use to connect to the Delta table target.</p>
+   */
+  ConnectionName?: string;
+
+  /**
+   * <p>Specifies whether to write the manifest files to the Delta table path.</p>
+   */
+  WriteManifest?: boolean;
+}
+
+export namespace DeltaTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeltaTarget): any => ({
     ...obj,
   });
 }
@@ -1503,6 +1484,11 @@ export interface CrawlerTargets {
    * <p>Specifies Glue Data Catalog targets.</p>
    */
   CatalogTargets?: CatalogTarget[];
+
+  /**
+   * <p>Specifies Delta data store targets.</p>
+   */
+  DeltaTargets?: DeltaTarget[];
 }
 
 export namespace CrawlerTargets {
@@ -1621,6 +1607,8 @@ export interface Crawler {
    *       crawler.</p>
    */
   CrawlerSecurityConfiguration?: string;
+
+  LakeFormationConfiguration?: LakeFormationConfiguration;
 }
 
 export namespace Crawler {
@@ -2298,15 +2286,6 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetTriggersRequest {
@@ -4021,6 +4000,7 @@ export interface CreateCrawlerRequest {
    */
   LineageConfiguration?: LineageConfiguration;
 
+  LakeFormationConfiguration?: LakeFormationConfiguration;
   /**
    * <p>Crawler configuration information. This versioned JSON
    *       string allows users to specify aspects of a crawler's behavior.
@@ -4072,15 +4052,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
 }
 
 export enum Permission {
@@ -4506,15 +4477,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   Message?: string;
 }
 
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A value could not be validated.</p>
  */
@@ -4525,15 +4487,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateJobRequest {
@@ -6344,15 +6297,6 @@ export interface CrawlerRunningException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace CrawlerRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerRunningException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCrawlerRequest {
   /**
    * <p>The name of the crawler to remove.</p>
@@ -6390,15 +6334,6 @@ export interface SchedulerTransitioningException extends __SmithyException, $Met
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace SchedulerTransitioningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulerTransitioningException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteDatabaseRequest {
@@ -6582,15 +6517,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeletePartitionIndexRequest {
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -6690,15 +6616,6 @@ export interface ConditionCheckFailureException extends __SmithyException, $Meta
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace ConditionCheckFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConditionCheckFailureException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourcePolicyRequest {
@@ -8604,71 +8521,6 @@ export namespace CrawlerMetrics {
    * @internal
    */
   export const filterSensitiveLog = (obj: CrawlerMetrics): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCrawlerMetricsResponse {
-  /**
-   * <p>A list of metrics for the specified crawler.</p>
-   */
-  CrawlerMetricsList?: CrawlerMetrics[];
-
-  /**
-   * <p>A continuation token, if the returned list does not contain the
-   *       last metric available.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetCrawlerMetricsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCrawlerMetricsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCrawlersRequest {
-  /**
-   * <p>The number of crawlers to return on each call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A continuation token, if this is a continuation request.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetCrawlersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCrawlersRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCrawlersResponse {
-  /**
-   * <p>A list of crawler metadata.</p>
-   */
-  Crawlers?: Crawler[];
-
-  /**
-   * <p>A continuation token, if the returned list has not reached the end
-   *       of those defined in this customer account.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetCrawlersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCrawlersResponse): any => ({
     ...obj,
   });
 }

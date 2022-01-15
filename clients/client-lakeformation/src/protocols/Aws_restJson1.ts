@@ -4,6 +4,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -68,6 +69,14 @@ import { GetQueryStateCommandInput, GetQueryStateCommandOutput } from "../comman
 import { GetQueryStatisticsCommandInput, GetQueryStatisticsCommandOutput } from "../commands/GetQueryStatisticsCommand";
 import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "../commands/GetResourceLFTagsCommand";
 import { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "../commands/GetTableObjectsCommand";
+import {
+  GetTemporaryGluePartitionCredentialsCommandInput,
+  GetTemporaryGluePartitionCredentialsCommandOutput,
+} from "../commands/GetTemporaryGluePartitionCredentialsCommand";
+import {
+  GetTemporaryGlueTableCredentialsCommandInput,
+  GetTemporaryGlueTableCredentialsCommandOutput,
+} from "../commands/GetTemporaryGlueTableCredentialsCommand";
 import { GetWorkUnitResultsCommandInput, GetWorkUnitResultsCommandOutput } from "../commands/GetWorkUnitResultsCommand";
 import { GetWorkUnitsCommandInput, GetWorkUnitsCommandOutput } from "../commands/GetWorkUnitsCommand";
 import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "../commands/GrantPermissionsCommand";
@@ -115,6 +124,7 @@ import {
   AddObjectInput,
   AllRowsWildcard,
   AlreadyExistsException,
+  AuditContext,
   BatchPermissionsFailureEntry,
   BatchPermissionsRequestEntry,
   CatalogResource,
@@ -145,7 +155,10 @@ import {
   OperationTimeoutException,
   OptimizerType,
   PartitionObjects,
+  PartitionValueList,
   Permission,
+  PermissionType,
+  PermissionTypeMismatchException,
   PlanningStatistics,
   PrincipalPermissions,
   PrincipalResourcePermissions,
@@ -725,6 +738,78 @@ export const serializeAws_restJson1GetTableObjectsCommand = async (
       input.QueryAsOfTime !== null && { QueryAsOfTime: Math.round(input.QueryAsOfTime.getTime() / 1000) }),
     ...(input.TableName !== undefined && input.TableName !== null && { TableName: input.TableName }),
     ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand = async (
+  input: GetTemporaryGluePartitionCredentialsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGluePartitionCredentials";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AuditContext !== undefined &&
+      input.AuditContext !== null && { AuditContext: serializeAws_restJson1AuditContext(input.AuditContext, context) }),
+    ...(input.DurationSeconds !== undefined &&
+      input.DurationSeconds !== null && { DurationSeconds: input.DurationSeconds }),
+    ...(input.Partition !== undefined &&
+      input.Partition !== null && { Partition: serializeAws_restJson1PartitionValueList(input.Partition, context) }),
+    ...(input.Permissions !== undefined &&
+      input.Permissions !== null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.SupportedPermissionTypes !== undefined &&
+      input.SupportedPermissionTypes !== null && {
+        SupportedPermissionTypes: serializeAws_restJson1PermissionTypeList(input.SupportedPermissionTypes, context),
+      }),
+    ...(input.TableArn !== undefined && input.TableArn !== null && { TableArn: input.TableArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetTemporaryGlueTableCredentialsCommand = async (
+  input: GetTemporaryGlueTableCredentialsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetTemporaryGlueTableCredentials";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AuditContext !== undefined &&
+      input.AuditContext !== null && { AuditContext: serializeAws_restJson1AuditContext(input.AuditContext, context) }),
+    ...(input.DurationSeconds !== undefined &&
+      input.DurationSeconds !== null && { DurationSeconds: input.DurationSeconds }),
+    ...(input.Permissions !== undefined &&
+      input.Permissions !== null && { Permissions: serializeAws_restJson1PermissionList(input.Permissions, context) }),
+    ...(input.SupportedPermissionTypes !== undefined &&
+      input.SupportedPermissionTypes !== null && {
+        SupportedPermissionTypes: serializeAws_restJson1PermissionTypeList(input.SupportedPermissionTypes, context),
+      }),
+    ...(input.TableArn !== undefined && input.TableArn !== null && { TableArn: input.TableArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -3217,6 +3302,220 @@ const deserializeAws_restJson1GetTableObjectsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommandError(output, context);
+  }
+  const contents: GetTemporaryGluePartitionCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AccessKeyId: undefined,
+    Expiration: undefined,
+    SecretAccessKey: undefined,
+    SessionToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccessKeyId !== undefined && data.AccessKeyId !== null) {
+    contents.AccessKeyId = __expectString(data.AccessKeyId);
+  }
+  if (data.Expiration !== undefined && data.Expiration !== null) {
+    contents.Expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.Expiration)));
+  }
+  if (data.SecretAccessKey !== undefined && data.SecretAccessKey !== null) {
+    contents.SecretAccessKey = __expectString(data.SecretAccessKey);
+  }
+  if (data.SessionToken !== undefined && data.SessionToken !== null) {
+    contents.SessionToken = __expectString(data.SessionToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTemporaryGluePartitionCredentialsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PermissionTypeMismatchException":
+    case "com.amazonaws.lakeformation#PermissionTypeMismatchException":
+      response = {
+        ...(await deserializeAws_restJson1PermissionTypeMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTemporaryGlueTableCredentialsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommandError(output, context);
+  }
+  const contents: GetTemporaryGlueTableCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AccessKeyId: undefined,
+    Expiration: undefined,
+    SecretAccessKey: undefined,
+    SessionToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AccessKeyId !== undefined && data.AccessKeyId !== null) {
+    contents.AccessKeyId = __expectString(data.AccessKeyId);
+  }
+  if (data.Expiration !== undefined && data.Expiration !== null) {
+    contents.Expiration = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.Expiration)));
+  }
+  if (data.SecretAccessKey !== undefined && data.SecretAccessKey !== null) {
+    contents.SecretAccessKey = __expectString(data.SecretAccessKey);
+  }
+  if (data.SessionToken !== undefined && data.SessionToken !== null) {
+    contents.SessionToken = __expectString(data.SessionToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTemporaryGlueTableCredentialsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lakeformation#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityNotFoundException":
+    case "com.amazonaws.lakeformation#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.lakeformation#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.lakeformation#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationTimeoutException":
+    case "com.amazonaws.lakeformation#OperationTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PermissionTypeMismatchException":
+    case "com.amazonaws.lakeformation#PermissionTypeMismatchException":
+      response = {
+        ...(await deserializeAws_restJson1PermissionTypeMismatchExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetWorkUnitResultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5130,6 +5429,23 @@ const deserializeAws_restJson1OperationTimeoutExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1PermissionTypeMismatchExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PermissionTypeMismatchException> => {
+  const contents: PermissionTypeMismatchException = {
+    name: "PermissionTypeMismatchException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ResourceNotReadyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -5285,6 +5601,24 @@ const serializeAws_restJson1AllRowsWildcard = (input: AllRowsWildcard, context: 
   return {};
 };
 
+const serializeAws_restJson1AuditContext = (input: AuditContext, context: __SerdeContext): any => {
+  return {
+    ...(input.AdditionalAuditContext !== undefined &&
+      input.AdditionalAuditContext !== null && { AdditionalAuditContext: input.AdditionalAuditContext }),
+  };
+};
+
+const serializeAws_restJson1AuthorizedSessionTagValueList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1BatchPermissionsRequestEntry = (
   input: BatchPermissionsRequestEntry,
   context: __SerdeContext
@@ -5400,6 +5734,15 @@ const serializeAws_restJson1DataLakePrincipalList = (input: DataLakePrincipal[],
 
 const serializeAws_restJson1DataLakeSettings = (input: DataLakeSettings, context: __SerdeContext): any => {
   return {
+    ...(input.AllowExternalDataFiltering !== undefined &&
+      input.AllowExternalDataFiltering !== null && { AllowExternalDataFiltering: input.AllowExternalDataFiltering }),
+    ...(input.AuthorizedSessionTagValueList !== undefined &&
+      input.AuthorizedSessionTagValueList !== null && {
+        AuthorizedSessionTagValueList: serializeAws_restJson1AuthorizedSessionTagValueList(
+          input.AuthorizedSessionTagValueList,
+          context
+        ),
+      }),
     ...(input.CreateDatabaseDefaultPermissions !== undefined &&
       input.CreateDatabaseDefaultPermissions !== null && {
         CreateDatabaseDefaultPermissions: serializeAws_restJson1PrincipalPermissionsList(
@@ -5417,6 +5760,13 @@ const serializeAws_restJson1DataLakeSettings = (input: DataLakeSettings, context
     ...(input.DataLakeAdmins !== undefined &&
       input.DataLakeAdmins !== null && {
         DataLakeAdmins: serializeAws_restJson1DataLakePrincipalList(input.DataLakeAdmins, context),
+      }),
+    ...(input.ExternalDataFilteringAllowList !== undefined &&
+      input.ExternalDataFilteringAllowList !== null && {
+        ExternalDataFilteringAllowList: serializeAws_restJson1DataLakePrincipalList(
+          input.ExternalDataFilteringAllowList,
+          context
+        ),
       }),
     ...(input.TrustedResourceOwners !== undefined &&
       input.TrustedResourceOwners !== null && {
@@ -5523,6 +5873,13 @@ const serializeAws_restJson1LFTagsList = (input: LFTagPair[], context: __SerdeCo
     });
 };
 
+const serializeAws_restJson1PartitionValueList = (input: PartitionValueList, context: __SerdeContext): any => {
+  return {
+    ...(input.Values !== undefined &&
+      input.Values !== null && { Values: serializeAws_restJson1ValueStringList(input.Values, context) }),
+  };
+};
+
 const serializeAws_restJson1PartitionValuesList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5535,6 +5892,17 @@ const serializeAws_restJson1PartitionValuesList = (input: string[], context: __S
 };
 
 const serializeAws_restJson1PermissionList = (input: (Permission | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1PermissionTypeList = (input: (PermissionType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -5730,6 +6098,17 @@ const serializeAws_restJson1TrustedResourceOwners = (input: string[], context: _
     });
 };
 
+const serializeAws_restJson1ValueStringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1VirtualObject = (input: VirtualObject, context: __SerdeContext): any => {
   return {
     ...(input.ETag !== undefined && input.ETag !== null && { ETag: input.ETag }),
@@ -5772,6 +6151,17 @@ const serializeAws_restJson1WriteOperationList = (input: WriteOperation[], conte
 
 const deserializeAws_restJson1AllRowsWildcard = (output: any, context: __SerdeContext): AllRowsWildcard => {
   return {} as any;
+};
+
+const deserializeAws_restJson1AuthorizedSessionTagValueList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1BatchPermissionsFailureEntry = (
@@ -5955,6 +6345,11 @@ const deserializeAws_restJson1DataLakePrincipalList = (output: any, context: __S
 
 const deserializeAws_restJson1DataLakeSettings = (output: any, context: __SerdeContext): DataLakeSettings => {
   return {
+    AllowExternalDataFiltering: __expectBoolean(output.AllowExternalDataFiltering),
+    AuthorizedSessionTagValueList:
+      output.AuthorizedSessionTagValueList !== undefined && output.AuthorizedSessionTagValueList !== null
+        ? deserializeAws_restJson1AuthorizedSessionTagValueList(output.AuthorizedSessionTagValueList, context)
+        : undefined,
     CreateDatabaseDefaultPermissions:
       output.CreateDatabaseDefaultPermissions !== undefined && output.CreateDatabaseDefaultPermissions !== null
         ? deserializeAws_restJson1PrincipalPermissionsList(output.CreateDatabaseDefaultPermissions, context)
@@ -5966,6 +6361,10 @@ const deserializeAws_restJson1DataLakeSettings = (output: any, context: __SerdeC
     DataLakeAdmins:
       output.DataLakeAdmins !== undefined && output.DataLakeAdmins !== null
         ? deserializeAws_restJson1DataLakePrincipalList(output.DataLakeAdmins, context)
+        : undefined,
+    ExternalDataFilteringAllowList:
+      output.ExternalDataFilteringAllowList !== undefined && output.ExternalDataFilteringAllowList !== null
+        ? deserializeAws_restJson1DataLakePrincipalList(output.ExternalDataFilteringAllowList, context)
         : undefined,
     TrustedResourceOwners:
       output.TrustedResourceOwners !== undefined && output.TrustedResourceOwners !== null

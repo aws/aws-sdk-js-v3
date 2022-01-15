@@ -30,6 +30,7 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
@@ -97,6 +98,14 @@ import { GetQueryStateCommandInput, GetQueryStateCommandOutput } from "./command
 import { GetQueryStatisticsCommandInput, GetQueryStatisticsCommandOutput } from "./commands/GetQueryStatisticsCommand";
 import { GetResourceLFTagsCommandInput, GetResourceLFTagsCommandOutput } from "./commands/GetResourceLFTagsCommand";
 import { GetTableObjectsCommandInput, GetTableObjectsCommandOutput } from "./commands/GetTableObjectsCommand";
+import {
+  GetTemporaryGluePartitionCredentialsCommandInput,
+  GetTemporaryGluePartitionCredentialsCommandOutput,
+} from "./commands/GetTemporaryGluePartitionCredentialsCommand";
+import {
+  GetTemporaryGlueTableCredentialsCommandInput,
+  GetTemporaryGlueTableCredentialsCommandOutput,
+} from "./commands/GetTemporaryGlueTableCredentialsCommand";
 import { GetWorkUnitResultsCommandInput, GetWorkUnitResultsCommandOutput } from "./commands/GetWorkUnitResultsCommand";
 import { GetWorkUnitsCommandInput, GetWorkUnitsCommandOutput } from "./commands/GetWorkUnitsCommand";
 import { GrantPermissionsCommandInput, GrantPermissionsCommandOutput } from "./commands/GrantPermissionsCommand";
@@ -163,6 +172,8 @@ export type ServiceInputTypes =
   | GetQueryStatisticsCommandInput
   | GetResourceLFTagsCommandInput
   | GetTableObjectsCommandInput
+  | GetTemporaryGluePartitionCredentialsCommandInput
+  | GetTemporaryGlueTableCredentialsCommandInput
   | GetWorkUnitResultsCommandInput
   | GetWorkUnitsCommandInput
   | GrantPermissionsCommandInput
@@ -207,6 +218,8 @@ export type ServiceOutputTypes =
   | GetQueryStatisticsCommandOutput
   | GetResourceLFTagsCommandOutput
   | GetTableObjectsCommandOutput
+  | GetTemporaryGluePartitionCredentialsCommandOutput
+  | GetTemporaryGlueTableCredentialsCommandOutput
   | GetWorkUnitResultsCommandOutput
   | GetWorkUnitsCommandOutput
   | GrantPermissionsCommandOutput
@@ -349,6 +362,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
 }
 
 type LakeFormationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

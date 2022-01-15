@@ -15,7 +15,7 @@ describe(DefaultRateLimiter.name, () => {
 
   describe("getSendToken", () => {
     beforeEach(() => {
-      jest.useFakeTimers();
+      jest.useFakeTimers("legacy");
     });
 
     afterEach(() => {

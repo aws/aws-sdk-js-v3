@@ -4843,6 +4843,7 @@ const serializeAws_restJson1KubernetesNetworkConfigRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.ipFamily !== undefined && input.ipFamily !== null && { ipFamily: input.ipFamily }),
     ...(input.serviceIpv4Cidr !== undefined &&
       input.serviceIpv4Cidr !== null && { serviceIpv4Cidr: input.serviceIpv4Cidr }),
   };
@@ -5473,7 +5474,9 @@ const deserializeAws_restJson1KubernetesNetworkConfigResponse = (
   context: __SerdeContext
 ): KubernetesNetworkConfigResponse => {
   return {
+    ipFamily: __expectString(output.ipFamily),
     serviceIpv4Cidr: __expectString(output.serviceIpv4Cidr),
+    serviceIpv6Cidr: __expectString(output.serviceIpv6Cidr),
   } as any;
 };
 

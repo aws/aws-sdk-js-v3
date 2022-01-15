@@ -25,15 +25,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception occurs due to unexpected causes.</p>
  */
@@ -41,15 +32,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   name: "InternalException";
   $fault: "server";
   message?: string;
-}
-
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -61,15 +43,6 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation you are attempting is not available in this region.</p>
  */
@@ -79,15 +52,6 @@ export interface OperationDisabledException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace OperationDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationDisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An entity that you specified does not exist.</p>
  */
@@ -95,15 +59,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum ApiDestinationState {
@@ -310,15 +265,6 @@ export interface IllegalStatusException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace IllegalStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalStatusException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateApiDestinationRequest {
   /**
    * <p>The name for the API destination to create.</p>
@@ -402,15 +348,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource you are trying to create already exists.</p>
  */
@@ -418,15 +355,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateArchiveRequest {
@@ -504,15 +432,6 @@ export interface InvalidEventPatternException extends __SmithyException, $Metada
   name: "InvalidEventPatternException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidEventPatternException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventPatternException): any => ({
-    ...obj,
-  });
 }
 
 export enum ConnectionAuthorizationType {
@@ -1243,15 +1162,6 @@ export interface ManagedRuleException extends __SmithyException, $MetadataBearer
   name: "ManagedRuleException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ManagedRuleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ManagedRuleException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeApiDestinationRequest {
@@ -4090,15 +4000,6 @@ export interface PolicyLengthExceededException extends __SmithyException, $Metad
   name: "PolicyLengthExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace PolicyLengthExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyLengthExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**

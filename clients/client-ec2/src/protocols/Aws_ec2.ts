@@ -1504,6 +1504,10 @@ import {
   ModifyVpcEndpointServiceConfigurationCommandOutput,
 } from "../commands/ModifyVpcEndpointServiceConfigurationCommand";
 import {
+  ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+  ModifyVpcEndpointServicePayerResponsibilityCommandOutput,
+} from "../commands/ModifyVpcEndpointServicePayerResponsibilityCommand";
+import {
   ModifyVpcEndpointServicePermissionsCommandInput,
   ModifyVpcEndpointServicePermissionsCommandOutput,
 } from "../commands/ModifyVpcEndpointServicePermissionsCommand";
@@ -2202,7 +2206,6 @@ import {
   TrafficMirrorSession,
   TrafficMirrorTarget,
   TransitGateway,
-  TransitGatewayAttachmentBgpConfiguration,
   TransitGatewayConnect,
   TransitGatewayConnectOptions,
   TransitGatewayConnectRequestBgpOptions,
@@ -2433,7 +2436,6 @@ import {
   IKEVersionsRequestListValue,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
-  ImportVolumeTaskDetails,
   InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
@@ -2458,6 +2460,7 @@ import {
   ServiceTypeDetail,
   SuccessfulQueuedPurchaseDeletion,
   TargetNetwork,
+  TransitGatewayAttachmentBgpConfiguration,
   TransitGatewayConnectPeer,
   TransitGatewayConnectPeerConfiguration,
   TransitGatewayMulticastDeregisteredGroupMembers,
@@ -2663,6 +2666,7 @@ import {
   ImportImageLicenseConfigurationResponse,
   ImportImageTask,
   ImportSnapshotTask,
+  ImportVolumeTaskDetails,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   Instance,
@@ -2719,9 +2723,6 @@ import {
   Reservation,
   ReservedInstances,
   ReservedInstancesConfiguration,
-  ReservedInstancesId,
-  ReservedInstancesModification,
-  ReservedInstancesModificationResult,
   RootDeviceType,
   SnapshotDetail,
   SnapshotTaskDetail,
@@ -2953,8 +2954,6 @@ import {
   GetIpamPoolCidrsRequest,
   GetIpamPoolCidrsResult,
   GetIpamResourceCidrsRequest,
-  GetIpamResourceCidrsResult,
-  GetLaunchTemplateDataRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
@@ -2963,7 +2962,6 @@ import {
   InstanceUsage,
   IntegrateServices,
   IpamAddressHistoryRecord,
-  IpamResourceCidr,
   Ipv6CidrAssociation,
   LaunchSpecification,
   LaunchTemplateConfig,
@@ -2972,6 +2970,9 @@ import {
   PricingDetail,
   PrivateDnsDetails,
   Purchase,
+  ReservedInstancesId,
+  ReservedInstancesModification,
+  ReservedInstancesModificationResult,
   ReservedInstancesOffering,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
@@ -3025,8 +3026,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
+  GetIpamResourceCidrsResult,
+  GetLaunchTemplateDataRequest,
   GetLaunchTemplateDataResult,
   GetManagedPrefixListAssociationsRequest,
   GetManagedPrefixListAssociationsResult,
@@ -3060,7 +3061,6 @@ import {
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceTypesRequest,
   GetVpnConnectionDeviceTypesResult,
-  HibernationOptionsRequest,
   ImageDiskContainer,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
@@ -3078,10 +3078,10 @@ import {
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
-  InstanceMarketOptionsRequest,
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
   IpamCidrAuthorizationContext,
+  IpamResourceCidr,
   LaunchPermissionModifications,
   ListSnapshotsInRecycleBinRequest,
   ListSnapshotsInRecycleBinResult,
@@ -3172,6 +3172,8 @@ import {
   ModifyVpcEndpointResult,
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
+  ModifyVpcEndpointServicePayerResponsibilityRequest,
+  ModifyVpcEndpointServicePayerResponsibilityResult,
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
   ModifyVpcPeeringConnectionOptionsRequest,
@@ -3286,7 +3288,6 @@ import {
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
   SnapshotRecycleBinInfo,
-  SpotMarketOptions,
   SpotPlacementScore,
   SuccessfulInstanceCreditSpecificationItem,
   TargetConfiguration,
@@ -3307,6 +3308,10 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_5";
 import {
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
+  InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
   InstanceStateChange,
   LaunchTemplateSpecification,
@@ -3332,6 +3337,7 @@ import {
   SearchTransitGatewayRoutesResult,
   SecurityGroupRuleDescription,
   SendDiagnosticInterruptRequest,
+  SpotMarketOptions,
   StartInstancesRequest,
   StartInstancesResult,
   StartNetworkInsightsAccessScopeAnalysisRequest,
@@ -10460,6 +10466,22 @@ export const serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand = asyn
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest(input, context),
     Action: "ModifyVpcEndpointServiceConfiguration",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand = async (
+  input: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityRequest(input, context),
+    Action: "ModifyVpcEndpointServicePayerResponsibility",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -31893,6 +31915,52 @@ const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityResult(data, context);
+  const response: ModifyVpcEndpointServicePayerResponsibilityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -37045,6 +37113,9 @@ const serializeAws_ec2CreateCapacityReservationRequest = (
   }
   if (input.OutpostArn !== undefined && input.OutpostArn !== null) {
     entries["OutpostArn"] = input.OutpostArn;
+  }
+  if (input.PlacementGroupArn !== undefined && input.PlacementGroupArn !== null) {
+    entries["PlacementGroupArn"] = input.PlacementGroupArn;
   }
   return entries;
 };
@@ -47166,6 +47237,9 @@ const serializeAws_ec2InstanceMetadataOptionsRequest = (
   if (input.HttpProtocolIpv6 !== undefined && input.HttpProtocolIpv6 !== null) {
     entries["HttpProtocolIpv6"] = input.HttpProtocolIpv6;
   }
+  if (input.InstanceMetadataTags !== undefined && input.InstanceMetadataTags !== null) {
+    entries["InstanceMetadataTags"] = input.InstanceMetadataTags;
+  }
   return entries;
 };
 
@@ -48235,6 +48309,9 @@ const serializeAws_ec2LaunchTemplateInstanceMetadataOptionsRequest = (
   }
   if (input.HttpProtocolIpv6 !== undefined && input.HttpProtocolIpv6 !== null) {
     entries["HttpProtocolIpv6"] = input.HttpProtocolIpv6;
+  }
+  if (input.InstanceMetadataTags !== undefined && input.InstanceMetadataTags !== null) {
+    entries["InstanceMetadataTags"] = input.InstanceMetadataTags;
   }
   return entries;
 };
@@ -49446,6 +49523,9 @@ const serializeAws_ec2ModifyInstanceMetadataOptionsRequest = (
   if (input.HttpProtocolIpv6 !== undefined && input.HttpProtocolIpv6 !== null) {
     entries["HttpProtocolIpv6"] = input.HttpProtocolIpv6;
   }
+  if (input.InstanceMetadataTags !== undefined && input.InstanceMetadataTags !== null) {
+    entries["InstanceMetadataTags"] = input.InstanceMetadataTags;
+  }
   return entries;
 };
 
@@ -50390,6 +50470,23 @@ const serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest = (
       const loc = `RemoveGatewayLoadBalancerArn.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityRequest = (
+  input: ModifyVpcEndpointServicePayerResponsibilityRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ServiceId !== undefined && input.ServiceId !== null) {
+    entries["ServiceId"] = input.ServiceId;
+  }
+  if (input.PayerResponsibility !== undefined && input.PayerResponsibility !== null) {
+    entries["PayerResponsibility"] = input.PayerResponsibility;
   }
   return entries;
 };
@@ -57828,6 +57925,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     Tags: undefined,
     OutpostArn: undefined,
     CapacityReservationFleetId: undefined,
+    PlacementGroupArn: undefined,
   };
   if (output["capacityReservationId"] !== undefined) {
     contents.CapacityReservationId = __expectString(output["capacityReservationId"]);
@@ -57894,6 +57992,9 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
   }
   if (output["capacityReservationFleetId"] !== undefined) {
     contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
+  }
+  if (output["placementGroupArn"] !== undefined) {
+    contents.PlacementGroupArn = __expectString(output["placementGroupArn"]);
   }
   return contents;
 };
@@ -69464,6 +69565,7 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
     HttpPutResponseHopLimit: undefined,
     HttpEndpoint: undefined,
     HttpProtocolIpv6: undefined,
+    InstanceMetadataTags: undefined,
   };
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -69479,6 +69581,9 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
   }
   if (output["httpProtocolIpv6"] !== undefined) {
     contents.HttpProtocolIpv6 = __expectString(output["httpProtocolIpv6"]);
+  }
+  if (output["instanceMetadataTags"] !== undefined) {
+    contents.InstanceMetadataTags = __expectString(output["instanceMetadataTags"]);
   }
   return contents;
 };
@@ -71986,6 +72091,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
     HttpPutResponseHopLimit: undefined,
     HttpEndpoint: undefined,
     HttpProtocolIpv6: undefined,
+    InstanceMetadataTags: undefined,
   };
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
@@ -72001,6 +72107,9 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
   }
   if (output["httpProtocolIpv6"] !== undefined) {
     contents.HttpProtocolIpv6 = __expectString(output["httpProtocolIpv6"]);
+  }
+  if (output["instanceMetadataTags"] !== undefined) {
+    contents.InstanceMetadataTags = __expectString(output["instanceMetadataTags"]);
   }
   return contents;
 };
@@ -73495,6 +73604,19 @@ const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationResult = (
   };
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVpcEndpointServicePayerResponsibilityResult => {
+  const contents: any = {
+    ReturnValue: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.ReturnValue = __parseBoolean(output["return"]);
   }
   return contents;
 };
@@ -75183,6 +75305,7 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
     PartitionCount: undefined,
     GroupId: undefined,
     Tags: undefined,
+    GroupArn: undefined,
   };
   if (output["groupName"] !== undefined) {
     contents.GroupName = __expectString(output["groupName"]);
@@ -75204,6 +75327,9 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
   }
   if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["groupArn"] !== undefined) {
+    contents.GroupArn = __expectString(output["groupArn"]);
   }
   return contents;
 };
@@ -78109,6 +78235,7 @@ const deserializeAws_ec2ServiceConfiguration = (output: any, context: __SerdeCon
     BaseEndpointDnsNames: undefined,
     PrivateDnsName: undefined,
     PrivateDnsNameConfiguration: undefined,
+    PayerResponsibility: undefined,
     Tags: undefined,
   };
   if (output.serviceType === "") {
@@ -78180,6 +78307,9 @@ const deserializeAws_ec2ServiceConfiguration = (output: any, context: __SerdeCon
       context
     );
   }
+  if (output["payerResponsibility"] !== undefined) {
+    contents.PayerResponsibility = __expectString(output["payerResponsibility"]);
+  }
   if (output.tagSet === "") {
     contents.Tags = [];
   }
@@ -78213,6 +78343,7 @@ const deserializeAws_ec2ServiceDetail = (output: any, context: __SerdeContext): 
     VpcEndpointPolicySupported: undefined,
     AcceptanceRequired: undefined,
     ManagesVpcEndpoints: undefined,
+    PayerResponsibility: undefined,
     Tags: undefined,
     PrivateDnsNameVerificationState: undefined,
   };
@@ -78272,6 +78403,9 @@ const deserializeAws_ec2ServiceDetail = (output: any, context: __SerdeContext): 
   }
   if (output["managesVpcEndpoints"] !== undefined) {
     contents.ManagesVpcEndpoints = __parseBoolean(output["managesVpcEndpoints"]);
+  }
+  if (output["payerResponsibility"] !== undefined) {
+    contents.PayerResponsibility = __expectString(output["payerResponsibility"]);
   }
   if (output.tagSet === "") {
     contents.Tags = [];

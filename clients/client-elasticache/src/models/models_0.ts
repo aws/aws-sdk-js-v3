@@ -63,15 +63,6 @@ export interface CacheClusterNotFoundFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace CacheClusterNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheClusterNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
  */
@@ -79,15 +70,6 @@ export interface CacheParameterGroupNotFoundFault extends __SmithyException, $Me
   name: "CacheParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CacheParameterGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -99,15 +81,6 @@ export interface CacheSecurityGroupNotFoundFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace CacheSecurityGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSecurityGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
  */
@@ -115,15 +88,6 @@ export interface CacheSubnetGroupNotFoundFault extends __SmithyException, $Metad
   name: "CacheSubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CacheSubnetGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSubnetGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -135,15 +99,6 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidARNFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested replication group is not in the <code>available</code> state.</p>
  */
@@ -151,15 +106,6 @@ export interface InvalidReplicationGroupStateFault extends __SmithyException, $M
   name: "InvalidReplicationGroupStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidReplicationGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidReplicationGroupStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -171,15 +117,6 @@ export interface ReplicationGroupNotFoundFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace ReplicationGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested reserved cache node was not found.</p>
  */
@@ -189,15 +126,6 @@ export interface ReservedCacheNodeNotFoundFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace ReservedCacheNodeNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNodeNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested snapshot name does not refer to an existing snapshot.</p>
  */
@@ -205,15 +133,6 @@ export interface SnapshotNotFoundFault extends __SmithyException, $MetadataBeare
   name: "SnapshotNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -245,15 +164,6 @@ export interface TagQuotaPerResourceExceeded extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace TagQuotaPerResourceExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagQuotaPerResourceExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user group was not found or does not exist</p>
  */
@@ -263,15 +173,6 @@ export interface UserGroupNotFoundFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace UserGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user does not exist or could not be found.</p>
  */
@@ -279,15 +180,6 @@ export interface UserNotFoundFault extends __SmithyException, $MetadataBearer {
   name: "UserNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UserNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -327,15 +219,6 @@ export interface AuthorizationAlreadyExistsFault extends __SmithyException, $Met
   name: "AuthorizationAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AuthorizationAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -496,15 +379,6 @@ export interface InvalidCacheSecurityGroupStateFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace InvalidCacheSecurityGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCacheSecurityGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Two or more incompatible parameters were specified.</p>
  */
@@ -517,15 +391,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
   message?: string;
 }
 
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The value for a parameter is invalid.</p>
  */
@@ -536,15 +401,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
    * <p>A parameter value is invalid.</p>
    */
   message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchApplyUpdateActionMessage {
@@ -580,15 +436,6 @@ export interface ServiceUpdateNotFoundFault extends __SmithyException, $Metadata
   name: "ServiceUpdateNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ServiceUpdateNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUpdateNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export enum UpdateActionStatus {
@@ -1401,15 +1248,6 @@ export interface ReplicationGroupNotUnderMigrationFault extends __SmithyExceptio
   message?: string;
 }
 
-export namespace ReplicationGroupNotUnderMigrationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationGroupNotUnderMigrationFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>CopySnapshotMessage</code> operation.</p>
  */
@@ -2077,15 +1915,6 @@ export interface InvalidSnapshotStateFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidSnapshotStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSnapshotStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You already have a snapshot with the given name.</p>
  */
@@ -2093,15 +1922,6 @@ export interface SnapshotAlreadyExistsFault extends __SmithyException, $Metadata
   name: "SnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2113,15 +1933,6 @@ export interface SnapshotQuotaExceededFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace SnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You already have a cluster with the given identifier.</p>
  */
@@ -2131,15 +1942,6 @@ export interface CacheClusterAlreadyExistsFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace CacheClusterAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheClusterAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>
  */
@@ -2147,15 +1949,6 @@ export interface ClusterQuotaForCustomerExceededFault extends __SmithyException,
   name: "ClusterQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterQuotaForCustomerExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterQuotaForCustomerExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export enum AZMode {
@@ -3729,15 +3522,6 @@ export interface InsufficientCacheClusterCapacityFault extends __SmithyException
   message?: string;
 }
 
-export namespace InsufficientCacheClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientCacheClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The VPC network is in an invalid state.</p>
  */
@@ -3745,15 +3529,6 @@ export interface InvalidVPCNetworkStateFault extends __SmithyException, $Metadat
   name: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidVPCNetworkStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3765,15 +3540,6 @@ export interface NodeQuotaForClusterExceededFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace NodeQuotaForClusterExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeQuotaForClusterExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>
  */
@@ -3781,15 +3547,6 @@ export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $M
   name: "NodeQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace NodeQuotaForCustomerExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeQuotaForCustomerExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3801,15 +3558,6 @@ export interface CacheParameterGroupAlreadyExistsFault extends __SmithyException
   message?: string;
 }
 
-export namespace CacheParameterGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
  */
@@ -3817,15 +3565,6 @@ export interface CacheParameterGroupQuotaExceededFault extends __SmithyException
   name: "CacheParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CacheParameterGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheParameterGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3949,15 +3688,6 @@ export interface InvalidCacheParameterGroupStateFault extends __SmithyException,
   message?: string;
 }
 
-export namespace InvalidCacheParameterGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCacheParameterGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A cache security group with the specified name already exists.</p>
  */
@@ -3967,15 +3697,6 @@ export interface CacheSecurityGroupAlreadyExistsFault extends __SmithyException,
   message?: string;
 }
 
-export namespace CacheSecurityGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSecurityGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
  */
@@ -3983,15 +3704,6 @@ export interface CacheSecurityGroupQuotaExceededFault extends __SmithyException,
   name: "CacheSecurityGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CacheSecurityGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSecurityGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4068,15 +3780,6 @@ export interface CacheSubnetGroupAlreadyExistsFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace CacheSubnetGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSubnetGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>
  */
@@ -4086,15 +3789,6 @@ export interface CacheSubnetGroupQuotaExceededFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace CacheSubnetGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSubnetGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
  */
@@ -4102,15 +3796,6 @@ export interface CacheSubnetQuotaExceededFault extends __SmithyException, $Metad
   name: "CacheSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CacheSubnetQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSubnetQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4306,15 +3991,6 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a
  *             user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
@@ -4323,15 +3999,6 @@ export interface SubnetNotAllowedFault extends __SmithyException, $MetadataBeare
   name: "SubnetNotAllowedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubnetNotAllowedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetNotAllowedFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGlobalReplicationGroupMessage {
@@ -4562,15 +4229,6 @@ export interface GlobalReplicationGroupAlreadyExistsFault extends __SmithyExcept
   message?: string;
 }
 
-export namespace GlobalReplicationGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalReplicationGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified service linked role (SLR) was not found.</p>
  */
@@ -4578,15 +4236,6 @@ export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $Meta
   name: "ServiceLinkedRoleNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ServiceLinkedRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLinkedRoleNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5256,15 +4905,6 @@ export interface GlobalReplicationGroupNotFoundFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace GlobalReplicationGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalReplicationGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested cluster is not in the <code>available</code> state.</p>
  */
@@ -5272,15 +4912,6 @@ export interface InvalidCacheClusterStateFault extends __SmithyException, $Metad
   name: "InvalidCacheClusterStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidCacheClusterStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCacheClusterStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5292,15 +4923,6 @@ export interface InvalidGlobalReplicationGroupStateFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace InvalidGlobalReplicationGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGlobalReplicationGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The user group is not in an active state.</p>
  */
@@ -5308,15 +4930,6 @@ export interface InvalidUserGroupStateFault extends __SmithyException, $Metadata
   name: "InvalidUserGroupStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidUserGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUserGroupStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5329,15 +4942,6 @@ export interface NodeGroupsPerReplicationGroupQuotaExceededFault extends __Smith
   message?: string;
 }
 
-export namespace NodeGroupsPerReplicationGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeGroupsPerReplicationGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified replication group already exists.</p>
  */
@@ -5345,15 +4949,6 @@ export interface ReplicationGroupAlreadyExistsFault extends __SmithyException, $
   name: "ReplicationGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReplicationGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5430,15 +5025,6 @@ export interface SnapshotFeatureNotSupportedFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace SnapshotFeatureNotSupportedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotFeatureNotSupportedFault): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateUserMessage {
   /**
    * <p>The ID of the user.</p>
@@ -5492,15 +5078,6 @@ export interface DuplicateUserNameFault extends __SmithyException, $MetadataBear
   name: "DuplicateUserNameFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DuplicateUserNameFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateUserNameFault): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthenticationType {
@@ -5597,15 +5174,6 @@ export interface UserAlreadyExistsFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace UserAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota of users has been exceeded.</p>
  */
@@ -5613,15 +5181,6 @@ export interface UserQuotaExceededFault extends __SmithyException, $MetadataBear
   name: "UserQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UserQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateUserGroupMessage {
@@ -5662,15 +5221,6 @@ export interface DefaultUserRequired extends __SmithyException, $MetadataBearer 
   name: "DefaultUserRequired";
   $fault: "client";
   message?: string;
-}
-
-export namespace DefaultUserRequired {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultUserRequired): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5757,15 +5307,6 @@ export interface UserGroupAlreadyExistsFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace UserGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of users exceeds the user group limit.</p>
  */
@@ -5773,15 +5314,6 @@ export interface UserGroupQuotaExceededFault extends __SmithyException, $Metadat
   name: "UserGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace UserGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
@@ -5995,15 +5527,6 @@ export interface NoOperationFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace NoOperationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoOperationFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>DeleteCacheCluster</code> operation.</p>
  */
@@ -6096,15 +5619,6 @@ export interface CacheSubnetGroupInUse extends __SmithyException, $MetadataBeare
   name: "CacheSubnetGroupInUse";
   $fault: "client";
   message?: string;
-}
-
-export namespace CacheSubnetGroupInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CacheSubnetGroupInUse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6266,15 +5780,6 @@ export interface DefaultUserAssociatedToUserGroupFault extends __SmithyException
   message?: string;
 }
 
-export namespace DefaultUserAssociatedToUserGroupFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DefaultUserAssociatedToUserGroupFault): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteUserMessage {
   /**
    * <p>The ID of the user.</p>
@@ -6298,15 +5803,6 @@ export interface InvalidUserStateFault extends __SmithyException, $MetadataBeare
   name: "InvalidUserStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidUserStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUserStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteUserGroupMessage {
@@ -8714,15 +8210,6 @@ export interface ReservedCacheNodesOfferingNotFoundFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace ReservedCacheNodesOfferingNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNodesOfferingNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export enum ServiceUpdateStatus {
   AVAILABLE = "available",
   CANCELLED = "cancelled",
@@ -9733,15 +9220,6 @@ export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidKMSKeyFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKMSKeyFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input parameters for the <code>ListAllowedNodeTypeModifications</code> operation.</p>
  */
@@ -10334,15 +9812,6 @@ export interface SubnetInUse extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace SubnetInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyGlobalReplicationGroupMessage {
   /**
    * <p>The name of the Global datastore</p>
@@ -10897,15 +10366,6 @@ export interface ReservedCacheNodeAlreadyExistsFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace ReservedCacheNodeAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNodeAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
  */
@@ -10913,15 +10373,6 @@ export interface ReservedCacheNodeQuotaExceededFault extends __SmithyException, 
   name: "ReservedCacheNodeQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedCacheNodeQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedCacheNodeQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RebalanceSlotsInGlobalReplicationGroupMessage {
@@ -11046,15 +10497,6 @@ export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace TagNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>ResetCacheParameterGroup</code> operation.</p>
  */
@@ -11100,15 +10542,6 @@ export interface AuthorizationNotFoundFault extends __SmithyException, $Metadata
   name: "AuthorizationNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AuthorizationNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -11184,15 +10617,6 @@ export interface ReplicationGroupAlreadyUnderMigrationFault extends __SmithyExce
   message?: string;
 }
 
-export namespace ReplicationGroupAlreadyUnderMigrationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationGroupAlreadyUnderMigrationFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The endpoint from which data should be migrated.</p>
  */
@@ -11263,15 +10687,6 @@ export interface APICallRateForCustomerExceededFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace APICallRateForCustomerExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: APICallRateForCustomerExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
  *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
@@ -11280,15 +10695,6 @@ export interface NodeGroupNotFoundFault extends __SmithyException, $MetadataBear
   name: "NodeGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace NodeGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NodeGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface TestFailoverMessage {
@@ -11322,15 +10728,6 @@ export interface TestFailoverNotAvailableFault extends __SmithyException, $Metad
   name: "TestFailoverNotAvailableFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace TestFailoverNotAvailableFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TestFailoverNotAvailableFault): any => ({
-    ...obj,
-  });
 }
 
 export interface TestFailoverResult {

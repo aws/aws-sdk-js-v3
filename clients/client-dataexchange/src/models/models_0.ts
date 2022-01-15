@@ -12,15 +12,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ServerSideEncryptionTypes {
   AES256 = "AES256",
   aws_kms = "aws:kms",
@@ -416,15 +407,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   ResourceType?: ResourceType | string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * An exception occurred with the service.
  */
@@ -435,15 +417,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
    * The message identifying the service exception that occurred.
    */
   Message: string | undefined;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -468,15 +441,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceType?: ResourceType | string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The limit on the number of requests per second was exceeded.</p>
  */
@@ -487,15 +451,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The limit on the number of requests per second was exceeded.</p>
    */
   Message: string | undefined;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export enum ExceptionCause {
@@ -518,15 +473,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The message that informs you about what the exception was.</p>
    */
   ExceptionCause?: ExceptionCause | string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum Code {
@@ -708,15 +654,6 @@ export interface ServiceLimitExceededException extends __SmithyException, $Metad
    * <p>The request has exceeded the quotas imposed by the service.</p>
    */
   Message: string | undefined;
-}
-
-export namespace ServiceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -11,15 +11,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key-value pair that identifies or specifies metadata about an ACM resource.</p>
  */
@@ -81,15 +72,6 @@ export interface InvalidArnException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An input parameter was invalid.</p>
  */
@@ -97,15 +79,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -118,15 +91,6 @@ export interface InvalidTagException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
@@ -137,15 +101,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
  */
@@ -153,15 +108,6 @@ export interface TagPolicyException extends __SmithyException, $MetadataBearer {
   name: "TagPolicyException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TagPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -174,15 +120,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
@@ -190,15 +127,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export enum RecordType {
@@ -789,15 +717,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeCertificateRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following
@@ -902,15 +821,6 @@ export interface RequestInProgressException extends __SmithyException, $Metadata
   name: "RequestInProgressException";
   $fault: "client";
   message?: string;
-}
-
-export namespace RequestInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1062,15 +972,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of of request parameters specified is not valid.</p>
  */
@@ -1078,15 +979,6 @@ export interface InvalidArgsException extends __SmithyException, $MetadataBearer
   name: "InvalidArgsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidArgsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1263,15 +1155,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAccountConfigurationRequest {
   /**
    * <p>Specifies expiration
@@ -1307,15 +1190,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveTagsFromCertificateRequest {
@@ -1375,15 +1249,6 @@ export interface InvalidDomainValidationOptionsException extends __SmithyExcepti
   name: "InvalidDomainValidationOptionsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDomainValidationOptionsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDomainValidationOptionsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1562,15 +1427,6 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
   name: "InvalidStateException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface ResendValidationEmailRequest {

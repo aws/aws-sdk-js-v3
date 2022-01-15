@@ -1648,15 +1648,6 @@ export interface ConflictingOperationException extends __SmithyException, $Metad
   resourceArn: string | undefined;
 }
 
-export namespace ConflictingOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictingOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>IoT SiteWise can't process your request right now. Try again later.</p>
  */
@@ -1664,15 +1655,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   name: "InternalFailureException";
   $fault: "server";
   message: string | undefined;
-}
-
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1683,15 +1665,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1706,15 +1679,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message: string | undefined;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested resource can't be found.</p>
  */
@@ -1722,15 +1686,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1743,15 +1698,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2086,15 +2032,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   message: string | undefined;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAccessPolicyRequest {
   /**
    * <p>The identity for this access policy. Choose an Amazon Web Services SSO user, an Amazon Web Services SSO group, or an IAM user.</p>
@@ -2237,15 +2174,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>The ARN of the resource that already exists.</p>
    */
   resourceArn: string | undefined;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAssetModelRequest {
@@ -5578,15 +5506,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
-}
-
 export enum ListTimeSeriesType {
   ASSOCIATED = "ASSOCIATED",
   DISASSOCIATED = "DISASSOCIATED",
@@ -5972,15 +5891,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>The name of the resource with too many tags.</p>
    */
   resourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

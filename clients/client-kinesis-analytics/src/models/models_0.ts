@@ -78,15 +78,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specified input parameter value is invalid.</p>
  */
@@ -97,15 +88,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -120,15 +102,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Specified application can't be found.</p>
  */
@@ -141,15 +114,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  */
@@ -157,15 +121,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   name: "UnsupportedOperationException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -591,15 +546,6 @@ export interface CodeValidationException extends __SmithyException, $MetadataBea
    * <p>Test</p>
    */
   message?: string;
-}
-
-export namespace CodeValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface AddApplicationInputProcessingConfigurationRequest {
@@ -2154,15 +2100,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  */
@@ -2170,15 +2107,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2548,15 +2476,6 @@ export interface ResourceProvisionedThroughputExceededException extends __Smithy
   message?: string;
 }
 
-export namespace ResourceProvisionedThroughputExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceProvisionedThroughputExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is unavailable. Back off and retry the operation. </p>
  */
@@ -2564,15 +2483,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2585,15 +2495,6 @@ export interface UnableToDetectSchemaException extends __SmithyException, $Metad
   message?: string;
   RawInputRecords?: string[];
   ProcessedInputRecords?: string[];
-}
-
-export namespace UnableToDetectSchemaException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnableToDetectSchemaException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2634,15 +2535,6 @@ export interface InvalidApplicationConfigurationException extends __SmithyExcept
    * <p>test</p>
    */
   message?: string;
-}
-
-export namespace InvalidApplicationConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApplicationConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**

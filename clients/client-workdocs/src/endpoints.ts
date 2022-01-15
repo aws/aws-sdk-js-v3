@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "workdocs.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "workdocs-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "workdocs.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "workdocs-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

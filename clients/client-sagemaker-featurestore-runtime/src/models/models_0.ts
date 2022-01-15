@@ -9,15 +9,6 @@ export interface AccessForbidden extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace AccessForbidden {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessForbidden): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The identifier that identifies the batch of Records you are retrieving in a batch.</p>
  */
@@ -191,15 +182,6 @@ export interface InternalFailure extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InternalFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailure): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is currently unavailable.</p>
  */
@@ -209,15 +191,6 @@ export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ServiceUnavailable {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailable): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There was an error validating your request.</p>
  */
@@ -225,15 +198,6 @@ export interface ValidationError extends __SmithyException, $MetadataBearer {
   name: "ValidationError";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationError): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteRecordRequest {
@@ -315,15 +279,6 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFound";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface PutRecordRequest {

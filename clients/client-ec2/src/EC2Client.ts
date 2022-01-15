@@ -30,6 +30,7 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
@@ -1529,6 +1530,10 @@ import {
   ModifyVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/ModifyVpcEndpointServiceConfigurationCommand";
 import {
+  ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+  ModifyVpcEndpointServicePayerResponsibilityCommandOutput,
+} from "./commands/ModifyVpcEndpointServicePayerResponsibilityCommand";
+import {
   ModifyVpcEndpointServicePermissionsCommandInput,
   ModifyVpcEndpointServicePermissionsCommandOutput,
 } from "./commands/ModifyVpcEndpointServicePermissionsCommand";
@@ -2211,6 +2216,7 @@ export type ServiceInputTypes =
   | ModifyVpcEndpointCommandInput
   | ModifyVpcEndpointConnectionNotificationCommandInput
   | ModifyVpcEndpointServiceConfigurationCommandInput
+  | ModifyVpcEndpointServicePayerResponsibilityCommandInput
   | ModifyVpcEndpointServicePermissionsCommandInput
   | ModifyVpcPeeringConnectionOptionsCommandInput
   | ModifyVpcTenancyCommandInput
@@ -2728,6 +2734,7 @@ export type ServiceOutputTypes =
   | ModifyVpcEndpointCommandOutput
   | ModifyVpcEndpointConnectionNotificationCommandOutput
   | ModifyVpcEndpointServiceConfigurationCommandOutput
+  | ModifyVpcEndpointServicePayerResponsibilityCommandOutput
   | ModifyVpcEndpointServicePermissionsCommandOutput
   | ModifyVpcPeeringConnectionOptionsCommandOutput
   | ModifyVpcTenancyCommandOutput
@@ -2920,6 +2927,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
 }
 
 type EC2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -2950,10 +2962,10 @@ export interface EC2ClientResolvedConfig extends EC2ClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Elastic Compute Cloud</fullname>
- *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS Cloud.
+ *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud.
  *           Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications
  *           faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the
- *           AWS Cloud where you can launch AWS resources in a virtual network that you've defined. Amazon Elastic Block Store
+ *           Amazon Web Services Cloud where you can launch Amazon Web Services resources in a virtual network that you've defined. Amazon Elastic Block Store
  *           (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available
  *           and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p>
  *          <p>To learn more, see the following resources:</p>
@@ -2971,7 +2983,7 @@ export interface EC2ClientResolvedConfig extends EC2ClientResolvedConfigType {}
  *                </p>
  *             </li>
  *             <li>
- *                <p>AWS VPN: <a href="http://aws.amazon.com/vpn">AWS VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">AWS VPN documentation</a>
+ *                <p>Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services VPN documentation</a>
  *                </p>
  *             </li>
  *          </ul>

@@ -82,15 +82,6 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace InternalServiceError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameter name is invalid value.</p>
  */
@@ -98,15 +89,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -129,15 +111,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Secrets Manager can't find the resource that you asked for.</p>
  */
@@ -145,15 +118,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -443,15 +407,6 @@ export interface EncryptionFailure extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace EncryptionFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EncryptionFailure): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request failed because it would exceed one of the Secrets Manager quotas.</p>
  */
@@ -459,15 +414,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -479,15 +425,6 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace MalformedPolicyDocumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request failed because you did not complete all the prerequisite steps.</p>
  */
@@ -495,15 +432,6 @@ export interface PreconditionNotMetException extends __SmithyException, $Metadat
   name: "PreconditionNotMetException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PreconditionNotMetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -515,15 +443,6 @@ export interface ResourceExistsException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace ResourceExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
  */
@@ -531,15 +450,6 @@ export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
   name: "DecryptionFailure";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DecryptionFailure {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DecryptionFailure): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourcePolicyRequest {
@@ -1121,15 +1031,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
-}
-
 export enum SortOrderType {
   asc = "asc",
   desc = "desc",
@@ -1428,15 +1329,6 @@ export interface PublicPolicyException extends __SmithyException, $MetadataBeare
   name: "PublicPolicyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PublicPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicPolicyException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutResourcePolicyRequest {

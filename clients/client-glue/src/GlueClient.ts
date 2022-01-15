@@ -30,6 +30,7 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
@@ -235,6 +236,18 @@ import { GetTableVersionsCommandInput, GetTableVersionsCommandOutput } from "./c
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import { GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
 import { GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
+import {
+  GetUnfilteredPartitionMetadataCommandInput,
+  GetUnfilteredPartitionMetadataCommandOutput,
+} from "./commands/GetUnfilteredPartitionMetadataCommand";
+import {
+  GetUnfilteredPartitionsMetadataCommandInput,
+  GetUnfilteredPartitionsMetadataCommandOutput,
+} from "./commands/GetUnfilteredPartitionsMetadataCommand";
+import {
+  GetUnfilteredTableMetadataCommandInput,
+  GetUnfilteredTableMetadataCommandOutput,
+} from "./commands/GetUnfilteredTableMetadataCommand";
 import {
   GetUserDefinedFunctionCommandInput,
   GetUserDefinedFunctionCommandOutput,
@@ -464,6 +477,9 @@ export type ServiceInputTypes =
   | GetTagsCommandInput
   | GetTriggerCommandInput
   | GetTriggersCommandInput
+  | GetUnfilteredPartitionMetadataCommandInput
+  | GetUnfilteredPartitionsMetadataCommandInput
+  | GetUnfilteredTableMetadataCommandInput
   | GetUserDefinedFunctionCommandInput
   | GetUserDefinedFunctionsCommandInput
   | GetWorkflowCommandInput
@@ -632,6 +648,9 @@ export type ServiceOutputTypes =
   | GetTagsCommandOutput
   | GetTriggerCommandOutput
   | GetTriggersCommandOutput
+  | GetUnfilteredPartitionMetadataCommandOutput
+  | GetUnfilteredPartitionsMetadataCommandOutput
+  | GetUnfilteredTableMetadataCommandOutput
   | GetUserDefinedFunctionCommandOutput
   | GetUserDefinedFunctionsCommandOutput
   | GetWorkflowCommandOutput
@@ -814,6 +833,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
 }
 
 type GlueClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &

@@ -689,15 +689,6 @@ export interface WAFDisallowedNameException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace WAFDisallowedNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFDisallowedNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
  */
@@ -707,30 +698,12 @@ export interface WAFInternalErrorException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace WAFInternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because you tried to create, update, or delete an object by using an invalid account identifier.</p>
  */
 export interface WAFInvalidAccountException extends __SmithyException, $MetadataBearer {
   name: "WAFInvalidAccountException";
   $fault: "client";
-}
-
-export namespace WAFInvalidAccountException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidAccountException): any => ({
-    ...obj,
-  });
 }
 
 export enum ParameterExceptionField {
@@ -809,15 +782,6 @@ export interface WAFInvalidParameterException extends __SmithyException, $Metada
   reason?: ParameterExceptionReason | string;
 }
 
-export namespace WAFInvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code> objects that you can create
  * 			for an AWS account. For more information, see
@@ -829,15 +793,6 @@ export interface WAFLimitsExceededException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace WAFLimitsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFLimitsExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because you tried to create, update, or delete an object by using a change token that has already been used.</p>
  */
@@ -845,15 +800,6 @@ export interface WAFStaleDataException extends __SmithyException, $MetadataBeare
   name: "WAFStaleDataException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFStaleDataException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFStaleDataException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGeoMatchSetRequest {
@@ -1640,15 +1586,6 @@ export interface WAFBadRequestException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace WAFBadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFBadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1658,15 +1595,6 @@ export interface WAFTagOperationException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace WAFTagOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFTagOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -1674,15 +1602,6 @@ export interface WAFTagOperationInternalErrorException extends __SmithyException
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
   message?: string;
-}
-
-export namespace WAFTagOperationInternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFTagOperationInternalErrorException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateRegexMatchSetRequest {
@@ -2956,15 +2875,6 @@ export interface WAFEntityMigrationException extends __SmithyException, $Metadat
   MigrationErrorReason?: string;
 }
 
-export namespace WAFEntityMigrationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFEntityMigrationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because there was nothing to do. For example:</p>
  * 			      <ul>
@@ -2994,15 +2904,6 @@ export interface WAFInvalidOperationException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace WAFInvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because the referenced object doesn't exist.</p>
  */
@@ -3010,15 +2911,6 @@ export interface WAFNonexistentItemException extends __SmithyException, $Metadat
   name: "WAFNonexistentItemException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFNonexistentItemException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFNonexistentItemException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3304,15 +3196,6 @@ export interface WAFNonEmptyEntityException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace WAFNonEmptyEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFNonEmptyEntityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation failed because you tried to delete an object that is still in use. For example:</p>
  * 		       <ul>
@@ -3328,15 +3211,6 @@ export interface WAFReferencedItemException extends __SmithyException, $Metadata
   name: "WAFReferencedItemException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFReferencedItemException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFReferencedItemException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteGeoMatchSetRequest {
@@ -6181,15 +6055,6 @@ export interface WAFServiceLinkedRoleErrorException extends __SmithyException, $
   message?: string;
 }
 
-export namespace WAFServiceLinkedRoleErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFServiceLinkedRoleErrorException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutPermissionPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.</p>
@@ -6258,15 +6123,6 @@ export interface WAFInvalidPermissionPolicyException extends __SmithyException, 
   name: "WAFInvalidPermissionPolicyException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFInvalidPermissionPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidPermissionPolicyException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {
@@ -6458,15 +6314,6 @@ export interface WAFNonexistentContainerException extends __SmithyException, $Me
   name: "WAFNonexistentContainerException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFNonexistentContainerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFNonexistentContainerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6901,15 +6748,6 @@ export interface WAFInvalidRegexPatternException extends __SmithyException, $Met
   name: "WAFInvalidRegexPatternException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFInvalidRegexPatternException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidRegexPatternException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateRuleRequest {
@@ -7376,15 +7214,6 @@ export interface WAFSubscriptionNotFoundException extends __SmithyException, $Me
   name: "WAFSubscriptionNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFSubscriptionNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFSubscriptionNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**

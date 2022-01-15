@@ -9455,6 +9455,7 @@ const deserializeAws_json1_1Face = (output: any, context: __SerdeContext): Face 
     ExternalImageId: __expectString(output.ExternalImageId),
     FaceId: __expectString(output.FaceId),
     ImageId: __expectString(output.ImageId),
+    IndexFacesModelVersion: __expectString(output.IndexFacesModelVersion),
   } as any;
 };
 

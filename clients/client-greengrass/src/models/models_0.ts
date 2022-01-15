@@ -911,15 +911,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * General error information.
  */
@@ -935,15 +926,6 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * A message containing information about the error.
    */
   Message?: string;
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateServiceRoleToAccountRequest {

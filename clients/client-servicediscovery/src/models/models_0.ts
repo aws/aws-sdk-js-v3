@@ -90,15 +90,6 @@ export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
   DuplicateOperationId?: string;
 }
 
-export namespace DuplicateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateRequest): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might
  *    be outside the allowed range, or a string value might exceed length constraints.</p>
@@ -107,15 +98,6 @@ export interface InvalidInput extends __SmithyException, $MetadataBearer {
   name: "InvalidInput";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInput): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -136,15 +118,6 @@ export interface NamespaceAlreadyExists extends __SmithyException, $MetadataBear
   NamespaceId?: string;
 }
 
-export namespace NamespaceAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource can't be created because you've reached the quota on the number of resources.</p>
  */
@@ -152,15 +125,6 @@ export interface ResourceLimitExceeded extends __SmithyException, $MetadataBeare
   name: "ResourceLimitExceeded";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -175,15 +139,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
    * <p>The name of the resource.</p>
    */
   ResourceName?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1093,15 +1048,6 @@ export interface NamespaceNotFound extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NamespaceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NamespaceNotFound): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service can't be created because a service with the same name already exists.</p>
  */
@@ -1120,15 +1066,6 @@ export interface ServiceAlreadyExists extends __SmithyException, $MetadataBearer
   ServiceId?: string;
 }
 
-export namespace ServiceAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The health check for the instance that's specified by <code>ServiceId</code> and <code>InstanceId</code> isn't a
  *    custom health check. </p>
@@ -1137,15 +1074,6 @@ export interface CustomHealthNotFound extends __SmithyException, $MetadataBearer
   name: "CustomHealthNotFound";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CustomHealthNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomHealthNotFound): any => ({
-    ...obj,
-  });
 }
 
 export enum CustomHealthStatus {
@@ -1196,15 +1124,6 @@ export interface ResourceInUse extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ResourceInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteServiceRequest {
   /**
    * <p>The ID of the service that you want to delete.</p>
@@ -1239,15 +1158,6 @@ export interface ServiceNotFound extends __SmithyException, $MetadataBearer {
   name: "ServiceNotFound";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ServiceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterInstanceRequest {
@@ -1296,15 +1206,6 @@ export interface InstanceNotFound extends __SmithyException, $MetadataBearer {
   name: "InstanceNotFound";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InstanceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNotFound): any => ({
-    ...obj,
-  });
 }
 
 export enum HealthStatusFilter {
@@ -1461,15 +1362,6 @@ export interface RequestLimitExceeded extends __SmithyException, $MetadataBearer
   name: "RequestLimitExceeded";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RequestLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2117,15 +2009,6 @@ export interface OperationNotFound extends __SmithyException, $MetadataBearer {
   name: "OperationNotFound";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OperationNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface GetServiceRequest {
@@ -2959,15 +2842,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**

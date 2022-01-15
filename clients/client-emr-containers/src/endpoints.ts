@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "emr-containers.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "emr-containers-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     variants: [
-      {
-        hostname: "emr-containers.us-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "emr-containers-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-east-2": {
     variants: [
       {
-        hostname: "emr-containers.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "emr-containers-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
@@ -41,10 +29,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "emr-containers.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "emr-containers-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -52,10 +36,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "emr-containers.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "emr-containers-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

@@ -123,15 +123,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that something is wrong with the input to the request. For example, a
  *             required parameter may be missing or out of range.</p>
@@ -146,15 +137,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   AthenaErrorCode?: string;
 
   Message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 export interface BatchGetQueryExecutionInput {
@@ -1024,15 +1006,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ResourceName?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteWorkGroupInput {
   /**
    * <p>The unique name of the workgroup to delete.</p>
@@ -1144,15 +1117,6 @@ export interface MetadataException extends __SmithyException, $MetadataBearer {
   name: "MetadataException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace MetadataException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetadataException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetDataCatalogInput {
@@ -2478,15 +2442,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    *             limit.</p>
    */
   Reason?: ThrottleReason | string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface StopQueryExecutionInput {

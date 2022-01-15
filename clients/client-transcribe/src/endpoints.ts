@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "transcribe.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "fips.transcribe.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -35,10 +31,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "transcribe.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "fips.transcribe.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -46,10 +38,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "transcribe.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "fips.transcribe.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -59,10 +47,6 @@ const regionHash: RegionHash = {
   "us-gov-east-1": {
     variants: [
       {
-        hostname: "transcribe.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "fips.transcribe.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -70,10 +54,6 @@ const regionHash: RegionHash = {
   },
   "us-gov-west-1": {
     variants: [
-      {
-        hostname: "transcribe.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "fips.transcribe.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
@@ -83,10 +63,6 @@ const regionHash: RegionHash = {
   "us-west-1": {
     variants: [
       {
-        hostname: "transcribe.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "fips.transcribe.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -94,10 +70,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "transcribe.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "fips.transcribe.us-west-2.amazonaws.com",
         tags: ["fips"],

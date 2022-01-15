@@ -42,15 +42,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>WorkMail could not access the updated email content. Possible reasons:</p>
  *          <ul>
@@ -76,15 +67,6 @@ export interface InvalidContentLocation extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidContentLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidContentLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested email is not eligible for update. This is usually the case for a redirected email.</p>
  */
@@ -92,15 +74,6 @@ export interface MessageFrozen extends __SmithyException, $MetadataBearer {
   name: "MessageFrozen";
   $fault: "client";
   message?: string;
-}
-
-export namespace MessageFrozen {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageFrozen): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -111,15 +84,6 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
   name: "MessageRejected";
   $fault: "client";
   message?: string;
-}
-
-export namespace MessageRejected {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MessageRejected): any => ({
-    ...obj,
-  });
 }
 
 /**

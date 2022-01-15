@@ -41,15 +41,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied because performing this operation violates a constraint. </p>
  *         <p>Some of the reasons in the following list might not apply to this specific
@@ -76,15 +67,6 @@ export interface ConstraintViolationException extends __SmithyException, $Metada
   name: "ConstraintViolationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ConstraintViolationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConstraintViolationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeReportCreationInput {}
@@ -161,15 +143,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This error indicates one of the following:</p>
  *         <ul>
@@ -199,15 +172,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request was denied to limit the frequency of submitted requests.</p>
  */
@@ -215,15 +179,6 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
   name: "ThrottledException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledException): any => ({
-    ...obj,
-  });
 }
 
 export enum ErrorCode {
@@ -731,15 +686,6 @@ export interface PaginationTokenExpiredException extends __SmithyException, $Met
   name: "PaginationTokenExpiredException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace PaginationTokenExpiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PaginationTokenExpiredException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetTagKeysInput {

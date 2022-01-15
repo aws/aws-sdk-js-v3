@@ -22,8 +22,9 @@ export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
 export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon EKS managed node groups associated with the specified cluster in your
- *             Amazon Web Services account in the specified Region. Self-managed node groups are not listed.</p>
+ * <p>Lists the Amazon EKS managed node groups associated with the specified cluster
+ *             in your Amazon Web Services account in the specified Region. Self-managed node groups are
+ *             not listed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -402,15 +402,6 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             parameter.</p>
@@ -425,15 +416,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when a user is not authorized.</p>
  */
@@ -445,15 +427,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
    *             exception.</p>
    */
   message?: string;
-}
-
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -470,15 +443,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
@@ -493,15 +457,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when you are trying to modify a user pool while a user import
  *             job is in progress for that pool.</p>
@@ -513,15 +468,6 @@ export interface UserImportInProgressException extends __SmithyException, $Metad
    * <p>The message returned when the user pool has an import job running.</p>
    */
   message?: string;
-}
-
-export namespace UserImportInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserImportInProgressException): any => ({
-    ...obj,
-  });
 }
 
 export interface AdminAddUserToGroupRequest {
@@ -561,15 +507,6 @@ export interface UserNotFoundException extends __SmithyException, $MetadataBeare
    * <p>The message returned when a user is not found.</p>
    */
   message?: string;
-}
-
-export namespace UserNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -660,15 +597,6 @@ export interface InvalidLambdaResponseException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidLambdaResponseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLambdaResponseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
  *             resource.</p>
@@ -680,15 +608,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>The message returned when Amazon Cognito throws a limit exceeded exception.</p>
    */
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -705,15 +624,6 @@ export interface TooManyFailedAttemptsException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace TooManyFailedAttemptsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFailedAttemptsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the Amazon Cognito service encounters an unexpected
  *             exception with the Lambda service.</p>
@@ -728,15 +638,6 @@ export interface UnexpectedLambdaException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace UnexpectedLambdaException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnexpectedLambdaException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the Amazon Cognito service encounters a user validation
  *             exception with the Lambda service.</p>
@@ -749,15 +650,6 @@ export interface UserLambdaValidationException extends __SmithyException, $Metad
    *             exception with the Lambda service.</p>
    */
   message?: string;
-}
-
-export namespace UserLambdaValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserLambdaValidationException): any => ({
-    ...obj,
-  });
 }
 
 export enum DeliveryMediumType {
@@ -1108,15 +1000,6 @@ export interface CodeDeliveryFailureException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace CodeDeliveryFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeDeliveryFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             password.</p>
@@ -1131,15 +1014,6 @@ export interface InvalidPasswordException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidPasswordException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is returned when the role provided for SMS configuration does not have
  *             permission to publish using Amazon SNS.</p>
@@ -1152,15 +1026,6 @@ export interface InvalidSmsRoleAccessPolicyException extends __SmithyException, 
    *             thrown.</p>
    */
   message?: string;
-}
-
-export namespace InvalidSmsRoleAccessPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSmsRoleAccessPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1178,15 +1043,6 @@ export interface InvalidSmsRoleTrustRelationshipException extends __SmithyExcept
   message?: string;
 }
 
-export namespace InvalidSmsRoleTrustRelationshipException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSmsRoleTrustRelationshipException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when a precondition is not met.</p>
  */
@@ -1197,15 +1053,6 @@ export interface PreconditionNotMetException extends __SmithyException, $Metadat
    * <p>The message returned when a precondition is not met.</p>
    */
   message?: string;
-}
-
-export namespace PreconditionNotMetException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionNotMetException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1220,15 +1067,6 @@ export interface UnsupportedUserStateException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace UnsupportedUserStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedUserStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when Amazon Cognito encounters a user name that already
  *             exists in the user pool.</p>
@@ -1240,15 +1078,6 @@ export interface UsernameExistsException extends __SmithyException, $MetadataBea
    * <p>The message returned when Amazon Cognito throws a user name exists exception.</p>
    */
   message?: string;
-}
-
-export namespace UsernameExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UsernameExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1469,15 +1298,6 @@ export interface AliasExistsException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace AliasExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AliasExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to disable the user as an administrator.</p>
  */
@@ -1598,15 +1418,6 @@ export interface InvalidUserPoolConfigurationException extends __SmithyException
    * <p>The message returned when the user pool configuration is invalid.</p>
    */
   message?: string;
-}
-
-export namespace InvalidUserPoolConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUserPoolConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2350,15 +2161,6 @@ export interface MFAMethodNotFoundException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace MFAMethodNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MFAMethodNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when a password reset is required.</p>
  */
@@ -2371,15 +2173,6 @@ export interface PasswordResetRequiredException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace PasswordResetRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PasswordResetRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when a user is not confirmed successfully.</p>
  */
@@ -2390,15 +2183,6 @@ export interface UserNotConfirmedException extends __SmithyException, $MetadataB
    * <p>The message returned when a user is not confirmed successfully.</p>
    */
   message?: string;
-}
-
-export namespace UserNotConfirmedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserNotConfirmedException): any => ({
-    ...obj,
-  });
 }
 
 export interface AdminLinkProviderForUserRequest {
@@ -2924,15 +2708,6 @@ export interface UserPoolAddOnNotEnabledException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace UserPoolAddOnNotEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolAddOnNotEnabledException): any => ({
-    ...obj,
-  });
-}
-
 export interface AdminRemoveUserFromGroupRequest {
   /**
    * <p>The user pool ID for the user pool.</p>
@@ -3048,15 +2823,6 @@ export interface InvalidEmailRoleAccessPolicyException extends __SmithyException
    *             is not set on an email address that Amazon Cognito can access.</p>
    */
   message?: string;
-}
-
-export namespace InvalidEmailRoleAccessPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEmailRoleAccessPolicyException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3248,15 +3014,6 @@ export interface CodeMismatchException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace CodeMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown if a code has expired.</p>
  */
@@ -3269,15 +3026,6 @@ export interface ExpiredCodeException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace ExpiredCodeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExpiredCodeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the software token TOTP multi-factor authentication
  *             (MFA) is not enabled for the user pool.</p>
@@ -3286,15 +3034,6 @@ export interface SoftwareTokenMFANotFoundException extends __SmithyException, $M
   name: "SoftwareTokenMFANotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace SoftwareTokenMFANotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SoftwareTokenMFANotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3839,15 +3578,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the request to change a user password.</p>
  */
@@ -4291,15 +4021,6 @@ export interface GroupExistsException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace GroupExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GroupExistsException): any => ({
-    ...obj,
-  });
-}
-
 export enum IdentityProviderTypeType {
   Facebook = "Facebook",
   Google = "Google",
@@ -4642,15 +4363,6 @@ export interface DuplicateProviderException extends __SmithyException, $Metadata
   name: "DuplicateProviderException";
   $fault: "client";
   message?: string;
-}
-
-export namespace DuplicateProviderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateProviderException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5897,15 +5609,6 @@ export interface UserPoolTaggingException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace UserPoolTaggingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserPoolTaggingException): any => ({
-    ...obj,
-  });
-}
-
 export enum OAuthFlowType {
   client_credentials = "client_credentials",
   code = "code",
@@ -6491,15 +6194,6 @@ export interface InvalidOAuthFlowException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidOAuthFlowException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOAuthFlowException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the specified scope does not exist.</p>
  */
@@ -6507,15 +6201,6 @@ export interface ScopeDoesNotExistException extends __SmithyException, $Metadata
   name: "ScopeDoesNotExistException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ScopeDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ScopeDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6636,15 +6321,6 @@ export interface UnsupportedIdentityProviderException extends __SmithyException,
   name: "UnsupportedIdentityProviderException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedIdentityProviderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedIdentityProviderException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourceServerRequest {
@@ -9344,15 +9020,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when you attempt to perform an operation that is not enabled for the user pool client.</p>
  */
@@ -9362,15 +9029,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when an unsupported token is passed to an operation.</p>
  */
@@ -9378,15 +9036,6 @@ export interface UnsupportedTokenTypeException extends __SmithyException, $Metad
   name: "UnsupportedTokenTypeException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedTokenTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedTokenTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface SetRiskConfigurationRequest {

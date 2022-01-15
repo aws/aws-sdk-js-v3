@@ -28,8 +28,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *             are deleted properly. Otherwise, you can have orphaned resources in your VPC that
  *             prevent you from being able to delete the VPC. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting a
  *                 Cluster</a> in the <i>Amazon EKS User Guide</i>.</p>
- *         <p>If you have managed node groups or Fargate profiles attached to the cluster, you must
- *             delete them first. For more information, see <a>DeleteNodegroup</a> and <a>DeleteFargateProfile</a>.</p>
+ *         <p>If you have managed node groups or Fargate profiles attached to the
+ *             cluster, you must delete them first. For more information, see <a>DeleteNodegroup</a> and <a>DeleteFargateProfile</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -62,4 +62,17 @@ describe("deserializerMiddleware", () => {
     expect(mockDeserializer).toHaveBeenCalledTimes(1);
     expect(mockDeserializer).toHaveBeenCalledWith(mockNextResponse.response, mockOptions);
   });
+
+  it("injects $response reference to deserializing exceptions", async () => {
+    const exception = Object.assign(new Error("MockException"), mockNextResponse.response);
+    mockDeserializer.mockReset();
+    mockDeserializer.mockRejectedValueOnce(exception);
+    try {
+      await deserializerMiddleware(mockOptions, mockDeserializer)(mockNext, {})(mockArgs);
+      fail("DeserializerMiddleware should throw");
+    } catch (e) {
+      expect(e).toMatchObject(exception);
+      expect(e.$response).toEqual(mockNextResponse.response);
+    }
+  });
 });

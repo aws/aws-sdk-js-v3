@@ -10,15 +10,6 @@ export interface ClientLimitExceededException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace ClientLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export enum ClipFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
   SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
@@ -152,15 +143,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The codec private data in at least one of the tracks of the video stream is not valid
  *             for this operation.</p>
@@ -169,15 +151,6 @@ export interface InvalidCodecPrivateDataException extends __SmithyException, $Me
   name: "InvalidCodecPrivateDataException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidCodecPrivateDataException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCodecPrivateDataException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -190,15 +163,6 @@ export interface InvalidMediaFrameException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InvalidMediaFrameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMediaFrameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No codec private data was found in at least one of tracks of the video stream.</p>
  */
@@ -206,15 +170,6 @@ export interface MissingCodecPrivateDataException extends __SmithyException, $Me
   name: "MissingCodecPrivateDataException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace MissingCodecPrivateDataException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingCodecPrivateDataException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -227,15 +182,6 @@ export interface NoDataRetentionException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace NoDataRetentionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoDataRetentionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Status Code: 403, The caller is not authorized to perform an operation on the given
  *             stream, or the token has expired.</p>
@@ -244,15 +190,6 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
   name: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotAuthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -273,15 +210,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The type of the media (for example, h.264 or h.265 video or ACC or G.711 audio) could
  *             not be determined from the codec IDs of the tracks in the first fragment for a playback
@@ -292,15 +220,6 @@ export interface UnsupportedStreamMediaTypeException extends __SmithyException, 
   name: "UnsupportedStreamMediaTypeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedStreamMediaTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedStreamMediaTypeException): any => ({
-    ...obj,
-  });
 }
 
 export enum DASHFragmentSelectorType {

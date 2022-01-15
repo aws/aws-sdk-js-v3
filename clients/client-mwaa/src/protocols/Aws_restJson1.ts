@@ -1610,6 +1610,7 @@ const deserializeAws_restJson1LastUpdate = (output: any, context: __SerdeContext
       output.Error !== undefined && output.Error !== null
         ? deserializeAws_restJson1UpdateError(output.Error, context)
         : undefined,
+    Source: __expectString(output.Source),
     Status: __expectString(output.Status),
   } as any;
 };

@@ -33,6 +33,7 @@ import {
   DayOfWeek,
   DimensionType,
   FleetMetricUnit,
+  JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   LogLevel,
   MetricToRetain,
@@ -55,6 +56,56 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+export interface DeleteScheduledAuditRequest {
+  /**
+   * <p>The name of the scheduled audit you want to delete.</p>
+   */
+  scheduledAuditName: string | undefined;
+}
+
+export namespace DeleteScheduledAuditRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteScheduledAuditRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteScheduledAuditResponse {}
+
+export namespace DeleteScheduledAuditResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteScheduledAuditResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteSecurityProfileRequest {
+  /**
+   * <p>The name of the security profile to be deleted.</p>
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>The expected version of the security profile. A new version is generated whenever
+   *         the security profile is updated. If you specify a value that is different from the actual
+   *         version, a <code>VersionConflictException</code> is thrown.</p>
+   */
+  expectedVersion?: number;
+}
+
+export namespace DeleteSecurityProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DeleteSecurityProfileResponse {}
 
@@ -2115,6 +2166,11 @@ export interface Job {
   jobTemplateArn?: string;
 
   /**
+   * <p>The configuration for the criteria to retry the job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
+
+  /**
    * <p>A key-value map that pairs the patterns that need to be replaced in a managed
    *             template job document schema. You can use the description of each key as a guidance
    *             to specify the inputs during runtime when creating a job.</p>
@@ -2371,6 +2427,12 @@ export interface DescribeJobTemplateResponse {
    *            be automatically set to <code>TIMED_OUT</code>.</p>
    */
   timeoutConfig?: TimeoutConfig;
+
+  /**
+   * <p>The configuration that determines how many retries are allowed for each failure type
+   *             for a job.</p>
+   */
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
 }
 
 export namespace DescribeJobTemplateResponse {
@@ -2505,15 +2567,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   name: "InternalServerException";
   $fault: "server";
   message?: string;
-}
-
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeMitigationActionRequest {
@@ -4955,15 +5008,6 @@ export interface NotConfiguredException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace NotConfiguredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotConfiguredException): any => ({
-    ...obj,
-  });
-}
-
 export enum BehaviorCriteriaType {
   MACHINE_LEARNING = "MACHINE_LEARNING",
   STATIC = "STATIC",
@@ -6370,6 +6414,12 @@ export interface JobExecutionSummary {
    *             information.</p>
    */
   executionNumber?: number;
+
+  /**
+   * <p>The number that indicates how many retry attempts have been completed for this
+   *         job on this device.</p>
+   */
+  retryAttempt?: number;
 }
 
 export namespace JobExecutionSummary {
@@ -6460,6 +6510,11 @@ export interface ListJobExecutionsForThingRequest {
    * <p>The token to retrieve the next set of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The unique identifier you assigned to this job when it was created.</p>
+   */
+  jobId?: string;
 }
 
 export namespace ListJobExecutionsForThingRequest {
@@ -8223,91 +8278,4 @@ export namespace ListThingPrincipalsResponse {
 export enum ReportType {
   ERRORS = "ERRORS",
   RESULTS = "RESULTS",
-}
-
-export interface ListThingRegistrationTaskReportsRequest {
-  /**
-   * <p>The id of the task.</p>
-   */
-  taskId: string | undefined;
-
-  /**
-   * <p>The type of task report.</p>
-   */
-  reportType: ReportType | string | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 		the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per request.</p>
-   */
-  maxResults?: number;
-}
-
-export namespace ListThingRegistrationTaskReportsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingRegistrationTaskReportsResponse {
-  /**
-   * <p>Links to the task resources.</p>
-   */
-  resourceLinks?: string[];
-
-  /**
-   * <p>The type of task report.</p>
-   */
-  reportType?: ReportType | string;
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListThingRegistrationTaskReportsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingRegistrationTaskReportsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListThingRegistrationTasksRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The status of the bulk thing provisioning task.</p>
-   */
-  status?: Status | string;
-}
-
-export namespace ListThingRegistrationTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListThingRegistrationTasksRequest): any => ({
-    ...obj,
-  });
 }

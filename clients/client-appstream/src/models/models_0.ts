@@ -326,6 +326,11 @@ export namespace ApplicationSettingsResponse {
   });
 }
 
+export enum AppVisibility {
+  ALL = "ALL",
+  ASSOCIATED = "ASSOCIATED",
+}
+
 export interface AssociateApplicationFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -377,15 +382,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  */
@@ -396,15 +392,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -419,15 +406,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The attempted operation is not permitted.</p>
  */
@@ -438,15 +416,6 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace OperationNotPermittedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -461,13 +430,53 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
+export interface AssociateApplicationToEntitlementRequest {
+  /**
+   * <p>The name of the stack.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  EntitlementName: string | undefined;
+
+  /**
+   * <p>The identifier of the application.</p>
+   */
+  ApplicationIdentifier: string | undefined;
+}
+
+export namespace AssociateApplicationToEntitlementRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+  export const filterSensitiveLog = (obj: AssociateApplicationToEntitlementRequest): any => ({
     ...obj,
   });
+}
+
+export interface AssociateApplicationToEntitlementResult {}
+
+export namespace AssociateApplicationToEntitlementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateApplicationToEntitlementResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The entitlement can't be found.</p>
+ */
+export interface EntitlementNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "EntitlementNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
 }
 
 export interface AssociateFleetRequest {
@@ -514,15 +523,6 @@ export interface IncompatibleImageException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace IncompatibleImageException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleImageException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
  */
@@ -533,15 +533,6 @@ export interface InvalidAccountStatusException extends __SmithyException, $Metad
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace InvalidAccountStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAccountStatusException): any => ({
-    ...obj,
-  });
 }
 
 export enum AuthenticationType {
@@ -813,15 +804,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource exists and is not in use, but isn't available.</p>
  */
@@ -832,15 +814,6 @@ export interface ResourceNotAvailableException extends __SmithyException, $Metad
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace ResourceNotAvailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotAvailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateAppBlockRequest {
@@ -1105,13 +1078,176 @@ export interface InvalidRoleException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace InvalidRoleException {
+/**
+ * <p>An attribute associated with an entitlement. Application entitlements work by matching
+ *             a supported SAML 2.0 attribute name to a value when a user identity federates to an
+ *             Amazon AppStream 2.0 SAML application.</p>
+ */
+export interface EntitlementAttribute {
+  /**
+   * <p>A supported AWS IAM SAML <code>PrincipalTag</code> attribute that is matched to the
+   *             associated value when a user identity federates into an Amazon AppStream 2.0 SAML
+   *             application.</p>
+   *         <p>The following are valid values:</p>
+   *         <ul>
+   *             <li>
+   *                <p>roles</p>
+   *             </li>
+   *             <li>
+   *                <p>department </p>
+   *             </li>
+   *             <li>
+   *                <p>organization </p>
+   *             </li>
+   *             <li>
+   *                <p>groups </p>
+   *             </li>
+   *             <li>
+   *                <p>title </p>
+   *             </li>
+   *             <li>
+   *                <p>costCenter </p>
+   *             </li>
+   *             <li>
+   *                <p>userType</p>
+   *             </li>
+   *          </ul>
+   *         <p> </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A value that is matched to a supported SAML attribute name when a user identity
+   *             federates into an Amazon AppStream 2.0 SAML application. </p>
+   */
+  Value: string | undefined;
+}
+
+export namespace EntitlementAttribute {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
+  export const filterSensitiveLog = (obj: EntitlementAttribute): any => ({
     ...obj,
   });
+}
+
+export interface CreateEntitlementRequest {
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the stack with which the entitlement is associated.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The description of the entitlement.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies whether all or selected apps are entitled.</p>
+   */
+  AppVisibility: AppVisibility | string | undefined;
+
+  /**
+   * <p>The attributes of the entitlement.</p>
+   */
+  Attributes: EntitlementAttribute[] | undefined;
+}
+
+export namespace CreateEntitlementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEntitlementRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies an entitlement. Entitlements control access to specific applications within
+ *             a stack, based on user attributes. Entitlements apply to SAML 2.0 federated user
+ *             identities. Amazon AppStream 2.0 user pool and streaming URL users are entitled to all
+ *             applications in a stack. Entitlements don't apply to the desktop stream view
+ *             application, or to applications managed by a dynamic app provider using the Dynamic
+ *             Application Framework.</p>
+ */
+export interface Entitlement {
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the stack with which the entitlement is associated.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The description of the entitlement.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies whether all or selected apps are entitled.</p>
+   */
+  AppVisibility: AppVisibility | string | undefined;
+
+  /**
+   * <p>The attributes of the entitlement.</p>
+   */
+  Attributes: EntitlementAttribute[] | undefined;
+
+  /**
+   * <p>The time when the entitlement was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The time when the entitlement was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace Entitlement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Entitlement): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateEntitlementResult {
+  /**
+   * <p>The entitlement.</p>
+   */
+  Entitlement?: Entitlement;
+}
+
+export namespace CreateEntitlementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEntitlementResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The entitlement already exists.</p>
+ */
+export interface EntitlementAlreadyExistsException extends __SmithyException, $MetadataBearer {
+  name: "EntitlementAlreadyExistsException";
+  $fault: "client";
+  /**
+   * <p>The error message in the exception.</p>
+   */
+  Message?: string;
 }
 
 /**
@@ -1788,15 +1924,6 @@ export interface RequestLimitExceededException extends __SmithyException, $Metad
    * <p>The error message in the exception.</p>
    */
   Message?: string;
-}
-
-export namespace RequestLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateImageBuilderRequest {
@@ -3053,15 +3180,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteApplicationRequest {
   /**
    * <p>The name of the application.</p>
@@ -3112,6 +3230,38 @@ export namespace DeleteDirectoryConfigResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteDirectoryConfigResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEntitlementRequest {
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the stack with which the entitlement is associated.</p>
+   */
+  StackName: string | undefined;
+}
+
+export namespace DeleteEntitlementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEntitlementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEntitlementResult {}
+
+export namespace DeleteEntitlementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEntitlementResult): any => ({
     ...obj,
   });
 }
@@ -3524,6 +3674,59 @@ export namespace DescribeDirectoryConfigsResult {
     ...(obj.DirectoryConfigs && {
       DirectoryConfigs: obj.DirectoryConfigs.map((item) => DirectoryConfig.filterSensitiveLog(item)),
     }),
+  });
+}
+
+export interface DescribeEntitlementsRequest {
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name of the stack with which the entitlement is associated.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeEntitlementsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEntitlementsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEntitlementsResult {
+  /**
+   * <p>The entitlements.</p>
+   */
+  Entitlements?: Entitlement[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *             operation.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeEntitlementsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeEntitlementsResult): any => ({
+    ...obj,
   });
 }
 
@@ -4308,6 +4511,43 @@ export namespace DisassociateApplicationFleetResult {
   });
 }
 
+export interface DisassociateApplicationFromEntitlementRequest {
+  /**
+   * <p>The name of the stack with which the entitlement is associated.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  EntitlementName: string | undefined;
+
+  /**
+   * <p>The identifier of the application to remove from the entitlement.</p>
+   */
+  ApplicationIdentifier: string | undefined;
+}
+
+export namespace DisassociateApplicationFromEntitlementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateApplicationFromEntitlementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateApplicationFromEntitlementResult {}
+
+export namespace DisassociateApplicationFromEntitlementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateApplicationFromEntitlementResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateFleetRequest {
   /**
    * <p>The name of the fleet.</p>
@@ -4373,6 +4613,25 @@ export namespace EnableUserResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: EnableUserResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The application associated to an entitlement. Access is controlled based on user attributes.</p>
+ */
+export interface EntitledApplication {
+  /**
+   * <p>The identifier of the application.</p>
+   */
+  ApplicationIdentifier: string | undefined;
+}
+
+export namespace EntitledApplication {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EntitledApplication): any => ({
     ...obj,
   });
 }
@@ -4492,6 +4751,58 @@ export namespace ListAssociatedStacksResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListAssociatedStacksResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEntitledApplicationsRequest {
+  /**
+   * <p>The name of the stack with which the entitlement is associated.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  EntitlementName: string | undefined;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum size of each page of results.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListEntitledApplicationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEntitledApplicationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEntitledApplicationsResult {
+  /**
+   * <p>The entitled applications.</p>
+   */
+  EntitledApplications?: EntitledApplication[];
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this operation.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEntitledApplicationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEntitledApplicationsResult): any => ({
     ...obj,
   });
 }
@@ -4835,6 +5146,58 @@ export namespace UpdateDirectoryConfigResult {
   export const filterSensitiveLog = (obj: UpdateDirectoryConfigResult): any => ({
     ...obj,
     ...(obj.DirectoryConfig && { DirectoryConfig: DirectoryConfig.filterSensitiveLog(obj.DirectoryConfig) }),
+  });
+}
+
+export interface UpdateEntitlementRequest {
+  /**
+   * <p>The name of the entitlement.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the stack with which the entitlement is associated.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>The description of the entitlement.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Specifies whether all or only selected apps are entitled.</p>
+   */
+  AppVisibility?: AppVisibility | string;
+
+  /**
+   * <p>The attributes of the entitlement.</p>
+   */
+  Attributes?: EntitlementAttribute[];
+}
+
+export namespace UpdateEntitlementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEntitlementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEntitlementResult {
+  /**
+   * <p>The entitlement.</p>
+   */
+  Entitlement?: Entitlement;
+}
+
+export namespace UpdateEntitlementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEntitlementResult): any => ({
+    ...obj,
   });
 }
 

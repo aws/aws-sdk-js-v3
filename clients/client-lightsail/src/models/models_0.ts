@@ -14,15 +14,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   tip?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AccessDirection {
   inbound = "inbound",
   outbound = "outbound",
@@ -234,15 +225,6 @@ export interface AccountSetupInProgressException extends __SmithyException, $Met
   docs?: string;
   message?: string;
   tip?: string;
-}
-
-export namespace AccountSetupInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccountSetupInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -982,15 +964,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
   tip?: string;
 }
 
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lightsail throws this exception when it cannot find a resource.</p>
  */
@@ -1001,15 +974,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   docs?: string;
   message?: string;
   tip?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1024,15 +988,6 @@ export interface OperationFailureException extends __SmithyException, $MetadataB
   tip?: string;
 }
 
-export namespace OperationFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A general service exception.</p>
  */
@@ -1045,15 +1000,6 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   tip?: string;
 }
 
-export namespace ServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lightsail throws this exception when the user has not been authenticated.</p>
  */
@@ -1064,15 +1010,6 @@ export interface UnauthenticatedException extends __SmithyException, $MetadataBe
   docs?: string;
   message?: string;
   tip?: string;
-}
-
-export namespace UnauthenticatedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthenticatedException): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachCertificateToDistributionRequest {

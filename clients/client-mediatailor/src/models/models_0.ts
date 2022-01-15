@@ -280,7 +280,7 @@ export interface Channel {
   CreationTime?: Date;
 
   /**
-   * <p>Contains information about the slate used to fill gaps between programs in the schedule. You must configure FillerSlate if your channel uses an LINEAR PlaybackMode.</p>
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the LINEAR PlaybackMode. MediaTailor doesn't support filler slate for channels using the LOOP PlaybackMode.</p>
    */
   FillerSlate?: SlateSource;
 
@@ -1076,15 +1076,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 export enum ChannelState {
   RUNNING = "RUNNING",
   STOPPED = "STOPPED",
@@ -1181,7 +1172,7 @@ export interface CreateChannelRequest {
   ChannelName: string | undefined;
 
   /**
-   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses a LINEAR PlaybackMode.</p>
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the LINEAR PlaybackMode. MediaTailor doesn't support filler slate for channels using the LOOP PlaybackMode.</p>
    */
   FillerSlate?: SlateSource;
 
@@ -3055,6 +3046,11 @@ export interface UpdateChannelRequest {
    * <p>The identifier for the channel you are working on.</p>
    */
   ChannelName: string | undefined;
+
+  /**
+   * <p>The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the LINEAR PlaybackMode. MediaTailor doesn't support filler slate for channels using the LOOP PlaybackMode.</p>
+   */
+  FillerSlate?: SlateSource;
 
   /**
    * <p>The channel's output properties.</p>

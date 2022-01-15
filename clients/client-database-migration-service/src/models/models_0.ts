@@ -14,15 +14,6 @@ export interface AccessDeniedFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace AccessDeniedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Describes a quota for an Amazon Web Services account, for example the number of replication instances
  *          allowed.</p>
@@ -155,15 +146,6 @@ export interface ResourceNotFoundFault extends __SmithyException, $MetadataBeare
    * <p></p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -525,15 +507,6 @@ export interface InvalidResourceStateFault extends __SmithyException, $MetadataB
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidResourceStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3816,15 +3789,6 @@ export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSKeyNotAccessibleFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource you are attempting to create already exists.</p>
  */
@@ -3839,15 +3803,6 @@ export interface ResourceAlreadyExistsFault extends __SmithyException, $Metadata
   resourceArn?: string;
 }
 
-export namespace ResourceAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The quota for this resource quota has been exceeded.</p>
  */
@@ -3860,15 +3815,6 @@ export interface ResourceQuotaExceededFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace ResourceQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
  */
@@ -3876,15 +3822,6 @@ export interface S3AccessDeniedFault extends __SmithyException, $MetadataBearer 
   name: "S3AccessDeniedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace S3AccessDeniedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3AccessDeniedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4048,15 +3985,6 @@ export interface KMSAccessDeniedFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace KMSAccessDeniedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSAccessDeniedFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified KMS key isn't enabled.</p>
  */
@@ -4064,15 +3992,6 @@ export interface KMSDisabledFault extends __SmithyException, $MetadataBearer {
   name: "KMSDisabledFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace KMSDisabledFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSDisabledFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4084,15 +4003,6 @@ export interface KMSInvalidStateFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace KMSInvalidStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSInvalidStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified KMS entity or resource can't be found.</p>
  */
@@ -4102,15 +4012,6 @@ export interface KMSNotFoundFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace KMSNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This request triggered KMS request throttling.</p>
  */
@@ -4118,15 +4019,6 @@ export interface KMSThrottlingFault extends __SmithyException, $MetadataBearer {
   name: "KMSThrottlingFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace KMSThrottlingFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSThrottlingFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4141,15 +4033,6 @@ export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace SNSInvalidTopicFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You are not authorized for the SNS subscription.</p>
  */
@@ -4160,15 +4043,6 @@ export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBea
    * <p></p>
    */
   message?: string;
-}
-
-export namespace SNSNoAuthorizationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4760,15 +4634,6 @@ export interface InsufficientResourceCapacityFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace InsufficientResourceCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientResourceCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The subnet provided is invalid.</p>
  */
@@ -4779,15 +4644,6 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace InvalidSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4802,15 +4658,6 @@ export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __SmithyExc
   message?: string;
 }
 
-export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReplicationSubnetGroupDoesNotCoverEnoughAZs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The storage quota has been exceeded.</p>
  */
@@ -4821,15 +4668,6 @@ export interface StorageQuotaExceededFault extends __SmithyException, $MetadataB
    * <p></p>
    */
   message?: string;
-}
-
-export namespace StorageQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7923,15 +7761,6 @@ export interface InvalidCertificateFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace InvalidCertificateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCertificateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -8501,15 +8330,6 @@ export interface UpgradeDependencyFailureFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace UpgradeDependencyFailureFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeDependencyFailureFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -8568,15 +8388,6 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   message?: string;
-}
-
-export namespace SubnetAlreadyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9080,15 +8891,6 @@ export interface KMSFault extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace KMSFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
  *             found.</p>
@@ -9097,15 +8899,6 @@ export interface S3ResourceNotFoundFault extends __SmithyException, $MetadataBea
   name: "S3ResourceNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace S3ResourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3ResourceNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**

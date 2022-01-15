@@ -145,15 +145,6 @@ export interface AcceleratorNotDisabledException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace AcceleratorNotDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorNotDisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The accelerator that you specified doesn't exist.</p>
  */
@@ -163,15 +154,6 @@ export interface AcceleratorNotFoundException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace AcceleratorNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AcceleratorNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You don't have access permission.</p>
  */
@@ -179,15 +161,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   name: "AccessDeniedException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -282,15 +255,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The endpoint that you specified doesn't exist.</p>
  */
@@ -298,15 +262,6 @@ export interface EndpointAlreadyExistsException extends __SmithyException, $Meta
   name: "EndpointAlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace EndpointAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -318,15 +273,6 @@ export interface EndpointGroupNotFoundException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace EndpointGroupNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointGroupNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There was an internal error for AWS Global Accelerator.</p>
  */
@@ -334,15 +280,6 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
   name: "InternalServiceErrorException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace InternalServiceErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -354,15 +291,6 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Processing your request would cause you to exceed an AWS Global Accelerator limit.</p>
  */
@@ -370,15 +298,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface AdvertiseByoipCidrRequest {
@@ -564,15 +483,6 @@ export interface ByoipCidrNotFoundException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace ByoipCidrNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ByoipCidrNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
  * 		incorrect for this action.</p>
@@ -581,15 +491,6 @@ export interface IncorrectCidrStateException extends __SmithyException, $Metadat
   name: "IncorrectCidrStateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace IncorrectCidrStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncorrectCidrStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface AllowCustomRoutingTrafficRequest {
@@ -649,15 +550,6 @@ export interface AssociatedEndpointGroupFoundException extends __SmithyException
   Message?: string;
 }
 
-export namespace AssociatedEndpointGroupFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedEndpointGroupFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
  * 			accelerator before you can delete it.</p>
@@ -666,15 +558,6 @@ export interface AssociatedListenerFoundException extends __SmithyException, $Me
   name: "AssociatedListenerFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AssociatedListenerFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedListenerFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1106,15 +989,6 @@ export interface EndpointGroupAlreadyExistsException extends __SmithyException, 
   Message?: string;
 }
 
-export namespace EndpointGroupAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointGroupAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
  */
@@ -1124,15 +998,6 @@ export interface InvalidPortRangeException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace InvalidPortRangeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPortRangeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The listener that you specified doesn't exist.</p>
  */
@@ -1140,15 +1005,6 @@ export interface ListenerNotFoundException extends __SmithyException, $MetadataB
   name: "ListenerNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ListenerNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2228,15 +2084,6 @@ export interface EndpointNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace EndpointNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EndpointNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There isn't another item to return.</p>
  */
@@ -2244,15 +2091,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAcceleratorsRequest {

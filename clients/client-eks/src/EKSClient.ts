@@ -30,6 +30,7 @@ import {
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
+  DefaultsMode,
   SmithyConfiguration as __SmithyConfiguration,
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
@@ -322,6 +323,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The {@link DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   */
+  defaultsMode?: DefaultsMode | Provider<DefaultsMode>;
 }
 
 type EKSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
@@ -351,16 +357,16 @@ type EKSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface EKSClientResolvedConfig extends EKSClientResolvedConfigType {}
 
 /**
- * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on
- *             Amazon Web Services without needing to stand up or maintain your own Kubernetes control plane.
- *             Kubernetes is an open-source system for automating the deployment, scaling, and
- *             management of containerized applications. </p>
- *         <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so you can use
- *             all the existing plugins and tooling from the Kubernetes community. Applications running
- *             on Amazon EKS are fully compatible with applications running on any standard Kubernetes
- *             environment, whether running in on-premises data centers or public clouds. This means
- *             that you can easily migrate any standard Kubernetes application to Amazon EKS without any
- *             code modification required.</p>
+ * <p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy
+ *             for you to run Kubernetes on Amazon Web Services without needing to stand up or maintain
+ *             your own Kubernetes control plane. Kubernetes is an open-source system for automating
+ *             the deployment, scaling, and management of containerized applications. </p>
+ *         <p>Amazon EKS runs up-to-date versions of the open-source Kubernetes software, so
+ *             you can use all the existing plugins and tooling from the Kubernetes community.
+ *             Applications running on Amazon EKS are fully compatible with applications
+ *             running on any standard Kubernetes environment, whether running in on-premises data
+ *             centers or public clouds. This means that you can easily migrate any standard Kubernetes
+ *             application to Amazon EKS without any code modification required.</p>
  */
 export class EKSClient extends __Client<
   __HttpHandlerOptions,

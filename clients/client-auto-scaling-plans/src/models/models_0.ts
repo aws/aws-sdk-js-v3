@@ -10,15 +10,6 @@ export interface ConcurrentUpdateException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ConcurrentUpdateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents a tag.</p>
  */
@@ -724,15 +715,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your account exceeded a limit. This exception is thrown when a per-account resource
  *          limit is exceeded.</p>
@@ -743,15 +725,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  */
@@ -759,15 +732,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteScalingPlanRequest {
@@ -810,15 +774,6 @@ export interface ObjectNotFoundException extends __SmithyException, $MetadataBea
   name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ObjectNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScalingPlanResourcesRequest {
@@ -1056,15 +1011,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeScalingPlansRequest {

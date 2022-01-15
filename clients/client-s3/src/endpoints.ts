@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "af-south-1": {
     variants: [
       {
-        hostname: "s3.af-south-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.af-south-1.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "ap-east-1": {
     variants: [
-      {
-        hostname: "s3.ap-east-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "s3.dualstack.ap-east-1.amazonaws.com",
         tags: ["dualstack"],
@@ -41,10 +33,6 @@ const regionHash: RegionHash = {
   "ap-northeast-2": {
     variants: [
       {
-        hostname: "s3.ap-northeast-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.ap-northeast-2.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -53,10 +41,6 @@ const regionHash: RegionHash = {
   "ap-northeast-3": {
     variants: [
       {
-        hostname: "s3.ap-northeast-3.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.ap-northeast-3.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -64,10 +48,6 @@ const regionHash: RegionHash = {
   },
   "ap-south-1": {
     variants: [
-      {
-        hostname: "s3.ap-south-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "s3.dualstack.ap-south-1.amazonaws.com",
         tags: ["dualstack"],
@@ -101,10 +81,6 @@ const regionHash: RegionHash = {
   "ap-southeast-3": {
     variants: [
       {
-        hostname: "s3.ap-southeast-3.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.ap-southeast-3.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -122,10 +98,6 @@ const regionHash: RegionHash = {
   "ca-central-1": {
     variants: [
       {
-        hostname: "s3.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -142,10 +114,6 @@ const regionHash: RegionHash = {
   "cn-north-1": {
     variants: [
       {
-        hostname: "s3.cn-north-1.amazonaws.com.cn",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.cn-north-1.amazonaws.com.cn",
         tags: ["dualstack"],
       },
@@ -153,10 +121,6 @@ const regionHash: RegionHash = {
   },
   "cn-northwest-1": {
     variants: [
-      {
-        hostname: "s3.cn-northwest-1.amazonaws.com.cn",
-        tags: [],
-      },
       {
         hostname: "s3.dualstack.cn-northwest-1.amazonaws.com.cn",
         tags: ["dualstack"],
@@ -166,10 +130,6 @@ const regionHash: RegionHash = {
   "eu-central-1": {
     variants: [
       {
-        hostname: "s3.eu-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.eu-central-1.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -178,10 +138,6 @@ const regionHash: RegionHash = {
   "eu-north-1": {
     variants: [
       {
-        hostname: "s3.eu-north-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.eu-north-1.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -189,10 +145,6 @@ const regionHash: RegionHash = {
   },
   "eu-south-1": {
     variants: [
-      {
-        hostname: "s3.eu-south-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "s3.dualstack.eu-south-1.amazonaws.com",
         tags: ["dualstack"],
@@ -214,10 +166,6 @@ const regionHash: RegionHash = {
   "eu-west-2": {
     variants: [
       {
-        hostname: "s3.eu-west-2.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.eu-west-2.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -226,10 +174,6 @@ const regionHash: RegionHash = {
   "eu-west-3": {
     variants: [
       {
-        hostname: "s3.eu-west-3.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "s3.dualstack.eu-west-3.amazonaws.com",
         tags: ["dualstack"],
       },
@@ -237,10 +181,6 @@ const regionHash: RegionHash = {
   },
   "me-south-1": {
     variants: [
-      {
-        hostname: "s3.me-south-1.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "s3.dualstack.me-south-1.amazonaws.com",
         tags: ["dualstack"],
@@ -290,10 +230,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "s3.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "s3-fips.dualstack.us-east-2.amazonaws.com",
         tags: ["dualstack", "fips"],

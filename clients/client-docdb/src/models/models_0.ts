@@ -143,15 +143,6 @@ export interface SourceNotFoundFault extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace SourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SourceNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The subscription name does not exist. </p>
  */
@@ -159,15 +150,6 @@ export interface SubscriptionNotFoundFault extends __SmithyException, $MetadataB
   name: "SubscriptionNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -230,15 +212,6 @@ export interface DBClusterNotFoundFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace DBClusterNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing instance. </p>
@@ -249,15 +222,6 @@ export interface DBInstanceNotFoundFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace DBInstanceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing snapshot. </p>
@@ -266,15 +230,6 @@ export interface DBSnapshotNotFoundFault extends __SmithyException, $MetadataBea
   name: "DBSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSnapshotNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -434,15 +389,6 @@ export interface InvalidDBClusterStateFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidDBClusterStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBClusterStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The specified instance isn't in the <i>available</i> state.
  *         </p>
@@ -453,15 +399,6 @@ export interface InvalidDBInstanceStateFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidDBInstanceStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBInstanceStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource ID was not found.</p>
  */
@@ -469,15 +406,6 @@ export interface ResourceNotFoundFault extends __SmithyException, $MetadataBeare
   name: "ResourceNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -607,15 +535,6 @@ export interface DBParameterGroupAlreadyExistsFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace DBParameterGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBParameterGroupName</code> doesn't refer to an existing parameter group. </p>
@@ -626,15 +545,6 @@ export interface DBParameterGroupNotFoundFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace DBParameterGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This request would cause you to exceed the allowed number of parameter groups.</p>
  */
@@ -642,15 +552,6 @@ export interface DBParameterGroupQuotaExceededFault extends __SmithyException, $
   name: "DBParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBParameterGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBParameterGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -913,15 +814,6 @@ export interface DBClusterSnapshotAlreadyExistsFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace DBClusterSnapshotAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
@@ -930,15 +822,6 @@ export interface DBClusterSnapshotNotFoundFault extends __SmithyException, $Meta
   name: "DBClusterSnapshotNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBClusterSnapshotNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterSnapshotNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -950,15 +833,6 @@ export interface InvalidDBClusterSnapshotStateFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidDBClusterSnapshotStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBClusterSnapshotStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error occurred when accessing an KMS key.</p>
  */
@@ -968,15 +842,6 @@ export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace KMSKeyNotAccessibleFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSKeyNotAccessibleFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would cause you to exceed the allowed number of snapshots.</p>
  */
@@ -984,15 +849,6 @@ export interface SnapshotQuotaExceededFault extends __SmithyException, $Metadata
   name: "SnapshotQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1518,15 +1374,6 @@ export interface DBClusterAlreadyExistsFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace DBClusterAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
@@ -1535,15 +1382,6 @@ export interface DBClusterParameterGroupNotFoundFault extends __SmithyException,
   name: "DBClusterParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBClusterParameterGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterParameterGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1555,15 +1393,6 @@ export interface DBClusterQuotaExceededFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace DBClusterQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Subnets in the subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  */
@@ -1571,15 +1400,6 @@ export interface DBSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $
   name: "DBSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSubnetGroupDoesNotCoverEnoughAZs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupDoesNotCoverEnoughAZs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1592,15 +1412,6 @@ export interface DBSubnetGroupNotFoundFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace DBSubnetGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global cluster.</p>
  */
@@ -1608,15 +1419,6 @@ export interface GlobalClusterNotFoundFault extends __SmithyException, $Metadata
   name: "GlobalClusterNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace GlobalClusterNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1628,15 +1430,6 @@ export interface InsufficientStorageClusterCapacityFault extends __SmithyExcepti
   message?: string;
 }
 
-export namespace InsufficientStorageClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientStorageClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The subnet group can't be deleted because it's in use.</p>
  */
@@ -1646,15 +1439,6 @@ export interface InvalidDBSubnetGroupStateFault extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidDBSubnetGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSubnetGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation can't be performed while the cluster is in this state.</p>
  */
@@ -1662,15 +1446,6 @@ export interface InvalidGlobalClusterStateFault extends __SmithyException, $Meta
   name: "InvalidGlobalClusterStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidGlobalClusterStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGlobalClusterStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1683,15 +1458,6 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InvalidSubnet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The subnet group doesn't cover all Availability Zones after it is created
  *             because of changes that were made.</p>
@@ -1702,15 +1468,6 @@ export interface InvalidVPCNetworkStateFault extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidVPCNetworkStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would cause you to exceed the allowed amount of storage available across
  *             all instances.</p>
@@ -1719,15 +1476,6 @@ export interface StorageQuotaExceededFault extends __SmithyException, $MetadataB
   name: "StorageQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace StorageQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1869,15 +1617,6 @@ export interface AuthorizationNotFoundFault extends __SmithyException, $Metadata
   name: "AuthorizationNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace AuthorizationNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthorizationNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2434,15 +2173,6 @@ export interface DBInstanceAlreadyExistsFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace DBInstanceAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>
  *             <code>DBSecurityGroupName</code> doesn't refer to an existing security group. </p>
@@ -2451,15 +2181,6 @@ export interface DBSecurityGroupNotFoundFault extends __SmithyException, $Metada
   name: "DBSecurityGroupNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSecurityGroupNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSecurityGroupNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2471,15 +2192,6 @@ export interface InstanceQuotaExceededFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InstanceQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified instance class isn't available in the specified Availability Zone.</p>
  */
@@ -2487,15 +2199,6 @@ export interface InsufficientDBInstanceCapacityFault extends __SmithyException, 
   name: "InsufficientDBInstanceCapacityFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InsufficientDBInstanceCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDBInstanceCapacityFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2506,15 +2209,6 @@ export interface StorageTypeNotSupportedFault extends __SmithyException, $Metada
   name: "StorageTypeNotSupportedFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace StorageTypeNotSupportedFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageTypeNotSupportedFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2581,15 +2275,6 @@ export interface DBSubnetGroupAlreadyExistsFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace DBSubnetGroupAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would cause you to exceed the allowed number of subnet groups.</p>
  */
@@ -2599,15 +2284,6 @@ export interface DBSubnetGroupQuotaExceededFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace DBSubnetGroupQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetGroupQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request would cause you to exceed the allowed number of subnets in a subnet group.</p>
  */
@@ -2615,15 +2291,6 @@ export interface DBSubnetQuotaExceededFault extends __SmithyException, $Metadata
   name: "DBSubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSubnetQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSubnetQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2729,15 +2396,6 @@ export interface EventSubscriptionQuotaExceededFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace EventSubscriptionQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EventSubscriptionQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Amazon SNS has responded that there is a problem with the specified topic. </p>
  */
@@ -2745,15 +2403,6 @@ export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer
   name: "SNSInvalidTopicFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SNSInvalidTopicFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSInvalidTopicFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2765,15 +2414,6 @@ export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace SNSNoAuthorizationFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSNoAuthorizationFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The SNS topic Amazon Resource Name (ARN) does not exist. </p>
  */
@@ -2781,15 +2421,6 @@ export interface SNSTopicArnNotFoundFault extends __SmithyException, $MetadataBe
   name: "SNSTopicArnNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SNSTopicArnNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SNSTopicArnNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2801,15 +2432,6 @@ export interface SubscriptionAlreadyExistFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace SubscriptionAlreadyExistFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionAlreadyExistFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The provided category does not exist. </p>
  */
@@ -2817,15 +2439,6 @@ export interface SubscriptionCategoryNotFoundFault extends __SmithyException, $M
   name: "SubscriptionCategoryNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubscriptionCategoryNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscriptionCategoryNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2995,15 +2608,6 @@ export interface GlobalClusterAlreadyExistsFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace GlobalClusterAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of global  clusters for this account is already at the maximum allowed.</p>
  */
@@ -3011,15 +2615,6 @@ export interface GlobalClusterQuotaExceededFault extends __SmithyException, $Met
   name: "GlobalClusterQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace GlobalClusterQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GlobalClusterQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3133,15 +2728,6 @@ export interface InvalidDBParameterGroupStateFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace InvalidDBParameterGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBParameterGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input to <a>DeleteDBClusterSnapshot</a>.</p>
  */
@@ -3186,15 +2772,6 @@ export interface DBSnapshotAlreadyExistsFault extends __SmithyException, $Metada
   name: "DBSnapshotAlreadyExistsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBSnapshotAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBSnapshotAlreadyExistsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3274,15 +2851,6 @@ export interface InvalidDBSubnetStateFault extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidDBSubnetStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSubnetStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input to <a>DeleteEventSubscription</a>.</p>
  */
@@ -3326,15 +2894,6 @@ export interface InvalidEventSubscriptionStateFault extends __SmithyException, $
   name: "InvalidEventSubscriptionStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidEventSubscriptionStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEventSubscriptionStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3455,15 +3014,6 @@ export interface CertificateNotFoundFault extends __SmithyException, $MetadataBe
   name: "CertificateNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace CertificateNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CertificateNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5165,15 +4715,6 @@ export interface InvalidDBSecurityGroupStateFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidDBSecurityGroupStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSecurityGroupStateFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration setting for the log types to be enabled for export to Amazon
  *             CloudWatch Logs for a specific instance or cluster.</p>
@@ -5499,15 +5040,6 @@ export interface SharedSnapshotQuotaExceededFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace SharedSnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharedSnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The upgrade failed because a resource that the depends on can't be
  *             modified.</p>
@@ -5516,15 +5048,6 @@ export interface DBUpgradeDependencyFailureFault extends __SmithyException, $Met
   name: "DBUpgradeDependencyFailureFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBUpgradeDependencyFailureFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBUpgradeDependencyFailureFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5697,15 +5220,6 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
   name: "SubnetAlreadyInUse";
   $fault: "client";
   message?: string;
-}
-
-export namespace SubnetAlreadyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6025,15 +5539,6 @@ export interface InsufficientDBClusterCapacityFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace InsufficientDBClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDBClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the snapshot doesn't allow deletion.</p>
  */
@@ -6041,15 +5546,6 @@ export interface InvalidDBSnapshotStateFault extends __SmithyException, $Metadat
   name: "InvalidDBSnapshotStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidDBSnapshotStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBSnapshotStateFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6060,15 +5556,6 @@ export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer 
   name: "InvalidRestoreFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidRestoreFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj,
-  });
 }
 
 /**

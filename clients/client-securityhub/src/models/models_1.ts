@@ -6876,15 +6876,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   Code?: string;
 }
 
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateFindingAggregatorRequest {
   /**
    * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>

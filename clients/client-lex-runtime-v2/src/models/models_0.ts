@@ -11,15 +11,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message: string | undefined;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The time that a context is active. You can specify the time to live
  *          in seconds or in conversation turns.</p>
@@ -180,15 +171,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message: string | undefined;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSessionRequest {
   /**
    * <p>The identifier of the bot that contains the session data.</p>
@@ -262,15 +244,6 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
   message: string | undefined;
 }
 
-export namespace InternalServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -278,15 +251,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -298,15 +262,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   message: string | undefined;
 }
 
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -314,15 +269,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetSessionRequest {
@@ -709,15 +655,6 @@ export interface BadGatewayException extends __SmithyException, $MetadataBearer 
   message: string | undefined;
 }
 
-export namespace BadGatewayException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadGatewayException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -725,15 +662,6 @@ export interface DependencyFailedException extends __SmithyException, $MetadataB
   name: "DependencyFailedException";
   $fault: "client";
   message: string | undefined;
-}
-
-export namespace DependencyFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutSessionResponse {
@@ -2449,22 +2377,16 @@ export namespace StartConversationResponseEventStream {
       return { AudioResponseEvent: AudioResponseEvent.filterSensitiveLog(obj.AudioResponseEvent) };
     if (obj.HeartbeatEvent !== undefined)
       return { HeartbeatEvent: HeartbeatEvent.filterSensitiveLog(obj.HeartbeatEvent) };
-    if (obj.AccessDeniedException !== undefined)
-      return { AccessDeniedException: AccessDeniedException.filterSensitiveLog(obj.AccessDeniedException) };
+    if (obj.AccessDeniedException !== undefined) return { AccessDeniedException: obj.AccessDeniedException };
     if (obj.ResourceNotFoundException !== undefined)
-      return { ResourceNotFoundException: ResourceNotFoundException.filterSensitiveLog(obj.ResourceNotFoundException) };
-    if (obj.ValidationException !== undefined)
-      return { ValidationException: ValidationException.filterSensitiveLog(obj.ValidationException) };
-    if (obj.ThrottlingException !== undefined)
-      return { ThrottlingException: ThrottlingException.filterSensitiveLog(obj.ThrottlingException) };
-    if (obj.InternalServerException !== undefined)
-      return { InternalServerException: InternalServerException.filterSensitiveLog(obj.InternalServerException) };
-    if (obj.ConflictException !== undefined)
-      return { ConflictException: ConflictException.filterSensitiveLog(obj.ConflictException) };
+      return { ResourceNotFoundException: obj.ResourceNotFoundException };
+    if (obj.ValidationException !== undefined) return { ValidationException: obj.ValidationException };
+    if (obj.ThrottlingException !== undefined) return { ThrottlingException: obj.ThrottlingException };
+    if (obj.InternalServerException !== undefined) return { InternalServerException: obj.InternalServerException };
+    if (obj.ConflictException !== undefined) return { ConflictException: obj.ConflictException };
     if (obj.DependencyFailedException !== undefined)
-      return { DependencyFailedException: DependencyFailedException.filterSensitiveLog(obj.DependencyFailedException) };
-    if (obj.BadGatewayException !== undefined)
-      return { BadGatewayException: BadGatewayException.filterSensitiveLog(obj.BadGatewayException) };
+      return { DependencyFailedException: obj.DependencyFailedException };
+    if (obj.BadGatewayException !== undefined) return { BadGatewayException: obj.BadGatewayException };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }

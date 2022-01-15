@@ -28,7 +28,7 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>If Detective enabled the member account, then the new status is
- *                <code>ENABLED</code>.</p>
+ *                   <code>ENABLED</code>.</p>
  *             </li>
  *             <li>
  *                <p>If Detective cannot enable the member account, the status remains

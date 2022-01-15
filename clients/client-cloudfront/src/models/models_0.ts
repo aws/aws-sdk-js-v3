@@ -21,15 +21,6 @@ export interface AccessDenied extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace AccessDenied {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDenied): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of CloudFront key pair identifiers.</p>
  */
@@ -389,15 +380,6 @@ export interface IllegalUpdate extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace IllegalUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalUpdate): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An argument is invalid.</p>
  */
@@ -405,15 +387,6 @@ export interface InvalidArgument extends __SmithyException, $MetadataBearer {
   name: "InvalidArgument";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidArgument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgument): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -425,15 +398,6 @@ export interface NoSuchDistribution extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NoSuchDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchDistribution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
@@ -443,15 +407,6 @@ export interface TooManyDistributionCNAMEs extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace TooManyDistributionCNAMEs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionCNAMEs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Invalidation batch specified is too large.</p>
  */
@@ -459,15 +414,6 @@ export interface BatchTooLarge extends __SmithyException, $MetadataBearer {
   name: "BatchTooLarge";
   $fault: "client";
   Message?: string;
-}
-
-export namespace BatchTooLarge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchTooLarge): any => ({
-    ...obj,
-  });
 }
 
 export type ItemSelection = "all" | "none" | "whitelist";
@@ -1672,15 +1618,6 @@ export interface CachePolicyAlreadyExists extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace CachePolicyAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicyAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cannot delete the cache policy because it is attached to one or more cache
  * 			behaviors.</p>
@@ -1689,15 +1626,6 @@ export interface CachePolicyInUse extends __SmithyException, $MetadataBearer {
   name: "CachePolicyInUse";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CachePolicyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CachePolicyInUse): any => ({
-    ...obj,
-  });
 }
 
 export type CachePolicyType = "custom" | "managed";
@@ -1772,15 +1700,6 @@ export interface CannotChangeImmutablePublicKeyFields extends __SmithyException,
   Message?: string;
 }
 
-export namespace CannotChangeImmutablePublicKeyFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CannotChangeImmutablePublicKeyFields): any => ({
-    ...obj,
-  });
-}
-
 export type CertificateSource = "acm" | "cloudfront" | "iam";
 
 export interface CreateCachePolicyRequest {
@@ -1834,15 +1753,6 @@ export interface InconsistentQuantities extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InconsistentQuantities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InconsistentQuantities): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -1852,15 +1762,6 @@ export interface TooManyCachePolicies extends __SmithyException, $MetadataBearer
   name: "TooManyCachePolicies";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyCachePolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCachePolicies): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1874,15 +1775,6 @@ export interface TooManyCookiesInCachePolicy extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace TooManyCookiesInCachePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCookiesInCachePolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of headers in the cache policy exceeds the maximum. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -1892,15 +1784,6 @@ export interface TooManyHeadersInCachePolicy extends __SmithyException, $Metadat
   name: "TooManyHeadersInCachePolicy";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyHeadersInCachePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyHeadersInCachePolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1914,15 +1797,6 @@ export interface TooManyQueryStringsInCachePolicy extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace TooManyQueryStringsInCachePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyQueryStringsInCachePolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
  * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
@@ -1932,15 +1806,6 @@ export interface CloudFrontOriginAccessIdentityAlreadyExists extends __SmithyExc
   name: "CloudFrontOriginAccessIdentityAlreadyExists";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CloudFrontOriginAccessIdentityAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2073,15 +1938,6 @@ export interface MissingBody extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace MissingBody {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingBody): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
  */
@@ -2091,15 +1947,6 @@ export interface TooManyCloudFrontOriginAccessIdentities extends __SmithyExcepti
   Message?: string;
 }
 
-export namespace TooManyCloudFrontOriginAccessIdentities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCloudFrontOriginAccessIdentities): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The CNAME specified is already defined for CloudFront.</p>
  */
@@ -2107,15 +1954,6 @@ export interface CNAMEAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "CNAMEAlreadyExists";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CNAMEAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CNAMEAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3743,15 +3581,6 @@ export interface DistributionAlreadyExists extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace DistributionAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributionAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
  */
@@ -3763,15 +3592,6 @@ export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
   Message?: string;
 }
 
-export namespace IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The default root object file name is too big or contains an invalid character.</p>
  */
@@ -3781,15 +3601,6 @@ export interface InvalidDefaultRootObject extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidDefaultRootObject {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDefaultRootObject): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An invalid error code was specified.</p>
  */
@@ -3797,15 +3608,6 @@ export interface InvalidErrorCode extends __SmithyException, $MetadataBearer {
   name: "InvalidErrorCode";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidErrorCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidErrorCode): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3818,15 +3620,6 @@ export interface InvalidForwardCookies extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidForwardCookies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidForwardCookies): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A CloudFront function association is invalid.</p>
  */
@@ -3834,15 +3627,6 @@ export interface InvalidFunctionAssociation extends __SmithyException, $Metadata
   name: "InvalidFunctionAssociation";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidFunctionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFunctionAssociation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3854,15 +3638,6 @@ export interface InvalidGeoRestrictionParameter extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace InvalidGeoRestrictionParameter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGeoRestrictionParameter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The headers specified are not valid for an Amazon S3 origin.</p>
  */
@@ -3870,15 +3645,6 @@ export interface InvalidHeadersForS3Origin extends __SmithyException, $MetadataB
   name: "InvalidHeadersForS3Origin";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidHeadersForS3Origin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidHeadersForS3Origin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3890,15 +3656,6 @@ export interface InvalidLambdaFunctionAssociation extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace InvalidLambdaFunctionAssociation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLambdaFunctionAssociation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The location code specified is not valid.</p>
  */
@@ -3906,15 +3663,6 @@ export interface InvalidLocationCode extends __SmithyException, $MetadataBearer 
   name: "InvalidLocationCode";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidLocationCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLocationCode): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3926,15 +3674,6 @@ export interface InvalidMinimumProtocolVersion extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace InvalidMinimumProtocolVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMinimumProtocolVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
  */
@@ -3942,15 +3681,6 @@ export interface InvalidOrigin extends __SmithyException, $MetadataBearer {
   name: "InvalidOrigin";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidOrigin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOrigin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3962,15 +3692,6 @@ export interface InvalidOriginAccessIdentity extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace InvalidOriginAccessIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOriginAccessIdentity): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The keep alive timeout specified for the origin is not valid.</p>
  */
@@ -3980,15 +3701,6 @@ export interface InvalidOriginKeepaliveTimeout extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace InvalidOriginKeepaliveTimeout {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOriginKeepaliveTimeout): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The read timeout specified for the origin is not valid.</p>
  */
@@ -3996,15 +3708,6 @@ export interface InvalidOriginReadTimeout extends __SmithyException, $MetadataBe
   name: "InvalidOriginReadTimeout";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidOriginReadTimeout {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOriginReadTimeout): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4017,15 +3720,6 @@ export interface InvalidProtocolSettings extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidProtocolSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidProtocolSettings): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The query string parameters specified are not valid.</p>
  */
@@ -4035,15 +3729,6 @@ export interface InvalidQueryStringParameters extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace InvalidQueryStringParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidQueryStringParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
  */
@@ -4051,15 +3736,6 @@ export interface InvalidRelativePath extends __SmithyException, $MetadataBearer 
   name: "InvalidRelativePath";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidRelativePath {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRelativePath): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4072,15 +3748,6 @@ export interface InvalidRequiredProtocol extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace InvalidRequiredProtocol {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequiredProtocol): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A response code is not valid.</p>
  */
@@ -4088,15 +3755,6 @@ export interface InvalidResponseCode extends __SmithyException, $MetadataBearer 
   name: "InvalidResponseCode";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidResponseCode {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResponseCode): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4108,15 +3766,6 @@ export interface InvalidTTLOrder extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidTTLOrder {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTTLOrder): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A viewer certificate specified is not valid.</p>
  */
@@ -4124,15 +3773,6 @@ export interface InvalidViewerCertificate extends __SmithyException, $MetadataBe
   name: "InvalidViewerCertificate";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidViewerCertificate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidViewerCertificate): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4148,15 +3788,6 @@ export interface InvalidWebACLId extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidWebACLId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidWebACLId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The cache policy does not exist.</p>
  */
@@ -4164,15 +3795,6 @@ export interface NoSuchCachePolicy extends __SmithyException, $MetadataBearer {
   name: "NoSuchCachePolicy";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchCachePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchCachePolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4184,15 +3806,6 @@ export interface NoSuchFieldLevelEncryptionConfig extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace NoSuchFieldLevelEncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchFieldLevelEncryptionConfig): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>No origin exists with the specified <code>Origin Id</code>. </p>
  */
@@ -4200,15 +3813,6 @@ export interface NoSuchOrigin extends __SmithyException, $MetadataBearer {
   name: "NoSuchOrigin";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchOrigin {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchOrigin): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4220,15 +3824,6 @@ export interface NoSuchOriginRequestPolicy extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace NoSuchOriginRequestPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchOriginRequestPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The real-time log configuration does not exist.</p>
  */
@@ -4236,15 +3831,6 @@ export interface NoSuchRealtimeLogConfig extends __SmithyException, $MetadataBea
   name: "NoSuchRealtimeLogConfig";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchRealtimeLogConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchRealtimeLogConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4256,15 +3842,6 @@ export interface NoSuchResponseHeadersPolicy extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace NoSuchResponseHeadersPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchResponseHeadersPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
  */
@@ -4272,15 +3849,6 @@ export interface RealtimeLogConfigOwnerMismatch extends __SmithyException, $Meta
   name: "RealtimeLogConfigOwnerMismatch";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RealtimeLogConfigOwnerMismatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeLogConfigOwnerMismatch): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4292,15 +3860,6 @@ export interface TooManyCacheBehaviors extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace TooManyCacheBehaviors {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCacheBehaviors): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You cannot create anymore custom SSL/TLS certificates.</p>
  */
@@ -4308,15 +3867,6 @@ export interface TooManyCertificates extends __SmithyException, $MetadataBearer 
   name: "TooManyCertificates";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyCertificates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCertificates): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4328,15 +3878,6 @@ export interface TooManyCookieNamesInWhiteList extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace TooManyCookieNamesInWhiteList {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCookieNamesInWhiteList): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
  */
@@ -4344,15 +3885,6 @@ export interface TooManyDistributions extends __SmithyException, $MetadataBearer
   name: "TooManyDistributions";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyDistributions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4366,15 +3898,6 @@ export interface TooManyDistributionsAssociatedToCachePolicy extends __SmithyExc
   Message?: string;
 }
 
-export namespace TooManyDistributionsAssociatedToCachePolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToCachePolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
  */
@@ -4382,15 +3905,6 @@ export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig exte
   name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyDistributionsAssociatedToFieldLevelEncryptionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToFieldLevelEncryptionConfig): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4404,15 +3918,6 @@ export interface TooManyDistributionsAssociatedToKeyGroup extends __SmithyExcept
   Message?: string;
 }
 
-export namespace TooManyDistributionsAssociatedToKeyGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToKeyGroup): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of distributions have been associated with the specified origin
  * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -4422,15 +3927,6 @@ export interface TooManyDistributionsAssociatedToOriginRequestPolicy extends __S
   name: "TooManyDistributionsAssociatedToOriginRequestPolicy";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyDistributionsAssociatedToOriginRequestPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToOriginRequestPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4445,15 +3941,6 @@ export interface TooManyDistributionsAssociatedToResponseHeadersPolicy extends _
   Message?: string;
 }
 
-export namespace TooManyDistributionsAssociatedToResponseHeadersPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToResponseHeadersPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the maximum number of distributions that are associated with a CloudFront
  * 			function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -4463,15 +3950,6 @@ export interface TooManyDistributionsWithFunctionAssociations extends __SmithyEx
   name: "TooManyDistributionsWithFunctionAssociations";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyDistributionsWithFunctionAssociations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsWithFunctionAssociations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4484,15 +3962,6 @@ export interface TooManyDistributionsWithLambdaAssociations extends __SmithyExce
   Message?: string;
 }
 
-export namespace TooManyDistributionsWithLambdaAssociations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsWithLambdaAssociations): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of distributions have been associated with the specified Lambda@Edge
  * 			function.</p>
@@ -4501,15 +3970,6 @@ export interface TooManyDistributionsWithSingleFunctionARN extends __SmithyExcep
   name: "TooManyDistributionsWithSingleFunctionARN";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyDistributionsWithSingleFunctionARN {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyDistributionsWithSingleFunctionARN): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4523,15 +3983,6 @@ export interface TooManyFunctionAssociations extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace TooManyFunctionAssociations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFunctionAssociations): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request contains too many headers in forwarded values.</p>
  */
@@ -4539,15 +3990,6 @@ export interface TooManyHeadersInForwardedValues extends __SmithyException, $Met
   name: "TooManyHeadersInForwardedValues";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyHeadersInForwardedValues {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyHeadersInForwardedValues): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4561,15 +4003,6 @@ export interface TooManyKeyGroupsAssociatedToDistribution extends __SmithyExcept
   Message?: string;
 }
 
-export namespace TooManyKeyGroupsAssociatedToDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyKeyGroupsAssociatedToDistribution): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
  */
@@ -4577,15 +4010,6 @@ export interface TooManyLambdaFunctionAssociations extends __SmithyException, $M
   name: "TooManyLambdaFunctionAssociations";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyLambdaFunctionAssociations {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyLambdaFunctionAssociations): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4597,15 +4021,6 @@ export interface TooManyOriginCustomHeaders extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace TooManyOriginCustomHeaders {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyOriginCustomHeaders): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
  */
@@ -4613,15 +4028,6 @@ export interface TooManyOriginGroupsPerDistribution extends __SmithyException, $
   name: "TooManyOriginGroupsPerDistribution";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyOriginGroupsPerDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyOriginGroupsPerDistribution): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4633,15 +4039,6 @@ export interface TooManyOrigins extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace TooManyOrigins {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyOrigins): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request contains too many query string parameters.</p>
  */
@@ -4649,15 +4046,6 @@ export interface TooManyQueryStringParameters extends __SmithyException, $Metada
   name: "TooManyQueryStringParameters";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyQueryStringParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyQueryStringParameters): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4669,15 +4057,6 @@ export interface TooManyTrustedSigners extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace TooManyTrustedSigners {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTrustedSigners): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified key group does not exist.</p>
  */
@@ -4687,15 +4066,6 @@ export interface TrustedKeyGroupDoesNotExist extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace TrustedKeyGroupDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedKeyGroupDoesNotExist): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of your trusted signers don't exist.</p>
  */
@@ -4703,15 +4073,6 @@ export interface TrustedSignerDoesNotExist extends __SmithyException, $MetadataB
   name: "TrustedSignerDoesNotExist";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TrustedSignerDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TrustedSignerDoesNotExist): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4850,15 +4211,6 @@ export interface InvalidTagging extends __SmithyException, $MetadataBearer {
   name: "InvalidTagging";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidTagging {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagging): any => ({
-    ...obj,
-  });
 }
 
 export type Format = "URLEncoded";
@@ -5134,15 +4486,6 @@ export interface FieldLevelEncryptionConfigAlreadyExists extends __SmithyExcepti
   Message?: string;
 }
 
-export namespace FieldLevelEncryptionConfigAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionConfigAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified profile for field-level encryption doesn't exist.</p>
  */
@@ -5150,15 +4493,6 @@ export interface NoSuchFieldLevelEncryptionProfile extends __SmithyException, $M
   name: "NoSuchFieldLevelEncryptionProfile";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchFieldLevelEncryptionProfile {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchFieldLevelEncryptionProfile): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5170,15 +4504,6 @@ export interface QueryArgProfileEmpty extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace QueryArgProfileEmpty {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: QueryArgProfileEmpty): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of configurations for field-level encryption have been created.</p>
  */
@@ -5186,15 +4511,6 @@ export interface TooManyFieldLevelEncryptionConfigs extends __SmithyException, $
   name: "TooManyFieldLevelEncryptionConfigs";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionConfigs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionConfigs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5206,15 +4522,6 @@ export interface TooManyFieldLevelEncryptionContentTypeProfiles extends __Smithy
   Message?: string;
 }
 
-export namespace TooManyFieldLevelEncryptionContentTypeProfiles {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionContentTypeProfiles): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
  */
@@ -5222,15 +4529,6 @@ export interface TooManyFieldLevelEncryptionQueryArgProfiles extends __SmithyExc
   name: "TooManyFieldLevelEncryptionQueryArgProfiles";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionQueryArgProfiles {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionQueryArgProfiles): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5431,15 +4729,6 @@ export interface FieldLevelEncryptionProfileAlreadyExists extends __SmithyExcept
   Message?: string;
 }
 
-export namespace FieldLevelEncryptionProfileAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum size of a profile for field-level encryption was exceeded.</p>
  */
@@ -5447,15 +4736,6 @@ export interface FieldLevelEncryptionProfileSizeExceeded extends __SmithyExcepti
   name: "FieldLevelEncryptionProfileSizeExceeded";
   $fault: "client";
   Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileSizeExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileSizeExceeded): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5467,15 +4747,6 @@ export interface NoSuchPublicKey extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NoSuchPublicKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchPublicKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of encryption entities for field-level encryption have been created.</p>
  */
@@ -5483,15 +4754,6 @@ export interface TooManyFieldLevelEncryptionEncryptionEntities extends __SmithyE
   name: "TooManyFieldLevelEncryptionEncryptionEntities";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionEncryptionEntities {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionEncryptionEntities): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5503,15 +4765,6 @@ export interface TooManyFieldLevelEncryptionFieldPatterns extends __SmithyExcept
   Message?: string;
 }
 
-export namespace TooManyFieldLevelEncryptionFieldPatterns {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionFieldPatterns): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of profiles for field-level encryption have been created.</p>
  */
@@ -5519,15 +4772,6 @@ export interface TooManyFieldLevelEncryptionProfiles extends __SmithyException, 
   name: "TooManyFieldLevelEncryptionProfiles";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyFieldLevelEncryptionProfiles {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFieldLevelEncryptionProfiles): any => ({
-    ...obj,
-  });
 }
 
 export enum FunctionRuntime {
@@ -5705,15 +4949,6 @@ export interface FunctionAlreadyExists extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace FunctionAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -5722,15 +4957,6 @@ export interface FunctionSizeLimitExceeded extends __SmithyException, $MetadataB
   name: "FunctionSizeLimitExceeded";
   $fault: "client";
   Message?: string;
-}
-
-export namespace FunctionSizeLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionSizeLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5744,15 +4970,6 @@ export interface TooManyFunctions extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace TooManyFunctions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyFunctions): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This operation is not supported in this region.</p>
  */
@@ -5760,15 +4977,6 @@ export interface UnsupportedOperation extends __SmithyException, $MetadataBearer
   name: "UnsupportedOperation";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperation): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5929,15 +5137,6 @@ export interface TooManyInvalidationsInProgress extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace TooManyInvalidationsInProgress {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyInvalidationsInProgress): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A key group configuration.</p>
  * 		       <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
@@ -6051,15 +5250,6 @@ export interface KeyGroupAlreadyExists extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace KeyGroupAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KeyGroupAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -6071,15 +5261,6 @@ export interface TooManyKeyGroups extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace TooManyKeyGroups {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyKeyGroups): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of public keys in this key group is more than the maximum allowed. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -6089,15 +5270,6 @@ export interface TooManyPublicKeysInKeyGroup extends __SmithyException, $Metadat
   name: "TooManyPublicKeysInKeyGroup";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyPublicKeysInKeyGroup {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyPublicKeysInKeyGroup): any => ({
-    ...obj,
-  });
 }
 
 export enum RealtimeMetricsSubscriptionStatus {
@@ -6503,15 +5675,6 @@ export interface OriginRequestPolicyAlreadyExists extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace OriginRequestPolicyAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicyAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of cookies in the origin request policy exceeds the maximum. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -6521,15 +5684,6 @@ export interface TooManyCookiesInOriginRequestPolicy extends __SmithyException, 
   name: "TooManyCookiesInOriginRequestPolicy";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyCookiesInOriginRequestPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCookiesInOriginRequestPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6543,15 +5697,6 @@ export interface TooManyHeadersInOriginRequestPolicy extends __SmithyException, 
   Message?: string;
 }
 
-export namespace TooManyHeadersInOriginRequestPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyHeadersInOriginRequestPolicy): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the maximum number of origin request policies for this Amazon Web Services account.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -6563,15 +5708,6 @@ export interface TooManyOriginRequestPolicies extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace TooManyOriginRequestPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyOriginRequestPolicies): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of query strings in the origin request policy exceeds the maximum. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -6581,15 +5717,6 @@ export interface TooManyQueryStringsInOriginRequestPolicy extends __SmithyExcept
   name: "TooManyQueryStringsInOriginRequestPolicy";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyQueryStringsInOriginRequestPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyQueryStringsInOriginRequestPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6708,15 +5835,6 @@ export interface PublicKeyAlreadyExists extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace PublicKeyAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicKeyAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
  */
@@ -6724,15 +5842,6 @@ export interface TooManyPublicKeys extends __SmithyException, $MetadataBearer {
   name: "TooManyPublicKeys";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyPublicKeys {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyPublicKeys): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6900,15 +6009,6 @@ export interface RealtimeLogConfigAlreadyExists extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace RealtimeLogConfigAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeLogConfigAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have reached the maximum number of real-time log configurations for this Amazon Web Services account.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -6918,15 +6018,6 @@ export interface TooManyRealtimeLogConfigs extends __SmithyException, $MetadataB
   name: "TooManyRealtimeLogConfigs";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyRealtimeLogConfigs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRealtimeLogConfigs): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7684,15 +6775,6 @@ export interface ResponseHeadersPolicyAlreadyExists extends __SmithyException, $
   Message?: string;
 }
 
-export namespace ResponseHeadersPolicyAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of custom headers in the response headers policy exceeds the maximum.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -7702,15 +6784,6 @@ export interface TooManyCustomHeadersInResponseHeadersPolicy extends __SmithyExc
   name: "TooManyCustomHeadersInResponseHeadersPolicy";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyCustomHeadersInResponseHeadersPolicy {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyCustomHeadersInResponseHeadersPolicy): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7723,15 +6796,6 @@ export interface TooManyResponseHeadersPolicies extends __SmithyException, $Meta
   name: "TooManyResponseHeadersPolicies";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyResponseHeadersPolicies {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyResponseHeadersPolicies): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7997,15 +7061,6 @@ export interface StreamingDistributionAlreadyExists extends __SmithyException, $
   Message?: string;
 }
 
-export namespace StreamingDistributionAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingDistributionAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
@@ -8015,15 +7070,6 @@ export interface TooManyStreamingDistributionCNAMEs extends __SmithyException, $
   Message?: string;
 }
 
-export namespace TooManyStreamingDistributionCNAMEs {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyStreamingDistributionCNAMEs): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
  */
@@ -8031,15 +7077,6 @@ export interface TooManyStreamingDistributions extends __SmithyException, $Metad
   name: "TooManyStreamingDistributions";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyStreamingDistributions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyStreamingDistributions): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8149,15 +7186,6 @@ export interface IllegalDelete extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace IllegalDelete {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalDelete): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>If-Match</code> version is missing or not valid.</p>
  */
@@ -8165,15 +7193,6 @@ export interface InvalidIfMatchVersion extends __SmithyException, $MetadataBeare
   name: "InvalidIfMatchVersion";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidIfMatchVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidIfMatchVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8186,15 +7205,6 @@ export interface PreconditionFailed extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace PreconditionFailed {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionFailed): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Origin Access Identity specified is already in use.</p>
  */
@@ -8202,15 +7212,6 @@ export interface CloudFrontOriginAccessIdentityInUse extends __SmithyException, 
   name: "CloudFrontOriginAccessIdentityInUse";
   $fault: "client";
   Message?: string;
-}
-
-export namespace CloudFrontOriginAccessIdentityInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CloudFrontOriginAccessIdentityInUse): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8245,15 +7246,6 @@ export interface NoSuchCloudFrontOriginAccessIdentity extends __SmithyException,
   name: "NoSuchCloudFrontOriginAccessIdentity";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchCloudFrontOriginAccessIdentity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchCloudFrontOriginAccessIdentity): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -8337,15 +7329,6 @@ export interface DistributionNotDisabled extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace DistributionNotDisabled {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DistributionNotDisabled): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFieldLevelEncryptionConfigRequest {
   /**
    * <p>The ID of the configuration you want to delete from CloudFront.</p>
@@ -8377,15 +7360,6 @@ export interface FieldLevelEncryptionConfigInUse extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace FieldLevelEncryptionConfigInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionConfigInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteFieldLevelEncryptionProfileRequest {
   /**
    * <p>Request the ID of the profile you want to delete from CloudFront.</p>
@@ -8415,15 +7389,6 @@ export interface FieldLevelEncryptionProfileInUse extends __SmithyException, $Me
   name: "FieldLevelEncryptionProfileInUse";
   $fault: "client";
   Message?: string;
-}
-
-export namespace FieldLevelEncryptionProfileInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FieldLevelEncryptionProfileInUse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFunctionRequest {
@@ -8458,15 +7423,6 @@ export interface FunctionInUse extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace FunctionInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FunctionInUse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The function does not exist.</p>
  */
@@ -8474,15 +7430,6 @@ export interface NoSuchFunctionExists extends __SmithyException, $MetadataBearer
   name: "NoSuchFunctionExists";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NoSuchFunctionExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchFunctionExists): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteKeyGroupRequest {
@@ -8518,15 +7465,6 @@ export interface NoSuchResource extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace NoSuchResource {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchResource): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cannot delete this resource because it is in use.</p>
  */
@@ -8534,15 +7472,6 @@ export interface ResourceInUse extends __SmithyException, $MetadataBearer {
   name: "ResourceInUse";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUse): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMonitoringSubscriptionRequest {

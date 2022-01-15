@@ -11,30 +11,184 @@ import {
   BlockDeviceMapping,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
+  InstanceInterruptionBehavior,
   InstanceIpv6Address,
   LocalGatewayRoute,
+  MarketType,
   Placement,
   ShutdownBehavior,
+  SpotInstanceType,
 } from "./models_1";
 import { ClientVpnConnectionStatus, Filter, TransitGatewayRoute } from "./models_2";
 import {
   HttpTokensState,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
+  InstanceMetadataTagsState,
   InstanceState,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
 } from "./models_3";
 import { InstanceNetworkInterfaceSpecification, RunInstancesMonitoringEnabled } from "./models_4";
-import {
-  CapacityReservationSpecification,
-  CpuOptionsRequest,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMonitoring,
-} from "./models_5";
+import { CapacityReservationSpecification, CpuOptionsRequest, InstanceMonitoring } from "./models_5";
+
+/**
+ * <p>
+ *            Describes an elastic inference accelerator.
+ *         </p>
+ */
+export interface ElasticInferenceAccelerator {
+  /**
+   * <p>
+   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
+   *         </p>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>
+   *             The number of elastic inference accelerators to attach to the instance.
+   *         </p>
+   *          <p>Default: 1</p>
+   */
+  Count?: number;
+}
+
+export namespace ElasticInferenceAccelerator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ElasticInferenceAccelerator): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
+ *     		see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html">
+ *     		    What is Amazon Web Services Nitro Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User Guide</i>.</p>
+ */
+export interface EnclaveOptionsRequest {
+  /**
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace EnclaveOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnclaveOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
+ *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+ *                 prerequisites</a>. For
+ *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the
+ *                 <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface HibernationOptionsRequest {
+  /**
+   * <p>If you set this parameter to <code>true</code>, your instance is enabled for
+   *             hibernation.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  Configured?: boolean;
+}
+
+export namespace HibernationOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HibernationOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The options for Spot Instances.</p>
+ */
+export interface SpotMarketOptions {
+  /**
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances. The default is
+   *             the On-Demand price.</p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent Spot
+   *             Instance requests are only supported when the instance interruption behavior is either <code>hibernate</code> or
+   *                 <code>stop</code>.</p>
+   */
+  SpotInstanceType?: SpotInstanceType | string;
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             Supported only for persistent requests.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the
+   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
+   *                     remains active until you cancel it.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For a one-time request, <code>ValidUntil</code> is not supported. The request
+   *                     remains active until all instances launch or you cancel the request.</p>
+   *             </li>
+   *          </ul>
+   */
+  ValidUntil?: Date;
+
+  /**
+   * <p>The behavior when a Spot Instance is interrupted. The default is
+   *                 <code>terminate</code>.</p>
+   */
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+}
+
+export namespace SpotMarketOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SpotMarketOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the market (purchasing) option for the instances.</p>
+ */
+export interface InstanceMarketOptionsRequest {
+  /**
+   * <p>The market type.</p>
+   */
+  MarketType?: MarketType | string;
+
+  /**
+   * <p>The options for Spot Instances.</p>
+   */
+  SpotOptions?: SpotMarketOptions;
+}
+
+export namespace InstanceMarketOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceMarketOptionsRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The launch template to use. You must specify either the launch template ID or
@@ -91,8 +245,7 @@ export namespace LicenseConfigurationRequest {
  */
 export interface InstanceMetadataOptionsRequest {
   /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
+   * <p>The state of token usage for your instance metadata requests.</p>
    *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
    *             with or without a signed token header on your request. If you retrieve the IAM role
    *             credentials without a token, the version 1.0 role credentials are returned. If you
@@ -102,6 +255,8 @@ export interface InstanceMetadataOptionsRequest {
    *             instance metadata retrieval requests. In this state, retrieving the IAM role credentials
    *             always returns the version 2.0 credentials; the version 1.0 credentials are not
    *             available.</p>
+   *         <p>Default: <code>optional</code>
+   *          </p>
    */
   HttpTokens?: HttpTokensState | string;
 
@@ -114,10 +269,11 @@ export interface InstanceMetadataOptionsRequest {
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not
-   *             specified, the default state is <code>enabled</code>.</p>
-   *         <p>If you specify a value of <code>disabled</code>, you will not be able to access your
+   * <p>Enables or disables the HTTP metadata endpoint on your instances.</p>
+   *         <p>If you specify a value of <code>disabled</code>, you cannot access your
    *             instance metadata.</p>
+   *         <p>Default: <code>enabled</code>
+   *          </p>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 
@@ -125,6 +281,14 @@ export interface InstanceMetadataOptionsRequest {
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+
+  /**
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance metadata. Set to <code>disabled</code> to turn off
+   *             access to instance tags from the instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with instance tags using the instance metadata</a>.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  InstanceMetadataTags?: InstanceMetadataTagsState | string;
 }
 
 export namespace InstanceMetadataOptionsRequest {

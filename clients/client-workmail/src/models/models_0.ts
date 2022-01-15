@@ -126,15 +126,6 @@ export interface EntityNotFoundException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace EntityNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You are performing an operation on a user, group, or resource that isn't in the
  *          expected state, such as trying to delete an active user.</p>
@@ -145,15 +136,6 @@ export interface EntityStateException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace EntityStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the input parameters don't match the service's restrictions.</p>
  */
@@ -161,15 +143,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -182,15 +155,6 @@ export interface OrganizationNotFoundException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace OrganizationNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
@@ -199,15 +163,6 @@ export interface OrganizationStateException extends __SmithyException, $Metadata
   name: "OrganizationStateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OrganizationStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OrganizationStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateMemberToGroupRequest {
@@ -256,15 +211,6 @@ export interface DirectoryServiceAuthenticationFailedException extends __SmithyE
   Message?: string;
 }
 
-export namespace DirectoryServiceAuthenticationFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryServiceAuthenticationFailedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The directory is unavailable. It might be located in another Region or deleted.</p>
  */
@@ -274,15 +220,6 @@ export interface DirectoryUnavailableException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace DirectoryUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can't perform a write operation against a read-only directory.</p>
  */
@@ -290,15 +227,6 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
   name: "UnsupportedOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -416,15 +344,6 @@ export interface EmailAddressInUseException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace EmailAddressInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EmailAddressInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request exceeds the limit of the resource.</p>
  */
@@ -432,15 +351,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -452,15 +362,6 @@ export interface MailDomainNotFoundException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace MailDomainNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailDomainNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>After a domain has been added to the organization, it must be verified. The domain is
  *          not yet verified.</p>
@@ -469,15 +370,6 @@ export interface MailDomainStateException extends __SmithyException, $MetadataBe
   name: "MailDomainStateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace MailDomainStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailDomainStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateGroupRequest {
@@ -526,15 +418,6 @@ export interface NameAvailabilityException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace NameAvailabilityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NameAvailabilityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This user, group, or resource name is not allowed in Amazon WorkMail.</p>
  */
@@ -542,15 +425,6 @@ export interface ReservedNameException extends __SmithyException, $MetadataBeare
   name: "ReservedNameException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ReservedNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedNameException): any => ({
-    ...obj,
-  });
 }
 
 export enum MobileDeviceAccessRuleEffect {
@@ -742,15 +616,6 @@ export interface DirectoryInUseException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace DirectoryInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryInUseException): any => ({
-    ...obj,
-  });
-}
-
 export enum ResourceType {
   EQUIPMENT = "EQUIPMENT",
   ROOM = "ROOM",
@@ -856,15 +721,6 @@ export interface InvalidPasswordException extends __SmithyException, $MetadataBe
   name: "InvalidPasswordException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidPasswordException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPasswordException): any => ({
-    ...obj,
-  });
 }
 
 export enum MemberType {
@@ -1367,15 +1223,6 @@ export interface InvalidCustomSesConfigurationException extends __SmithyExceptio
   Message?: string;
 }
 
-export namespace InvalidCustomSesConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCustomSesConfigurationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
  */
@@ -1383,15 +1230,6 @@ export interface MailDomainInUseException extends __SmithyException, $MetadataBe
   name: "MailDomainInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace MailDomainInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MailDomainInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeEmailMonitoringConfigurationRequest {
@@ -1438,15 +1276,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeGroupRequest {
@@ -2010,15 +1839,6 @@ export interface EntityAlreadyRegisteredException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace EntityAlreadyRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EntityAlreadyRegisteredException): any => ({
-    ...obj,
-  });
-}
-
 export enum RetentionAction {
   DELETE = "DELETE",
   NONE = "NONE",
@@ -2482,15 +2302,6 @@ export interface InvalidConfigurationException extends __SmithyException, $Metad
   name: "InvalidConfigurationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4160,15 +3971,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 export interface UntagResourceRequest {

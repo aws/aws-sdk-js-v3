@@ -25,7 +25,6 @@ import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
 import { EC2ProtocolClient } from "../../src/EC2ProtocolClient";
-import { ComplexError, InvalidGreeting } from "../../src/models/models_0";
 
 /**
  * Throws an expected exception that contains the serialized request.

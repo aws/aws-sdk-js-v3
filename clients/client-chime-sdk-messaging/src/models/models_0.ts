@@ -90,15 +90,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
@@ -108,15 +99,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -129,15 +111,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
@@ -146,15 +119,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -167,15 +131,6 @@ export interface ServiceFailureException extends __SmithyException, $MetadataBea
   Message?: string;
 }
 
-export namespace ServiceFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is currently unavailable.</p>
  */
@@ -184,15 +139,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   $fault: "server";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -205,15 +151,6 @@ export interface ThrottledClientException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace ThrottledClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The client is not currently authorized to make the request.</p>
  */
@@ -222,15 +159,6 @@ export interface UnauthorizedClientException extends __SmithyException, $Metadat
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace UnauthorizedClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1469,15 +1397,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
   $fault: "client";
   Code?: ErrorCode | string;
   Message?: string;
-}
-
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateChannelBanRequest {

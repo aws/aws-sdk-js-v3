@@ -10,15 +10,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 export enum AgentUpdateStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
@@ -37,15 +28,6 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   name: "ClientException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientException): any => ({
-    ...obj,
-  });
 }
 
 export enum ManagedScalingStatus {
@@ -128,7 +110,7 @@ export interface AutoScalingGroupProvider {
   /**
    * <p>The managed termination protection setting to use for the Auto Scaling group capacity
    * 			provider. This determines whether the Auto Scaling group has managed termination
-   * 			protection.</p>
+   * 			protection. The default is disabled.</p>
    * 		       <important>
    * 			         <p>When using managed termination protection, managed scaling must also be used
    * 				otherwise managed termination protection doesn't work.</p>
@@ -413,15 +395,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The limit for the resource was exceeded.</p>
  */
@@ -431,15 +404,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>These errors are usually caused by a server issue.</p>
  */
@@ -447,15 +411,6 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
   name: "ServerException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServerException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServerException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -469,15 +424,6 @@ export interface UpdateInProgressException extends __SmithyException, $MetadataB
   name: "UpdateInProgressException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UpdateInProgressException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateInProgressException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -845,7 +791,8 @@ export interface Attachment {
   /**
    * <p> The status of the attachment. Valid values are <code>PRECREATED</code>,
    * 				<code>CREATED</code>, <code>ATTACHING</code>, <code>ATTACHED</code>,
-   * 				<code>DETACHING</code>, <code>DETACHED</code>, and <code>DELETED</code>.</p>
+   * 				<code>DETACHING</code>, <code>DETACHED</code>, <code>DELETED</code>, and
+   * 				<code>FAILED</code>.</p>
    */
   status?: string;
 
@@ -1091,15 +1038,6 @@ export interface ClusterNotFoundException extends __SmithyException, $MetadataBe
   name: "ClusterNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2586,15 +2524,6 @@ export interface PlatformTaskDefinitionIncompatibilityException extends __Smithy
   message?: string;
 }
 
-export namespace PlatformTaskDefinitionIncompatibilityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformTaskDefinitionIncompatibilityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified platform version doesn't exist.</p>
  */
@@ -2604,15 +2533,6 @@ export interface PlatformUnknownException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace PlatformUnknownException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PlatformUnknownException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified task isn't supported in this Region.</p>
  */
@@ -2620,15 +2540,6 @@ export interface UnsupportedFeatureException extends __SmithyException, $Metadat
   name: "UnsupportedFeatureException";
   $fault: "client";
   message?: string;
-}
-
-export namespace UnsupportedFeatureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedFeatureException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateTaskSetRequest {
@@ -2801,15 +2712,6 @@ export interface ServiceNotActiveException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ServiceNotActiveException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNotActiveException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
@@ -2818,15 +2720,6 @@ export interface ServiceNotFoundException extends __SmithyException, $MetadataBe
   name: "ServiceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ServiceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum SettingName {
@@ -3014,15 +2907,6 @@ export interface TargetNotFoundException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace TargetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteCapacityProviderRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the capacity provider to delete.</p>
@@ -3066,15 +2950,6 @@ export interface ClusterContainsContainerInstancesException extends __SmithyExce
   message?: string;
 }
 
-export namespace ClusterContainsContainerInstancesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterContainsContainerInstancesException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can't delete a cluster that contains services. First, update the service to reduce
  * 			its desired task count to 0, and then delete the service. For more information, see
@@ -3086,15 +2961,6 @@ export interface ClusterContainsServicesException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace ClusterContainsServicesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterContainsServicesException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can't delete a cluster that has active tasks.</p>
  */
@@ -3102,15 +2968,6 @@ export interface ClusterContainsTasksException extends __SmithyException, $Metad
   name: "ClusterContainsTasksException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ClusterContainsTasksException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClusterContainsTasksException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteClusterRequest {
@@ -3248,15 +3105,6 @@ export interface TaskSetNotFoundException extends __SmithyException, $MetadataBe
   name: "TaskSetNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TaskSetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TaskSetNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterContainerInstanceRequest {
@@ -7636,15 +7484,6 @@ export interface TargetNotConnectedException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace TargetNotConnectedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetNotConnectedException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListAccountSettingsRequest {
   /**
    * <p>The name of the account setting you want to list the settings for.</p>
@@ -8508,15 +8347,6 @@ export interface AttributeLimitExceededException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace AttributeLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AttributeLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface PutAttributesRequest {
   /**
    * <p>The short name or full Amazon Resource Name (ARN) of the cluster that contains the resource to apply
@@ -8627,15 +8457,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   name: "ResourceInUseException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export enum PlatformDeviceType {
@@ -9117,15 +8938,6 @@ export interface BlockedException extends __SmithyException, $MetadataBearer {
   name: "BlockedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace BlockedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlockedException): any => ({
-    ...obj,
-  });
 }
 
 export interface RunTaskRequest {
@@ -9845,15 +9657,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported resources are
@@ -10121,15 +9924,6 @@ export interface MissingVersionException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace MissingVersionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingVersionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>There's no update available for this Amazon ECS container agent. This might be because the
  * 			agent is already running the latest version or because it's so old that there's no
@@ -10139,15 +9933,6 @@ export interface NoUpdateAvailableException extends __SmithyException, $Metadata
   name: "NoUpdateAvailableException";
   $fault: "client";
   message?: string;
-}
-
-export namespace NoUpdateAvailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoUpdateAvailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateContainerAgentRequest {
@@ -10197,7 +9982,7 @@ export interface UpdateContainerInstancesStateRequest {
   cluster?: string;
 
   /**
-   * <p>A list of container instance IDs or full ARN entries.</p>
+   * <p>A list of up to 10 container instance IDs or full ARN entries.</p>
    */
   containerInstances: string[] | undefined;
 

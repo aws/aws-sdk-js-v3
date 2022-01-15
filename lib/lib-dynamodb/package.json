@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-dynamodb",
-  "version": "3.45.0",
+  "version": "3.47.0",
   "description": "The document client simplifies working with items in Amazon DynamoDB by abstracting away the notion of attribute values.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -10,11 +10,12 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-*",
     "test": "jest"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">= 12.0.0"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -22,7 +23,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-dynamodb": "3.45.0",
+    "@aws-sdk/util-dynamodb": "3.47.0",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
@@ -31,13 +32,10 @@
     "@aws-sdk/types": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "3.45.0",
-    "@aws-sdk/smithy-client": "3.41.0",
-    "@aws-sdk/types": "3.40.0",
-    "@types/jest": "^26.0.4",
-    "@types/node": "^14.11.2",
-    "jest": "^26.4.2",
-    "typescript": "~4.3.5"
+    "@aws-sdk/client-dynamodb": "3.47.0",
+    "@aws-sdk/smithy-client": "3.47.0",
+    "@aws-sdk/types": "3.47.0",
+    "@types/node": "^14.11.2"
   },
   "typesVersions": {
     "<4.0": {

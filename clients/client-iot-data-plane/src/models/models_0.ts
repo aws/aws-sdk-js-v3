@@ -12,15 +12,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input for the DeleteThingShadow operation.</p>
  */
@@ -76,15 +67,6 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InternalFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalFailureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request is not valid.</p>
  */
@@ -95,15 +77,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -118,15 +91,6 @@ export interface MethodNotAllowedException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace MethodNotAllowedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource does not exist.</p>
  */
@@ -137,15 +101,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -160,15 +115,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The rate exceeds the limit.</p>
  */
@@ -179,15 +125,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -202,15 +139,6 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace UnauthorizedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The document encoding is not supported.</p>
  */
@@ -221,15 +149,6 @@ export interface UnsupportedDocumentEncodingException extends __SmithyException,
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace UnsupportedDocumentEncodingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedDocumentEncodingException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -510,15 +429,6 @@ export interface RequestEntityTooLargeException extends __SmithyException, $Meta
    * <p>The message for the exception.</p>
    */
   message?: string;
-}
-
-export namespace RequestEntityTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestEntityTooLargeException): any => ({
-    ...obj,
-  });
 }
 
 /**

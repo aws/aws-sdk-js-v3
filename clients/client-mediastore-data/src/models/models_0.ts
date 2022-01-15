@@ -10,15 +10,6 @@ export interface ContainerNotFoundException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace ContainerNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteObjectRequest {
   /**
    * <p>The path (including the file name) where the object is stored in the container.
@@ -56,15 +47,6 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Could not perform an operation on an object that does not exist.</p>
  */
@@ -72,15 +54,6 @@ export interface ObjectNotFoundException extends __SmithyException, $MetadataBea
   name: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ObjectNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeObjectRequest {
@@ -238,15 +211,6 @@ export interface RequestedRangeNotSatisfiableException extends __SmithyException
   name: "RequestedRangeNotSatisfiableException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace RequestedRangeNotSatisfiableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestedRangeNotSatisfiableException): any => ({
-    ...obj,
-  });
 }
 
 export enum ItemType {

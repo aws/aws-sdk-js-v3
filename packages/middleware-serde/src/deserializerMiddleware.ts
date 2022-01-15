@@ -15,9 +15,13 @@ export const deserializerMiddleware =
   (next: DeserializeHandler<Input, Output>, context: HandlerExecutionContext): DeserializeHandler<Input, Output> =>
   async (args: DeserializeHandlerArguments<Input>): Promise<DeserializeHandlerOutput<Output>> => {
     const { response } = await next(args);
-    const parsed = await deserializer(response, options);
-    return {
-      response,
-      output: parsed as Output,
-    };
+    try {
+      const parsed = await deserializer(response, options);
+      return {
+        response,
+        output: parsed as Output,
+      };
+    } catch (error) {
+      throw Object.assign(error, { $response: response });
+    }
   };

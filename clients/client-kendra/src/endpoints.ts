@@ -5,10 +5,6 @@ const regionHash: RegionHash = {
   "us-east-1": {
     variants: [
       {
-        hostname: "kendra.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "kendra-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -16,10 +12,6 @@ const regionHash: RegionHash = {
   },
   "us-east-2": {
     variants: [
-      {
-        hostname: "kendra.us-east-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "kendra-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
@@ -29,10 +21,6 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     variants: [
       {
-        hostname: "kendra.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
         hostname: "kendra-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
@@ -40,10 +28,6 @@ const regionHash: RegionHash = {
   },
   "us-west-2": {
     variants: [
-      {
-        hostname: "kendra.us-west-2.amazonaws.com",
-        tags: [],
-      },
       {
         hostname: "kendra-fips.us-west-2.amazonaws.com",
         tags: ["fips"],

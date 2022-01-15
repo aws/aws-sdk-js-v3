@@ -767,7 +767,7 @@ export enum FleetReplacementStrategy {
 /**
  * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
  *          notification signal that your Spot Instance is at an elevated risk of being interrupted.
- *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface FleetSpotCapacityRebalanceRequest {
   /**
@@ -790,7 +790,8 @@ export interface FleetSpotCapacityRebalanceRequest {
   /**
    * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
    *          Instance after launching a new replacement Spot Instance.</p>
-   *          <p>Valid only when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
    *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
    */
   TerminationDelay?: number;
@@ -1060,7 +1061,7 @@ export interface CreateFleetRequest {
    *                launched.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2 Fleet
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/ec2-fleet-request-type.html">EC2 Fleet
    *             request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   Type?: FleetType | string;
@@ -3949,6 +3950,11 @@ export enum LaunchTemplateHttpTokensState {
   required = "required",
 }
 
+export enum LaunchTemplateInstanceMetadataTagsState {
+  disabled = "disabled",
+  enabled = "enabled",
+}
+
 /**
  * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
  *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -3969,7 +3975,8 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not
+   *             specified, the default state is <code>enabled</code>.</p>
    *          <note>
    *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.
    * </p>
@@ -3983,6 +3990,16 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          </p>
    */
   HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+
+  /**
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance
+   *             metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   *             <p>Default: <code>disabled</code>
+   *          </p>
+   */
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
 }
 
 export namespace LaunchTemplateInstanceMetadataOptionsRequest {
@@ -5194,7 +5211,8 @@ export interface LaunchTemplateInstanceMetadataOptions {
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p>
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is
+   *             not specified, the default state is <code>enabled</code>.</p>
    *         <note>
    *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata.
    *             </p>
@@ -5208,6 +5226,13 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          </p>
    */
   HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+
+  /**
+   * <p>
+   *
+   *         </p>
+   */
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
 }
 
 export namespace LaunchTemplateInstanceMetadataOptions {
@@ -7029,8 +7054,7 @@ export interface CreateNetworkInterfaceRequest {
    * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify
    * 			<code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">
    * 			    Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. To create a trunk network interface, specify
-   * 		    <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html">
-   * 		        Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 		    <code>trunk</code>.</p>
    */
   InterfaceType?: NetworkInterfaceCreationType | string;
 
@@ -7649,6 +7673,11 @@ export interface PlacementGroup {
    * <p>Any tags applied to the placement group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the placement group.</p>
+   */
+  GroupArn?: string;
 }
 
 export namespace PlacementGroup {
@@ -10305,42 +10334,3 @@ export namespace CreateTransitGatewayConnectPeerRequest {
 }
 
 export type BgpStatus = "down" | "up";
-
-/**
- * <p>The BGP configuration information.</p>
- */
-export interface TransitGatewayAttachmentBgpConfiguration {
-  /**
-   * <p>The transit gateway Autonomous System Number (ASN).</p>
-   */
-  TransitGatewayAsn?: number;
-
-  /**
-   * <p>The peer Autonomous System Number (ASN).</p>
-   */
-  PeerAsn?: number;
-
-  /**
-   * <p>The interior BGP peer IP address for the transit gateway.</p>
-   */
-  TransitGatewayAddress?: string;
-
-  /**
-   * <p>The interior BGP peer IP address for the appliance.</p>
-   */
-  PeerAddress?: string;
-
-  /**
-   * <p>The BGP status.</p>
-   */
-  BgpStatus?: BgpStatus | string;
-}
-
-export namespace TransitGatewayAttachmentBgpConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TransitGatewayAttachmentBgpConfiguration): any => ({
-    ...obj,
-  });
-}

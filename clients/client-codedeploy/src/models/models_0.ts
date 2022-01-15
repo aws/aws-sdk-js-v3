@@ -63,15 +63,6 @@ export interface InstanceLimitExceededException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InstanceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An on-premises instance name was not specified.</p>
  */
@@ -82,15 +73,6 @@ export interface InstanceNameRequiredException extends __SmithyException, $Metad
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InstanceNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNameRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -105,15 +87,6 @@ export interface InstanceNotRegisteredException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InstanceNotRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNotRegisteredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The on-premises instance name was specified in an invalid format.</p>
  */
@@ -124,15 +97,6 @@ export interface InvalidInstanceNameException extends __SmithyException, $Metada
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidInstanceNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInstanceNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -147,15 +111,6 @@ export interface InvalidTagException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidTagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum allowed number of tags was exceeded.</p>
  */
@@ -168,15 +123,6 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace TagLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag was not specified.</p>
  */
@@ -187,15 +133,6 @@ export interface TagRequiredException extends __SmithyException, $MetadataBearer
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace TagRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -273,15 +210,6 @@ export interface AlarmsLimitExceededException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace AlarmsLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlarmsLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An application with the specified name with the IAM user or AWS account already
  *             exists.</p>
@@ -295,15 +223,6 @@ export interface ApplicationAlreadyExistsException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ApplicationAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The application does not exist with the IAM user or AWS account.</p>
  */
@@ -314,15 +233,6 @@ export interface ApplicationDoesNotExistException extends __SmithyException, $Me
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace ApplicationDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationDoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 export enum ComputePlatform {
@@ -389,15 +299,6 @@ export interface ApplicationLimitExceededException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace ApplicationLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The minimum number of required application names was not specified.</p>
  */
@@ -408,15 +309,6 @@ export interface ApplicationNameRequiredException extends __SmithyException, $Me
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace ApplicationNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApplicationNameRequiredException): any => ({
-    ...obj,
-  });
 }
 
 export enum ApplicationRevisionSortBy {
@@ -471,15 +363,6 @@ export interface ArnNotSupportedException extends __SmithyException, $MetadataBe
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace ArnNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ArnNotSupportedException): any => ({
-    ...obj,
-  });
 }
 
 export enum AutoRollbackEvent {
@@ -862,15 +745,6 @@ export interface BatchLimitExceededException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace BatchLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The application name was specified in an invalid format.</p>
  */
@@ -881,15 +755,6 @@ export interface InvalidApplicationNameException extends __SmithyException, $Met
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidApplicationNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApplicationNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -904,15 +769,6 @@ export interface InvalidRevisionException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidRevisionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRevisionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The revision ID was not specified.</p>
  */
@@ -923,15 +779,6 @@ export interface RevisionRequiredException extends __SmithyException, $MetadataB
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace RevisionRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevisionRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1790,15 +1637,6 @@ export interface DeploymentConfigDoesNotExistException extends __SmithyException
   message?: string;
 }
 
-export namespace DeploymentConfigDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfigDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The deployment group name was not specified.</p>
  */
@@ -1811,15 +1649,6 @@ export interface DeploymentGroupNameRequiredException extends __SmithyException,
   message?: string;
 }
 
-export namespace DeploymentGroupNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentGroupNameRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The deployment group name was specified in an invalid format.</p>
  */
@@ -1830,15 +1659,6 @@ export interface InvalidDeploymentGroupNameException extends __SmithyException, 
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidDeploymentGroupNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentGroupNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2140,15 +1960,6 @@ export interface DeploymentDoesNotExistException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace DeploymentDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>At least one deployment ID must be specified.</p>
  */
@@ -2159,15 +1970,6 @@ export interface DeploymentIdRequiredException extends __SmithyException, $Metad
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace DeploymentIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentIdRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2184,15 +1986,6 @@ export interface InstanceIdRequiredException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InstanceIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceIdRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>,
  *                 <code>Server</code>, or <code>ECS</code>.</p>
@@ -2206,15 +1999,6 @@ export interface InvalidComputePlatformException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidComputePlatformException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidComputePlatformException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>At least one of the deployment IDs was specified in an invalid format.</p>
  */
@@ -2225,15 +2009,6 @@ export interface InvalidDeploymentIdException extends __SmithyException, $Metada
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidDeploymentIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentIdException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3289,15 +3064,6 @@ export interface DeploymentNotStartedException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace DeploymentNotStartedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentNotStartedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The provided target ID does not belong to the attempted deployment. </p>
  */
@@ -3310,15 +3076,6 @@ export interface DeploymentTargetDoesNotExistException extends __SmithyException
   message?: string;
 }
 
-export namespace DeploymentTargetDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentTargetDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A deployment target ID was not provided. </p>
  */
@@ -3329,15 +3086,6 @@ export interface DeploymentTargetIdRequiredException extends __SmithyException, 
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace DeploymentTargetIdRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentTargetIdRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3354,15 +3102,6 @@ export interface DeploymentTargetListSizeExceededException extends __SmithyExcep
   message?: string;
 }
 
-export namespace DeploymentTargetListSizeExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentTargetListSizeExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * @deprecated
  *
@@ -3377,15 +3116,6 @@ export interface InstanceDoesNotExistException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InstanceDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The target ID provided was not valid. </p>
  */
@@ -3396,15 +3126,6 @@ export interface InvalidDeploymentTargetIdException extends __SmithyException, $
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidDeploymentTargetIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentTargetIdException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3508,15 +3229,6 @@ export interface BucketNameFilterRequiredException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace BucketNameFilterRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketNameFilterRequiredException): any => ({
-    ...obj,
-  });
-}
-
 export enum DeploymentWaitType {
   READY_WAIT = "READY_WAIT",
   TERMINATION_WAIT = "TERMINATION_WAIT",
@@ -3559,15 +3271,6 @@ export interface DeploymentAlreadyCompletedException extends __SmithyException, 
   message?: string;
 }
 
-export namespace DeploymentAlreadyCompletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentAlreadyCompletedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The deployment does not have a status of Ready and can't continue yet.</p>
  */
@@ -3578,15 +3281,6 @@ export interface DeploymentIsNotInReadyStateException extends __SmithyException,
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace DeploymentIsNotInReadyStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentIsNotInReadyStateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3601,15 +3295,6 @@ export interface InvalidDeploymentStatusException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidDeploymentStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentStatusException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The wait type is invalid. </p>
  */
@@ -3622,15 +3307,6 @@ export interface InvalidDeploymentWaitTypeException extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidDeploymentWaitTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentWaitTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A call was submitted that is not supported for the specified deployment type.</p>
  */
@@ -3641,15 +3317,6 @@ export interface UnsupportedActionForDeploymentTypeException extends __SmithyExc
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace UnsupportedActionForDeploymentTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedActionForDeploymentTypeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3714,15 +3381,6 @@ export interface InvalidTagsToAddException extends __SmithyException, $MetadataB
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTagsToAddException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagsToAddException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3869,15 +3527,6 @@ export interface DeploymentGroupDoesNotExistException extends __SmithyException,
   message?: string;
 }
 
-export namespace DeploymentGroupDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentGroupDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of allowed deployments was exceeded.</p>
  */
@@ -3890,15 +3539,6 @@ export interface DeploymentLimitExceededException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace DeploymentLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The description is too long.</p>
  */
@@ -3909,15 +3549,6 @@ export interface DescriptionTooLongException extends __SmithyException, $Metadat
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace DescriptionTooLongException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescriptionTooLongException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3934,15 +3565,6 @@ export interface InvalidAutoRollbackConfigException extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidAutoRollbackConfigException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAutoRollbackConfigException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Auto Scaling group was specified in an invalid format or does not exist.</p>
  */
@@ -3955,15 +3577,6 @@ export interface InvalidAutoScalingGroupException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidAutoScalingGroupException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAutoScalingGroupException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The deployment configuration name was specified in an invalid format.</p>
  */
@@ -3974,15 +3587,6 @@ export interface InvalidDeploymentConfigNameException extends __SmithyException,
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidDeploymentConfigNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentConfigNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4000,15 +3604,6 @@ export interface InvalidFileExistsBehaviorException extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidFileExistsBehaviorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFileExistsBehaviorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The GitHub token is not valid.</p>
  */
@@ -4019,15 +3614,6 @@ export interface InvalidGitHubAccountTokenException extends __SmithyException, $
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidGitHubAccountTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGitHubAccountTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4044,15 +3630,6 @@ export interface InvalidIgnoreApplicationStopFailuresValueException extends __Sm
   message?: string;
 }
 
-export namespace InvalidIgnoreApplicationStopFailuresValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidIgnoreApplicationStopFailuresValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An invalid load balancer name, or no load balancer name, was specified.</p>
  */
@@ -4063,15 +3640,6 @@ export interface InvalidLoadBalancerInfoException extends __SmithyException, $Me
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidLoadBalancerInfoException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLoadBalancerInfoException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4086,15 +3654,6 @@ export interface InvalidRoleException extends __SmithyException, $MetadataBearer
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidRoleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRoleException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4124,15 +3683,6 @@ export interface InvalidTargetInstancesException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidTargetInstancesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetInstancesException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The configuration that specifies how traffic is routed during a deployment is
  *             invalid.</p>
@@ -4144,15 +3694,6 @@ export interface InvalidTrafficRoutingConfigurationException extends __SmithyExc
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTrafficRoutingConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTrafficRoutingConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4169,15 +3710,6 @@ export interface InvalidUpdateOutdatedInstancesOnlyValueException extends __Smit
   message?: string;
 }
 
-export namespace InvalidUpdateOutdatedInstancesOnlyValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidUpdateOutdatedInstancesOnlyValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The named revision does not exist with the IAM user or AWS account.</p>
  */
@@ -4190,15 +3722,6 @@ export interface RevisionDoesNotExistException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace RevisionDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RevisionDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An API function was called too frequently.</p>
  */
@@ -4209,15 +3732,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export type MinimumHealthyHostsType = "FLEET_PERCENT" | "HOST_COUNT";
@@ -4462,15 +3976,6 @@ export interface DeploymentConfigAlreadyExistsException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace DeploymentConfigAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfigAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The deployment configurations limit was exceeded.</p>
  */
@@ -4481,15 +3986,6 @@ export interface DeploymentConfigLimitExceededException extends __SmithyExceptio
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace DeploymentConfigLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfigLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4504,15 +4000,6 @@ export interface DeploymentConfigNameRequiredException extends __SmithyException
   message?: string;
 }
 
-export namespace DeploymentConfigNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfigNameRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The minimum healthy instance value was specified in an invalid format.</p>
  */
@@ -4523,15 +4010,6 @@ export interface InvalidMinimumHealthyHostValueException extends __SmithyExcepti
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidMinimumHealthyHostValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidMinimumHealthyHostValueException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4707,15 +4185,6 @@ export interface DeploymentGroupAlreadyExistsException extends __SmithyException
   message?: string;
 }
 
-export namespace DeploymentGroupAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentGroupAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The deployment groups limit was exceeded.</p>
  */
@@ -4726,15 +4195,6 @@ export interface DeploymentGroupLimitExceededException extends __SmithyException
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace DeploymentGroupLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentGroupLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4748,15 +4208,6 @@ export interface ECSServiceMappingLimitExceededException extends __SmithyExcepti
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace ECSServiceMappingLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ECSServiceMappingLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4788,15 +4239,6 @@ export interface InvalidAlarmConfigException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace InvalidAlarmConfigException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAlarmConfigException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The configuration for the blue/green deployment group was provided in an invalid
  *             format. For information about deployment configuration format, see <a>CreateDeploymentConfig</a>.</p>
@@ -4808,15 +4250,6 @@ export interface InvalidBlueGreenDeploymentConfigurationException extends __Smit
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidBlueGreenDeploymentConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidBlueGreenDeploymentConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4833,15 +4266,6 @@ export interface InvalidDeploymentStyleException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidDeploymentStyleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentStyleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A call was submitted that specified both Ec2TagFilters and Ec2TagSet, but only one of
  *             these data types can be used in a single call.</p>
@@ -4853,15 +4277,6 @@ export interface InvalidEC2TagCombinationException extends __SmithyException, $M
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidEC2TagCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEC2TagCombinationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4876,15 +4291,6 @@ export interface InvalidEC2TagException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidEC2TagException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidEC2TagException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The Amazon ECS service identifier is not valid. </p>
  */
@@ -4897,15 +4303,6 @@ export interface InvalidECSServiceException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidECSServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidECSServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The input was specified in an invalid format.</p>
  */
@@ -4916,15 +4313,6 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidInputException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInputException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4940,15 +4328,6 @@ export interface InvalidOnPremisesTagCombinationException extends __SmithyExcept
   message?: string;
 }
 
-export namespace InvalidOnPremisesTagCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOnPremisesTagCombinationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> A target group pair associated with this deployment is not valid. </p>
  */
@@ -4959,15 +4338,6 @@ export interface InvalidTargetGroupPairException extends __SmithyException, $Met
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTargetGroupPairException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetGroupPairException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4982,15 +4352,6 @@ export interface InvalidTriggerConfigException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidTriggerConfigException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTriggerConfigException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The limit for lifecycle hooks was exceeded.</p>
  */
@@ -5003,15 +4364,6 @@ export interface LifecycleHookLimitExceededException extends __SmithyException, 
   message?: string;
 }
 
-export namespace LifecycleHookLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleHookLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The role ID was not specified.</p>
  */
@@ -5022,15 +4374,6 @@ export interface RoleRequiredException extends __SmithyException, $MetadataBeare
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace RoleRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RoleRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5046,15 +4389,6 @@ export interface TagSetListLimitExceededException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace TagSetListLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagSetListLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The maximum allowed number of triggers was exceeded.</p>
  */
@@ -5065,15 +4399,6 @@ export interface TriggerTargetsLimitExceededException extends __SmithyException,
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace TriggerTargetsLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TriggerTargetsLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5128,15 +4453,6 @@ export interface DeploymentConfigInUseException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace DeploymentConfigInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeploymentConfigInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An invalid operation was detected.</p>
  */
@@ -5147,15 +4463,6 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5256,15 +4563,6 @@ export interface GitHubAccountTokenDoesNotExistException extends __SmithyExcepti
   message?: string;
 }
 
-export namespace GitHubAccountTokenDoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitHubAccountTokenDoesNotExistException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The call is missing a required GitHub account connection name.</p>
  */
@@ -5275,15 +4573,6 @@ export interface GitHubAccountTokenNameRequiredException extends __SmithyExcepti
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace GitHubAccountTokenNameRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GitHubAccountTokenNameRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5298,15 +4587,6 @@ export interface InvalidGitHubAccountTokenNameException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace InvalidGitHubAccountTokenNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidGitHubAccountTokenNameException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The API used does not support the deployment.</p>
  */
@@ -5319,15 +4599,6 @@ export interface OperationNotSupportedException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace OperationNotSupportedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OperationNotSupportedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource could not be validated.</p>
  */
@@ -5338,15 +4609,6 @@ export interface ResourceValidationException extends __SmithyException, $Metadat
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace ResourceValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteResourcesByExternalIdInput {
@@ -5791,15 +5053,6 @@ export interface InvalidBucketNameFilterException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidBucketNameFilterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidBucketNameFilterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The deployed state filter was specified in an invalid format.</p>
  */
@@ -5810,15 +5063,6 @@ export interface InvalidDeployedStateFilterException extends __SmithyException, 
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidDeployedStateFilterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeployedStateFilterException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5833,15 +5077,6 @@ export interface InvalidKeyPrefixFilterException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace InvalidKeyPrefixFilterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidKeyPrefixFilterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The next token was specified in an invalid format.</p>
  */
@@ -5852,15 +5087,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5876,15 +5102,6 @@ export interface InvalidSortByException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidSortByException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSortByException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The sort order was specified in an invalid format.</p>
  */
@@ -5895,15 +5112,6 @@ export interface InvalidSortOrderException extends __SmithyException, $MetadataB
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidSortOrderException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSortOrderException): any => ({
-    ...obj,
-  });
 }
 
 export enum ListStateFilterAction {
@@ -6207,15 +5415,6 @@ export interface InvalidDeploymentInstanceTypeException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace InvalidDeploymentInstanceTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeploymentInstanceTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified instance status does not exist.</p>
  */
@@ -6226,15 +5425,6 @@ export interface InvalidInstanceStatusException extends __SmithyException, $Meta
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidInstanceStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInstanceStatusException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6251,15 +5441,6 @@ export interface InvalidInstanceTypeException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace InvalidInstanceTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInstanceTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p> The target filter name is invalid. </p>
  */
@@ -6270,15 +5451,6 @@ export interface InvalidTargetFilterNameException extends __SmithyException, $Me
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTargetFilterNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTargetFilterNameException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6385,15 +5557,6 @@ export interface InvalidExternalIdException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidExternalIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExternalIdException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified time range was specified in an invalid format.</p>
  */
@@ -6404,15 +5567,6 @@ export interface InvalidTimeRangeException extends __SmithyException, $MetadataB
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTimeRangeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTimeRangeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6685,15 +5839,6 @@ export interface InvalidRegistrationStatusException extends __SmithyException, $
   message?: string;
 }
 
-export namespace InvalidRegistrationStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRegistrationStatusException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tag filter was specified in an invalid format.</p>
  */
@@ -6704,15 +5849,6 @@ export interface InvalidTagFilterException extends __SmithyException, $MetadataB
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidTagFilterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagFilterException): any => ({
-    ...obj,
-  });
 }
 
 export enum RegistrationStatus {
@@ -6801,15 +5937,6 @@ export interface InvalidArnException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p> The ARN of a CodeDeploy resource. <code>ListTagsForResource</code> returns all the
@@ -6870,15 +5997,6 @@ export interface ResourceArnRequiredException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ResourceArnRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceArnRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A lifecycle event hook is invalid. Review the <code>hooks</code> section in your
  *             AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are
@@ -6891,15 +6009,6 @@ export interface InvalidLifecycleEventHookExecutionIdException extends __SmithyE
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidLifecycleEventHookExecutionIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLifecycleEventHookExecutionIdException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6915,15 +6024,6 @@ export interface InvalidLifecycleEventHookExecutionStatusException extends __Smi
   message?: string;
 }
 
-export namespace InvalidLifecycleEventHookExecutionStatusException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidLifecycleEventHookExecutionStatusException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An attempt to return the status of an already completed lifecycle event
  *             occurred.</p>
@@ -6935,15 +6035,6 @@ export interface LifecycleEventAlreadyCompletedException extends __SmithyExcepti
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace LifecycleEventAlreadyCompletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LifecycleEventAlreadyCompletedException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutLifecycleEventHookExecutionStatusInput {
@@ -7037,15 +6128,6 @@ export interface IamArnRequiredException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace IamArnRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamArnRequiredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request included an IAM session ARN that has already been used to register a
  *             different instance.</p>
@@ -7057,15 +6139,6 @@ export interface IamSessionArnAlreadyRegisteredException extends __SmithyExcepti
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace IamSessionArnAlreadyRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamSessionArnAlreadyRegisteredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7080,15 +6153,6 @@ export interface IamUserArnAlreadyRegisteredException extends __SmithyException,
   message?: string;
 }
 
-export namespace IamUserArnAlreadyRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamUserArnAlreadyRegisteredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An IAM user ARN was not specified.</p>
  */
@@ -7099,15 +6163,6 @@ export interface IamUserArnRequiredException extends __SmithyException, $Metadat
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace IamUserArnRequiredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamUserArnRequiredException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7122,15 +6177,6 @@ export interface InstanceNameAlreadyRegisteredException extends __SmithyExceptio
   message?: string;
 }
 
-export namespace InstanceNameAlreadyRegisteredException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNameAlreadyRegisteredException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The IAM session ARN was specified in an invalid format.</p>
  */
@@ -7141,15 +6187,6 @@ export interface InvalidIamSessionArnException extends __SmithyException, $Metad
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace InvalidIamSessionArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidIamSessionArnException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7164,15 +6201,6 @@ export interface InvalidIamUserArnException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace InvalidIamUserArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidIamUserArnException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Both an IAM user ARN and an IAM session ARN were included in the request. Use only one
  *             ARN type.</p>
@@ -7184,15 +6212,6 @@ export interface MultipleIamArnsProvidedException extends __SmithyException, $Me
    * <p>The message that corresponds to the exception thrown by AWS CodeDeploy.</p>
    */
   message?: string;
-}
-
-export namespace MultipleIamArnsProvidedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MultipleIamArnsProvidedException): any => ({
-    ...obj,
-  });
 }
 
 /**

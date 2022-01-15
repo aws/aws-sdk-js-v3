@@ -1,6 +1,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  AssociateServiceRoleToAccountCommand,
+  AssociateServiceRoleToAccountCommandInput,
+  AssociateServiceRoleToAccountCommandOutput,
+} from "./commands/AssociateServiceRoleToAccountCommand";
+import {
   BatchAssociateClientDeviceWithCoreDeviceCommand,
   BatchAssociateClientDeviceWithCoreDeviceCommandInput,
   BatchAssociateClientDeviceWithCoreDeviceCommandOutput,
@@ -41,6 +46,11 @@ import {
   DescribeComponentCommandOutput,
 } from "./commands/DescribeComponentCommand";
 import {
+  DisassociateServiceRoleFromAccountCommand,
+  DisassociateServiceRoleFromAccountCommandInput,
+  DisassociateServiceRoleFromAccountCommandOutput,
+} from "./commands/DisassociateServiceRoleFromAccountCommand";
+import {
   GetComponentCommand,
   GetComponentCommandInput,
   GetComponentCommandOutput,
@@ -51,6 +61,11 @@ import {
   GetComponentVersionArtifactCommandOutput,
 } from "./commands/GetComponentVersionArtifactCommand";
 import {
+  GetConnectivityInfoCommand,
+  GetConnectivityInfoCommandInput,
+  GetConnectivityInfoCommandOutput,
+} from "./commands/GetConnectivityInfoCommand";
+import {
   GetCoreDeviceCommand,
   GetCoreDeviceCommandInput,
   GetCoreDeviceCommandOutput,
@@ -60,6 +75,11 @@ import {
   GetDeploymentCommandInput,
   GetDeploymentCommandOutput,
 } from "./commands/GetDeploymentCommand";
+import {
+  GetServiceRoleForAccountCommand,
+  GetServiceRoleForAccountCommandInput,
+  GetServiceRoleForAccountCommandOutput,
+} from "./commands/GetServiceRoleForAccountCommand";
 import {
   ListClientDevicesAssociatedWithCoreDeviceCommand,
   ListClientDevicesAssociatedWithCoreDeviceCommandInput,
@@ -111,6 +131,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateConnectivityInfoCommand,
+  UpdateConnectivityInfoCommandInput,
+  UpdateConnectivityInfoCommandOutput,
+} from "./commands/UpdateConnectivityInfoCommand";
 import { GreengrassV2Client } from "./GreengrassV2Client";
 
 /**
@@ -128,7 +153,43 @@ import { GreengrassV2Client } from "./GreengrassV2Client";
  */
 export class GreengrassV2 extends GreengrassV2Client {
   /**
-   * <p>Associate a list of client devices with a core device. Use this API operation to specify
+   * <p>Associates a Greengrass service role with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region. IoT Greengrass
+   *       uses this role to verify the identity of client devices and manage core device connectivity
+   *       information. The role must include the <a href="https://console.aws.amazon.com/iam/home#/policies/arn:awsiam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy">AWSGreengrassResourceAccessRolePolicy</a> managed policy or a custom policy that
+   *       defines equivalent permissions for the IoT Greengrass features that you use. For more information, see
+   *         <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+   */
+  public associateServiceRoleToAccount(
+    args: AssociateServiceRoleToAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateServiceRoleToAccountCommandOutput>;
+  public associateServiceRoleToAccount(
+    args: AssociateServiceRoleToAccountCommandInput,
+    cb: (err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void
+  ): void;
+  public associateServiceRoleToAccount(
+    args: AssociateServiceRoleToAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void
+  ): void;
+  public associateServiceRoleToAccount(
+    args: AssociateServiceRoleToAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void),
+    cb?: (err: any, data?: AssociateServiceRoleToAccountCommandOutput) => void
+  ): Promise<AssociateServiceRoleToAccountCommandOutput> | void {
+    const command = new AssociateServiceRoleToAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a list of client devices with a core device. Use this API operation to specify
    *       which client devices can discover a core device through cloud discovery. With cloud discovery,
    *       client devices connect to IoT Greengrass to retrieve associated core devices' connectivity information
    *       and certificates. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-cloud-discovery.html">Configure cloud
@@ -174,7 +235,7 @@ export class GreengrassV2 extends GreengrassV2Client {
   }
 
   /**
-   * <p>Disassociate a list of client devices from a core device. After you disassociate a client
+   * <p>Disassociates a list of client devices from a core device. After you disassociate a client
    *       device from a core device, the client device won't be able to use cloud discovery to retrieve
    *       the core device's connectivity information and certificates.</p>
    */
@@ -479,6 +540,41 @@ export class GreengrassV2 extends GreengrassV2Client {
   }
 
   /**
+   * <p>Disassociates the Greengrass service role from IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.
+   *       Without a service role, IoT Greengrass can't verify the identity of client devices or manage core device
+   *       connectivity information. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in
+   *       the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+   */
+  public disassociateServiceRoleFromAccount(
+    args: DisassociateServiceRoleFromAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateServiceRoleFromAccountCommandOutput>;
+  public disassociateServiceRoleFromAccount(
+    args: DisassociateServiceRoleFromAccountCommandInput,
+    cb: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
+  ): void;
+  public disassociateServiceRoleFromAccount(
+    args: DisassociateServiceRoleFromAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
+  ): void;
+  public disassociateServiceRoleFromAccount(
+    args: DisassociateServiceRoleFromAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateServiceRoleFromAccountCommandOutput) => void
+  ): Promise<DisassociateServiceRoleFromAccountCommandOutput> | void {
+    const command = new DisassociateServiceRoleFromAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the recipe for a version of a component. Core devices can call this operation to
    *       identify the artifacts and requirements to install a component.</p>
    */
@@ -531,6 +627,44 @@ export class GreengrassV2 extends GreengrassV2Client {
     cb?: (err: any, data?: GetComponentVersionArtifactCommandOutput) => void
   ): Promise<GetComponentVersionArtifactCommandOutput> | void {
     const command = new GetComponentVersionArtifactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves connectivity information for a Greengrass core device.</p>
+   *          <p>Connectivity information includes endpoints and ports where client devices
+   *       can connect to an MQTT broker on the core device. When a client device
+   *       calls the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html">Greengrass discovery API</a>,
+   *       IoT Greengrass returns connectivity information for all of the core devices where the client device can
+   *       connect. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html">Connect client devices to
+   *         core devices</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+   */
+  public getConnectivityInfo(
+    args: GetConnectivityInfoCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectivityInfoCommandOutput>;
+  public getConnectivityInfo(
+    args: GetConnectivityInfoCommandInput,
+    cb: (err: any, data?: GetConnectivityInfoCommandOutput) => void
+  ): void;
+  public getConnectivityInfo(
+    args: GetConnectivityInfoCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectivityInfoCommandOutput) => void
+  ): void;
+  public getConnectivityInfo(
+    args: GetConnectivityInfoCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConnectivityInfoCommandOutput) => void),
+    cb?: (err: any, data?: GetConnectivityInfoCommandOutput) => void
+  ): Promise<GetConnectivityInfoCommandOutput> | void {
+    const command = new GetConnectivityInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -595,6 +729,41 @@ export class GreengrassV2 extends GreengrassV2Client {
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the service role associated with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.
+   *       IoT Greengrass uses this role to verify the identity of client devices and manage core device
+   *       connectivity information. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-service-role.html">Greengrass service role</a> in
+   *       the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+   */
+  public getServiceRoleForAccount(
+    args: GetServiceRoleForAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceRoleForAccountCommandOutput>;
+  public getServiceRoleForAccount(
+    args: GetServiceRoleForAccountCommandInput,
+    cb: (err: any, data?: GetServiceRoleForAccountCommandOutput) => void
+  ): void;
+  public getServiceRoleForAccount(
+    args: GetServiceRoleForAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceRoleForAccountCommandOutput) => void
+  ): void;
+  public getServiceRoleForAccount(
+    args: GetServiceRoleForAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceRoleForAccountCommandOutput) => void),
+    cb?: (err: any, data?: GetServiceRoleForAccountCommandOutput) => void
+  ): Promise<GetServiceRoleForAccountCommandOutput> | void {
+    const command = new GetServiceRoleForAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -961,6 +1130,44 @@ export class GreengrassV2 extends GreengrassV2Client {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates connectivity information for a Greengrass core device.</p>
+   *          <p>Connectivity information includes endpoints and ports where client devices
+   *       can connect to an MQTT broker on the core device. When a client device
+   *       calls the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-discover-api.html">Greengrass discovery API</a>,
+   *       IoT Greengrass returns connectivity information for all of the core devices where the client device can
+   *       connect. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/connect-client-devices.html">Connect client devices to
+   *         core devices</a> in the <i>IoT Greengrass Version 2 Developer Guide</i>.</p>
+   */
+  public updateConnectivityInfo(
+    args: UpdateConnectivityInfoCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectivityInfoCommandOutput>;
+  public updateConnectivityInfo(
+    args: UpdateConnectivityInfoCommandInput,
+    cb: (err: any, data?: UpdateConnectivityInfoCommandOutput) => void
+  ): void;
+  public updateConnectivityInfo(
+    args: UpdateConnectivityInfoCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectivityInfoCommandOutput) => void
+  ): void;
+  public updateConnectivityInfo(
+    args: UpdateConnectivityInfoCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectivityInfoCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectivityInfoCommandOutput) => void
+  ): Promise<UpdateConnectivityInfoCommandOutput> | void {
+    const command = new UpdateConnectivityInfoCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

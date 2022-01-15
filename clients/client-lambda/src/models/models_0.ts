@@ -156,15 +156,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
@@ -174,15 +165,6 @@ export interface PolicyLengthExceededException extends __SmithyException, $Metad
   $fault: "client";
   Type?: string;
   message?: string;
-}
-
-export namespace PolicyLengthExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PolicyLengthExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -204,15 +186,6 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace PreconditionFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PreconditionFailedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource already exists, or another operation is in progress.</p>
  */
@@ -230,15 +203,6 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource specified in the request does not exist.</p>
  */
@@ -249,15 +213,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Lambda service encountered an internal error.</p>
  */
@@ -266,15 +221,6 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   $fault: "server";
   Type?: string;
   Message?: string;
-}
-
-export namespace ServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj,
-  });
 }
 
 export enum ThrottleReason {
@@ -299,15 +245,6 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
   Type?: string;
   message?: string;
   Reason?: ThrottleReason | string;
-}
-
-export namespace TooManyRequestsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
-    ...obj,
-  });
 }
 
 export interface AddPermissionRequest {
@@ -1218,15 +1155,6 @@ export interface CodeSigningConfigNotFoundException extends __SmithyException, $
   Message?: string;
 }
 
-export namespace CodeSigningConfigNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeSigningConfigNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
  *          </p>
@@ -1242,15 +1170,6 @@ export interface CodeStorageExceededException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace CodeStorageExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeStorageExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy
  *       is set to ENFORCE. Lambda blocks the deployment. </p>
@@ -1260,15 +1179,6 @@ export interface CodeVerificationFailedException extends __SmithyException, $Met
   $fault: "client";
   Type?: string;
   Message?: string;
-}
-
-export namespace CodeVerificationFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CodeVerificationFailedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2069,15 +1979,6 @@ export interface InvalidCodeSignatureException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace InvalidCodeSignatureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCodeSignatureException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteAliasRequest {
   /**
    * <p>The name of the Lambda function.</p>
@@ -2170,15 +2071,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   $fault: "client";
   Type?: string;
   Message?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFunctionRequest {
@@ -3232,15 +3124,6 @@ export interface ProvisionedConcurrencyConfigNotFoundException extends __SmithyE
   message?: string;
 }
 
-export namespace ProvisionedConcurrencyConfigNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProvisionedConcurrencyConfigNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Need additional permissions to configure VPC settings.</p>
  */
@@ -3249,15 +3132,6 @@ export interface EC2AccessDeniedException extends __SmithyException, $MetadataBe
   $fault: "server";
   Type?: string;
   Message?: string;
-}
-
-export namespace EC2AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2AccessDeniedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3271,15 +3145,6 @@ export interface EC2ThrottledException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace EC2ThrottledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2ThrottledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
  */
@@ -3289,15 +3154,6 @@ export interface EC2UnexpectedException extends __SmithyException, $MetadataBear
   Type?: string;
   Message?: string;
   EC2ErrorCode?: string;
-}
-
-export namespace EC2UnexpectedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2UnexpectedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3310,15 +3166,6 @@ export interface EFSIOException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace EFSIOException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSIOException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The function couldn't make a network connection to the configured file system.</p>
  */
@@ -3329,15 +3176,6 @@ export interface EFSMountConnectivityException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace EFSMountConnectivityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSMountConnectivityException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The function couldn't mount the configured file system due to a permission or configuration issue.</p>
  */
@@ -3346,15 +3184,6 @@ export interface EFSMountFailureException extends __SmithyException, $MetadataBe
   $fault: "client";
   Type?: string;
   Message?: string;
-}
-
-export namespace EFSMountFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSMountFailureException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3368,15 +3197,6 @@ export interface EFSMountTimeoutException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace EFSMountTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EFSMountTimeoutException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
  *       function configuration, because the limit for network interfaces has been reached.</p>
@@ -3386,15 +3206,6 @@ export interface ENILimitReachedException extends __SmithyException, $MetadataBe
   $fault: "server";
   Type?: string;
   Message?: string;
-}
-
-export namespace ENILimitReachedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ENILimitReachedException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3414,15 +3225,6 @@ export interface InvalidRequestContentException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace InvalidRequestContentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestContentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The runtime or runtime version specified is not supported.</p>
  */
@@ -3431,15 +3233,6 @@ export interface InvalidRuntimeException extends __SmithyException, $MetadataBea
   $fault: "server";
   Type?: string;
   Message?: string;
-}
-
-export namespace InvalidRuntimeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRuntimeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3452,15 +3245,6 @@ export interface InvalidSecurityGroupIDException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace InvalidSecurityGroupIDException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSecurityGroupIDException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The Subnet ID provided in the Lambda function VPC configuration is invalid.</p>
  */
@@ -3471,15 +3255,6 @@ export interface InvalidSubnetIDException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InvalidSubnetIDException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSubnetIDException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lambda could not unzip the deployment package.</p>
  */
@@ -3488,15 +3263,6 @@ export interface InvalidZipFileException extends __SmithyException, $MetadataBea
   $fault: "server";
   Type?: string;
   Message?: string;
-}
-
-export namespace InvalidZipFileException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidZipFileException): any => ({
-    ...obj,
-  });
 }
 
 export enum InvocationType {
@@ -3645,15 +3411,6 @@ export interface KMSAccessDeniedException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace KMSAccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda
  *       function's KMS key settings.</p>
@@ -3663,15 +3420,6 @@ export interface KMSDisabledException extends __SmithyException, $MetadataBearer
   $fault: "server";
   Type?: string;
   Message?: string;
-}
-
-export namespace KMSDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3685,15 +3433,6 @@ export interface KMSInvalidStateException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace KMSInvalidStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's
  *       KMS key settings. </p>
@@ -3705,15 +3444,6 @@ export interface KMSNotFoundException extends __SmithyException, $MetadataBearer
   Message?: string;
 }
 
-export namespace KMSNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see
  *         <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Limits</a>. </p>
@@ -3723,15 +3453,6 @@ export interface RequestTooLargeException extends __SmithyException, $MetadataBe
   $fault: "client";
   Type?: string;
   message?: string;
-}
-
-export namespace RequestTooLargeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestTooLargeException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3752,15 +3473,6 @@ export interface ResourceNotReadyException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotReadyException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
  *       has no available IP addresses.</p>
@@ -3772,15 +3484,6 @@ export interface SubnetIPAddressLimitReachedException extends __SmithyException,
   Message?: string;
 }
 
-export namespace SubnetIPAddressLimitReachedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetIPAddressLimitReachedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
  */
@@ -3789,15 +3492,6 @@ export interface UnsupportedMediaTypeException extends __SmithyException, $Metad
   $fault: "client";
   Type?: string;
   message?: string;
-}
-
-export namespace UnsupportedMediaTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedMediaTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface InvokeAsyncRequest {

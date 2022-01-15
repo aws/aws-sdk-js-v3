@@ -2157,6 +2157,11 @@ import {
   ModifyVpcEndpointServiceConfigurationCommandOutput,
 } from "./commands/ModifyVpcEndpointServiceConfigurationCommand";
 import {
+  ModifyVpcEndpointServicePayerResponsibilityCommand,
+  ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+  ModifyVpcEndpointServicePayerResponsibilityCommandOutput,
+} from "./commands/ModifyVpcEndpointServicePayerResponsibilityCommand";
+import {
   ModifyVpcEndpointServicePermissionsCommand,
   ModifyVpcEndpointServicePermissionsCommandInput,
   ModifyVpcEndpointServicePermissionsCommandOutput,
@@ -2515,10 +2520,10 @@ import { EC2Client } from "./EC2Client";
 
 /**
  * <fullname>Amazon Elastic Compute Cloud</fullname>
- *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the AWS Cloud.
+ *          <p>Amazon Elastic Compute Cloud (Amazon EC2) provides secure and resizable computing capacity in the Amazon Web Services Cloud.
  *           Using Amazon EC2 eliminates the need to invest in hardware up front, so you can develop and deploy applications
  *           faster. Amazon Virtual Private Cloud (Amazon VPC) enables you to provision a logically isolated section of the
- *           AWS Cloud where you can launch AWS resources in a virtual network that you've defined. Amazon Elastic Block Store
+ *           Amazon Web Services Cloud where you can launch Amazon Web Services resources in a virtual network that you've defined. Amazon Elastic Block Store
  *           (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available
  *           and reliable storage volumes that can be attached to any running instance and used like a hard drive.</p>
  *          <p>To learn more, see the following resources:</p>
@@ -2536,7 +2541,7 @@ import { EC2Client } from "./EC2Client";
  *                </p>
  *             </li>
  *             <li>
- *                <p>AWS VPN: <a href="http://aws.amazon.com/vpn">AWS VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">AWS VPN documentation</a>
+ *                <p>Amazon Web Services VPN: <a href="http://aws.amazon.com/vpn">Amazon Web Services VPN product page</a>, <a href="http://aws.amazon.com/documentation/vpn">Amazon Web Services VPN documentation</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -9376,7 +9381,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes attributes of your AWS account. The following are the supported account attributes:</p>
+   * <p>Describes attributes of your Amazon Web Services account. The following are the supported account attributes:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -12914,7 +12919,10 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC. Rules are stale when they reference a deleted security group in a peer VPC, or a security group in a peer VPC for which the VPC peering connection has been deleted.</p>
+   * <p>[VPC only] Describes the stale security group rules for security groups in a specified VPC.
+   *           Rules are stale when they reference a deleted security group in the same VPC or in a peer VPC,
+   *           or if they reference a security group in a peer VPC for which the VPC peering connection has
+   *           been deleted.</p>
    */
   public describeStaleSecurityGroups(
     args: DescribeStaleSecurityGroupsCommandInput,
@@ -18596,6 +18604,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyVpcEndpointServiceConfigurationCommandOutput) => void
   ): Promise<ModifyVpcEndpointServiceConfigurationCommandOutput> | void {
     const command = new ModifyVpcEndpointServiceConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the payer responsibility for your VPC endpoint service.</p>
+   */
+  public modifyVpcEndpointServicePayerResponsibility(
+    args: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput>;
+  public modifyVpcEndpointServicePayerResponsibility(
+    args: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+    cb: (err: any, data?: ModifyVpcEndpointServicePayerResponsibilityCommandOutput) => void
+  ): void;
+  public modifyVpcEndpointServicePayerResponsibility(
+    args: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVpcEndpointServicePayerResponsibilityCommandOutput) => void
+  ): void;
+  public modifyVpcEndpointServicePayerResponsibility(
+    args: ModifyVpcEndpointServicePayerResponsibilityCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyVpcEndpointServicePayerResponsibilityCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVpcEndpointServicePayerResponsibilityCommandOutput) => void
+  ): Promise<ModifyVpcEndpointServicePayerResponsibilityCommandOutput> | void {
+    const command = new ModifyVpcEndpointServicePayerResponsibilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

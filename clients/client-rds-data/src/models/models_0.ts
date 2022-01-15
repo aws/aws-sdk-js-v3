@@ -12,15 +12,6 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace BadRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BadRequestException): any => ({
-    ...obj,
-  });
-}
-
 export enum TypeHint {
   DATE = "DATE",
   DECIMAL = "DECIMAL",
@@ -42,30 +33,12 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An internal error occurred.</p>
  */
 export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
-}
-
-export namespace InternalServerErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -75,15 +48,6 @@ export namespace InternalServerErrorException {
 export interface ServiceUnavailableError extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableError";
   $fault: "server";
-}
-
-export namespace ServiceUnavailableError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -101,15 +65,6 @@ export interface StatementTimeoutException extends __SmithyException, $MetadataB
    * <p>The database connection ID that executed the SQL statement.</p>
    */
   dbConnectionId?: number;
-}
-
-export namespace StatementTimeoutException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatementTimeoutException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -309,15 +264,6 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The error message returned by this <code>NotFoundException</code> error.</p>
    */
   message?: string;
-}
-
-export namespace NotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum DecimalReturnType {

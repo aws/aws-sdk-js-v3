@@ -1913,7 +1913,7 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora)</p>
+   *                   <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2634,15 +2634,6 @@ export interface ReservedDBInstanceNotFoundFault extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ReservedDBInstanceNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstanceNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -2826,15 +2817,6 @@ export interface ReservedDBInstancesOfferingNotFoundFault extends __SmithyExcept
   name: "ReservedDBInstancesOfferingNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedDBInstancesOfferingNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstancesOfferingNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3138,15 +3120,6 @@ export interface DBLogFileNotFoundFault extends __SmithyException, $MetadataBear
   name: "DBLogFileNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBLogFileNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBLogFileNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3453,15 +3426,6 @@ export interface InstallationMediaAlreadyExistsFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace InstallationMediaAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstallationMediaAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -3599,15 +3563,6 @@ export interface InvalidDBClusterCapacityFault extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidDBClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDBClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 export interface ModifyCurrentDBClusterCapacityMessage {
   /**
    * <p>The DB cluster identifier for the cluster being modified. This parameter isn't case-sensitive.</p>
@@ -3676,7 +3631,7 @@ export interface ModifyCustomDBEngineVersionMessage {
 
   /**
    * <p>The custom engine version (CEV) that you want to modify. This option is required for
-   *             RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and
+   *             RDS Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code> and
    *             <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</p>
    */
   EngineVersion: string | undefined;
@@ -3930,7 +3885,7 @@ export interface ModifyDBClusterMessage {
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *         <p>To list all of the available engine versions for MySQL 5.7-compatible Aurora, use the following command:</p>
+   *         <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -4064,15 +4019,13 @@ export interface ModifyDBClusterMessage {
   /**
    * <p>Specifies the storage type to be associated with the DB cluster.</p>
    *         <p>
-   *             Valid values: <code>standard | gp2 | io1</code>
+   *             Valid values: <code>io1</code>
    *         </p>
    *         <p>
-   *             If you specify <code>io1</code>, you must also include a value for the
-   *             <code>Iops</code> parameter.
+   *             When specified, a value for the <code>Iops</code> parameter is required.
    *         </p>
    *         <p>
-   *             Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
+   *             Default: <code>io1</code>
    *         </p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
@@ -4370,15 +4323,6 @@ export interface SharedSnapshotQuotaExceededFault extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace SharedSnapshotQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SharedSnapshotQuotaExceededFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The DB upgrade failed because a resource the DB depends on can't be
  *             modified.</p>
@@ -4387,15 +4331,6 @@ export interface DBUpgradeDependencyFailureFault extends __SmithyException, $Met
   name: "DBUpgradeDependencyFailureFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBUpgradeDependencyFailureFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBUpgradeDependencyFailureFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4440,7 +4375,7 @@ export interface ModifyDBInstanceMessage {
    *         The change is applied during the next maintenance window,
    *         unless <code>ApplyImmediately</code> is enabled for this request.
    *         </p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>This setting doesn't apply to RDS Custom for Oracle.</p>
    *          <p>Default: Uses existing setting</p>
    */
   DBInstanceClass?: string;
@@ -4496,19 +4431,14 @@ export interface ModifyDBInstanceMessage {
   VpcSecurityGroupIds?: string[];
 
   /**
-   * <p>A value that indicates whether the modifications in this request and
-   *         any pending modifications are asynchronously applied
-   *         as soon as possible, regardless of the
-   *         <code>PreferredMaintenanceWindow</code> setting for the DB instance. By default, this parameter is
-   *           disabled.
-   *         </p>
+   * <p>A value that indicates whether the modifications in this request and any pending modifications are asynchronously applied as soon as possible,
+   *           regardless of the <code>PreferredMaintenanceWindow</code> setting for the DB instance. By default, this parameter is disabled.</p>
    *          <p>
-   *         If this parameter is disabled, changes to the
-   *         DB instance are applied during the next maintenance window. Some parameter changes can cause an outage
-   *         and are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
-   *         Review the table of parameters in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB Instance</a>
-   *           in the <i>Amazon RDS User Guide.</i> to see the impact of enabling
-   *           or disabling <code>ApplyImmediately</code> for each modified parameter and to determine when the changes are applied.
+   *         If this parameter is disabled, changes to the DB instance are applied during the next maintenance window. Some parameter changes can cause an outage
+   *         and are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot. Review the table of parameters in
+   *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying a DB Instance</a> in the
+   *         <i>Amazon RDS User Guide</i> to see the impact of enabling or disabling <code>ApplyImmediately</code> for each modified parameter and to
+   *         determine when the changes are applied.
    *         </p>
    */
   ApplyImmediately?: boolean;
@@ -4598,7 +4528,7 @@ export interface ModifyDBInstanceMessage {
    *          <ul>
    *             <li>
    *                <p>It must be a value from 0 to 35. It can't be set to 0 if the DB instance is a source to
-   *               read replicas. It can't be set to 0 or 35 for an RDS Custom DB instance.</p>
+   *               read replicas. It can't be set to 0 or 35 for an RDS Custom for Oracle DB instance.</p>
    *             </li>
    *             <li>
    *                <p>It can be specified for a MySQL read replica only if the source is running MySQL 5.6 or
@@ -4688,7 +4618,7 @@ export interface ModifyDBInstanceMessage {
    *           default minor version if the current minor version is lower.
    *           For information about valid engine versions, see <code>CreateDBInstance</code>,
    *           or call <code>DescribeDBEngineVersions</code>.</p>
-   *          <p>In RDS Custom, this parameter is supported for read replicas only if they are in the
+   *          <p>In RDS Custom for Oracle, this parameter is supported for read replicas only if they are in the
    *           <code>PATCH_DB_FAILURE</code> lifecycle.
    *       </p>
    */
@@ -4950,7 +4880,6 @@ export interface ModifyDBInstanceMessage {
    *       </p>
    *          <p>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
    *       of the value of the <code>ApplyImmediately</code> parameter.</p>
-   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   PubliclyAccessible?: boolean;
 
@@ -5214,17 +5143,20 @@ export interface ModifyDBParameterGroupMessage {
 
   /**
    * <p>An array of parameter names, values, and the application methods for the parameter update. At least one parameter name, value, and
-   *           application method method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.</p>
+   *           application method must be supplied; later arguments are optional. A maximum of 20 parameters can be modified in a single request.</p>
    *          <p>Valid Values (for the application method): <code>immediate | pending-reboot</code>
    *          </p>
+   *          <p>You can use the <code>immediate</code> value with dynamic parameters only. You can use the <code>pending-reboot</code> value for both dynamic
+   *           and static parameters.</p>
+   *          <p>When the application method is <code>immediate</code>, changes to dynamic parameters are applied immediately to the DB instances associated with
+   *           the parameter group.</p>
+   *          <p>When the application method is <code>pending-reboot</code>, changes to dynamic and static parameters are applied after a reboot without failover
+   *           to the DB instances associated with the parameter group.</p>
    *          <note>
-   *             <p>You can use the <code>immediate</code> value with dynamic parameters only. You can use the
-   *               <code>pending-reboot</code> value for both dynamic and static parameters.</p>
-   *             <p>When the application method is <code>immediate</code>, changes to dynamic parameters are applied immediately
-   *           to the DB instances associated with the parameter group. When the application method is <code>pending-reboot</code>,
-   *           changes to dynamic and static parameters are applied after a reboot without failover to the DB instances associated with the
-   *           parameter group.</p>
+   *             <p>You can't use <code>pending-reboot</code> with dynamic parameters on RDS for SQL Server DB instances. Use <code>immediate</code>.</p>
    *          </note>
+   *          <p>For more information on modifying DB parameters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html">Working
+   *           with DB parameter groups</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   Parameters: Parameter[] | undefined;
 }
@@ -5700,15 +5632,6 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace SubnetAlreadyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -5825,7 +5748,7 @@ export interface ModifyGlobalClusterMessage {
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
    *          </p>
-   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
+   *          <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query '*[]|[?SupportsGlobalDatabases == `true`].[EngineVersion]'</code>
    *          </p>
@@ -6198,15 +6121,6 @@ export interface ReservedDBInstanceAlreadyExistsFault extends __SmithyException,
   message?: string;
 }
 
-export namespace ReservedDBInstanceAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstanceAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Request would exceed the user's DB Instance quota.</p>
  */
@@ -6214,15 +6128,6 @@ export interface ReservedDBInstanceQuotaExceededFault extends __SmithyException,
   name: "ReservedDBInstanceQuotaExceededFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace ReservedDBInstanceQuotaExceededFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedDBInstanceQuotaExceededFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RebootDBClusterMessage {
@@ -6349,15 +6254,6 @@ export interface DBProxyTargetAlreadyRegisteredFault extends __SmithyException, 
   message?: string;
 }
 
-export namespace DBProxyTargetAlreadyRegisteredFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTargetAlreadyRegisteredFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested operation can't be performed because there aren't enough available IP addresses
  *            in the proxy's subnets. Add more CIDR blocks to the VPC or remove IP address that aren't required
@@ -6367,15 +6263,6 @@ export interface InsufficientAvailableIPsInSubnetFault extends __SmithyException
   name: "InsufficientAvailableIPsInSubnetFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InsufficientAvailableIPsInSubnetFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientAvailableIPsInSubnetFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RegisterDBProxyTargetsRequest {
@@ -6475,15 +6362,6 @@ export interface DBClusterRoleNotFoundFault extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace DBClusterRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBClusterRoleNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 export interface RemoveRoleFromDBClusterMessage {
   /**
    * <p>The name of the DB cluster to disassociate the IAM role from.</p>
@@ -6520,15 +6398,6 @@ export interface DBInstanceRoleNotFoundFault extends __SmithyException, $Metadat
   name: "DBInstanceRoleNotFoundFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace DBInstanceRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBInstanceRoleNotFoundFault): any => ({
-    ...obj,
-  });
 }
 
 export interface RemoveRoleFromDBInstanceMessage {
@@ -6736,15 +6605,6 @@ export interface InvalidS3BucketFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InvalidS3BucketFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidS3BucketFault): any => ({
-    ...obj,
-  });
-}
-
 export interface RestoreDBClusterFromS3Message {
   /**
    * <p>A list of Availability Zones (AZs) where instances in the restored DB cluster can be created.</p>
@@ -6821,7 +6681,7 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The name of the database engine to be used for this DB cluster.</p>
-   *         <p>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora), <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), and <code>aurora-postgresql</code>
+   *         <p>Valid Values: <code>aurora</code> (for MySQL 5.6-compatible Aurora), <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), and <code>aurora-postgresql</code>
    *         </p>
    */
   Engine: string | undefined;
@@ -6832,7 +6692,7 @@ export interface RestoreDBClusterFromS3Message {
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *         <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora), use the following command:</p>
+   *         <p>To list all of the available engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following command:</p>
    *         <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -6843,7 +6703,7 @@ export interface RestoreDBClusterFromS3Message {
    *         <p>
    *             <b>Aurora MySQL</b>
    *         </p>
-   *         <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>
+   *         <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code>, <code>8.0.mysql_aurora.3.01.0</code>
    *         </p>
    *         <p>
    *             <b>Aurora PostgreSQL</b>
@@ -7116,15 +6976,6 @@ export interface InsufficientDBClusterCapacityFault extends __SmithyException, $
   message?: string;
 }
 
-export namespace InsufficientDBClusterCapacityFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InsufficientDBClusterCapacityFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
  */
@@ -7132,15 +6983,6 @@ export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer 
   name: "InvalidRestoreFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidRestoreFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -7203,7 +7045,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
-   *          <p>To list all of the available engine versions for MySQL 5.7-compatible Aurora, use the following command:</p>
+   *          <p>To list all of the available engine versions for MySQL 5.7-compatible and MySQL 8.0-compatible Aurora, use the following command:</p>
    *          <p>
    *             <code>aws rds describe-db-engine-versions --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code>
    *          </p>
@@ -7432,15 +7274,13 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>Specifies the storage type to be associated with the each DB instance in the Multi-AZ DB cluster.</p>
    *         <p>
-   *             Valid values: <code>standard | gp2 | io1</code>
+   *             Valid values: <code>io1</code>
    *         </p>
    *         <p>
-   *             If you specify <code>io1</code>, you must also include a value for the
-   *             <code>Iops</code> parameter.
+   *             When specified, a value for the <code>Iops</code> parameter is required.
    *         </p>
    *         <p>
-   *             Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
+   *             Default: <code>io1</code>
    *         </p>
    *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -7800,15 +7640,13 @@ export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>Specifies the storage type to be associated with the each DB instance in the Multi-AZ DB cluster.</p>
    *         <p>
-   *             Valid values: <code>standard | gp2 | io1</code>
+   *             Valid values: <code>io1</code>
    *         </p>
    *         <p>
-   *             If you specify <code>io1</code>, also include a value for the
-   *             <code>Iops</code> parameter.
+   *             When specified, a value for the <code>Iops</code> parameter is required.
    *         </p>
    *         <p>
-   *             Default: <code>io1</code> if the <code>Iops</code> parameter
-   *             is specified, otherwise <code>gp2</code>
+   *             Default: <code>io1</code>
    *         </p>
    *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
@@ -8818,15 +8656,6 @@ export interface PointInTimeRestoreNotEnabledFault extends __SmithyException, $M
   message?: string;
 }
 
-export namespace PointInTimeRestoreNotEnabledFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PointInTimeRestoreNotEnabledFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p></p>
  */
@@ -9606,15 +9435,6 @@ export interface ExportTaskAlreadyExistsFault extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace ExportTaskAlreadyExistsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportTaskAlreadyExistsFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
  */
@@ -9622,15 +9442,6 @@ export interface IamRoleMissingPermissionsFault extends __SmithyException, $Meta
   name: "IamRoleMissingPermissionsFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace IamRoleMissingPermissionsFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamRoleMissingPermissionsFault): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -9642,15 +9453,6 @@ export interface IamRoleNotFoundFault extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace IamRoleNotFoundFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IamRoleNotFoundFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
  */
@@ -9660,15 +9462,6 @@ export interface InvalidExportOnlyFault extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace InvalidExportOnlyFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExportOnlyFault): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
  */
@@ -9676,15 +9469,6 @@ export interface InvalidExportSourceStateFault extends __SmithyException, $Metad
   name: "InvalidExportSourceStateFault";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidExportSourceStateFault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidExportSourceStateFault): any => ({
-    ...obj,
-  });
 }
 
 export interface StartExportTaskMessage {

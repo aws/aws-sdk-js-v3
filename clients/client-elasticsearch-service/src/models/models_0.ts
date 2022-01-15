@@ -145,15 +145,6 @@ export interface DisabledOperationException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace DisabledOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DisabledOperationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
  */
@@ -164,15 +155,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>A description of the error.</p>
    */
   message?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -187,15 +169,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
  */
@@ -206,15 +179,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
    * <p>A description of the error.</p>
    */
   message?: string;
-}
-
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
 }
 
 export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
@@ -405,15 +369,6 @@ export interface BaseException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace BaseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BaseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
  */
@@ -426,15 +381,6 @@ export interface InternalException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace InternalException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  */
@@ -445,15 +391,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A description of the error.</p>
    */
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -567,6 +504,16 @@ export interface AdvancedSecurityOptions {
    * <p>Describes the SAML application configured for a domain.</p>
    */
   SAMLOptions?: SAMLOptionsOutput;
+
+  /**
+   * <p>Specifies the Anonymous Auth Disable Date when Anonymous Auth is enabled.</p>
+   */
+  AnonymousAuthDisableDate?: Date;
+
+  /**
+   * <p>True if Anonymous auth is enabled. Anonymous auth can be enabled only when AdvancedSecurity is enabled on existing domains.</p>
+   */
+  AnonymousAuthEnabled?: boolean;
 }
 
 export namespace AdvancedSecurityOptions {
@@ -682,6 +629,11 @@ export interface AdvancedSecurityOptionsInput {
    * <p>Specifies the SAML application configuration for the domain.</p>
    */
   SAMLOptions?: SAMLOptionsInput;
+
+  /**
+   * <p>True if Anonymous auth is enabled. Anonymous auth can be enabled only when AdvancedSecurity is enabled on existing domains.</p>
+   */
+  AnonymousAuthEnabled?: boolean;
 }
 
 export namespace AdvancedSecurityOptionsInput {
@@ -862,15 +814,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>A description of the error.</p>
    */
   message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1787,15 +1730,6 @@ export interface InvalidTypeException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InvalidTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTypeException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  */
@@ -1806,15 +1740,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
    * <p>A description of the error.</p>
    */
   message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3368,15 +3293,6 @@ export interface InvalidPaginationTokenException extends __SmithyException, $Met
    * <p>A description of the error.</p>
    */
   message?: string;
-}
-
-export namespace InvalidPaginationTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
-    ...obj,
-  });
 }
 
 /**

@@ -1579,15 +1579,6 @@ export interface WAFInternalErrorException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace WAFInternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInternalErrorException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The operation isn't valid. </p>
  */
@@ -1595,15 +1586,6 @@ export interface WAFInvalidOperationException extends __SmithyException, $Metada
   name: "WAFInvalidOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace WAFInvalidOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidOperationException): any => ({
-    ...obj,
-  });
 }
 
 export enum ParameterExceptionField {
@@ -1706,15 +1688,6 @@ export interface WAFInvalidParameterException extends __SmithyException, $Metada
   Reason?: string;
 }
 
-export namespace WAFInvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>WAF couldn’t perform the operation because your resource doesn’t exist. </p>
  */
@@ -1724,15 +1697,6 @@ export interface WAFNonexistentItemException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace WAFNonexistentItemException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFNonexistentItemException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>WAF couldn’t retrieve the resource that you requested. Retry your request.</p>
  */
@@ -1740,15 +1704,6 @@ export interface WAFUnavailableEntityException extends __SmithyException, $Metad
   name: "WAFUnavailableEntityException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace WAFUnavailableEntityException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFUnavailableEntityException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2099,15 +2054,6 @@ export interface WAFExpiredManagedRuleGroupVersionException extends __SmithyExce
   Message?: string;
 }
 
-export namespace WAFExpiredManagedRuleGroupVersionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFExpiredManagedRuleGroupVersionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>WAF couldn’t perform the operation because the resource that you requested isn’t
  *          valid. Check the resource, and try again.</p>
@@ -2116,15 +2062,6 @@ export interface WAFInvalidResourceException extends __SmithyException, $Metadat
   name: "WAFInvalidResourceException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace WAFInvalidResourceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidResourceException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2139,15 +2076,6 @@ export interface WAFLimitsExceededException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace WAFLimitsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFLimitsExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You tried to use a managed rule group that's available by subscription, but you aren't
  *          subscribed to it yet. </p>
@@ -2156,15 +2084,6 @@ export interface WAFSubscriptionNotFoundException extends __SmithyException, $Me
   name: "WAFSubscriptionNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace WAFSubscriptionNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFSubscriptionNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum IPAddressVersion {
@@ -2340,15 +2259,6 @@ export interface WAFDuplicateItemException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace WAFDuplicateItemException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFDuplicateItemException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>WAF couldn’t save your changes because you tried to update or delete a resource
  *          that has changed since you last retrieved it. Get the resource again, make any changes you
@@ -2360,15 +2270,6 @@ export interface WAFOptimisticLockException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace WAFOptimisticLockException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFOptimisticLockException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An error occurred during the tagging operation. Retry your request.</p>
  */
@@ -2376,15 +2277,6 @@ export interface WAFTagOperationException extends __SmithyException, $MetadataBe
   name: "WAFTagOperationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace WAFTagOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFTagOperationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2395,15 +2287,6 @@ export interface WAFTagOperationInternalErrorException extends __SmithyException
   name: "WAFTagOperationInternalErrorException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace WAFTagOperationInternalErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFTagOperationInternalErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2794,15 +2677,6 @@ export interface WAFAssociatedItemException extends __SmithyException, $Metadata
   name: "WAFAssociatedItemException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace WAFAssociatedItemException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFAssociatedItemException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteLoggingConfigurationRequest {
@@ -5184,15 +5058,6 @@ export interface WAFLogDestinationPermissionIssueException extends __SmithyExcep
   Message?: string;
 }
 
-export namespace WAFLogDestinationPermissionIssueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFLogDestinationPermissionIssueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>WAF is not able to access the service linked role. This can be caused by a
  *          previous <code>PutLoggingConfiguration</code> request, which can lock the service linked
@@ -5207,15 +5072,6 @@ export interface WAFServiceLinkedRoleErrorException extends __SmithyException, $
   name: "WAFServiceLinkedRoleErrorException";
   $fault: "client";
   message?: string;
-}
-
-export namespace WAFServiceLinkedRoleErrorException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFServiceLinkedRoleErrorException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5402,15 +5258,6 @@ export interface WAFInvalidPermissionPolicyException extends __SmithyException, 
   name: "WAFInvalidPermissionPolicyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace WAFInvalidPermissionPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WAFInvalidPermissionPolicyException): any => ({
-    ...obj,
-  });
 }
 
 export interface TagResourceRequest {

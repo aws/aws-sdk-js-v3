@@ -69,15 +69,6 @@ export interface InvalidNonceException extends __SmithyException, $MetadataBeare
   message?: string;
 }
 
-export namespace InvalidNonceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNonceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The job was specified in an invalid format or cannot be found.</p>
  */
@@ -90,15 +81,6 @@ export interface JobNotFoundException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace JobNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JobNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The validation was specified in an invalid format.</p>
  */
@@ -109,15 +91,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -180,15 +153,6 @@ export interface InvalidClientTokenException extends __SmithyException, $Metadat
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidClientTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidClientTokenException): any => ({
-    ...obj,
-  });
 }
 
 export enum ActionCategory {
@@ -871,15 +835,6 @@ export interface ActionNotFoundException extends __SmithyException, $MetadataBea
   message?: string;
 }
 
-export namespace ActionNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents information about the version (or revision) of an action.</p>
  */
@@ -1463,15 +1418,6 @@ export interface ActionTypeNotFoundException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ActionTypeNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ActionTypeNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The approval action has already been approved or rejected.</p>
  */
@@ -1482,15 +1428,6 @@ export interface ApprovalAlreadyCompletedException extends __SmithyException, $M
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace ApprovalAlreadyCompletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ApprovalAlreadyCompletedException): any => ({
-    ...obj,
-  });
 }
 
 export enum ApprovalStatus {
@@ -1811,15 +1748,6 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
   message?: string;
 }
 
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A tag is a key-value pair that is used to manage the resource.</p>
  */
@@ -1940,15 +1868,6 @@ export interface InvalidTagsException extends __SmithyException, $MetadataBearer
   message?: string;
 }
 
-export namespace InvalidTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTagsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The number of pipelines associated with the AWS account has exceeded the limit
  *             allowed for the account.</p>
@@ -1962,15 +1881,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The tags limit for a resource has been exceeded.</p>
  */
@@ -1978,15 +1888,6 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
   name: "TooManyTagsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace TooManyTagsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2143,15 +2044,6 @@ export interface InvalidActionDeclarationException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace InvalidActionDeclarationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidActionDeclarationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Reserved for future use.</p>
  */
@@ -2162,15 +2054,6 @@ export interface InvalidBlockerDeclarationException extends __SmithyException, $
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidBlockerDeclarationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidBlockerDeclarationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2185,15 +2068,6 @@ export interface InvalidStageDeclarationException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace InvalidStageDeclarationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStageDeclarationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The structure was specified in an invalid format.</p>
  */
@@ -2206,15 +2080,6 @@ export interface InvalidStructureException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidStructureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidStructureException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified pipeline name is already in use.</p>
  */
@@ -2225,15 +2090,6 @@ export interface PipelineNameInUseException extends __SmithyException, $Metadata
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace PipelineNameInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineNameInUseException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2350,15 +2206,6 @@ export interface WebhookNotFoundException extends __SmithyException, $MetadataBe
   $fault: "client";
 }
 
-export namespace WebhookNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: WebhookNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export enum StageTransitionType {
   Inbound = "Inbound",
   Outbound = "Outbound",
@@ -2417,15 +2264,6 @@ export interface PipelineNotFoundException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace PipelineNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The stage was specified in an invalid format or cannot be found.</p>
  */
@@ -2436,15 +2274,6 @@ export interface StageNotFoundException extends __SmithyException, $MetadataBear
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace StageNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2861,15 +2690,6 @@ export interface PipelineVersionNotFoundException extends __SmithyException, $Me
   message?: string;
 }
 
-export namespace PipelineVersionNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineVersionNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>GetPipelineExecution</code> action.</p>
  */
@@ -3009,15 +2829,6 @@ export interface PipelineExecutionNotFoundException extends __SmithyException, $
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace PipelineExecutionNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineExecutionNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -3358,15 +3169,6 @@ export interface InvalidJobException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidJobException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidJobException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The next token was specified in an invalid format. Make sure that the next token
  *             you provide is the token returned by a previous call.</p>
@@ -3378,15 +3180,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListActionExecutionsInput {
@@ -3838,15 +3631,6 @@ export interface InvalidArnException extends __SmithyException, $MetadataBearer 
   message?: string;
 }
 
-export namespace InvalidArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to get tags for.</p>
@@ -3909,15 +3693,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListWebhooksInput {
@@ -4388,15 +4163,6 @@ export interface InvalidApprovalTokenException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidApprovalTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidApprovalTokenException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>PutApprovalResult</code> action.</p>
  */
@@ -4469,15 +4235,6 @@ export interface InvalidJobStateException extends __SmithyException, $MetadataBe
   message?: string;
 }
 
-export namespace InvalidJobStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidJobStateException): any => ({
-    ...obj,
-  });
-}
-
 export enum FailureType {
   ConfigurationError = "ConfigurationError",
   JobFailed = "JobFailed",
@@ -4548,15 +4305,6 @@ export interface OutputVariablesSizeExceededException extends __SmithyException,
   name: "OutputVariablesSizeExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OutputVariablesSizeExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OutputVariablesSizeExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4765,15 +4513,6 @@ export interface InvalidWebhookAuthenticationParametersException extends __Smith
   message?: string;
 }
 
-export namespace InvalidWebhookAuthenticationParametersException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidWebhookAuthenticationParametersException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified event filter rule is in an invalid format.</p>
  */
@@ -4784,15 +4523,6 @@ export interface InvalidWebhookFilterPatternException extends __SmithyException,
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace InvalidWebhookFilterPatternException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidWebhookFilterPatternException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutWebhookInput {
@@ -4874,15 +4604,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The stage has failed in a later run of the pipeline and the pipelineExecutionId
  *             associated with the request is out of date.</p>
@@ -4894,15 +4615,6 @@ export interface NotLatestPipelineExecutionException extends __SmithyException, 
    * <p>The message provided to the user in the event of an exception.</p>
    */
   message?: string;
-}
-
-export namespace NotLatestPipelineExecutionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotLatestPipelineExecutionException): any => ({
-    ...obj,
-  });
 }
 
 export enum StageRetryMode {
@@ -4978,15 +4690,6 @@ export interface StageNotRetryableException extends __SmithyException, $Metadata
   message?: string;
 }
 
-export namespace StageNotRetryableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StageNotRetryableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the input of a <code>StartPipelineExecution</code> action.</p>
  */
@@ -5045,15 +4748,6 @@ export interface DuplicatedStopRequestException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace DuplicatedStopRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicatedStopRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Unable to stop the pipeline execution. The execution might already be in a
  *                 <code>Stopped</code> state, or it might no longer be in progress.</p>
@@ -5062,15 +4756,6 @@ export interface PipelineExecutionNotStoppableException extends __SmithyExceptio
   name: "PipelineExecutionNotStoppableException";
   $fault: "client";
   message?: string;
-}
-
-export namespace PipelineExecutionNotStoppableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PipelineExecutionNotStoppableException): any => ({
-    ...obj,
-  });
 }
 
 export interface StopPipelineExecutionInput {
@@ -5197,15 +4882,6 @@ export interface RequestFailedException extends __SmithyException, $MetadataBear
   name: "RequestFailedException";
   $fault: "client";
   message?: string;
-}
-
-export namespace RequestFailedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RequestFailedException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpdateActionTypeInput {

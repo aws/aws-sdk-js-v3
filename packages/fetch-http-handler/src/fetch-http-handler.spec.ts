@@ -213,6 +213,27 @@ describe.skip(FetchHttpHandler.name, () => {
     expect(timeoutSpy.mock.calls[0][0]).toBe(500);
   });
 
+  it("will pass timeout from a provider to request timeout", async () => {
+    const mockResponse = {
+      headers: {
+        entries: () => [],
+      },
+      blob: new Blob(),
+    };
+    const mockFetch = jest.fn().mockResolvedValue(mockResponse);
+    (global as any).fetch = mockFetch;
+
+    timeoutSpy = jest.spyOn({ requestTimeout }, "requestTimeout");
+    const fetchHttpHandler = new FetchHttpHandler(async () => ({
+      requestTimeout: 500,
+    }));
+
+    await fetchHttpHandler.handle({} as any, {});
+
+    expect(mockFetch.mock.calls.length).toBe(1);
+    expect(timeoutSpy.mock.calls[0][0]).toBe(500);
+  });
+
   it("will throw timeout error it timeout finishes before request", async () => {
     const mockFetch = jest.fn(() => {
       return new Promise(() => {});

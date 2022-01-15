@@ -238,15 +238,6 @@ export interface CallRateLimitExceededException extends __SmithyException, $Meta
   message?: string;
 }
 
-export namespace CallRateLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CallRateLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 export interface CancelImageCreationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the image whose creation you want to cancel.</p>
@@ -307,15 +298,6 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ClientException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You are not authorized to perform the requested operation.</p>
  */
@@ -323,15 +305,6 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
   name: "ForbiddenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -344,15 +317,6 @@ export interface IdempotentParameterMismatchException extends __SmithyException,
   message?: string;
 }
 
-export namespace IdempotentParameterMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatchException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have made a request for an action that is not supported by the service.</p>
  */
@@ -360,15 +324,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   name: "InvalidRequestException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -381,15 +336,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
  */
@@ -399,15 +345,6 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   message?: string;
 }
 
-export namespace ServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service is unable to process your request at this time.</p>
  */
@@ -415,15 +352,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1339,15 +1267,6 @@ export interface InvalidParameterCombinationException extends __SmithyException,
   message?: string;
 }
 
-export namespace InvalidParameterCombinationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Your version number is out of bounds or does not follow the required syntax.</p>
  */
@@ -1357,15 +1276,6 @@ export interface InvalidVersionNumberException extends __SmithyException, $Metad
   message?: string;
 }
 
-export namespace InvalidVersionNumberException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidVersionNumberException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded the number of permitted resources or operations for this service. For service quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html#limits_imagebuilder">EC2 Image Builder endpoints and quotas</a>.</p>
  */
@@ -1373,15 +1283,6 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   name: "ServiceQuotaExceededException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ServiceQuotaExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateContainerRecipeRequest {
@@ -1520,15 +1421,6 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2358,15 +2250,6 @@ export interface ResourceDependencyException extends __SmithyException, $Metadat
   message?: string;
 }
 
-export namespace ResourceDependencyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDependencyException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteContainerRecipeRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the container recipe to delete.</p>
@@ -2801,15 +2684,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface GetContainerRecipeRequest {
@@ -3854,15 +3728,6 @@ export interface InvalidPaginationTokenException extends __SmithyException, $Met
   name: "InvalidPaginationTokenException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidPaginationTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPaginationTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListComponentBuildVersionsRequest {
@@ -5052,15 +4917,6 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   message?: string;
 }
 
-export namespace InvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags you want to retrieve.</p>
@@ -5100,15 +4956,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   name: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutComponentPolicyRequest {

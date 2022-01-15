@@ -68,15 +68,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   Context?: string;
 }
 
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Contains information about the backup plan and rule that Backup used to
  *          initiate the recovery point backup.</p>
@@ -1084,15 +1075,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Context?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A list of parameters for a control. A control can have zero, one, or more than one
  *          parameter. An example of a control with two parameters is: "backup plan frequency is at
@@ -1367,15 +1349,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   Context?: string;
 }
 
-export namespace InvalidParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
  *          in a request.</p>
@@ -1394,15 +1367,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p></p>
    */
   Context?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1424,15 +1388,6 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
   Context?: string;
 }
 
-export namespace MissingParameterValueException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MissingParameterValueException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request failed due to a temporary failure of the server.</p>
  */
@@ -1450,15 +1405,6 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p></p>
    */
   Context?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBackupSelectionInput {
@@ -1914,15 +1860,6 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   Context?: string;
 }
 
-export namespace InvalidRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A resource that is required for the action doesn't exist.</p>
  */
@@ -1940,15 +1877,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p></p>
    */
   Context?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteBackupSelectionInput {
@@ -2106,15 +2034,6 @@ export interface InvalidResourceStateException extends __SmithyException, $Metad
   Context?: string;
 }
 
-export namespace InvalidResourceStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceStateException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteReportPlanInput {
   /**
    * <p>The unique name of a report plan.</p>
@@ -2148,15 +2067,6 @@ export interface DependencyFailureException extends __SmithyException, $Metadata
    * <p></p>
    */
   Context?: string;
-}
-
-export namespace DependencyFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DependencyFailureException): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeBackupJobInput {

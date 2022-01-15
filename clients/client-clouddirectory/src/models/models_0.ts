@@ -9,15 +9,6 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace AccessDeniedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>A unique identifier for an attribute.</p>
  */
@@ -300,15 +291,6 @@ export interface DirectoryNotEnabledException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace DirectoryNotEnabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryNotEnabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <a>Facet</a> that you provided was not well formed or could not be
  *       validated with the schema.</p>
@@ -317,15 +299,6 @@ export interface FacetValidationException extends __SmithyException, $MetadataBe
   name: "FacetValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace FacetValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetValidationException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -337,15 +310,6 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace InternalServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServiceException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the provided ARN value is not valid.</p>
  */
@@ -353,15 +317,6 @@ export interface InvalidArnException extends __SmithyException, $MetadataBearer 
   name: "InvalidArnException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidArnException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArnException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -373,15 +328,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified resource could not be found.</p>
  */
@@ -389,15 +335,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   name: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -409,15 +346,6 @@ export interface RetryableConflictException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace RetryableConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RetryableConflictException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
@@ -426,15 +354,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
   name: "ValidationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
-    ...obj,
-  });
 }
 
 export interface ApplySchemaRequest {
@@ -493,15 +412,6 @@ export interface InvalidAttachmentException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace InvalidAttachmentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAttachmentException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that a schema could not be created due to a naming conflict. Please select a
  *       different name and then try again.</p>
@@ -510,15 +420,6 @@ export interface SchemaAlreadyExistsException extends __SmithyException, $Metada
   name: "SchemaAlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace SchemaAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachObjectRequest {
@@ -580,15 +481,6 @@ export interface LinkNameAlreadyInUseException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace LinkNameAlreadyInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LinkNameAlreadyInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface AttachPolicyRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
@@ -635,15 +527,6 @@ export interface NotPolicyException extends __SmithyException, $MetadataBearer {
   name: "NotPolicyException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotPolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotPolicyException): any => ({
-    ...obj,
-  });
 }
 
 export interface AttachToIndexRequest {
@@ -698,15 +581,6 @@ export interface IndexedAttributeMissingException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace IndexedAttributeMissingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IndexedAttributeMissingException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the requested operation can only operate on index objects.</p>
  */
@@ -714,15 +588,6 @@ export interface NotIndexException extends __SmithyException, $MetadataBearer {
   name: "NotIndexException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotIndexException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotIndexException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2243,15 +2108,6 @@ export interface BatchWriteException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace BatchWriteException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BatchWriteException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Represents the output of a batch add facet to object operation.</p>
  */
@@ -3344,15 +3200,6 @@ export interface DirectoryAlreadyExistsException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace DirectoryAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 export enum RuleType {
   BINARY_LENGTH = "BINARY_LENGTH",
   NUMBER_COMPARISON = "NUMBER_COMPARISON",
@@ -3589,15 +3436,6 @@ export interface FacetAlreadyExistsException extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace FacetAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Occurs when any of the rule parameter keys or values are invalid.</p>
  */
@@ -3605,15 +3443,6 @@ export interface InvalidRuleException extends __SmithyException, $MetadataBearer
   name: "InvalidRuleException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidRuleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidRuleException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateIndexRequest {
@@ -3677,15 +3506,6 @@ export interface UnsupportedIndexTypeException extends __SmithyException, $Metad
   name: "UnsupportedIndexTypeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedIndexTypeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedIndexTypeException): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateObjectRequest {
@@ -3935,15 +3755,6 @@ export interface DirectoryDeletedException extends __SmithyException, $MetadataB
   Message?: string;
 }
 
-export namespace DirectoryDeletedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryDeletedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>An operation can only operate on a disabled directory.</p>
  */
@@ -3951,15 +3762,6 @@ export interface DirectoryNotDisabledException extends __SmithyException, $Metad
   name: "DirectoryNotDisabledException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DirectoryNotDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DirectoryNotDisabledException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteFacetRequest {
@@ -4005,15 +3807,6 @@ export interface FacetInUseException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace FacetInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetInUseException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified <a>Facet</a> could not be found.</p>
  */
@@ -4021,15 +3814,6 @@ export interface FacetNotFoundException extends __SmithyException, $MetadataBear
   name: "FacetNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace FacetNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FacetNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteObjectRequest {
@@ -4075,15 +3859,6 @@ export interface ObjectNotDetachedException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace ObjectNotDetachedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectNotDetachedException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteSchemaRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the development schema. For more information, see
@@ -4126,15 +3901,6 @@ export interface StillContainsLinksException extends __SmithyException, $Metadat
   name: "StillContainsLinksException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace StillContainsLinksException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StillContainsLinksException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteTypedLinkFacetRequest {
@@ -4222,15 +3988,6 @@ export interface ObjectAlreadyDetachedException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace ObjectAlreadyDetachedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectAlreadyDetachedException): any => ({
-    ...obj,
-  });
-}
-
 export interface DetachObjectRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
@@ -4283,15 +4040,6 @@ export interface NotNodeException extends __SmithyException, $MetadataBearer {
   name: "NotNodeException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace NotNodeException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotNodeException): any => ({
-    ...obj,
-  });
 }
 
 export interface DetachPolicyRequest {
@@ -4833,15 +4581,6 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
   name: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidNextTokenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
-    ...obj,
-  });
 }
 
 export interface ListAppliedSchemaArnsRequest {
@@ -5523,15 +5262,6 @@ export interface CannotListParentOfRootException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace CannotListParentOfRootException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CannotListParentOfRootException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListObjectParentsRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
@@ -5855,15 +5585,6 @@ export interface InvalidTaggingRequestException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace InvalidTaggingRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTaggingRequestException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
@@ -6156,15 +5877,6 @@ export interface SchemaAlreadyPublishedException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace SchemaAlreadyPublishedException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchemaAlreadyPublishedException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Indicates that the provided <code>SchemaDoc</code> value is not valid.</p>
  */
@@ -6172,15 +5884,6 @@ export interface InvalidSchemaDocException extends __SmithyException, $MetadataB
   name: "InvalidSchemaDocException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidSchemaDocException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSchemaDocException): any => ({
-    ...obj,
-  });
 }
 
 export interface PutSchemaFromJsonRequest {
@@ -6331,15 +6034,6 @@ export interface InvalidFacetUpdateException extends __SmithyException, $Metadat
   name: "InvalidFacetUpdateException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidFacetUpdateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFacetUpdateException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -6625,15 +6319,6 @@ export interface IncompatibleSchemaException extends __SmithyException, $Metadat
   name: "IncompatibleSchemaException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace IncompatibleSchemaException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IncompatibleSchemaException): any => ({
-    ...obj,
-  });
 }
 
 export interface UpgradeAppliedSchemaRequest {

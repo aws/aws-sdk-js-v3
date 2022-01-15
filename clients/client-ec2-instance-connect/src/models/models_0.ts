@@ -9,15 +9,6 @@ export interface AuthException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace AuthException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AuthException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified instance was not found.</p>
  */
@@ -25,15 +16,6 @@ export interface EC2InstanceNotFoundException extends __SmithyException, $Metada
   name: "EC2InstanceNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace EC2InstanceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2InstanceNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -46,15 +28,6 @@ export interface EC2InstanceTypeInvalidException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace EC2InstanceTypeInvalidException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EC2InstanceTypeInvalidException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One of the parameters is not valid.</p>
  */
@@ -62,15 +35,6 @@ export interface InvalidArgsException extends __SmithyException, $MetadataBearer
   name: "InvalidArgsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidArgsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidArgsException): any => ({
-    ...obj,
-  });
 }
 
 export interface SendSerialConsoleSSHPublicKeyRequest {
@@ -134,15 +98,6 @@ export interface SerialConsoleAccessDisabledException extends __SmithyException,
   Message?: string;
 }
 
-export namespace SerialConsoleAccessDisabledException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SerialConsoleAccessDisabledException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The instance currently has 1 active serial console session. Only 1 session is supported at a time.</p>
  */
@@ -150,15 +105,6 @@ export interface SerialConsoleSessionLimitExceededException extends __SmithyExce
   name: "SerialConsoleSessionLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace SerialConsoleSessionLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SerialConsoleSessionLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -170,15 +116,6 @@ export interface SerialConsoleSessionUnavailableException extends __SmithyExcept
   Message?: string;
 }
 
-export namespace SerialConsoleSessionUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SerialConsoleSessionUnavailableException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
  */
@@ -186,15 +123,6 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
   name: "ServiceException";
   $fault: "server";
   Message?: string;
-}
-
-export namespace ServiceException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -205,15 +133,6 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   name: "ThrottlingException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ThrottlingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottlingException): any => ({
-    ...obj,
-  });
 }
 
 export interface SendSSHPublicKeyRequest {

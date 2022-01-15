@@ -2,6 +2,7 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 
 import {
   Action,
+  AuditContext,
   CodeGenEdge,
   CodeGenNode,
   CodeGenNodeArg,
@@ -10,6 +11,8 @@ import {
   Compatibility,
   ConnectionInput,
   ConnectionsList,
+  Crawler,
+  CrawlerMetrics,
   CrawlerTargets,
   CsvHeaderOption,
   DatabaseIdentifier,
@@ -24,6 +27,7 @@ import {
   Job,
   JobCommand,
   JobRun,
+  LakeFormationConfiguration,
   Language,
   LineageConfiguration,
   NotificationProperty,
@@ -54,6 +58,71 @@ import {
   Workflow,
   WorkflowRun,
 } from "./models_0";
+
+export interface GetCrawlerMetricsResponse {
+  /**
+   * <p>A list of metrics for the specified crawler.</p>
+   */
+  CrawlerMetricsList?: CrawlerMetrics[];
+
+  /**
+   * <p>A continuation token, if the returned list does not contain the
+   *       last metric available.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlerMetricsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCrawlerMetricsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCrawlersRequest {
+  /**
+   * <p>The number of crawlers to return on each call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A continuation token, if this is a continuation request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCrawlersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCrawlersResponse {
+  /**
+   * <p>A list of crawler metadata.</p>
+   */
+  Crawlers?: Crawler[];
+
+  /**
+   * <p>A continuation token, if the returned list has not reached the end
+   *       of those defined in this customer account.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetCrawlersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCrawlersResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface GetDatabaseRequest {
   /**
@@ -3546,6 +3615,164 @@ export namespace GetTriggersResponse {
   });
 }
 
+export enum PermissionType {
+  CELL_FILTER_PERMISSION = "CELL_FILTER_PERMISSION",
+  COLUMN_PERMISSION = "COLUMN_PERMISSION",
+}
+
+export interface GetUnfilteredPartitionMetadataRequest {
+  CatalogId: string | undefined;
+  DatabaseName: string | undefined;
+  TableName: string | undefined;
+  PartitionValues: string[] | undefined;
+  AuditContext?: AuditContext;
+  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+}
+
+export namespace GetUnfilteredPartitionMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUnfilteredPartitionMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetUnfilteredPartitionMetadataResponse {
+  /**
+   * <p>Represents a slice of table data.</p>
+   */
+  Partition?: Partition;
+
+  AuthorizedColumns?: string[];
+  IsRegisteredWithLakeFormation?: boolean;
+}
+
+export namespace GetUnfilteredPartitionMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUnfilteredPartitionMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PermissionTypeMismatchException extends __SmithyException, $MetadataBearer {
+  name: "PermissionTypeMismatchException";
+  $fault: "client";
+  Message?: string;
+}
+
+export interface GetUnfilteredPartitionsMetadataRequest {
+  CatalogId: string | undefined;
+  DatabaseName: string | undefined;
+  TableName: string | undefined;
+  Expression?: string;
+  AuditContext?: AuditContext;
+  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+  NextToken?: string;
+  /**
+   * <p>Defines a non-overlapping region of a table's partitions, allowing
+   *       multiple requests to be run in parallel.</p>
+   */
+  Segment?: Segment;
+
+  MaxResults?: number;
+}
+
+export namespace GetUnfilteredPartitionsMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUnfilteredPartitionsMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UnfilteredPartition {
+  /**
+   * <p>Represents a slice of table data.</p>
+   */
+  Partition?: Partition;
+
+  AuthorizedColumns?: string[];
+  IsRegisteredWithLakeFormation?: boolean;
+}
+
+export namespace UnfilteredPartition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnfilteredPartition): any => ({
+    ...obj,
+  });
+}
+
+export interface GetUnfilteredPartitionsMetadataResponse {
+  UnfilteredPartitions?: UnfilteredPartition[];
+  NextToken?: string;
+}
+
+export namespace GetUnfilteredPartitionsMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUnfilteredPartitionsMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetUnfilteredTableMetadataRequest {
+  CatalogId: string | undefined;
+  DatabaseName: string | undefined;
+  Name: string | undefined;
+  AuditContext?: AuditContext;
+  SupportedPermissionTypes: (PermissionType | string)[] | undefined;
+}
+
+export namespace GetUnfilteredTableMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUnfilteredTableMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ColumnRowFilter {
+  ColumnName?: string;
+  RowFilterExpression?: string;
+}
+
+export namespace ColumnRowFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ColumnRowFilter): any => ({
+    ...obj,
+  });
+}
+
+export interface GetUnfilteredTableMetadataResponse {
+  /**
+   * <p>Represents a collection of related data organized in columns and rows.</p>
+   */
+  Table?: Table;
+
+  AuthorizedColumns?: string[];
+  IsRegisteredWithLakeFormation?: boolean;
+  CellFilters?: ColumnRowFilter[];
+}
+
+export namespace GetUnfilteredTableMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUnfilteredTableMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetUserDefinedFunctionRequest {
   /**
    * <p>The ID of the Data Catalog where the function to be retrieved is located. If none is
@@ -5086,15 +5313,6 @@ export interface ConcurrentRunsExceededException extends __SmithyException, $Met
   Message?: string;
 }
 
-export namespace ConcurrentRunsExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentRunsExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The workflow is in an invalid state to perform a requested operation.</p>
  */
@@ -5105,15 +5323,6 @@ export interface IllegalWorkflowStateException extends __SmithyException, $Metad
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace IllegalWorkflowStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalWorkflowStateException): any => ({
-    ...obj,
-  });
 }
 
 export interface ResumeWorkflowRunRequest {
@@ -5316,15 +5525,6 @@ export interface IllegalBlueprintStateException extends __SmithyException, $Meta
   Message?: string;
 }
 
-export namespace IllegalBlueprintStateException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IllegalBlueprintStateException): any => ({
-    ...obj,
-  });
-}
-
 export interface StartBlueprintRunRequest {
   /**
    * <p>The name of the blueprint.</p>
@@ -5406,15 +5606,6 @@ export interface NoScheduleException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace NoScheduleException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoScheduleException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified scheduler is already running.</p>
  */
@@ -5425,15 +5616,6 @@ export interface SchedulerRunningException extends __SmithyException, $MetadataB
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace SchedulerRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulerRunningException): any => ({
-    ...obj,
-  });
 }
 
 export interface StartCrawlerScheduleRequest {
@@ -5677,15 +5859,6 @@ export interface MLTransformNotReadyException extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace MLTransformNotReadyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MLTransformNotReadyException): any => ({
-    ...obj,
-  });
-}
-
 export interface StartMLEvaluationTaskRunRequest {
   /**
    * <p>The unique identifier of the machine learning transform.</p>
@@ -5832,15 +6005,6 @@ export interface CrawlerNotRunningException extends __SmithyException, $Metadata
   Message?: string;
 }
 
-export namespace CrawlerNotRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerNotRunningException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified crawler is stopping.</p>
  */
@@ -5851,15 +6015,6 @@ export interface CrawlerStoppingException extends __SmithyException, $MetadataBe
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace CrawlerStoppingException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CrawlerStoppingException): any => ({
-    ...obj,
-  });
 }
 
 export interface StopCrawlerRequest {
@@ -5899,15 +6054,6 @@ export interface SchedulerNotRunningException extends __SmithyException, $Metada
    * <p>A message describing the problem.</p>
    */
   Message?: string;
-}
-
-export namespace SchedulerNotRunningException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SchedulerNotRunningException): any => ({
-    ...obj,
-  });
 }
 
 export interface StopCrawlerScheduleRequest {
@@ -6306,15 +6452,6 @@ export interface VersionMismatchException extends __SmithyException, $MetadataBe
   Message?: string;
 }
 
-export namespace VersionMismatchException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VersionMismatchException): any => ({
-    ...obj,
-  });
-}
-
 export interface UpdateColumnStatisticsForPartitionRequest {
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside.
@@ -6542,6 +6679,7 @@ export interface UpdateCrawlerRequest {
    */
   LineageConfiguration?: LineageConfiguration;
 
+  LakeFormationConfiguration?: LakeFormationConfiguration;
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users
    *         to specify aspects of a crawler's behavior.

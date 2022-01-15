@@ -23,7 +23,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
 
 /**
  * <p>Retrieves the list of open and accepted behavior graph invitations for the member
- *          account. This operation can only be called by a member account.</p>
+ *          account. This operation can only be called by an invited member account.</p>
  *          <p>Open invitations are invitations that the member account has not responded to.</p>
  *          <p>The results do not include behavior graphs for which the member account declined the
  *          invitation. The results also do not include behavior graphs that the member account

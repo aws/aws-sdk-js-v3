@@ -1,0 +1,13 @@
+{
+  "clientDocs": "clients/{{CLIENT}}/docs",
+  "exclude": ["**/node_modules/**", "**/*.spec.ts"],
+  "excludeExternals": true,
+  "hideGenerator": true,
+  "ignoreCompilerErrors": true,
+  "mode": "modules",
+  "name": "AWS SDK for JavaScript v3",
+  "out": "docs",
+  "plugin": ["typedoc-plugin-lerna-packages", "@aws-sdk/core-packages-documentation-generator"],
+  "readme": "README.md",
+  "theme": "minimal"
+}

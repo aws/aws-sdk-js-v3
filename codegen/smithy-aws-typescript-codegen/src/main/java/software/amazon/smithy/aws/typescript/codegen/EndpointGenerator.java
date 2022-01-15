@@ -96,18 +96,48 @@ final class EndpointGenerator implements Runnable {
                         && (config.containsMember("hostname") || config.containsMember("variants"))) {
                     String region = entry.getKey();
                     String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
-                    String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix, region);
+                    String resolvedHostname = getResolvedHostname(hostname, endpointPrefix, region);
 
-                    ArrayNode variants = config.getArrayMember("variants").orElse(ArrayNode.fromNodes());
-                    ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
+                    ArrayNode variants = getServiceVariants(
+                        config.getArrayMember("variants").orElse(ArrayNode.fromNodes()),
+                        resolvedHostname,
+                        dnsSuffix);
+
+                    if (config.containsMember("hostname")) {
+                        // Populate default variant only if endpoint entry contains hostname
+                        String defaultHostname = getResolvedHostnameWithDnsSuffix(resolvedHostname, dnsSuffix);
+                        ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(defaultHostname));
+                        variants = defaultVariant.merge(variants);
+                    }
 
                     endpoints.put(region,
                         config
                             .withMember("hostname", resolvedHostname)
-                            .withMember("variants", defaultVariant.merge(variants)));
+                            .withMember("variants", variants));
                 }
             }
         }
+    }
+
+    private ArrayNode getServiceVariants(ArrayNode variants, String defaultHostname, String defaultDnsSuffix) {
+        List<Node> serviceVariants = new ArrayList<Node>();
+
+        variants.forEach(variant -> {
+            ObjectNode variantNode = variant.expectObjectNode();
+            if (!variantNode.containsMember("hostname") && !variantNode.containsMember("dnsSuffix")) {
+                // Skip the empty variant which just contains tags.
+                return;
+            }
+            String hostname = variantNode.getStringMemberOrDefault("hostname", defaultHostname);
+            String dnsSuffix = variantNode.getStringMemberOrDefault("dnsSuffix", defaultDnsSuffix);
+            String resolvedHostname = getResolvedHostnameWithDnsSuffix(
+                getResolvedHostname(hostname, endpointPrefix),
+                dnsSuffix
+            );
+            serviceVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
+        });
+
+        return ArrayNode.fromNodes(serviceVariants);
     }
 
     @Override
@@ -187,15 +217,18 @@ final class EndpointGenerator implements Runnable {
             .withMember("tags", ArrayNode.fromStrings(Collections.emptyList()));
     }
 
-    private String getResolvedHostname(String hostnameTemplate, String dnsSuffix, String service) {
-        return getResolvedHostname(hostnameTemplate, dnsSuffix, service, "{region}");
+    private String getResolvedHostname(String hostnameTemplate, String service) {
+        return getResolvedHostname(hostnameTemplate, service, "{region}");
     }
 
-    private String getResolvedHostname(String hostnameTemplate, String dnsSuffix, String service, String region) {
+    private String getResolvedHostname(String hostnameTemplate, String service, String region) {
         return hostnameTemplate
             .replace("{service}", service)
-            .replace("{region}", region)
-            .replace("{dnsSuffix}", dnsSuffix);
+            .replace("{region}", region);
+    }
+
+    private String getResolvedHostnameWithDnsSuffix(String hostnameTemplate, String dnsSuffix) {
+        return hostnameTemplate.replace("{dnsSuffix}", dnsSuffix);
     }
 
     private final class Partition {
@@ -219,7 +252,7 @@ final class EndpointGenerator implements Runnable {
 
             // Resolve the template to use for this service in this partition.
             String hostname = defaults.expectStringMember("hostname").getValue();
-            hostnameTemplate = getResolvedHostname(hostname, dnsSuffix, endpointPrefix);
+            hostnameTemplate = getResolvedHostname(hostname, endpointPrefix);
 
             ArrayNode mergedVariants = getMergedVariants(
                 partitionDefaults.getArrayMember("variants").orElse(Node.arrayNode()),
@@ -249,12 +282,15 @@ final class EndpointGenerator implements Runnable {
         private ArrayNode getVariants(ArrayNode mergedVariants) {
             List<Node> allVariants = new ArrayList<Node>();
 
-            allVariants.add(getDefaultVariant(hostnameTemplate));
+            allVariants.add(getDefaultVariant(getResolvedHostnameWithDnsSuffix(hostnameTemplate, this.dnsSuffix)));
             mergedVariants.forEach(mergedVariant -> {
                 ObjectNode variantNode = mergedVariant.expectObjectNode();
                 String hostname = variantNode.expectStringMember("hostname").getValue();
                 String dnsSuffix = variantNode.getStringMemberOrDefault("dnsSuffix", this.dnsSuffix);
-                String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix);
+                String resolvedHostname = getResolvedHostnameWithDnsSuffix(
+                    getResolvedHostname(hostname, endpointPrefix),
+                    dnsSuffix
+                );
                 allVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
             });
 

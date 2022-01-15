@@ -106,6 +106,11 @@ import {
   DeleteMulticastGroupCommandOutput,
 } from "./commands/DeleteMulticastGroupCommand";
 import {
+  DeleteQueuedMessagesCommand,
+  DeleteQueuedMessagesCommandInput,
+  DeleteQueuedMessagesCommandOutput,
+} from "./commands/DeleteQueuedMessagesCommand";
+import {
   DeleteServiceProfileCommand,
   DeleteServiceProfileCommandInput,
   DeleteServiceProfileCommandOutput,
@@ -296,6 +301,11 @@ import {
   ListPartnerAccountsCommandOutput,
 } from "./commands/ListPartnerAccountsCommand";
 import {
+  ListQueuedMessagesCommand,
+  ListQueuedMessagesCommandInput,
+  ListQueuedMessagesCommandOutput,
+} from "./commands/ListQueuedMessagesCommand";
+import {
   ListServiceProfilesCommand,
   ListServiceProfilesCommandInput,
   ListServiceProfilesCommandOutput,
@@ -424,7 +434,17 @@ import {
 import { IoTWirelessClient } from "./IoTWirelessClient";
 
 /**
- * <p>AWS IoT Wireless API documentation</p>
+ * <p>AWS IoT Wireless provides bi-directional communication between internet-connected wireless
+ * 	        devices and the AWS Cloud. To onboard both LoRaWAN and Sidewalk devices to AWS IoT, use the
+ * 	        IoT Wireless API. These wireless devices use the Low Power Wide Area Networking (LPWAN)
+ * 	        communication protocol to communicate with AWS IoT.</p>
+ * 	        <p>Using the API, you can perform create, read, update, and delete operations for your wireless
+ * 	        devices, gateways, destinations, and profiles. After onboarding your devices, you
+ * 	        can use the API operations to set log levels and monitor your devices with CloudWatch.</p>
+ * 	        <p>You can also use the API operations to create multicast groups and schedule a multicast session for
+ * 	        sending a downlink message to devices in the group. By using Firmware Updates Over-The-Air
+ * 	        (FUOTA) API operations, you can create a FUOTA task and schedule a session to update the firmware
+ * 	        of individual devices or an entire group of devices in a multicast group.</p>
  */
 export class IoTWireless extends IoTWirelessClient {
   /**
@@ -1095,6 +1115,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: DeleteMulticastGroupCommandOutput) => void
   ): Promise<DeleteMulticastGroupCommandOutput> | void {
     const command = new DeleteMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> The operation to delete queued messages. </p>
+   */
+  public deleteQueuedMessages(
+    args: DeleteQueuedMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueuedMessagesCommandOutput>;
+  public deleteQueuedMessages(
+    args: DeleteQueuedMessagesCommandInput,
+    cb: (err: any, data?: DeleteQueuedMessagesCommandOutput) => void
+  ): void;
+  public deleteQueuedMessages(
+    args: DeleteQueuedMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueuedMessagesCommandOutput) => void
+  ): void;
+  public deleteQueuedMessages(
+    args: DeleteQueuedMessagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteQueuedMessagesCommandOutput) => void),
+    cb?: (err: any, data?: DeleteQueuedMessagesCommandOutput) => void
+  ): Promise<DeleteQueuedMessagesCommandOutput> | void {
+    const command = new DeleteQueuedMessagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2322,6 +2374,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: ListPartnerAccountsCommandOutput) => void
   ): Promise<ListPartnerAccountsCommandOutput> | void {
     const command = new ListPartnerAccountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>The operation to list queued messages. </p>
+   */
+  public listQueuedMessages(
+    args: ListQueuedMessagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueuedMessagesCommandOutput>;
+  public listQueuedMessages(
+    args: ListQueuedMessagesCommandInput,
+    cb: (err: any, data?: ListQueuedMessagesCommandOutput) => void
+  ): void;
+  public listQueuedMessages(
+    args: ListQueuedMessagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueuedMessagesCommandOutput) => void
+  ): void;
+  public listQueuedMessages(
+    args: ListQueuedMessagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueuedMessagesCommandOutput) => void),
+    cb?: (err: any, data?: ListQueuedMessagesCommandOutput) => void
+  ): Promise<ListQueuedMessagesCommandOutput> | void {
+    const command = new ListQueuedMessagesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

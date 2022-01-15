@@ -174,15 +174,6 @@ export interface ResourceLimitExceeded extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace ResourceLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceeded): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Resource being access is not found.</p>
  */
@@ -190,15 +181,6 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFound";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1247,6 +1229,14 @@ export enum TrainingInstanceType {
   ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
   ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
   ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_G5_12XLARGE = "ml.g5.12xlarge",
+  ML_G5_16XLARGE = "ml.g5.16xlarge",
+  ML_G5_24XLARGE = "ml.g5.24xlarge",
+  ML_G5_2XLARGE = "ml.g5.2xlarge",
+  ML_G5_48XLARGE = "ml.g5.48xlarge",
+  ML_G5_4XLARGE = "ml.g5.4xlarge",
+  ML_G5_8XLARGE = "ml.g5.8xlarge",
+  ML_G5_XLARGE = "ml.g5.xlarge",
   ML_M4_10XLARGE = "ml.m4.10xlarge",
   ML_M4_16XLARGE = "ml.m4.16xlarge",
   ML_M4_2XLARGE = "ml.m4.2xlarge",
@@ -4506,7 +4496,7 @@ export interface AutoMLChannel {
 
   /**
    * <p>The content type of the data from the input source. You can use
-   *             <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>.
+   *          <code>text/csv;header=present</code> or <code>x-application/vnd.amazon+parquet</code>.
    *          The default value is <code>text/csv;header=present</code>.</p>
    */
   ContentType?: string;
@@ -5990,15 +5980,6 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
 export enum RepositoryAccessMode {
   PLATFORM = "Platform",
   VPC = "Vpc",
@@ -6913,15 +6894,6 @@ export interface ResourceInUse extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace ResourceInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUse): any => ({
-    ...obj,
-  });
-}
-
 export interface CreateAppImageConfigRequest {
   /**
    * <p>The name of the AppImageConfig. Must be unique to your account.</p>
@@ -7564,11 +7536,10 @@ export interface InputConfig {
   Framework: Framework | string | undefined;
 
   /**
-   * <p>Specifies the framework version to use.</p>
-   *         <p>This API field is only supported for PyTorch framework versions <code>1.4</code>,
-   *             <code>1.5</code>, and <code>1.6</code> for
-   *             cloud instance target devices: <code>ml_c4</code>, <code>ml_c5</code>, <code>ml_m4</code>,
-   *             <code>ml_m5</code>, <code>ml_p2</code>, <code>ml_p3</code>, and <code>ml_g4dn</code>.</p>
+   * <p>Specifies the framework version to use. This API field is only supported for the PyTorch and TensorFlow frameworks.</p>
+   *         <p>For information about framework versions supported for cloud targets and edge devices, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud Supported Instance Types and Frameworks</a> and
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported Frameworks</a>.</p>
    */
   FrameworkVersion?: string;
 }
@@ -9188,7 +9159,7 @@ export interface CreateDomainRequest {
   /**
    * @deprecated
    *
-   * <p>This member is deprecated and replaced with <code>KmsKeyId</code>.</p>
+   * <p>Use <code>KmsKeyId</code>.</p>
    */
   HomeEfsFileSystemKmsKeyId?: string;
 

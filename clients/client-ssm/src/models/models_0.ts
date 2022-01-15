@@ -213,30 +213,12 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace InternalServerError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InternalServerError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
  */
 export interface InvalidResourceId extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceId";
   $fault: "client";
-}
-
-export namespace InvalidResourceId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceId): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -248,15 +230,6 @@ export interface InvalidResourceType extends __SmithyException, $MetadataBearer 
   $fault: "client";
 }
 
-export namespace InvalidResourceType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourceType): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The <code>Targets</code> parameter includes too many tags. Remove one or more tags and try
  *    the command again.</p>
@@ -264,15 +237,6 @@ export namespace InvalidResourceType {
 export interface TooManyTagsError extends __SmithyException, $MetadataBearer {
   name: "TooManyTagsError";
   $fault: "client";
-}
-
-export namespace TooManyTagsError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyTagsError): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -284,15 +248,6 @@ export interface TooManyUpdates extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace TooManyUpdates {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TooManyUpdates): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Error returned if an attempt is made to register a patch group with a patch baseline that is
  *    already registered with a different patch baseline.</p>
@@ -301,15 +256,6 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   name: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 export interface AssociateOpsItemRelatedItemRequest {
@@ -377,15 +323,6 @@ export interface OpsItemInvalidParameterException extends __SmithyException, $Me
   Message?: string;
 }
 
-export namespace OpsItemInvalidParameterException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemInvalidParameterException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
  *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
@@ -399,15 +336,6 @@ export interface OpsItemLimitExceededException extends __SmithyException, $Metad
   Message?: string;
 }
 
-export namespace OpsItemLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
  */
@@ -415,15 +343,6 @@ export interface OpsItemNotFoundException extends __SmithyException, $MetadataBe
   name: "OpsItemNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace OpsItemNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -435,15 +354,6 @@ export interface OpsItemRelatedItemAlreadyExistsException extends __SmithyExcept
   Message?: string;
   ResourceUri?: string;
   OpsItemId?: string;
-}
-
-export namespace OpsItemRelatedItemAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemRelatedItemAlreadyExistsException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -494,30 +404,12 @@ export interface DuplicateInstanceId extends __SmithyException, $MetadataBearer 
   $fault: "client";
 }
 
-export namespace DuplicateInstanceId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DuplicateInstanceId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified command ID isn't valid. Verify the ID and try again.</p>
  */
 export interface InvalidCommandId extends __SmithyException, $MetadataBearer {
   name: "InvalidCommandId";
   $fault: "client";
-}
-
-export namespace InvalidCommandId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidCommandId): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -544,15 +436,6 @@ export interface InvalidInstanceId extends __SmithyException, $MetadataBearer {
   name: "InvalidInstanceId";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidInstanceId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInstanceId): any => ({
-    ...obj,
-  });
 }
 
 export interface CancelMaintenanceWindowExecutionRequest {
@@ -597,15 +480,6 @@ export interface DoesNotExistException extends __SmithyException, $MetadataBeare
   name: "DoesNotExistException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DoesNotExistException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DoesNotExistException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -750,15 +624,6 @@ export interface InvalidParameters extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidParameters {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidParameters): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified association already exists.</p>
  */
@@ -767,30 +632,12 @@ export interface AssociationAlreadyExists extends __SmithyException, $MetadataBe
   $fault: "client";
 }
 
-export namespace AssociationAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociationAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can have at most 2,000 active associations.</p>
  */
 export interface AssociationLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AssociationLimitExceeded";
   $fault: "client";
-}
-
-export namespace AssociationLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociationLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 export enum AssociationComplianceSeverity {
@@ -1453,15 +1300,6 @@ export interface InvalidDocument extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidDocument {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDocument): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The document version isn't valid or doesn't exist.</p>
  */
@@ -1469,15 +1307,6 @@ export interface InvalidDocumentVersion extends __SmithyException, $MetadataBear
   name: "InvalidDocumentVersion";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidDocumentVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDocumentVersion): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1488,15 +1317,6 @@ export interface InvalidOutputLocation extends __SmithyException, $MetadataBeare
   $fault: "client";
 }
 
-export namespace InvalidOutputLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOutputLocation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
  */
@@ -1504,15 +1324,6 @@ export interface InvalidSchedule extends __SmithyException, $MetadataBearer {
   name: "InvalidSchedule";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidSchedule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidSchedule): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -1525,15 +1336,6 @@ export interface InvalidTarget extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTarget): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The document doesn't support the platform type of the given managed node ID(s). For example, you
  *    sent an document for a Windows managed node to a Linux node.</p>
@@ -1542,15 +1344,6 @@ export interface UnsupportedPlatformType extends __SmithyException, $MetadataBea
   name: "UnsupportedPlatformType";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedPlatformType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedPlatformType): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2342,15 +2135,6 @@ export interface DocumentAlreadyExists extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace DocumentAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentAlreadyExists): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You can have at most 500 active SSM documents.</p>
  */
@@ -2358,15 +2142,6 @@ export interface DocumentLimitExceeded extends __SmithyException, $MetadataBeare
   name: "DocumentLimitExceeded";
   $fault: "client";
   Message?: string;
-}
-
-export namespace DocumentLimitExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DocumentLimitExceeded): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2381,15 +2156,6 @@ export interface InvalidDocumentContent extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InvalidDocumentContent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDocumentContent): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The version of the document schema isn't supported.</p>
  */
@@ -2399,15 +2165,6 @@ export interface InvalidDocumentSchemaVersion extends __SmithyException, $Metada
   Message?: string;
 }
 
-export namespace InvalidDocumentSchemaVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDocumentSchemaVersion): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The size limit of a document is 64 KB.</p>
  */
@@ -2415,15 +2172,6 @@ export interface MaxDocumentSizeExceeded extends __SmithyException, $MetadataBea
   name: "MaxDocumentSizeExceeded";
   $fault: "client";
   Message?: string;
-}
-
-export namespace MaxDocumentSizeExceeded {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MaxDocumentSizeExceeded): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateMaintenanceWindowRequest {
@@ -2569,15 +2317,6 @@ export interface IdempotentParameterMismatch extends __SmithyException, $Metadat
   Message?: string;
 }
 
-export namespace IdempotentParameterMismatch {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IdempotentParameterMismatch): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Error returned when the caller has exceeded the default resource quotas. For example, too
  *    many maintenance windows or patch baselines have been created.</p>
@@ -2588,15 +2327,6 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
   name: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceLimitExceededException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2822,15 +2552,6 @@ export interface OpsItemAlreadyExistsException extends __SmithyException, $Metad
   OpsItemId?: string;
 }
 
-export namespace OpsItemAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsItemAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>Metadata to assign to an Application Manager application.</p>
  */
@@ -2917,15 +2638,6 @@ export interface OpsMetadataAlreadyExistsException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace OpsMetadataAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>One of the arguments passed is invalid. </p>
  */
@@ -2933,15 +2645,6 @@ export interface OpsMetadataInvalidArgumentException extends __SmithyException, 
   name: "OpsMetadataInvalidArgumentException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OpsMetadataInvalidArgumentException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataInvalidArgumentException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2954,15 +2657,6 @@ export interface OpsMetadataLimitExceededException extends __SmithyException, $M
   message?: string;
 }
 
-export namespace OpsMetadataLimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataLimitExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The system is processing too many concurrent updates. Wait a few moments and try
  *    again.</p>
@@ -2971,15 +2665,6 @@ export interface OpsMetadataTooManyUpdatesException extends __SmithyException, $
   name: "OpsMetadataTooManyUpdatesException";
   $fault: "client";
   message?: string;
-}
-
-export namespace OpsMetadataTooManyUpdatesException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataTooManyUpdatesException): any => ({
-    ...obj,
-  });
 }
 
 export enum PatchComplianceLevel {
@@ -3574,15 +3259,6 @@ export interface ResourceDataSyncAlreadyExistsException extends __SmithyExceptio
   SyncName?: string;
 }
 
-export namespace ResourceDataSyncAlreadyExistsException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataSyncAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>You have exceeded the allowed maximum sync configurations.</p>
  */
@@ -3592,15 +3268,6 @@ export interface ResourceDataSyncCountExceededException extends __SmithyExceptio
   Message?: string;
 }
 
-export namespace ResourceDataSyncCountExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataSyncCountExceededException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified sync configuration is invalid.</p>
  */
@@ -3608,15 +3275,6 @@ export interface ResourceDataSyncInvalidConfigurationException extends __SmithyE
   name: "ResourceDataSyncInvalidConfigurationException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace ResourceDataSyncInvalidConfigurationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataSyncInvalidConfigurationException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteActivationRequest {
@@ -3656,15 +3314,6 @@ export interface InvalidActivation extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidActivation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidActivation): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
  *    ActivationCode and try again.</p>
@@ -3675,15 +3324,6 @@ export interface InvalidActivationId extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-export namespace InvalidActivationId {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidActivationId): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified association doesn't exist.</p>
  */
@@ -3691,15 +3331,6 @@ export interface AssociationDoesNotExist extends __SmithyException, $MetadataBea
   name: "AssociationDoesNotExist";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AssociationDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociationDoesNotExist): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteAssociationRequest {
@@ -3758,15 +3389,6 @@ export interface AssociatedInstances extends __SmithyException, $MetadataBearer 
   $fault: "client";
 }
 
-export namespace AssociatedInstances {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociatedInstances): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteDocumentRequest {
   /**
    * <p>The name of the document.</p>
@@ -3822,15 +3444,6 @@ export interface InvalidDocumentOperation extends __SmithyException, $MetadataBe
   name: "InvalidDocumentOperation";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidDocumentOperation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDocumentOperation): any => ({
-    ...obj,
-  });
 }
 
 export enum InventorySchemaDeleteOption {
@@ -3977,15 +3590,6 @@ export interface InvalidDeleteInventoryParametersException extends __SmithyExcep
   Message?: string;
 }
 
-export namespace InvalidDeleteInventoryParametersException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeleteInventoryParametersException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The request isn't valid.</p>
  */
@@ -3993,15 +3597,6 @@ export interface InvalidInventoryRequestException extends __SmithyException, $Me
   name: "InvalidInventoryRequestException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidInventoryRequestException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInventoryRequestException): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -4013,15 +3608,6 @@ export interface InvalidOptionException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace InvalidOptionException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidOptionException): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The parameter type name isn't valid.</p>
  */
@@ -4029,15 +3615,6 @@ export interface InvalidTypeNameException extends __SmithyException, $MetadataBe
   name: "InvalidTypeNameException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidTypeNameException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidTypeNameException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteMaintenanceWindowRequest {
@@ -4108,15 +3685,6 @@ export interface OpsMetadataNotFoundException extends __SmithyException, $Metada
   message?: string;
 }
 
-export namespace OpsMetadataNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OpsMetadataNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteParameterRequest {
   /**
    * <p>The name of the parameter to delete.</p>
@@ -4151,15 +3719,6 @@ export interface ParameterNotFound extends __SmithyException, $MetadataBearer {
   name: "ParameterNotFound";
   $fault: "client";
   message?: string;
-}
-
-export namespace ParameterNotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ParameterNotFound): any => ({
-    ...obj,
-  });
 }
 
 export interface DeleteParametersRequest {
@@ -4242,15 +3801,6 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteResourceDataSyncRequest {
   /**
    * <p>The name of the configuration to delete.</p>
@@ -4292,15 +3842,6 @@ export interface ResourceDataSyncNotFoundException extends __SmithyException, $M
   SyncName?: string;
   SyncType?: string;
   Message?: string;
-}
-
-export namespace ResourceDataSyncNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceDataSyncNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterManagedInstanceRequest {
@@ -4430,15 +3971,6 @@ export interface TargetInUseException extends __SmithyException, $MetadataBearer
   name: "TargetInUseException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace TargetInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetInUseException): any => ({
-    ...obj,
-  });
 }
 
 export interface DeregisterTaskFromMaintenanceWindowRequest {
@@ -4571,15 +4103,6 @@ export interface InvalidFilter extends __SmithyException, $MetadataBearer {
   Message?: string;
 }
 
-export namespace InvalidFilter {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFilter): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified token isn't valid.</p>
  */
@@ -4587,15 +4110,6 @@ export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
   name: "InvalidNextToken";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidNextToken {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidNextToken): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeAssociationRequest {
@@ -4660,15 +4174,6 @@ export interface InvalidAssociationVersion extends __SmithyException, $MetadataB
   name: "InvalidAssociationVersion";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidAssociationVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidAssociationVersion): any => ({
-    ...obj,
-  });
 }
 
 export enum AssociationExecutionFilterKey {
@@ -4830,15 +4335,6 @@ export interface AssociationExecutionDoesNotExist extends __SmithyException, $Me
   name: "AssociationExecutionDoesNotExist";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AssociationExecutionDoesNotExist {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AssociationExecutionDoesNotExist): any => ({
-    ...obj,
-  });
 }
 
 export enum AssociationExecutionTargetsFilterKey {
@@ -5406,15 +4902,6 @@ export interface InvalidFilterKey extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace InvalidFilterKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFilterKey): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The filter value isn't valid. Verify the value and try again.</p>
  */
@@ -5422,15 +4909,6 @@ export interface InvalidFilterValue extends __SmithyException, $MetadataBearer {
   name: "InvalidFilterValue";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidFilterValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidFilterValue): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -5441,15 +4919,6 @@ export interface AutomationExecutionNotFoundException extends __SmithyException,
   name: "AutomationExecutionNotFoundException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace AutomationExecutionNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AutomationExecutionNotFoundException): any => ({
-    ...obj,
-  });
 }
 
 export enum StepExecutionFilterKey {
@@ -6263,15 +5732,6 @@ export interface InvalidPermissionType extends __SmithyException, $MetadataBeare
   Message?: string;
 }
 
-export namespace InvalidPermissionType {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidPermissionType): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeEffectiveInstanceAssociationsRequest {
   /**
    * <p>The managed node ID for which you want to view all associations.</p>
@@ -6481,15 +5941,6 @@ export interface UnsupportedOperatingSystem extends __SmithyException, $Metadata
   name: "UnsupportedOperatingSystem";
   $fault: "client";
   Message?: string;
-}
-
-export namespace UnsupportedOperatingSystem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperatingSystem): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInstanceAssociationsStatusRequest {
@@ -6979,15 +6430,6 @@ export interface InvalidInstanceInformationFilterValue extends __SmithyException
   name: "InvalidInstanceInformationFilterValue";
   $fault: "client";
   message?: string;
-}
-
-export namespace InvalidInstanceInformationFilterValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidInstanceInformationFilterValue): any => ({
-    ...obj,
-  });
 }
 
 export interface DescribeInstancePatchesRequest {
@@ -7703,15 +7145,6 @@ export interface InvalidDeletionIdException extends __SmithyException, $Metadata
   name: "InvalidDeletionIdException";
   $fault: "client";
   Message?: string;
-}
-
-export namespace InvalidDeletionIdException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidDeletionIdException): any => ({
-    ...obj,
-  });
 }
 
 /**

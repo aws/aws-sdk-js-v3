@@ -97,15 +97,6 @@ export interface NoSuchUpload extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace NoSuchUpload {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchUpload): any => ({
-    ...obj,
-  });
-}
-
 export type BucketAccelerateStatus = "Enabled" | "Suspended";
 
 /**
@@ -888,15 +879,6 @@ export interface ObjectNotInActiveTierError extends __SmithyException, $Metadata
   $fault: "client";
 }
 
-export namespace ObjectNotInActiveTierError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectNotInActiveTierError): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The requested bucket name is not available. The bucket namespace is shared by all users
  *          of the system. Select a different name and try again.</p>
@@ -904,15 +886,6 @@ export namespace ObjectNotInActiveTierError {
 export interface BucketAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyExists";
   $fault: "client";
-}
-
-export namespace BucketAlreadyExists {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketAlreadyExists): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -924,15 +897,6 @@ export namespace BucketAlreadyExists {
 export interface BucketAlreadyOwnedByYou extends __SmithyException, $MetadataBearer {
   name: "BucketAlreadyOwnedByYou";
   $fault: "client";
-}
-
-export namespace BucketAlreadyOwnedByYou {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BucketAlreadyOwnedByYou): any => ({
-    ...obj,
-  });
 }
 
 export interface CreateBucketOutput {
@@ -4404,7 +4368,9 @@ export namespace GetBucketCorsRequest {
 /**
  * <p>Describes the default server-side encryption to apply to new objects in the bucket. If a
  *          PUT Object request doesn't specify any server-side encryption, this default encryption will
- *          be applied. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in
+ *          be applied. If you don't specify a customer managed key at configuration, Amazon S3 automatically creates
+ *          an Amazon Web Services KMS key in your Amazon Web Services account the first time that you add an object encrypted with
+ *          SSE-KMS to a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html">PUT Bucket encryption</a> in
  *          the <i>Amazon S3 API Reference</i>.</p>
  */
 export interface ServerSideEncryptionByDefault {
@@ -4417,9 +4383,9 @@ export interface ServerSideEncryptionByDefault {
    * <p>Amazon Web Services Key Management Service (KMS) customer Amazon Web Services KMS key ID to use for the default
    *         encryption. This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to
    *         <code>aws:kms</code>.</p>
-   *          <p>You can specify the key ID or the Amazon Resource Name (ARN) of the KMS key. However, if you
-   *         are using encryption with cross-account operations, you must use a fully qualified KMS key ARN.
-   *         For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>. </p>
+   *          <p>You can specify the key ID or the Amazon Resource Name (ARN) of the KMS key. However, if
+   *          you are using encryption with cross-account or Amazon Web Services service operations you must use a fully qualified KMS
+   *          key ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>. </p>
    *          <p>
    *             <b>For example:</b>
    *          </p>
@@ -7645,30 +7611,12 @@ export interface InvalidObjectState extends __SmithyException, $MetadataBearer {
   AccessTier?: IntelligentTieringAccessTier | string;
 }
 
-export namespace InvalidObjectState {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidObjectState): any => ({
-    ...obj,
-  });
-}
-
 /**
  * <p>The specified key does not exist.</p>
  */
 export interface NoSuchKey extends __SmithyException, $MetadataBearer {
   name: "NoSuchKey";
   $fault: "client";
-}
-
-export namespace NoSuchKey {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchKey): any => ({
-    ...obj,
-  });
 }
 
 export interface GetObjectAclOutput {
@@ -8300,15 +8248,6 @@ export interface NotFound extends __SmithyException, $MetadataBearer {
   $fault: "client";
 }
 
-export namespace NotFound {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NotFound): any => ({
-    ...obj,
-  });
-}
-
 export type ArchiveStatus = "ARCHIVE_ACCESS" | "DEEP_ARCHIVE_ACCESS";
 
 export interface HeadObjectOutput {
@@ -8594,12 +8533,8 @@ export interface HeadObjectRequest {
   Key: string | undefined;
 
   /**
-   * <p>Downloads the specified range bytes of an object. For more information about the HTTP
-   *          Range header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>.</p>
-   *          <note>
-   *             <p>Amazon S3 doesn't support retrieving multiple ranges of data per <code>GET</code>
-   *             request.</p>
-   *          </note>
+   * <p>Because <code>HeadObject</code> returns only the metadata for an object, this parameter
+   *         has no effect.</p>
    */
   Range?: string;
 
@@ -9472,15 +9407,6 @@ export namespace ListObjectsRequest {
 export interface NoSuchBucket extends __SmithyException, $MetadataBearer {
   name: "NoSuchBucket";
   $fault: "client";
-}
-
-export namespace NoSuchBucket {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchBucket): any => ({
-    ...obj,
-  });
 }
 
 export interface ListObjectsV2Output {
@@ -11737,15 +11663,6 @@ export namespace PutPublicAccessBlockRequest {
 export interface ObjectAlreadyInActiveTierError extends __SmithyException, $MetadataBearer {
   name: "ObjectAlreadyInActiveTierError";
   $fault: "client";
-}
-
-export namespace ObjectAlreadyInActiveTierError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ObjectAlreadyInActiveTierError): any => ({
-    ...obj,
-  });
 }
 
 export interface RestoreObjectOutput {
