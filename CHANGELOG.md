@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.47.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.46.0...v3.47.0) (2022-01-15)
+
+
+### Bug Fixes
+
+* **codegen:** populate dnsSuffix just before consuming hostname ([#3170](https://github.com/aws/aws-sdk-js-v3/issues/3170)) ([0f0e77e](https://github.com/aws/aws-sdk-js-v3/commit/0f0e77eda6aeee0e3bbc92a9054f7ba91a3a4a1d))
+* **codegen:** skip variants which only contains tags ([#3172](https://github.com/aws/aws-sdk-js-v3/issues/3172)) ([d72b72a](https://github.com/aws/aws-sdk-js-v3/commit/d72b72a2f51a4a7f7f449b4b0e09bb4db206140f))
+
+
+### Features
+
+* **clients:** update clients to use default values inferred from defaults mode ([#3192](https://github.com/aws/aws-sdk-js-v3/issues/3192)) ([9152e21](https://github.com/aws/aws-sdk-js-v3/commit/9152e210c6ec29f34bb070eaf2874039022e6ab7))
+* Support awsQueryError trait ([#3174](https://github.com/aws/aws-sdk-js-v3/issues/3174)) ([351bd3a](https://github.com/aws/aws-sdk-js-v3/commit/351bd3a40ad37be79d823d6a0e4e48304728ea6f))
+
+
+
+
+
 # [3.46.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.45.0...v3.46.0) (2022-01-07)
 
 

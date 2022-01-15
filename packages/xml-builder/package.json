@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.46.0",
+  "version": "3.47.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
     "tslib": "^2.3.0"
