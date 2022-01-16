@@ -1,7 +1,7 @@
 import { memoize } from "@aws-sdk/property-provider";
 import type { DefaultsMode, ResolvedDefaultsMode } from "@aws-sdk/smithy-client";
 import type { Provider } from "@aws-sdk/types";
-import { parse } from "bowser";
+import bowser from "bowser";
 
 import { DEFAULTS_MODE_OPTIONS } from "./constants";
 
@@ -45,7 +45,9 @@ export const resolveDefaultsModeConfig = ({
 
 const isMobileBrowser = (): boolean => {
   const parsedUA =
-    typeof window !== "undefined" && window?.navigator?.userAgent ? parse(window.navigator.userAgent) : undefined;
+    typeof window !== "undefined" && window?.navigator?.userAgent
+      ? bowser.parse(window.navigator.userAgent)
+      : undefined;
   const platform = parsedUA?.platform?.type;
   // Reference: https://github.com/lancedikson/bowser/blob/master/src/constants.js#L86
   return platform === "tablet" || platform === "mobile";
