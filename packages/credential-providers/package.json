@@ -8,7 +8,7 @@
   "react-native": "./dist-es/index.web.js",
   "sideEffects": false,
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
