@@ -3,7 +3,7 @@
   "description": "AWS SDK for JavaScript Chime Sdk Meetings Client for Node.js, Browser and React Native",
   "version": "3.47.0",
   "scripts": {
-    "build": "yarn build:cjs && yarn build:es && yarn build:types",
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:docs": "typedoc",
     "build:es": "tsc -p tsconfig.es.json",

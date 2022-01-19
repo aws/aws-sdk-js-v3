@@ -37,7 +37,14 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
     if (fromContent[name].constructor.name === "Object") {
       if (name === "devDependencies") {
         // Remove devDeps defined in monorepo root
-        const devDepsInRoot = ["@tsconfig/recommended", "downlevel-dts", "rimraf", "typedoc", "typescript"];
+        const devDepsInRoot = [
+          "@tsconfig/recommended",
+          "concurrently",
+          "downlevel-dts",
+          "rimraf",
+          "typedoc",
+          "typescript",
+        ];
         devDepsInRoot.forEach((devDep) => delete fromContent[name][devDep]);
       }
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
