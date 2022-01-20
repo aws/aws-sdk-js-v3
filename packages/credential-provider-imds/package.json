@@ -23,10 +23,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/node-config-provider": "3.47.1",
-    "@aws-sdk/property-provider": "3.47.1",
-    "@aws-sdk/types": "3.47.1",
-    "@aws-sdk/url-parser": "3.47.1",
+    "@aws-sdk/node-config-provider": "*",
+    "@aws-sdk/property-provider": "*",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/url-parser": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

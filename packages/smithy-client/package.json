@@ -19,8 +19,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-stack": "3.47.1",
-    "@aws-sdk/types": "3.47.1",
+    "@aws-sdk/middleware-stack": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "engines": {

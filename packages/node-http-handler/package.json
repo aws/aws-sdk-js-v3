@@ -21,10 +21,10 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/abort-controller": "3.47.1",
-    "@aws-sdk/protocol-http": "3.47.1",
-    "@aws-sdk/querystring-builder": "3.47.1",
-    "@aws-sdk/types": "3.47.1",
+    "@aws-sdk/abort-controller": "*",
+    "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/querystring-builder": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
