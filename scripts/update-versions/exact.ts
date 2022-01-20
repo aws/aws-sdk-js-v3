@@ -7,25 +7,14 @@ import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
 import { getPackageNameToVersionHash } from "./getPackageNameToVersionHash";
+import { getUpdatedPackageJson } from "./getUpdatedPackageJson";
 import { getWorkspacePaths } from "./getWorkspacePaths";
 
 const packageNameToVersionHash = getPackageNameToVersionHash();
 
-const replaceInternalDepVersionWithExact = (section: { [key: string]: string }) => {
-  for (const [key, value] of Object.entries(section)) {
-    if (key.startsWith("@aws-sdk/") && !value.startsWith("file:")) {
-      section[key] = packageNameToVersionHash[key];
-    }
-  }
-};
-
 getWorkspacePaths().forEach((workspacePath) => {
   const packageJsonPath = join(workspacePath, "package.json");
   const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
-
-  ["dependencies", "devDependencies"]
-    .filter((section) => packageJson[section] !== undefined)
-    .forEach((section) => replaceInternalDepVersionWithExact(packageJson[section]));
-
-  writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2).concat(`\n`));
+  const updatedPackageJson = getUpdatedPackageJson(packageJson, packageNameToVersionHash);
+  writeFileSync(packageJsonPath, JSON.stringify(updatedPackageJson, null, 2).concat(`\n`));
 });
