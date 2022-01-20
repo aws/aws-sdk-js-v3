@@ -38,7 +38,7 @@
     "test:size": "cd scripts/benchmark-size/runner && yarn && ./cli.ts",
     "test:unit": "jest --config jest.config.js",
     "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
-    "update:versions:asterisk": "./scripts/update-versions-asterisk/index.ts"
+    "update:versions:default": "./scripts/update-versions/default.ts"
   },
   "repository": {
     "type": "git",
