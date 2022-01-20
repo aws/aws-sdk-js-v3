@@ -6,12 +6,15 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
+import { getPackageNameToDefaultHash } from "./getPackageNameToDefaultHash";
 import { getWorkspacePaths } from "./getWorkspacePaths";
+
+const packageNameToDefaultHash = getPackageNameToDefaultHash();
 
 const replaceInternalDepVersionWithAsterisk = (section: { [key: string]: string }) => {
   for (const [key, value] of Object.entries(section)) {
     if (key.startsWith("@aws-sdk/") && !value.startsWith("file:")) {
-      section[key] = "*";
+      section[key] = packageNameToDefaultHash[key];
     }
   }
 };
