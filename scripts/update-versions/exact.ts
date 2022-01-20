@@ -4,23 +4,17 @@
 // in dependencies/devDependencies/peerDependencies
 
 import { readFileSync, writeFileSync } from "fs";
-import { basename, join } from "path";
+import { join } from "path";
 
+import { getPackageNameToVersionHash } from "./getPackageNameToVersionHash";
 import { getWorkspacePaths } from "./getWorkspacePaths";
 
-const packageNameToExactVersionHash = getWorkspacePaths().reduce((acc, workspacePath) => {
-  const packageJsonPath = join(workspacePath, "package.json");
-  const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
-  return {
-    ...acc,
-    [`@aws-sdk/${basename(workspacePath)}`]: packageJson.version,
-  };
-}, {});
+const packageNameToVersionHash = getPackageNameToVersionHash();
 
 const replaceInternalDepVersionWithExact = (section: { [key: string]: string }) => {
   for (const [key, value] of Object.entries(section)) {
     if (key.startsWith("@aws-sdk/") && !value.startsWith("file:")) {
-      section[key] = packageNameToExactVersionHash[key];
+      section[key] = packageNameToVersionHash[key];
     }
   }
 };
