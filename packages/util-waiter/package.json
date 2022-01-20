@@ -3,8 +3,8 @@
   "version": "3.47.0",
   "description": "Shared utilities for client waiters for the AWS SDK",
   "dependencies": {
-    "@aws-sdk/abort-controller": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
+    "@aws-sdk/abort-controller": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "scripts": {

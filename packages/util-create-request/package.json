@@ -19,13 +19,13 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/middleware-stack": "3.47.0",
-    "@aws-sdk/smithy-client": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
+    "@aws-sdk/middleware-stack": "*",
+    "@aws-sdk/smithy-client": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/protocol-http": "3.47.0",
+    "@aws-sdk/protocol-http": "*",
     "@types/node": "^10.0.3"
   },
   "engines": {

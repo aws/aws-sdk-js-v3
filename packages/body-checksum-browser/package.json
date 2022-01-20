@@ -19,16 +19,16 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/chunked-blob-reader": "3.47.0",
-    "@aws-sdk/protocol-http": "3.47.0",
-    "@aws-sdk/sha256-tree-hash": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
-    "@aws-sdk/util-hex-encoding": "3.47.0",
+    "@aws-sdk/chunked-blob-reader": "*",
+    "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/sha256-tree-hash": "*",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-hex-encoding": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "2.0.0",
-    "@aws-sdk/util-utf8-browser": "3.47.0"
+    "@aws-sdk/util-utf8-browser": "*"
   },
   "typesVersions": {
     "<4.0": {
