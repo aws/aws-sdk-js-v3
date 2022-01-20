@@ -3,8 +3,7 @@
 // Updates versions for internal packages `@aws-sdk/*` to exact versions
 // in dependencies/devDependencies/peerDependencies
 
-import { getPackageNameToVersionHash } from "./getPackageNameToVersionHash";
+import { getDepToExactVersionHash } from "./getDepToExactVersionHash";
 import { updateVersions } from "./updateVersions";
 
-const packageNameToVersionHash = getPackageNameToVersionHash();
-updateVersions(packageNameToVersionHash);
+updateVersions(getDepToExactVersionHash());
