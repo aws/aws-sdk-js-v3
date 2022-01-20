@@ -37,7 +37,8 @@
     "test:server-protocols": "yarn build:server-protocols && lerna run test --scope '@aws-sdk/*-server'",
     "test:size": "cd scripts/benchmark-size/runner && yarn && ./cli.ts",
     "test:unit": "jest --config jest.config.js",
-    "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts"
+    "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
+    "update:versions:asterisk": "./scripts/update-versions-asterisk/index.ts"
   },
   "repository": {
     "type": "git",
