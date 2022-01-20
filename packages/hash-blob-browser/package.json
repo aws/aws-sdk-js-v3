@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/hash-blob-browser",
-  "version": "3.47.0",
+  "version": "3.47.1",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -19,14 +19,14 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/chunked-blob-reader": "3.47.0",
-    "@aws-sdk/chunked-blob-reader-native": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
+    "@aws-sdk/chunked-blob-reader": "3.47.1",
+    "@aws-sdk/chunked-blob-reader-native": "3.47.1",
+    "@aws-sdk/types": "3.47.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "2.0.0",
-    "@aws-sdk/util-hex-encoding": "3.47.0"
+    "@aws-sdk/util-hex-encoding": "3.47.1"
   },
   "react-native": {
     "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"

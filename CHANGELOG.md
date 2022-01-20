@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.47.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.0-release-test-1...v3.47.1) (2022-01-20)
+
+
+### Bug Fixes
+
+* **aws-protocoltests-*:** add emitDeclarationOnly for types ([#3213](https://github.com/aws/aws-sdk-js-v3/issues/3213)) ([a678025](https://github.com/aws/aws-sdk-js-v3/commit/a67802558af98a7a31b431f6917f84939afe0689))
+* **util-defaults-mode-browser:** import bowser by default export ([#3203](https://github.com/aws/aws-sdk-js-v3/issues/3203)) ([5187be2](https://github.com/aws/aws-sdk-js-v3/commit/5187be2ee1a9731053b1e94bff25395130c0bcef))
+
+
+
+
+
 # [3.47.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.46.0...v3.47.0) (2022-01-15)
 
 
