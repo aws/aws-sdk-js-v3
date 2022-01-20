@@ -22,20 +22,19 @@ const replaceInternalDepVersionWithAsterisk = (section: { [key: string]: string 
 
 packages
   .map((dir: string) => dir.replace("/*", ""))
-  .forEach((workspacesDir: string) => {
-    // Process each workspace in workspace directory
+  .flatMap((workspacesDir) =>
     readdirSync(join(rootDir, workspacesDir), { withFileTypes: true })
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name)
-      .forEach((workspaceDir) => {
-        const cwd = join(rootDir, workspacesDir, workspaceDir);
-        const packageJsonPath = join(cwd, "package.json");
-        const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
+      .map((workspaceDir) => join(rootDir, workspacesDir, workspaceDir))
+  )
+  .forEach((workspacePath) => {
+    const packageJsonPath = join(workspacePath, "package.json");
+    const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
-        ["dependencies", "devDependencies"]
-          .filter((section) => packageJson[section] !== undefined)
-          .forEach((section) => replaceInternalDepVersionWithAsterisk(packageJson[section]));
+    ["dependencies", "devDependencies"]
+      .filter((section) => packageJson[section] !== undefined)
+      .forEach((section) => replaceInternalDepVersionWithAsterisk(packageJson[section]));
 
-        writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2).concat(`\n`));
-      });
+    writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2).concat(`\n`));
   });
