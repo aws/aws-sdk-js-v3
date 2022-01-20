@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.BiFunction;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -51,8 +52,19 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
+    private final BiFunction<MemberShape, String, String> memberNameStrategy;
+
     JsonShapeDeserVisitor(GenerationContext context) {
+        this(context,
+                // Use the jsonName trait value if present, otherwise use the member name.
+                (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
+                .map(JsonNameTrait::getValue)
+                .orElse(memberName));
+    }
+
+    JsonShapeDeserVisitor(GenerationContext context, BiFunction<MemberShape, String, String> memberNameStrategy) {
         super(context);
+        this.memberNameStrategy = memberNameStrategy;
     }
 
     private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
@@ -154,10 +166,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         writer.openBlock("return {", "} as any;", () -> {
             // Set all the members to undefined to meet type constraints.
             members.forEach((memberName, memberShape) -> {
-                // Use the jsonName trait value if present, otherwise use the member name.
-                String locationName = memberShape.getTrait(JsonNameTrait.class)
-                        .map(JsonNameTrait::getValue)
-                        .orElse(memberName);
+                String locationName = memberNameStrategy.apply(memberShape, memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
 
                 if (usesExpect(target)) {
@@ -195,10 +204,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
         members.forEach((memberName, memberShape) -> {
             Shape target = model.expectShape(memberShape.getTarget());
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = memberShape.getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElse(memberName);
+            String locationName = memberNameStrategy.apply(memberShape, memberName);
 
             String memberValue = target.accept(getMemberVisitor(memberShape, "output." + locationName));
             if (usesExpect(target)) {
