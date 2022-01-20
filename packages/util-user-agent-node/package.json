@@ -19,12 +19,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/node-config-provider": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
+    "@aws-sdk/node-config-provider": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/protocol-http": "3.47.0",
+    "@aws-sdk/protocol-http": "*",
     "@types/node": "^10.0.0"
   },
   "engines": {
