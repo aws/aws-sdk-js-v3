@@ -19,15 +19,15 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
-    "@aws-sdk/util-arn-parser": "3.47.0",
-    "@aws-sdk/util-config-provider": "3.47.0",
+    "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-arn-parser": "*",
+    "@aws-sdk/util-config-provider": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/middleware-stack": "3.47.0",
-    "@aws-sdk/node-config-provider": "3.47.0"
+    "@aws-sdk/middleware-stack": "*",
+    "@aws-sdk/node-config-provider": "*"
   },
   "engines": {
     "node": ">= 12.0.0"

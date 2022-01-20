@@ -19,13 +19,13 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "3.47.0"
+    "@aws-sdk/node-config-provider": "*"
   },
   "dependencies": {
-    "@aws-sdk/config-resolver": "3.47.0",
-    "@aws-sdk/endpoint-cache": "3.47.0",
-    "@aws-sdk/protocol-http": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
+    "@aws-sdk/config-resolver": "*",
+    "@aws-sdk/endpoint-cache": "*",
+    "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "engines": {
