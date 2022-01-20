@@ -32,7 +32,7 @@ packages
         const packageJsonPath = join(cwd, "package.json");
         const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
-        ["dependencies", "devDependencies", "peerDependencies"]
+        ["dependencies", "devDependencies"]
           .filter((section) => packageJson[section] !== undefined)
           .forEach((section) => replaceInternalDepVersionWithAsterisk(packageJson[section]));
 

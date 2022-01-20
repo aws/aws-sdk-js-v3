@@ -49,7 +49,7 @@ packages
     const packageJsonPath = join(workspacePath, "package.json");
     const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
-    ["dependencies", "devDependencies", "peerDependencies"]
+    ["dependencies", "devDependencies"]
       .filter((section) => packageJson[section] !== undefined)
       .forEach((section) => replaceInternalDepVersionWithExact(packageJson[section]));
 
