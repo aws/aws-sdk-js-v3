@@ -20,13 +20,13 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-crypto/crc32": "2.0.0",
-    "@aws-sdk/types": "3.47.0",
-    "@aws-sdk/util-hex-encoding": "3.47.0",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-hex-encoding": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/util-utf8-browser": "3.47.0",
-    "@aws-sdk/util-utf8-node": "3.47.0",
+    "@aws-sdk/util-utf8-browser": "*",
+    "@aws-sdk/util-utf8-node": "*",
     "@types/node": "^10.0.0"
   },
   "browser": {

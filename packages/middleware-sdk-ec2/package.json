@@ -19,10 +19,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/protocol-http": "3.47.0",
-    "@aws-sdk/signature-v4": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
-    "@aws-sdk/util-format-url": "3.47.0",
+    "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/signature-v4": "*",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-format-url": "*",
     "tslib": "^2.3.0"
   },
   "engines": {

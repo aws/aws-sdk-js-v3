@@ -29,12 +29,12 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@aws-sdk/abort-controller": "^3.0.0",
-    "@aws-sdk/client-s3": "^3.0.0"
+    "@aws-sdk/abort-controller": "*",
+    "@aws-sdk/client-s3": "*"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "3.47.0",
-    "@aws-sdk/client-s3": "3.47.0",
+    "@aws-sdk/abort-controller": "*",
+    "@aws-sdk/client-s3": "*",
     "@types/node": "^14.11.2",
     "jasmine-core": "^3.6.0",
     "karma": "^5.2.3",

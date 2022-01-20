@@ -23,7 +23,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/shared-ini-file-loader": "3.47.0",
+    "@aws-sdk/shared-ini-file-loader": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

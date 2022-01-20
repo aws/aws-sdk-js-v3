@@ -19,8 +19,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/querystring-builder": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
+    "@aws-sdk/querystring-builder": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "engines": {

@@ -23,10 +23,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/property-provider": "3.47.0",
-    "@aws-sdk/shared-ini-file-loader": "3.47.0",
-    "@aws-sdk/types": "3.47.0",
-    "@aws-sdk/util-credentials": "3.47.0",
+    "@aws-sdk/property-provider": "*",
+    "@aws-sdk/shared-ini-file-loader": "*",
+    "@aws-sdk/types": "*",
+    "@aws-sdk/util-credentials": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
