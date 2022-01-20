@@ -12,10 +12,10 @@ const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
 const packages = packageJson.workspaces.packages;
 
-const replaceInternalDepVersionWithAsterisk = (section) => {
-  for (const name of Object.keys(section)) {
-    if (name.startsWith("@aws-sdk/")) {
-      section[name] = "*";
+const replaceInternalDepVersionWithAsterisk = (section: { [key: string]: string }) => {
+  for (const [key, value] of Object.entries(section)) {
+    if (key.startsWith("@aws-sdk/") && !value.startsWith("file:")) {
+      section[key] = "*";
     }
   }
 };
