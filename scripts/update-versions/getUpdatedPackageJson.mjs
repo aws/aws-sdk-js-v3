@@ -1,4 +1,5 @@
-import { getUpdatedPackageJsonSection } from "./getUpdatedPackageJsonSection";
+// @ts-check
+import { getUpdatedPackageJsonSection } from "./getUpdatedPackageJsonSection.mjs";
 
 export const getUpdatedPackageJson = (packageJson, depToVersionHash) =>
   ["dependencies", "devDependencies"]

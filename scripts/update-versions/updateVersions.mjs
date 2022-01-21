@@ -1,8 +1,9 @@
+// @ts-check
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
-import { getUpdatedPackageJson } from "./getUpdatedPackageJson";
-import { getWorkspacePaths } from "./getWorkspacePaths";
+import { getUpdatedPackageJson } from "./getUpdatedPackageJson.mjs";
+import { getWorkspacePaths } from "./getWorkspacePaths.mjs";
 
 export const updateVersions = (depToVersionHash) => {
   getWorkspacePaths().forEach((workspacePath) => {
