@@ -307,7 +307,7 @@
           "name": "connect"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer\n   contact center and provide reliable customer engagement at any scale.</p>\n         <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing.\n   You can also resolve customer issues more efficiently by getting customers in touch with the\n   appropriate agents.</p>\n         <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits\n   to the number of requests that you can make per second. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\">Amazon Connect\n    Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\n         <p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect\n   endpoints, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\">Amazon Connect\n    Endpoints</a>.</p>\n         <note>\n            <p>Working with contact flows? Check out the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\">Amazon Connect Flow language</a>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer\n   contact center and provide reliable customer engagement at any scale.</p>\n         <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize contact routing.\n   You can also resolve customer issues more efficiently by getting customers in touch with the\n   appropriate agents.</p>\n         <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits\n   to the number of requests that you can make per second. For more information, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\">Amazon Connect\n    Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\n         <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect\n   endpoints, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\">Amazon Connect\n    Endpoints</a>.</p>\n         <note>\n            <p>Working with contact flows? Check out the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html\">Amazon Connect Flow language</a>.</p>\n         </note>",
         "smithy.api#title": "Amazon Connect Service"
       },
       "version": "2017-08-08",
@@ -2543,7 +2543,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an AWS resource association with an Amazon Connect instance.</p>",
+        "smithy.api#documentation": "<p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/instance/{InstanceId}/integration-associations",
@@ -3223,6 +3223,12 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "Tags": {
+          "target": "com.amazonaws.connect#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags used to organize, track, or control access for this resource.</p>"
+          }
         }
       }
     },
@@ -3738,7 +3744,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have\n   any use cases associated with it.</p>",
+        "smithy.api#documentation": "<p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have\n   any use cases associated with it.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}",
@@ -5623,7 +5629,7 @@
         "Queues": {
           "target": "com.amazonaws.connect#Queues",
           "traits": {
-            "smithy.api#documentation": "<p>The queues to use to filter the metrics. You can specify up to 100 queues per\n   request.</p>"
+            "smithy.api#documentation": "<p>The queues to use to filter the metrics. You should specify at least one queue, and can specify up to 100 queues per\n   request.  The <code>GetCurrentMetricsData</code> API in particular requires a queue when you include a <code>Filter</code> in your request. </p>"
           }
         },
         "Channels": {
@@ -6055,6 +6061,12 @@
           "target": "com.amazonaws.connect#HierarchyPath",
           "traits": {
             "smithy.api#documentation": "<p>Information about the levels in the hierarchy group.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.connect#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags used to organize, track, or control access for this resource.</p>"
           }
         }
       },
@@ -8246,7 +8258,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Provides summary information about the AWS resource associations for the specified Amazon Connect\n   instance.</p>",
+        "smithy.api#documentation": "<p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect\n   instance.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/instance/{InstanceId}/integration-associations",
@@ -14055,7 +14067,7 @@
         "AttributeType": {
           "target": "com.amazonaws.connect#InstanceAttributeType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of attribute.</p>\n         <note>\n            <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact AWS Support for allowlisting.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The type of attribute.</p>\n         <note>\n            <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support  for allowlisting.</p>\n         </note>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
