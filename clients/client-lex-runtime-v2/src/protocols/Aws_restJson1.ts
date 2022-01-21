@@ -48,6 +48,9 @@ import {
   PlaybackCompletionEvent,
   PlaybackInterruptionEvent,
   ResourceNotFoundException,
+  RuntimeHintDetails,
+  RuntimeHints,
+  RuntimeHintValue,
   SentimentResponse,
   SentimentScore,
   SessionState,
@@ -1805,6 +1808,39 @@ const serializeAws_restJson1PlaybackCompletionEvent = (
   };
 };
 
+const serializeAws_restJson1RuntimeHintDetails = (input: RuntimeHintDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.runtimeHintValues !== undefined &&
+      input.runtimeHintValues !== null && {
+        runtimeHintValues: serializeAws_restJson1RuntimeHintValuesList(input.runtimeHintValues, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1RuntimeHints = (input: RuntimeHints, context: __SerdeContext): any => {
+  return {
+    ...(input.slotHints !== undefined &&
+      input.slotHints !== null && { slotHints: serializeAws_restJson1SlotHintsIntentMap(input.slotHints, context) }),
+  };
+};
+
+const serializeAws_restJson1RuntimeHintValue = (input: RuntimeHintValue, context: __SerdeContext): any => {
+  return {
+    ...(input.phrase !== undefined && input.phrase !== null && { phrase: input.phrase }),
+  };
+};
+
+const serializeAws_restJson1RuntimeHintValuesList = (input: RuntimeHintValue[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RuntimeHintValue(entry, context);
+    });
+};
+
 const serializeAws_restJson1SessionState = (input: SessionState, context: __SerdeContext): any => {
   return {
     ...(input.activeContexts !== undefined &&
@@ -1817,6 +1853,8 @@ const serializeAws_restJson1SessionState = (input: SessionState, context: __Serd
       input.intent !== null && { intent: serializeAws_restJson1Intent(input.intent, context) }),
     ...(input.originatingRequestId !== undefined &&
       input.originatingRequestId !== null && { originatingRequestId: input.originatingRequestId }),
+    ...(input.runtimeHints !== undefined &&
+      input.runtimeHints !== null && { runtimeHints: serializeAws_restJson1RuntimeHints(input.runtimeHints, context) }),
     ...(input.sessionAttributes !== undefined &&
       input.sessionAttributes !== null && {
         sessionAttributes: serializeAws_restJson1StringMap(input.sessionAttributes, context),
@@ -1832,6 +1870,36 @@ const serializeAws_restJson1Slot = (input: Slot, context: __SerdeContext): any =
     ...(input.values !== undefined &&
       input.values !== null && { values: serializeAws_restJson1Values(input.values, context) }),
   };
+};
+
+const serializeAws_restJson1SlotHintsIntentMap = (
+  input: { [key: string]: { [key: string]: RuntimeHintDetails } },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1SlotHintsSlotMap(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1SlotHintsSlotMap = (
+  input: { [key: string]: RuntimeHintDetails },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1RuntimeHintDetails(value, context),
+    };
+  }, {});
 };
 
 const serializeAws_restJson1Slots = (input: { [key: string]: Slot }, context: __SerdeContext): any => {
@@ -2167,6 +2235,41 @@ const deserializeAws_restJson1ResourceNotFoundException = (
   } as any;
 };
 
+const deserializeAws_restJson1RuntimeHintDetails = (output: any, context: __SerdeContext): RuntimeHintDetails => {
+  return {
+    runtimeHintValues:
+      output.runtimeHintValues !== undefined && output.runtimeHintValues !== null
+        ? deserializeAws_restJson1RuntimeHintValuesList(output.runtimeHintValues, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuntimeHints = (output: any, context: __SerdeContext): RuntimeHints => {
+  return {
+    slotHints:
+      output.slotHints !== undefined && output.slotHints !== null
+        ? deserializeAws_restJson1SlotHintsIntentMap(output.slotHints, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuntimeHintValue = (output: any, context: __SerdeContext): RuntimeHintValue => {
+  return {
+    phrase: __expectString(output.phrase),
+  } as any;
+};
+
+const deserializeAws_restJson1RuntimeHintValuesList = (output: any, context: __SerdeContext): RuntimeHintValue[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuntimeHintValue(entry, context);
+    });
+};
+
 const deserializeAws_restJson1SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
   return {
     sentiment: __expectString(output.sentiment),
@@ -2201,6 +2304,10 @@ const deserializeAws_restJson1SessionState = (output: any, context: __SerdeConte
         ? deserializeAws_restJson1Intent(output.intent, context)
         : undefined,
     originatingRequestId: __expectString(output.originatingRequestId),
+    runtimeHints:
+      output.runtimeHints !== undefined && output.runtimeHints !== null
+        ? deserializeAws_restJson1RuntimeHints(output.runtimeHints, context)
+        : undefined,
     sessionAttributes:
       output.sessionAttributes !== undefined && output.sessionAttributes !== null
         ? deserializeAws_restJson1StringMap(output.sessionAttributes, context)
@@ -2220,6 +2327,39 @@ const deserializeAws_restJson1Slot = (output: any, context: __SerdeContext): Slo
         ? deserializeAws_restJson1Values(output.values, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1SlotHintsIntentMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: { [key: string]: RuntimeHintDetails } } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: { [key: string]: RuntimeHintDetails } }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1SlotHintsSlotMap(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1SlotHintsSlotMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: RuntimeHintDetails } => {
+  return Object.entries(output).reduce((acc: { [key: string]: RuntimeHintDetails }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: deserializeAws_restJson1RuntimeHintDetails(value, context),
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): { [key: string]: Slot } => {

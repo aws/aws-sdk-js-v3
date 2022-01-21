@@ -21,6 +21,11 @@ import {
   CopyWorkspaceImageCommandOutput,
 } from "./commands/CopyWorkspaceImageCommand";
 import {
+  CreateConnectClientAddInCommand,
+  CreateConnectClientAddInCommandInput,
+  CreateConnectClientAddInCommandOutput,
+} from "./commands/CreateConnectClientAddInCommand";
+import {
   CreateConnectionAliasCommand,
   CreateConnectionAliasCommandInput,
   CreateConnectionAliasCommandOutput,
@@ -46,6 +51,11 @@ import {
   CreateWorkspacesCommandInput,
   CreateWorkspacesCommandOutput,
 } from "./commands/CreateWorkspacesCommand";
+import {
+  DeleteConnectClientAddInCommand,
+  DeleteConnectClientAddInCommandInput,
+  DeleteConnectClientAddInCommandOutput,
+} from "./commands/DeleteConnectClientAddInCommand";
 import {
   DeleteConnectionAliasCommand,
   DeleteConnectionAliasCommandInput,
@@ -87,6 +97,11 @@ import {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand";
+import {
+  DescribeConnectClientAddInsCommand,
+  DescribeConnectClientAddInsCommandInput,
+  DescribeConnectClientAddInsCommandOutput,
+} from "./commands/DescribeConnectClientAddInsCommand";
 import {
   DescribeConnectionAliasesCommand,
   DescribeConnectionAliasesCommandInput,
@@ -242,6 +257,11 @@ import {
   TerminateWorkspacesCommandInput,
   TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand";
+import {
+  UpdateConnectClientAddInCommand,
+  UpdateConnectClientAddInCommandInput,
+  UpdateConnectClientAddInCommandOutput,
+} from "./commands/UpdateConnectClientAddInCommand";
 import {
   UpdateConnectionAliasPermissionCommand,
   UpdateConnectionAliasPermissionCommandInput,
@@ -410,6 +430,41 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: CopyWorkspaceImageCommandOutput) => void
   ): Promise<CopyWorkspaceImageCommandOutput> | void {
     const command = new CopyWorkspaceImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a client-add-in for Amazon Connect within a directory. You can create only
+   *          one Amazon Connect client add-in within a directory.</p>
+   *
+   *          <p>This client add-in allows WorkSpaces users to seamlessly connect to Amazon Connect.</p>
+   */
+  public createConnectClientAddIn(
+    args: CreateConnectClientAddInCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectClientAddInCommandOutput>;
+  public createConnectClientAddIn(
+    args: CreateConnectClientAddInCommandInput,
+    cb: (err: any, data?: CreateConnectClientAddInCommandOutput) => void
+  ): void;
+  public createConnectClientAddIn(
+    args: CreateConnectClientAddInCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectClientAddInCommandOutput) => void
+  ): void;
+  public createConnectClientAddIn(
+    args: CreateConnectClientAddInCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectClientAddInCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectClientAddInCommandOutput) => void
+  ): Promise<CreateConnectClientAddInCommandOutput> | void {
+    const command = new CreateConnectClientAddInCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -633,6 +688,39 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: CreateWorkspacesCommandOutput) => void
   ): Promise<CreateWorkspacesCommandOutput> | void {
     const command = new CreateWorkspacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a client-add-in for Amazon Connect that is configured within a
+   *          directory.</p>
+   */
+  public deleteConnectClientAddIn(
+    args: DeleteConnectClientAddInCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectClientAddInCommandOutput>;
+  public deleteConnectClientAddIn(
+    args: DeleteConnectClientAddInCommandInput,
+    cb: (err: any, data?: DeleteConnectClientAddInCommandOutput) => void
+  ): void;
+  public deleteConnectClientAddIn(
+    args: DeleteConnectClientAddInCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectClientAddInCommandOutput) => void
+  ): void;
+  public deleteConnectClientAddIn(
+    args: DeleteConnectClientAddInCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectClientAddInCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConnectClientAddInCommandOutput) => void
+  ): Promise<DeleteConnectClientAddInCommandOutput> | void {
+    const command = new DeleteConnectClientAddInCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -955,6 +1043,38 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: DescribeClientPropertiesCommandOutput) => void
   ): Promise<DescribeClientPropertiesCommandOutput> | void {
     const command = new DescribeClientPropertiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of Amazon Connect client add-ins that have been created.</p>
+   */
+  public describeConnectClientAddIns(
+    args: DescribeConnectClientAddInsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectClientAddInsCommandOutput>;
+  public describeConnectClientAddIns(
+    args: DescribeConnectClientAddInsCommandInput,
+    cb: (err: any, data?: DescribeConnectClientAddInsCommandOutput) => void
+  ): void;
+  public describeConnectClientAddIns(
+    args: DescribeConnectClientAddInsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectClientAddInsCommandOutput) => void
+  ): void;
+  public describeConnectClientAddIns(
+    args: DescribeConnectClientAddInsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectClientAddInsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConnectClientAddInsCommandOutput) => void
+  ): Promise<DescribeConnectClientAddInsCommandOutput> | void {
+    const command = new DescribeConnectClientAddInsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2050,6 +2170,39 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: TerminateWorkspacesCommandOutput) => void
   ): Promise<TerminateWorkspacesCommandOutput> | void {
     const command = new TerminateWorkspacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a Amazon Connect client add-in. Use this action to update the name and
+   *          endpoint URL of a Amazon Connect client add-in.</p>
+   */
+  public updateConnectClientAddIn(
+    args: UpdateConnectClientAddInCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectClientAddInCommandOutput>;
+  public updateConnectClientAddIn(
+    args: UpdateConnectClientAddInCommandInput,
+    cb: (err: any, data?: UpdateConnectClientAddInCommandOutput) => void
+  ): void;
+  public updateConnectClientAddIn(
+    args: UpdateConnectClientAddInCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectClientAddInCommandOutput) => void
+  ): void;
+  public updateConnectClientAddIn(
+    args: UpdateConnectClientAddInCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectClientAddInCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectClientAddInCommandOutput) => void
+  ): Promise<UpdateConnectClientAddInCommandOutput> | void {
+    const command = new UpdateConnectClientAddInCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

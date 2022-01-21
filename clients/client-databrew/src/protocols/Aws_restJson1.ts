@@ -5633,6 +5633,7 @@ const serializeAws_restJson1RuleList = (input: Rule[], context: __SerdeContext):
 const serializeAws_restJson1S3Location = (input: S3Location, context: __SerdeContext): any => {
   return {
     ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.BucketOwner !== undefined && input.BucketOwner !== null && { BucketOwner: input.BucketOwner }),
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
   };
 };
@@ -6646,6 +6647,7 @@ const deserializeAws_restJson1RulesetItemList = (output: any, context: __SerdeCo
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
     Bucket: __expectString(output.Bucket),
+    BucketOwner: __expectString(output.BucketOwner),
     Key: __expectString(output.Key),
   } as any;
 };

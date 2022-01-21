@@ -246,17 +246,17 @@ import { GuardDutyClient } from "./GuardDutyClient";
 
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
- *       the following data sources: VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses
+ *       the following data sources: VPC Flow Logs, Amazon Web Services CloudTrail event logs, and DNS logs. It uses
  *       threat intelligence feeds (such as lists of malicious IPs and domains) and machine learning to
- *       identify unexpected, potentially unauthorized, and malicious activity within your AWS
+ *       identify unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services
  *       environment. This can include issues like escalations of privileges, uses of exposed
  *       credentials, or communication with malicious IPs, URLs, or domains. For example, GuardDuty can
  *       detect compromised EC2 instances that serve malware or mine bitcoin. </p>
- *          <p>GuardDuty also monitors AWS account access behavior for signs of compromise. Some examples
+ *          <p>GuardDuty also monitors Amazon Web Services account access behavior for signs of compromise. Some examples
  *       of this are unauthorized infrastructure deployments such as EC2 instances deployed in a Region
  *       that has never been used, or unusual API calls like a password policy change to reduce
  *       password strength. </p>
- *          <p>GuardDuty informs you of the status of your AWS environment by producing security findings
+ *          <p>GuardDuty informs you of the status of your Amazon Web Services environment by producing security findings
  *       that you can view in the GuardDuty console or through Amazon CloudWatch events. For more
  *       information, see the <i>
  *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
@@ -398,7 +398,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Creates a new IPSet, which is called a trusted IP list in the console user interface. An
-   *       IPSet is a list of IP addresses that are trusted for secure communication with AWS
+   *       IPSet is a list of IP addresses that are trusted for secure communication with Amazon Web Services
    *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
    *       included in IPSets. Only users from the administrator account can use this operation.</p>
    */
@@ -426,7 +426,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Creates member accounts of the current AWS account by specifying a list of AWS account
+   * <p>Creates member accounts of the current Amazon Web Services account by specifying a list of Amazon Web Services account
    *       IDs. This step is a prerequisite for managing the associated member accounts either by
    *       invitation or through an organization.</p>
    *          <p>When using <code>Create Members</code> as an organizations delegated administrator this
@@ -570,7 +570,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Declines invitations sent to the current member account by AWS accounts specified by their
+   * <p>Declines invitations sent to the current member account by Amazon Web Services accounts specified by their
    *       account IDs.</p>
    */
   public declineInvitations(
@@ -664,7 +664,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Deletes invitations sent to the current member account by AWS accounts specified by their
+   * <p>Deletes invitations sent to the current member account by Amazon Web Services accounts specified by their
    *       account IDs.</p>
    */
   public deleteInvitations(
@@ -887,7 +887,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Disables an AWS account within the Organization as the GuardDuty delegated
+   * <p>Disables an Amazon Web Services account within the Organization as the GuardDuty delegated
    *       administrator.</p>
    */
   public disableOrganizationAdminAccount(
@@ -985,7 +985,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Enables an AWS account within the organization as the GuardDuty delegated
+   * <p>Enables an Amazon Web Services account within the organization as the GuardDuty delegated
    *       administrator.</p>
    */
   public enableOrganizationAdminAccount(
@@ -1346,8 +1346,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Invites other AWS accounts (created as members of the current AWS account by
-   *       CreateMembers) to enable GuardDuty, and allow the current AWS account to view and manage these
+   * <p>Invites other Amazon Web Services accounts (created as members of the current Amazon Web Services account by
+   *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage these
    *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
    */
   public inviteMembers(
@@ -1467,7 +1467,7 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Lists all GuardDuty membership invitations that were sent to the current AWS
+   * <p>Lists all GuardDuty membership invitations that were sent to the current Amazon Web Services
    *       account.</p>
    */
   public listInvitations(
@@ -1587,7 +1587,7 @@ export class GuardDuty extends GuardDutyClient {
 
   /**
    * <p>Returns a list of publishing destinations associated with the specified
-   *         <code>dectectorId</code>.</p>
+   *         <code>detectorId</code>.</p>
    */
   public listPublishingDestinations(
     args: ListPublishingDestinationsCommandInput,

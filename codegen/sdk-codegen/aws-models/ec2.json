@@ -2239,6 +2239,9 @@
           "target": "com.amazonaws.ec2#DescribeExportTasks"
         },
         {
+          "target": "com.amazonaws.ec2#DescribeFastLaunchImages"
+        },
+        {
           "target": "com.amazonaws.ec2#DescribeFastSnapshotRestores"
         },
         {
@@ -2581,6 +2584,9 @@
           "target": "com.amazonaws.ec2#DisableEbsEncryptionByDefault"
         },
         {
+          "target": "com.amazonaws.ec2#DisableFastLaunch"
+        },
+        {
           "target": "com.amazonaws.ec2#DisableFastSnapshotRestores"
         },
         {
@@ -2639,6 +2645,9 @@
         },
         {
           "target": "com.amazonaws.ec2#EnableEbsEncryptionByDefault"
+        },
+        {
+          "target": "com.amazonaws.ec2#EnableFastLaunch"
         },
         {
           "target": "com.amazonaws.ec2#EnableFastSnapshotRestores"
@@ -6134,7 +6143,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }
@@ -6461,7 +6470,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }
@@ -7547,6 +7556,30 @@
           {
             "value": "Linux with SQL Server Enterprise",
             "name": "LINUX_WITH_SQL_SERVER_ENTERPRISE"
+          },
+          {
+            "value": "RHEL with SQL Server Standard",
+            "name": "RHEL_WITH_SQL_SERVER_STANDARD"
+          },
+          {
+            "value": "RHEL with SQL Server Enterprise",
+            "name": "RHEL_WITH_SQL_SERVER_ENTERPRISE"
+          },
+          {
+            "value": "RHEL with SQL Server Web",
+            "name": "RHEL_WITH_SQL_SERVER_WEB"
+          },
+          {
+            "value": "RHEL with HA",
+            "name": "RHEL_WITH_HA"
+          },
+          {
+            "value": "RHEL with HA and SQL Server Standard",
+            "name": "RHEL_WITH_HA_AND_SQL_SERVER_STANDARD"
+          },
+          {
+            "value": "RHEL with HA and SQL Server Enterprise",
+            "name": "RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE"
           }
         ]
       }
@@ -8162,6 +8195,36 @@
         "smithy.api#documentation": "<p>Describes the client-specific data.</p>"
       }
     },
+    "com.amazonaws.ec2#ClientLoginBannerOptions": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazonaws.ec2#Boolean"
+        },
+        "BannerText": {
+          "target": "com.amazonaws.ec2#String"
+        }
+      }
+    },
+    "com.amazonaws.ec2#ClientLoginBannerResponseOptions": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Enabled",
+            "smithy.api#xmlName": "enabled"
+          }
+        },
+        "BannerText": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "BannerText",
+            "smithy.api#xmlName": "bannerText"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#ClientVpnAssociationId": {
       "type": "string"
     },
@@ -8666,6 +8729,20 @@
             "aws.protocols#ec2QueryName": "ClientConnectOptions",
             "smithy.api#documentation": "<p>The options for managing connection authorization for new client connections.</p>",
             "smithy.api#xmlName": "clientConnectOptions"
+          }
+        },
+        "SessionTimeoutHours": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SessionTimeoutHours",
+            "smithy.api#xmlName": "sessionTimeoutHours"
+          }
+        },
+        "ClientLoginBannerOptions": {
+          "target": "com.amazonaws.ec2#ClientLoginBannerResponseOptions",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ClientLoginBannerOptions",
+            "smithy.api#xmlName": "clientLoginBannerOptions"
           }
         }
       },
@@ -9517,7 +9594,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }
@@ -10227,6 +10304,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The options for managing connection authorization for new client connections.</p>"
           }
+        },
+        "SessionTimeoutHours": {
+          "target": "com.amazonaws.ec2#Integer"
+        },
+        "ClientLoginBannerOptions": {
+          "target": "com.amazonaws.ec2#ClientLoginBannerOptions"
         }
       }
     },
@@ -11101,7 +11184,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         },
@@ -12307,14 +12390,14 @@
           }
         },
         "Source": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#NetworkInsightsResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Web Services resource that is the source of the path.</p>",
             "smithy.api#required": {}
           }
         },
         "Destination": {
-          "target": "com.amazonaws.ec2#String",
+          "target": "com.amazonaws.ec2#NetworkInsightsResourceId",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Web Services resource that is the destination of the path.</p>",
             "smithy.api#required": {}
@@ -12888,7 +12971,7 @@
         "DryRun": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n      Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
           }
         }
       }
@@ -13400,7 +13483,7 @@
         "DryRun": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n      Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
           }
         }
       }
@@ -18690,7 +18773,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }
@@ -19219,7 +19302,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }
@@ -20792,6 +20875,181 @@
         }
       }
     },
+    "com.amazonaws.ec2#DescribeFastLaunchImages": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DescribeFastLaunchImagesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DescribeFastLaunchImagesResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describe details for Windows AMIs that are configured for faster launching.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "FastLaunchImages",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeFastLaunchImagesRequest": {
+      "type": "structure",
+      "members": {
+        "ImageIds": {
+          "target": "com.amazonaws.ec2#FastLaunchImageIdList",
+          "traits": {
+            "smithy.api#documentation": "<p>Details for one or more Windows AMI image IDs.</p>",
+            "smithy.api#xmlName": "ImageId"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.ec2#FilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>Use the following filters to streamline results.</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>resource-type</code> - The resource type for pre-provisioning.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>launch-template</code> - The launch template that is associated with the pre-provisioned Windows AMI.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>state</code> - The current state of fast launching for the Windows AMI.</p>\n\t\t\t         </li>\n         </ul>",
+            "smithy.api#xmlName": "Filter"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#DescribeFastLaunchImagesRequestMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call. To retrieve the remaining results, \n\t\t\tmake another request with the returned NextToken value. If this parameter is not specified, \n\t\t\tthen all results are returned.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeFastLaunchImagesRequestMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeFastLaunchImagesResult": {
+      "type": "structure",
+      "members": {
+        "FastLaunchImages": {
+          "target": "com.amazonaws.ec2#DescribeFastLaunchImagesSuccessSet",
+          "traits": {
+            "aws.protocols#ec2QueryName": "FastLaunchImageSet",
+            "smithy.api#documentation": "<p>A collection of details about the fast-launch enabled Windows images that meet \n\t\t\tthe requested criteria.</p>",
+            "smithy.api#xmlName": "fastLaunchImageSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#NextToken",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use for the next set of results. This value is null when there are \n\t\t\tno more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DescribeFastLaunchImagesSuccessItem": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImageId",
+            "smithy.api#documentation": "<p>The image ID that identifies the fast-launch enabled Windows image.</p>",
+            "smithy.api#xmlName": "imageId"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.ec2#FastLaunchResourceType",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceType",
+            "smithy.api#documentation": "<p>The resource type that is used for pre-provisioning the Windows AMI. Supported values \n\t\t\tinclude: <code>snapshot</code>.</p>",
+            "smithy.api#xmlName": "resourceType"
+          }
+        },
+        "SnapshotConfiguration": {
+          "target": "com.amazonaws.ec2#FastLaunchSnapshotConfigurationResponse",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SnapshotConfiguration",
+            "smithy.api#documentation": "<p>A group of parameters that are used for pre-provisioning the associated \n\t\t\tWindows AMI using snapshots.</p>",
+            "smithy.api#xmlName": "snapshotConfiguration"
+          }
+        },
+        "LaunchTemplate": {
+          "target": "com.amazonaws.ec2#FastLaunchLaunchTemplateSpecificationResponse",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LaunchTemplate",
+            "smithy.api#documentation": "<p>The launch template that the fast-launch enabled Windows AMI uses when it launches \n\t\t\tWindows instances from pre-provisioned snapshots.</p>",
+            "smithy.api#xmlName": "launchTemplate"
+          }
+        },
+        "MaxParallelLaunches": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "MaxParallelLaunches",
+            "smithy.api#documentation": "<p>The maximum number of parallel instances that are launched for creating resources.</p>",
+            "smithy.api#xmlName": "maxParallelLaunches"
+          }
+        },
+        "OwnerId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OwnerId",
+            "smithy.api#documentation": "<p>The owner ID for the fast-launch enabled Windows AMI.</p>",
+            "smithy.api#xmlName": "ownerId"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#FastLaunchStateCode",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The current state of faster launching for the specified Windows AMI.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "StateTransitionReason": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StateTransitionReason",
+            "smithy.api#documentation": "<p>The reason that faster launching for the Windows AMI changed to the current state.</p>",
+            "smithy.api#xmlName": "stateTransitionReason"
+          }
+        },
+        "StateTransitionTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StateTransitionTime",
+            "smithy.api#documentation": "<p>The time that faster launching for the Windows AMI changed to the current state.</p>",
+            "smithy.api#xmlName": "stateTransitionTime"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describe details about a fast-launch enabled Windows image that meets the requested \n\t\t\tcriteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DescribeFastLaunchImagesSuccessSet": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#DescribeFastLaunchImagesSuccessItem",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
     "com.amazonaws.ec2#DescribeFastSnapshotRestoreSuccessItem": {
       "type": "structure",
       "members": {
@@ -21981,7 +22239,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }
@@ -22092,7 +22350,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }
@@ -27505,7 +27763,7 @@
         "DryRun": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n      Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
           }
         },
         "Filters": {
@@ -30608,6 +30866,119 @@
         }
       }
     },
+    "com.amazonaws.ec2#DisableFastLaunch": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#DisableFastLaunchRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#DisableFastLaunchResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. \n\t\t\tWhen you disable faster launching, the AMI uses the standard launch process for each \n\t\t\tinstance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>"
+      }
+    },
+    "com.amazonaws.ec2#DisableFastLaunchRequest": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the image for which you’re turning off faster launching, and removing pre-provisioned snapshots.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Force": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Forces the image settings to turn off faster launching for your Windows AMI. This parameter overrides \n\t\t\tany errors that are encountered while cleaning up resources in your account.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#DisableFastLaunchResult": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImageId",
+            "smithy.api#documentation": "<p>The ID of the image for which faster-launching has been turned off.</p>",
+            "smithy.api#xmlName": "imageId"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.ec2#FastLaunchResourceType",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceType",
+            "smithy.api#documentation": "<p>The pre-provisioning resource type that must be cleaned after turning off faster launching \n\t\t\tfor the Windows AMI. Supported values include: <code>snapshot</code>.</p>",
+            "smithy.api#xmlName": "resourceType"
+          }
+        },
+        "SnapshotConfiguration": {
+          "target": "com.amazonaws.ec2#FastLaunchSnapshotConfigurationResponse",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SnapshotConfiguration",
+            "smithy.api#documentation": "<p>Parameters that were used for faster launching for the Windows AMI before \n\t\t\tfaster launching was turned off. This informs the clean-up process.</p>",
+            "smithy.api#xmlName": "snapshotConfiguration"
+          }
+        },
+        "LaunchTemplate": {
+          "target": "com.amazonaws.ec2#FastLaunchLaunchTemplateSpecificationResponse",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LaunchTemplate",
+            "smithy.api#documentation": "<p>The launch template that was used to launch Windows instances from pre-provisioned snapshots.</p>",
+            "smithy.api#xmlName": "launchTemplate"
+          }
+        },
+        "MaxParallelLaunches": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "MaxParallelLaunches",
+            "smithy.api#documentation": "<p>The maximum number of parallel instances to launch for creating resources.</p>",
+            "smithy.api#xmlName": "maxParallelLaunches"
+          }
+        },
+        "OwnerId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OwnerId",
+            "smithy.api#documentation": "<p>The owner of the Windows AMI for which faster launching was turned off.</p>",
+            "smithy.api#xmlName": "ownerId"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#FastLaunchStateCode",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The current state of faster launching for the specified Windows AMI.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "StateTransitionReason": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StateTransitionReason",
+            "smithy.api#documentation": "<p>The reason that the state changed for faster launching for the Windows AMI.</p>",
+            "smithy.api#xmlName": "stateTransitionReason"
+          }
+        },
+        "StateTransitionTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StateTransitionTime",
+            "smithy.api#documentation": "<p>The time that the state changed for faster launching for the Windows AMI.</p>",
+            "smithy.api#xmlName": "stateTransitionTime"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#DisableFastSnapshotRestoreErrorItem": {
       "type": "structure",
       "members": {
@@ -30888,7 +31259,7 @@
         "DryRun": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n      Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
           }
         }
       }
@@ -32757,6 +33128,137 @@
         }
       }
     },
+    "com.amazonaws.ec2#EnableFastLaunch": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#EnableFastLaunchRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#EnableFastLaunchResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>When you enable faster launching for a Windows AMI, images are pre-provisioned, \n\t\t\tusing snapshots to launch instances up to 65% faster. To create the optimized Windows \n\t\t\timage, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. \n\t\t\tThen it creates a set of reserved snapshots that are used for subsequent launches. The \n\t\t\treserved snapshots are automatically replenished as they are used, depending on your \n\t\t\tsettings for launch frequency.</p>"
+      }
+    },
+    "com.amazonaws.ec2#EnableFastLaunchRequest": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the image for which you’re enabling faster launching.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of resource to use for pre-provisioning the Windows AMI for faster launching. \n\t\t\tSupported values include: <code>snapshot</code>, which is the default value.</p>"
+          }
+        },
+        "SnapshotConfiguration": {
+          "target": "com.amazonaws.ec2#FastLaunchSnapshotConfigurationRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration settings for creating and managing the snapshots that are used for \n\t\t\tpre-provisioning the Windows AMI for faster launching. The associated <code>ResourceType</code> \n\t\t\tmust be <code>snapshot</code>.</p>"
+          }
+        },
+        "LaunchTemplate": {
+          "target": "com.amazonaws.ec2#FastLaunchLaunchTemplateSpecificationRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>The launch template to use when launching Windows instances from pre-provisioned \n\t\t\tsnapshots. Launch template parameters can include either the name or ID of the launch \n\t\t\ttemplate, but not both.</p>"
+          }
+        },
+        "MaxParallelLaunches": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of parallel instances to launch for creating resources.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#EnableFastLaunchResult": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImageId",
+            "smithy.api#documentation": "<p>The image ID that identifies the Windows AMI for which faster launching was enabled.</p>",
+            "smithy.api#xmlName": "imageId"
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.ec2#FastLaunchResourceType",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ResourceType",
+            "smithy.api#documentation": "<p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>",
+            "smithy.api#xmlName": "resourceType"
+          }
+        },
+        "SnapshotConfiguration": {
+          "target": "com.amazonaws.ec2#FastLaunchSnapshotConfigurationResponse",
+          "traits": {
+            "aws.protocols#ec2QueryName": "SnapshotConfiguration",
+            "smithy.api#documentation": "<p>The configuration settings that were defined for creating and managing the pre-provisioned snapshots \n\t\t\tfor faster launching of the Windows AMI. This property is returned when the associated \n\t\t\t<code>resourceType</code> is <code>snapshot</code>.</p>",
+            "smithy.api#xmlName": "snapshotConfiguration"
+          }
+        },
+        "LaunchTemplate": {
+          "target": "com.amazonaws.ec2#FastLaunchLaunchTemplateSpecificationResponse",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LaunchTemplate",
+            "smithy.api#documentation": "<p>The launch template that is used when launching Windows instances from pre-provisioned snapshots.</p>",
+            "smithy.api#xmlName": "launchTemplate"
+          }
+        },
+        "MaxParallelLaunches": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "MaxParallelLaunches",
+            "smithy.api#documentation": "<p>The maximum number of parallel instances to launch for creating resources.</p>",
+            "smithy.api#xmlName": "maxParallelLaunches"
+          }
+        },
+        "OwnerId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OwnerId",
+            "smithy.api#documentation": "<p>The owner ID for the Windows AMI for which faster launching was enabled.</p>",
+            "smithy.api#xmlName": "ownerId"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.ec2#FastLaunchStateCode",
+          "traits": {
+            "aws.protocols#ec2QueryName": "State",
+            "smithy.api#documentation": "<p>The current state of faster launching for the specified Windows AMI.</p>",
+            "smithy.api#xmlName": "state"
+          }
+        },
+        "StateTransitionReason": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StateTransitionReason",
+            "smithy.api#documentation": "<p>The reason that the state changed for faster launching for the Windows AMI.</p>",
+            "smithy.api#xmlName": "stateTransitionReason"
+          }
+        },
+        "StateTransitionTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "StateTransitionTime",
+            "smithy.api#documentation": "<p>The time that the state changed for faster launching for the Windows AMI.</p>",
+            "smithy.api#xmlName": "stateTransitionTime"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#EnableFastSnapshotRestoreErrorItem": {
       "type": "structure",
       "members": {
@@ -33044,7 +33546,7 @@
         "DryRun": {
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n      Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
           }
         }
       }
@@ -34657,6 +35159,146 @@
         "traits": {
           "smithy.api#xmlName": "item"
         }
+      }
+    },
+    "com.amazonaws.ec2#FastLaunchImageIdList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#ImageId",
+        "traits": {
+          "smithy.api#xmlName": "ImageId"
+        }
+      }
+    },
+    "com.amazonaws.ec2#FastLaunchLaunchTemplateSpecificationRequest": {
+      "type": "structure",
+      "members": {
+        "LaunchTemplateId": {
+          "target": "com.amazonaws.ec2#LaunchTemplateId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the launch template to use for faster launching for a Windows AMI.</p>"
+          }
+        },
+        "LaunchTemplateName": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the launch template to use for faster launching for a Windows AMI.</p>"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The version of the launch template to use for faster launching for a Windows AMI.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>\n\t\t       <note>\n\t\t\t         <p>Note - You can specify either the <code>LaunchTemplateName</code> or the \n\t\t\t\t<code>LaunchTemplateId</code>, but not both.</p>\n\t\t       </note>"
+      }
+    },
+    "com.amazonaws.ec2#FastLaunchLaunchTemplateSpecificationResponse": {
+      "type": "structure",
+      "members": {
+        "LaunchTemplateId": {
+          "target": "com.amazonaws.ec2#LaunchTemplateId",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LaunchTemplateId",
+            "smithy.api#documentation": "<p>The ID of the launch template for faster launching of the associated Windows AMI.</p>",
+            "smithy.api#xmlName": "launchTemplateId"
+          }
+        },
+        "LaunchTemplateName": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "LaunchTemplateName",
+            "smithy.api#documentation": "<p>The name of the launch template for faster launching of the associated Windows AMI.</p>",
+            "smithy.api#xmlName": "launchTemplateName"
+          }
+        },
+        "Version": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Version",
+            "smithy.api#documentation": "<p>The version of the launch template for faster launching of the associated Windows AMI.</p>",
+            "smithy.api#xmlName": "version"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Identifies the launch template to use for faster launching of the Windows AMI.</p>"
+      }
+    },
+    "com.amazonaws.ec2#FastLaunchResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "snapshot",
+            "name": "SNAPSHOT"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.ec2#FastLaunchSnapshotConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "TargetResourceCount": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>"
+      }
+    },
+    "com.amazonaws.ec2#FastLaunchSnapshotConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "TargetResourceCount": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TargetResourceCount",
+            "smithy.api#documentation": "<p>The number of pre-provisioned snapshots requested to keep on hand for a fast-launch enabled Windows AMI.</p>",
+            "smithy.api#xmlName": "targetResourceCount"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>"
+      }
+    },
+    "com.amazonaws.ec2#FastLaunchStateCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "enabling",
+            "name": "enabling"
+          },
+          {
+            "value": "enabling-failed",
+            "name": "enabling_failed"
+          },
+          {
+            "value": "enabled",
+            "name": "enabled"
+          },
+          {
+            "value": "enabled-failed",
+            "name": "enabled_failed"
+          },
+          {
+            "value": "disabling",
+            "name": "disabling"
+          },
+          {
+            "value": "disabling-failed",
+            "name": "disabling_failed"
+          }
+        ]
       }
     },
     "com.amazonaws.ec2#FastSnapshotRestoreStateCode": {
@@ -44740,6 +45382,10 @@
             "name": "c6i_32xlarge"
           },
           {
+            "value": "c6i.metal",
+            "name": "c6i_metal"
+          },
+          {
             "value": "cc1.4xlarge",
             "name": "cc1_4xlarge"
           },
@@ -44958,6 +45604,10 @@
           {
             "value": "hi1.4xlarge",
             "name": "hi1_4xlarge"
+          },
+          {
+            "value": "hpc6a.48xlarge",
+            "name": "hpc6a_48xlarge"
           },
           {
             "value": "hs1.8xlarge",
@@ -45572,6 +46222,10 @@
             "name": "m6i_32xlarge"
           },
           {
+            "value": "m6i.metal",
+            "name": "m6i_metal"
+          },
+          {
             "value": "mac1.metal",
             "name": "mac1_metal"
           },
@@ -45966,6 +46620,46 @@
           {
             "value": "r6gd.metal",
             "name": "r6gd_metal"
+          },
+          {
+            "value": "r6i.large",
+            "name": "r6i_large"
+          },
+          {
+            "value": "r6i.xlarge",
+            "name": "r6i_xlarge"
+          },
+          {
+            "value": "r6i.2xlarge",
+            "name": "r6i_2xlarge"
+          },
+          {
+            "value": "r6i.4xlarge",
+            "name": "r6i_4xlarge"
+          },
+          {
+            "value": "r6i.8xlarge",
+            "name": "r6i_8xlarge"
+          },
+          {
+            "value": "r6i.12xlarge",
+            "name": "r6i_12xlarge"
+          },
+          {
+            "value": "r6i.16xlarge",
+            "name": "r6i_16xlarge"
+          },
+          {
+            "value": "r6i.24xlarge",
+            "name": "r6i_24xlarge"
+          },
+          {
+            "value": "r6i.32xlarge",
+            "name": "r6i_32xlarge"
+          },
+          {
+            "value": "r6i.metal",
+            "name": "r6i_metal"
           },
           {
             "value": "t1.micro",
@@ -52244,6 +52938,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The options for managing connection authorization for new client connections.</p>"
           }
+        },
+        "SessionTimeoutHours": {
+          "target": "com.amazonaws.ec2#Integer"
+        },
+        "ClientLoginBannerOptions": {
+          "target": "com.amazonaws.ec2#ClientLoginBannerOptions"
         }
       }
     },
@@ -52731,7 +53431,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         },
@@ -56997,6 +57697,9 @@
         }
       }
     },
+    "com.amazonaws.ec2#NetworkInsightsResourceId": {
+      "type": "string"
+    },
     "com.amazonaws.ec2#NetworkInterface": {
       "type": "structure",
       "members": {
@@ -60939,7 +61642,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         },
@@ -64028,7 +64731,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "DryRun",
-            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
           }
         }

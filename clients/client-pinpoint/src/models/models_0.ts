@@ -4646,6 +4646,30 @@ export namespace CreateInAppTemplateResponse {
 }
 
 /**
+ * <p>The channel-specific configurations for the journey.</p>
+ */
+export interface JourneyChannelSettings {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Connect Campaign.</p>
+   */
+  ConnectCampaignArn?: string;
+
+  /**
+   * <p>IAM role ARN to be assumed when invoking Connect campaign execution APIs for dialing.</p>
+   */
+  ConnectCampaignExecutionRoleArn?: string;
+}
+
+export namespace JourneyChannelSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JourneyChannelSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies limits on the messages that a journey can send and the number of times participants can enter a journey.</p>
  */
 export interface JourneyLimits {
@@ -4869,6 +4893,11 @@ export interface WriteJourneyRequest {
    * <p>Specifies whether a journey should be refreshed on segment update.</p>
    */
   RefreshOnSegmentUpdate?: boolean;
+
+  /**
+   * <p>The channel-specific configurations for the journey.</p>
+   */
+  JourneyChannelSettings?: JourneyChannelSettings;
 }
 
 export namespace WriteJourneyRequest {
@@ -4897,30 +4926,6 @@ export namespace CreateJourneyRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateJourneyRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The channel-specific configurations for the journey.</p>
- */
-export interface JourneyChannelSettings {
-  /**
-   * <p>Amazon Resource Name (ARN) of the Connect Campaign.</p>
-   */
-  ConnectCampaignArn?: string;
-
-  /**
-   * <p>IAM role ARN to be assumed when invoking Connect campaign execution APIs for dialing.</p>
-   */
-  ConnectCampaignExecutionRoleArn?: string;
-}
-
-export namespace JourneyChannelSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: JourneyChannelSettings): any => ({
     ...obj,
   });
 }

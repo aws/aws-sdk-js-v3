@@ -69,6 +69,11 @@ import {
   DeleteBotVersionCommandOutput,
 } from "./commands/DeleteBotVersionCommand";
 import {
+  DeleteCustomVocabularyCommand,
+  DeleteCustomVocabularyCommandInput,
+  DeleteCustomVocabularyCommandOutput,
+} from "./commands/DeleteCustomVocabularyCommand";
+import {
   DeleteExportCommand,
   DeleteExportCommandInput,
   DeleteExportCommandOutput,
@@ -125,6 +130,11 @@ import {
   DescribeBotVersionCommandInput,
   DescribeBotVersionCommandOutput,
 } from "./commands/DescribeBotVersionCommand";
+import {
+  DescribeCustomVocabularyMetadataCommand,
+  DescribeCustomVocabularyMetadataCommandInput,
+  DescribeCustomVocabularyMetadataCommandOutput,
+} from "./commands/DescribeCustomVocabularyMetadataCommand";
 import {
   DescribeExportCommand,
   DescribeExportCommandInput,
@@ -844,6 +854,39 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
+   * <p>Removes a custom vocabulary from the specified locale
+   *       in the specified bot.</p>
+   */
+  public deleteCustomVocabulary(
+    args: DeleteCustomVocabularyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomVocabularyCommandOutput>;
+  public deleteCustomVocabulary(
+    args: DeleteCustomVocabularyCommandInput,
+    cb: (err: any, data?: DeleteCustomVocabularyCommandOutput) => void
+  ): void;
+  public deleteCustomVocabulary(
+    args: DeleteCustomVocabularyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomVocabularyCommandOutput) => void
+  ): void;
+  public deleteCustomVocabulary(
+    args: DeleteCustomVocabularyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomVocabularyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomVocabularyCommandOutput) => void
+  ): Promise<DeleteCustomVocabularyCommandOutput> | void {
+    const command = new DeleteCustomVocabularyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes a previous export and the associated files stored in an S3
    *          bucket.</p>
    */
@@ -1256,6 +1299,38 @@ export class LexModelsV2 extends LexModelsV2Client {
     cb?: (err: any, data?: DescribeBotVersionCommandOutput) => void
   ): Promise<DescribeBotVersionCommandOutput> | void {
     const command = new DescribeBotVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides metadata information about a custom vocabulary.</p>
+   */
+  public describeCustomVocabularyMetadata(
+    args: DescribeCustomVocabularyMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCustomVocabularyMetadataCommandOutput>;
+  public describeCustomVocabularyMetadata(
+    args: DescribeCustomVocabularyMetadataCommandInput,
+    cb: (err: any, data?: DescribeCustomVocabularyMetadataCommandOutput) => void
+  ): void;
+  public describeCustomVocabularyMetadata(
+    args: DescribeCustomVocabularyMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCustomVocabularyMetadataCommandOutput) => void
+  ): void;
+  public describeCustomVocabularyMetadata(
+    args: DescribeCustomVocabularyMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomVocabularyMetadataCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCustomVocabularyMetadataCommandOutput) => void
+  ): Promise<DescribeCustomVocabularyMetadataCommandOutput> | void {
+    const command = new DescribeCustomVocabularyMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1745,8 +1820,8 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
-   * <p>Lists the exports for a bot or bot locale. Exports are kept in the
-   *          list for 7 days.</p>
+   * <p>Lists the exports for a bot, bot locale, or custom vocabulary.
+   *          Exports are kept in the list for 7 days.</p>
    */
   public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
   public listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
@@ -1772,8 +1847,8 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
-   * <p>Lists the imports for a bot or bot locale. Imports are kept in the
-   *          list for 7 days.</p>
+   * <p>Lists the imports for a bot, bot locale, or custom vocabulary.
+   *          Imports are kept in the list for 7 days.</p>
    */
   public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
@@ -2015,8 +2090,8 @@ export class LexModelsV2 extends LexModelsV2Client {
   }
 
   /**
-   * <p>Starts importing a bot or bot locale from a zip archive that you
-   *          uploaded to an S3 bucket.</p>
+   * <p>Starts importing a bot, bot locale, or custom vocabulary from a zip
+   *          archive that you uploaded to an S3 bucket.</p>
    */
   public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
   public startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;

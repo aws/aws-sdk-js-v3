@@ -4,6 +4,7 @@ export * from "./GetResourceShareInvitationsPaginator";
 export * from "./GetResourceSharesPaginator";
 export * from "./Interfaces";
 export * from "./ListPendingInvitationResourcesPaginator";
+export * from "./ListPermissionVersionsPaginator";
 export * from "./ListPermissionsPaginator";
 export * from "./ListPrincipalsPaginator";
 export * from "./ListResourceSharePermissionsPaginator";

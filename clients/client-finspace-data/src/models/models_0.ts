@@ -29,7 +29,7 @@ export enum ChangeType {
  */
 export interface CreateChangesetRequest {
   /**
-   * <p>A token used to ensure idempotency.</p>
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    */
   clientToken?: string;
 
@@ -61,7 +61,19 @@ export interface CreateChangesetRequest {
   changeType: ChangeType | string | undefined;
 
   /**
-   * <p>Options that define the location of the data being ingested.</p>
+   * <p>Options that define the location of the data being ingested (<code>s3SourcePath</code>) and the source of the changeset (<code>sourceType</code>).</p>
+   *          <p>Both <code>s3SourcePath</code> and <code>sourceType</code> are required attributes.</p>
+   *          <p>Here is an example of how you could specify the <code>sourceParams</code>:</p>
+   *          <p>
+   *             <code>
+   *         "sourceParams":
+   *         {
+   *         "s3SourcePath": "s3://finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d/scratch/wr5hh8pwkpqqkxa4sxrmcw/ingestion/equity.csv",
+   *         "sourceType": "S3"
+   *         }
+   *       </code>
+   *          </p>
+   *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a>section.</p>
    */
   sourceParams: { [key: string]: string } | undefined;
 
@@ -90,11 +102,9 @@ export interface CreateChangesetRequest {
    *             </li>
    *          </ul>
    *
+   *          <p>Here is an example of how you could specify the <code>formatParams</code>:</p>
    *          <p>
-   *
-   *       For example, you could specify the following for <code>formatParams</code>:
-   *
-   *     <code>
+   *             <code>
    *           "formatParams":
    *         {
    *          "formatType": "CSV",
@@ -102,8 +112,18 @@ export interface CreateChangesetRequest {
    *          "separator": ",",
    *          "compression":"None"
    *          }
-   *     </code>
+   *       </code>
    *          </p>
+   *          <p>Note that if you only provide <code>formatType</code> as <code>CSV</code>, the rest of the attributes will automatically default to CSV values as following:</p>
+   *          <p>
+   *             <code>
+   *           {
+   *           "withHeader": "true",
+   *           "separator": ","
+   *            }
+   *         </code>
+   *          </p>
+   *          <p> For more information about supported file formats, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
    */
   formatParams: { [key: string]: string } | undefined;
 }
@@ -221,7 +241,43 @@ export namespace DatasetOwnerInfo {
 }
 
 /**
- * <p>Resource permission for a Dataset.</p>
+ * <p>Resource permission for a dataset. When you create a dataset, all the other members of the same user group inherit access to the dataset. You can only create a dataset if your user group has application permission for Create Datasets.</p>
+ *          <p>The following is a list of valid dataset permissions that you can apply:
+ *
+ *   </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ViewDatasetDetails</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ReadDatasetDetails</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AddDatasetData</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>CreateSnapshot</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>EditDatasetMetadata</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeleteDataset</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information on the ataset permissions, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/managing-user-permissions.html#supported-dataset-permissions">Supported Dataset Permissions</a> in the FinSpace User Guide.</p>
  */
 export interface ResourcePermission {
   /**
@@ -241,6 +297,20 @@ export namespace ResourcePermission {
 
 /**
  * <p>Permission group parameters for Dataset permissions.</p>
+ *          <p>Here is an example of how you could specify the <code>PermissionGroupParams</code>:</p>
+ *          <p>
+ *             <code>
+ *         {
+ *         "permissionGroupId": "0r6fCRtSTUk4XPfXQe3M0g",
+ *         "datasetPermissions": [
+ *         {"permission": "ViewDatasetDetails"},
+ *         {"permission": "AddDatasetData"},
+ *         {"permission": "EditDatasetMetadata"},
+ *         {"permission": "DeleteDataset"}
+ *         ]
+ *         }
+ *       </code>
+ *          </p>
  */
 export interface PermissionGroupParams {
   /**
@@ -383,7 +453,7 @@ export namespace SchemaUnion {
  */
 export interface CreateDatasetRequest {
   /**
-   * <p>A token used to ensure idempotency.</p>
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    */
   clientToken?: string;
 
@@ -477,15 +547,42 @@ export interface DataViewDestinationTypeParams {
    *                <p>
    *                   <code>GLUE_TABLE</code> - Glue table destination type.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> - S3 destination type.</p>
+   *             </li>
    *          </ul>
    */
   destinationType: string | undefined;
 
   /**
-   * Data View Export File Format
+   * <p>Data view export file format.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PARQUET</code> - Parquet export file format.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELIMITED_TEXT</code> - Delimited text export file format.</p>
+   *             </li>
+   *          </ul>
    */
   s3DestinationExportFileFormat?: ExportFileFormat | string;
 
+  /**
+   * <p>Format Options for S3 Destination type.</p>
+   *          <p>Here is an example of how you could specify the <code>s3DestinationExportFileFormatOptions</code>
+   *          </p>
+   *          <p>
+   *             <code>
+   *         {
+   *         "header": "true",
+   *         "delimiter": ",",
+   *         "compression": "gzip"
+   *         }</code>
+   *          </p>
+   */
   s3DestinationExportFileFormatOptions?: { [key: string]: string };
 }
 
@@ -503,7 +600,7 @@ export namespace DataViewDestinationTypeParams {
  */
 export interface CreateDataViewRequest {
   /**
-   * <p>A token used to ensure idempotency.</p>
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    */
   clientToken?: string;
 
@@ -576,7 +673,7 @@ export namespace CreateDataViewResponse {
  */
 export interface DeleteDatasetRequest {
   /**
-   * <p>A token used to ensure idempotency.</p>
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    */
   clientToken?: string;
 
@@ -789,7 +886,7 @@ export interface GetChangesetResponse {
   activeUntilTimestamp?: number;
 
   /**
-   * Milliseconds since UTC epoch
+   * <p>Beginning time from which the Changeset is active. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   activeFromTimestamp?: number;
 
@@ -1396,7 +1493,7 @@ export interface ChangesetSummary {
   activeUntilTimestamp?: number;
 
   /**
-   * Milliseconds since UTC epoch
+   * <p>Beginning time from which the Changeset is active. The value is determined as Epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    */
   activeFromTimestamp?: number;
 
@@ -1729,7 +1826,7 @@ export namespace ListDataViewsResponse {
  */
 export interface UpdateChangesetRequest {
   /**
-   * <p>A token used to ensure idempotency.</p>
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    */
   clientToken?: string;
 
@@ -1744,12 +1841,69 @@ export interface UpdateChangesetRequest {
   changesetId: string | undefined;
 
   /**
-   * <p>Options that define the location of the data being ingested.</p>
+   * <p>Options that define the location of the data being ingested (<code>s3SourcePath</code>) and the source of the changeset (<code>sourceType</code>).</p>
+   *          <p>Both <code>s3SourcePath</code> and <code>sourceType</code> are required attributes.</p>
+   *          <p>Here is an example of how you could specify the <code>sourceParams</code>:</p>
+   *          <p>
+   *             <code>
+   *         "sourceParams":
+   *         {
+   *         "s3SourcePath": "s3://finspace-landing-us-east-2-bk7gcfvitndqa6ebnvys4d/scratch/wr5hh8pwkpqqkxa4sxrmcw/ingestion/equity.csv",
+   *         "sourceType": "S3"
+   *         }
+   *       </code>
+   *          </p>
+   *          <p>The S3 path that you specify must allow the FinSpace role access. To do that, you first need to configure the IAM policy on S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/finspace/latest/data-api/fs-using-the-finspace-api.html#access-s3-buckets">Loading data from an Amazon S3 Bucket using the FinSpace API</a>section.</p>
    */
   sourceParams: { [key: string]: string } | undefined;
 
   /**
-   * <p>Options that define the structure of the source file(s).</p>
+   * <p>Options that define the structure of the source file(s) including the format type (<code>formatType</code>), header row (<code>withHeader</code>), data separation character (<code>separator</code>) and the type of compression (<code>compression</code>).
+   *     </p>
+   *          <p>
+   *             <code>formatType</code> is a required attribute and can have the following values:
+   *     </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PARQUET</code> - Parquet source file format.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CSV</code> - CSV source file format.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code> - JSON source file format.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>XML</code> - XML source file format.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>Here is an example of how you could specify the <code>formatParams</code>:</p>
+   *          <p>
+   *             <code>
+   *         "formatParams":
+   *         {
+   *         "formatType": "CSV",
+   *         "withHeader": "true",
+   *         "separator": ",",
+   *         "compression":"None"
+   *         }
+   *       </code>
+   *          </p>
+   *          <p>Note that if you only provide <code>formatType</code> as <code>CSV</code>, the rest of the attributes will automatically default to CSV values as following:</p>
+   *          <p>
+   *             <code>
+   *         {
+   *         "withHeader": "true",
+   *         "separator": ","
+   *         }
+   *         </code>
+   *          </p>
+   *          <p> For more information about supported file formats, see <a href="https://docs.aws.amazon.com/finspace/latest/userguide/supported-data-types.html">Supported Data Types and File Formats</a> in the FinSpace User Guide.</p>
    */
   formatParams: { [key: string]: string } | undefined;
 }
@@ -1792,7 +1946,7 @@ export namespace UpdateChangesetResponse {
  */
 export interface UpdateDatasetRequest {
   /**
-   * <p>A token used to ensure idempotency.</p>
+   * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    */
   clientToken?: string;
 

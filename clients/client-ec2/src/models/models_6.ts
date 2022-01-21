@@ -1,6 +1,7 @@
 import {
   _InstanceType,
   ByoipCidr,
+  ClientVpnAuthorizationRuleStatus,
   HostnameType,
   IamInstanceProfileSpecification,
   IpPermission,
@@ -14,9 +15,11 @@ import {
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   LocalGatewayRoute,
+  ManagedPrefixList,
   MarketType,
   Placement,
   ShutdownBehavior,
+  SnapshotState,
   SpotInstanceType,
 } from "./models_1";
 import { ClientVpnConnectionStatus, Filter, TransitGatewayRoute } from "./models_2";
@@ -30,7 +33,524 @@ import {
   NetworkInsightsAnalysis,
 } from "./models_3";
 import { InstanceNetworkInterfaceSpecification, RunInstancesMonitoringEnabled } from "./models_4";
-import { CapacityReservationSpecification, CpuOptionsRequest, InstanceMonitoring } from "./models_5";
+import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
+
+export interface RestoreAddressToClassicRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp: string | undefined;
+}
+
+export namespace RestoreAddressToClassicRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreAddressToClassicRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreAddressToClassicResult {
+  /**
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The move status for the IP address.</p>
+   */
+  Status?: Status | string;
+}
+
+export namespace RestoreAddressToClassicResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreAddressToClassicResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreManagedPrefixListVersionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The version to restore.</p>
+   */
+  PreviousVersion: number | undefined;
+
+  /**
+   * <p>The current version number for the prefix list.</p>
+   */
+  CurrentVersion: number | undefined;
+}
+
+export namespace RestoreManagedPrefixListVersionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreManagedPrefixListVersionResult {
+  /**
+   * <p>Information about the prefix list.</p>
+   */
+  PrefixList?: ManagedPrefixList;
+}
+
+export namespace RestoreManagedPrefixListVersionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreManagedPrefixListVersionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotFromRecycleBinRequest {
+  /**
+   * <p>The ID of the snapshot to restore.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreSnapshotFromRecycleBinRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotFromRecycleBinResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The progress of the snapshot, as a percentage.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>The time stamp when the snapshot was initiated.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The state of the snapshot.</p>
+   */
+  State?: SnapshotState | string;
+
+  /**
+   * <p>The ID of the volume that was used to create the snapshot.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   */
+  VolumeSize?: number;
+}
+
+export namespace RestoreSnapshotFromRecycleBinResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotFromRecycleBinResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotTierRequest {
+  /**
+   * <p>The ID of the snapshot to restore.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Specifies the number of days for which to temporarily restore an archived snapshot.
+   *       Required for temporary restores only. The snapshot will be automatically re-archived
+   *       after this period.</p>
+   *          <p>To temporarily restore an archived snapshot, specify the number of days and omit
+   *       the <b>PermanentRestore</b> parameter or set it to
+   *       <code>false</code>.</p>
+   */
+  TemporaryRestoreDays?: number;
+
+  /**
+   * <p>Indicates whether to permanently restore an archived snapshot. To permanently restore
+   *       an archived snapshot, specify <code>true</code> and omit the
+   *       <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b> parameter.</p>
+   */
+  PermanentRestore?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreSnapshotTierRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotTierRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreSnapshotTierResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The date and time when the snapshot restore process started.</p>
+   */
+  RestoreStartTime?: Date;
+
+  /**
+   * <p>For temporary restores only. The number of days for which the archived snapshot
+   *       is temporarily restored.</p>
+   */
+  RestoreDuration?: number;
+
+  /**
+   * <p>Indicates whether the snapshot is permanently restored. <code>true</code> indicates a permanent
+   *       restore. <code>false</code> indicates a temporary restore.</p>
+   */
+  IsPermanentRestore?: boolean;
+}
+
+export namespace RestoreSnapshotTierResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreSnapshotTierResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeClientVpnIngressRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the network for which access is being removed.</p>
+   */
+  TargetNetworkCidr: string | undefined;
+
+  /**
+   * <p>The ID of the Active Directory group for which to revoke access. </p>
+   */
+  AccessGroupId?: string;
+
+  /**
+   * <p>Indicates whether access should be revoked for all clients.</p>
+   */
+  RevokeAllGroups?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RevokeClientVpnIngressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeClientVpnIngressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeClientVpnIngressResult {
+  /**
+   * <p>The current state of the authorization rule.</p>
+   */
+  Status?: ClientVpnAuthorizationRuleStatus;
+}
+
+export namespace RevokeClientVpnIngressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeClientVpnIngressResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupEgressRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the protocol name or
+   *             number.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify a
+   *            destination security group.</p>
+   */
+  SourceSecurityGroupName?: string;
+
+  /**
+   * <p>Not supported. Use a set of IP permissions to specify a destination security
+   *             group.</p>
+   */
+  SourceSecurityGroupOwnerId?: string;
+}
+
+export namespace RevokeSecurityGroupEgressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupEgressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * <p>The outbound rules that were unknown to the service. In some cases,
+   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
+   *             parameter. </p>
+   */
+  UnknownIpPermissions?: IpPermission[];
+}
+
+export namespace RevokeSecurityGroupEgressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupEgressResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupIngressRequest {
+  /**
+   * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
+   */
+  CidrIp?: string;
+
+  /**
+   * <p>The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number,
+   *         use <code>-1</code> to specify all ICMP types.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The ID of the security group. You must specify either the security group ID or the
+   *            security group name in the request. For security groups in a nondefault VPC, you must
+   *            specify the security group ID.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * <p>[EC2-Classic, default VPC] The name of the security group. You must specify either the
+   *            security group ID or the security group name in the request.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.</p>
+   */
+  IpPermissions?: IpPermission[];
+
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
+   *         (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).
+   *         Use <code>-1</code> to specify all.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   */
+  SourceSecurityGroupName?: string;
+
+  /**
+   * <p>[EC2-Classic] The Amazon Web Services account ID of the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
+   */
+  SourceSecurityGroupOwnerId?: string;
+
+  /**
+   * <p>The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number,
+   *         use <code>-1</code> to specify all ICMP codes for the ICMP type.</p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the security group rules.</p>
+   */
+  SecurityGroupRuleIds?: string[];
+}
+
+export namespace RevokeSecurityGroupIngressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RevokeSecurityGroupIngressResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+
+  /**
+   * <p>The inbound rules that were unknown to the service. In some cases,
+   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
+   *             parameter. </p>
+   */
+  UnknownIpPermissions?: IpPermission[];
+}
+
+export namespace RevokeSecurityGroupIngressResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RevokeSecurityGroupIngressResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The CPU options for the instance. Both the core count and threads per core must be
+ *             specified in the request.</p>
+ */
+export interface CpuOptionsRequest {
+  /**
+   * <p>The number of CPU cores for the instance.</p>
+   */
+  CoreCount?: number;
+
+  /**
+   * <p>The number of threads per CPU core. To disable multithreading for
+   *             the instance, specify a value of <code>1</code>. Otherwise, specify the default value of
+   *                 <code>2</code>.</p>
+   */
+  ThreadsPerCore?: number;
+}
+
+export namespace CpuOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CpuOptionsRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>

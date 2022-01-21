@@ -22,11 +22,11 @@ export interface DescribeEventsCommandInput extends DescribeEventsMessage {}
 export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBearer {}
 
 /**
- * <p>Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, and DB cluster snapshots for the past 14 days.
- *           Events specific to a particular DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, and DB cluster snapshots group can be
+ * <p>Returns events related to DB instances, DB clusters, DB parameter groups, DB security groups, DB snapshots, DB cluster snapshots, and RDS Proxies for the past 14 days.
+ *           Events specific to a particular DB instance, DB cluster, DB parameter group, DB security group, DB snapshot, DB cluster snapshot group, or RDS Proxy can be
  *           obtained by providing the name as a parameter.</p>
  *          <note>
- *             <p>By default, the past hour of events are returned.</p>
+ *             <p>By default, RDS returns events that were generated in the past hour.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

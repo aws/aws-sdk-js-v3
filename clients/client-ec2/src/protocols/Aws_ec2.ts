@@ -691,6 +691,10 @@ import {
   DescribeExportTasksCommandOutput,
 } from "../commands/DescribeExportTasksCommand";
 import {
+  DescribeFastLaunchImagesCommandInput,
+  DescribeFastLaunchImagesCommandOutput,
+} from "../commands/DescribeFastLaunchImagesCommand";
+import {
   DescribeFastSnapshotRestoresCommandInput,
   DescribeFastSnapshotRestoresCommandOutput,
 } from "../commands/DescribeFastSnapshotRestoresCommand";
@@ -1086,6 +1090,7 @@ import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "../commands/DisableEbsEncryptionByDefaultCommand";
+import { DisableFastLaunchCommandInput, DisableFastLaunchCommandOutput } from "../commands/DisableFastLaunchCommand";
 import {
   DisableFastSnapshotRestoresCommandInput,
   DisableFastSnapshotRestoresCommandOutput,
@@ -1166,6 +1171,7 @@ import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
 } from "../commands/EnableEbsEncryptionByDefaultCommand";
+import { EnableFastLaunchCommandInput, EnableFastLaunchCommandOutput } from "../commands/EnableFastLaunchCommand";
 import {
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
@@ -1869,6 +1875,7 @@ import {
   CertificateAuthenticationRequest,
   CidrBlock,
   ClientConnectOptions,
+  ClientLoginBannerOptions,
   ClientVpnAuthenticationRequest,
   ClientVpnAuthorizationRuleStatus,
   ClientVpnEndpointStatus,
@@ -1928,7 +1935,6 @@ import {
   Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
-  LocalStorageType,
   NewDhcpConfiguration,
   PacketHeaderStatement,
   PacketHeaderStatementRequest,
@@ -2150,6 +2156,7 @@ import {
   LaunchTemplateVersion,
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
+  LocalStorageType,
   ManagedPrefixList,
   MemoryGiBPerVCpu,
   MemoryGiBPerVCpuRequest,
@@ -2225,6 +2232,7 @@ import {
   CertificateAuthentication,
   ClassicLinkInstance,
   ClientConnectResponseOptions,
+  ClientLoginBannerResponseOptions,
   ClientVpnAuthentication,
   ClientVpnConnection,
   ClientVpnConnectionStatus,
@@ -2434,8 +2442,6 @@ import {
   IdFormat,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
-  ImportInstanceTaskDetails,
-  ImportInstanceVolumeDetailItem,
   InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
@@ -2507,6 +2513,9 @@ import {
   DescribeExportImageTasksResult,
   DescribeExportTasksRequest,
   DescribeExportTasksResult,
+  DescribeFastLaunchImagesRequest,
+  DescribeFastLaunchImagesResult,
+  DescribeFastLaunchImagesSuccessItem,
   DescribeFastSnapshotRestoresRequest,
   DescribeFastSnapshotRestoresResult,
   DescribeFastSnapshotRestoreSuccessItem,
@@ -2620,11 +2629,7 @@ import {
   DescribeRegionsResult,
   DescribeReplaceRootVolumeTasksRequest,
   DescribeReplaceRootVolumeTasksResult,
-  DescribeReservedInstancesListingsRequest,
-  DescribeReservedInstancesListingsResult,
-  DescribeReservedInstancesModificationsRequest,
   DescribeReservedInstancesRequest,
-  DescribeReservedInstancesResult,
   DestinationOptionsResponse,
   DiskInfo,
   EbsInfo,
@@ -2640,6 +2645,8 @@ import {
   Explanation,
   ExportImageTask,
   ExportTaskS3Location,
+  FastLaunchLaunchTemplateSpecificationResponse,
+  FastLaunchSnapshotConfigurationResponse,
   FleetData,
   FleetLaunchTemplateConfig,
   FleetSpotCapacityRebalance,
@@ -2665,6 +2672,8 @@ import {
   ImageAttribute,
   ImportImageLicenseConfigurationResponse,
   ImportImageTask,
+  ImportInstanceTaskDetails,
+  ImportInstanceVolumeDetailItem,
   ImportSnapshotTask,
   ImportVolumeTaskDetails,
   InferenceAcceleratorInfo,
@@ -2718,11 +2727,8 @@ import {
   ProductCode,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
-  RecurringCharge,
   Region,
   Reservation,
-  ReservedInstances,
-  ReservedInstancesConfiguration,
   RootDeviceType,
   SnapshotDetail,
   SnapshotTaskDetail,
@@ -2744,9 +2750,13 @@ import {
   ClientCertificateRevocationListStatus,
   CoipAddressUsage,
   CreateVolumePermission,
+  DescribeReservedInstancesListingsRequest,
+  DescribeReservedInstancesListingsResult,
+  DescribeReservedInstancesModificationsRequest,
   DescribeReservedInstancesModificationsResult,
   DescribeReservedInstancesOfferingsRequest,
   DescribeReservedInstancesOfferingsResult,
+  DescribeReservedInstancesResult,
   DescribeRouteTablesRequest,
   DescribeRouteTablesResult,
   DescribeScheduledInstanceAvailabilityRequest,
@@ -2851,6 +2861,8 @@ import {
   DetachVpnGatewayRequest,
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
+  DisableFastLaunchRequest,
+  DisableFastLaunchResult,
   DisableFastSnapshotRestoreErrorItem,
   DisableFastSnapshotRestoresRequest,
   DisableFastSnapshotRestoresResult,
@@ -2892,6 +2904,8 @@ import {
   DisassociateVpcCidrBlockResult,
   EnableEbsEncryptionByDefaultRequest,
   EnableEbsEncryptionByDefaultResult,
+  EnableFastLaunchRequest,
+  EnableFastLaunchResult,
   EnableFastSnapshotRestoreErrorItem,
   EnableFastSnapshotRestoresRequest,
   EnableFastSnapshotRestoresResult,
@@ -2921,6 +2935,8 @@ import {
   ExportTaskS3LocationRequest,
   ExportTransitGatewayRoutesRequest,
   ExportTransitGatewayRoutesResult,
+  FastLaunchLaunchTemplateSpecificationRequest,
+  FastLaunchSnapshotConfigurationRequest,
   GetAssociatedEnclaveCertificateIamRolesRequest,
   GetAssociatedEnclaveCertificateIamRolesResult,
   GetAssociatedIpv6PoolCidrsRequest,
@@ -2946,22 +2962,12 @@ import {
   GetHostReservationPurchasePreviewRequest,
   GetHostReservationPurchasePreviewResult,
   GetInstanceTypesFromInstanceRequirementsRequest,
-  GetInstanceTypesFromInstanceRequirementsResult,
-  GetIpamAddressHistoryRequest,
-  GetIpamAddressHistoryResult,
-  GetIpamPoolAllocationsRequest,
-  GetIpamPoolAllocationsResult,
-  GetIpamPoolCidrsRequest,
-  GetIpamPoolCidrsResult,
-  GetIpamResourceCidrsRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceNetworkInterfaceSpecification,
-  InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
-  IpamAddressHistoryRecord,
   Ipv6CidrAssociation,
   LaunchSpecification,
   LaunchTemplateConfig,
@@ -2970,6 +2976,9 @@ import {
   PricingDetail,
   PrivateDnsDetails,
   Purchase,
+  RecurringCharge,
+  ReservedInstances,
+  ReservedInstancesConfiguration,
   ReservedInstancesId,
   ReservedInstancesModification,
   ReservedInstancesModificationResult,
@@ -3020,12 +3029,19 @@ import {
   CapacityReservationSpecification,
   CidrAuthorizationContext,
   ClientData,
-  CpuOptionsRequest,
   CreateVolumePermissionModifications,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetInstanceTypesFromInstanceRequirementsResult,
+  GetIpamAddressHistoryRequest,
+  GetIpamAddressHistoryResult,
+  GetIpamPoolAllocationsRequest,
+  GetIpamPoolAllocationsResult,
+  GetIpamPoolCidrsRequest,
+  GetIpamPoolCidrsResult,
+  GetIpamResourceCidrsRequest,
   GetIpamResourceCidrsResult,
   GetLaunchTemplateDataRequest,
   GetLaunchTemplateDataResult,
@@ -3080,6 +3096,8 @@ import {
   InstanceCreditSpecificationRequest,
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
+  InstanceTypeInfoFromInstanceRequirements,
+  IpamAddressHistoryRecord,
   IpamCidrAuthorizationContext,
   IpamResourceCidr,
   LaunchPermissionModifications,
@@ -3270,20 +3288,6 @@ import {
   ResetInstanceAttributeRequest,
   ResetNetworkInterfaceAttributeRequest,
   ResetSnapshotAttributeRequest,
-  RestoreAddressToClassicRequest,
-  RestoreAddressToClassicResult,
-  RestoreManagedPrefixListVersionRequest,
-  RestoreManagedPrefixListVersionResult,
-  RestoreSnapshotFromRecycleBinRequest,
-  RestoreSnapshotFromRecycleBinResult,
-  RestoreSnapshotTierRequest,
-  RestoreSnapshotTierResult,
-  RevokeClientVpnIngressRequest,
-  RevokeClientVpnIngressResult,
-  RevokeSecurityGroupEgressRequest,
-  RevokeSecurityGroupEgressResult,
-  RevokeSecurityGroupIngressRequest,
-  RevokeSecurityGroupIngressResult,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3308,6 +3312,7 @@ import {
   VpnConnectionDeviceType,
 } from "../models/models_5";
 import {
+  CpuOptionsRequest,
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
@@ -3317,6 +3322,20 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RestoreAddressToClassicRequest,
+  RestoreAddressToClassicResult,
+  RestoreManagedPrefixListVersionRequest,
+  RestoreManagedPrefixListVersionResult,
+  RestoreSnapshotFromRecycleBinRequest,
+  RestoreSnapshotFromRecycleBinResult,
+  RestoreSnapshotTierRequest,
+  RestoreSnapshotTierResult,
+  RevokeClientVpnIngressRequest,
+  RevokeClientVpnIngressResult,
+  RevokeSecurityGroupEgressRequest,
+  RevokeSecurityGroupEgressResult,
+  RevokeSecurityGroupIngressRequest,
+  RevokeSecurityGroupIngressResult,
   RunInstancesRequest,
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
@@ -6727,6 +6746,22 @@ export const serializeAws_ec2DescribeExportTasksCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeFastLaunchImagesCommand = async (
+  input: DescribeFastLaunchImagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeFastLaunchImagesRequest(input, context),
+    Action: "DescribeFastLaunchImages",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeFastSnapshotRestoresCommand = async (
   input: DescribeFastSnapshotRestoresCommandInput,
   context: __SerdeContext
@@ -8551,6 +8586,22 @@ export const serializeAws_ec2DisableEbsEncryptionByDefaultCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DisableFastLaunchCommand = async (
+  input: DisableFastLaunchCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DisableFastLaunchRequest(input, context),
+    Action: "DisableFastLaunch",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DisableFastSnapshotRestoresCommand = async (
   input: DisableFastSnapshotRestoresCommandInput,
   context: __SerdeContext
@@ -8866,6 +8917,22 @@ export const serializeAws_ec2EnableEbsEncryptionByDefaultCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2EnableEbsEncryptionByDefaultRequest(input, context),
     Action: "EnableEbsEncryptionByDefault",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2EnableFastLaunchCommand = async (
+  input: EnableFastLaunchCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2EnableFastLaunchRequest(input, context),
+    Action: "EnableFastLaunch",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -21199,6 +21266,52 @@ const deserializeAws_ec2DescribeExportTasksCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DescribeFastLaunchImagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFastLaunchImagesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeFastLaunchImagesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeFastLaunchImagesResult(data, context);
+  const response: DescribeFastLaunchImagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeFastLaunchImagesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFastLaunchImagesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DescribeFastSnapshotRestoresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -26437,6 +26550,52 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2DisableFastLaunchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableFastLaunchCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DisableFastLaunchCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DisableFastLaunchResult(data, context);
+  const response: DisableFastLaunchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DisableFastLaunchCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableFastLaunchCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2DisableFastSnapshotRestoresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -27323,6 +27482,52 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableEbsEncryptionByDefaultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2EnableFastLaunchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableFastLaunchCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2EnableFastLaunchCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2EnableFastLaunchResult(data, context);
+  const response: EnableFastLaunchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2EnableFastLaunchCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableFastLaunchCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -36746,6 +36951,17 @@ const serializeAws_ec2ClientData = (input: ClientData, context: __SerdeContext):
   return entries;
 };
 
+const serializeAws_ec2ClientLoginBannerOptions = (input: ClientLoginBannerOptions, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Enabled !== undefined && input.Enabled !== null) {
+    entries["Enabled"] = input.Enabled;
+  }
+  if (input.BannerText !== undefined && input.BannerText !== null) {
+    entries["BannerText"] = input.BannerText;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ClientVpnAuthenticationRequest = (
   input: ClientVpnAuthenticationRequest,
   context: __SerdeContext
@@ -37224,6 +37440,16 @@ const serializeAws_ec2CreateClientVpnEndpointRequest = (
     const memberEntries = serializeAws_ec2ClientConnectOptions(input.ClientConnectOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientConnectOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SessionTimeoutHours !== undefined && input.SessionTimeoutHours !== null) {
+    entries["SessionTimeoutHours"] = input.SessionTimeoutHours;
+  }
+  if (input.ClientLoginBannerOptions !== undefined && input.ClientLoginBannerOptions !== null) {
+    const memberEntries = serializeAws_ec2ClientLoginBannerOptions(input.ClientLoginBannerOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ClientLoginBannerOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -41203,6 +41429,37 @@ const serializeAws_ec2DescribeExportTasksRequest = (
   return entries;
 };
 
+const serializeAws_ec2DescribeFastLaunchImagesRequest = (
+  input: DescribeFastLaunchImagesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ImageIds !== undefined && input.ImageIds !== null) {
+    const memberEntries = serializeAws_ec2FastLaunchImageIdList(input.ImageIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeFastSnapshotRestoresRequest = (
   input: DescribeFastSnapshotRestoresRequest,
   context: __SerdeContext
@@ -44494,6 +44751,20 @@ const serializeAws_ec2DisableEbsEncryptionByDefaultRequest = (
   return entries;
 };
 
+const serializeAws_ec2DisableFastLaunchRequest = (input: DisableFastLaunchRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ImageId !== undefined && input.ImageId !== null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.Force !== undefined && input.Force !== null) {
+    entries["Force"] = input.Force;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DisableFastSnapshotRestoresRequest = (
   input: DisableFastSnapshotRestoresRequest,
   context: __SerdeContext
@@ -45026,6 +45297,37 @@ const serializeAws_ec2EnableEbsEncryptionByDefaultRequest = (
   return entries;
 };
 
+const serializeAws_ec2EnableFastLaunchRequest = (input: EnableFastLaunchRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.ImageId !== undefined && input.ImageId !== null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.ResourceType !== undefined && input.ResourceType !== null) {
+    entries["ResourceType"] = input.ResourceType;
+  }
+  if (input.SnapshotConfiguration !== undefined && input.SnapshotConfiguration !== null) {
+    const memberEntries = serializeAws_ec2FastLaunchSnapshotConfigurationRequest(input.SnapshotConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SnapshotConfiguration.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.LaunchTemplate !== undefined && input.LaunchTemplate !== null) {
+    const memberEntries = serializeAws_ec2FastLaunchLaunchTemplateSpecificationRequest(input.LaunchTemplate, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LaunchTemplate.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxParallelLaunches !== undefined && input.MaxParallelLaunches !== null) {
+    entries["MaxParallelLaunches"] = input.MaxParallelLaunches;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2EnableFastSnapshotRestoresRequest = (
   input: EnableFastSnapshotRestoresRequest,
   context: __SerdeContext
@@ -45345,6 +45647,47 @@ const serializeAws_ec2ExportTransitGatewayRoutesRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2FastLaunchImageIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`ImageId.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2FastLaunchLaunchTemplateSpecificationRequest = (
+  input: FastLaunchLaunchTemplateSpecificationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.LaunchTemplateId !== undefined && input.LaunchTemplateId !== null) {
+    entries["LaunchTemplateId"] = input.LaunchTemplateId;
+  }
+  if (input.LaunchTemplateName !== undefined && input.LaunchTemplateName !== null) {
+    entries["LaunchTemplateName"] = input.LaunchTemplateName;
+  }
+  if (input.Version !== undefined && input.Version !== null) {
+    entries["Version"] = input.Version;
+  }
+  return entries;
+};
+
+const serializeAws_ec2FastLaunchSnapshotConfigurationRequest = (
+  input: FastLaunchSnapshotConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TargetResourceCount !== undefined && input.TargetResourceCount !== null) {
+    entries["TargetResourceCount"] = input.TargetResourceCount;
   }
   return entries;
 };
@@ -49049,6 +49392,16 @@ const serializeAws_ec2ModifyClientVpnEndpointRequest = (
     const memberEntries = serializeAws_ec2ClientConnectOptions(input.ClientConnectOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientConnectOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SessionTimeoutHours !== undefined && input.SessionTimeoutHours !== null) {
+    entries["SessionTimeoutHours"] = input.SessionTimeoutHours;
+  }
+  if (input.ClientLoginBannerOptions !== undefined && input.ClientLoginBannerOptions !== null) {
+    const memberEntries = serializeAws_ec2ClientLoginBannerOptions(input.ClientLoginBannerOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ClientLoginBannerOptions.${key}`;
       entries[loc] = value;
     });
   }
@@ -58422,6 +58775,23 @@ const deserializeAws_ec2ClientConnectResponseOptions = (
   return contents;
 };
 
+const deserializeAws_ec2ClientLoginBannerResponseOptions = (
+  output: any,
+  context: __SerdeContext
+): ClientLoginBannerResponseOptions => {
+  const contents: any = {
+    Enabled: undefined,
+    BannerText: undefined,
+  };
+  if (output["enabled"] !== undefined) {
+    contents.Enabled = __parseBoolean(output["enabled"]);
+  }
+  if (output["bannerText"] !== undefined) {
+    contents.BannerText = __expectString(output["bannerText"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2ClientVpnAuthentication = (output: any, context: __SerdeContext): ClientVpnAuthentication => {
   const contents: any = {
     Type: undefined,
@@ -58603,6 +58973,8 @@ const deserializeAws_ec2ClientVpnEndpoint = (output: any, context: __SerdeContex
     VpcId: undefined,
     SelfServicePortalUrl: undefined,
     ClientConnectOptions: undefined,
+    SessionTimeoutHours: undefined,
+    ClientLoginBannerOptions: undefined,
   };
   if (output["clientVpnEndpointId"] !== undefined) {
     contents.ClientVpnEndpointId = __expectString(output["clientVpnEndpointId"]);
@@ -58697,6 +59069,15 @@ const deserializeAws_ec2ClientVpnEndpoint = (output: any, context: __SerdeContex
   if (output["clientConnectOptions"] !== undefined) {
     contents.ClientConnectOptions = deserializeAws_ec2ClientConnectResponseOptions(
       output["clientConnectOptions"],
+      context
+    );
+  }
+  if (output["sessionTimeoutHours"] !== undefined) {
+    contents.SessionTimeoutHours = __strictParseInt32(output["sessionTimeoutHours"]) as number;
+  }
+  if (output["clientLoginBannerOptions"] !== undefined) {
+    contents.ClientLoginBannerOptions = deserializeAws_ec2ClientLoginBannerResponseOptions(
+      output["clientLoginBannerOptions"],
       context
     );
   }
@@ -61689,6 +62070,94 @@ const deserializeAws_ec2DescribeExportTasksResult = (
   return contents;
 };
 
+const deserializeAws_ec2DescribeFastLaunchImagesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeFastLaunchImagesResult => {
+  const contents: any = {
+    FastLaunchImages: undefined,
+    NextToken: undefined,
+  };
+  if (output.fastLaunchImageSet === "") {
+    contents.FastLaunchImages = [];
+  }
+  if (output["fastLaunchImageSet"] !== undefined && output["fastLaunchImageSet"]["item"] !== undefined) {
+    contents.FastLaunchImages = deserializeAws_ec2DescribeFastLaunchImagesSuccessSet(
+      __getArrayIfSingleItem(output["fastLaunchImageSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeFastLaunchImagesSuccessItem = (
+  output: any,
+  context: __SerdeContext
+): DescribeFastLaunchImagesSuccessItem => {
+  const contents: any = {
+    ImageId: undefined,
+    ResourceType: undefined,
+    SnapshotConfiguration: undefined,
+    LaunchTemplate: undefined,
+    MaxParallelLaunches: undefined,
+    OwnerId: undefined,
+    State: undefined,
+    StateTransitionReason: undefined,
+    StateTransitionTime: undefined,
+  };
+  if (output["imageId"] !== undefined) {
+    contents.ImageId = __expectString(output["imageId"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output["snapshotConfiguration"] !== undefined) {
+    contents.SnapshotConfiguration = deserializeAws_ec2FastLaunchSnapshotConfigurationResponse(
+      output["snapshotConfiguration"],
+      context
+    );
+  }
+  if (output["launchTemplate"] !== undefined) {
+    contents.LaunchTemplate = deserializeAws_ec2FastLaunchLaunchTemplateSpecificationResponse(
+      output["launchTemplate"],
+      context
+    );
+  }
+  if (output["maxParallelLaunches"] !== undefined) {
+    contents.MaxParallelLaunches = __strictParseInt32(output["maxParallelLaunches"]) as number;
+  }
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["stateTransitionReason"] !== undefined) {
+    contents.StateTransitionReason = __expectString(output["stateTransitionReason"]);
+  }
+  if (output["stateTransitionTime"] !== undefined) {
+    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTime(output["stateTransitionTime"]));
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeFastLaunchImagesSuccessSet = (
+  output: any,
+  context: __SerdeContext
+): DescribeFastLaunchImagesSuccessItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2DescribeFastLaunchImagesSuccessItem(entry, context);
+    });
+};
+
 const deserializeAws_ec2DescribeFastSnapshotRestoresResult = (
   output: any,
   context: __SerdeContext
@@ -64367,6 +64836,54 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultResult = (
   return contents;
 };
 
+const deserializeAws_ec2DisableFastLaunchResult = (output: any, context: __SerdeContext): DisableFastLaunchResult => {
+  const contents: any = {
+    ImageId: undefined,
+    ResourceType: undefined,
+    SnapshotConfiguration: undefined,
+    LaunchTemplate: undefined,
+    MaxParallelLaunches: undefined,
+    OwnerId: undefined,
+    State: undefined,
+    StateTransitionReason: undefined,
+    StateTransitionTime: undefined,
+  };
+  if (output["imageId"] !== undefined) {
+    contents.ImageId = __expectString(output["imageId"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output["snapshotConfiguration"] !== undefined) {
+    contents.SnapshotConfiguration = deserializeAws_ec2FastLaunchSnapshotConfigurationResponse(
+      output["snapshotConfiguration"],
+      context
+    );
+  }
+  if (output["launchTemplate"] !== undefined) {
+    contents.LaunchTemplate = deserializeAws_ec2FastLaunchLaunchTemplateSpecificationResponse(
+      output["launchTemplate"],
+      context
+    );
+  }
+  if (output["maxParallelLaunches"] !== undefined) {
+    contents.MaxParallelLaunches = __strictParseInt32(output["maxParallelLaunches"]) as number;
+  }
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["stateTransitionReason"] !== undefined) {
+    contents.StateTransitionReason = __expectString(output["stateTransitionReason"]);
+  }
+  if (output["stateTransitionTime"] !== undefined) {
+    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTime(output["stateTransitionTime"]));
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DisableFastSnapshotRestoreErrorItem = (
   output: any,
   context: __SerdeContext
@@ -65213,6 +65730,54 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultResult = (
   };
   if (output["ebsEncryptionByDefault"] !== undefined) {
     contents.EbsEncryptionByDefault = __parseBoolean(output["ebsEncryptionByDefault"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2EnableFastLaunchResult = (output: any, context: __SerdeContext): EnableFastLaunchResult => {
+  const contents: any = {
+    ImageId: undefined,
+    ResourceType: undefined,
+    SnapshotConfiguration: undefined,
+    LaunchTemplate: undefined,
+    MaxParallelLaunches: undefined,
+    OwnerId: undefined,
+    State: undefined,
+    StateTransitionReason: undefined,
+    StateTransitionTime: undefined,
+  };
+  if (output["imageId"] !== undefined) {
+    contents.ImageId = __expectString(output["imageId"]);
+  }
+  if (output["resourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["resourceType"]);
+  }
+  if (output["snapshotConfiguration"] !== undefined) {
+    contents.SnapshotConfiguration = deserializeAws_ec2FastLaunchSnapshotConfigurationResponse(
+      output["snapshotConfiguration"],
+      context
+    );
+  }
+  if (output["launchTemplate"] !== undefined) {
+    contents.LaunchTemplate = deserializeAws_ec2FastLaunchLaunchTemplateSpecificationResponse(
+      output["launchTemplate"],
+      context
+    );
+  }
+  if (output["maxParallelLaunches"] !== undefined) {
+    contents.MaxParallelLaunches = __strictParseInt32(output["maxParallelLaunches"]) as number;
+  }
+  if (output["ownerId"] !== undefined) {
+    contents.OwnerId = __expectString(output["ownerId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["stateTransitionReason"] !== undefined) {
+    contents.StateTransitionReason = __expectString(output["stateTransitionReason"]);
+  }
+  if (output["stateTransitionTime"] !== undefined) {
+    contents.StateTransitionTime = __expectNonNull(__parseRfc3339DateTime(output["stateTransitionTime"]));
   }
   return contents;
 };
@@ -66070,6 +66635,40 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletionSet = (
       }
       return deserializeAws_ec2FailedQueuedPurchaseDeletion(entry, context);
     });
+};
+
+const deserializeAws_ec2FastLaunchLaunchTemplateSpecificationResponse = (
+  output: any,
+  context: __SerdeContext
+): FastLaunchLaunchTemplateSpecificationResponse => {
+  const contents: any = {
+    LaunchTemplateId: undefined,
+    LaunchTemplateName: undefined,
+    Version: undefined,
+  };
+  if (output["launchTemplateId"] !== undefined) {
+    contents.LaunchTemplateId = __expectString(output["launchTemplateId"]);
+  }
+  if (output["launchTemplateName"] !== undefined) {
+    contents.LaunchTemplateName = __expectString(output["launchTemplateName"]);
+  }
+  if (output["version"] !== undefined) {
+    contents.Version = __expectString(output["version"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2FastLaunchSnapshotConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): FastLaunchSnapshotConfigurationResponse => {
+  const contents: any = {
+    TargetResourceCount: undefined,
+  };
+  if (output["targetResourceCount"] !== undefined) {
+    contents.TargetResourceCount = __strictParseInt32(output["targetResourceCount"]) as number;
+  }
+  return contents;
 };
 
 const deserializeAws_ec2FederatedAuthentication = (output: any, context: __SerdeContext): FederatedAuthentication => {

@@ -24,7 +24,7 @@ export interface CreateIntegrationAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an AWS resource association with an Amazon Connect instance.</p>
+ * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

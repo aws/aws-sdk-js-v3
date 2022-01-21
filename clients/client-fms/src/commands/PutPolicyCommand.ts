@@ -42,7 +42,7 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *           Amazon VPCs.</p>
  *             </li>
  *             <li>
- *                <p>A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter DNS queries for
+ *                <p>A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter DNS queries for
  *             specified VPCs.</p>
  *             </li>
  *          </ul>

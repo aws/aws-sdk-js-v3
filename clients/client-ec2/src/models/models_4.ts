@@ -11,8 +11,8 @@ import {
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
-  IpamPoolAllocation,
   IpPermission,
+  ReservedInstancesListing,
   ResourceType,
   SecurityGroupRule,
   Subnet,
@@ -47,7 +47,6 @@ import {
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
   PrivateIpAddressSpecification,
-  RequestIpamResourceTag,
   RouteTable,
   Snapshot,
   SnapshotState,
@@ -68,7 +67,6 @@ import {
   DnsEntry,
   DnsNameState,
   Filter,
-  IpamPoolCidr,
   PayerResponsibility,
   ServiceConfiguration,
   ServiceTypeDetail,
@@ -86,18 +84,374 @@ import {
   AttributeBooleanValue,
   EventInformation,
   ExportTaskS3Location,
+  FastLaunchLaunchTemplateSpecificationResponse,
+  FastLaunchResourceType,
+  FastLaunchSnapshotConfigurationResponse,
+  FastLaunchStateCode,
   FastSnapshotRestoreStateCode,
   OfferingClassType,
   OfferingTypeValues,
   PaymentOption,
   PermissionGroup,
   ProductCode,
-  RecurringCharge,
-  ReservedInstancesConfiguration,
+  RecurringChargeFrequency,
   RIProductDescription,
-  Scope,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes a recurring charge.</p>
+ */
+export interface RecurringCharge {
+  /**
+   * <p>The amount of the recurring charge.</p>
+   */
+  Amount?: number;
+
+  /**
+   * <p>The frequency of the recurring charge.</p>
+   */
+  Frequency?: RecurringChargeFrequency | string;
+}
+
+export namespace RecurringCharge {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RecurringCharge): any => ({
+    ...obj,
+  });
+}
+
+export enum Scope {
+  AVAILABILITY_ZONE = "Availability Zone",
+  REGIONAL = "Region",
+}
+
+export type ReservedInstanceState =
+  | "active"
+  | "payment-failed"
+  | "payment-pending"
+  | "queued"
+  | "queued-deleted"
+  | "retired";
+
+/**
+ * <p>Describes a Reserved Instance.</p>
+ */
+export interface ReservedInstances {
+  /**
+   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The duration of the Reserved Instance, in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The time when the Reserved Instance expires.</p>
+   */
+  End?: Date;
+
+  /**
+   * <p>The purchase price of the Reserved Instance.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The number of reservations purchased.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance type on which the Reserved Instance can be used.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The Reserved Instance product platform description.</p>
+   */
+  ProductDescription?: RIProductDescription | string;
+
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   */
+  ReservedInstancesId?: string;
+
+  /**
+   * <p>The date and time the Reserved Instance started.</p>
+   */
+  Start?: Date;
+
+  /**
+   * <p>The state of the Reserved Instance purchase.</p>
+   */
+  State?: ReservedInstanceState | string;
+
+  /**
+   * <p>The usage price of the Reserved Instance, per hour.</p>
+   */
+  UsagePrice?: number;
+
+  /**
+   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The tenancy of the instance.</p>
+   */
+  InstanceTenancy?: Tenancy | string;
+
+  /**
+   * <p>The offering class of the Reserved Instance.</p>
+   */
+  OfferingClass?: OfferingClassType | string;
+
+  /**
+   * <p>The Reserved Instance offering type.</p>
+   */
+  OfferingType?: OfferingTypeValues | string;
+
+  /**
+   * <p>The recurring charge tag assigned to the resource.</p>
+   */
+  RecurringCharges?: RecurringCharge[];
+
+  /**
+   * <p>The scope of the Reserved Instance.</p>
+   */
+  Scope?: Scope | string;
+
+  /**
+   * <p>Any tags assigned to the resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ReservedInstances {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedInstances): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output for DescribeReservedInstances.</p>
+ */
+export interface DescribeReservedInstancesResult {
+  /**
+   * <p>A list of Reserved Instances.</p>
+   */
+  ReservedInstances?: ReservedInstances[];
+}
+
+export namespace DescribeReservedInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
+ */
+export interface DescribeReservedInstancesListingsRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> |
+   *            <code>cancelled</code> | <code>closed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-message</code> - The reason for the status.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>One or more Reserved Instance IDs.</p>
+   */
+  ReservedInstancesId?: string;
+
+  /**
+   * <p>One or more Reserved Instance listing IDs.</p>
+   */
+  ReservedInstancesListingId?: string;
+}
+
+export namespace DescribeReservedInstancesListingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of DescribeReservedInstancesListings.</p>
+ */
+export interface DescribeReservedInstancesListingsResult {
+  /**
+   * <p>Information about the Reserved Instance listing.</p>
+   */
+  ReservedInstancesListings?: ReservedInstancesListing[];
+}
+
+export namespace DescribeReservedInstancesListingsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
+ */
+export interface DescribeReservedInstancesModificationsRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>client-token</code> - The idempotency token for the modification request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>create-date</code> - The time when the modification request was created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>effective-date</code> - The time when the modification becomes effective.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is <code>fulfilled</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability Zone for the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>modification-result.target-configuration.platform</code> - The network platform of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>reserved-instances-modification-id</code> - The ID of the modification request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the Reserved Instances modification request
+   *            (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status-message</code> - The reason for the status.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>update-date</code> - The time when the modification request was last updated.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>IDs for the submitted modification request.</p>
+   */
+  ReservedInstancesModificationIds?: string[];
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeReservedInstancesModificationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReservedInstancesModificationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the configuration settings for the modified Reserved Instances.</p>
+ */
+export interface ReservedInstancesConfiguration {
+  /**
+   * <p>The Availability Zone for the modified Reserved Instances.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The number of modified Reserved Instances.</p>
+   *          <note>
+   *             <p>This is a required field for a request.</p>
+   *          </note>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance type for the modified Reserved Instances.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
+   */
+  Scope?: Scope | string;
+}
+
+export namespace ReservedInstancesConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservedInstancesConfiguration): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the modification request/s.</p>
@@ -4084,8 +4438,8 @@ export interface DescribeStoreImageTasksRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -7923,6 +8277,93 @@ export namespace DisableEbsEncryptionByDefaultResult {
   });
 }
 
+export interface DisableFastLaunchRequest {
+  /**
+   * <p>The ID of the image for which you’re turning off faster launching, and removing pre-provisioned snapshots.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Forces the image settings to turn off faster launching for your Windows AMI. This parameter overrides
+   * 			any errors that are encountered while cleaning up resources in your account.</p>
+   */
+  Force?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DisableFastLaunchRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableFastLaunchRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisableFastLaunchResult {
+  /**
+   * <p>The ID of the image for which faster-launching has been turned off.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The pre-provisioning resource type that must be cleaned after turning off faster launching
+   * 			for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
+   */
+  ResourceType?: FastLaunchResourceType | string;
+
+  /**
+   * <p>Parameters that were used for faster launching for the Windows AMI before
+   * 			faster launching was turned off. This informs the clean-up process.</p>
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
+
+  /**
+   * <p>The launch template that was used to launch Windows instances from pre-provisioned snapshots.</p>
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
+
+  /**
+   * <p>The maximum number of parallel instances to launch for creating resources.</p>
+   */
+  MaxParallelLaunches?: number;
+
+  /**
+   * <p>The owner of the Windows AMI for which faster launching was turned off.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The current state of faster launching for the specified Windows AMI.</p>
+   */
+  State?: FastLaunchStateCode | string;
+
+  /**
+   * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
+   */
+  StateTransitionReason?: string;
+
+  /**
+   * <p>The time that the state changed for faster launching for the Windows AMI.</p>
+   */
+  StateTransitionTime?: Date;
+}
+
+export namespace DisableFastLaunchResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisableFastLaunchResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DisableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
@@ -8133,8 +8574,8 @@ export interface DisableImageDeprecationRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -8930,6 +9371,164 @@ export namespace EnableEbsEncryptionByDefaultResult {
   });
 }
 
+/**
+ * <p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>
+ * 		       <note>
+ * 			         <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
+ * 				<code>LaunchTemplateId</code>, but not both.</p>
+ * 		       </note>
+ */
+export interface FastLaunchLaunchTemplateSpecificationRequest {
+  /**
+   * <p>The ID of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version of the launch template to use for faster launching for a Windows AMI.</p>
+   */
+  Version: string | undefined;
+}
+
+export namespace FastLaunchLaunchTemplateSpecificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchLaunchTemplateSpecificationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
+ */
+export interface FastLaunchSnapshotConfigurationRequest {
+  /**
+   * <p>The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.</p>
+   */
+  TargetResourceCount?: number;
+}
+
+export namespace FastLaunchSnapshotConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchSnapshotConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableFastLaunchRequest {
+  /**
+   * <p>The ID of the image for which you’re enabling faster launching.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The type of resource to use for pre-provisioning the Windows AMI for faster launching.
+   * 			Supported values include: <code>snapshot</code>, which is the default value.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>Configuration settings for creating and managing the snapshots that are used for
+   * 			pre-provisioning the Windows AMI for faster launching. The associated <code>ResourceType</code>
+   * 			must be <code>snapshot</code>.</p>
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest;
+
+  /**
+   * <p>The launch template to use when launching Windows instances from pre-provisioned
+   * 			snapshots. Launch template parameters can include either the name or ID of the launch
+   * 			template, but not both.</p>
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest;
+
+  /**
+   * <p>The maximum number of parallel instances to launch for creating resources.</p>
+   */
+  MaxParallelLaunches?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace EnableFastLaunchRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableFastLaunchRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface EnableFastLaunchResult {
+  /**
+   * <p>The image ID that identifies the Windows AMI for which faster launching was enabled.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The type of resource that was defined for pre-provisioning the Windows AMI for faster launching.</p>
+   */
+  ResourceType?: FastLaunchResourceType | string;
+
+  /**
+   * <p>The configuration settings that were defined for creating and managing the pre-provisioned snapshots
+   * 			for faster launching of the Windows AMI. This property is returned when the associated
+   * 			<code>resourceType</code> is <code>snapshot</code>.</p>
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
+
+  /**
+   * <p>The launch template that is used when launching Windows instances from pre-provisioned snapshots.</p>
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
+
+  /**
+   * <p>The maximum number of parallel instances to launch for creating resources.</p>
+   */
+  MaxParallelLaunches?: number;
+
+  /**
+   * <p>The owner ID for the Windows AMI for which faster launching was enabled.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The current state of faster launching for the specified Windows AMI.</p>
+   */
+  State?: FastLaunchStateCode | string;
+
+  /**
+   * <p>The reason that the state changed for faster launching for the Windows AMI.</p>
+   */
+  StateTransitionReason?: string;
+
+  /**
+   * <p>The time that the state changed for faster launching for the Windows AMI.</p>
+   */
+  StateTransitionTime?: Date;
+}
+
+export namespace EnableFastLaunchResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnableFastLaunchResult): any => ({
+    ...obj,
+  });
+}
+
 export interface EnableFastSnapshotRestoresRequest {
   /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
@@ -9151,8 +9750,8 @@ export interface EnableImageDeprecationRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -10752,410 +11351,4 @@ export namespace GetInstanceTypesFromInstanceRequirementsRequest {
   export const filterSensitiveLog = (obj: GetInstanceTypesFromInstanceRequirementsRequest): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The list of instance types with the specified instance attributes.</p>
- */
-export interface InstanceTypeInfoFromInstanceRequirements {
-  /**
-   * <p>The matching instance type.</p>
-   */
-  InstanceType?: string;
-}
-
-export namespace InstanceTypeInfoFromInstanceRequirements {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceTypeInfoFromInstanceRequirements): any => ({
-    ...obj,
-  });
-}
-
-export interface GetInstanceTypesFromInstanceRequirementsResult {
-  /**
-   * <p>The instance types with the specified instance attributes.</p>
-   */
-  InstanceTypes?: InstanceTypeInfoFromInstanceRequirements[];
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetInstanceTypesFromInstanceRequirementsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetInstanceTypesFromInstanceRequirementsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIpamAddressHistoryRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The CIDR you want the history of. The CIDR can be an IPv4 or IPv6 IP address range.
-   *          If you enter a /16 IPv4 CIDR, you will get records that match it exactly. You will not get records for any subnets within the /16 CIDR.</p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM scope that the CIDR is in.</p>
-   */
-  IpamScopeId: string | undefined;
-
-  /**
-   * <p>The ID of the VPC you want your history records filtered by.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The start of the time period for which you are looking for history. If you omit this option, it will default to the value of EndTime.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The end of the time period for which you are looking for history. If you omit this option, it will default to the current time.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The maximum number of historical results you would like returned per page. Defaults to 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetIpamAddressHistoryRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamAddressHistoryRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum IpamComplianceStatus {
-  compliant = "compliant",
-  ignored = "ignored",
-  noncompliant = "noncompliant",
-  unmanaged = "unmanaged",
-}
-
-export enum IpamOverlapStatus {
-  ignored = "ignored",
-  nonoverlapping = "nonoverlapping",
-  overlapping = "overlapping",
-}
-
-export enum IpamAddressHistoryResourceType {
-  eip = "eip",
-  instance = "instance",
-  network_interface = "network-interface",
-  subnet = "subnet",
-  vpc = "vpc",
-}
-
-/**
- * <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
- *       </p>
- */
-export interface IpamAddressHistoryRecord {
-  /**
-   * <p>The ID of the resource owner.</p>
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * <p>The Amazon Web Services Region of the resource.</p>
-   */
-  ResourceRegion?: string;
-
-  /**
-   * <p>The type of the resource.</p>
-   */
-  ResourceType?: IpamAddressHistoryResourceType | string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The CIDR of the resource.</p>
-   */
-  ResourceCidr?: string;
-
-  /**
-   * <p>The name of the resource.</p>
-   */
-  ResourceName?: string;
-
-  /**
-   * <p>The compliance status of a resource. For more information on compliance statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   */
-  ResourceComplianceStatus?: IpamComplianceStatus | string;
-
-  /**
-   * <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   */
-  ResourceOverlapStatus?: IpamOverlapStatus | string;
-
-  /**
-   * <p>The VPC ID of the resource.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Sampled start time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the start time may have occurred before this specific time.</p>
-   */
-  SampledStartTime?: Date;
-
-  /**
-   * <p>Sampled end time of the resource-to-CIDR association within the IPAM scope. Changes are picked up in periodic snapshots, so the end time may have occurred before this specific time.</p>
-   */
-  SampledEndTime?: Date;
-}
-
-export namespace IpamAddressHistoryRecord {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IpamAddressHistoryRecord): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIpamAddressHistoryResult {
-  /**
-   * <p>A historical record for a CIDR within an IPAM scope. If the CIDR is associated with an EC2 instance, you will see an object in the response for the instance and one for the network interface.</p>
-   */
-  HistoryRecords?: IpamAddressHistoryRecord[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetIpamAddressHistoryResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamAddressHistoryResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIpamPoolAllocationsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the IPAM pool you want to see the allocations for.</p>
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The ID of the allocation.</p>
-   */
-  IpamPoolAllocationId?: string;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results you would like returned per page.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetIpamPoolAllocationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamPoolAllocationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIpamPoolAllocationsResult {
-  /**
-   * <p>The IPAM pool allocations you want information on.</p>
-   */
-  IpamPoolAllocations?: IpamPoolAllocation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetIpamPoolAllocationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamPoolAllocationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIpamPoolCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the IPAM pool you want the CIDR for.</p>
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetIpamPoolCidrsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamPoolCidrsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetIpamPoolCidrsResult {
-  /**
-   * <p>Information about the CIDRs provisioned to an IPAM pool.</p>
-   */
-  IpamPoolCidrs?: IpamPoolCidr[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetIpamPoolCidrsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamPoolCidrsResult): any => ({
-    ...obj,
-  });
-}
-
-export enum IpamResourceType {
-  eip = "eip",
-  ipv6_pool = "ipv6-pool",
-  public_ipv4_pool = "public-ipv4-pool",
-  subnet = "subnet",
-  vpc = "vpc",
-}
-
-export interface GetIpamResourceCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the scope that the resource is in.</p>
-   */
-  IpamScopeId: string | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool that the resource is in.</p>
-   */
-  IpamPoolId?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  ResourceType?: IpamResourceType | string;
-
-  /**
-   * <p>A tag on an IPAM resource.</p>
-   */
-  ResourceTag?: RequestIpamResourceTag;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the resource.</p>
-   */
-  ResourceOwner?: string;
-}
-
-export namespace GetIpamResourceCidrsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetIpamResourceCidrsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum IpamManagementState {
-  ignored = "ignored",
-  managed = "managed",
-  unmanaged = "unmanaged",
 }

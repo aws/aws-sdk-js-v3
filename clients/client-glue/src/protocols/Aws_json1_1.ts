@@ -20458,6 +20458,10 @@ const serializeAws_json1_1StartTriggerRequest = (input: StartTriggerRequest, con
 const serializeAws_json1_1StartWorkflowRunRequest = (input: StartWorkflowRunRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.RunProperties !== undefined &&
+      input.RunProperties !== null && {
+        RunProperties: serializeAws_json1_1WorkflowRunProperties(input.RunProperties, context),
+      }),
   };
 };
 

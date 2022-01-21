@@ -488,7 +488,9 @@ export interface AssociateResourceSharePermissionRequest {
 
   /**
    * <p>Specifies the version of the RAM permission to associate with the resource share. If you don't
-   *             specify this parameter, the operation uses the version designated as the default.</p>
+   *             specify this parameter, the operation uses the version designated as the default. You
+   *             can use the <a>ListPermissionVersions</a> operation to discover the available
+   *             versions of a permission.</p>
    */
   permissionVersion?: number;
 }
@@ -1832,6 +1834,71 @@ export namespace ListPermissionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPermissionVersionsRequest {
+  /**
+   * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resoure Name (ARN)</a> of the RAM permission whose versions you want to list. You
+   *             can use the <code>permissionVersion</code> parameter on the <a>AssociateResourceSharePermission</a> operation to specify a non-default
+   *             version to attach.</p>
+   */
+  permissionArn: string | undefined;
+
+  /**
+   * <p>Specifies that you want to receive the next page of results. Valid
+   *              only if you received a <code>NextToken</code> response in the previous request. If you
+   *              did, it indicates that more output is available. Set this parameter to the value
+   *              provided by the previous call's <code>NextToken</code> response to request the
+   *              next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Specifies the total number of results that you want included on each page
+   *              of the response. If you do not include this parameter, it defaults to a value that is
+   *              specific to the operation. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null).
+   *              Include the specified value as the <code>NextToken</code> request parameter in the next
+   *              call to the operation to get the next part of the results. Note that the service might
+   *              return fewer results than the maximum even when there are more results available. You
+   *              should check <code>NextToken</code> after every operation to ensure that you receive all
+   *              of the results.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListPermissionVersionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPermissionVersionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPermissionVersionsResponse {
+  /**
+   * <p>An array of objects that contain details for each of the available versions.</p>
+   */
+  permissions?: ResourceSharePermissionSummary[];
+
+  /**
+   * <p>If present, this value indicates that more output is available than
+   *              is included in the current response. Use this value in the <code>NextToken</code>
+   *              request parameter in a subsequent call to the operation to get the next part of the
+   *              output. You should repeat this until the <code>NextToken</code> response element comes
+   *              back as <code>null</code>. This indicates that this is the last page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListPermissionVersionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPermissionVersionsResponse): any => ({
     ...obj,
   });
 }

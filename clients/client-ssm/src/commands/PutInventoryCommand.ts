@@ -22,8 +22,9 @@ export interface PutInventoryCommandInput extends PutInventoryRequest {}
 export interface PutInventoryCommandOutput extends PutInventoryResult, __MetadataBearer {}
 
 /**
- * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an inventory item,
- *    if it doesn't already exist, or updates an inventory item, if it does exist.</p>
+ * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
+ *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
+ *    exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

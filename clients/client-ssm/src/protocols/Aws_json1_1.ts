@@ -19390,6 +19390,28 @@ const deserializeAws_json1_1CancelMaintenanceWindowExecutionResult = (
   } as any;
 };
 
+const deserializeAws_json1_1CategoryEnumList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1CategoryList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_json1_1CloudWatchOutputConfig = (output: any, context: __SerdeContext): CloudWatchOutputConfig => {
   return {
     CloudWatchLogGroupName: __expectString(output.CloudWatchLogGroupName),
@@ -20348,6 +20370,14 @@ const deserializeAws_json1_1DocumentDescription = (output: any, context: __Serde
         ? deserializeAws_json1_1AttachmentInformationList(output.AttachmentsInformation, context)
         : undefined,
     Author: __expectString(output.Author),
+    Category:
+      output.Category !== undefined && output.Category !== null
+        ? deserializeAws_json1_1CategoryList(output.Category, context)
+        : undefined,
+    CategoryEnum:
+      output.CategoryEnum !== undefined && output.CategoryEnum !== null
+        ? deserializeAws_json1_1CategoryEnumList(output.CategoryEnum, context)
+        : undefined,
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedDate)))

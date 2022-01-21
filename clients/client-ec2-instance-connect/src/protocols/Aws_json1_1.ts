@@ -17,6 +17,7 @@ import { SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput } from "../
 import {
   AuthException,
   EC2InstanceNotFoundException,
+  EC2InstanceStateInvalidException,
   EC2InstanceTypeInvalidException,
   InvalidArgsException,
   SendSerialConsoleSSHPublicKeyRequest,
@@ -97,6 +98,14 @@ const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommandError = async (
     case "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EC2InstanceStateInvalidException":
+    case "com.amazonaws.ec2instanceconnect#EC2InstanceStateInvalidException":
+      response = {
+        ...(await deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -219,6 +228,14 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "EC2InstanceStateInvalidException":
+    case "com.amazonaws.ec2instanceconnect#EC2InstanceStateInvalidException":
+      response = {
+        ...(await deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidArgsException":
     case "com.amazonaws.ec2instanceconnect#InvalidArgsException":
       response = {
@@ -283,6 +300,21 @@ const deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1EC2InstanceNotFoundException(body, context);
   const contents: EC2InstanceNotFoundException = {
     name: "EC2InstanceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EC2InstanceStateInvalidException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1EC2InstanceStateInvalidException(body, context);
+  const contents: EC2InstanceStateInvalidException = {
+    name: "EC2InstanceStateInvalidException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -427,6 +459,15 @@ const deserializeAws_json1_1EC2InstanceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): EC2InstanceNotFoundException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1EC2InstanceStateInvalidException = (
+  output: any,
+  context: __SerdeContext
+): EC2InstanceStateInvalidException => {
   return {
     Message: __expectString(output.Message),
   } as any;

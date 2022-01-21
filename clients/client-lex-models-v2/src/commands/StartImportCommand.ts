@@ -22,8 +22,8 @@ export interface StartImportCommandInput extends StartImportRequest {}
 export interface StartImportCommandOutput extends StartImportResponse, __MetadataBearer {}
 
 /**
- * <p>Starts importing a bot or bot locale from a zip archive that you
- *          uploaded to an S3 bucket.</p>
+ * <p>Starts importing a bot, bot locale, or custom vocabulary from a zip
+ *          archive that you uploaded to an S3 bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

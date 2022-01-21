@@ -551,6 +551,7 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
+   *         <p>Adding FAQs to an index is an asynchronous operation.</p>
    */
   public createFaq(args: CreateFaqCommandInput, options?: __HttpHandlerOptions): Promise<CreateFaqCommandOutput>;
   public createFaq(args: CreateFaqCommandInput, cb: (err: any, data?: CreateFaqCommandOutput) => void): void;

@@ -35,6 +35,12 @@ export interface AutomationExecutionTimeoutException extends __SmithyException, 
  * <p>
  *             CellInput object contains the data needed to create or update cells in a table.
  *         </p>
+ *         <note>
+ *             <p>
+ *                 CellInput object has only a facts field or a fact field, but not both. A 400 bad request will be
+ *                 thrown if both fact and facts field are present.
+ *             </p>
+ *         </note>
  */
 export interface CellInput {
   /**
@@ -44,6 +50,14 @@ export interface CellInput {
    *         </p>
    */
   fact?: string;
+
+  /**
+   * <p>
+   *             A list representing the values that are entered into a ROWSET cell. Facts list can have either only values
+   *             or rowIDs, and rowIDs should from the same table.
+   *         </p>
+   */
+  facts?: string[];
 }
 
 export namespace CellInput {
@@ -53,6 +67,7 @@ export namespace CellInput {
   export const filterSensitiveLog = (obj: CellInput): any => ({
     ...obj,
     ...(obj.fact && { fact: SENSITIVE_STRING }),
+    ...(obj.facts && { facts: SENSITIVE_STRING }),
   });
 }
 
@@ -721,6 +736,7 @@ export enum Format {
   Number = "NUMBER",
   Percentage = "PERCENTAGE",
   Rowlink = "ROWLINK",
+  Rowset = "ROWSET",
   Text = "TEXT",
   Time = "TIME",
 }
@@ -779,6 +795,18 @@ export interface Cell {
    *             "row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03" as the raw value.
    *         </p>
    *         <p>
+   *             Cells with format ROWSET (aka multi-select or multi-record picklist) will by default have the first column
+   *             of each of the linked rows as the formatted value in the list, and the rowset id of the linked rows as the
+   *             raw value. For example, a cell containing a multi-select picklist to a table that contains items might have
+   *             "Item A", "Item B" in the formatted value list and "rows:b742c1f4-6cb0-4650-a845-35eb86fcc2bb/
+   *             [fdea123b-8f68-474a-aa8a-5ff87aa333af,6daf41f0-a138-4eee-89da-123086d36ecf]" as the raw value.
+   *         </p>
+   *         <p>
+   *             Cells with format ATTACHMENT will have the name of the attachment as the formatted value and the attachment
+   *             id as the raw value. For example, a cell containing an attachment named "image.jpeg" will have
+   *             "image.jpeg" as the formatted value and "attachment:ca432b2f-b8eb-431d-9fb5-cbe0342f9f03" as the raw value.
+   *         </p>
+   *         <p>
    *             Cells with format AUTO or cells without any format that are auto-detected as one of the formats above will
    *             contain the raw and formatted values as mentioned above, based on the auto-detected formats. If there is no
    *             auto-detected format, the raw and formatted values will be the same as the data in the cell.
@@ -798,6 +826,15 @@ export interface Cell {
    *         </p>
    */
   formattedValue?: string;
+
+  /**
+   * <p>
+   *             A list of formatted values of the cell. This field is only returned when the cell is ROWSET format
+   *             (aka multi-select or multi-record picklist). Values in the list are always represented as strings.
+   *             The formattedValue field will be empty if this field is returned.
+   *         </p>
+   */
+  formattedValues?: string[];
 }
 
 export namespace Cell {
@@ -947,6 +984,23 @@ export namespace DescribeTableDataImportJobRequest {
   });
 }
 
+export enum ErrorCode {
+  AccessDenied = "ACCESS_DENIED",
+  FileEmptyError = "FILE_EMPTY_ERROR",
+  FileNotFoundError = "FILE_NOT_FOUND_ERROR",
+  FileParsingError = "FILE_PARSING_ERROR",
+  FileSizeLimitError = "FILE_SIZE_LIMIT_ERROR",
+  InvalidFileTypeError = "INVALID_FILE_TYPE_ERROR",
+  InvalidImportOptionsError = "INVALID_IMPORT_OPTIONS_ERROR",
+  InvalidTableColumnIdError = "INVALID_TABLE_COLUMN_ID_ERROR",
+  InvalidTableIdError = "INVALID_TABLE_ID_ERROR",
+  InvalidUrlError = "INVALID_URL_ERROR",
+  ResourceNotFoundError = "RESOURCE_NOT_FOUND_ERROR",
+  SystemLimitError = "SYSTEM_LIMIT_ERROR",
+  TableNotFoundError = "TABLE_NOT_FOUND_ERROR",
+  UnknownError = "UNKNOWN_ERROR",
+}
+
 /**
  * <p>
  *             An object that contains the configuration parameters for the data source of an import request.
@@ -967,6 +1021,7 @@ export namespace ImportDataSourceConfig {
    */
   export const filterSensitiveLog = (obj: ImportDataSourceConfig): any => ({
     ...obj,
+    ...(obj.dataSourceUrl && { dataSourceUrl: SENSITIVE_STRING }),
   });
 }
 
@@ -986,6 +1041,7 @@ export namespace ImportDataSource {
    */
   export const filterSensitiveLog = (obj: ImportDataSource): any => ({
     ...obj,
+    ...(obj.dataSourceConfig && { dataSourceConfig: ImportDataSourceConfig.filterSensitiveLog(obj.dataSourceConfig) }),
   });
 }
 
@@ -1108,6 +1164,7 @@ export namespace TableDataImportJobMetadata {
   export const filterSensitiveLog = (obj: TableDataImportJobMetadata): any => ({
     ...obj,
     ...(obj.submitter && { submitter: ImportJobSubmitter.filterSensitiveLog(obj.submitter) }),
+    ...(obj.dataSource && { dataSource: ImportDataSource.filterSensitiveLog(obj.dataSource) }),
   });
 }
 
@@ -1139,6 +1196,13 @@ export interface DescribeTableDataImportJobResult {
    *         </p>
    */
   jobMetadata: TableDataImportJobMetadata | undefined;
+
+  /**
+   * <p>
+   *             If job status is failed, error code to understand reason for the failure.
+   *         </p>
+   */
+  errorCode?: ErrorCode | string;
 }
 
 export namespace DescribeTableDataImportJobResult {
@@ -1177,7 +1241,7 @@ export interface GetScreenDataRequest {
   workbookId: string | undefined;
 
   /**
-   * <p>The ID of the app that contains the screem.</p>
+   * <p>The ID of the app that contains the screen.</p>
    */
   appId: string | undefined;
 
@@ -1749,6 +1813,38 @@ export namespace ListTablesResult {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The resource's Amazon Resource Name (ARN).</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResult {
+  /**
+   * <p>The resource's tags.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
+    ...obj,
+  });
+}
+
 export interface QueryTableRowsRequest {
   /**
    * <p>The ID of the workbook whose table rows are being queried.</p>
@@ -1903,6 +1999,7 @@ export namespace StartTableDataImportJobRequest {
    */
   export const filterSensitiveLog = (obj: StartTableDataImportJobRequest): any => ({
     ...obj,
+    ...(obj.dataSource && { dataSource: ImportDataSource.filterSensitiveLog(obj.dataSource) }),
   });
 }
 
@@ -1928,6 +2025,70 @@ export namespace StartTableDataImportJobResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartTableDataImportJobResult): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The resource's Amazon Resource Name (ARN).</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of tags to apply to the resource.</p>
+   */
+  tags: { [key: string]: string } | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResult {}
+
+export namespace TagResourceResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The resource's Amazon Resource Name (ARN).</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of tag keys to remove from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResult {}
+
+export namespace UntagResourceResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj,
   });
 }

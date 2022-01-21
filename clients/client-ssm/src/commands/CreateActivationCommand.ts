@@ -29,8 +29,8 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  *    requirements for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
  *     Amazon Web Services Systems Manager for hybrid environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  *          <note>
- *             <p>Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are configured for Systems Manager are all called <i>managed
- *     nodes</i>.</p>
+ *             <p>Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are
+ *     configured for Systems Manager are all called <i>managed nodes</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -26,9 +26,12 @@ import {
   JobPhase,
   KantarWatermarkSettings,
   M2tsSettings,
-  M3u8Settings,
+  M3u8AudioDuration,
+  M3u8DataPtsControl,
+  M3u8NielsenId3,
+  M3u8PcrControl,
+  M3u8Scte35Source,
   MotionImageInserter,
-  MovClapAtom,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
@@ -36,6 +39,125 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+export enum TimedMetadata {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
+/**
+ * These settings relate to the MPEG-2 transport stream (MPEG2-TS) container for the MPEG2-TS segments in your HLS outputs.
+ */
+export interface M3u8Settings {
+  /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   */
+  AudioDuration?: M3u8AudioDuration | string;
+
+  /**
+   * The number of audio frames to insert for each PES packet.
+   */
+  AudioFramesPerPes?: number;
+
+  /**
+   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation.
+   */
+  AudioPids?: number[];
+
+  /**
+   * If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data packets with Presentation Timestamp (PTS) values greater than or equal to the first video packet PTS (MediaConvert drops captions and data packets with lesser PTS values). Keep the default value (AUTO) to allow all PTS values.
+   */
+  DataPTSControl?: M3u8DataPtsControl | string;
+
+  /**
+   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
+   */
+  MaxPcrInterval?: number;
+
+  /**
+   * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   */
+  NielsenId3?: M3u8NielsenId3 | string;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  PatInterval?: number;
+
+  /**
+   * When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   */
+  PcrControl?: M3u8PcrControl | string;
+
+  /**
+   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
+   */
+  PcrPid?: number;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  PmtInterval?: number;
+
+  /**
+   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream.
+   */
+  PmtPid?: number;
+
+  /**
+   * Packet Identifier (PID) of the private metadata stream in the transport stream.
+   */
+  PrivateMetadataPid?: number;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   */
+  ProgramNumber?: number;
+
+  /**
+   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
+   */
+  Scte35Pid?: number;
+
+  /**
+   * For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE) if you don't want manifest conditioning. Choose Passthrough (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml).
+   */
+  Scte35Source?: M3u8Scte35Source | string;
+
+  /**
+   * Applies to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
+   */
+  TimedMetadata?: TimedMetadata | string;
+
+  /**
+   * Packet Identifier (PID) of the timed metadata stream in the transport stream.
+   */
+  TimedMetadataPid?: number;
+
+  /**
+   * The value of the transport stream ID field in the Program Map Table.
+   */
+  TransportStreamId?: number;
+
+  /**
+   * Packet Identifier (PID) of the elementary video stream in the transport stream.
+   */
+  VideoPid?: number;
+}
+
+export namespace M3u8Settings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: M3u8Settings): any => ({
+    ...obj,
+  });
+}
+
+export enum MovClapAtom {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
 
 export enum MovCslgAtom {
   EXCLUDE = "EXCLUDE",
@@ -180,6 +302,11 @@ export enum MpdScte35Source {
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+export enum MpdTimedMetadata {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
 /**
  * These settings relate to the fragmented MP4 container for the segments in your DASH outputs.
  */
@@ -208,6 +335,11 @@ export interface MpdSettings {
    * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
    */
   Scte35Source?: MpdScte35Source | string;
+
+  /**
+   * Applies to DASH outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
+   */
+  TimedMetadata?: MpdTimedMetadata | string;
 }
 
 export namespace MpdSettings {
@@ -458,6 +590,11 @@ export enum Av1AdaptiveQuantization {
   OFF = "OFF",
 }
 
+export enum Av1BitDepth {
+  BIT_10 = "BIT_10",
+  BIT_8 = "BIT_8",
+}
+
 export enum Av1FramerateControl {
   INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
   SPECIFIED = "SPECIFIED",
@@ -510,6 +647,11 @@ export interface Av1Settings {
    * Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to Spatial adaptive quantization (spatialAdaptiveQuantization).
    */
   AdaptiveQuantization?: Av1AdaptiveQuantization | string;
+
+  /**
+   * Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or 10-bit (BIT_10).
+   */
+  BitDepth?: Av1BitDepth | string;
 
   /**
    * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
@@ -1151,6 +1293,7 @@ export namespace H264Settings {
 }
 
 export enum H265AdaptiveQuantization {
+  AUTO = "AUTO",
   HIGH = "HIGH",
   HIGHER = "HIGHER",
   LOW = "LOW",
@@ -1341,7 +1484,7 @@ export enum H265WriteMp4PackagingType {
  */
 export interface H265Settings {
   /**
-   * Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to the following settings: Flicker adaptive quantization (flickerAdaptiveQuantization), Spatial adaptive quantization (spatialAdaptiveQuantization), and Temporal adaptive quantization (temporalAdaptiveQuantization).
+   * When you set Adaptive Quantization (H265AdaptiveQuantization) to Auto (AUTO), or leave blank, MediaConvert automatically applies quantization to improve the video quality of your output. Set Adaptive Quantization to Low (LOW), Medium (MEDIUM), High (HIGH), Higher (HIGHER), or Max (MAX) to manually control the strength of the quantization filter. When you do, you can specify a value for Spatial Adaptive Quantization (H265SpatialAdaptiveQuantization), Temporal Adaptive Quantization (H265TemporalAdaptiveQuantization), and Flicker Adaptive Quantization (H265FlickerAdaptiveQuantization), to further control the quantization filter. Set Adaptive Quantization to Off (OFF) to apply no quantization to your output.
    */
   AdaptiveQuantization?: H265AdaptiveQuantization | string;
 
@@ -5295,141 +5438,6 @@ export namespace TagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceRequest {
-  /**
-   * The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.
-   */
-  Arn: string | undefined;
-
-  /**
-   * The keys of the tags that you want to remove from the resource.
-   */
-  TagKeys?: string[];
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateJobTemplateRequest {
-  /**
-   * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
-   */
-  AccelerationSettings?: AccelerationSettings;
-
-  /**
-   * The new category for the job template, if you are changing it.
-   */
-  Category?: string;
-
-  /**
-   * The new description for the job template, if you are changing it.
-   */
-  Description?: string;
-
-  /**
-   * Optional list of hop destinations.
-   */
-  HopDestinations?: HopDestination[];
-
-  /**
-   * The name of the job template you are modifying
-   */
-  Name: string | undefined;
-
-  /**
-   * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
-   */
-  Priority?: number;
-
-  /**
-   * The new queue for the job template, if you are changing it.
-   */
-  Queue?: string;
-
-  /**
-   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
-   */
-  Settings?: JobTemplateSettings;
-
-  /**
-   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
-   */
-  StatusUpdateInterval?: StatusUpdateInterval | string;
-}
-
-export namespace UpdateJobTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateJobTemplateResponse {
-  /**
-   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
-   */
-  JobTemplate?: JobTemplate;
-}
-
-export namespace UpdateJobTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateJobTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdatePresetRequest {
-  /**
-   * The new category for the preset, if you are changing it.
-   */
-  Category?: string;
-
-  /**
-   * The new description for the preset, if you are changing it.
-   */
-  Description?: string;
-
-  /**
-   * The name of the preset you are modifying.
-   */
-  Name: string | undefined;
-
-  /**
-   * Settings for preset
-   */
-  Settings?: PresetSettings;
-}
-
-export namespace UpdatePresetRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdatePresetRequest): any => ({
     ...obj,
   });
 }

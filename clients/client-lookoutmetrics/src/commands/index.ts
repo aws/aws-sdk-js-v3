@@ -3,6 +3,7 @@ export * from "./BackTestAnomalyDetectorCommand";
 export * from "./CreateAlertCommand";
 export * from "./CreateAnomalyDetectorCommand";
 export * from "./CreateMetricSetCommand";
+export * from "./DeactivateAnomalyDetectorCommand";
 export * from "./DeleteAlertCommand";
 export * from "./DeleteAnomalyDetectorCommand";
 export * from "./DescribeAlertCommand";

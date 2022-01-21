@@ -41,6 +41,11 @@ import {
   CalculateRouteCommandOutput,
 } from "./commands/CalculateRouteCommand";
 import {
+  CalculateRouteMatrixCommand,
+  CalculateRouteMatrixCommandInput,
+  CalculateRouteMatrixCommandOutput,
+} from "./commands/CalculateRouteMatrixCommand";
+import {
   CreateGeofenceCollectionCommand,
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
@@ -504,7 +509,7 @@ export class Location extends LocationClient {
   /**
    * <p>
    *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters:
-   *                 <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that
+   *                 <code>DeparturePosition</code> and <code>DestinationPosition</code>. Requires that
    *             you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
    *                 route calculator resource</a>.</p>
    *         <p>By default, a request that doesn't specify a departure time uses the best time of day
@@ -513,25 +518,23 @@ export class Location extends LocationClient {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or
-   *                         <code>DepartureNow</code>. This calculates a route based on predictive
-   *                     traffic data at the given time. </p>
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">Specifying a departure time</a> using either <code>DepartureTime</code>
+   *                     or <code>DepartNow</code>. This calculates a route based on predictive traffic
+   *                     data at the given time. </p>
    *                 <note>
    *                     <p>You can't specify both <code>DepartureTime</code> and
-   *                             <code>DepartureNow</code> in a single request. Specifying both
-   *                         parameters returns a validation error.</p>
+   *                             <code>DepartNow</code> in a single request. Specifying both parameters
+   *                         returns a validation error.</p>
    *                 </note>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an
-   *                     additional route preference such as <code>CarModeOptions</code> if traveling by
-   *                         <code>Car</code>, or <code>TruckModeOptions</code> if traveling by
-   *                         <code>Truck</code>.</p>
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation
+   *                     mode used to calculate the routes. This also lets you specify additional route
+   *                     preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or
+   *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>
-   *             </p>
    */
   public calculateRoute(
     args: CalculateRouteCommandInput,
@@ -552,6 +555,77 @@ export class Location extends LocationClient {
     cb?: (err: any, data?: CalculateRouteCommandOutput) => void
   ): Promise<CalculateRouteCommandOutput> | void {
     const command = new CalculateRouteCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html"> Calculates a
+   *             route matrix</a> given the following required parameters:
+   *             <code>DeparturePositions</code> and <code>DestinationPositions</code>.
+   *             <code>CalculateRouteMatrix</code> calculates routes and returns the travel time and
+   *             travel distance from each departure position to each destination position in the
+   *             request. For example, given departure positions A and B, and destination positions
+   *             X and Y, <code>CalculateRouteMatrix</code> will return time and distance for routes
+   *             from A to X, A to Y, B to X, and B to Y (in that order). The number of results returned
+   *             (and routes calculated) will be the number of <code>DeparturePositions</code>
+   *             times the number of <code>DestinationPositions</code>.</p>
+   *         <note>
+   *             <p>Your account is charged for each route calculated, not the number of requests.</p>
+   *         </note>
+   *         <p>Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a
+   *             route calculator resource</a>.</p>
+   *         <p>By default, a request that doesn't specify a departure time uses the best time of day
+   *             to travel with the best traffic conditions when calculating routes.</p>
+   *         <p>Additional options include:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html">
+   *                         Specifying a departure time</a> using either <code>DepartureTime</code>
+   *                     or <code>DepartNow</code>. This calculates routes based on predictive traffic
+   *                     data at the given time. </p>
+   *                 <note>
+   *                     <p>You can't specify both <code>DepartureTime</code> and
+   *                             <code>DepartNow</code> in a single request. Specifying both parameters
+   *                         returns a validation error.</p>
+   *                 </note>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <a href="https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html">Specifying a travel mode</a> using TravelMode sets the transportation
+   *                     mode used to calculate the routes. This also lets you specify additional route
+   *                     preferences in <code>CarModeOptions</code> if traveling by <code>Car</code>, or
+   *                         <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  public calculateRouteMatrix(
+    args: CalculateRouteMatrixCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CalculateRouteMatrixCommandOutput>;
+  public calculateRouteMatrix(
+    args: CalculateRouteMatrixCommandInput,
+    cb: (err: any, data?: CalculateRouteMatrixCommandOutput) => void
+  ): void;
+  public calculateRouteMatrix(
+    args: CalculateRouteMatrixCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CalculateRouteMatrixCommandOutput) => void
+  ): void;
+  public calculateRouteMatrix(
+    args: CalculateRouteMatrixCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CalculateRouteMatrixCommandOutput) => void),
+    cb?: (err: any, data?: CalculateRouteMatrixCommandOutput) => void
+  ): Promise<CalculateRouteMatrixCommandOutput> | void {
+    const command = new CalculateRouteMatrixCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -597,6 +671,12 @@ export class Location extends LocationClient {
   /**
    * <p>Creates a map resource in your AWS account, which provides map tiles of different
    *             styles sourced from global location data providers.</p>
+   *         <note>
+   *             <p>If your application is tracking or routing assets you use in your business, such
+   *                 as delivery vehicles or employees, you may only use HERE as your geolocation
+   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+   *                     service terms</a> for more details.</p>
+   *         </note>
    */
   public createMap(args: CreateMapCommandInput, options?: __HttpHandlerOptions): Promise<CreateMapCommandOutput>;
   public createMap(args: CreateMapCommandInput, cb: (err: any, data?: CreateMapCommandOutput) => void): void;
@@ -626,6 +706,12 @@ export class Location extends LocationClient {
    *             geocode addresses and other text queries by using the <code>SearchPlaceIndexForText</code> operation,
    *             and reverse geocode coordinates by using the <code>SearchPlaceIndexForPosition</code> operation, and
    *             enable autosuggestions by using the <code>SearchPlaceIndexForSuggestions</code> operation.</p>
+   *          <note>
+   *             <p>If your application is tracking or routing assets you use in your business, such
+   *             as delivery vehicles or employees, you may only use HERE as your geolocation
+   *             provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+   *                service terms</a> for more details.</p>
+   *          </note>
    */
   public createPlaceIndex(
     args: CreatePlaceIndexCommandInput,
@@ -661,6 +747,12 @@ export class Location extends LocationClient {
    *         <p>You can send requests to a route calculator resource to estimate travel time,
    *             distance, and get directions. A route calculator sources traffic and road network data
    *             from your chosen data provider.</p>
+   *         <note>
+   *             <p>If your application is tracking or routing assets you use in your business, such
+   *                 as delivery vehicles or employees, you may only use HERE as your geolocation
+   *                 provider. See section 82 of the <a href="http://aws.amazon.com/service-terms">AWS
+   *                 service terms</a> for more details.</p>
+   *         </note>
    */
   public createRouteCalculator(
     args: CreateRouteCalculatorCommandInput,

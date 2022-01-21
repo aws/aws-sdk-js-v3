@@ -23,7 +23,7 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
 
 /**
  * <p>Returns a list of publishing destinations associated with the specified
- *         <code>dectectorId</code>.</p>
+ *         <code>detectorId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

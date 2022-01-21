@@ -205,6 +205,7 @@ import {
   PrivateIpAddressDetails,
   ProductCode,
   PublicAccess,
+  RemoteAccountDetails,
   RemoteIpDetails,
   RemotePortDetails,
   Resource,
@@ -6356,6 +6357,10 @@ const deserializeAws_restJson1AwsApiCallAction = (output: any, context: __SerdeC
         ? deserializeAws_restJson1DomainDetails(output.domainDetails, context)
         : undefined,
     ErrorCode: __expectString(output.errorCode),
+    RemoteAccountDetails:
+      output.remoteAccountDetails !== undefined && output.remoteAccountDetails !== null
+        ? deserializeAws_restJson1RemoteAccountDetails(output.remoteAccountDetails, context)
+        : undefined,
     RemoteIpDetails:
       output.remoteIpDetails !== undefined && output.remoteIpDetails !== null
         ? deserializeAws_restJson1RemoteIpDetails(output.remoteIpDetails, context)
@@ -7059,6 +7064,13 @@ const deserializeAws_restJson1PublicAccess = (output: any, context: __SerdeConte
       output.permissionConfiguration !== undefined && output.permissionConfiguration !== null
         ? deserializeAws_restJson1PermissionConfiguration(output.permissionConfiguration, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RemoteAccountDetails = (output: any, context: __SerdeContext): RemoteAccountDetails => {
+  return {
+    AccountId: __expectString(output.accountId),
+    Affiliated: __expectBoolean(output.affiliated),
   } as any;
 };
 

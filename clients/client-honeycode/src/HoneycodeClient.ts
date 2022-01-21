@@ -78,11 +78,17 @@ import {
 import { ListTableColumnsCommandInput, ListTableColumnsCommandOutput } from "./commands/ListTableColumnsCommand";
 import { ListTableRowsCommandInput, ListTableRowsCommandOutput } from "./commands/ListTableRowsCommand";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { QueryTableRowsCommandInput, QueryTableRowsCommandOutput } from "./commands/QueryTableRowsCommand";
 import {
   StartTableDataImportJobCommandInput,
   StartTableDataImportJobCommandOutput,
 } from "./commands/StartTableDataImportJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -96,8 +102,11 @@ export type ServiceInputTypes =
   | ListTableColumnsCommandInput
   | ListTableRowsCommandInput
   | ListTablesCommandInput
+  | ListTagsForResourceCommandInput
   | QueryTableRowsCommandInput
-  | StartTableDataImportJobCommandInput;
+  | StartTableDataImportJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | BatchCreateTableRowsCommandOutput
@@ -110,8 +119,11 @@ export type ServiceOutputTypes =
   | ListTableColumnsCommandOutput
   | ListTableRowsCommandOutput
   | ListTablesCommandOutput
+  | ListTagsForResourceCommandOutput
   | QueryTableRowsCommandOutput
-  | StartTableDataImportJobCommandOutput;
+  | StartTableDataImportJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

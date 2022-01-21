@@ -20,6 +20,7 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
 
 /**
  * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
+ *         <p>Adding FAQs to an index is an asynchronous operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

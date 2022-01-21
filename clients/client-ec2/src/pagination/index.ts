@@ -14,6 +14,7 @@ export * from "./DescribeCoipPoolsPaginator";
 export * from "./DescribeDhcpOptionsPaginator";
 export * from "./DescribeEgressOnlyInternetGatewaysPaginator";
 export * from "./DescribeExportImageTasksPaginator";
+export * from "./DescribeFastLaunchImagesPaginator";
 export * from "./DescribeFastSnapshotRestoresPaginator";
 export * from "./DescribeFleetsPaginator";
 export * from "./DescribeFlowLogsPaginator";

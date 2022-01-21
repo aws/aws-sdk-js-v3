@@ -17664,6 +17664,17 @@ const serializeAws_restJson1InAppTemplateRequest = (input: InAppTemplateRequest,
   };
 };
 
+const serializeAws_restJson1JourneyChannelSettings = (input: JourneyChannelSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.ConnectCampaignArn !== undefined &&
+      input.ConnectCampaignArn !== null && { ConnectCampaignArn: input.ConnectCampaignArn }),
+    ...(input.ConnectCampaignExecutionRoleArn !== undefined &&
+      input.ConnectCampaignExecutionRoleArn !== null && {
+        ConnectCampaignExecutionRoleArn: input.ConnectCampaignExecutionRoleArn,
+      }),
+  };
+};
+
 const serializeAws_restJson1JourneyCustomMessage = (input: JourneyCustomMessage, context: __SerdeContext): any => {
   return {
     ...(input.Data !== undefined && input.Data !== null && { Data: input.Data }),
@@ -18700,6 +18711,10 @@ const serializeAws_restJson1WriteJourneyRequest = (input: WriteJourneyRequest, c
     ...(input.Activities !== undefined &&
       input.Activities !== null && { Activities: serializeAws_restJson1MapOfActivity(input.Activities, context) }),
     ...(input.CreationDate !== undefined && input.CreationDate !== null && { CreationDate: input.CreationDate }),
+    ...(input.JourneyChannelSettings !== undefined &&
+      input.JourneyChannelSettings !== null && {
+        JourneyChannelSettings: serializeAws_restJson1JourneyChannelSettings(input.JourneyChannelSettings, context),
+      }),
     ...(input.LastModifiedDate !== undefined &&
       input.LastModifiedDate !== null && { LastModifiedDate: input.LastModifiedDate }),
     ...(input.Limits !== undefined &&

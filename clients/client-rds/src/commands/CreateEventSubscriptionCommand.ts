@@ -36,10 +36,10 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *             <code>Backup</code>.</p>
  *
  *          <p>If you specify both the <code>SourceType</code> and <code>SourceIds</code>, such as <code>SourceType</code> = <code>db-instance</code>
- *           and <code>SourceIdentifier</code> = <code>myDBInstance1</code>, you are notified of all the <code>db-instance</code> events for
- *           the specified source. If you specify a <code>SourceType</code> but do not specify a <code>SourceIdentifier</code>,
+ *           and <code>SourceIds</code> = <code>myDBInstance1</code>, you are notified of all the <code>db-instance</code> events for
+ *           the specified source. If you specify a <code>SourceType</code> but do not specify <code>SourceIds</code>,
  *           you receive notice of the events for that source type for all your RDS sources. If you
- *           don't specify either the SourceType or the <code>SourceIdentifier</code>, you are notified of events
+ *           don't specify either the SourceType or the <code>SourceIds</code>, you are notified of events
  *           generated from all RDS sources belonging to your customer account.</p>
  *          <note>
  *             <p>RDS event notification is only available for unencrypted SNS topics. If you specify an

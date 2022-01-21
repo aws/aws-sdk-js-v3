@@ -28,7 +28,8 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the high-level patch state for the managed nodes in the specified patch group.</p>
+ * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
+ *    group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

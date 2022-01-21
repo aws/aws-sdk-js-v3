@@ -647,6 +647,82 @@ export namespace DialogAction {
 }
 
 /**
+ * <p>Provides the phrase that Amazon Lex V2 should look for in the user's input
+ *          to the bot.</p>
+ */
+export interface RuntimeHintValue {
+  /**
+   * <p>The phrase that Amazon Lex V2 should look for in the user's input to the
+   *          bot.</p>
+   */
+  phrase: string | undefined;
+}
+
+export namespace RuntimeHintValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuntimeHintValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides an array of phrases that should be given preference when
+ *          resolving values for a slot.</p>
+ */
+export interface RuntimeHintDetails {
+  /**
+   * <p>One or more strings that Amazon Lex V2 should look for in the input to the
+   *          bot. Each phrase is given preference when deciding on slot
+   *          values.</p>
+   */
+  runtimeHintValues: RuntimeHintValue[] | undefined;
+}
+
+export namespace RuntimeHintDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuntimeHintDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You can provide Amazon Lex V2 with hints to the phrases that a customer is
+ *          likely to use for a slot. When a slot with hints is resolved, the
+ *          phrases in the runtime hints are preferred in the resolution. You can
+ *          provide hints for a maximum of 100 intents. You can provide a maximum
+ *          of 100 slots.</p>
+ *          <p>Before you can use runtime hints with an existing bot, you must
+ *          first rebuild the bot.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.xml">Using hints to improve
+ *             accuracy</a>.</p>
+ */
+export interface RuntimeHints {
+  /**
+   * <p>A list of the slots in the intent that should have runtime hints
+   *          added, and the phrases that should be added for each slot.</p>
+   *          <p>The first level of the <code>slotHints</code> map is the name of the
+   *          intent. The second level is the name of the slot within the intent. For
+   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-hints.xml">Using hints to improve
+   *             accuracy</a>.</p>
+   *          <p>The intent name and slot name must exist.</p>
+   */
+  slotHints?: { [key: string]: { [key: string]: RuntimeHintDetails } };
+}
+
+export namespace RuntimeHints {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuntimeHints): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface BadGatewayException extends __SmithyException, $MetadataBearer {
@@ -1365,9 +1441,16 @@ export interface SessionState {
   sessionAttributes?: { [key: string]: string };
 
   /**
-   * <p></p>
+   * <p>A unique identifier for a specific request.</p>
    */
   originatingRequestId?: string;
+
+  /**
+   * <p>Hints for phrases that a customer is likely to use
+   *       for a slot. Amazon Lex V2 uses the hints to help determine the correct
+   *       value of a slot.</p>
+   */
+  runtimeHints?: RuntimeHints;
 }
 
 export namespace SessionState {

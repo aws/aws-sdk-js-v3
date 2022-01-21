@@ -857,7 +857,7 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
  *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
- *          <p>You can connect programmatically to an AWS service by using an endpoint. For a list of Amazon Connect
+ *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect
  *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
  *     Endpoints</a>.</p>
  *          <note>

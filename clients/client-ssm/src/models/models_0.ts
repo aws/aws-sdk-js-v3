@@ -75,8 +75,7 @@ export interface Activation {
   DefaultInstanceName?: string;
 
   /**
-   * <p>The Identity and Access Management (IAM) role to assign to the managed
-   *    node.</p>
+   * <p>The Identity and Access Management (IAM) role to assign to the managed node.</p>
    */
   IamRole?: string;
 
@@ -222,8 +221,8 @@ export interface InvalidResourceId extends __SmithyException, $MetadataBearer {
 }
 
 /**
- * <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance, the
- *    instance must be a registered managed node.</p>
+ * <p>The resource type isn't valid. For example, if you are attempting to tag an EC2 instance,
+ *    the instance must be a registered managed node.</p>
  */
 export interface InvalidResourceType extends __SmithyException, $MetadataBearer {
   name: "InvalidResourceType";
@@ -366,8 +365,8 @@ export interface CancelCommandRequest {
   CommandId: string | undefined;
 
   /**
-   * <p>(Optional) A list of managed node IDs on which you want to cancel the command. If not provided,
-   *    the command is canceled on every node on which it was requested.</p>
+   * <p>(Optional) A list of managed node IDs on which you want to cancel the command. If not
+   *    provided, the command is canceled on every node on which it was requested.</p>
    */
   InstanceIds?: string[];
 }
@@ -569,9 +568,9 @@ export interface CreateActivationRequest {
    *     automatically applied to the on-premises servers or VMs.</p>
    *          </important>
    *          <p>You can't add tags to or delete tags from an existing activation. You can tag your
-   *    on-premises servers, edge devices, and VMs after they connect to Systems Manager for the first time and are assigned a
-   *    managed node ID. This means they are listed in the Amazon Web Services Systems Manager console with an ID that is
-   *    prefixed with "mi-". For information about how to add tags to your managed nodes, see <a>AddTagsToResource</a>. For information about how to remove tags from your managed nodes,
+   *    on-premises servers, edge devices, and VMs after they connect to Systems Manager for the first time and are
+   *    assigned a managed node ID. This means they are listed in the Amazon Web Services Systems Manager console with an ID that
+   *    is prefixed with "mi-". For information about how to add tags to your managed nodes, see <a>AddTagsToResource</a>. For information about how to remove tags from your managed nodes,
    *    see <a>RemoveTagsFromResource</a>.</p>
    */
   Tags?: Tag[];
@@ -894,6 +893,9 @@ export interface CreateAssociationRequest {
   /**
    * <p>The document version you want to associate with the target(s). Can be a specific version or
    *    the default version.</p>
+   *          <important>
+   *             <p>State Manager doesn't support running associations that use a new version of a document if that document is shared from another account. State Manager always runs the <code>default</code> version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed. If you want to run an association using a new version of a document shared form another account, you must set the document version to <code>default</code>.</p>
+   *          </important>
    */
   DocumentVersion?: string;
 
@@ -901,11 +903,11 @@ export interface CreateAssociationRequest {
    * <p>The managed node ID.</p>
    *          <note>
    *             <p>
-   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association,
-   *     use the <code>Targets</code> parameter. Requests that include the
-   *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
-   *     2.0 or later will fail. In addition, if you use the parameter
-   *      <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>,
+   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an
+   *     association, use the <code>Targets</code> parameter. Requests that
+   *     include the parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use
+   *     schema version 2.0 or later will fail. In addition, if you use the
+   *     parameter <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>,
    *      <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>,
    *      <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you
    *     must use the <code>Targets</code> parameter.</p>
@@ -971,8 +973,8 @@ export interface CreateAssociationRequest {
    *    value is 100%, which means all targets run the association at the same time.</p>
    *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new managed node will process its association within the limit specified
-   *    for <code>MaxConcurrency</code>.</p>
+   *    association interval, the new managed node will process its association within the limit
+   *    specified for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
 
@@ -1211,8 +1213,8 @@ export interface AssociationDescription {
    *    value is 100%, which means all targets run the association at the same time.</p>
    *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new managed node will process its association within the limit specified
-   *    for <code>MaxConcurrency</code>.</p>
+   *    association interval, the new managed node will process its association within the limit
+   *    specified for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
 
@@ -1337,8 +1339,8 @@ export interface InvalidTarget extends __SmithyException, $MetadataBearer {
 }
 
 /**
- * <p>The document doesn't support the platform type of the given managed node ID(s). For example, you
- *    sent an document for a Windows managed node to a Linux node.</p>
+ * <p>The document doesn't support the platform type of the given managed node ID(s). For example,
+ *    you sent an document for a Windows managed node to a Linux node.</p>
  */
 export interface UnsupportedPlatformType extends __SmithyException, $MetadataBearer {
   name: "UnsupportedPlatformType";
@@ -1351,8 +1353,8 @@ export interface UnsupportedPlatformType extends __SmithyException, $MetadataBea
  */
 export interface CreateAssociationBatchRequestEntry {
   /**
-   * <p>The name of the SSM document that contains the configuration information for the managed node.
-   *    You can specify Command or Automation runbooks.</p>
+   * <p>The name of the SSM document that contains the configuration information for the managed
+   *    node. You can specify Command or Automation runbooks.</p>
    *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
    *    shared with you from another account.</p>
    *          <p>For SSM documents that are shared with you from other Amazon Web Services accounts, you must specify the
@@ -1375,11 +1377,11 @@ export interface CreateAssociationBatchRequestEntry {
    * <p>The managed node ID.</p>
    *          <note>
    *             <p>
-   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association,
-   *     use the <code>Targets</code> parameter. Requests that include the
-   *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
-   *     2.0 or later will fail. In addition, if you use the parameter
-   *      <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>,
+   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an
+   *     association, use the <code>Targets</code> parameter. Requests that
+   *     include the parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use
+   *     schema version 2.0 or later will fail. In addition, if you use the
+   *     parameter <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>,
    *      <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>,
    *      <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you
    *     must use the <code>Targets</code> parameter.</p>
@@ -1445,8 +1447,8 @@ export interface CreateAssociationBatchRequestEntry {
    *    value is 100%, which means all targets run the association at the same time.</p>
    *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new managed node will process its association within the limit specified
-   *    for <code>MaxConcurrency</code>.</p>
+   *    association interval, the new managed node will process its association within the limit
+   *    specified for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
 
@@ -1943,7 +1945,7 @@ export enum DocumentStatus {
 }
 
 /**
- * <p>Describes a Amazon Web Services Systems Manager document (SSM document). </p>
+ * <p>Describes an Amazon Web Services Systems Manager document (SSM document). </p>
  */
 export interface DocumentDescription {
   /**
@@ -2022,7 +2024,7 @@ export interface DocumentDescription {
   Parameters?: DocumentParameter[];
 
   /**
-   * <p>The list of OS platforms compatible with this SSM document. </p>
+   * <p>The list of operating system (OS) platforms compatible with this SSM document. </p>
    */
   PlatformTypes?: (PlatformType | string)[];
 
@@ -2099,6 +2101,16 @@ export interface DocumentDescription {
    * <p>The current status of the review.</p>
    */
   ReviewStatus?: ReviewStatus | string;
+
+  /**
+   * <p>The classification of a document to help you identify and categorize its use.</p>
+   */
+  Category?: string[];
+
+  /**
+   * <p>The value that identifies a document's category.</p>
+   */
+  CategoryEnum?: string[];
 }
 
 export namespace DocumentDescription {
@@ -2239,8 +2251,8 @@ export interface CreateMaintenanceWindowRequest {
 
   /**
    * <p>Enables a maintenance window task to run on managed nodes, even if you haven't registered
-   *    those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by
-   *    node ID) when you register a task with the maintenance window.</p>
+   *    those nodes as targets. If enabled, then you must specify the unregistered managed nodes (by node
+   *    ID) when you register a task with the maintenance window.</p>
    *          <p>If you don't enable this option, then you must specify previously-registered targets when
    *    you register a task with the maintenance window.</p>
    */
@@ -3343,14 +3355,14 @@ export interface DeleteAssociationRequest {
    * <p>The managed node ID.</p>
    *          <note>
    *             <p>
-   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an association,
-   *     use the <code>Targets</code> parameter. Requests that include the
-   *     parameter <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version
-   *     2.0 or later will fail. In addition, if you use the parameter
-   *      <code>InstanceId</code>, you can't use the parameters <code>AssociationName</code>,
-   *      <code>DocumentVersion</code>, <code>MaxErrors</code>, <code>MaxConcurrency</code>,
-   *      <code>OutputLocation</code>, or <code>ScheduleExpression</code>. To use these parameters, you
-   *     must use the <code>Targets</code> parameter.</p>
+   *                <code>InstanceId</code> has been deprecated. To specify a managed node ID for an
+   *     association, use the <code>Targets</code> parameter. Requests that include the parameter
+   *      <code>InstanceID</code> with Systems Manager documents (SSM documents) that use schema version 2.0 or
+   *     later will fail. In addition, if you use the parameter <code>InstanceId</code>, you can't use
+   *     the parameters <code>AssociationName</code>, <code>DocumentVersion</code>,
+   *      <code>MaxErrors</code>, <code>MaxConcurrency</code>, <code>OutputLocation</code>, or
+   *      <code>ScheduleExpression</code>. To use these parameters, you must use the <code>Targets</code>
+   *     parameter.</p>
    *          </note>
    */
   InstanceId?: string;
@@ -4131,8 +4143,8 @@ export interface DescribeAssociationRequest {
   /**
    * <p>Specify the association version to retrieve. To view the latest version, either specify
    *     <code>$LATEST</code> for this parameter, or omit this parameter. To view a list of all
-   *    associations for a managed node, use <a>ListAssociations</a>. To get a list of versions
-   *    for a specific association, use <a>ListAssociationVersions</a>. </p>
+   *    associations for a managed node, use <a>ListAssociations</a>. To get a list of
+   *    versions for a specific association, use <a>ListAssociationVersions</a>. </p>
    */
   AssociationVersion?: string;
 }
@@ -6181,8 +6193,8 @@ export namespace InstanceInformationFilter {
 export interface DescribeInstanceInformationRequest {
   /**
    * <p>This is a legacy method. We recommend that you don't use this method. Instead, use the
-   *     <code>Filters</code> data type. <code>Filters</code> enables you to return node information
-   *    by filtering based on tags applied to managed nodes.</p>
+   *     <code>Filters</code> data type. <code>Filters</code> enables you to return node information by
+   *    filtering based on tags applied to managed nodes.</p>
    *          <note>
    *             <p>Attempting to use <code>InstanceInformationFilterList</code> and <code>Filters</code> leads
    *     to an exception error. </p>
@@ -6515,8 +6527,8 @@ export enum PatchComplianceDataState {
 }
 
 /**
- * <p>Information about the state of a patch on a particular managed node as it relates to the patch
- *    baseline used to patch the node.</p>
+ * <p>Information about the state of a patch on a particular managed node as it relates to the
+ *    patch baseline used to patch the node.</p>
  */
 export interface PatchComplianceData {
   /**
@@ -6703,8 +6715,8 @@ export interface InstancePatchState {
   InstalledCount?: number;
 
   /**
-   * <p>The number of patches not specified in the patch baseline that are installed on the
-   *    managed node.</p>
+   * <p>The number of patches not specified in the patch baseline that are installed on the managed
+   *    node.</p>
    */
   InstalledOtherCount?: number;
 
@@ -6745,8 +6757,8 @@ export interface InstancePatchState {
   UnreportedNotApplicableCount?: number;
 
   /**
-   * <p>The number of patches from the patch baseline that aren't applicable for the managed node and
-   *    therefore aren't installed on the node. This number may be truncated if the list of patch
+   * <p>The number of patches from the patch baseline that aren't applicable for the managed node
+   *    and therefore aren't installed on the node. This number may be truncated if the list of patch
    *    names is very large. The number of patches beyond this limit are reported in
    *     <code>UnreportedNotApplicableCount</code>.</p>
    */
@@ -6778,8 +6790,8 @@ export interface InstancePatchState {
   Operation: PatchOperationType | string | undefined;
 
   /**
-   * <p>The time of the last attempt to patch the managed node with <code>NoReboot</code> specified as
-   *    the reboot option.</p>
+   * <p>The time of the last attempt to patch the managed node with <code>NoReboot</code> specified
+   *    as the reboot option.</p>
    */
   LastNoRebootInstallOperationTime?: Date;
 
@@ -6792,8 +6804,8 @@ export interface InstancePatchState {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>RebootIfNeeded</code>: Patch Manager tries to reboot the managed node if it installed
-   *      any patches, or if any patches are detected with a status of
+   *                   <code>RebootIfNeeded</code>: Patch Manager tries to reboot the managed node if it
+   *      installed any patches, or if any patches are detected with a status of
    *       <code>InstalledPendingReboot</code>.</p>
    *             </li>
    *             <li>
@@ -6810,16 +6822,16 @@ export interface InstancePatchState {
   /**
    * <p>The number of managed nodes where patches that are specified as <code>Critical</code> for
    *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
-   *    failed installation, were rejected, or were installed but awaiting a required managed node reboot.
-   *    The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   *    failed installation, were rejected, or were installed but awaiting a required managed node
+   *    reboot. The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   CriticalNonCompliantCount?: number;
 
   /**
    * <p>The number of managed nodes where patches that are specified as <code>Security</code> in a
    *    patch advisory aren't installed. These patches might be missing, have failed installation, were
-   *    rejected, or were installed but awaiting a required managed node reboot. The status of these managed
-   *    nodes is <code>NON_COMPLIANT</code>.</p>
+   *    rejected, or were installed but awaiting a required managed node reboot. The status of these
+   *    managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   SecurityNonCompliantCount?: number;
 
@@ -8073,8 +8085,8 @@ export enum MaintenanceWindowTaskCutoffBehavior {
 }
 
 /**
- * <p>Information about an Amazon Simple Storage Service (Amazon S3) bucket to write
- *    managed node-level logs to.</p>
+ * <p>Information about an Amazon Simple Storage Service (Amazon S3) bucket to write managed
+ *    node-level logs to.</p>
  *          <note>
  *             <p>
  *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the

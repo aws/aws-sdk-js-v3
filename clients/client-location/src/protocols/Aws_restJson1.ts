@@ -49,6 +49,10 @@ import {
 } from "../commands/BatchUpdateDevicePositionCommand";
 import { CalculateRouteCommandInput, CalculateRouteCommandOutput } from "../commands/CalculateRouteCommand";
 import {
+  CalculateRouteMatrixCommandInput,
+  CalculateRouteMatrixCommandOutput,
+} from "../commands/CalculateRouteMatrixCommand";
+import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "../commands/CreateGeofenceCollectionCommand";
@@ -160,6 +164,7 @@ import {
   BatchPutGeofenceSuccess,
   BatchUpdateDevicePositionError,
   CalculateRouteCarModeOptions,
+  CalculateRouteMatrixSummary,
   CalculateRouteSummary,
   CalculateRouteTruckModeOptions,
   ConflictException,
@@ -182,6 +187,8 @@ import {
   PlaceGeometry,
   PositionalAccuracy,
   ResourceNotFoundException,
+  RouteMatrixEntry,
+  RouteMatrixEntryError,
   SearchForPositionResult,
   SearchForSuggestionsResult,
   SearchForTextResult,
@@ -550,6 +557,68 @@ export const serializeAws_restJson1CalculateRouteCommand = async (
     ...(input.WaypointPositions !== undefined &&
       input.WaypointPositions !== null && {
         WaypointPositions: serializeAws_restJson1WaypointPositionList(input.WaypointPositions, context),
+      }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "routes." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CalculateRouteMatrixCommand = async (
+  input: CalculateRouteMatrixCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/routes/v0/calculators/{CalculatorName}/calculate/route-matrix";
+  if (input.CalculatorName !== undefined) {
+    const labelValue: string = input.CalculatorName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: CalculatorName.");
+    }
+    resolvedPath = resolvedPath.replace("{CalculatorName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: CalculatorName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.CarModeOptions !== undefined &&
+      input.CarModeOptions !== null && {
+        CarModeOptions: serializeAws_restJson1CalculateRouteCarModeOptions(input.CarModeOptions, context),
+      }),
+    ...(input.DepartNow !== undefined && input.DepartNow !== null && { DepartNow: input.DepartNow }),
+    ...(input.DeparturePositions !== undefined &&
+      input.DeparturePositions !== null && {
+        DeparturePositions: serializeAws_restJson1PositionList(input.DeparturePositions, context),
+      }),
+    ...(input.DepartureTime !== undefined &&
+      input.DepartureTime !== null && { DepartureTime: input.DepartureTime.toISOString().split(".")[0] + "Z" }),
+    ...(input.DestinationPositions !== undefined &&
+      input.DestinationPositions !== null && {
+        DestinationPositions: serializeAws_restJson1PositionList(input.DestinationPositions, context),
+      }),
+    ...(input.DistanceUnit !== undefined && input.DistanceUnit !== null && { DistanceUnit: input.DistanceUnit }),
+    ...(input.TravelMode !== undefined && input.TravelMode !== null && { TravelMode: input.TravelMode }),
+    ...(input.TruckModeOptions !== undefined &&
+      input.TruckModeOptions !== null && {
+        TruckModeOptions: serializeAws_restJson1CalculateRouteTruckModeOptions(input.TruckModeOptions, context),
       }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3000,6 +3069,108 @@ const deserializeAws_restJson1CalculateRouteCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CalculateRouteCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.location#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.location#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.location#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.location#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.location#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CalculateRouteMatrixCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CalculateRouteMatrixCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CalculateRouteMatrixCommandError(output, context);
+  }
+  const contents: CalculateRouteMatrixCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    RouteMatrix: undefined,
+    SnappedDeparturePositions: undefined,
+    SnappedDestinationPositions: undefined,
+    Summary: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RouteMatrix !== undefined && data.RouteMatrix !== null) {
+    contents.RouteMatrix = deserializeAws_restJson1RouteMatrix(data.RouteMatrix, context);
+  }
+  if (data.SnappedDeparturePositions !== undefined && data.SnappedDeparturePositions !== null) {
+    contents.SnappedDeparturePositions = deserializeAws_restJson1PositionList(data.SnappedDeparturePositions, context);
+  }
+  if (data.SnappedDestinationPositions !== undefined && data.SnappedDestinationPositions !== null) {
+    contents.SnappedDestinationPositions = deserializeAws_restJson1PositionList(
+      data.SnappedDestinationPositions,
+      context
+    );
+  }
+  if (data.Summary !== undefined && data.Summary !== null) {
+    contents.Summary = deserializeAws_restJson1CalculateRouteMatrixSummary(data.Summary, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CalculateRouteMatrixCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CalculateRouteMatrixCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -7391,6 +7562,17 @@ const serializeAws_restJson1PositionalAccuracy = (input: PositionalAccuracy, con
   };
 };
 
+const serializeAws_restJson1PositionList = (input: number[][], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Position(entry, context);
+    });
+};
+
 const serializeAws_restJson1PropertyMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -7667,6 +7849,18 @@ const deserializeAws_restJson1BoundingBox = (output: any, context: __SerdeContex
       }
       return __limitedParseDouble(entry) as any;
     });
+};
+
+const deserializeAws_restJson1CalculateRouteMatrixSummary = (
+  output: any,
+  context: __SerdeContext
+): CalculateRouteMatrixSummary => {
+  return {
+    DataSource: __expectString(output.DataSource),
+    DistanceUnit: __expectString(output.DistanceUnit),
+    ErrorCount: __expectInt32(output.ErrorCount),
+    RouteCount: __expectInt32(output.RouteCount),
+  } as any;
 };
 
 const deserializeAws_restJson1CalculateRouteSummary = (output: any, context: __SerdeContext): CalculateRouteSummary => {
@@ -8121,6 +8315,17 @@ const deserializeAws_restJson1PositionalAccuracy = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1PositionList = (output: any, context: __SerdeContext): number[][] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Position(entry, context);
+    });
+};
+
 const deserializeAws_restJson1PropertyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
   return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -8131,6 +8336,46 @@ const deserializeAws_restJson1PropertyMap = (output: any, context: __SerdeContex
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1RouteMatrix = (output: any, context: __SerdeContext): RouteMatrixEntry[][] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RouteMatrixRow(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RouteMatrixEntry = (output: any, context: __SerdeContext): RouteMatrixEntry => {
+  return {
+    Distance: __limitedParseDouble(output.Distance),
+    DurationSeconds: __limitedParseDouble(output.DurationSeconds),
+    Error:
+      output.Error !== undefined && output.Error !== null
+        ? deserializeAws_restJson1RouteMatrixEntryError(output.Error, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RouteMatrixEntryError = (output: any, context: __SerdeContext): RouteMatrixEntryError => {
+  return {
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_restJson1RouteMatrixRow = (output: any, context: __SerdeContext): RouteMatrixEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RouteMatrixEntry(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SearchForPositionResult = (

@@ -24,7 +24,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disables an AWS account within the Organization as the GuardDuty delegated
+ * <p>Disables an Amazon Web Services account within the Organization as the GuardDuty delegated
  *       administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -72,6 +72,10 @@ import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./comma
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
 import { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "./commands/DeleteBotLocaleCommand";
 import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand";
+import {
+  DeleteCustomVocabularyCommandInput,
+  DeleteCustomVocabularyCommandOutput,
+} from "./commands/DeleteCustomVocabularyCommand";
 import { DeleteExportCommandInput, DeleteExportCommandOutput } from "./commands/DeleteExportCommand";
 import { DeleteImportCommandInput, DeleteImportCommandOutput } from "./commands/DeleteImportCommand";
 import { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "./commands/DeleteIntentCommand";
@@ -94,6 +98,10 @@ import {
   DescribeBotRecommendationCommandOutput,
 } from "./commands/DescribeBotRecommendationCommand";
 import { DescribeBotVersionCommandInput, DescribeBotVersionCommandOutput } from "./commands/DescribeBotVersionCommand";
+import {
+  DescribeCustomVocabularyMetadataCommandInput,
+  DescribeCustomVocabularyMetadataCommandOutput,
+} from "./commands/DescribeCustomVocabularyMetadataCommand";
 import { DescribeExportCommandInput, DescribeExportCommandOutput } from "./commands/DescribeExportCommand";
 import { DescribeImportCommandInput, DescribeImportCommandOutput } from "./commands/DescribeImportCommand";
 import { DescribeIntentCommandInput, DescribeIntentCommandOutput } from "./commands/DescribeIntentCommand";
@@ -178,6 +186,7 @@ export type ServiceInputTypes =
   | DeleteBotCommandInput
   | DeleteBotLocaleCommandInput
   | DeleteBotVersionCommandInput
+  | DeleteCustomVocabularyCommandInput
   | DeleteExportCommandInput
   | DeleteImportCommandInput
   | DeleteIntentCommandInput
@@ -191,6 +200,7 @@ export type ServiceInputTypes =
   | DescribeBotLocaleCommandInput
   | DescribeBotRecommendationCommandInput
   | DescribeBotVersionCommandInput
+  | DescribeCustomVocabularyMetadataCommandInput
   | DescribeExportCommandInput
   | DescribeImportCommandInput
   | DescribeIntentCommandInput
@@ -244,6 +254,7 @@ export type ServiceOutputTypes =
   | DeleteBotCommandOutput
   | DeleteBotLocaleCommandOutput
   | DeleteBotVersionCommandOutput
+  | DeleteCustomVocabularyCommandOutput
   | DeleteExportCommandOutput
   | DeleteImportCommandOutput
   | DeleteIntentCommandOutput
@@ -257,6 +268,7 @@ export type ServiceOutputTypes =
   | DescribeBotLocaleCommandOutput
   | DescribeBotRecommendationCommandOutput
   | DescribeBotVersionCommandOutput
+  | DescribeCustomVocabularyMetadataCommandOutput
   | DescribeExportCommandOutput
   | DescribeImportCommandOutput
   | DescribeIntentCommandOutput

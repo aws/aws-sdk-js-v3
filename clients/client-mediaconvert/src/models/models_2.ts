@@ -1,4 +1,149 @@
-import { Preset, Queue, QueueStatus, ReservationPlanSettings } from "./models_1";
+import { AccelerationSettings, HopDestination } from "./models_0";
+import {
+  JobTemplate,
+  JobTemplateSettings,
+  Preset,
+  PresetSettings,
+  Queue,
+  QueueStatus,
+  ReservationPlanSettings,
+  StatusUpdateInterval,
+} from "./models_1";
+
+export interface UntagResourceRequest {
+  /**
+   * The Amazon Resource Name (ARN) of the resource that you want to remove tags from. To get the ARN, send a GET request with the resource name.
+   */
+  Arn: string | undefined;
+
+  /**
+   * The keys of the tags that you want to remove from the resource.
+   */
+  TagKeys?: string[];
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateJobTemplateRequest {
+  /**
+   * Accelerated transcoding can significantly speed up jobs with long, visually complex content. Outputs that use this feature incur pro-tier pricing. For information about feature limitations, see the AWS Elemental MediaConvert User Guide.
+   */
+  AccelerationSettings?: AccelerationSettings;
+
+  /**
+   * The new category for the job template, if you are changing it.
+   */
+  Category?: string;
+
+  /**
+   * The new description for the job template, if you are changing it.
+   */
+  Description?: string;
+
+  /**
+   * Optional list of hop destinations.
+   */
+  HopDestinations?: HopDestination[];
+
+  /**
+   * The name of the job template you are modifying
+   */
+  Name: string | undefined;
+
+  /**
+   * Specify the relative priority for this job. In any given queue, the service begins processing the job with the highest value first. When more than one job has the same priority, the service begins processing the job that you submitted first. If you don't specify a priority, the service uses the default value 0.
+   */
+  Priority?: number;
+
+  /**
+   * The new queue for the job template, if you are changing it.
+   */
+  Queue?: string;
+
+  /**
+   * JobTemplateSettings contains all the transcode settings saved in the template that will be applied to jobs created from it.
+   */
+  Settings?: JobTemplateSettings;
+
+  /**
+   * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between status updates. MediaConvert sends an update at this interval from the time the service begins processing your job to the time it completes the transcode or encounters an error.
+   */
+  StatusUpdateInterval?: StatusUpdateInterval | string;
+}
+
+export namespace UpdateJobTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateJobTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateJobTemplateResponse {
+  /**
+   * A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
+   */
+  JobTemplate?: JobTemplate;
+}
+
+export namespace UpdateJobTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateJobTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePresetRequest {
+  /**
+   * The new category for the preset, if you are changing it.
+   */
+  Category?: string;
+
+  /**
+   * The new description for the preset, if you are changing it.
+   */
+  Description?: string;
+
+  /**
+   * The name of the preset you are modifying.
+   */
+  Name: string | undefined;
+
+  /**
+   * Settings for preset
+   */
+  Settings?: PresetSettings;
+}
+
+export namespace UpdatePresetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdatePresetRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdatePresetResponse {
   /**

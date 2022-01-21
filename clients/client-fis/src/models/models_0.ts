@@ -44,8 +44,8 @@ export namespace ActionTarget {
 }
 
 /**
- * <p>Describes an action. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">AWS FIS actions</a>
- *          in the <i>AWS Fault Injection Simulator User Guide</i>.</p>
+ * <p>Describes an action. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">FIS actions</a>
+ *          in the <i>Fault Injection Simulator User Guide</i>.</p>
  */
 export interface Action {
   /**
@@ -128,10 +128,12 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 
 /**
  * <p>Specifies an action for an experiment template.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/actions.html">Actions</a>
+ *          in the <i>Fault Injection Simulator User Guide</i>.</p>
  */
 export interface CreateExperimentTemplateActionInput {
   /**
-   * <p>The ID of the action.</p>
+   * <p>The ID of the action. The format of the action ID is: aws:<i>service-name</i>:<i>action-type</i>.</p>
    */
   actionId: string | undefined;
 
@@ -193,7 +195,9 @@ export namespace CreateExperimentTemplateStopConditionInput {
 }
 
 /**
- * <p>Describes a filter used for the target resource input in an experiment template.</p>
+ * <p>Specifies a filter used for the target resource input in an experiment template.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters">Resource filters</a>
+ *          in the <i>Fault Injection Simulator User Guide</i>.</p>
  */
 export interface ExperimentTemplateTargetInputFilter {
   /**
@@ -219,10 +223,12 @@ export namespace ExperimentTemplateTargetInputFilter {
 /**
  * <p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or
  *          at least one resource tag. You cannot specify both ARNs and tags.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html">Targets</a>
+ *          in the <i>Fault Injection Simulator User Guide</i>.</p>
  */
 export interface CreateExperimentTemplateTargetInput {
   /**
-   * <p>The AWS resource type. The resource type must be supported for the specified action.</p>
+   * <p>The Amazon Web Services resource type. The resource type must be supported for the specified action.</p>
    */
   resourceType: string | undefined;
 
@@ -276,7 +282,7 @@ export interface CreateExperimentTemplateRequest {
   clientToken?: string;
 
   /**
-   * <p>A description for the experiment template. Can contain up to 64 letters (A-Z and a-z).</p>
+   * <p>A description for the experiment template.</p>
    */
   description: string | undefined;
 
@@ -296,7 +302,7 @@ export interface CreateExperimentTemplateRequest {
   actions: { [key: string]: CreateExperimentTemplateActionInput } | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
    */
   roleArn: string | undefined;
 
@@ -643,6 +649,16 @@ export interface ExperimentAction {
    * <p>The state of the action.</p>
    */
   state?: ExperimentActionState;
+
+  /**
+   * <p>The time that the action started.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * <p>The time that the action ended.</p>
+   */
+  endTime?: Date;
 }
 
 export namespace ExperimentAction {
@@ -790,7 +806,7 @@ export interface Experiment {
   experimentTemplateId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
    */
   roleArn?: string;
 
@@ -815,12 +831,12 @@ export interface Experiment {
   stopConditions?: ExperimentStopCondition[];
 
   /**
-   * <p>The time the experiment was created.</p>
+   * <p>The time that the experiment was created.</p>
    */
   creationTime?: Date;
 
   /**
-   * <p>The time that the experiment was started.</p>
+   * <p>The time that the experiment started.</p>
    */
   startTime?: Date;
 
@@ -1384,7 +1400,7 @@ export namespace UpdateExperimentTemplateStopConditionInput {
  */
 export interface UpdateExperimentTemplateTargetInput {
   /**
-   * <p>The AWS resource type. The resource type must be supported for the specified action.</p>
+   * <p>The Amazon Web Services resource type. The resource type must be supported for the specified action.</p>
    */
   resourceType: string | undefined;
 
@@ -1445,7 +1461,7 @@ export interface UpdateExperimentTemplateRequest {
   actions?: { [key: string]: UpdateExperimentTemplateActionInputItem };
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
    */
   roleArn?: string;
 }

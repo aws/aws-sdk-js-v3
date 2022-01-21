@@ -352,14 +352,12 @@ export enum StreamingSessionStorageMode {
  */
 export interface StreamingSessionStorageRoot {
   /**
-   * <p>The folder path in Linux workstations where files are uploaded. The default path is
-   *                 <code>$HOME/Downloads</code>.</p>
+   * <p>The folder path in Linux workstations where files are uploaded.</p>
    */
   linux?: string;
 
   /**
-   * <p>The folder path in Windows workstations where files are uploaded. The default path is
-   *                 <code>%HOMEPATH%\Downloads</code>.</p>
+   * <p>The folder path in Windows workstations where files are uploaded.</p>
    */
   windows?: string;
 }
@@ -435,13 +433,14 @@ export interface StreamConfigurationCreate {
    * <p>Integer that determines if you can start and stop your sessions and how long a session
    *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
    *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-   *             StopStreamingSession, the session fails. If the time that a session stays in the READY
-   *             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-   *             terminated by AWS (instead of stopped).</p>
+   *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
+   *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+   *             session will automatically be terminated by AWS (instead of stopped).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
-   *             StopStreamingSession to stop sessions in the READY state. If the time that a session
-   *             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-   *             automatically be stopped by AWS (instead of terminated).</p>
+   *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+   *             that a session stays in the READY state exceeds the
+   *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+   *             stopped by AWS (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
@@ -592,13 +591,14 @@ export interface StreamConfiguration {
    * <p>Integer that determines if you can start and stop your sessions and how long a session
    *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
    *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-   *             StopStreamingSession, the session fails. If the time that a session stays in the READY
-   *             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
-   *             terminated by AWS (instead of stopped).</p>
+   *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
+   *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
+   *             session will automatically be terminated by AWS (instead of stopped).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
-   *             StopStreamingSession to stop sessions in the READY state. If the time that a session
-   *             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
-   *             automatically be stopped by AWS (instead of terminated).</p>
+   *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
+   *             that a session stays in the READY state exceeds the
+   *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
+   *             stopped by AWS (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
@@ -617,6 +617,68 @@ export namespace StreamConfiguration {
     ...(obj.sessionStorage && {
       sessionStorage: StreamConfigurationSessionStorage.filterSensitiveLog(obj.sessionStorage),
     }),
+  });
+}
+
+export enum LaunchProfileValidationState {
+  VALIDATION_FAILED = "VALIDATION_FAILED",
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
+}
+
+export enum LaunchProfileValidationStatusCode {
+  VALIDATION_FAILED_INTERNAL_SERVER_ERROR = "VALIDATION_FAILED_INTERNAL_SERVER_ERROR",
+  VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY = "VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY",
+  VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION = "VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION",
+  VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION = "VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION",
+  VALIDATION_FAILED_SUBNET_NOT_FOUND = "VALIDATION_FAILED_SUBNET_NOT_FOUND",
+  VALIDATION_FAILED_UNAUTHORIZED = "VALIDATION_FAILED_UNAUTHORIZED",
+  VALIDATION_IN_PROGRESS = "VALIDATION_IN_PROGRESS",
+  VALIDATION_NOT_STARTED = "VALIDATION_NOT_STARTED",
+  VALIDATION_SUCCESS = "VALIDATION_SUCCESS",
+}
+
+export enum LaunchProfileValidationType {
+  VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT = "VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT",
+  VALIDATE_NETWORK_ACL_ASSOCIATION = "VALIDATE_NETWORK_ACL_ASSOCIATION",
+  VALIDATE_SECURITY_GROUP_ASSOCIATION = "VALIDATE_SECURITY_GROUP_ASSOCIATION",
+  VALIDATE_SUBNET_ASSOCIATION = "VALIDATE_SUBNET_ASSOCIATION",
+}
+
+/**
+ * <p>The launch profile validation result.</p>
+ */
+export interface ValidationResult {
+  /**
+   * <p>The type of the validation result.</p>
+   */
+  type: LaunchProfileValidationType | string | undefined;
+
+  /**
+   * <p>The current state.</p>
+   */
+  state: LaunchProfileValidationState | string | undefined;
+
+  /**
+   * <p>The status code. This will contain the failure reason if the state is
+   *                 <code>VALIDATION_FAILED</code>.</p>
+   */
+  statusCode: LaunchProfileValidationStatusCode | string | undefined;
+
+  /**
+   * <p>The status message for the validation result.</p>
+   */
+  statusMessage: string | undefined;
+}
+
+export namespace ValidationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationResult): any => ({
+    ...obj,
   });
 }
 
@@ -713,6 +775,11 @@ export interface LaunchProfile {
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
+
+  /**
+   * <p>The list of the latest validation results.</p>
+   */
+  validationResults?: ValidationResult[];
 }
 
 export namespace LaunchProfile {
@@ -968,7 +1035,9 @@ export interface CreateStreamingSessionRequest {
   launchProfileId?: string;
 
   /**
-   * <p>The user ID of the user that owns the streaming session.</p>
+   * <p>The user ID of the user that owns the streaming session. The user that owns the
+   *             session will be logging into the session and interacting with the virtual
+   *             workstation.</p>
    */
   ownedBy?: string;
 
@@ -1014,6 +1083,7 @@ export enum StreamingSessionState {
 
 export enum StreamingSessionStatusCode {
   ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR = "ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR",
+  AMI_VALIDATION_ERROR = "AMI_VALIDATION_ERROR",
   DECRYPT_STREAMING_IMAGE_ERROR = "DECRYPT_STREAMING_IMAGE_ERROR",
   INITIALIZATION_SCRIPT_ERROR = "INITIALIZATION_SCRIPT_ERROR",
   INSUFFICIENT_CAPACITY = "INSUFFICIENT_CAPACITY",
@@ -1061,7 +1131,9 @@ export interface StreamingSession {
   launchProfileId?: string;
 
   /**
-   * <p>The user ID of the user that owns the streaming session.</p>
+   * <p>The user ID of the user that owns the streaming session. The user that owns the
+   *             session will be logging into the session and interacting with the virtual
+   *             workstation.</p>
    */
   ownedBy?: string;
 
@@ -1238,7 +1310,9 @@ export interface StreamingSessionStream {
   expiresAt?: Date;
 
   /**
-   * <p>The user ID of the user that owns the streaming session.</p>
+   * <p>The user ID of the user that owns the streaming session. The user that owns the
+   *             session will be logging into the session and interacting with the virtual
+   *             workstation.</p>
    */
   ownedBy?: string;
 
@@ -3259,7 +3333,7 @@ export interface ListLaunchProfilesRequest {
   /**
    * <p>Filter this request to launch profiles in any of the given states.</p>
    */
-  states?: string[];
+  states?: (LaunchProfileState | string)[];
 
   /**
    * <p>The studio ID. </p>
@@ -3625,7 +3699,7 @@ export interface ListStudioComponentsRequest {
   /**
    * <p>Filters the request to studio components that are in one of the given states. </p>
    */
-  states?: string[];
+  states?: (StudioComponentState | string)[];
 
   /**
    * <p>The studio ID. </p>
@@ -3635,7 +3709,7 @@ export interface ListStudioComponentsRequest {
   /**
    * <p>Filters the request to studio components that are of one of the given types.</p>
    */
-  types?: string[];
+  types?: (StudioComponentType | string)[];
 }
 
 export namespace ListStudioComponentsRequest {

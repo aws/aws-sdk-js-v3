@@ -463,6 +463,40 @@ export namespace ClientPropertiesResult {
 }
 
 /**
+ * <p>Describes an Amazon Connect client add-in.</p>
+ */
+export interface ConnectClientAddIn {
+  /**
+   * <p>The client add-in identifier.</p>
+   */
+  AddInId?: string;
+
+  /**
+   * <p>The directory identifier for which the client add-in is configured.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The name of the client add in.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The endpoint URL of the client add-in.</p>
+   */
+  URL?: string;
+}
+
+export namespace ConnectClientAddIn {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectClientAddIn): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a connection alias association that is used for cross-Region redirection. For more information, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
  *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
@@ -681,6 +715,57 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
   ResourceId?: string;
 }
 
+export interface CreateConnectClientAddInRequest {
+  /**
+   * <p>The directory identifier for which to configure the client add-in.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The name of the client add-in.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The endpoint URL of the Amazon Connect client add-in.</p>
+   */
+  URL: string | undefined;
+}
+
+export namespace CreateConnectClientAddInRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateConnectClientAddInRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateConnectClientAddInResult {
+  /**
+   * <p>The client add-in identifier.</p>
+   */
+  AddInId?: string;
+}
+
+export namespace CreateConnectClientAddInResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateConnectClientAddInResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource could not be created.</p>
+ */
+export interface ResourceCreationFailedException extends __SmithyException, $MetadataBearer {
+  name: "ResourceCreationFailedException";
+  $fault: "client";
+  message?: string;
+}
+
 export interface CreateConnectionAliasRequest {
   /**
    * <p>A connection string in the form of a fully qualified domain name (FQDN), such as <code>www.example.com</code>.</p>
@@ -769,15 +854,6 @@ export namespace CreateIpGroupResult {
   export const filterSensitiveLog = (obj: CreateIpGroupResult): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The resource could not be created.</p>
- */
-export interface ResourceCreationFailedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceCreationFailedException";
-  $fault: "client";
-  message?: string;
 }
 
 export interface CreateTagsRequest {
@@ -1324,6 +1400,38 @@ export namespace DefaultWorkspaceCreationProperties {
   });
 }
 
+export interface DeleteConnectClientAddInRequest {
+  /**
+   * <p>The identifier of the client add-in to delete.</p>
+   */
+  AddInId: string | undefined;
+
+  /**
+   * <p>The directory identifier for which the client add-in is configured.</p>
+   */
+  ResourceId: string | undefined;
+}
+
+export namespace DeleteConnectClientAddInRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteConnectClientAddInRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteConnectClientAddInResult {}
+
+export namespace DeleteConnectClientAddInResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteConnectClientAddInResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteConnectionAliasRequest {
   /**
    * <p>The identifier of the connection alias to delete.</p>
@@ -1597,6 +1705,55 @@ export namespace DescribeClientPropertiesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeClientPropertiesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeConnectClientAddInsRequest {
+  /**
+   * <p>The directory identifier for which the client add-in is configured.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated,
+   *          provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeConnectClientAddInsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeConnectClientAddInsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeConnectClientAddInsResult {
+  /**
+   * <p>Information about client add-ins.</p>
+   */
+  AddIns?: ConnectClientAddIn[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are
+   *          no more results to return. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeConnectClientAddInsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeConnectClientAddInsResult): any => ({
     ...obj,
   });
 }
@@ -3607,6 +3764,48 @@ export namespace TerminateWorkspacesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: TerminateWorkspacesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConnectClientAddInRequest {
+  /**
+   * <p>The identifier of the client add-in to update.</p>
+   */
+  AddInId: string | undefined;
+
+  /**
+   * <p>The directory identifier for which the client add-in is configured.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The name of the client add-in.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The endpoint URL of the Amazon Connect client add-in.</p>
+   */
+  URL?: string;
+}
+
+export namespace UpdateConnectClientAddInRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectClientAddInRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateConnectClientAddInResult {}
+
+export namespace UpdateConnectClientAddInResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateConnectClientAddInResult): any => ({
     ...obj,
   });
 }

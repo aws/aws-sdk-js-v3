@@ -1930,6 +1930,11 @@ export interface CreateUserHierarchyGroupRequest {
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateUserHierarchyGroupRequest {
@@ -3512,6 +3517,11 @@ export interface HierarchyGroup {
    * <p>Information about the levels in the hierarchy group.</p>
    */
   HierarchyPath?: HierarchyPath;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace HierarchyGroup {
@@ -3921,8 +3931,8 @@ export namespace CurrentMetric {
  */
 export interface Filters {
   /**
-   * <p>The queues to use to filter the metrics. You can specify up to 100 queues per
-   *    request.</p>
+   * <p>The queues to use to filter the metrics. You should specify at least one queue, and can specify up to 100 queues per
+   *    request.  The <code>GetCurrentMetricsData</code> API in particular requires a queue when you include a <code>Filter</code> in your request. </p>
    */
   Queues?: string[];
 

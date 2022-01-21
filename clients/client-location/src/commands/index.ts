@@ -6,6 +6,7 @@ export * from "./BatchGetDevicePositionCommand";
 export * from "./BatchPutGeofenceCommand";
 export * from "./BatchUpdateDevicePositionCommand";
 export * from "./CalculateRouteCommand";
+export * from "./CalculateRouteMatrixCommand";
 export * from "./CreateGeofenceCollectionCommand";
 export * from "./CreateMapCommand";
 export * from "./CreatePlaceIndexCommand";

@@ -12,6 +12,7 @@ export * from "./GetResourceShareAssociationsCommand";
 export * from "./GetResourceShareInvitationsCommand";
 export * from "./GetResourceSharesCommand";
 export * from "./ListPendingInvitationResourcesCommand";
+export * from "./ListPermissionVersionsCommand";
 export * from "./ListPermissionsCommand";
 export * from "./ListPrincipalsCommand";
 export * from "./ListResourceSharePermissionsCommand";

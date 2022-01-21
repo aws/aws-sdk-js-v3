@@ -24,6 +24,10 @@ import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from ".
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "../commands/AuthorizeIpRulesCommand";
 import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "../commands/CopyWorkspaceImageCommand";
 import {
+  CreateConnectClientAddInCommandInput,
+  CreateConnectClientAddInCommandOutput,
+} from "../commands/CreateConnectClientAddInCommand";
+import {
   CreateConnectionAliasCommandInput,
   CreateConnectionAliasCommandOutput,
 } from "../commands/CreateConnectionAliasCommand";
@@ -38,6 +42,10 @@ import {
   CreateWorkspaceBundleCommandOutput,
 } from "../commands/CreateWorkspaceBundleCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "../commands/CreateWorkspacesCommand";
+import {
+  DeleteConnectClientAddInCommandInput,
+  DeleteConnectClientAddInCommandOutput,
+} from "../commands/DeleteConnectClientAddInCommand";
 import {
   DeleteConnectionAliasCommandInput,
   DeleteConnectionAliasCommandOutput,
@@ -65,6 +73,10 @@ import {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
 } from "../commands/DescribeClientPropertiesCommand";
+import {
+  DescribeConnectClientAddInsCommandInput,
+  DescribeConnectClientAddInsCommandOutput,
+} from "../commands/DescribeConnectClientAddInsCommand";
 import {
   DescribeConnectionAliasesCommandInput,
   DescribeConnectionAliasesCommandOutput,
@@ -157,6 +169,10 @@ import {
   TerminateWorkspacesCommandOutput,
 } from "../commands/TerminateWorkspacesCommand";
 import {
+  UpdateConnectClientAddInCommandInput,
+  UpdateConnectClientAddInCommandOutput,
+} from "../commands/UpdateConnectClientAddInCommand";
+import {
   UpdateConnectionAliasPermissionCommandInput,
   UpdateConnectionAliasPermissionCommandOutput,
 } from "../commands/UpdateConnectionAliasPermissionCommand";
@@ -185,11 +201,14 @@ import {
   ClientProperties,
   ClientPropertiesResult,
   ComputeType,
+  ConnectClientAddIn,
   ConnectionAlias,
   ConnectionAliasAssociation,
   ConnectionAliasPermission,
   CopyWorkspaceImageRequest,
   CopyWorkspaceImageResult,
+  CreateConnectClientAddInRequest,
+  CreateConnectClientAddInResult,
   CreateConnectionAliasRequest,
   CreateConnectionAliasResult,
   CreateIpGroupRequest,
@@ -203,6 +222,8 @@ import {
   CreateWorkspacesRequest,
   CreateWorkspacesResult,
   DefaultWorkspaceCreationProperties,
+  DeleteConnectClientAddInRequest,
+  DeleteConnectClientAddInResult,
   DeleteConnectionAliasRequest,
   DeleteConnectionAliasResult,
   DeleteIpGroupRequest,
@@ -221,6 +242,8 @@ import {
   DescribeAccountResult,
   DescribeClientPropertiesRequest,
   DescribeClientPropertiesResult,
+  DescribeConnectClientAddInsRequest,
+  DescribeConnectClientAddInsResult,
   DescribeConnectionAliasesRequest,
   DescribeConnectionAliasesResult,
   DescribeConnectionAliasPermissionsRequest,
@@ -310,6 +333,8 @@ import {
   TerminateWorkspacesResult,
   UnsupportedNetworkConfigurationException,
   UnsupportedWorkspaceConfigurationException,
+  UpdateConnectClientAddInRequest,
+  UpdateConnectClientAddInResult,
   UpdateConnectionAliasPermissionRequest,
   UpdateConnectionAliasPermissionResult,
   UpdateResult,
@@ -382,6 +407,19 @@ export const serializeAws_json1_1CopyWorkspaceImageCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CopyWorkspaceImageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateConnectClientAddInCommand = async (
+  input: CreateConnectClientAddInCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.CreateConnectClientAddIn",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateConnectClientAddInRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -460,6 +498,19 @@ export const serializeAws_json1_1CreateWorkspacesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateWorkspacesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteConnectClientAddInCommand = async (
+  input: DeleteConnectClientAddInCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.DeleteConnectClientAddIn",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteConnectClientAddInRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -577,6 +628,19 @@ export const serializeAws_json1_1DescribeClientPropertiesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeClientPropertiesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeConnectClientAddInsCommand = async (
+  input: DescribeConnectClientAddInsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.DescribeConnectClientAddIns",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeConnectClientAddInsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -980,6 +1044,19 @@ export const serializeAws_json1_1TerminateWorkspacesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1TerminateWorkspacesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateConnectClientAddInCommand = async (
+  input: UpdateConnectClientAddInCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.UpdateConnectClientAddIn",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateConnectClientAddInRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1390,6 +1467,92 @@ const deserializeAws_json1_1CopyWorkspaceImageCommandError = async (
     case "com.amazonaws.workspaces#ResourceUnavailableException":
       response = {
         ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateConnectClientAddInCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectClientAddInCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateConnectClientAddInCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateConnectClientAddInResult(data, context);
+  const response: CreateConnectClientAddInCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateConnectClientAddInCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectClientAddInCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceCreationFailedException":
+    case "com.amazonaws.workspaces#ResourceCreationFailedException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceCreationFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1898,6 +2061,76 @@ const deserializeAws_json1_1CreateWorkspacesCommandError = async (
     case "com.amazonaws.workspaces#ResourceLimitExceededException":
       response = {
         ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteConnectClientAddInCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectClientAddInCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteConnectClientAddInCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteConnectClientAddInResult(data, context);
+  const response: DeleteConnectClientAddInCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteConnectClientAddInCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectClientAddInCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2516,6 +2749,76 @@ const deserializeAws_json1_1DescribeClientPropertiesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClientPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeConnectClientAddInsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectClientAddInsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeConnectClientAddInsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeConnectClientAddInsResult(data, context);
+  const response: DescribeConnectClientAddInsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeConnectClientAddInsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectClientAddInsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4687,6 +4990,76 @@ const deserializeAws_json1_1TerminateWorkspacesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateConnectClientAddInCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectClientAddInCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateConnectClientAddInCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateConnectClientAddInResult(data, context);
+  const response: UpdateConnectClientAddInCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateConnectClientAddInCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectClientAddInCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateConnectionAliasPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5349,6 +5722,17 @@ const serializeAws_json1_1CopyWorkspaceImageRequest = (
   };
 };
 
+const serializeAws_json1_1CreateConnectClientAddInRequest = (
+  input: CreateConnectClientAddInRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.URL !== undefined && input.URL !== null && { URL: input.URL }),
+  };
+};
+
 const serializeAws_json1_1CreateConnectionAliasRequest = (
   input: CreateConnectionAliasRequest,
   context: __SerdeContext
@@ -5412,6 +5796,16 @@ const serializeAws_json1_1CreateWorkspacesRequest = (input: CreateWorkspacesRequ
   return {
     ...(input.Workspaces !== undefined &&
       input.Workspaces !== null && { Workspaces: serializeAws_json1_1WorkspaceRequestList(input.Workspaces, context) }),
+  };
+};
+
+const serializeAws_json1_1DeleteConnectClientAddInRequest = (
+  input: DeleteConnectClientAddInRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AddInId !== undefined && input.AddInId !== null && { AddInId: input.AddInId }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5485,6 +5879,17 @@ const serializeAws_json1_1DescribeClientPropertiesRequest = (
   return {
     ...(input.ResourceIds !== undefined &&
       input.ResourceIds !== null && { ResourceIds: serializeAws_json1_1ResourceIdList(input.ResourceIds, context) }),
+  };
+};
+
+const serializeAws_json1_1DescribeConnectClientAddInsRequest = (
+  input: DescribeConnectClientAddInsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -6063,6 +6468,18 @@ const serializeAws_json1_1TerminateWorkspacesRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateConnectClientAddInRequest = (
+  input: UpdateConnectClientAddInRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AddInId !== undefined && input.AddInId !== null && { AddInId: input.AddInId }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.ResourceId !== undefined && input.ResourceId !== null && { ResourceId: input.ResourceId }),
+    ...(input.URL !== undefined && input.URL !== null && { URL: input.URL }),
+  };
+};
+
 const serializeAws_json1_1UpdateConnectionAliasPermissionRequest = (
   input: UpdateConnectionAliasPermissionRequest,
   context: __SerdeContext
@@ -6324,6 +6741,26 @@ const deserializeAws_json1_1ComputeType = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_json1_1ConnectClientAddIn = (output: any, context: __SerdeContext): ConnectClientAddIn => {
+  return {
+    AddInId: __expectString(output.AddInId),
+    Name: __expectString(output.Name),
+    ResourceId: __expectString(output.ResourceId),
+    URL: __expectString(output.URL),
+  } as any;
+};
+
+const deserializeAws_json1_1ConnectClientAddInList = (output: any, context: __SerdeContext): ConnectClientAddIn[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ConnectClientAddIn(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ConnectionAlias = (output: any, context: __SerdeContext): ConnectionAlias => {
   return {
     AliasId: __expectString(output.AliasId),
@@ -6407,6 +6844,15 @@ const deserializeAws_json1_1CopyWorkspaceImageResult = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateConnectClientAddInResult = (
+  output: any,
+  context: __SerdeContext
+): CreateConnectClientAddInResult => {
+  return {
+    AddInId: __expectString(output.AddInId),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateConnectionAliasResult = (
   output: any,
   context: __SerdeContext
@@ -6485,6 +6931,13 @@ const deserializeAws_json1_1DefaultWorkspaceCreationProperties = (
   } as any;
 };
 
+const deserializeAws_json1_1DeleteConnectClientAddInResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteConnectClientAddInResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteConnectionAliasResult = (
   output: any,
   context: __SerdeContext
@@ -6550,6 +7003,19 @@ const deserializeAws_json1_1DescribeClientPropertiesResult = (
       output.ClientPropertiesList !== undefined && output.ClientPropertiesList !== null
         ? deserializeAws_json1_1ClientPropertiesList(output.ClientPropertiesList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeConnectClientAddInsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeConnectClientAddInsResult => {
+  return {
+    AddIns:
+      output.AddIns !== undefined && output.AddIns !== null
+        ? deserializeAws_json1_1ConnectClientAddInList(output.AddIns, context)
+        : undefined,
+    NextToken: __expectString(output.NextToken),
   } as any;
 };
 
@@ -7223,6 +7689,13 @@ const deserializeAws_json1_1UnsupportedWorkspaceConfigurationException = (
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1UpdateConnectClientAddInResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateConnectClientAddInResult => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateConnectionAliasPermissionResult = (

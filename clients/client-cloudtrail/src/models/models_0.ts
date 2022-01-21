@@ -251,8 +251,9 @@ export interface AdvancedFieldSelector {
    *                   <b>
    *                      <code>readOnly</code>
    *                   </b> - Optional. Can be set to <code>Equals</code> a value of <code>true</code>
-   *             or <code>false</code>. A value of <code>false</code> logs both <code>read</code> and
-   *             <code>write</code> events.</p>
+   *             or <code>false</code>. If you do not add this field, CloudTrail logs both both <code>read</code> and
+   *             <code>write</code> events. A value of <code>true</code> logs only <code>read</code> events. A value of <code>false</code>
+   *             logs only <code>write</code> events.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -328,6 +329,11 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::DynamoDB::Stream</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Glue::Table</code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -442,6 +448,15 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name>/stream/<date_time></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::Glue::Table</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:glue:<region>:<account_ID>:table/<database_name>/<table_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1875,6 +1890,7 @@ export interface DataResource {
    *                </p>
    *             </li>
    *          </ul>
+   *
    *          <p>The following resource types are also availble through <i>advanced</i> event selectors.
    *          Basic event selector resource types are valid in advanced event selectors, but
    *          advanced event selector resource types are not valid in basic event selectors.
@@ -1908,6 +1924,11 @@ export interface DataResource {
    *             <li>
    *                <p>
    *                   <code>AWS::DynamoDB::Stream</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::Glue::Table</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -2023,7 +2044,7 @@ export interface EventSelector {
    * <p>An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter),
    *          or it can filter out Key Management Service or Amazon RDS Data API events by
    *          containing <code>kms.amazonaws.com</code> or <code>rdsdata.amazonaws.com</code>. By default, <code>ExcludeManagementEventSources</code> is empty, and KMS and
-   *          Amazon RDS Data API events are logged to your trail.</p>
+   *          Amazon RDS Data API events are logged to your trail. You can exclude management event sources only in regions that support the event source.</p>
    */
   ExcludeManagementEventSources?: string[];
 }

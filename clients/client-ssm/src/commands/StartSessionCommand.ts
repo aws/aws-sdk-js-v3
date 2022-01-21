@@ -22,9 +22,9 @@ export interface StartSessionCommandInput extends StartSessionRequest {}
 export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session. Returns a
- *    URL and token that can be used to open a WebSocket connection for sending input and receiving
- *    outputs.</p>
+ * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session.
+ *    Returns a URL and token that can be used to open a WebSocket connection for sending input and
+ *    receiving outputs.</p>
  *          <note>
  *             <p>Amazon Web Services CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
  *     plugin to be installed on the client machine making the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install

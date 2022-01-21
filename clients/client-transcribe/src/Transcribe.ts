@@ -199,9 +199,9 @@ import { TranscribeClient } from "./TranscribeClient";
 export class Transcribe extends TranscribeClient {
   /**
    * <p>Creates an analytics category. Amazon Transcribe applies the conditions specified by your
-   *             analytics categories to your call analytics jobs. For each analytics category, you specify one or
-   *             more rules. For example, you can specify a rule that the customer sentiment was neutral or
-   *             negative within that category. If you start a call analytics job, Amazon Transcribe applies the
+   *             analytics categories to your call analytics jobs. For each analytics category, you specify one
+   *             or more rules. For example, you can specify a rule that the customer sentiment was neutral
+   *             or negative within that category. If you start a call analytics job, Amazon Transcribe applies the
    *             category to the analytics job that you've specified.</p>
    */
   public createCallAnalyticsCategory(
@@ -234,8 +234,9 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your input files. The time it
-   *             takes to create your model depends on the size of your training data.</p>
+   * <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of
+   *             your input files. The time it takes to create your model depends on the size of your training
+   *             data.</p>
    */
   public createLanguageModel(
     args: CreateLanguageModelCommandInput,
@@ -267,7 +268,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical transcribes your audio file.</p>
+   * <p>Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical transcribes
+   *             your audio file.</p>
    */
   public createMedicalVocabulary(
     args: CreateMedicalVocabularyCommandInput,
@@ -332,8 +334,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Creates a new vocabulary filter that you can use to filter words, such as profane words, from the output of
-   *             a transcription job.</p>
+   * <p>Creates a new vocabulary filter that you can use to filter words, such as profane words,
+   *             from the output of a transcription job.</p>
    */
   public createVocabularyFilter(
     args: CreateVocabularyFilterCommandInput,
@@ -893,7 +895,8 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides more information about the call analytics categories that you've created. You
    *             can use the information in this list to find a specific category. You can then use the
-   *              operation to get more information about it.</p>
+   *              operation to get more information about
+   *             it.</p>
    */
   public listCallAnalyticsCategories(
     args: ListCallAnalyticsCategoriesCommandInput,
@@ -957,9 +960,10 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Provides more information about the custom language models you've created. You can use the information in
-   *             this list to find a specific custom language model. You can then use the
-   *              operation to get more information about it.</p>
+   * <p>Provides more information about the custom language models you've created. You can
+   *             use the information in this list to find a specific custom language model. You can then use
+   *             the  operation to get more information about
+   *             it.</p>
    */
   public listLanguageModels(
     args: ListLanguageModelsCommandInput,
@@ -991,7 +995,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Lists medical transcription jobs with a specified status or substring that matches their names.</p>
+   * <p>Lists medical transcription jobs with a specified status or substring that matches their
+   *             names.</p>
    */
   public listMedicalTranscriptionJobs(
     args: ListMedicalTranscriptionJobsCommandInput,
@@ -1023,8 +1028,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Returns a list of vocabularies that match the specified criteria. If you don't enter a value in any of the request
-   *             parameters, returns the entire list of vocabularies.</p>
+   * <p>Returns a list of vocabularies that match the specified criteria. If you don't enter a value in
+   *             any of the request parameters, returns the entire list of vocabularies.</p>
    */
   public listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
@@ -1120,8 +1125,8 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list
-   *             of vocabularies.</p>
+   * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are specified,
+   *             returns the entire list of vocabularies.</p>
    */
   public listVocabularies(
     args: ListVocabulariesCommandInput,
@@ -1185,10 +1190,11 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and agent, but
-   *             also returns additional insights. These insights include how quickly or loudly the caller or agent was speaking. To
-   *             retrieve additional insights with your analytics jobs, create categories. A category is a way to classify analytics jobs
-   *             based on attributes, such as a customer's sentiment or a particular phrase being used during the call. For more
+   * <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a
+   *             caller and agent, but also returns additional insights. These insights include how quickly or
+   *             loudly the caller or agent was speaking. To retrieve additional insights with your analytics
+   *             jobs, create categories. A category is a way to classify analytics jobs based on attributes,
+   *             such as a customer's sentiment or a particular phrase being used during the call. For more
    *             information, see the  operation. </p>
    */
   public startCallAnalyticsJob(
@@ -1343,8 +1349,9 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code>
-   *             operation overwrites all of the existing information with the values that you provide in the request. </p>
+   * <p>Updates the call analytics category with new values. The
+   *             <code>UpdateCallAnalyticsCategory</code> operation overwrites all of the existing
+   *             information with the values that you provide in the request.</p>
    */
   public updateCallAnalyticsCategory(
     args: UpdateCallAnalyticsCategoryCommandInput,
@@ -1376,9 +1383,10 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Updates a vocabulary with new values that you provide in a different text file from the one you used to create
-   *             the vocabulary. The <code>UpdateMedicalVocabulary</code> operation overwrites all of the existing information
-   *             with the values that you provide in the request.</p>
+   * <p>Updates a vocabulary with new values that you provide in a different text file from
+   *             the one you used to create the vocabulary. The <code>UpdateMedicalVocabulary</code>
+   *             operation overwrites all of the existing information with the values that you provide in the
+   *             request.</p>
    */
   public updateMedicalVocabulary(
     args: UpdateMedicalVocabularyCommandInput,
@@ -1410,8 +1418,9 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites
-   *             all of the existing information with the values that you provide in the request. </p>
+   * <p>Updates an existing vocabulary with new values. The
+   *             <code>UpdateVocabulary</code> operation overwrites all of the existing information with
+   *             the values that you provide in the request. </p>
    */
   public updateVocabulary(
     args: UpdateVocabularyCommandInput,

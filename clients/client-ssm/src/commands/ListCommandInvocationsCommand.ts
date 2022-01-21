@@ -22,11 +22,11 @@ export interface ListCommandInvocationsCommandInput extends ListCommandInvocatio
 export interface ListCommandInvocationsCommandOutput extends ListCommandInvocationsResult, __MetadataBearer {}
 
 /**
- * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to one
- *    or more managed nodes. A command invocation applies to one managed node. For example, if a user runs
- *     <code>SendCommand</code> against three managed nodes, then a command invocation is created for
- *    each requested managed node ID. <code>ListCommandInvocations</code> provide status about command
- *    execution.</p>
+ * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
+ *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
+ *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
+ *    created for each requested managed node ID. <code>ListCommandInvocations</code> provide status
+ *    about command execution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

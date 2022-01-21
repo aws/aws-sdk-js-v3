@@ -135,6 +135,7 @@ import {
   ScheduleConfiguration,
   ScheduleEntry,
   SecretsManagerAccessTokenConfiguration,
+  SegmentDeliveryConfiguration,
   SlateSource,
   SourceLocation,
   SpliceInsertMessage,
@@ -346,6 +347,13 @@ export const serializeAws_restJson1CreateSourceLocationCommand = async (
     ...(input.HttpConfiguration !== undefined &&
       input.HttpConfiguration !== null && {
         HttpConfiguration: serializeAws_restJson1HttpConfiguration(input.HttpConfiguration, context),
+      }),
+    ...(input.SegmentDeliveryConfigurations !== undefined &&
+      input.SegmentDeliveryConfigurations !== null && {
+        SegmentDeliveryConfigurations: serializeAws_restJson1__listOfSegmentDeliveryConfiguration(
+          input.SegmentDeliveryConfigurations,
+          context
+        ),
       }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
@@ -1406,6 +1414,13 @@ export const serializeAws_restJson1UpdateSourceLocationCommand = async (
       input.HttpConfiguration !== null && {
         HttpConfiguration: serializeAws_restJson1HttpConfiguration(input.HttpConfiguration, context),
       }),
+    ...(input.SegmentDeliveryConfigurations !== undefined &&
+      input.SegmentDeliveryConfigurations !== null && {
+        SegmentDeliveryConfigurations: serializeAws_restJson1__listOfSegmentDeliveryConfiguration(
+          input.SegmentDeliveryConfigurations,
+          context
+        ),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -1755,6 +1770,7 @@ export const deserializeAws_restJson1CreateSourceLocationCommand = async (
     DefaultSegmentDeliveryConfiguration: undefined,
     HttpConfiguration: undefined,
     LastModifiedTime: undefined,
+    SegmentDeliveryConfigurations: undefined,
     SourceLocationName: undefined,
     Tags: undefined,
   };
@@ -1779,6 +1795,12 @@ export const deserializeAws_restJson1CreateSourceLocationCommand = async (
   }
   if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
     contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
+  }
+  if (data.SegmentDeliveryConfigurations !== undefined && data.SegmentDeliveryConfigurations !== null) {
+    contents.SegmentDeliveryConfigurations = deserializeAws_restJson1__listOfSegmentDeliveryConfiguration(
+      data.SegmentDeliveryConfigurations,
+      context
+    );
   }
   if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
     contents.SourceLocationName = __expectString(data.SourceLocationName);
@@ -2362,6 +2384,7 @@ export const deserializeAws_restJson1DescribeSourceLocationCommand = async (
     DefaultSegmentDeliveryConfiguration: undefined,
     HttpConfiguration: undefined,
     LastModifiedTime: undefined,
+    SegmentDeliveryConfigurations: undefined,
     SourceLocationName: undefined,
     Tags: undefined,
   };
@@ -2386,6 +2409,12 @@ export const deserializeAws_restJson1DescribeSourceLocationCommand = async (
   }
   if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
     contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
+  }
+  if (data.SegmentDeliveryConfigurations !== undefined && data.SegmentDeliveryConfigurations !== null) {
+    contents.SegmentDeliveryConfigurations = deserializeAws_restJson1__listOfSegmentDeliveryConfiguration(
+      data.SegmentDeliveryConfigurations,
+      context
+    );
   }
   if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
     contents.SourceLocationName = __expectString(data.SourceLocationName);
@@ -3606,6 +3635,7 @@ export const deserializeAws_restJson1UpdateSourceLocationCommand = async (
     DefaultSegmentDeliveryConfiguration: undefined,
     HttpConfiguration: undefined,
     LastModifiedTime: undefined,
+    SegmentDeliveryConfigurations: undefined,
     SourceLocationName: undefined,
     Tags: undefined,
   };
@@ -3630,6 +3660,12 @@ export const deserializeAws_restJson1UpdateSourceLocationCommand = async (
   }
   if (data.LastModifiedTime !== undefined && data.LastModifiedTime !== null) {
     contents.LastModifiedTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastModifiedTime)));
+  }
+  if (data.SegmentDeliveryConfigurations !== undefined && data.SegmentDeliveryConfigurations !== null) {
+    contents.SegmentDeliveryConfigurations = deserializeAws_restJson1__listOfSegmentDeliveryConfiguration(
+      data.SegmentDeliveryConfigurations,
+      context
+    );
   }
   if (data.SourceLocationName !== undefined && data.SourceLocationName !== null) {
     contents.SourceLocationName = __expectString(data.SourceLocationName);
@@ -3782,6 +3818,20 @@ const serializeAws_restJson1__listOfAvailMatchingCriteria = (
         return null as any;
       }
       return serializeAws_restJson1AvailMatchingCriteria(entry, context);
+    });
+};
+
+const serializeAws_restJson1__listOfSegmentDeliveryConfiguration = (
+  input: SegmentDeliveryConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SegmentDeliveryConfiguration(entry, context);
     });
 };
 
@@ -4046,6 +4096,16 @@ const serializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
   };
 };
 
+const serializeAws_restJson1SegmentDeliveryConfiguration = (
+  input: SegmentDeliveryConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BaseUrl !== undefined && input.BaseUrl !== null && { BaseUrl: input.BaseUrl }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
 const serializeAws_restJson1SlateSource = (input: SlateSource, context: __SerdeContext): any => {
   return {
     ...(input.SourceLocationName !== undefined &&
@@ -4179,6 +4239,20 @@ const deserializeAws_restJson1__listOfScheduleEntry = (output: any, context: __S
         return null as any;
       }
       return deserializeAws_restJson1ScheduleEntry(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfSegmentDeliveryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SegmentDeliveryConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SegmentDeliveryConfiguration(entry, context);
     });
 };
 
@@ -4614,6 +4688,16 @@ const deserializeAws_restJson1SecretsManagerAccessTokenConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1SegmentDeliveryConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SegmentDeliveryConfiguration => {
+  return {
+    BaseUrl: __expectString(output.BaseUrl),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
 const deserializeAws_restJson1SlateSource = (output: any, context: __SerdeContext): SlateSource => {
   return {
     SourceLocationName: __expectString(output.SourceLocationName),
@@ -4646,6 +4730,10 @@ const deserializeAws_restJson1SourceLocation = (output: any, context: __SerdeCon
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    SegmentDeliveryConfigurations:
+      output.SegmentDeliveryConfigurations !== undefined && output.SegmentDeliveryConfigurations !== null
+        ? deserializeAws_restJson1__listOfSegmentDeliveryConfiguration(output.SegmentDeliveryConfigurations, context)
         : undefined,
     SourceLocationName: __expectString(output.SourceLocationName),
     Tags:

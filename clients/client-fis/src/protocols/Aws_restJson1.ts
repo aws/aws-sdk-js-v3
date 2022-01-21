@@ -1861,6 +1861,10 @@ const deserializeAws_restJson1ExperimentAction = (output: any, context: __SerdeC
   return {
     actionId: __expectString(output.actionId),
     description: __expectString(output.description),
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
     parameters:
       output.parameters !== undefined && output.parameters !== null
         ? deserializeAws_restJson1ExperimentActionParameterMap(output.parameters, context)
@@ -1868,6 +1872,10 @@ const deserializeAws_restJson1ExperimentAction = (output: any, context: __SerdeC
     startAfter:
       output.startAfter !== undefined && output.startAfter !== null
         ? deserializeAws_restJson1ExperimentActionStartAfterList(output.startAfter, context)
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
         : undefined,
     state:
       output.state !== undefined && output.state !== null
