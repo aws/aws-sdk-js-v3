@@ -140,6 +140,8 @@ const copyToClients = async (sourceDir, destinationDir) => {
             directory: `clients/${clientName}`,
           },
         };
+        // no need for the default prepack script
+        delete mergedManifest.scripts.prepack;
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (packageSub === "typedoc.json") {
         const typedocJson = {
