@@ -60,7 +60,7 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
     } else if (name.indexOf("@aws-sdk/") === 0) {
       // If it's internal dependency, use current version in the repo if not
       // present in package.json
-      merged[name] = toContent[name] || getInternalDepVersion(name);
+      merged[name] = toContent[name] || "*";
     } else {
       // If key (say dependency) is present in both codegen and
       // package.json, we prefer latter
@@ -68,27 +68,6 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
     }
   }
   return merged;
-};
-
-/**
- * Returns current version number of the internal dependency version passed.
- */
-const getInternalDepVersion = (depName) => {
-  if (depName.indexOf("@aws-sdk/") !== 0) {
-    throw new Error(`getInternalDepVersion called for external dep: "${depName}"`);
-  }
-
-  const packageName = depName.substr(9);
-  const packagesDir = normalize(join(__dirname, "..", "..", "packages"));
-  const clientsDir = normalize(join(__dirname, "..", "..", "clients"));
-
-  if (existsSync(`${packagesDir}/${packageName}`)) {
-    return require(`${packagesDir}/${packageName}/package.json`).version;
-  } else if (existsSync(`${clientsDir}/${packageName}`)) {
-    return require(`${clientsDir}/${packageName}/package.json`).version;
-  }
-
-  throw new Error(`Internal dependency "${packageName}" not found`);
 };
 
 const copyToClients = async (sourceDir, destinationDir) => {
