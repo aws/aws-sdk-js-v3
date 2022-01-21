@@ -1,6 +1,7 @@
+// @ts-check
 import { basename } from "path";
 
-import { getWorkspacePaths } from "./getWorkspacePaths";
+import { getWorkspacePaths } from "./getWorkspacePaths.mjs";
 
 export const getDepToDefaultVersionHash = () =>
   getWorkspacePaths().reduce(

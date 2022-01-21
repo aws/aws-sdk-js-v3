@@ -1,7 +1,8 @@
+// @ts-check
 import { readFileSync } from "fs";
 import { basename, join } from "path";
 
-import { getWorkspacePaths } from "./getWorkspacePaths";
+import { getWorkspacePaths } from "./getWorkspacePaths.mjs";
 
 export const getDepToCurrentVersionHash = () =>
   getWorkspacePaths().reduce((acc, workspacePath) => {

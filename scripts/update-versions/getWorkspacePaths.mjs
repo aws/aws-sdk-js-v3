@@ -1,13 +1,16 @@
+// @ts-check
 import { readdirSync, readFileSync } from "fs";
-import { join } from "path";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
 
 export const getWorkspacePaths = () => {
+  const __dirname = dirname(fileURLToPath(import.meta.url));
   const rootDir = join(__dirname, "..", "..");
   const packageJsonPath = join(rootDir, "package.json");
   const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
 
   return packageJson.workspaces.packages
-    .map((dir: string) => dir.replace("/*", ""))
+    .map((dir) => dir.replace("/*", ""))
     .flatMap((workspacesDir) =>
       readdirSync(join(rootDir, workspacesDir), { withFileTypes: true })
         .filter((dirent) => dirent.isDirectory())
