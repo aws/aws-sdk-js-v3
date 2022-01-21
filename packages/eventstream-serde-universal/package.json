@@ -19,12 +19,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-marshaller": "3.47.1",
-    "@aws-sdk/types": "3.47.1",
+    "@aws-sdk/eventstream-marshaller": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/util-utf8-node": "3.47.1"
+    "@aws-sdk/util-utf8-node": "*"
   },
   "engines": {
     "node": ">= 12.0.0"
