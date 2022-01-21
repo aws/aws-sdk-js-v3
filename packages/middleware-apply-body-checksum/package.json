@@ -19,9 +19,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "3.47.1",
-    "@aws-sdk/protocol-http": "3.47.1",
-    "@aws-sdk/types": "3.47.1",
+    "@aws-sdk/is-array-buffer": "*",
+    "@aws-sdk/protocol-http": "*",
+    "@aws-sdk/types": "*",
     "tslib": "^2.3.0"
   },
   "engines": {
