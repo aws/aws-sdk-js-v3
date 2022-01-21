@@ -253,7 +253,7 @@ export namespace FormatOptions {
 }
 
 /**
- * <p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can read
+ * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
  *             input data, or write output from a job.</p>
  */
 export interface S3Location {
@@ -266,6 +266,11 @@ export interface S3Location {
    * <p>The unique name of the object in the bucket.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID of the bucket owner.</p>
+   */
+  BucketOwner?: string;
 }
 
 export namespace S3Location {
@@ -293,7 +298,7 @@ export interface DatabaseInputDefinition {
   DatabaseTableName?: string;
 
   /**
-   * <p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can read
+   * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
    *             input data, or write output from a job.</p>
    */
   TempDirectory?: S3Location;
@@ -1036,7 +1041,7 @@ export interface CreateProfileJobRequest {
   MaxRetries?: number;
 
   /**
-   * <p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can read
+   * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
    *             input data, or write output from a job.</p>
    */
   OutputLocation: S3Location | undefined;
@@ -1802,6 +1807,8 @@ export interface Rule {
    *             rule should be null. If ColumnSelectors has been defined, then there should be no
    *             columnn reference in the left side of a condition, for example,
    *             <code>is_between :val1 and :val2</code>.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/databrew/latest/dg/profile.data-quality-available-checks.html">Available checks</a>
+   *          </p>
    */
   CheckExpression: string | undefined;
 
@@ -4490,7 +4497,7 @@ export interface UpdateProfileJobRequest {
   MaxRetries?: number;
 
   /**
-   * <p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can read
+   * <p>Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read
    *             input data, or write output from a job.</p>
    */
   OutputLocation: S3Location | undefined;

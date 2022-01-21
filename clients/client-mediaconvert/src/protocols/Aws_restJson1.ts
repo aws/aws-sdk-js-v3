@@ -127,7 +127,6 @@ import {
   KantarWatermarkSettings,
   M2tsScte35Esam,
   M2tsSettings,
-  M3u8Settings,
   MotionImageInserter,
   MotionImageInsertionFramerate,
   MotionImageInsertionOffset,
@@ -191,6 +190,7 @@ import {
   JobSettings,
   JobTemplate,
   JobTemplateSettings,
+  M3u8Settings,
   MovSettings,
   Mp4Settings,
   MpdSettings,
@@ -4476,6 +4476,7 @@ const serializeAws_restJson1Av1Settings = (input: Av1Settings, context: __SerdeC
   return {
     ...(input.AdaptiveQuantization !== undefined &&
       input.AdaptiveQuantization !== null && { adaptiveQuantization: input.AdaptiveQuantization }),
+    ...(input.BitDepth !== undefined && input.BitDepth !== null && { bitDepth: input.BitDepth }),
     ...(input.FramerateControl !== undefined &&
       input.FramerateControl !== null && { framerateControl: input.FramerateControl }),
     ...(input.FramerateConversionAlgorithm !== undefined &&
@@ -4865,6 +4866,7 @@ const serializeAws_restJson1CmfcSettings = (input: CmfcSettings, context: __Serd
       input.IFrameOnlyManifest !== null && { iFrameOnlyManifest: input.IFrameOnlyManifest }),
     ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
+    ...(input.TimedMetadata !== undefined && input.TimedMetadata !== null && { timedMetadata: input.TimedMetadata }),
   };
 };
 
@@ -5715,6 +5717,7 @@ const serializeAws_restJson1ImscDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Accessibility !== undefined && input.Accessibility !== null && { accessibility: input.Accessibility }),
     ...(input.StylePassthrough !== undefined &&
       input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
   };
@@ -5742,6 +5745,8 @@ const serializeAws_restJson1Input = (input: Input, context: __SerdeContext): any
         decryptionSettings: serializeAws_restJson1InputDecryptionSettings(input.DecryptionSettings, context),
       }),
     ...(input.DenoiseFilter !== undefined && input.DenoiseFilter !== null && { denoiseFilter: input.DenoiseFilter }),
+    ...(input.DolbyVisionMetadataXml !== undefined &&
+      input.DolbyVisionMetadataXml !== null && { dolbyVisionMetadataXml: input.DolbyVisionMetadataXml }),
     ...(input.FileInput !== undefined && input.FileInput !== null && { fileInput: input.FileInput }),
     ...(input.FilterEnable !== undefined && input.FilterEnable !== null && { filterEnable: input.FilterEnable }),
     ...(input.FilterStrength !== undefined &&
@@ -5813,6 +5818,8 @@ const serializeAws_restJson1InputTemplate = (input: InputTemplate, context: __Se
       input.Crop !== null && { crop: serializeAws_restJson1Rectangle(input.Crop, context) }),
     ...(input.DeblockFilter !== undefined && input.DeblockFilter !== null && { deblockFilter: input.DeblockFilter }),
     ...(input.DenoiseFilter !== undefined && input.DenoiseFilter !== null && { denoiseFilter: input.DenoiseFilter }),
+    ...(input.DolbyVisionMetadataXml !== undefined &&
+      input.DolbyVisionMetadataXml !== null && { dolbyVisionMetadataXml: input.DolbyVisionMetadataXml }),
     ...(input.FilterEnable !== undefined && input.FilterEnable !== null && { filterEnable: input.FilterEnable }),
     ...(input.FilterStrength !== undefined &&
       input.FilterStrength !== null && { filterStrength: input.FilterStrength }),
@@ -6183,6 +6190,7 @@ const serializeAws_restJson1MpdSettings = (input: MpdSettings, context: __SerdeC
       input.CaptionContainerType !== null && { captionContainerType: input.CaptionContainerType }),
     ...(input.Scte35Esam !== undefined && input.Scte35Esam !== null && { scte35Esam: input.Scte35Esam }),
     ...(input.Scte35Source !== undefined && input.Scte35Source !== null && { scte35Source: input.Scte35Source }),
+    ...(input.TimedMetadata !== undefined && input.TimedMetadata !== null && { timedMetadata: input.TimedMetadata }),
   };
 };
 
@@ -6999,6 +7007,7 @@ const serializeAws_restJson1WebvttDestinationSettings = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Accessibility !== undefined && input.Accessibility !== null && { accessibility: input.Accessibility }),
     ...(input.StylePassthrough !== undefined &&
       input.StylePassthrough !== null && { stylePassthrough: input.StylePassthrough }),
   };
@@ -7847,6 +7856,7 @@ const deserializeAws_restJson1Av1QvbrSettings = (output: any, context: __SerdeCo
 const deserializeAws_restJson1Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
   return {
     AdaptiveQuantization: __expectString(output.adaptiveQuantization),
+    BitDepth: __expectString(output.bitDepth),
     FramerateControl: __expectString(output.framerateControl),
     FramerateConversionAlgorithm: __expectString(output.framerateConversionAlgorithm),
     FramerateDenominator: __expectInt32(output.framerateDenominator),
@@ -8158,6 +8168,7 @@ const deserializeAws_restJson1CmfcSettings = (output: any, context: __SerdeConte
     IFrameOnlyManifest: __expectString(output.iFrameOnlyManifest),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
+    TimedMetadata: __expectString(output.timedMetadata),
   } as any;
 };
 
@@ -8842,6 +8853,7 @@ const deserializeAws_restJson1ImscDestinationSettings = (
   context: __SerdeContext
 ): ImscDestinationSettings => {
   return {
+    Accessibility: __expectString(output.accessibility),
     StylePassthrough: __expectString(output.stylePassthrough),
   } as any;
 };
@@ -8870,6 +8882,7 @@ const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): In
         ? deserializeAws_restJson1InputDecryptionSettings(output.decryptionSettings, context)
         : undefined,
     DenoiseFilter: __expectString(output.denoiseFilter),
+    DolbyVisionMetadataXml: __expectString(output.dolbyVisionMetadataXml),
     FileInput: __expectString(output.fileInput),
     FilterEnable: __expectString(output.filterEnable),
     FilterStrength: __expectInt32(output.filterStrength),
@@ -8940,6 +8953,7 @@ const deserializeAws_restJson1InputTemplate = (output: any, context: __SerdeCont
         : undefined,
     DeblockFilter: __expectString(output.deblockFilter),
     DenoiseFilter: __expectString(output.denoiseFilter),
+    DolbyVisionMetadataXml: __expectString(output.dolbyVisionMetadataXml),
     FilterEnable: __expectString(output.filterEnable),
     FilterStrength: __expectInt32(output.filterStrength),
     ImageInserter:
@@ -9383,6 +9397,7 @@ const deserializeAws_restJson1MpdSettings = (output: any, context: __SerdeContex
     CaptionContainerType: __expectString(output.captionContainerType),
     Scte35Esam: __expectString(output.scte35Esam),
     Scte35Source: __expectString(output.scte35Source),
+    TimedMetadata: __expectString(output.timedMetadata),
   } as any;
 };
 
@@ -10251,6 +10266,7 @@ const deserializeAws_restJson1WebvttDestinationSettings = (
   context: __SerdeContext
 ): WebvttDestinationSettings => {
   return {
+    Accessibility: __expectString(output.accessibility),
     StylePassthrough: __expectString(output.stylePassthrough),
   } as any;
 };

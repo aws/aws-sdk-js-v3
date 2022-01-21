@@ -24,9 +24,9 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
 /**
  * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
  *    or targets.</p>
- *          <p>When you associate a document with one or more managed nodes using IDs or tags,
- *    Amazon Web Services Systems Manager Agent (SSM Agent) running on the managed node processes the document and configures the
- *    node as specified.</p>
+ *          <p>When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
+ *    Agent (SSM Agent) running on the managed node processes the document and configures the node as
+ *    specified.</p>
  *          <p>If you associate a document with a managed node that already has an associated document, the
  *    system returns the AssociationAlreadyExists exception.</p>
  * @example

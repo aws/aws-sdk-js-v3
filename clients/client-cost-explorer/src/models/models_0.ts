@@ -1985,7 +1985,7 @@ export namespace ElastiCacheInstanceDetails {
 }
 
 /**
- * <p>Details about the Amazon ES instances that Amazon Web Services recommends that you
+ * <p>Details about the Amazon OpenSearch Service instances that Amazon Web Services recommends that you
  *             purchase.</p>
  */
 export interface ESInstanceDetails {
@@ -2152,7 +2152,7 @@ export interface InstanceDetails {
   ElastiCacheInstanceDetails?: ElastiCacheInstanceDetails;
 
   /**
-   * <p>The Amazon ES instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The Amazon OpenSearch Service instances that Amazon Web Services recommends that you purchase.</p>
    */
   ESInstanceDetails?: ESInstanceDetails;
 }
@@ -4568,6 +4568,8 @@ export interface GetCostAndUsageRequest {
    * 			and get the costs that are associated with that account's usage of that service. You can nest <code>Expression</code> objects
    * 			to define any combination of dimension filters. For more information, see
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
+   * 	        <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   * 	        <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</p>
    */
   Filter?: Expression;
 
@@ -4637,6 +4639,8 @@ export interface GetCostAndUsageWithResourcesRequest {
    *          <p>The <code>GetCostAndUsageWithResources</code> operation requires that you either group by or filter by a
    *       <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
    *             <code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</p>
+   *          <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</p>
    */
   Filter: Expression | undefined;
 
@@ -5018,7 +5022,7 @@ export interface GetDimensionValuesRequest {
 
   /**
    * <p>The name of the dimension. Each <code>Dimension</code> is available for a different <code>Context</code>.
-   * 			For more information, see <code>Context</code>.
+   * 		  For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html#awscostmanagement-GetDimensionValues-request-Context">Context</a>.
    *
    * 		</p>
    */
@@ -5366,8 +5370,7 @@ export interface GetReservationCoverageRequest {
    * 		       <p>
    *             <code>GetReservationCoverage</code> uses the same
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
-   * 			as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only one level deep.
-   * 			If there are multiple values for a dimension, they are OR'd together.</p>
+   * 			as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only one level deep.</p>
    * 		       <p>If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.</p>
    * 	        <p>Cost category is also supported.</p>
    */
@@ -5635,7 +5638,7 @@ export interface GetReservationUtilizationRequest {
    *             <code>GetReservationUtilization</code> uses the same
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    * 			as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is supported up to
-   * 			only one level deep. If there are multiple values for a dimension, they are OR'd together.</p>
+   * 			only one level deep.</p>
    */
   Filter?: Expression;
 
@@ -5894,8 +5897,8 @@ export interface GetSavingsPlansCoverageRequest {
    *          <p>
    *             <code>GetSavingsPlansCoverage</code> uses the same
    *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
-   *       as the other operations, but only <code>AND</code> is supported among each dimension. If there are multiple values for a dimension, they are OR'd together.</p>
-   *          <p>Cost category is also supported.</p>
+   *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
+   *          <p>Cost category is supported. Tags are not supported.</p>
    */
   Filter?: Expression;
 
@@ -6070,6 +6073,7 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
    *             <code>GetSavingsPlansUtilizationDetails</code> uses the same
    *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
+   *          <p>Filtering by tags isn't supported.</p>
    */
   Filter?: Expression;
 
@@ -6194,6 +6198,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *             <code>GetSavingsPlansUtilization</code> uses the same
    *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
+   *          <p>Filtering by tags isn't supported.</p>
    */
   Filter?: Expression;
 

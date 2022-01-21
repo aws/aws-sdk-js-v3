@@ -41,13 +41,13 @@ export interface DimensionGroup {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>db</code> - The name of the database to which the client is connected (only Aurora PostgreSQL, RDS
-   *         PostgreSQL, Aurora MySQL, RDS MySQL, and MariaDB)</p>
+   *                     <code>db</code> - The name of the database to which the client is connected (only Aurora PostgreSQL, Amazon RDS PostgreSQL,
+   *                     Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>db.application</code> - The name of the application that is connected to the database (only Aurora
-   *         PostgreSQL and RDS PostgreSQL)</p>
+   *                     <code>db.application</code> - The name of the application that is connected to the database (only Aurora
+   *                     PostgreSQL and RDS PostgreSQL)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -55,7 +55,7 @@ export interface DimensionGroup {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
+   *                     <code>db.session_type</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -90,8 +90,8 @@ export interface DimensionGroup {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>db.application.name</code> - The name of the application that is connected to the database (only
-   *       Aurora PostgreSQL and RDS PostgreSQL)</p>
+   *                     <code>db.application.name</code> - The name of the application that is connected to the database (only
+   *                     Aurora PostgreSQL and RDS PostgreSQL)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -103,12 +103,12 @@ export interface DimensionGroup {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>db.name</code> - The name of the database to which the client is connected (only Aurora
-   *       PostgreSQL, RDS PostgreSQL, Aurora MySQL, RDS MySQL, and MariaDB)</p>
+   *                     <code>db.name</code> - The name of the database to which the client is connected (only Aurora PostgreSQL, Amazon RDS
+   *                     PostgreSQL, Aurora MySQL, Amazon RDS MySQL, and MariaDB)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>db.session_type.name</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
+   *                     <code>db.session_type.name</code> - The type of the current session (only Aurora PostgreSQL and RDS PostgreSQL)</p>
    *             </li>
    *             <li>
    *                <p>
@@ -180,31 +180,34 @@ export namespace DimensionGroup {
 }
 
 export enum ServiceType {
+  DOCDB = "DOCDB",
   RDS = "RDS",
 }
 
 export interface DescribeDimensionKeysRequest {
   /**
-   * <p>The AWS service for which Performance Insights will return metrics. The only valid value for <i>ServiceType</i> is
-   *         <code>RDS</code>.</p>
+   * <p>The Amazon Web Services service for which Performance Insights will return metrics. The only valid value for
+   *           <i>ServiceType</i> is <code>RDS</code>.
+   *       </p>
    */
   ServiceType: ServiceType | string | undefined;
 
   /**
-   * <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from
+   * <p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from
    *       this data source.</p>
-   *          <p>To use an Amazon RDS instance as a data source, you specify its <code>DbiResourceId</code> value. For example,
-   *       specify <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>
-   *          </p>
+   *          <p>To use an Amazon RDS instance as a data source, you specify its <code>DbiResourceId</code> value.
+   *           For example, specify <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>.
+   *         </p>
    */
   Identifier: string | undefined;
 
   /**
    * <p>The date and time specifying the beginning of the requested time series data. You must specify a
-   *         <code>StartTime</code> within the past 7 days. The value specified is <i>inclusive</i>, which means
-   *       that data points equal to or greater than <code>StartTime</code> are returned.</p>
-   *          <p>The value for <code>StartTime</code> must be earlier than the value for
-   *         <code>EndTime</code>.</p>
+   *         <code>StartTime</code> within the past 7 days. The value specified is <i>inclusive</i>,
+   *           which means that data points equal to or greater than <code>StartTime</code> are returned.
+   *       </p>
+   *          <p>The value for <code>StartTime</code> must be earlier than the value for <code>EndTime</code>.
+   *       </p>
    */
   StartTime: Date | undefined;
 
@@ -224,26 +227,29 @@ export interface DescribeDimensionKeysRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>db.load.avg</code> - a scaled representation of the number of active sessions
-   *           for the database engine.</p>
+   *                   <code>db.load.avg</code> - a scaled representation of the number of active sessions for the database engine.
+   *             </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>db.sampledload.avg</code> - the raw number of active sessions for the
-   *           database engine.</p>
+   *                   <code>db.sampledload.avg</code> - the raw number of active sessions for the database engine.
+   *             </p>
    *             </li>
    *          </ul>
-   *          <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and <code>db.sampledload.avg</code>
-   *           are the same value. If the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code>
-   *           showing the scaled values, <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less than <code>db.load.avg</code>.
-   *           For most use cases, you can query <code>db.load.avg</code> only. </p>
+   *          <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code>
+   *           and <code>db.sampledload.avg</code> are the same value. If the number of active sessions is greater than
+   *           the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code>
+   *           showing the scaled values, <code>db.sampledload.avg</code> showing the raw values, and
+   *           <code>db.sampledload.avg</code> less than <code>db.load.avg</code>. For most use cases, you can
+   *           query <code>db.load.avg</code> only.
+   *       </p>
    */
   Metric: string | undefined;
 
   /**
    * <p>The granularity, in seconds, of the data points returned from Performance Insights. A period can be as short as
-   *       one second, or as long as one day (86400 seconds).  Valid values are:</p>
-   *
+   *           one second, or as long as one day (86400 seconds). Valid values are:
+   *       </p>
    *         <ul>
    *             <li>
    *                <p>
@@ -267,26 +273,40 @@ export interface DescribeDimensionKeysRequest {
    *             </li>
    *          </ul>
    *
-   *          <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights chooses a value for you, with a goal of returning
-   *       roughly 100-200 data points in the response.</p>
+   *          <p>If you don't specify <code>PeriodInSeconds</code>, then Performance Insights chooses a value for you, with a
+   *           goal of returning roughly 100-200 data points in the response.
+   *       </p>
    */
   PeriodInSeconds?: number;
 
   /**
-   * <p>A specification for how to aggregate the data points from a query result. You must specify a valid dimension group.
-   *       Performance Insights returns all dimensions within this group, unless you provide the names of specific dimensions within this group.
-   *       You can also request that Performance Insights return a limited number of values for a dimension.</p>
+   * <p>A specification for how to aggregate the data points from a query result. You must specify
+   *           a valid dimension group. Performance Insights returns all dimensions within this group, unless you provide
+   *           the names of specific dimensions within this group. You can also request that Performance Insights return
+   *           a limited number of values for a dimension.
+   *       </p>
    */
   GroupBy: DimensionGroup | undefined;
 
   /**
-   * <p>For each dimension specified in
-   *       <code>GroupBy</code>, specify a secondary dimension to further subdivide the partition keys in the response.</p>
+   * <p>Additional metrics for the top <code>N</code> dimension keys.
+   *           If the specified dimension group in the <code>GroupBy</code> parameter is <code>db.sql_tokenized</code>, you can
+   *           specify per-SQL metrics to get the values for the top <code>N</code> SQL digests. The response syntax is
+   *           <code>"AdditionalMetrics" : { "<i>string</i>" : "<i>string</i>" }</code>.
+   *       </p>
+   *          <p></p>
+   */
+  AdditionalMetrics?: string[];
+
+  /**
+   * <p>For each dimension specified in <code>GroupBy</code>, specify a secondary dimension
+   *           to further subdivide the partition keys in the response.
+   *       </p>
    */
   PartitionBy?: DimensionGroup;
 
   /**
-   * <p>One or more filters to apply in the request.  Restrictions:</p>
+   * <p>One or more filters to apply in the request. Restrictions:</p>
    *          <ul>
    *             <li>
    *                <p>Any number of filters by the same dimension, as specified in the <code>GroupBy</code> or
@@ -300,18 +320,17 @@ export interface DescribeDimensionKeysRequest {
   Filter?: { [key: string]: string };
 
   /**
-   * <p>The maximum number of items to return in the response.
-   *       If more items exist than the specified <code>MaxRecords</code> value, a pagination
-   *       token is included in the response so that the remaining
-   *       results can be retrieved.
+   * <p>The maximum number of items to return in the response. If more items exist than the
+   *           specified <code>MaxRecords</code> value, a pagination token is included in the response
+   *           so that the remaining results can be retrieved.
    *     </p>
    */
   MaxResults?: number;
 
   /**
-   * <p>An optional pagination token provided by a previous request. If
-   *       this parameter is specified, the response includes only records beyond the token, up to the
-   *       value specified by <code>MaxRecords</code>.</p>
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *           the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.
+   *       </p>
    */
   NextToken?: string;
 }
@@ -326,8 +345,8 @@ export namespace DescribeDimensionKeysRequest {
 }
 
 /**
- * <p>An array of descriptions and aggregated values for
- *       each dimension within a dimension group.</p>
+ * <p>An object that includes the requested dimension key values and aggregated metric values
+ *           within a dimension group.</p>
  */
 export interface DimensionKeyDescription {
   /**
@@ -336,9 +355,14 @@ export interface DimensionKeyDescription {
   Dimensions?: { [key: string]: string };
 
   /**
-   * <p>The aggregated metric value for the dimension(s), over the requested time range.</p>
+   * <p>The aggregated metric value for the dimensions, over the requested time range.</p>
    */
   Total?: number;
+
+  /**
+   * <p>A map that contains the value for each additional metric.</p>
+   */
+  AdditionalMetrics?: { [key: string]: number };
 
   /**
    * <p>If <code>PartitionBy</code> was specified, <code>PartitionKeys</code> contains the dimensions that were.</p>
@@ -362,7 +386,7 @@ export namespace DimensionKeyDescription {
  */
 export interface ResponsePartitionKey {
   /**
-   * <p>A dimension map that contains the dimension(s) for this partition.</p>
+   * <p>A dimension map that contains the dimensions for this partition.</p>
    */
   Dimensions: { [key: string]: string } | undefined;
 }
@@ -379,20 +403,24 @@ export namespace ResponsePartitionKey {
 export interface DescribeDimensionKeysResponse {
   /**
    * <p>The start time for the returned dimension keys, after alignment to a granular boundary (as
-   *       specified by <code>PeriodInSeconds</code>). <code>AlignedStartTime</code> will be less than or
-   *       equal to the value of the user-specified <code>StartTime</code>.</p>
+   *           specified by <code>PeriodInSeconds</code>). <code>AlignedStartTime</code> will be less than or
+   *           equal to the value of the user-specified <code>StartTime</code>.
+   *       </p>
    */
   AlignedStartTime?: Date;
 
   /**
    * <p>The end time for the returned dimension keys, after alignment to a granular boundary (as
-   *       specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than
-   *       or equal to the value of the user-specified <code>Endtime</code>.</p>
+   *           specified by <code>PeriodInSeconds</code>). <code>AlignedEndTime</code> will be greater than
+   *           or equal to the value of the user-specified <code>Endtime</code>.
+   *       </p>
    */
   AlignedEndTime?: Date;
 
   /**
-   * <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains the breakdown of dimension keys by the specified partitions.</p>
+   * <p>If <code>PartitionBy</code> was present in the request, <code>PartitionKeys</code> contains
+   *           the breakdown of dimension keys by the specified partitions.
+   *       </p>
    */
   PartitionKeys?: ResponsePartitionKey[];
 
@@ -402,9 +430,10 @@ export interface DescribeDimensionKeysResponse {
   Keys?: DimensionKeyDescription[];
 
   /**
-   * <p>An optional pagination token provided by a previous request. If
-   *       this parameter is specified, the response includes only records beyond the token, up to the
-   *       value specified by <code>MaxRecords</code>.</p>
+   * <p>A pagination token that indicates the response didn’t return all available records
+   *           because <code>MaxRecords</code> was specified in the previous request. To get the
+   *           remaining records, specify <code>NextToken</code> in a separate request with this value.
+   *       </p>
    */
   NextToken?: string;
 }
@@ -449,6 +478,49 @@ export enum DetailStatus {
   AVAILABLE = "AVAILABLE",
   PROCESSING = "PROCESSING",
   UNAVAILABLE = "UNAVAILABLE",
+}
+
+/**
+ * <p>The information about a dimension.</p>
+ */
+export interface DimensionDetail {
+  /**
+   * <p>The identifier of a dimension.</p>
+   */
+  Identifier?: string;
+}
+
+export namespace DimensionDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DimensionDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about dimensions within a dimension group.</p>
+ */
+export interface DimensionGroupDetail {
+  /**
+   * <p>The name of the dimension group.</p>
+   */
+  Group?: string;
+
+  /**
+   * <p>The dimensions within a dimension group.</p>
+   */
+  Dimensions?: DimensionDetail[];
+}
+
+export namespace DimensionGroupDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DimensionGroupDetail): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -498,16 +570,75 @@ export namespace DimensionKeyDetail {
   });
 }
 
+export enum FeatureStatus {
+  DISABLED = "DISABLED",
+  DISABLED_PENDING_REBOOT = "DISABLED_PENDING_REBOOT",
+  ENABLED = "ENABLED",
+  ENABLED_PENDING_REBOOT = "ENABLED_PENDING_REBOOT",
+  UNKNOWN = "UNKNOWN",
+  UNSUPPORTED = "UNSUPPORTED",
+}
+
+/**
+ * <p>The metadata for a feature. For example, the metadata might indicate that a feature is
+ *           turned on or off on a specific DB instance.</p>
+ */
+export interface FeatureMetadata {
+  /**
+   * <p>The status of the feature on the DB instance. Possible values include the following:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code>: the feature is enabled on the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code>: the feature is disabled on the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNSUPPORTED</code>: the feature isn't supported on the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_PENDING_REBOOT</code>: the feature is enabled on the instance but requires
+   *               a reboot to take effect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED_PENDING_REBOOT</code>: the feature is disabled on the instance but requires
+   *               a reboot to take effect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: the feature status couldn't be determined.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: FeatureStatus | string;
+}
+
+export namespace FeatureMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FeatureMetadata): any => ({
+    ...obj,
+  });
+}
+
 export interface GetDimensionKeyDetailsRequest {
   /**
-   * <p>The AWS service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>
+   * <p>The Amazon Web Services service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>
    */
   ServiceType: ServiceType | string | undefined;
 
   /**
-   * <p>The ID for a data source from which to gather dimension data. This ID must be immutable and unique within an AWS
-   *       Region. When a DB instance is the data source, specify its <code>DbiResourceId</code> value. For example, specify
-   *         <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>. </p>
+   * <p>The ID for a data source from which to gather dimension data. This ID must be immutable and
+   *           unique within an Amazon Web Services Region. When a DB instance is the data source, specify its
+   *           <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.
+   *       </p>
    */
   Identifier: string | undefined;
 
@@ -524,10 +655,12 @@ export interface GetDimensionKeyDetailsRequest {
   GroupIdentifier: string | undefined;
 
   /**
-   * <p>A list of dimensions to retrieve the detail data for within the given dimension group. For the dimension group
-   *                 <code>db.sql</code>, specify either the full dimension name <code>db.sql.statement</code> or the short
-   *             dimension name <code>statement</code>. If you don't specify this parameter, Performance Insights returns all
-   *             dimension data within the specified dimension group.</p>
+   * <p>A list of dimensions to retrieve the detail data for within the given dimension group.
+   *           For the dimension group <code>db.sql</code>, specify either the full dimension name
+   *           <code>db.sql.statement</code> or the short dimension name <code>statement</code>.
+   *           If you don't specify this parameter, Performance Insights returns all
+   *           dimension data within the specified dimension group.
+   *       </p>
    */
   RequestedDimensions?: string[];
 }
@@ -557,11 +690,61 @@ export namespace GetDimensionKeyDetailsResponse {
   });
 }
 
+export interface GetResourceMetadataRequest {
+  /**
+   * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
+   */
+  ServiceType: ServiceType | string | undefined;
+
+  /**
+   * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region.
+   *             Performance Insights gathers metrics from this data source. To use a DB instance as a data source,
+   *             specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.
+   *         </p>
+   */
+  Identifier: string | undefined;
+}
+
+export namespace GetResourceMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResourceMetadataResponse {
+  /**
+   * <p>An immutable identifier for a data source that is unique for an Amazon Web Services Region.
+   *
+   *       Performance Insights gathers metrics from this data source. To use a DB instance as a data source,
+   *             specify its <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VW2X</code>.
+   *         </p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>The metadata for different features. For example, the metadata might indicate that a feature is
+   *             turned on or off on a specific DB instance.</p>
+   */
+  Features?: { [key: string]: FeatureMetadata };
+}
+
+export namespace GetResourceMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A single query to be processed. You must provide the metric to query. If no other
- *       parameters are specified, Performance Insights returns all of the data points for that metric. You can
- *       optionally request that the data points be aggregated by dimension group (
- *       <code>GroupBy</code>), and return only those data points that match your criteria (<code>Filter</code>).</p>
+ *       parameters are specified, Performance Insights returns all data points for the specified metric. Optionally, you can
+ *       request that the data points be aggregated by dimension group (<code>GroupBy</code>), and return only
+ *           those data points that match your criteria (<code>Filter</code>).</p>
  */
 export interface MetricQuery {
   /**
@@ -620,13 +803,13 @@ export namespace MetricQuery {
 
 export interface GetResourceMetricsRequest {
   /**
-   * <p>The AWS service for which Performance Insights returns metrics. The only valid value for <i>ServiceType</i> is
+   * <p>The Amazon Web Services service for which Performance Insights returns metrics. The only valid value for <i>ServiceType</i> is
    *         <code>RDS</code>.</p>
    */
   ServiceType: ServiceType | string | undefined;
 
   /**
-   * <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from
+   * <p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from
    *       this data source.</p>
    *          <p>To use a DB instance as a data source, specify its <code>DbiResourceId</code> value. For example, specify
    *         <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>.</p>
@@ -733,10 +916,12 @@ export interface ResponseResourceMetricKey {
    *           database engine.</p>
    *             </li>
    *          </ul>
-   *          <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and <code>db.sampledload.avg</code>
-   *           are the same value. If the number of active sessions is greater than the internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code>
-   *           showing the scaled values, <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less than <code>db.load.avg</code>.
-   *           For most use cases, you can query <code>db.load.avg</code> only. </p>
+   *          <p>If the number of active sessions is less than an internal Performance Insights threshold, <code>db.load.avg</code> and
+   *           <code>db.sampledload.avg</code> are the same value. If the number of active sessions is greater than the
+   *           internal threshold, Performance Insights samples the active sessions, with <code>db.load.avg</code> showing the scaled values,
+   *           <code>db.sampledload.avg</code> showing the raw values, and <code>db.sampledload.avg</code> less
+   *           than <code>db.load.avg</code>. For most use cases, you can query <code>db.load.avg</code> only.
+   *       </p>
    */
   Metric: string | undefined;
 
@@ -761,7 +946,7 @@ export namespace ResponseResourceMetricKey {
  */
 export interface MetricKeyDataPoints {
   /**
-   * <p>The dimension(s) to which the data points apply.</p>
+   * <p>The dimensions to which the data points apply.</p>
    */
   Key?: ResponseResourceMetricKey;
 
@@ -796,11 +981,11 @@ export interface GetResourceMetricsResponse {
   AlignedEndTime?: Date;
 
   /**
-   * <p>An immutable, AWS Region-unique identifier for a data source. Performance Insights gathers metrics from
-   *       this data source.</p>
-   *          <p>To use a DB instance as a data source, you specify its
-   *       <code>DbiResourceId</code> value - for example:
-   *       <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>
+   * <p>An immutable, Amazon Web Services Region-unique identifier for a data source. Performance Insights gathers metrics from
+   *           this data source.
+   *       </p>
+   *          <p>To use a DB instance as a data source, you specify its <code>DbiResourceId</code> value -
+   *           for example: <code>db-FAIHNTYBKTGAUSUZQYPDS2GW4A</code>
    *          </p>
    */
   Identifier?: string;
@@ -811,9 +996,9 @@ export interface GetResourceMetricsResponse {
   MetricList?: MetricKeyDataPoints[];
 
   /**
-   * <p>An optional pagination token provided by a previous request. If
-   *       this parameter is specified, the response includes only records beyond the token, up to the
-   *       value specified by <code>MaxRecords</code>.</p>
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *           the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.
+   *       </p>
    */
   NextToken?: string;
 }
@@ -823,6 +1008,210 @@ export namespace GetResourceMetricsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAvailableResourceDimensionsRequest {
+  /**
+   * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
+   */
+  ServiceType: ServiceType | string | undefined;
+
+  /**
+   * <p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers
+   *             metrics from this data source. To use an Amazon RDS DB instance as a data source, specify its
+   *                 <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</code>. </p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The types of metrics for which to retrieve dimensions. Valid values include <code>db.load</code>.</p>
+   */
+  Metrics: string[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response. If more items exist than the specified
+   *             <code>MaxRecords</code> value, a pagination token is included in the response so that the remaining
+   *             results can be retrieved.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *             the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAvailableResourceDimensionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAvailableResourceDimensionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The available dimension information for a metric type.</p>
+ */
+export interface MetricDimensionGroups {
+  /**
+   * <p>The metric type to which the dimension information belongs.</p>
+   */
+  Metric?: string;
+
+  /**
+   * <p>The available dimension groups for a metric type.</p>
+   */
+  Groups?: DimensionGroupDetail[];
+}
+
+export namespace MetricDimensionGroups {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricDimensionGroups): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAvailableResourceDimensionsResponse {
+  /**
+   * <p>The dimension information returned for requested metric types.</p>
+   */
+  MetricDimensions?: MetricDimensionGroups[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *             the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAvailableResourceDimensionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAvailableResourceDimensionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAvailableResourceMetricsRequest {
+  /**
+   * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
+   */
+  ServiceType: ServiceType | string | undefined;
+
+  /**
+   * <p>An immutable identifier for a data source that is unique within an Amazon Web Services Region. Performance Insights gathers
+   *             metrics from this data source. To use an Amazon RDS DB instance as a data source, specify its
+   *                 <code>DbiResourceId</code> value. For example, specify <code>db-ABCDEFGHIJKLMNOPQRSTU1VWZ</code>. </p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The types of metrics to return in the response. Valid values in the array include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>os</code> (OS counter metrics)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db</code> (DB load metrics)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.sql.stats</code> (per-SQL metrics)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>db.sql_tokenized.stats</code> (per-SQL digest metrics)</p>
+   *             </li>
+   *          </ul>
+   */
+  MetricTypes: string[] | undefined;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *           the response includes only records beyond the token, up to the value specified by <code>MaxRecords</code>.
+   *       </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return. If the <code>MaxRecords</code> value is less than the number of
+   *           existing items, the response includes a pagination token.
+   *       </p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListAvailableResourceMetricsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAvailableResourceMetricsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An object that contains the full name, description, and unit of a metric.
+ *       </p>
+ */
+export interface ResponseResourceMetric {
+  /**
+   * <p>The full name of the metric.</p>
+   */
+  Metric?: string;
+
+  /**
+   * <p>The description of the metric.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The unit of the metric.</p>
+   */
+  Unit?: string;
+}
+
+export namespace ResponseResourceMetric {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseResourceMetric): any => ({
+    ...obj,
+  });
+}
+
+export interface ListAvailableResourceMetricsResponse {
+  /**
+   * <p>An array of metrics available to query. Each array element contains the full name,
+   *           description, and unit of the metric.
+   *       </p>
+   */
+  Metrics?: ResponseResourceMetric[];
+
+  /**
+   * <p>A pagination token that indicates the response didn’t return all available records
+   *           because <code>MaxRecords</code> was specified in the previous request. To get the remaining
+   *           records, specify <code>NextToken</code> in a separate request with this value.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAvailableResourceMetricsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAvailableResourceMetricsResponse): any => ({
     ...obj,
   });
 }

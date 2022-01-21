@@ -21,6 +21,11 @@ import {
   CreateMetricSetCommandInput,
   CreateMetricSetCommandOutput,
 } from "./commands/CreateMetricSetCommand";
+import {
+  DeactivateAnomalyDetectorCommand,
+  DeactivateAnomalyDetectorCommandInput,
+  DeactivateAnomalyDetectorCommandOutput,
+} from "./commands/DeactivateAnomalyDetectorCommand";
 import { DeleteAlertCommand, DeleteAlertCommandInput, DeleteAlertCommandOutput } from "./commands/DeleteAlertCommand";
 import {
   DeleteAnomalyDetectorCommand,
@@ -258,6 +263,38 @@ export class LookoutMetrics extends LookoutMetricsClient {
     cb?: (err: any, data?: CreateMetricSetCommandOutput) => void
   ): Promise<CreateMetricSetCommandOutput> | void {
     const command = new CreateMetricSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deactivates an anomaly detector.</p>
+   */
+  public deactivateAnomalyDetector(
+    args: DeactivateAnomalyDetectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeactivateAnomalyDetectorCommandOutput>;
+  public deactivateAnomalyDetector(
+    args: DeactivateAnomalyDetectorCommandInput,
+    cb: (err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void
+  ): void;
+  public deactivateAnomalyDetector(
+    args: DeactivateAnomalyDetectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void
+  ): void;
+  public deactivateAnomalyDetector(
+    args: DeactivateAnomalyDetectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void),
+    cb?: (err: any, data?: DeactivateAnomalyDetectorCommandOutput) => void
+  ): Promise<DeactivateAnomalyDetectorCommandOutput> | void {
+    const command = new DeactivateAnomalyDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

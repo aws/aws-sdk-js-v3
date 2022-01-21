@@ -23,7 +23,14 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
 
 /**
  * <p>Updates an association. You can update the association name and version, the document
- *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. </p>
+ *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
+ *    call <code>UpdateAssociation</code>, the system drops all optional parameters from the request
+ *    and overwrites the association with null values for those parameters. This is by design. You must
+ *    specify all optional parameters in the call, even if you are not changing the parameters. This
+ *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
+ *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
+ *    parameters required for your <code>UpdateAssociation</code> call.</p>
+ *
  *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
  *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
  *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred
@@ -33,7 +40,8 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  *          </p>
  *          <important>
  *             <p>When you update an association, the association immediately runs against the specified
- *     targets.</p>
+ *     targets. You can add the <code>ApplyOnlyAtCronInterval</code> parameter to run the association
+ *     during the next schedule run.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

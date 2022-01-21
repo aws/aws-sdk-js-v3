@@ -459,7 +459,7 @@ export interface UpdateInstanceAttributeRequest {
   /**
    * <p>The type of attribute.</p>
    *          <note>
-   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact AWS Support for allowlisting.</p>
+   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support  for allowlisting.</p>
    *          </note>
    */
   AttributeType: InstanceAttributeType | string | undefined;

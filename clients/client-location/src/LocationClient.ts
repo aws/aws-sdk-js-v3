@@ -77,6 +77,10 @@ import {
 } from "./commands/BatchUpdateDevicePositionCommand";
 import { CalculateRouteCommandInput, CalculateRouteCommandOutput } from "./commands/CalculateRouteCommand";
 import {
+  CalculateRouteMatrixCommandInput,
+  CalculateRouteMatrixCommandOutput,
+} from "./commands/CalculateRouteMatrixCommand";
+import {
   CreateGeofenceCollectionCommandInput,
   CreateGeofenceCollectionCommandOutput,
 } from "./commands/CreateGeofenceCollectionCommand";
@@ -187,6 +191,7 @@ export type ServiceInputTypes =
   | BatchPutGeofenceCommandInput
   | BatchUpdateDevicePositionCommandInput
   | CalculateRouteCommandInput
+  | CalculateRouteMatrixCommandInput
   | CreateGeofenceCollectionCommandInput
   | CreateMapCommandInput
   | CreatePlaceIndexCommandInput
@@ -240,6 +245,7 @@ export type ServiceOutputTypes =
   | BatchPutGeofenceCommandOutput
   | BatchUpdateDevicePositionCommandOutput
   | CalculateRouteCommandOutput
+  | CalculateRouteMatrixCommandOutput
   | CreateGeofenceCollectionCommandOutput
   | CreateMapCommandOutput
   | CreatePlaceIndexCommandOutput

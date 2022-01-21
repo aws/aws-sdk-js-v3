@@ -25,8 +25,8 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * <p>Describes one or more of your managed nodes, including information about the operating
  *    system platform, the version of SSM Agent installed on the managed node, node status, and so
  *    on.</p>
- *          <p>If you specify one or more managed node IDs, it returns information for those managed nodes. If
- *    you don't specify node IDs, it returns information for all your managed nodes. If you specify
+ *          <p>If you specify one or more managed node IDs, it returns information for those managed nodes.
+ *    If you don't specify node IDs, it returns information for all your managed nodes. If you specify
  *    a node ID that isn't valid or a node that you don't own, you receive an error.</p>
  *          <note>
  *             <p>The <code>IamRole</code> field for this API operation is the Identity and Access Management

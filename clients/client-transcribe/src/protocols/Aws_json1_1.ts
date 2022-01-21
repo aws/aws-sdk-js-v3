@@ -231,6 +231,7 @@ import {
   ModelSettings,
   NonTalkTimeFilter,
   NotFoundException,
+  PiiEntityType,
   RelativeTimeRange,
   Rule,
   SentimentFilter,
@@ -3874,6 +3875,10 @@ const serializeAws_json1_1ChannelDefinitions = (input: ChannelDefinition[], cont
 
 const serializeAws_json1_1ContentRedaction = (input: ContentRedaction, context: __SerdeContext): any => {
   return {
+    ...(input.PiiEntityTypes !== undefined &&
+      input.PiiEntityTypes !== null && {
+        PiiEntityTypes: serializeAws_json1_1PiiEntityTypes(input.PiiEntityTypes, context),
+      }),
     ...(input.RedactionOutput !== undefined &&
       input.RedactionOutput !== null && { RedactionOutput: input.RedactionOutput }),
     ...(input.RedactionType !== undefined && input.RedactionType !== null && { RedactionType: input.RedactionType }),
@@ -4341,6 +4346,17 @@ const serializeAws_json1_1NonTalkTimeFilter = (input: NonTalkTimeFilter, context
 };
 
 const serializeAws_json1_1Phrases = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1PiiEntityTypes = (input: (PiiEntityType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -4869,6 +4885,10 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ContentRedaction = (output: any, context: __SerdeContext): ContentRedaction => {
   return {
+    PiiEntityTypes:
+      output.PiiEntityTypes !== undefined && output.PiiEntityTypes !== null
+        ? deserializeAws_json1_1PiiEntityTypes(output.PiiEntityTypes, context)
+        : undefined,
     RedactionOutput: __expectString(output.RedactionOutput),
     RedactionType: __expectString(output.RedactionType),
   } as any;
@@ -5446,6 +5466,17 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1PiiEntityTypes = (output: any, context: __SerdeContext): (PiiEntityType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_json1_1RelativeTimeRange = (output: any, context: __SerdeContext): RelativeTimeRange => {

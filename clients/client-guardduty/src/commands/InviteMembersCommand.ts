@@ -22,8 +22,8 @@ export interface InviteMembersCommandInput extends InviteMembersRequest {}
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Invites other AWS accounts (created as members of the current AWS account by
- *       CreateMembers) to enable GuardDuty, and allow the current AWS account to view and manage these
+ * <p>Invites other Amazon Web Services accounts (created as members of the current Amazon Web Services account by
+ *       CreateMembers) to enable GuardDuty, and allow the current Amazon Web Services account to view and manage these
  *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

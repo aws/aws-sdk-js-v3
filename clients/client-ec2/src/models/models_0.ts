@@ -5000,8 +5000,8 @@ export interface BundleInstanceRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -5132,8 +5132,8 @@ export interface CancelBundleTaskRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -6015,8 +6015,8 @@ export interface CopyImageRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -6192,6 +6192,12 @@ export enum CapacityReservationInstancePlatform {
   LINUX_WITH_SQL_SERVER_STANDARD = "Linux with SQL Server Standard",
   LINUX_WITH_SQL_SERVER_WEB = "Linux with SQL Server Web",
   RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux",
+  RHEL_WITH_HA = "RHEL with HA",
+  RHEL_WITH_HA_AND_SQL_SERVER_ENTERPRISE = "RHEL with HA and SQL Server Enterprise",
+  RHEL_WITH_HA_AND_SQL_SERVER_STANDARD = "RHEL with HA and SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_ENTERPRISE = "RHEL with SQL Server Enterprise",
+  RHEL_WITH_SQL_SERVER_STANDARD = "RHEL with SQL Server Standard",
+  RHEL_WITH_SQL_SERVER_WEB = "RHEL with SQL Server Web",
   SUSE_LINUX = "SUSE Linux",
   WINDOWS = "Windows",
   WINDOWS_WITH_SQL_SERVER = "Windows with SQL Server",
@@ -6667,6 +6673,7 @@ export type _InstanceType =
   | "c6i.4xlarge"
   | "c6i.8xlarge"
   | "c6i.large"
+  | "c6i.metal"
   | "c6i.xlarge"
   | "cc1.4xlarge"
   | "cc2.8xlarge"
@@ -6727,6 +6734,7 @@ export type _InstanceType =
   | "h1.4xlarge"
   | "h1.8xlarge"
   | "hi1.4xlarge"
+  | "hpc6a.48xlarge"
   | "hs1.8xlarge"
   | "i2.2xlarge"
   | "i2.4xlarge"
@@ -6875,6 +6883,7 @@ export type _InstanceType =
   | "m6i.4xlarge"
   | "m6i.8xlarge"
   | "m6i.large"
+  | "m6i.metal"
   | "m6i.xlarge"
   | "mac1.metal"
   | "p2.16xlarge"
@@ -6975,6 +6984,16 @@ export type _InstanceType =
   | "r6gd.medium"
   | "r6gd.metal"
   | "r6gd.xlarge"
+  | "r6i.12xlarge"
+  | "r6i.16xlarge"
+  | "r6i.24xlarge"
+  | "r6i.2xlarge"
+  | "r6i.32xlarge"
+  | "r6i.4xlarge"
+  | "r6i.8xlarge"
+  | "r6i.large"
+  | "r6i.metal"
+  | "r6i.xlarge"
   | "t1.micro"
   | "t2.2xlarge"
   | "t2.large"
@@ -7560,6 +7579,20 @@ export namespace ClientConnectOptions {
   });
 }
 
+export interface ClientLoginBannerOptions {
+  Enabled?: boolean;
+  BannerText?: string;
+}
+
+export namespace ClientLoginBannerOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientLoginBannerOptions): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
  */
@@ -7702,6 +7735,9 @@ export interface CreateClientVpnEndpointRequest {
    * <p>The options for managing connection authorization for new client connections.</p>
    */
   ClientConnectOptions?: ClientConnectOptions;
+
+  SessionTimeoutHours?: number;
+  ClientLoginBannerOptions?: ClientLoginBannerOptions;
 }
 
 export namespace CreateClientVpnEndpointRequest {
@@ -8687,9 +8723,4 @@ export enum LocalStorage {
   EXCLUDED = "excluded",
   INCLUDED = "included",
   REQUIRED = "required",
-}
-
-export enum LocalStorageType {
-  HDD = "hdd",
-  SSD = "ssd",
 }

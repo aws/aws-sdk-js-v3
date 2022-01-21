@@ -876,7 +876,7 @@ export class Nimble extends NimbleClient {
 
   /**
    * <p>Gets StreamingSession resource.</p>
-   *         <p>anvoke this operation to poll for a streaming session state while creating or deleting
+   *         <p>Invoke this operation to poll for a streaming session state while creating or deleting
    *             a session.</p>
    */
   public getStreamingSession(

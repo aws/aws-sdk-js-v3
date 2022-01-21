@@ -23,9 +23,7 @@ import {
   InstanceEventWindow,
   PathComponent,
   PortRange,
-  ReservedInstancesListing,
   Tag,
-  Tenancy,
 } from "./models_0";
 import {
   BlockDeviceMapping,
@@ -77,9 +75,91 @@ import {
   Filter,
   FleetStateCode,
   IdFormat,
-  ImportInstanceTaskDetails,
   InstanceTagNotificationAttribute,
 } from "./models_2";
+
+/**
+ * <p>Describes an import volume task.</p>
+ */
+export interface ImportInstanceVolumeDetailItem {
+  /**
+   * <p>The Availability Zone where the resulting instance will reside.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The number of bytes converted so far.</p>
+   */
+  BytesConverted?: number;
+
+  /**
+   * <p>A description of the task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The image.</p>
+   */
+  Image?: DiskImageDescription;
+
+  /**
+   * <p>The status of the import of this particular disk image.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The status information or errors related to the disk image.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The volume.</p>
+   */
+  Volume?: DiskImageVolumeDescription;
+}
+
+export namespace ImportInstanceVolumeDetailItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an import instance task.</p>
+ */
+export interface ImportInstanceTaskDetails {
+  /**
+   * <p>A description of the task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The instance operating system.</p>
+   */
+  Platform?: PlatformValues | string;
+
+  /**
+   * <p>The volumes.</p>
+   */
+  Volumes?: ImportInstanceVolumeDetailItem[];
+}
+
+export namespace ImportInstanceTaskDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes an import volume task.</p>
@@ -781,6 +861,211 @@ export namespace DescribeExportTasksResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeExportTasksResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFastLaunchImagesRequest {
+  /**
+   * <p>Details for one or more Windows AMI image IDs.</p>
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>Use the following filters to streamline results.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>resource-type</code> - The resource type for pre-provisioning.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>launch-template</code> - The launch template that is associated with the pre-provisioned Windows AMI.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>owner-id</code> - The owner ID for the pre-provisioning resource.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>state</code> - The current state of fast launching for the Windows AMI.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
+   * 			make another request with the returned NextToken value. If this parameter is not specified,
+   * 			then all results are returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeFastLaunchImagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFastLaunchImagesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Identifies the launch template to use for faster launching of the Windows AMI.</p>
+ */
+export interface FastLaunchLaunchTemplateSpecificationResponse {
+  /**
+   * <p>The ID of the launch template for faster launching of the associated Windows AMI.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template for faster launching of the associated Windows AMI.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version of the launch template for faster launching of the associated Windows AMI.</p>
+   */
+  Version?: string;
+}
+
+export namespace FastLaunchLaunchTemplateSpecificationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchLaunchTemplateSpecificationResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum FastLaunchResourceType {
+  SNAPSHOT = "snapshot",
+}
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a fast-launch enabled Windows AMI.</p>
+ */
+export interface FastLaunchSnapshotConfigurationResponse {
+  /**
+   * <p>The number of pre-provisioned snapshots requested to keep on hand for a fast-launch enabled Windows AMI.</p>
+   */
+  TargetResourceCount?: number;
+}
+
+export namespace FastLaunchSnapshotConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FastLaunchSnapshotConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum FastLaunchStateCode {
+  disabling = "disabling",
+  disabling_failed = "disabling-failed",
+  enabled = "enabled",
+  enabled_failed = "enabled-failed",
+  enabling = "enabling",
+  enabling_failed = "enabling-failed",
+}
+
+/**
+ * <p>Describe details about a fast-launch enabled Windows image that meets the requested
+ * 			criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>
+ */
+export interface DescribeFastLaunchImagesSuccessItem {
+  /**
+   * <p>The image ID that identifies the fast-launch enabled Windows image.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The resource type that is used for pre-provisioning the Windows AMI. Supported values
+   * 			include: <code>snapshot</code>.</p>
+   */
+  ResourceType?: FastLaunchResourceType | string;
+
+  /**
+   * <p>A group of parameters that are used for pre-provisioning the associated
+   * 			Windows AMI using snapshots.</p>
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
+
+  /**
+   * <p>The launch template that the fast-launch enabled Windows AMI uses when it launches
+   * 			Windows instances from pre-provisioned snapshots.</p>
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
+
+  /**
+   * <p>The maximum number of parallel instances that are launched for creating resources.</p>
+   */
+  MaxParallelLaunches?: number;
+
+  /**
+   * <p>The owner ID for the fast-launch enabled Windows AMI.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The current state of faster launching for the specified Windows AMI.</p>
+   */
+  State?: FastLaunchStateCode | string;
+
+  /**
+   * <p>The reason that faster launching for the Windows AMI changed to the current state.</p>
+   */
+  StateTransitionReason?: string;
+
+  /**
+   * <p>The time that faster launching for the Windows AMI changed to the current state.</p>
+   */
+  StateTransitionTime?: Date;
+}
+
+export namespace DescribeFastLaunchImagesSuccessItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFastLaunchImagesSuccessItem): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFastLaunchImagesResult {
+  /**
+   * <p>A collection of details about the fast-launch enabled Windows images that meet
+   * 			the requested criteria.</p>
+   */
+  FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[];
+
+  /**
+   * <p>The token to use for the next set of results. This value is null when there are
+   * 			no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeFastLaunchImagesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFastLaunchImagesResult): any => ({
     ...obj,
   });
 }
@@ -3440,8 +3725,8 @@ export interface DescribeImageAttributeRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -3750,8 +4035,8 @@ export interface DescribeImagesRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -11679,357 +11964,3 @@ export namespace DescribeReservedInstancesRequest {
 export type RIProductDescription = "Linux/UNIX" | "Linux/UNIX (Amazon VPC)" | "Windows" | "Windows (Amazon VPC)";
 
 export type RecurringChargeFrequency = "Hourly";
-
-/**
- * <p>Describes a recurring charge.</p>
- */
-export interface RecurringCharge {
-  /**
-   * <p>The amount of the recurring charge.</p>
-   */
-  Amount?: number;
-
-  /**
-   * <p>The frequency of the recurring charge.</p>
-   */
-  Frequency?: RecurringChargeFrequency | string;
-}
-
-export namespace RecurringCharge {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RecurringCharge): any => ({
-    ...obj,
-  });
-}
-
-export enum Scope {
-  AVAILABILITY_ZONE = "Availability Zone",
-  REGIONAL = "Region",
-}
-
-export type ReservedInstanceState =
-  | "active"
-  | "payment-failed"
-  | "payment-pending"
-  | "queued"
-  | "queued-deleted"
-  | "retired";
-
-/**
- * <p>Describes a Reserved Instance.</p>
- */
-export interface ReservedInstances {
-  /**
-   * <p>The Availability Zone in which the Reserved Instance can be used.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The duration of the Reserved Instance, in seconds.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The time when the Reserved Instance expires.</p>
-   */
-  End?: Date;
-
-  /**
-   * <p>The purchase price of the Reserved Instance.</p>
-   */
-  FixedPrice?: number;
-
-  /**
-   * <p>The number of reservations purchased.</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>The instance type on which the Reserved Instance can be used.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The Reserved Instance product platform description.</p>
-   */
-  ProductDescription?: RIProductDescription | string;
-
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   */
-  ReservedInstancesId?: string;
-
-  /**
-   * <p>The date and time the Reserved Instance started.</p>
-   */
-  Start?: Date;
-
-  /**
-   * <p>The state of the Reserved Instance purchase.</p>
-   */
-  State?: ReservedInstanceState | string;
-
-  /**
-   * <p>The usage price of the Reserved Instance, per hour.</p>
-   */
-  UsagePrice?: number;
-
-  /**
-   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The tenancy of the instance.</p>
-   */
-  InstanceTenancy?: Tenancy | string;
-
-  /**
-   * <p>The offering class of the Reserved Instance.</p>
-   */
-  OfferingClass?: OfferingClassType | string;
-
-  /**
-   * <p>The Reserved Instance offering type.</p>
-   */
-  OfferingType?: OfferingTypeValues | string;
-
-  /**
-   * <p>The recurring charge tag assigned to the resource.</p>
-   */
-  RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p>The scope of the Reserved Instance.</p>
-   */
-  Scope?: Scope | string;
-
-  /**
-   * <p>Any tags assigned to the resource.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ReservedInstances {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedInstances): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output for DescribeReservedInstances.</p>
- */
-export interface DescribeReservedInstancesResult {
-  /**
-   * <p>A list of Reserved Instances.</p>
-   */
-  ReservedInstances?: ReservedInstances[];
-}
-
-export namespace DescribeReservedInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstancesListings.</p>
- */
-export interface DescribeReservedInstancesListingsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-listing-id</code> - The ID of the Reserved Instances listing.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The status of the Reserved Instance listing (<code>pending</code> | <code>active</code> |
-   *            <code>cancelled</code> | <code>closed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The reason for the status.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>One or more Reserved Instance IDs.</p>
-   */
-  ReservedInstancesId?: string;
-
-  /**
-   * <p>One or more Reserved Instance listing IDs.</p>
-   */
-  ReservedInstancesListingId?: string;
-}
-
-export namespace DescribeReservedInstancesListingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of DescribeReservedInstancesListings.</p>
- */
-export interface DescribeReservedInstancesListingsResult {
-  /**
-   * <p>Information about the Reserved Instance listing.</p>
-   */
-  ReservedInstancesListings?: ReservedInstancesListing[];
-}
-
-export namespace DescribeReservedInstancesListingsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedInstancesListingsResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
- */
-export interface DescribeReservedInstancesModificationsRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>client-token</code> - The idempotency token for the modification request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-date</code> - The time when the modification request was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>effective-date</code> - The time when the modification becomes effective.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.reserved-instances-id</code> - The ID for the Reserved Instances created as part of the modification request. This ID is only available when the status of the modification is <code>fulfilled</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.availability-zone</code> - The Availability Zone for the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.instance-count </code> - The number of new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.instance-type</code> - The instance type of the new Reserved Instances.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modification-result.target-configuration.platform</code> - The network platform of the new Reserved Instances (<code>EC2-Classic</code> | <code>EC2-VPC</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-id</code> - The ID of the Reserved Instances modified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>reserved-instances-modification-id</code> - The ID of the modification request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The status of the Reserved Instances modification request
-   *            (<code>processing</code> | <code>fulfilled</code> | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status-message</code> - The reason for the status.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-date</code> - The time when the modification request was last updated.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>IDs for the submitted modification request.</p>
-   */
-  ReservedInstancesModificationIds?: string[];
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeReservedInstancesModificationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeReservedInstancesModificationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the configuration settings for the modified Reserved Instances.</p>
- */
-export interface ReservedInstancesConfiguration {
-  /**
-   * <p>The Availability Zone for the modified Reserved Instances.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of modified Reserved Instances.</p>
-   *          <note>
-   *             <p>This is a required field for a request.</p>
-   *          </note>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>The instance type for the modified Reserved Instances.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
-   */
-  Platform?: string;
-
-  /**
-   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
-   */
-  Scope?: Scope | string;
-}
-
-export namespace ReservedInstancesConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ReservedInstancesConfiguration): any => ({
-    ...obj,
-  });
-}

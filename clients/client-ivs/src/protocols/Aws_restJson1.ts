@@ -97,6 +97,7 @@ import {
   StreamSummary,
   StreamUnavailable,
   ThrottlingException,
+  ThumbnailConfiguration,
   ValidationException,
   VideoConfiguration,
 } from "../models/models_0";
@@ -202,6 +203,10 @@ export const serializeAws_restJson1CreateRecordingConfigurationCommand = async (
       }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+    ...(input.thumbnailConfiguration !== undefined &&
+      input.thumbnailConfiguration !== null && {
+        thumbnailConfiguration: serializeAws_restJson1ThumbnailConfiguration(input.thumbnailConfiguration, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -2404,6 +2409,14 @@ const deserializeAws_restJson1ListStreamsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -3183,6 +3196,14 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
   }, {});
 };
 
+const serializeAws_restJson1ThumbnailConfiguration = (input: ThumbnailConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.recordingMode !== undefined && input.recordingMode !== null && { recordingMode: input.recordingMode }),
+    ...(input.targetIntervalSeconds !== undefined &&
+      input.targetIntervalSeconds !== null && { targetIntervalSeconds: input.targetIntervalSeconds }),
+  };
+};
+
 const deserializeAws_restJson1AudioConfiguration = (output: any, context: __SerdeContext): AudioConfiguration => {
   return {
     channels: __expectLong(output.channels),
@@ -3344,6 +3365,10 @@ const deserializeAws_restJson1RecordingConfiguration = (
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
+    thumbnailConfiguration:
+      output.thumbnailConfiguration !== undefined && output.thumbnailConfiguration !== null
+        ? deserializeAws_restJson1ThumbnailConfiguration(output.thumbnailConfiguration, context)
         : undefined,
   } as any;
 };
@@ -3563,6 +3588,16 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1ThumbnailConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ThumbnailConfiguration => {
+  return {
+    recordingMode: __expectString(output.recordingMode),
+    targetIntervalSeconds: __expectLong(output.targetIntervalSeconds),
+  } as any;
 };
 
 const deserializeAws_restJson1VideoConfiguration = (output: any, context: __SerdeContext): VideoConfiguration => {

@@ -26,7 +26,8 @@ export interface ListCallAnalyticsCategoriesCommandOutput
 /**
  * <p>Provides more information about the call analytics categories that you've created. You
  *             can use the information in this list to find a specific category. You can then use the
- *              operation to get more information about it.</p>
+ *              operation to get more information about
+ *             it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,8 +22,8 @@ export interface GetConnectionStatusCommandInput extends GetConnectionStatusRequ
 export interface GetConnectionStatusCommandOutput extends GetConnectionStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running and
- *    ready to receive Session Manager connections.</p>
+ * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running
+ *    and ready to receive Session Manager connections.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

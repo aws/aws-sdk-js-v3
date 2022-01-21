@@ -190,6 +190,7 @@ import {
   StudioMembership,
   ThrottlingException,
   ValidationException,
+  ValidationResult,
 } from "../models/models_0";
 
 export const serializeAws_restJson1AcceptEulasCommand = async (
@@ -7708,6 +7709,10 @@ const deserializeAws_restJson1LaunchProfile = (output: any, context: __SerdeCont
         ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt))
         : undefined,
     updatedBy: __expectString(output.updatedBy),
+    validationResults:
+      output.validationResults !== undefined && output.validationResults !== null
+        ? deserializeAws_restJson1ValidationResults(output.validationResults, context)
+        : undefined,
   } as any;
 };
 
@@ -8351,6 +8356,26 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1ValidationResult = (output: any, context: __SerdeContext): ValidationResult => {
+  return {
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1ValidationResults = (output: any, context: __SerdeContext): ValidationResult[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ValidationResult(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

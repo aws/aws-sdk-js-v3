@@ -29,7 +29,6 @@ import {
   InternetGatewayAttachment,
   Ipv4PrefixSpecification,
   LocalStorage,
-  LocalStorageType,
   PortRange,
   Protocol,
   ReservedInstancesListing,
@@ -43,6 +42,11 @@ import {
   UnsuccessfulItem,
   WeekDay,
 } from "./models_0";
+
+export enum LocalStorageType {
+  HDD = "hdd",
+  SSD = "ssd",
+}
 
 /**
  * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -2304,8 +2308,8 @@ export interface CreateImageRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -8011,8 +8015,8 @@ export interface CreateRestoreImageTaskRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -9012,8 +9016,8 @@ export interface CreateStoreImageTaskRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -10332,5 +10336,3 @@ export namespace CreateTransitGatewayConnectPeerRequest {
     ...obj,
   });
 }
-
-export type BgpStatus = "down" | "up";

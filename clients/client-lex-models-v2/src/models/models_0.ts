@@ -1,6 +1,29 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum AudioRecognitionStrategy {
+  UseSlotValuesAsCustomVocabulary = "UseSlotValuesAsCustomVocabulary",
+}
+
+/**
+ * <p>Provides settings that enable advanced recognition settings for slot values.</p>
+ */
+export interface AdvancedRecognitionSetting {
+  /**
+   * <p>Enables using the slot values as a custom vocabulary for recognizing user utterances.</p>
+   */
+  audioRecognitionStrategy?: AudioRecognitionStrategy | string;
+}
+
+export namespace AdvancedRecognitionSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AdvancedRecognitionSetting): any => ({
+    ...obj,
+  });
+}
+
 export enum AggregatedUtterancesFilterName {
   Utterance = "Utterance",
 }
@@ -2108,6 +2131,36 @@ export namespace CreateBotVersionResponse {
 
 export enum ImportExportFileFormat {
   LexJson = "LexJson",
+  TSV = "TSV",
+}
+
+/**
+ * <p>Provides the parameters required for exporting a custom vocabulary.</p>
+ */
+export interface CustomVocabularyExportSpecification {
+  /**
+   * <p>The identifier of the bot that contains the custom vocabulary to export.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot that contains the custom vocabulary to export.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The locale of the bot that contains the custom vocabulary to export.</p>
+   */
+  localeId: string | undefined;
+}
+
+export namespace CustomVocabularyExportSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomVocabularyExportSpecification): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -2125,6 +2178,11 @@ export interface ExportResourceSpecification {
    * <p>Parameters for exporting a bot locale.</p>
    */
   botLocaleExportSpecification?: BotLocaleExportSpecification;
+
+  /**
+   * <p>The parameters required to export a custom vocabulary.</p>
+   */
+  customVocabularyExportSpecification?: CustomVocabularyExportSpecification;
 }
 
 export namespace ExportResourceSpecification {
@@ -3812,6 +3870,12 @@ export interface SlotValueSelectionSetting {
    * <p>A regular expression used to validate the value of a slot.</p>
    */
   regexFilter?: SlotValueRegexFilter;
+
+  /**
+   * <p>Provides settings that enable advanced recognition settings for slot
+   *          values.</p>
+   */
+  advancedRecognitionSetting?: AdvancedRecognitionSetting;
 }
 
 export namespace SlotValueSelectionSetting {
@@ -4013,6 +4077,44 @@ export namespace CreateUploadUrlResponse {
   export const filterSensitiveLog = (obj: CreateUploadUrlResponse): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>Provides the parameters required for importing a custom vocabulary.</p>
+ */
+export interface CustomVocabularyImportSpecification {
+  /**
+   * <p>The identifier of the bot to import the custom vocabulary to.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot to import the custom vocabulary to.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The identifier of the local to import the custom vocabulary to. The value must
+   *       be <code>en_GB</code>.</p>
+   */
+  localeId: string | undefined;
+}
+
+export namespace CustomVocabularyImportSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomVocabularyImportSpecification): any => ({
+    ...obj,
+  });
+}
+
+export enum CustomVocabularyStatus {
+  Creating = "Creating",
+  Deleting = "Deleting",
+  Exporting = "Exporting",
+  Importing = "Importing",
+  Ready = "Ready",
 }
 
 /**
@@ -4259,6 +4361,69 @@ export namespace DeleteBotVersionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteBotVersionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCustomVocabularyRequest {
+  /**
+   * <p>The unique identifier of the bot to remove the custom
+   *       vocabulary from.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The version of the bot to remove the custom vocabulary
+   *       from.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The locale identifier for the locale that contains the
+   *       custom vocabulary to remove.</p>
+   */
+  localeId: string | undefined;
+}
+
+export namespace DeleteCustomVocabularyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomVocabularyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCustomVocabularyResponse {
+  /**
+   * <p>The identifier of the bot that the custom vocabulary
+   *       was removed from.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that the custom vocabulary
+   *          was removed from.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The locale identifier for the locale that the
+   *          custom vocabulary was removed from.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The status of removing the custom vocabulary.</p>
+   */
+  customVocabularyStatus?: CustomVocabularyStatus | string;
+}
+
+export namespace DeleteCustomVocabularyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomVocabularyResponse): any => ({
     ...obj,
   });
 }
@@ -5296,6 +5461,75 @@ export namespace DescribeBotVersionResponse {
   });
 }
 
+export interface DescribeCustomVocabularyMetadataRequest {
+  /**
+   * <p>The unique identifier of the bot that contains the custom vocabulary.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * <p>The bot version of the bot to return metadata for.</p>
+   */
+  botVersion: string | undefined;
+
+  /**
+   * <p>The locale to return the custom vocabulary information for.
+   *       The locale must be <code>en_GB</code>.</p>
+   */
+  localeId: string | undefined;
+}
+
+export namespace DescribeCustomVocabularyMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeCustomVocabularyMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeCustomVocabularyMetadataResponse {
+  /**
+   * <p>The identifier of the bot that contains the custom vocabulary.</p>
+   */
+  botId?: string;
+
+  /**
+   * <p>The version of the bot that contains the custom vocabulary to describe.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * <p>The locale that contains the custom vocabulary to describe.</p>
+   */
+  localeId?: string;
+
+  /**
+   * <p>The status of the custom vocabulary. If the status is
+   *       <code>Ready</code> the custom vocabulary is ready to use.</p>
+   */
+  customVocabularyStatus?: CustomVocabularyStatus | string;
+
+  /**
+   * <p>The date and time that the custom vocabulary was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time that the custom vocabulary was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+}
+
+export namespace DescribeCustomVocabularyMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeCustomVocabularyMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeExportRequest {
   /**
    * <p>The unique identifier of the export to describe.</p>
@@ -5325,8 +5559,8 @@ export interface DescribeExportResponse {
   resourceSpecification?: ExportResourceSpecification;
 
   /**
-   * <p>The file format used in the files that describe the bot or bot
-   *          locale.</p>
+   * <p>The file format used in the files that describe the resource.
+   *       </p>
    */
   fileFormat?: ImportExportFileFormat | string;
 
@@ -5406,6 +5640,11 @@ export interface ImportResourceSpecification {
    * <p>Parameters for importing a bot locale.</p>
    */
   botLocaleImportSpecification?: BotLocaleImportSpecification;
+
+  /**
+   * <p>Provides the parameters required for importing a custom vocabulary.</p>
+   */
+  customVocabularyImportSpecification?: CustomVocabularyImportSpecification;
 }
 
 export namespace ImportResourceSpecification {
@@ -5424,7 +5663,8 @@ export interface DescribeImportResponse {
   importId?: string;
 
   /**
-   * <p>The specifications of the imported bot or bot locale.</p>
+   * <p>The specifications of the imported bot, bot locale, or custom
+   *          vocabulary.</p>
    */
   resourceSpecification?: ImportResourceSpecification;
 
@@ -5947,7 +6187,9 @@ export interface ExportFilter {
   name: ExportFilterName | string | undefined;
 
   /**
-   * <p>The values to use to filter the response.</p>
+   * <p>The values to use to filter the response. The values must be
+   *             <code>Bot</code>, <code>BotLocale</code>, or
+   *             <code>CustomVocabulary</code>.</p>
    */
   values: string[] | undefined;
 
@@ -6063,7 +6305,9 @@ export interface ImportFilter {
   name: ImportFilterName | string | undefined;
 
   /**
-   * <p>The values to use to filter the response.</p>
+   * <p>The values to use to filter the response. The values must be
+   *             <code>Bot</code>, <code>BotLocale</code>, or
+   *             <code>CustomVocabulary</code>.</p>
    */
   values: string[] | undefined;
 
@@ -6084,6 +6328,12 @@ export namespace ImportFilter {
   export const filterSensitiveLog = (obj: ImportFilter): any => ({
     ...obj,
   });
+}
+
+export enum ImportResourceType {
+  Bot = "Bot",
+  BotLocale = "BotLocale",
+  CustomVocabulary = "CustomVocabulary",
 }
 
 export enum ImportSortAttribute {
@@ -6156,6 +6406,11 @@ export interface ImportSummary {
    * <p>The date and time that the import was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>The type of resource that was imported.</p>
+   */
+  importedResourceType?: ImportResourceType | string;
 }
 
 export namespace ImportSummary {
@@ -6829,9 +7084,12 @@ export interface ListBotsRequest {
   /**
    * <p>If the response from the <code>ListBots</code> operation contains
    *          more results than specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
+   *          token is returned in the response. </p>
+   *          <p>Use the returned token in the <code>nextToken</code> parameter of a
+   *             <code>ListBots</code> request to return the next page of results.
+   *          For a complete set of results, call the <code>ListBots</code> operation
+   *          until the <code>nextToken</code> returned in the response is
+   *          null.</p>
    */
   nextToken?: string;
 }
@@ -7134,11 +7392,21 @@ export interface ListExportsRequest {
   /**
    * <p>If the response from the <code>ListExports</code> operation contains
    *          more results that specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
+   *          token is returned in the response. </p>
+   *          <p>Use the returned token in the <code>nextToken</code> parameter of a
+   *             <code>ListExports</code> request to return the next page of results.
+   *          For a complete set of results, call the <code>ListExports</code>
+   *          operation until the <code>nextToken</code> returned in the response is
+   *          null.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Specifies the resources that should be exported. If you
+   *       don't specify a resource type in the <code>filters</code> parameter,
+   *       both bot locales and custom vocabularies are exported.</p>
+   */
+  localeId?: string;
 }
 
 export namespace ListExportsRequest {
@@ -7178,6 +7446,11 @@ export interface ListExportsResponse {
    *          operation request to get the next page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The locale specified in the request.</p>
+   */
+  localeId?: string;
 }
 
 export namespace ListExportsResponse {
@@ -7224,11 +7497,21 @@ export interface ListImportsRequest {
   /**
    * <p>If the response from the <code>ListImports</code> operation contains
    *          more results than specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
+   *          token is returned in the response.</p>
+   *          <p>Use the returned token in the <code>nextToken</code> parameter of a
+   *             <code>ListImports</code> request to return the next page of results.
+   *          For a complete set of results, call the <code>ListImports</code>
+   *          operation until the <code>nextToken</code> returned in the response is
+   *          null.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Specifies the locale that should be present in the list. If you
+   *          don't specify a resource type in the <code>filters</code> parameter,
+   *          the list contains both bot locales and custom vocabularies.</p>
+   */
+  localeId?: string;
 }
 
 export namespace ListImportsRequest {
@@ -7269,6 +7552,11 @@ export interface ListImportsResponse {
    *          operation request to get the next page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The locale specified in the request.</p>
+   */
+  localeId?: string;
 }
 
 export namespace ListImportsResponse {
@@ -7323,9 +7611,12 @@ export interface ListIntentsRequest {
   /**
    * <p>If the response from the <code>ListIntents</code> operation contains
    *          more results than specified in the <code>maxResults</code> parameter, a
-   *          token is returned in the response. Use that token in the
-   *             <code>nextToken</code> parameter to return the next page of
-   *          results.</p>
+   *          token is returned in the response.</p>
+   *          <p>Use the returned token in the <code>nextToken</code> parameter of a
+   *             <code>ListIntents</code> request to return the next page of results.
+   *          For a complete set of results, call the <code>ListIntents</code>
+   *          operation until the <code>nextToken</code> returned in the response is
+   *          null.</p>
    */
   nextToken?: string;
 }
@@ -8279,7 +8570,8 @@ export interface StartImportRequest {
   importId: string | undefined;
 
   /**
-   * <p>Parameters for creating the bot or bot locale.</p>
+   * <p>Parameters for creating the bot, bot locale or custom
+   *          vocabulary.</p>
    */
   resourceSpecification: ImportResourceSpecification | undefined;
 
@@ -8292,8 +8584,8 @@ export interface StartImportRequest {
   mergeStrategy: MergeStrategy | string | undefined;
 
   /**
-   * <p>The password used to encrypt the zip archive that contains the bot
-   *          or bot locale definition. You should always encrypt the zip archive to
+   * <p>The password used to encrypt the zip archive that contains the
+   *          resource definition. You should always encrypt the zip archive to
    *          protect it during transit between your site and Amazon Lex.</p>
    */
   filePassword?: string;
@@ -8316,7 +8608,7 @@ export interface StartImportResponse {
   importId?: string;
 
   /**
-   * <p>The parameters used when importing the bot or bot locale.</p>
+   * <p>The parameters used when importing the resource.</p>
    */
   resourceSpecification?: ImportResourceSpecification;
 
@@ -8330,7 +8622,8 @@ export interface StartImportResponse {
 
   /**
    * <p>The current status of the import. When the status is
-   *             <code>Complete</code> the bot or bot alias is ready to use.</p>
+   *             <code>Complete</code> the bot, bot alias, or custom vocabulary is
+   *          ready to use.</p>
    */
   importStatus?: ImportStatus | string;
 
@@ -8932,7 +9225,9 @@ export interface UpdateExportResponse {
   resourceSpecification?: ExportResourceSpecification;
 
   /**
-   * <p>The file format used for the files that define the resource.</p>
+   * <p>The file format used for the files that define the resource. The
+   *             <code>TSV</code> format is required to export a custom vocabulary
+   *          only; otherwise use <code>LexJson</code> format.</p>
    */
   fileFormat?: ImportExportFileFormat | string;
 

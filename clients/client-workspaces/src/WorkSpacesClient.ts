@@ -58,6 +58,10 @@ import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from ".
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "./commands/AuthorizeIpRulesCommand";
 import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "./commands/CopyWorkspaceImageCommand";
 import {
+  CreateConnectClientAddInCommandInput,
+  CreateConnectClientAddInCommandOutput,
+} from "./commands/CreateConnectClientAddInCommand";
+import {
   CreateConnectionAliasCommandInput,
   CreateConnectionAliasCommandOutput,
 } from "./commands/CreateConnectionAliasCommand";
@@ -72,6 +76,10 @@ import {
   CreateWorkspaceBundleCommandOutput,
 } from "./commands/CreateWorkspaceBundleCommand";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "./commands/CreateWorkspacesCommand";
+import {
+  DeleteConnectClientAddInCommandInput,
+  DeleteConnectClientAddInCommandOutput,
+} from "./commands/DeleteConnectClientAddInCommand";
 import {
   DeleteConnectionAliasCommandInput,
   DeleteConnectionAliasCommandOutput,
@@ -99,6 +107,10 @@ import {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand";
+import {
+  DescribeConnectClientAddInsCommandInput,
+  DescribeConnectClientAddInsCommandOutput,
+} from "./commands/DescribeConnectClientAddInsCommand";
 import {
   DescribeConnectionAliasesCommandInput,
   DescribeConnectionAliasesCommandOutput,
@@ -191,6 +203,10 @@ import {
   TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand";
 import {
+  UpdateConnectClientAddInCommandInput,
+  UpdateConnectClientAddInCommandOutput,
+} from "./commands/UpdateConnectClientAddInCommand";
+import {
   UpdateConnectionAliasPermissionCommandInput,
   UpdateConnectionAliasPermissionCommandOutput,
 } from "./commands/UpdateConnectionAliasPermissionCommand";
@@ -213,12 +229,14 @@ export type ServiceInputTypes =
   | AssociateIpGroupsCommandInput
   | AuthorizeIpRulesCommandInput
   | CopyWorkspaceImageCommandInput
+  | CreateConnectClientAddInCommandInput
   | CreateConnectionAliasCommandInput
   | CreateIpGroupCommandInput
   | CreateTagsCommandInput
   | CreateUpdatedWorkspaceImageCommandInput
   | CreateWorkspaceBundleCommandInput
   | CreateWorkspacesCommandInput
+  | DeleteConnectClientAddInCommandInput
   | DeleteConnectionAliasCommandInput
   | DeleteIpGroupCommandInput
   | DeleteTagsCommandInput
@@ -228,6 +246,7 @@ export type ServiceInputTypes =
   | DescribeAccountCommandInput
   | DescribeAccountModificationsCommandInput
   | DescribeClientPropertiesCommandInput
+  | DescribeConnectClientAddInsCommandInput
   | DescribeConnectionAliasPermissionsCommandInput
   | DescribeConnectionAliasesCommandInput
   | DescribeIpGroupsCommandInput
@@ -259,6 +278,7 @@ export type ServiceInputTypes =
   | StartWorkspacesCommandInput
   | StopWorkspacesCommandInput
   | TerminateWorkspacesCommandInput
+  | UpdateConnectClientAddInCommandInput
   | UpdateConnectionAliasPermissionCommandInput
   | UpdateRulesOfIpGroupCommandInput
   | UpdateWorkspaceBundleCommandInput
@@ -269,12 +289,14 @@ export type ServiceOutputTypes =
   | AssociateIpGroupsCommandOutput
   | AuthorizeIpRulesCommandOutput
   | CopyWorkspaceImageCommandOutput
+  | CreateConnectClientAddInCommandOutput
   | CreateConnectionAliasCommandOutput
   | CreateIpGroupCommandOutput
   | CreateTagsCommandOutput
   | CreateUpdatedWorkspaceImageCommandOutput
   | CreateWorkspaceBundleCommandOutput
   | CreateWorkspacesCommandOutput
+  | DeleteConnectClientAddInCommandOutput
   | DeleteConnectionAliasCommandOutput
   | DeleteIpGroupCommandOutput
   | DeleteTagsCommandOutput
@@ -284,6 +306,7 @@ export type ServiceOutputTypes =
   | DescribeAccountCommandOutput
   | DescribeAccountModificationsCommandOutput
   | DescribeClientPropertiesCommandOutput
+  | DescribeConnectClientAddInsCommandOutput
   | DescribeConnectionAliasPermissionsCommandOutput
   | DescribeConnectionAliasesCommandOutput
   | DescribeIpGroupsCommandOutput
@@ -315,6 +338,7 @@ export type ServiceOutputTypes =
   | StartWorkspacesCommandOutput
   | StopWorkspacesCommandOutput
   | TerminateWorkspacesCommandOutput
+  | UpdateConnectClientAddInCommandOutput
   | UpdateConnectionAliasPermissionCommandOutput
   | UpdateRulesOfIpGroupCommandOutput
   | UpdateWorkspaceBundleCommandOutput

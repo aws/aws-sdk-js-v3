@@ -23,8 +23,8 @@ export interface GetInventoryCommandInput extends GetInventoryRequest {}
 export interface GetInventoryCommandOutput extends GetInventoryResult, __MetadataBearer {}
 
 /**
- * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code> or
- *     <code>Terminated</code>.</p>
+ * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
+ *    or <code>Terminated</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -25,9 +25,9 @@ export interface CreateCallAnalyticsCategoryCommandOutput
 
 /**
  * <p>Creates an analytics category. Amazon Transcribe applies the conditions specified by your
- *             analytics categories to your call analytics jobs. For each analytics category, you specify one or
- *             more rules. For example, you can specify a rule that the customer sentiment was neutral or
- *             negative within that category. If you start a call analytics job, Amazon Transcribe applies the
+ *             analytics categories to your call analytics jobs. For each analytics category, you specify one
+ *             or more rules. For example, you can specify a rule that the customer sentiment was neutral
+ *             or negative within that category. If you start a call analytics job, Amazon Transcribe applies the
  *             category to the analytics job that you've specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

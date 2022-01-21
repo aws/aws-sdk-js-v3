@@ -45,6 +45,10 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  *                </p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>
+ *                <code>GetSavingsPlansCoverage</code> doesn't support filtering by tags. <code>GetSavingsPlansCoverage</code> also doesn't support the <code>OR</code> operator between filter dimensions. For the full request syntax with supported parameters, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetSavingsPlansCoverage.html#API_GetSavingsPlansCoverage_Examples">Examples</a>.</p>
+ *          </note>
  * 	        <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

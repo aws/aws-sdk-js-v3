@@ -61,18 +61,18 @@ import {
 import { FisClient } from "./FisClient";
 
 /**
- * <p>AWS Fault Injection Simulator is a managed service that enables you to perform fault injection
- *            experiments on your AWS workloads. For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">AWS Fault Injection Simulator User Guide</a>.</p>
+ * <p>Fault Injection Simulator is a managed service that enables you to perform fault injection
+ *            experiments on your Amazon Web Services workloads. For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">Fault Injection Simulator User Guide</a>.</p>
  */
 export class Fis extends FisClient {
   /**
    * <p>Creates an experiment template. </p>
-   *          <p>To create a template, specify the following information: </p>
+   *          <p>An experiment template includes the following components:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Targets</b>: A target can be a specific resource
-   *                in your AWS environment, or one or more resources that match criteria that you
+   *                   <b>Targets</b>: A target can be a specific resource in
+   *                your Amazon Web Services environment, or one or more resources that match criteria that you
    *                specify, for example, resources that have specific tags.</p>
    *             </li>
    *             <li>
@@ -87,7 +87,8 @@ export class Fis extends FisClient {
    *                stopped. You can define a stop condition as a CloudWatch alarm.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">AWS Fault Injection Simulator User Guide</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">Experiment templates</a>
+   *          in the <i>Fault Injection Simulator User Guide</i>.</p>
    */
   public createExperimentTemplate(
     args: CreateExperimentTemplateCommandInput,
@@ -151,7 +152,7 @@ export class Fis extends FisClient {
   }
 
   /**
-   * <p>Gets information about the specified AWS FIS action.</p>
+   * <p>Gets information about the specified FIS action.</p>
    */
   public getAction(args: GetActionCommandInput, options?: __HttpHandlerOptions): Promise<GetActionCommandOutput>;
   public getAction(args: GetActionCommandInput, cb: (err: any, data?: GetActionCommandOutput) => void): void;
@@ -241,7 +242,7 @@ export class Fis extends FisClient {
   }
 
   /**
-   * <p>Lists the available AWS FIS actions.</p>
+   * <p>Lists the available FIS actions.</p>
    */
   public listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
   public listActions(args: ListActionsCommandInput, cb: (err: any, data?: ListActionsCommandOutput) => void): void;

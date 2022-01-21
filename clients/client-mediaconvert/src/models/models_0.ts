@@ -1130,6 +1130,7 @@ export enum LanguageCode {
   SQI = "SQI",
   SRB = "SRB",
   SRD = "SRD",
+  SRP = "SRP",
   SSW = "SSW",
   SUN = "SUN",
   SWA = "SWA",
@@ -1768,6 +1769,11 @@ export namespace EmbeddedDestinationSettings {
   });
 }
 
+export enum ImscAccessibilitySubs {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum ImscStylePassthrough {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1777,6 +1783,11 @@ export enum ImscStylePassthrough {
  * Settings related to IMSC captions. IMSC is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to IMSC.
  */
 export interface ImscDestinationSettings {
+  /**
+   * Specify whether to flag this caption track as accessibility in your HLS/CMAF parent manifest. When you choose ENABLED, MediaConvert includes the parameters CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES" in the EXT-X-MEDIA entry for this track. When you keep the default choice, DISABLED, MediaConvert leaves this parameter out.
+   */
+  Accessibility?: ImscAccessibilitySubs | string;
+
   /**
    * Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
    */
@@ -1899,6 +1910,11 @@ export namespace TtmlDestinationSettings {
   });
 }
 
+export enum WebvttAccessibilitySubs {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum WebvttStylePassthrough {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1908,6 +1924,11 @@ export enum WebvttStylePassthrough {
  * Settings related to WebVTT captions. WebVTT is a sidecar format that holds captions in a file that is separate from the video container. Set up sidecar captions in the same output group, but different output from your video. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/ttml-and-webvtt-output-captions.html. When you work directly in your JSON job specification, include this object and any required children when you set destinationType to WebVTT.
  */
 export interface WebvttDestinationSettings {
+  /**
+   * Specify whether to flag this caption track as accessibility in your HLS/CMAF parent manifest. When you choose ENABLED, MediaConvert includes the parameters CHARACTERISTICS="public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound" and AUTOSELECT="YES" in the EXT-X-MEDIA entry for this track. When you keep the default choice, DISABLED, MediaConvert leaves this parameter out.
+   */
+  Accessibility?: WebvttAccessibilitySubs | string;
+
   /**
    * Set Style passthrough (StylePassthrough) to ENABLED to use the available style, color, and position information from your input captions. MediaConvert uses default settings for any missing style and position information in your input captions. Set Style passthrough to DISABLED, or leave blank, to ignore the style and position information from your input captions and use simplified output captions.
    */
@@ -3132,6 +3153,11 @@ export interface Input {
   DenoiseFilter?: InputDenoiseFilter | string;
 
   /**
+   * Use this setting only when your video source has Dolby Vision studio mastering metadata that is carried in a separate XML file. Specify the Amazon S3 location for the metadata XML file. MediaConvert uses this file to provide global and frame-level metadata for Dolby Vision preprocessing. When you specify a file here and your input also has interleaved global and frame level metadata, MediaConvert ignores the interleaved metadata and uses only the the metadata from this external XML file. Note that your IAM service role must grant MediaConvert read permissions to this file. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
+   */
+  DolbyVisionMetadataXml?: string;
+
+  /**
    * Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, "s3://bucket/vf/cpl.xml". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* (SupplementalImps) to specify any supplemental IMPs that contain assets referenced by the CPL.
    */
   FileInput?: string;
@@ -3239,6 +3265,11 @@ export interface InputTemplate {
    * Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
    */
   DenoiseFilter?: InputDenoiseFilter | string;
+
+  /**
+   * Use this setting only when your video source has Dolby Vision studio mastering metadata that is carried in a separate XML file. Specify the Amazon S3 location for the metadata XML file. MediaConvert uses this file to provide global and frame-level metadata for Dolby Vision preprocessing. When you specify a file here and your input also has interleaved global and frame level metadata, MediaConvert ignores the interleaved metadata and uses only the the metadata from this external XML file. Note that your IAM service role must grant MediaConvert read permissions to this file. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html.
+   */
+  DolbyVisionMetadataXml?: string;
 
   /**
    * Specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The input is filtered regardless of input type.
@@ -5257,6 +5288,11 @@ export enum CmfcScte35Source {
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+export enum CmfcTimedMetadata {
+  NONE = "NONE",
+  PASSTHROUGH = "PASSTHROUGH",
+}
+
 /**
  * These settings relate to the fragmented MP4 container for the segments in your CMAF outputs.
  */
@@ -5300,6 +5336,11 @@ export interface CmfcSettings {
    * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
    */
   Scte35Source?: CmfcScte35Source | string;
+
+  /**
+   * Applies to CMAF outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
+   */
+  TimedMetadata?: CmfcTimedMetadata | string;
 }
 
 export namespace CmfcSettings {
@@ -5758,123 +5799,4 @@ export enum M3u8PcrControl {
 export enum M3u8Scte35Source {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
-}
-
-export enum TimedMetadata {
-  NONE = "NONE",
-  PASSTHROUGH = "PASSTHROUGH",
-}
-
-/**
- * These settings relate to the MPEG-2 transport stream (MPEG2-TS) container for the MPEG2-TS segments in your HLS outputs.
- */
-export interface M3u8Settings {
-  /**
-   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration (MATCH_VIDEO_DURATION). In all other cases, keep the default value, Default codec duration (DEFAULT_CODEC_DURATION). When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
-   */
-  AudioDuration?: M3u8AudioDuration | string;
-
-  /**
-   * The number of audio frames to insert for each PES packet.
-   */
-  AudioFramesPerPes?: number;
-
-  /**
-   * Packet Identifier (PID) of the elementary audio stream(s) in the transport stream. Multiple values are accepted, and can be entered in ranges and/or by comma separation.
-   */
-  AudioPids?: number[];
-
-  /**
-   * If you select ALIGN_TO_VIDEO, MediaConvert writes captions and data packets with Presentation Timestamp (PTS) values greater than or equal to the first video packet PTS (MediaConvert drops captions and data packets with lesser PTS values). Keep the default value (AUTO) to allow all PTS values.
-   */
-  DataPTSControl?: M3u8DataPtsControl | string;
-
-  /**
-   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
-   */
-  MaxPcrInterval?: number;
-
-  /**
-   * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-   */
-  NielsenId3?: M3u8NielsenId3 | string;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  PatInterval?: number;
-
-  /**
-   * When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   */
-  PcrControl?: M3u8PcrControl | string;
-
-  /**
-   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
-   */
-  PcrPid?: number;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  PmtInterval?: number;
-
-  /**
-   * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream.
-   */
-  PmtPid?: number;
-
-  /**
-   * Packet Identifier (PID) of the private metadata stream in the transport stream.
-   */
-  PrivateMetadataPid?: number;
-
-  /**
-   * The value of the program number field in the Program Map Table.
-   */
-  ProgramNumber?: number;
-
-  /**
-   * Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
-   */
-  Scte35Pid?: number;
-
-  /**
-   * For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE) if you don't want manifest conditioning. Choose Passthrough (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml).
-   */
-  Scte35Source?: M3u8Scte35Source | string;
-
-  /**
-   * Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
-   */
-  TimedMetadata?: TimedMetadata | string;
-
-  /**
-   * Packet Identifier (PID) of the timed metadata stream in the transport stream.
-   */
-  TimedMetadataPid?: number;
-
-  /**
-   * The value of the transport stream ID field in the Program Map Table.
-   */
-  TransportStreamId?: number;
-
-  /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream.
-   */
-  VideoPid?: number;
-}
-
-export namespace M3u8Settings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: M3u8Settings): any => ({
-    ...obj,
-  });
-}
-
-export enum MovClapAtom {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
 }

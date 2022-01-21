@@ -128,6 +128,15 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-east-2",
   },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "oidc.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-gov-east-1",
+  },
   "us-gov-west-1": {
     variants: [
       {

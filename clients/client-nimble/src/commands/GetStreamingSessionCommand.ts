@@ -23,7 +23,7 @@ export interface GetStreamingSessionCommandOutput extends GetStreamingSessionRes
 
 /**
  * <p>Gets StreamingSession resource.</p>
- *         <p>anvoke this operation to poll for a streaming session state while creating or deleting
+ *         <p>Invoke this operation to poll for a streaming session state while creating or deleting
  *             a session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

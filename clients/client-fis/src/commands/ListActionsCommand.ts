@@ -22,7 +22,7 @@ export interface ListActionsCommandInput extends ListActionsRequest {}
 export interface ListActionsCommandOutput extends ListActionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the available AWS FIS actions.</p>
+ * <p>Lists the available FIS actions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

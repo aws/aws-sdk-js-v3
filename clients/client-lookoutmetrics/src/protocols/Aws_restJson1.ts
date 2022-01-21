@@ -32,6 +32,10 @@ import {
   CreateAnomalyDetectorCommandOutput,
 } from "../commands/CreateAnomalyDetectorCommand";
 import { CreateMetricSetCommandInput, CreateMetricSetCommandOutput } from "../commands/CreateMetricSetCommand";
+import {
+  DeactivateAnomalyDetectorCommandInput,
+  DeactivateAnomalyDetectorCommandOutput,
+} from "../commands/DeactivateAnomalyDetectorCommand";
 import { DeleteAlertCommandInput, DeleteAlertCommandOutput } from "../commands/DeleteAlertCommand";
 import {
   DeleteAnomalyDetectorCommandInput,
@@ -279,6 +283,32 @@ export const serializeAws_restJson1CreateMetricSetCommand = async (
         TimestampColumn: serializeAws_restJson1TimestampColumn(input.TimestampColumn, context),
       }),
     ...(input.Timezone !== undefined && input.Timezone !== null && { Timezone: input.Timezone }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeactivateAnomalyDetectorCommand = async (
+  input: DeactivateAnomalyDetectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeactivateAnomalyDetector";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AnomalyDetectorArn !== undefined &&
+      input.AnomalyDetectorArn !== null && { AnomalyDetectorArn: input.AnomalyDetectorArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -1376,6 +1406,97 @@ const deserializeAws_restJson1CreateMetricSetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeactivateAnomalyDetectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateAnomalyDetectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeactivateAnomalyDetectorCommandError(output, context);
+  }
+  const contents: DeactivateAnomalyDetectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeactivateAnomalyDetectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateAnomalyDetectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.lookoutmetrics#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.lookoutmetrics#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.lookoutmetrics#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lookoutmetrics#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.lookoutmetrics#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lookoutmetrics#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteAlertCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1743,6 +1864,7 @@ export const deserializeAws_restJson1DescribeAnomalyDetectorCommand = async (
     AnomalyDetectorName: undefined,
     CreationTime: undefined,
     FailureReason: undefined,
+    FailureType: undefined,
     KmsKeyArn: undefined,
     LastModificationTime: undefined,
     Status: undefined,
@@ -1768,6 +1890,9 @@ export const deserializeAws_restJson1DescribeAnomalyDetectorCommand = async (
   }
   if (data.FailureReason !== undefined && data.FailureReason !== null) {
     contents.FailureReason = __expectString(data.FailureReason);
+  }
+  if (data.FailureType !== undefined && data.FailureType !== null) {
+    contents.FailureType = __expectString(data.FailureType);
   }
   if (data.KmsKeyArn !== undefined && data.KmsKeyArn !== null) {
     contents.KmsKeyArn = __expectString(data.KmsKeyArn);
@@ -3253,6 +3378,14 @@ const deserializeAws_restJson1UpdateMetricSetCommandError = async (
     case "com.amazonaws.lookoutmetrics#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lookoutmetrics#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

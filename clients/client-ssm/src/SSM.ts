@@ -670,14 +670,13 @@ import { SSMClient } from "./SSMClient";
  *    collecting system inventory, applying operating system (OS) patches, automating the creation of
  *    Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale.
  *    Systems Manager lets you remotely and securely manage the configuration of your managed nodes. A
- *     <i>managed node</i> is any Amazon Elastic Compute Cloud (Amazon EC2) instance, edge
- *    device, or on-premises server or virtual machine (VM) that has been configured for
- *    Systems Manager. </p>
+ *     <i>managed node</i> is any Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, or on-premises
+ *    server or virtual machine (VM) that has been configured for Systems Manager. </p>
  *          <note>
- *             <p>With support for IoT Greengrass Version 2 devices, the phrase <i>managed
+ *             <p>With support for IoT Greengrass core devices, the phrase <i>managed
  *      instance</i> has been changed to <i>managed node</i> in most of the Systems Manager
- *     documentation. The Systems Manager console, API
- *     calls, error messages, and SSM documents still use the term instance.</p>
+ *     documentation. The Systems Manager console, API calls, error messages, and SSM documents still use the
+ *     term <i>instance</i>.</p>
  *          </note>
  *          <p>This reference is intended to be used with the <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon Web Services Systems Manager User Guide</a>.</p>
  *          <p>To get started, verify prerequisites and configure managed nodes. For more information, see
@@ -891,8 +890,8 @@ export class SSM extends SSMClient {
    *    requirements for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
    *     Amazon Web Services Systems Manager for hybrid environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
    *          <note>
-   *             <p>Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are configured for Systems Manager are all called <i>managed
-   *     nodes</i>.</p>
+   *             <p>Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are
+   *     configured for Systems Manager are all called <i>managed nodes</i>.</p>
    *          </note>
    */
   public createActivation(
@@ -968,9 +967,9 @@ export class SSM extends SSMClient {
   /**
    * <p>Associates the specified Amazon Web Services Systems Manager document (SSM document) with the specified managed nodes
    *    or targets.</p>
-   *          <p>When you associate a document with one or more managed nodes using IDs or tags,
-   *    Amazon Web Services Systems Manager Agent (SSM Agent) running on the managed node processes the document and configures the
-   *    node as specified.</p>
+   *          <p>When you associate a document with one or more managed nodes using IDs or tags, Amazon Web Services Systems Manager
+   *    Agent (SSM Agent) running on the managed node processes the document and configures the node as
+   *    specified.</p>
    *          <p>If you associate a document with a managed node that already has an associated document, the
    *    system returns the AssociationAlreadyExists exception.</p>
    */
@@ -1271,9 +1270,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified managed node.
-   *    If you created the association by using the <code>Targets</code> parameter, then you must delete
-   *    the association by using the association ID.</p>
+   * <p>Disassociates the specified Amazon Web Services Systems Manager document (SSM document) from the specified managed
+   *    node. If you created the association by using the <code>Targets</code> parameter, then you must
+   *    delete the association by using the association ID.</p>
    *          <p>When you disassociate a document from a managed node, it doesn't change the configuration of
    *    the node. To change the configuration state of a managed node after you disassociate a document,
    *    you must create a new document with the desired configuration and associate it with the
@@ -2104,8 +2103,8 @@ export class SSM extends SSMClient {
    * <p>Describes one or more of your managed nodes, including information about the operating
    *    system platform, the version of SSM Agent installed on the managed node, node status, and so
    *    on.</p>
-   *          <p>If you specify one or more managed node IDs, it returns information for those managed nodes. If
-   *    you don't specify node IDs, it returns information for all your managed nodes. If you specify
+   *          <p>If you specify one or more managed node IDs, it returns information for those managed nodes.
+   *    If you don't specify node IDs, it returns information for all your managed nodes. If you specify
    *    a node ID that isn't valid or a node that you don't own, you receive an error.</p>
    *          <note>
    *             <p>The <code>IamRole</code> field for this API operation is the Identity and Access Management
@@ -2143,8 +2142,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves information about the patches on the specified managed node and their state relative
-   *    to the patch baseline being used for the node.</p>
+   * <p>Retrieves information about the patches on the specified managed node and their state
+   *    relative to the patch baseline being used for the node.</p>
    */
   public describeInstancePatches(
     args: DescribeInstancePatchesCommandInput,
@@ -2208,7 +2207,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves the high-level patch state for the managed nodes in the specified patch group.</p>
+   * <p>Retrieves the high-level patch state for the managed nodes in the specified patch
+   *    group.</p>
    */
   public describeInstancePatchStatesForPatchGroup(
     args: DescribeInstancePatchStatesForPatchGroupCommandInput,
@@ -2991,8 +2991,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running and
-   *    ready to receive Session Manager connections.</p>
+   * <p>Retrieves the Session Manager connection status for a managed node to determine whether it is running
+   *    and ready to receive Session Manager connections.</p>
    */
   public getConnectionStatus(
     args: GetConnectionStatusCommandInput,
@@ -3064,8 +3064,8 @@ export class SSM extends SSMClient {
    *          <note>
    *             <p>If you run the command locally, such as with the Command Line Interface (CLI), the system attempts to use your local Amazon Web Services credentials and the operation fails. To avoid
    *     this, you can run the command in the Amazon Web Services Systems Manager console. Use Run Command, a capability of
-   *     Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or command.
-   *     For example, run the command using the <code>AWS-RunShellScript</code> document or the
+   *     Amazon Web Services Systems Manager, with an SSM document that enables you to target a managed node with a script or
+   *     command. For example, run the command using the <code>AWS-RunShellScript</code> document or the
    *      <code>AWS-RunPowerShellScript</code> document.</p>
    *          </note>
    */
@@ -3127,8 +3127,8 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code> or
-   *     <code>Terminated</code>.</p>
+   * <p>Query inventory information. This includes managed node status, such as <code>Stopped</code>
+   *    or <code>Terminated</code>.</p>
    */
   public getInventory(
     args: GetInventoryCommandInput,
@@ -3780,8 +3780,8 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Returns all State Manager associations in the current Amazon Web Services account and Amazon Web Services Region. You
-   *    can limit the results to a specific State Manager association document or managed node by specifying
-   *    a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
+   *    can limit the results to a specific State Manager association document or managed node by
+   *    specifying a filter. State Manager is a capability of Amazon Web Services Systems Manager.</p>
    */
   public listAssociations(
     args: ListAssociationsCommandInput,
@@ -3845,11 +3845,11 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to one
-   *    or more managed nodes. A command invocation applies to one managed node. For example, if a user runs
-   *     <code>SendCommand</code> against three managed nodes, then a command invocation is created for
-   *    each requested managed node ID. <code>ListCommandInvocations</code> provide status about command
-   *    execution.</p>
+   * <p>An invocation is copy of a command sent to a specific managed node. A command can apply to
+   *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
+   *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
+   *    created for each requested managed node ID. <code>ListCommandInvocations</code> provide status
+   *    about command execution.</p>
    */
   public listCommandInvocations(
     args: ListCommandInvocationsCommandInput,
@@ -4435,8 +4435,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an inventory item,
-   *    if it doesn't already exist, or updates an inventory item, if it does exist.</p>
+   * <p>Bulk update custom inventory items on one or more managed nodes. The request adds an
+   *    inventory item, if it doesn't already exist, or updates an inventory item, if it does
+   *    exist.</p>
    */
   public putInventory(
     args: PutInventoryCommandInput,
@@ -4899,9 +4900,9 @@ export class SSM extends SSMClient {
   }
 
   /**
-   * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session. Returns a
-   *    URL and token that can be used to open a WebSocket connection for sending input and receiving
-   *    outputs.</p>
+   * <p>Initiates a connection to a target (for example, a managed node) for a Session Manager session.
+   *    Returns a URL and token that can be used to open a WebSocket connection for sending input and
+   *    receiving outputs.</p>
    *          <note>
    *             <p>Amazon Web Services CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager
    *     plugin to be installed on the client machine making the call. For information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html">Install
@@ -5035,7 +5036,14 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Updates an association. You can update the association name and version, the document
-   *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. </p>
+   *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
+   *    call <code>UpdateAssociation</code>, the system drops all optional parameters from the request
+   *    and overwrites the association with null values for those parameters. This is by design. You must
+   *    specify all optional parameters in the call, even if you are not changing the parameters. This
+   *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you
+   *    call the <a>DescribeAssociation</a> API operation and make a note of all optional
+   *    parameters required for your <code>UpdateAssociation</code> call.</p>
+   *
    *          <p>In order to call this API operation, your Identity and Access Management (IAM) user
    *    account, group, or role must be configured with permission to call the <a>DescribeAssociation</a> API operation. If you don't have permission to call
    *     <code>DescribeAssociation</code>, then you receive the following error: <code>An error occurred
@@ -5045,7 +5053,8 @@ export class SSM extends SSMClient {
    *          </p>
    *          <important>
    *             <p>When you update an association, the association immediately runs against the specified
-   *     targets.</p>
+   *     targets. You can add the <code>ApplyOnlyAtCronInterval</code> parameter to run the association
+   *     during the next schedule run.</p>
    *          </important>
    */
   public updateAssociation(

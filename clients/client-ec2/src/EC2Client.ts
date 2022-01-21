@@ -717,6 +717,10 @@ import {
   DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
+  DescribeFastLaunchImagesCommandInput,
+  DescribeFastLaunchImagesCommandOutput,
+} from "./commands/DescribeFastLaunchImagesCommand";
+import {
   DescribeFastSnapshotRestoresCommandInput,
   DescribeFastSnapshotRestoresCommandOutput,
 } from "./commands/DescribeFastSnapshotRestoresCommand";
@@ -1112,6 +1116,7 @@ import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand";
+import { DisableFastLaunchCommandInput, DisableFastLaunchCommandOutput } from "./commands/DisableFastLaunchCommand";
 import {
   DisableFastSnapshotRestoresCommandInput,
   DisableFastSnapshotRestoresCommandOutput,
@@ -1192,6 +1197,7 @@ import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/EnableEbsEncryptionByDefaultCommand";
+import { EnableFastLaunchCommandInput, EnableFastLaunchCommandOutput } from "./commands/EnableFastLaunchCommand";
 import {
   EnableFastSnapshotRestoresCommandInput,
   EnableFastSnapshotRestoresCommandOutput,
@@ -1982,6 +1988,7 @@ export type ServiceInputTypes =
   | DescribeElasticGpusCommandInput
   | DescribeExportImageTasksCommandInput
   | DescribeExportTasksCommandInput
+  | DescribeFastLaunchImagesCommandInput
   | DescribeFastSnapshotRestoresCommandInput
   | DescribeFleetHistoryCommandInput
   | DescribeFleetInstancesCommandInput
@@ -2096,6 +2103,7 @@ export type ServiceInputTypes =
   | DetachVolumeCommandInput
   | DetachVpnGatewayCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
+  | DisableFastLaunchCommandInput
   | DisableFastSnapshotRestoresCommandInput
   | DisableImageDeprecationCommandInput
   | DisableIpamOrganizationAdminAccountCommandInput
@@ -2116,6 +2124,7 @@ export type ServiceInputTypes =
   | DisassociateTrunkInterfaceCommandInput
   | DisassociateVpcCidrBlockCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
+  | EnableFastLaunchCommandInput
   | EnableFastSnapshotRestoresCommandInput
   | EnableImageDeprecationCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
@@ -2500,6 +2509,7 @@ export type ServiceOutputTypes =
   | DescribeElasticGpusCommandOutput
   | DescribeExportImageTasksCommandOutput
   | DescribeExportTasksCommandOutput
+  | DescribeFastLaunchImagesCommandOutput
   | DescribeFastSnapshotRestoresCommandOutput
   | DescribeFleetHistoryCommandOutput
   | DescribeFleetInstancesCommandOutput
@@ -2614,6 +2624,7 @@ export type ServiceOutputTypes =
   | DetachVolumeCommandOutput
   | DetachVpnGatewayCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
+  | DisableFastLaunchCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
   | DisableImageDeprecationCommandOutput
   | DisableIpamOrganizationAdminAccountCommandOutput
@@ -2634,6 +2645,7 @@ export type ServiceOutputTypes =
   | DisassociateTrunkInterfaceCommandOutput
   | DisassociateVpcCidrBlockCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
+  | EnableFastLaunchCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
   | EnableImageDeprecationCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput

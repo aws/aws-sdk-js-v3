@@ -8,5 +8,8 @@ export * from "./InvokeScreenAutomationCommand";
 export * from "./ListTableColumnsCommand";
 export * from "./ListTableRowsCommand";
 export * from "./ListTablesCommand";
+export * from "./ListTagsForResourceCommand";
 export * from "./QueryTableRowsCommand";
 export * from "./StartTableDataImportJobCommand";
+export * from "./TagResourceCommand";
+export * from "./UntagResourceCommand";

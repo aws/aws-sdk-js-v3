@@ -42,6 +42,14 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "us-iso-west-1": {
+    variants: [
+      {
+        hostname: "dms.us-iso-west-1.c2s.ic.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-isob-east-1": {
     variants: [
       {
@@ -143,7 +151,7 @@ const partitionHash: PartitionHash = {
     ],
   },
   "aws-iso": {
-    regions: ["dms", "dms-fips", "us-iso-east-1", "us-iso-east-1-fips", "us-iso-west-1"],
+    regions: ["dms", "dms-fips", "us-iso-east-1", "us-iso-east-1-fips", "us-iso-west-1", "us-iso-west-1-fips"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     variants: [
       {

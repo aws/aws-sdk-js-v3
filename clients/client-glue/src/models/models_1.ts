@@ -5966,6 +5966,11 @@ export interface StartWorkflowRunRequest {
    * <p>The name of the workflow to start.</p>
    */
   Name: string | undefined;
+
+  /**
+   * <p>The workflow run properties for the new workflow run.</p>
+   */
+  RunProperties?: { [key: string]: string };
 }
 
 export namespace StartWorkflowRunRequest {

@@ -142,6 +142,7 @@ import {
   GetRecommendationPreferencesResponse,
   GetRecommendationSummariesRequest,
   GetRecommendationSummariesResponse,
+  InferredWorkloadType,
   InstanceRecommendation,
   InstanceRecommendationFindingReasonCode,
   InstanceRecommendationOption,
@@ -3021,6 +3022,8 @@ const serializeAws_json1_0PutRecommendationPreferencesRequest = (
       input.enhancedInfrastructureMetrics !== null && {
         enhancedInfrastructureMetrics: input.enhancedInfrastructureMetrics,
       }),
+    ...(input.inferredWorkloadTypes !== undefined &&
+      input.inferredWorkloadTypes !== null && { inferredWorkloadTypes: input.inferredWorkloadTypes }),
     ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
     ...(input.scope !== undefined &&
       input.scope !== null && { scope: serializeAws_json1_0Scope(input.scope, context) }),
@@ -3154,6 +3157,10 @@ const deserializeAws_json1_0AutoScalingGroupRecommendation = (
         ? deserializeAws_json1_0EffectiveRecommendationPreferences(output.effectiveRecommendationPreferences, context)
         : undefined,
     finding: __expectString(output.finding),
+    inferredWorkloadTypes:
+      output.inferredWorkloadTypes !== undefined && output.inferredWorkloadTypes !== null
+        ? deserializeAws_json1_0InferredWorkloadTypes(output.inferredWorkloadTypes, context)
+        : undefined,
     lastRefreshTimestamp:
       output.lastRefreshTimestamp !== undefined && output.lastRefreshTimestamp !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastRefreshTimestamp)))
@@ -3179,6 +3186,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0AutoScalingGroupConfiguration(output.configuration, context)
         : undefined,
+    migrationEffort: __expectString(output.migrationEffort),
     performanceRisk: __limitedParseDouble(output.performanceRisk),
     projectedUtilizationMetrics:
       output.projectedUtilizationMetrics !== undefined && output.projectedUtilizationMetrics !== null
@@ -3295,6 +3303,7 @@ const deserializeAws_json1_0EffectiveRecommendationPreferences = (
         ? deserializeAws_json1_0CpuVendorArchitectures(output.cpuVendorArchitectures, context)
         : undefined,
     enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
+    inferredWorkloadTypes: __expectString(output.inferredWorkloadTypes),
   } as any;
 };
 
@@ -3531,6 +3540,20 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0InferredWorkloadTypes = (
+  output: any,
+  context: __SerdeContext
+): (InferredWorkloadType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __SerdeContext): InstanceRecommendation => {
   return {
     accountId: __expectString(output.accountId),
@@ -3544,6 +3567,10 @@ const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __Se
     findingReasonCodes:
       output.findingReasonCodes !== undefined && output.findingReasonCodes !== null
         ? deserializeAws_json1_0InstanceRecommendationFindingReasonCodes(output.findingReasonCodes, context)
+        : undefined,
+    inferredWorkloadTypes:
+      output.inferredWorkloadTypes !== undefined && output.inferredWorkloadTypes !== null
+        ? deserializeAws_json1_0InferredWorkloadTypes(output.inferredWorkloadTypes, context)
         : undefined,
     instanceArn: __expectString(output.instanceArn),
     instanceName: __expectString(output.instanceName),
@@ -3587,6 +3614,7 @@ const deserializeAws_json1_0InstanceRecommendationOption = (
 ): InstanceRecommendationOption => {
   return {
     instanceType: __expectString(output.instanceType),
+    migrationEffort: __expectString(output.migrationEffort),
     performanceRisk: __limitedParseDouble(output.performanceRisk),
     platformDifferences:
       output.platformDifferences !== undefined && output.platformDifferences !== null
@@ -3949,6 +3977,7 @@ const deserializeAws_json1_0RecommendationPreferencesDetail = (
 ): RecommendationPreferencesDetail => {
   return {
     enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
+    inferredWorkloadTypes: __expectString(output.inferredWorkloadTypes),
     resourceType: __expectString(output.resourceType),
     scope:
       output.scope !== undefined && output.scope !== null

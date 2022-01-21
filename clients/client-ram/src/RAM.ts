@@ -76,6 +76,11 @@ import {
   ListPermissionsCommandOutput,
 } from "./commands/ListPermissionsCommand";
 import {
+  ListPermissionVersionsCommand,
+  ListPermissionVersionsCommandInput,
+  ListPermissionVersionsCommandOutput,
+} from "./commands/ListPermissionVersionsCommand";
+import {
   ListPrincipalsCommand,
   ListPrincipalsCommandInput,
   ListPrincipalsCommandOutput,
@@ -643,6 +648,38 @@ export class RAM extends RAMClient {
     cb?: (err: any, data?: ListPermissionsCommandOutput) => void
   ): Promise<ListPermissionsCommandOutput> | void {
     const command = new ListPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the available versions of the specified RAM permission.</p>
+   */
+  public listPermissionVersions(
+    args: ListPermissionVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPermissionVersionsCommandOutput>;
+  public listPermissionVersions(
+    args: ListPermissionVersionsCommandInput,
+    cb: (err: any, data?: ListPermissionVersionsCommandOutput) => void
+  ): void;
+  public listPermissionVersions(
+    args: ListPermissionVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPermissionVersionsCommandOutput) => void
+  ): void;
+  public listPermissionVersions(
+    args: ListPermissionVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionVersionsCommandOutput) => void),
+    cb?: (err: any, data?: ListPermissionVersionsCommandOutput) => void
+  ): Promise<ListPermissionVersionsCommandOutput> | void {
+    const command = new ListPermissionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

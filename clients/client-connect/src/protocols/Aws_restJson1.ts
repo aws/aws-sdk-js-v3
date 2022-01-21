@@ -1332,6 +1332,7 @@ export const serializeAws_restJson1CreateUserHierarchyGroupCommand = async (
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ParentGroupId !== undefined && input.ParentGroupId !== null && { ParentGroupId: input.ParentGroupId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -18042,6 +18043,10 @@ const deserializeAws_restJson1HierarchyGroup = (output: any, context: __SerdeCon
     Id: __expectString(output.Id),
     LevelId: __expectString(output.LevelId),
     Name: __expectString(output.Name),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
   } as any;
 };
 

@@ -22,8 +22,8 @@ export interface DescribeInstancePatchesCommandInput extends DescribeInstancePat
 export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePatchesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the patches on the specified managed node and their state relative
- *    to the patch baseline being used for the node.</p>
+ * <p>Retrieves information about the patches on the specified managed node and their state
+ *    relative to the patch baseline being used for the node.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

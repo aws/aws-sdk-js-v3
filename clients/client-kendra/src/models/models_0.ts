@@ -434,7 +434,7 @@ export interface DocumentAttributeValue {
    * <p>A date expressed as an ISO 8601 string.</p>
    *         <p>It is important for the time zone to be included
    *             in the ISO 8601 date-time format. For example,
-   *             20120325T123010+01:00 is the ISO 8601 date-time format
+   *             2012-03-25T12:30:10+01:00 is the ISO 8601 date-time format
    *             for March 25th 2012 at 12:30PM (plus 10 seconds) in
    *             Central European Time.</p>
    */
@@ -451,7 +451,10 @@ export namespace DocumentAttributeValue {
 }
 
 /**
- * <p>A custom attribute value assigned to a document. </p>
+ * <p>A custom attribute value assigned to a document.</p>
+ *         <p>For more information on how to create custom document attributes, see
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-attributes.html">Custom
+ *                 Attributes</a>.</p>
  */
 export interface DocumentAttribute {
   /**
@@ -996,10 +999,10 @@ export namespace InlineCustomDocumentEnrichmentConfiguration {
  * <p>Provides the configuration information for invoking a Lambda function in
  *             Lambda to alter document metadata and content when ingesting
  *             documents into Amazon Kendra. You can configure your Lambda function using
- *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PreExtractionHookConfiguration.html">PreExtractionHookConfiguration</a>
+ *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a>
  *             if you want to apply advanced alterations on the original or raw documents.
  *             If you want to apply advanced alterations on the Amazon Kendra structured documents,
- *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PostExtractionHookConfiguration.html">PostExtractionHookConfiguration</a>.
+ *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_CustomDocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.
  *             You can only invoke one Lambda function. However, this function can invoke other
  *             functions it requires.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing document metadata
@@ -3936,6 +3939,10 @@ export enum UserGroupResolutionMode {
  *          permissions to use Amazon Web Services SSO with Amazon Kendra. For more information, see
  *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-aws-sso">IAM roles for
  *             Amazon Web Services SSO</a>.</p>
+ *          <p>Amazon Kendra currently does not support using <code>UserGroupResolutionConfiguration</code>
+ *          with an Amazon Web Services organization member account for your Amazon Web Services SSO
+ *          identify source. You must create your index in the parent account for the organization
+ *          in order to use <code>UserGroupResolutionConfiguration</code>.</p>
  */
 export interface UserGroupResolutionConfiguration {
   /**
@@ -7904,6 +7911,34 @@ export namespace QueryResultItem {
   });
 }
 
+export enum WarningCode {
+  QUERY_LANGUAGE_INVALID_SYNTAX = "QUERY_LANGUAGE_INVALID_SYNTAX",
+}
+
+/**
+ * <p>The warning code and message that explains a problem with a query.</p>
+ */
+export interface Warning {
+  /**
+   * <p>The message that explains the problem with the query.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The code used to show the type of warning for the query.</p>
+   */
+  Code?: WarningCode | string;
+}
+
+export namespace Warning {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Warning): any => ({
+    ...obj,
+  });
+}
+
 export interface QueryResult {
   /**
    * <p>The unique identifier for the search. You use <code>QueryId</code>
@@ -7929,6 +7964,15 @@ export interface QueryResult {
    *          you can only retrieve the first 100 of the items.</p>
    */
   TotalNumberOfResults?: number;
+
+  /**
+   * <p>A list of warning codes and their messages on problems with your query.</p>
+   *          <p>Amazon Kendra currently only supports one type of warning, which is a warning
+   *          on invalid syntax used in the query. For examples of invalid query syntax,
+   *          see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
+   *             with advanced query syntax</a>.</p>
+   */
+  Warnings?: Warning[];
 }
 
 export namespace QueryResult {
@@ -8628,7 +8672,7 @@ export interface QueryRequest {
   /**
    * <p>The text to search for.</p>
    */
-  QueryText: string | undefined;
+  QueryText?: string;
 
   /**
    * <p>Enables filtered searches based on document attributes. You can only

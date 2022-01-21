@@ -12,6 +12,7 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export type Tier =
+  | "ACTIVE_DIRECTORY"
   | "CUSTOM"
   | "DEFAULT"
   | "DOT_NET_CORE"
@@ -25,6 +26,7 @@ export type Tier =
   | "SAP_HANA_HIGH_AVAILABILITY"
   | "SAP_HANA_MULTI_NODE"
   | "SAP_HANA_SINGLE_NODE"
+  | "SHAREPOINT"
   | "SQL_SERVER"
   | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP"
   | "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE";

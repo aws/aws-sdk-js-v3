@@ -1007,6 +1007,11 @@ import {
   DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
 import {
+  DescribeFastLaunchImagesCommand,
+  DescribeFastLaunchImagesCommandInput,
+  DescribeFastLaunchImagesCommandOutput,
+} from "./commands/DescribeFastLaunchImagesCommand";
+import {
   DescribeFastSnapshotRestoresCommand,
   DescribeFastSnapshotRestoresCommandInput,
   DescribeFastSnapshotRestoresCommandOutput,
@@ -1577,6 +1582,11 @@ import {
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand";
 import {
+  DisableFastLaunchCommand,
+  DisableFastLaunchCommandInput,
+  DisableFastLaunchCommandOutput,
+} from "./commands/DisableFastLaunchCommand";
+import {
   DisableFastSnapshotRestoresCommand,
   DisableFastSnapshotRestoresCommandInput,
   DisableFastSnapshotRestoresCommandOutput,
@@ -1676,6 +1686,11 @@ import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/EnableEbsEncryptionByDefaultCommand";
+import {
+  EnableFastLaunchCommand,
+  EnableFastLaunchCommandInput,
+  EnableFastLaunchCommandOutput,
+} from "./commands/EnableFastLaunchCommand";
 import {
   EnableFastSnapshotRestoresCommand,
   EnableFastSnapshotRestoresCommandInput,
@@ -10223,6 +10238,38 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describe details for Windows AMIs that are configured for faster launching.</p>
+   */
+  public describeFastLaunchImages(
+    args: DescribeFastLaunchImagesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFastLaunchImagesCommandOutput>;
+  public describeFastLaunchImages(
+    args: DescribeFastLaunchImagesCommandInput,
+    cb: (err: any, data?: DescribeFastLaunchImagesCommandOutput) => void
+  ): void;
+  public describeFastLaunchImages(
+    args: DescribeFastLaunchImagesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFastLaunchImagesCommandOutput) => void
+  ): void;
+  public describeFastLaunchImages(
+    args: DescribeFastLaunchImagesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFastLaunchImagesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeFastLaunchImagesCommandOutput) => void
+  ): Promise<DescribeFastLaunchImagesCommandOutput> | void {
+    const command = new DescribeFastLaunchImagesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the state of fast snapshot restores for your snapshots.</p>
    */
   public describeFastSnapshotRestores(
@@ -14283,6 +14330,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
+   * 			When you disable faster launching, the AMI uses the standard launch process for each
+   * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
+   */
+  public disableFastLaunch(
+    args: DisableFastLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableFastLaunchCommandOutput>;
+  public disableFastLaunch(
+    args: DisableFastLaunchCommandInput,
+    cb: (err: any, data?: DisableFastLaunchCommandOutput) => void
+  ): void;
+  public disableFastLaunch(
+    args: DisableFastLaunchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableFastLaunchCommandOutput) => void
+  ): void;
+  public disableFastLaunch(
+    args: DisableFastLaunchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableFastLaunchCommandOutput) => void),
+    cb?: (err: any, data?: DisableFastLaunchCommandOutput) => void
+  ): Promise<DisableFastLaunchCommandOutput> | void {
+    const command = new DisableFastLaunchCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
    */
   public disableFastSnapshotRestores(
@@ -14982,6 +15063,43 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: EnableEbsEncryptionByDefaultCommandOutput) => void
   ): Promise<EnableEbsEncryptionByDefaultCommandOutput> | void {
     const command = new EnableEbsEncryptionByDefaultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>When you enable faster launching for a Windows AMI, images are pre-provisioned,
+   * 			using snapshots to launch instances up to 65% faster. To create the optimized Windows
+   * 			image, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required.
+   * 			Then it creates a set of reserved snapshots that are used for subsequent launches. The
+   * 			reserved snapshots are automatically replenished as they are used, depending on your
+   * 			settings for launch frequency.</p>
+   */
+  public enableFastLaunch(
+    args: EnableFastLaunchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableFastLaunchCommandOutput>;
+  public enableFastLaunch(
+    args: EnableFastLaunchCommandInput,
+    cb: (err: any, data?: EnableFastLaunchCommandOutput) => void
+  ): void;
+  public enableFastLaunch(
+    args: EnableFastLaunchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableFastLaunchCommandOutput) => void
+  ): void;
+  public enableFastLaunch(
+    args: EnableFastLaunchCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableFastLaunchCommandOutput) => void),
+    cb?: (err: any, data?: EnableFastLaunchCommandOutput) => void
+  ): Promise<EnableFastLaunchCommandOutput> | void {
+    const command = new EnableFastLaunchCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

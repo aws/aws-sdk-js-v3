@@ -404,12 +404,21 @@ export namespace AnomalyDetectorConfigSummary {
   });
 }
 
+export enum AnomalyDetectorFailureType {
+  ACTIVATION_FAILURE = "ACTIVATION_FAILURE",
+  BACK_TEST_ACTIVATION_FAILURE = "BACK_TEST_ACTIVATION_FAILURE",
+  DEACTIVATION_FAILURE = "DEACTIVATION_FAILURE",
+  DELETION_FAILURE = "DELETION_FAILURE",
+}
+
 export enum AnomalyDetectorStatus {
   ACTIVATING = "ACTIVATING",
   ACTIVE = "ACTIVE",
   BACK_TEST_ACTIVATING = "BACK_TEST_ACTIVATING",
   BACK_TEST_ACTIVE = "BACK_TEST_ACTIVE",
   BACK_TEST_COMPLETE = "BACK_TEST_COMPLETE",
+  DEACTIVATED = "DEACTIVATED",
+  DEACTIVATING = "DEACTIVATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
   INACTIVE = "INACTIVE",
@@ -757,12 +766,12 @@ export interface AppFlowConfig {
   /**
    * <p>An IAM role that gives Amazon Lookout for Metrics permission to access the flow.</p>
    */
-  RoleArn: string | undefined;
+  RoleArn?: string;
 
   /**
    * <p> name of the flow.</p>
    */
-  FlowName: string | undefined;
+  FlowName?: string;
 }
 
 export namespace AppFlowConfig {
@@ -808,7 +817,7 @@ export interface CloudWatchConfig {
   /**
    * <p>An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.</p>
    */
-  RoleArn: string | undefined;
+  RoleArn?: string;
 }
 
 export namespace CloudWatchConfig {
@@ -1017,42 +1026,42 @@ export interface RDSSourceConfig {
   /**
    * <p>A string identifying the database instance.</p>
    */
-  DBInstanceIdentifier: string | undefined;
+  DBInstanceIdentifier?: string;
 
   /**
    * <p>The host name of the database.</p>
    */
-  DatabaseHost: string | undefined;
+  DatabaseHost?: string;
 
   /**
    * <p>The port number where the database can be accessed.</p>
    */
-  DatabasePort: number | undefined;
+  DatabasePort?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager role.</p>
    */
-  SecretManagerArn: string | undefined;
+  SecretManagerArn?: string;
 
   /**
    * <p>The name of the RDS database.</p>
    */
-  DatabaseName: string | undefined;
+  DatabaseName?: string;
 
   /**
    * <p>The name of the table in the database.</p>
    */
-  TableName: string | undefined;
+  TableName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role.</p>
    */
-  RoleArn: string | undefined;
+  RoleArn?: string;
 
   /**
    * <p>An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.</p>
    */
-  VpcConfiguration: VpcConfiguration | undefined;
+  VpcConfiguration?: VpcConfiguration;
 }
 
 export namespace RDSSourceConfig {
@@ -1071,42 +1080,42 @@ export interface RedshiftSourceConfig {
   /**
    * <p>A string identifying the Redshift cluster.</p>
    */
-  ClusterIdentifier: string | undefined;
+  ClusterIdentifier?: string;
 
   /**
    * <p>The name of the database host.</p>
    */
-  DatabaseHost: string | undefined;
+  DatabaseHost?: string;
 
   /**
    * <p>The port number where the database can be accessed.</p>
    */
-  DatabasePort: number | undefined;
+  DatabasePort?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager role.</p>
    */
-  SecretManagerArn: string | undefined;
+  SecretManagerArn?: string;
 
   /**
    * <p>The Redshift database name.</p>
    */
-  DatabaseName: string | undefined;
+  DatabaseName?: string;
 
   /**
    * <p>The table name of the Redshift database.</p>
    */
-  TableName: string | undefined;
+  TableName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role providing access to the database.</p>
    */
-  RoleArn: string | undefined;
+  RoleArn?: string;
 
   /**
    * <p>Contains information about the Amazon Virtual Private Cloud (VPC) configuration.</p>
    */
-  VpcConfiguration: VpcConfiguration | undefined;
+  VpcConfiguration?: VpcConfiguration;
 }
 
 export namespace RedshiftSourceConfig {
@@ -1227,7 +1236,7 @@ export interface S3SourceConfig {
   /**
    * <p>The ARN of an IAM role that has read and write access permissions to the source S3 bucket.</p>
    */
-  RoleArn: string | undefined;
+  RoleArn?: string;
 
   /**
    * <p>A list of templated paths to the source files.</p>
@@ -1395,6 +1404,33 @@ export namespace CreateMetricSetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateMetricSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeactivateAnomalyDetectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the anomaly detector.</p>
+   */
+  AnomalyDetectorArn: string | undefined;
+}
+
+export namespace DeactivateAnomalyDetectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeactivateAnomalyDetectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeactivateAnomalyDetectorResponse {}
+
+export namespace DeactivateAnomalyDetectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeactivateAnomalyDetectorResponse): any => ({
     ...obj,
   });
 }
@@ -1619,7 +1655,7 @@ export interface DescribeAnomalyDetectorResponse {
   Status?: AnomalyDetectorStatus | string;
 
   /**
-   * <p>The reason that the detector failed, if any.</p>
+   * <p>The reason that the detector failed.</p>
    */
   FailureReason?: string;
 
@@ -1627,6 +1663,11 @@ export interface DescribeAnomalyDetectorResponse {
    * <p>The ARN of the KMS key to use to encrypt your data.</p>
    */
   KmsKeyArn?: string;
+
+  /**
+   * <p>The process that caused the detector to fail.</p>
+   */
+  FailureType?: AnomalyDetectorFailureType | string;
 }
 
 export namespace DescribeAnomalyDetectorResponse {

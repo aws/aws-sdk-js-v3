@@ -834,6 +834,20 @@ export namespace ScheduleEntry {
   });
 }
 
+export interface SegmentDeliveryConfiguration {
+  BaseUrl?: string;
+  Name?: string;
+}
+
+export namespace SegmentDeliveryConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SegmentDeliveryConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum AccessType {
   S3_SIGV4 = "S3_SIGV4",
   SECRETS_MANAGER_ACCESS_TOKEN = "SECRETS_MANAGER_ACCESS_TOKEN",
@@ -964,6 +978,7 @@ export interface SourceLocation {
    */
   LastModifiedTime?: Date;
 
+  SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
   /**
    * <p>The name of the source location.</p>
    */
@@ -1500,6 +1515,7 @@ export interface CreateSourceLocationRequest {
    */
   HttpConfiguration: HttpConfiguration | undefined;
 
+  SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
   /**
    * <p>The identifier for the source location you are working on.</p>
    */
@@ -1551,6 +1567,7 @@ export interface CreateSourceLocationResponse {
    */
   LastModifiedTime?: Date;
 
+  SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
   /**
    * <p>The name of the source location.</p>
    */
@@ -2067,6 +2084,7 @@ export interface DescribeSourceLocationResponse {
    */
   LastModifiedTime?: Date;
 
+  SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
   /**
    * <p>The name of the source location.</p>
    */
@@ -3139,6 +3157,7 @@ export interface UpdateSourceLocationRequest {
    */
   HttpConfiguration: HttpConfiguration | undefined;
 
+  SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
   /**
    * <p>The identifier for the source location you are working on.</p>
    */
@@ -3185,6 +3204,7 @@ export interface UpdateSourceLocationResponse {
    */
   LastModifiedTime?: Date;
 
+  SegmentDeliveryConfigurations?: SegmentDeliveryConfiguration[];
   /**
    * <p>The name of the source location.</p>
    */

@@ -106,6 +106,11 @@ export enum EnhancedInfrastructureMetrics {
   INACTIVE = "Inactive",
 }
 
+export enum InferredWorkloadTypesPreference {
+  ACTIVE = "Active",
+  INACTIVE = "Inactive",
+}
+
 /**
  * <p>Describes the effective recommendation preferences for a resource.</p>
  */
@@ -136,9 +141,21 @@ export interface EffectiveRecommendationPreferences {
    *             preference.</p>
    *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
    *             recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet
-   *             applied.</p>
+   *             applied to recommendations.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
+   *                 infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
    */
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+
+  /**
+   * <p>Describes the activation status of the inferred workload types preference.</p>
+   *
+   *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
+   *             recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet
+   *             applied to recommendations.</p>
+   */
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 }
 
 export namespace EffectiveRecommendationPreferences {
@@ -155,6 +172,23 @@ export enum Finding {
   OPTIMIZED = "Optimized",
   OVER_PROVISIONED = "Overprovisioned",
   UNDER_PROVISIONED = "Underprovisioned",
+}
+
+export enum InferredWorkloadType {
+  AMAZON_EMR = "AmazonEmr",
+  APACHE_CASSANDRA = "ApacheCassandra",
+  APACHE_HADOOP = "ApacheHadoop",
+  MEMCACHED = "Memcached",
+  NGINX = "Nginx",
+  POSTGRE_SQL = "PostgreSql",
+  REDIS = "Redis",
+}
+
+export enum MigrationEffort {
+  HIGH = "High",
+  LOW = "Low",
+  MEDIUM = "Medium",
+  VERY_LOW = "VeryLow",
 }
 
 export enum MetricName {
@@ -337,8 +371,8 @@ export enum Currency {
 }
 
 /**
- * <p>Describes the estimated monthly savings amount possible for a given resource based on
- *             On-Demand instance pricing</p>
+ * <p>Describes the estimated monthly savings amount possible, based on On-Demand instance
+ *             pricing, by adopting Compute Optimizer recommendations for a given resource.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/view-ec2-recommendations.html#ec2-savings-calculation">Estimated monthly savings and savings opportunities</a> in the
  *                     <i>Compute Optimizer User Guide</i>.</p>
  */
@@ -384,13 +418,15 @@ export namespace EstimatedMonthlySavings {
  */
 export interface SavingsOpportunity {
   /**
-   * <p>The estimated monthly savings possible as a percentage of monthly cost.</p>
+   * <p>The estimated monthly savings possible as a percentage of monthly cost by adopting
+   *                 Compute Optimizer recommendations for a given resource.</p>
    */
   savingsOpportunityPercentage?: number;
 
   /**
-   * <p>An object that describes the estimated monthly savings amount possible based on
-   *             On-Demand instance pricing.</p>
+   * <p>An object that describes the estimated monthly savings amount possible, based on
+   *             On-Demand instance pricing, by adopting Compute Optimizer recommendations for a given
+   *             resource.</p>
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings;
 }
@@ -456,6 +492,19 @@ export interface AutoScalingGroupRecommendationOption {
    *             and percentage.</p>
    */
   savingsOpportunity?: SavingsOpportunity;
+
+  /**
+   * <p>The level of effort required to migrate from the current instance type to the
+   *             recommended instance type.</p>
+   *
+   *         <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the
+   *             inferred workload type and an Amazon Web Services Graviton instance type is recommended.
+   *             The migration effort is <code>Medium</code> if a workload type couldn't be inferred but
+   *             an Amazon Web Services Graviton instance type is recommended. The migration effort is
+   *                 <code>VeryLow</code> if both the current and recommended instance types are of the
+   *             same CPU architecture.</p>
+   */
+  migrationEffort?: MigrationEffort | string;
 }
 
 export namespace AutoScalingGroupRecommendationOption {
@@ -551,6 +600,53 @@ export interface AutoScalingGroupRecommendation {
    * <p>An object that describes the effective recommendation preferences for the Auto Scaling group.</p>
    */
   effectiveRecommendationPreferences?: EffectiveRecommendationPreferences;
+
+  /**
+   * <p>The applications that might be running on the instances in the Auto Scaling group
+   *             as inferred by Compute Optimizer.</p>
+   *
+   *         <p>Compute Optimizer can infer if one of the following applications might be running on
+   *             the instances:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AmazonEmr</code> - Infers that Amazon EMR might be running on
+   *                     the instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ApacheCassandra</code> - Infers that Apache Cassandra might be running
+   *                     on the instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ApacheHadoop</code> - Infers that Apache Hadoop might be running on the
+   *                     instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Memcached</code> - Infers that Memcached might be running on the
+   *                     instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NGINX</code> - Infers that NGINX might be running on the
+   *                     instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PostgreSql</code> - Infers that PostgreSQL might be running on the
+   *                     instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Redis</code> - Infers that Redis might be running on the
+   *                     instances.</p>
+   *             </li>
+   *          </ul>
+   */
+  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
 }
 
 export namespace AutoScalingGroupRecommendation {
@@ -564,6 +660,7 @@ export namespace AutoScalingGroupRecommendation {
 
 export enum RecommendationPreferenceName {
   ENHANCED_INFRASTRUCTURE_METRICS = "EnhancedInfrastructureMetrics",
+  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
 }
 
 export enum ResourceType {
@@ -571,6 +668,7 @@ export enum ResourceType {
   EBS_VOLUME = "EbsVolume",
   EC2_INSTANCE = "Ec2Instance",
   LAMBDA_FUNCTION = "LambdaFunction",
+  NOT_APPLICABLE = "NotApplicable",
 }
 
 export enum ScopeName {
@@ -592,7 +690,9 @@ export enum ScopeName {
  *                     Auto Scaling groups only at the resource level by specifying a scope name
  *                 of <code>ResourceArn</code> and a scope value of the Auto Scaling group Amazon
  *                 Resource Name (ARN). This will configure the preference for all instances that are
- *                 part of the specified the Auto Scaling group.</p>
+ *                 part of the specified Auto Scaling group. You also cannot create recommendation
+ *                 preferences at the resource level for instances that are part of an Auto Scaling group. You can create recommendation preferences at the resource level only for
+ *                 standalone instances.</p>
  *         </note>
  */
 export interface Scope {
@@ -1010,7 +1110,9 @@ export enum ExportableAutoScalingGroupField {
   CURRENT_VCPUS = "CurrentVCpus",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES = "EffectiveRecommendationPreferencesCpuVendorArchitectures",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS = "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES = "EffectiveRecommendationPreferencesInferredWorkloadTypes",
   FINDING = "Finding",
+  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
   LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
   LOOKBACK_PERIOD_IN_DAYS = "LookbackPeriodInDays",
   RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY = "RecommendationOptionsConfigurationDesiredCapacity",
@@ -1020,6 +1122,7 @@ export enum ExportableAutoScalingGroupField {
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY = "RecommendationOptionsEstimatedMonthlySavingsCurrency",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
   RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT = "RecommendationOptionsMigrationEffort",
   RECOMMENDATION_OPTIONS_NETWORK = "RecommendationOptionsNetwork",
   RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE = "RecommendationOptionsOnDemandPrice",
   RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
@@ -1606,8 +1709,10 @@ export enum ExportableInstanceField {
   CURRENT_VCPUS = "CurrentVCpus",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES = "EffectiveRecommendationPreferencesCpuVendorArchitectures",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS = "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES = "EffectiveRecommendationPreferencesInferredWorkloadTypes",
   FINDING = "Finding",
   Finding_Reason_Codes = "FindingReasonCodes",
+  INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
   INSTANCE_ARN = "InstanceArn",
   INSTANCE_NAME = "InstanceName",
   LAST_REFRESH_TIMESTAMP = "LastRefreshTimestamp",
@@ -1618,6 +1723,7 @@ export enum ExportableInstanceField {
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE = "RecommendationOptionsEstimatedMonthlySavingsValue",
   RECOMMENDATION_OPTIONS_INSTANCE_TYPE = "RecommendationOptionsInstanceType",
   RECOMMENDATION_OPTIONS_MEMORY = "RecommendationOptionsMemory",
+  RECOMMENDATION_OPTIONS_MIGRATION_EFFORT = "RecommendationOptionsMigrationEffort",
   RECOMMENDATION_OPTIONS_NETWORK = "RecommendationOptionsNetwork",
   RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE = "RecommendationOptionsOnDemandPrice",
   RECOMMENDATION_OPTIONS_PERFORMANCE_RISK = "RecommendationOptionsPerformanceRisk",
@@ -2602,6 +2708,19 @@ export interface InstanceRecommendationOption {
    *             percentage.</p>
    */
   savingsOpportunity?: SavingsOpportunity;
+
+  /**
+   * <p>The level of effort required to migrate from the current instance type to the
+   *             recommended instance type.</p>
+   *
+   *         <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the
+   *             inferred workload type and an Amazon Web Services Graviton instance type is recommended.
+   *             The migration effort is <code>Medium</code> if a workload type couldn't be inferred but
+   *             an Amazon Web Services Graviton instance type is recommended. The migration effort is
+   *                 <code>VeryLow</code> if both the current and recommended instance types are of the
+   *             same CPU architecture.</p>
+   */
+  migrationEffort?: MigrationEffort | string;
 }
 
 export namespace InstanceRecommendationOption {
@@ -2935,8 +3054,8 @@ export interface InstanceRecommendation {
 
   /**
    * <p>The risk of the current instance not meeting the performance needs of its workloads.
-   *             The higher the risk, the more likely the current Lambda function requires
-   *             more memory.</p>
+   *             The higher the risk, the more likely the current instance cannot meet the performance
+   *             requirements of its workload.</p>
    */
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 
@@ -2945,6 +3064,52 @@ export interface InstanceRecommendation {
    *             instance.</p>
    */
   effectiveRecommendationPreferences?: EffectiveRecommendationPreferences;
+
+  /**
+   * <p>The applications that might be running on the instance as inferred by Compute Optimizer.</p>
+   *
+   *         <p>Compute Optimizer can infer if one of the following applications might be running on
+   *             the instance:</p>
+   *
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AmazonEmr</code> - Infers that Amazon EMR might be running on
+   *                     the instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ApacheCassandra</code> - Infers that Apache Cassandra might be running
+   *                     on the instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ApacheHadoop</code> - Infers that Apache Hadoop might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Memcached</code> - Infers that Memcached might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>NGINX</code> - Infers that NGINX might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PostgreSql</code> - Infers that PostgreSQL might be running on the
+   *                     instance.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Redis</code> - Infers that Redis might be running on the
+   *                     instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
 }
 
 export namespace InstanceRecommendation {
@@ -3177,10 +3342,13 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *             organization level.</p>
    *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
    *             recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet
-   *             applied.</p>
+   *             applied to recommendations.</p>
    *         <p>To validate whether the preference is applied to your last generated set of
    *             recommendations, review the <code>effectiveRecommendationPreferences</code> value in the
    *             response of the <a>GetAutoScalingGroupRecommendations</a> and <a>GetEC2InstanceRecommendations</a> actions.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
+   *                 infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
    */
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
 }
@@ -3692,7 +3860,7 @@ export interface LambdaFunctionRecommendation {
   /**
    * <p>The risk of the current Lambda function not meeting the performance needs
    *             of its workloads. The higher the risk, the more likely the current Lambda
-   *             function configuration is underperforming in its workload.</p>
+   *             function requires more memory.</p>
    */
   currentPerformanceRisk?: CurrentPerformanceRisk | string;
 }
@@ -3798,9 +3966,21 @@ export interface RecommendationPreferencesDetail {
    * <p>The status of the enhanced infrastructure metrics recommendation preference.</p>
    *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
    *             recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet
-   *             applied.</p>
+   *             applied to recommendations.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
+   *                 infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
    */
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+
+  /**
+   * <p>The status of the inferred workload types recommendation preference.</p>
+   *
+   *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
+   *             recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet
+   *             applied to recommendations.</p>
+   */
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 }
 
 export namespace RecommendationPreferencesDetail {
@@ -4049,7 +4229,9 @@ export interface PutRecommendationPreferencesRequest {
    *                     Auto Scaling groups only at the resource level by specifying a scope name
    *                 of <code>ResourceArn</code> and a scope value of the Auto Scaling group Amazon
    *                 Resource Name (ARN). This will configure the preference for all instances that are
-   *                 part of the specified the Auto Scaling group.</p>
+   *                 part of the specified Auto Scaling group. You also cannot create recommendation
+   *                 preferences at the resource level for instances that are part of an Auto Scaling group. You can create recommendation preferences at the resource level only for
+   *                 standalone instances.</p>
    *         </note>
    */
   scope?: Scope;
@@ -4057,11 +4239,30 @@ export interface PutRecommendationPreferencesRequest {
   /**
    * <p>The status of the enhanced infrastructure metrics recommendation preference to create
    *             or update.</p>
-   *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
-   *             recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet
-   *             applied.</p>
+   *         <p>Specify the <code>Active</code> status to activate the preference, or specify
+   *                 <code>Inactive</code> to deactivate the preference.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
+   *                 infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
    */
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+
+  /**
+   * <p>The status of the inferred workload types recommendation preference to create or
+   *             update.</p>
+   *
+   *         <note>
+   *             <p>The inferred workload type feature is active by default. To deactivate it, create
+   *                 a recommendation preference.</p>
+   *         </note>
+   *
+   *         <p>Specify the <code>Inactive</code> status to deactivate the feature, or specify
+   *                 <code>Active</code> to activate it.</p>
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html">Inferred workload
+   *                 types</a> in the <i>Compute Optimizer User Guide</i>.</p>
+   */
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
 }
 
 export namespace PutRecommendationPreferencesRequest {

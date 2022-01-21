@@ -470,16 +470,16 @@ export interface DescribePatchGroupStateResult {
   /**
    * <p>The number of managed nodes where patches that are specified as <code>Critical</code> for
    *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
-   *    failed installation, were rejected, or were installed but awaiting a required managed node reboot.
-   *    The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   *    failed installation, were rejected, or were installed but awaiting a required managed node
+   *    reboot. The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   InstancesWithCriticalNonCompliantPatches?: number;
 
   /**
    * <p>The number of managed nodes where patches that are specified as <code>Security</code> in a
    *    patch advisory aren't installed. These patches might be missing, have failed installation, were
-   *    rejected, or were installed but awaiting a required managed node reboot. The status of these managed
-   *    nodes is <code>NON_COMPLIANT</code>.</p>
+   *    rejected, or were installed but awaiting a required managed node reboot. The status of these
+   *    managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   InstancesWithSecurityNonCompliantPatches?: number;
 
@@ -1204,8 +1204,9 @@ export interface GetCommandInvocationRequest {
   CommandId: string | undefined;
 
   /**
-   * <p>(Required) The ID of the managed node targeted by the command. A <i>managed node</i> can be an
-   *    Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, and on-premises server or VM in your hybrid environment that is configured for Amazon Web Services Systems Manager.</p>
+   * <p>(Required) The ID of the managed node targeted by the command. A <i>managed
+   *     node</i> can be an Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, and on-premises server or VM
+   *    in your hybrid environment that is configured for Amazon Web Services Systems Manager.</p>
    */
   InstanceId: string | undefined;
 
@@ -1281,8 +1282,9 @@ export interface GetCommandInvocationResult {
   CommandId?: string;
 
   /**
-   * <p>The ID of the managed node targeted by the command. A <i>managed node</i> can be an
-   *    Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, or on-premises server or VM in your hybrid environment that is configured for Amazon Web Services Systems Manager.</p>
+   * <p>The ID of the managed node targeted by the command. A <i>managed node</i> can
+   *    be an Amazon Elastic Compute Cloud (Amazon EC2) instance, edge device, or on-premises server or VM in your hybrid
+   *    environment that is configured for Amazon Web Services Systems Manager.</p>
    */
   InstanceId?: string;
 
@@ -1309,8 +1311,8 @@ export interface GetCommandInvocationResult {
 
   /**
    * <p>The error level response code for the plugin script. If the response code is
-   *    <code>-1</code>, then the command hasn't started running on the managed node, or it wasn't received
-   *    by the node.</p>
+   *    <code>-1</code>, then the command hasn't started running on the managed node, or it wasn't
+   *    received by the node.</p>
    */
   ResponseCode?: number;
 
@@ -1377,18 +1379,18 @@ export interface GetCommandInvocationResult {
    *      Success or Incomplete. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Execution Timed Out: The command started to run on the managed node, but the execution wasn't
-   *      complete before the timeout expired. Execution timeouts count against the
+   *                <p>Execution Timed Out: The command started to run on the managed node, but the execution
+   *      wasn't complete before the timeout expired. Execution timeouts count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Failed: The command wasn't run successfully on the managed node. For a plugin, this indicates
-   *      that the result code wasn't zero. For a command invocation, this indicates that the result code
-   *      for one or more plugins wasn't zero. Invocation failures count against the
+   *                <p>Failed: The command wasn't run successfully on the managed node. For a plugin, this
+   *      indicates that the result code wasn't zero. For a command invocation, this indicates that the
+   *      result code for one or more plugins wasn't zero. Invocation failures count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Canceled: The command was terminated before it was completed. This is a terminal
+   *                <p>Cancelled: The command was terminated before it was completed. This is a terminal
    *      state.</p>
    *             </li>
    *             <li>
@@ -1616,7 +1618,8 @@ export namespace BaselineOverride {
 
 export interface GetDeployablePatchSnapshotForInstanceRequest {
   /**
-   * <p>The ID of the managed node for which the appropriate patch snapshot should be retrieved.</p>
+   * <p>The ID of the managed node for which the appropriate patch snapshot should be
+   *    retrieved.</p>
    */
   InstanceId: string | undefined;
 
@@ -1989,9 +1992,8 @@ export namespace InventoryResultItem {
  */
 export interface InventoryResultEntity {
   /**
-   * <p>ID of the inventory result entity. For example, for managed node inventory the result
-   *    will be the managed node ID. For EC2 instance inventory, the result will be the instance ID.
-   *   </p>
+   * <p>ID of the inventory result entity. For example, for managed node inventory the result will
+   *    be the managed node ID. For EC2 instance inventory, the result will be the instance ID. </p>
    */
   Id?: string;
 
@@ -2621,14 +2623,13 @@ export interface MaintenanceWindowAutomationParameters {
    *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
    *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
    *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *
    *             <p>
    *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
    *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
    *       about how Systems Manager handles these options for the supported maintenance window task
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *             <p>For <code>AUTOMATION</code> task types, Amazon Web Services Systems Manager ignores any values specified for these
-   *     parameters.</p>
+   *             <p>For <code>AUTOMATION</code>
+   *     task types, Amazon Web Services Systems Manager ignores any values specified for these parameters.</p>
    *          </note>
    */
   Parameters?: { [key: string]: string[] };
@@ -2652,14 +2653,13 @@ export namespace MaintenanceWindowAutomationParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For Lambda tasks, Systems Manager ignores any values specified for TaskParameters and
- *     LoggingInfo.</p>
+ *             <p>For Lambda tasks, Systems Manager ignores
+ *     any values specified for TaskParameters and LoggingInfo.</p>
  *          </note>
  */
 export interface MaintenanceWindowLambdaParameters {
@@ -2761,15 +2761,14 @@ export namespace NotificationConfig {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For <code>RUN_COMMAND</code> tasks, Systems Manager uses specified values for
- *      <code>TaskParameters</code> and <code>LoggingInfo</code> only if no values are specified for
- *      <code>TaskInvocationParameters</code>. </p>
+ *             <p>For <code>RUN_COMMAND</code>
+ *     tasks, Systems Manager uses specified values for <code>TaskParameters</code> and <code>LoggingInfo</code>
+ *     only if no values are specified for <code>TaskInvocationParameters</code>. </p>
  *          </note>
  */
 export interface MaintenanceWindowRunCommandParameters {
@@ -2864,14 +2863,14 @@ export namespace MaintenanceWindowRunCommandParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For Step Functions tasks, Systems Manager ignores any values specified for
- *      <code>TaskParameters</code> and <code>LoggingInfo</code>.</p>
+ *             <p>For Step Functions tasks, Systems Manager
+ *     ignores any values specified for <code>TaskParameters</code> and
+ *     <code>LoggingInfo</code>.</p>
  *          </note>
  */
 export interface MaintenanceWindowStepFunctionsParameters {
@@ -4257,8 +4256,8 @@ export interface ListAssociationsRequest {
    *          <note>
    *             <p>Filtering associations using the <code>InstanceID</code> attribute only returns legacy
    *     associations created using the <code>InstanceID</code> attribute. Associations targeting the
-   *     managed node that are part of the Target Attributes <code>ResourceGroup</code> or <code>Tags</code>
-   *     aren't returned.</p>
+   *     managed node that are part of the Target Attributes <code>ResourceGroup</code> or
+   *      <code>Tags</code> aren't returned.</p>
    *          </note>
    */
   AssociationFilterList?: AssociationFilter[];
@@ -4312,6 +4311,9 @@ export interface Association {
 
   /**
    * <p>The version of the document used in the association.</p>
+   *          <important>
+   *             <p>State Manager doesn't support running associations that use a new version of a document if that document is shared from another account. State Manager always runs the <code>default</code> version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed. If you want to run an association using a new version of a document shared form another account, you must set the document version to <code>default</code>.</p>
+   *          </important>
    */
   DocumentVersion?: string;
 
@@ -4481,8 +4483,8 @@ export interface AssociationVersionInfo {
    *    value is 100%, which means all targets run the association at the same time.</p>
    *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new managed node will process its association within the limit specified
-   *    for <code>MaxConcurrency</code>.</p>
+   *    association interval, the new managed node will process its association within the limit
+   *    specified for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
 
@@ -4574,8 +4576,8 @@ export enum CommandFilterKey {
 /**
  * <p>Describes a command filter.</p>
  *          <note>
- *             <p>A managed node ID can't be specified when a command status is <code>Pending</code> because the
- *     command hasn't run on the node yet.</p>
+ *             <p>A managed node ID can't be specified when a command status is <code>Pending</code> because
+ *     the command hasn't run on the node yet.</p>
  *          </note>
  */
 export interface CommandFilter {
@@ -4872,25 +4874,25 @@ export interface CommandPlugin {
    *      Success or Incomplete. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Execution Timed Out: Command execution started on the managed node, but the execution wasn't
-   *      complete before the execution timeout expired. Execution timeouts count against the
+   *                <p>Execution Timed Out: Command execution started on the managed node, but the execution
+   *      wasn't complete before the execution timeout expired. Execution timeouts count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Failed: The command wasn't successful on the managed node. For a plugin, this indicates that
-   *      the result code wasn't zero. For a command invocation, this indicates that the result code for
-   *      one or more plugins wasn't zero. Invocation failures count against the MaxErrors limit of the
-   *      parent command. This is a terminal state.</p>
+   *                <p>Failed: The command wasn't successful on the managed node. For a plugin, this indicates
+   *      that the result code wasn't zero. For a command invocation, this indicates that the result code
+   *      for one or more plugins wasn't zero. Invocation failures count against the MaxErrors limit of
+   *      the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Canceled: The command was terminated before it was completed. This is a terminal
+   *                <p>Cancelled: The command was terminated before it was completed. This is a terminal
    *      state.</p>
    *             </li>
    *             <li>
-   *                <p>Undeliverable: The command can't be delivered to the managed node. The managed node might not
-   *      exist, or it might not be responding. Undeliverable invocations don't count against the parent
-   *      command's MaxErrors limit, and they don't contribute to whether the parent command status is
-   *      Success or Incomplete. This is a terminal state.</p>
+   *                <p>Undeliverable: The command can't be delivered to the managed node. The managed node might
+   *      not exist, or it might not be responding. Undeliverable invocations don't count against the
+   *      parent command's MaxErrors limit, and they don't contribute to whether the parent command
+   *      status is Success or Incomplete. This is a terminal state.</p>
    *             </li>
    *             <li>
    *                <p>Terminated: The parent command exceeded its MaxErrors limit and subsequent command
@@ -4985,11 +4987,11 @@ export namespace CommandPlugin {
 }
 
 /**
- * <p>An invocation is a copy of a command sent to a specific managed node. A command can apply to one
- *    or more managed nodes. A command invocation applies to one managed node. For example, if a user runs
- *     <code>SendCommand</code> against three managed nodes, then a command invocation is created for
- *    each requested managed node ID. A command invocation returns status and detail information about a
- *    command you ran. </p>
+ * <p>An invocation is a copy of a command sent to a specific managed node. A command can apply to
+ *    one or more managed nodes. A command invocation applies to one managed node. For example, if a
+ *    user runs <code>SendCommand</code> against three managed nodes, then a command invocation is
+ *    created for each requested managed node ID. A command invocation returns status and detail
+ *    information about a command you ran. </p>
  */
 export interface CommandInvocation {
   /**
@@ -5034,8 +5036,8 @@ export interface CommandInvocation {
   Status?: CommandInvocationStatus | string;
 
   /**
-   * <p>A detailed status of the command execution for each invocation (each managed node targeted by
-   *    the command). StatusDetails includes more information than Status because it includes states
+   * <p>A detailed status of the command execution for each invocation (each managed node targeted
+   *    by the command). StatusDetails includes more information than Status because it includes states
    *    resulting from error and concurrency control parameters. StatusDetails can show different results
    *    than Status. For more information about these statuses, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Understanding command
    *     statuses</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. StatusDetails can be one of the
@@ -5059,23 +5061,23 @@ export interface CommandInvocation {
    *      Success or Incomplete. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Execution Timed Out: Command execution started on the managed node, but the execution wasn't
-   *      complete before the execution timeout expired. Execution timeouts count against the
+   *                <p>Execution Timed Out: Command execution started on the managed node, but the execution
+   *      wasn't complete before the execution timeout expired. Execution timeouts count against the
    *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Failed: The command wasn't successful on the managed node. For a plugin, this indicates that
-   *      the result code wasn't zero. For a command invocation, this indicates that the result code for
-   *      one or more plugins wasn't zero. Invocation failures count against the <code>MaxErrors</code>
-   *      limit of the parent command. This is a terminal state.</p>
+   *                <p>Failed: The command wasn't successful on the managed node. For a plugin, this indicates
+   *      that the result code wasn't zero. For a command invocation, this indicates that the result code
+   *      for one or more plugins wasn't zero. Invocation failures count against the
+   *       <code>MaxErrors</code> limit of the parent command. This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Canceled: The command was terminated before it was completed. This is a terminal
+   *                <p>Cancelled: The command was terminated before it was completed. This is a terminal
    *      state.</p>
    *             </li>
    *             <li>
-   *                <p>Undeliverable: The command can't be delivered to the managed node. The managed node might not
-   *      exist or might not be responding. Undeliverable invocations don't count against the parent
+   *                <p>Undeliverable: The command can't be delivered to the managed node. The managed node might
+   *      not exist or might not be responding. Undeliverable invocations don't count against the parent
    *      command's MaxErrors limit and don't contribute to whether the parent command status is Success
    *      or Incomplete. This is a terminal state.</p>
    *             </li>
@@ -5173,8 +5175,9 @@ export interface ListCommandsRequest {
   /**
    * <p>(Optional) Lists commands issued against this managed node ID.</p>
    *          <note>
-   *             <p>You can't specify a managed node ID in the same command that you specify <code>Status</code> =
-   *      <code>Pending</code>. This is because the command hasn't reached the managed node yet.</p>
+   *             <p>You can't specify a managed node ID in the same command that you specify
+   *      <code>Status</code> = <code>Pending</code>. This is because the command hasn't reached the
+   *     managed node yet.</p>
    *          </note>
    */
   InstanceId?: string;
@@ -5288,8 +5291,8 @@ export interface Command {
    *                <p>Pending: The command hasn't been sent to any managed nodes.</p>
    *             </li>
    *             <li>
-   *                <p>In Progress: The command has been sent to at least one managed node but hasn't reached a final
-   *      state on all managed nodes.</p>
+   *                <p>In Progress: The command has been sent to at least one managed node but hasn't reached a
+   *      final state on all managed nodes.</p>
    *             </li>
    *             <li>
    *                <p>Success: The command successfully ran on all invocations. This is a terminal state.</p>
@@ -5312,7 +5315,7 @@ export interface Command {
    *      This is a terminal state.</p>
    *             </li>
    *             <li>
-   *                <p>Canceled: The command was terminated before it was completed. This is a terminal
+   *                <p>Cancelled: The command was terminated before it was completed. This is a terminal
    *      state.</p>
    *             </li>
    *             <li>
@@ -5367,7 +5370,7 @@ export interface Command {
 
   /**
    * <p>The number of targets for which the command invocation reached a terminal state. Terminal
-   *    states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Canceled,
+   *    states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Cancelled,
    *    Terminated, or Undeliverable.</p>
    */
   CompletedCount?: number;
@@ -8816,9 +8819,9 @@ export interface InvalidRole extends __SmithyException, $MetadataBearer {
 
 export interface SendCommandRequest {
   /**
-   * <p>The IDs of the managed nodes where the command should run. Specifying managed node IDs is most
-   *    useful when you are targeting a limited number of managed nodes, though you can specify up to 50
-   *    IDs.</p>
+   * <p>The IDs of the managed nodes where the command should run. Specifying managed node IDs is
+   *    most useful when you are targeting a limited number of managed nodes, though you can specify up
+   *    to 50 IDs.</p>
    *          <p>To target a larger number of managed nodes, or if you prefer not to list individual node
    *    IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
    *    which accepts tag key-value pairs to identify the managed nodes to send commands to, you can a
@@ -9384,10 +9387,11 @@ export namespace StartSessionResponse {
 }
 
 /**
- * <p>The specified target managed node for the session isn't fully configured for use with Session Manager. For
- *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
+ * <p>The specified target managed node for the session isn't fully configured for use with Session Manager.
+ *    For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">Getting started with
  *     Session Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. This error is also returned if you
- *    attempt to start a session on a managed node that is located in a different account or Region</p>
+ *    attempt to start a session on a managed node that is located in a different account or
+ *    Region</p>
  */
 export interface TargetNotConnected extends __SmithyException, $MetadataBearer {
   name: "TargetNotConnected";
@@ -9556,6 +9560,9 @@ export interface UpdateAssociationRequest {
 
   /**
    * <p>The document version you want update for the association. </p>
+   *          <important>
+   *             <p>State Manager doesn't support running associations that use a new version of a document if that document is shared from another account. State Manager always runs the <code>default</code> version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed. If you want to run an association using a new version of a document shared form another account, you must set the document version to <code>default</code>.</p>
+   *          </important>
    */
   DocumentVersion?: string;
 
@@ -9635,8 +9642,8 @@ export interface UpdateAssociationRequest {
    *    value is 100%, which means all targets run the association at the same time.</p>
    *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
    *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
-   *    association interval, the new managed node will process its association within the limit specified
-   *    for <code>MaxConcurrency</code>.</p>
+   *    association interval, the new managed node will process its association within the limit
+   *    specified for <code>MaxConcurrency</code>.</p>
    */
   MaxConcurrency?: string;
 

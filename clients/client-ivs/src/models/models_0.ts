@@ -428,6 +428,42 @@ export namespace DestinationConfiguration {
   });
 }
 
+export enum RecordingMode {
+  Disabled = "DISABLED",
+  Interval = "INTERVAL",
+}
+
+/**
+ * <p>An object representing a configuration of thumbnails for recorded video.</p>
+ */
+export interface ThumbnailConfiguration {
+  /**
+   * <p>Thumbnail recording mode. Default: <code>INTERVAL</code>.</p>
+   */
+  recordingMode?: RecordingMode | string;
+
+  /**
+   * <p>The targeted thumbnail-generation interval in seconds. This is configurable (and required)
+   *       only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
+   *          <p>
+   *             <b>Important:</b> Setting a value for <code>targetIntervalSeconds</code> does not guarantee that thumbnails
+   *       are generated at the specified interval. For thumbnails to be generated at the
+   *       <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code> value for the input video must be less than
+   *       the <code>targetIntervalSeconds</code> value. See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/streaming-config.html"> Amazon IVS Streaming Configuration</a> for information on
+   *       setting <code>IDR/Keyframe</code> to the recommended value in video-encoder settings.</p>
+   */
+  targetIntervalSeconds?: number;
+}
+
+export namespace ThumbnailConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThumbnailConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateRecordingConfigurationRequest {
   /**
    * <p>Recording-configuration name. The value does not need to be unique.</p>
@@ -444,6 +480,12 @@ export interface CreateRecordingConfigurationRequest {
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>A complex type that allows you to enable/disable the recording of thumbnails for a live
+   *       session and modify the interval at which thumbnails are generated for the live session.</p>
+   */
+  thumbnailConfiguration?: ThumbnailConfiguration;
 }
 
 export namespace CreateRecordingConfigurationRequest {
@@ -490,6 +532,12 @@ export interface RecordingConfiguration {
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>A complex type that allows you to enable/disable the recording of thumbnails for a live
+   *       session and modify the interval at which thumbnails are generated for the live session.</p>
+   */
+  thumbnailConfiguration?: ThumbnailConfiguration;
 }
 
 export namespace RecordingConfiguration {
@@ -1709,7 +1757,7 @@ export namespace StreamSessionSummary {
 
 export interface ListStreamSessionsResponse {
   /**
-   * <p/>
+   * <p>List of stream sessions.</p>
    */
   streamSessions: StreamSessionSummary[] | undefined;
 

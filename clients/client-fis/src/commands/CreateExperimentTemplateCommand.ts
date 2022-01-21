@@ -23,12 +23,12 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
 
 /**
  * <p>Creates an experiment template. </p>
- *          <p>To create a template, specify the following information: </p>
+ *          <p>An experiment template includes the following components:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Targets</b>: A target can be a specific resource
- *                in your AWS environment, or one or more resources that match criteria that you
+ *                   <b>Targets</b>: A target can be a specific resource in
+ *                your Amazon Web Services environment, or one or more resources that match criteria that you
  *                specify, for example, resources that have specific tags.</p>
  *             </li>
  *             <li>
@@ -43,7 +43,8 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *                stopped. You can define a stop condition as a CloudWatch alarm.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">AWS Fault Injection Simulator User Guide</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">Experiment templates</a>
+ *          in the <i>Fault Injection Simulator User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

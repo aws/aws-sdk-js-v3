@@ -67,6 +67,10 @@ import {
   ListPendingInvitationResourcesCommandOutput,
 } from "../commands/ListPendingInvitationResourcesCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "../commands/ListPermissionsCommand";
+import {
+  ListPermissionVersionsCommandInput,
+  ListPermissionVersionsCommandOutput,
+} from "../commands/ListPermissionVersionsCommand";
 import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "../commands/ListPrincipalsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
@@ -576,6 +580,33 @@ export const serializeAws_restJson1ListPermissionsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.resourceType !== undefined && input.resourceType !== null && { resourceType: input.resourceType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListPermissionVersionsCommand = async (
+  input: ListPermissionVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissionversions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.permissionArn !== undefined && input.permissionArn !== null && { permissionArn: input.permissionArn }),
   });
   return new __HttpRequest({
     protocol,
@@ -2539,6 +2570,113 @@ const deserializeAws_restJson1ListPermissionsCommandError = async (
     case "com.amazonaws.ram#ServiceUnavailableException":
       response = {
         ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListPermissionVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPermissionVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListPermissionVersionsCommandError(output, context);
+  }
+  const contents: ListPermissionVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    permissions: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.permissions !== undefined && data.permissions !== null) {
+    contents.permissions = deserializeAws_restJson1ResourceSharePermissionList(data.permissions, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListPermissionVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPermissionVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextTokenException":
+    case "com.amazonaws.ram#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.ram#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MalformedArnException":
+    case "com.amazonaws.ram#MalformedArnException":
+      response = {
+        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.ram#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerInternalException":
+    case "com.amazonaws.ram#ServerInternalException":
+      response = {
+        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.ram#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnknownResourceException":
+    case "com.amazonaws.ram#UnknownResourceException":
+      response = {
+        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

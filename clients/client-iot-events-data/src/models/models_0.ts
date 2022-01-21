@@ -1330,7 +1330,7 @@ export interface Timer {
   name: string | undefined;
 
   /**
-   * <p>The number of seconds which have elapsed on the timer.</p>
+   * <p>The expiration time for the timer.</p>
    */
   timestamp: Date | undefined;
 }

@@ -42,6 +42,10 @@ import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "../comm
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "../commands/DeleteBotCommand";
 import { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "../commands/DeleteBotLocaleCommand";
 import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "../commands/DeleteBotVersionCommand";
+import {
+  DeleteCustomVocabularyCommandInput,
+  DeleteCustomVocabularyCommandOutput,
+} from "../commands/DeleteCustomVocabularyCommand";
 import { DeleteExportCommandInput, DeleteExportCommandOutput } from "../commands/DeleteExportCommand";
 import { DeleteImportCommandInput, DeleteImportCommandOutput } from "../commands/DeleteImportCommand";
 import { DeleteIntentCommandInput, DeleteIntentCommandOutput } from "../commands/DeleteIntentCommand";
@@ -64,6 +68,10 @@ import {
   DescribeBotRecommendationCommandOutput,
 } from "../commands/DescribeBotRecommendationCommand";
 import { DescribeBotVersionCommandInput, DescribeBotVersionCommandOutput } from "../commands/DescribeBotVersionCommand";
+import {
+  DescribeCustomVocabularyMetadataCommandInput,
+  DescribeCustomVocabularyMetadataCommandOutput,
+} from "../commands/DescribeCustomVocabularyMetadataCommand";
 import { DescribeExportCommandInput, DescribeExportCommandOutput } from "../commands/DescribeExportCommand";
 import { DescribeImportCommandInput, DescribeImportCommandOutput } from "../commands/DescribeImportCommand";
 import { DescribeIntentCommandInput, DescribeIntentCommandOutput } from "../commands/DescribeIntentCommand";
@@ -130,6 +138,7 @@ import {
 import { UpdateSlotCommandInput, UpdateSlotCommandOutput } from "../commands/UpdateSlotCommand";
 import { UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput } from "../commands/UpdateSlotTypeCommand";
 import {
+  AdvancedRecognitionSetting,
   AggregatedUtterancesFilter,
   AggregatedUtterancesSortBy,
   AggregatedUtterancesSummary,
@@ -167,6 +176,8 @@ import {
   ConflictException,
   ConversationLogSettings,
   CustomPayload,
+  CustomVocabularyExportSpecification,
+  CustomVocabularyImportSpecification,
   DataPrivacy,
   DateRangeFilter,
   DialogCodeHookSettings,
@@ -1012,6 +1023,54 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteCustomVocabularyCommand = async (
+  input: DeleteCustomVocabularyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary";
+  if (input.botId !== undefined) {
+    const labelValue: string = input.botId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botId.");
+    }
+    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botId.");
+  }
+  if (input.botVersion !== undefined) {
+    const labelValue: string = input.botVersion;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botVersion.");
+    }
+    resolvedPath = resolvedPath.replace("{botVersion}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botVersion.");
+  }
+  if (input.localeId !== undefined) {
+    const labelValue: string = input.localeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: localeId.");
+    }
+    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: localeId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteExportCommand = async (
   input: DeleteExportCommandInput,
   context: __SerdeContext
@@ -1558,6 +1617,54 @@ export const serializeAws_restJson1DescribeBotVersionCommand = async (
     resolvedPath = resolvedPath.replace("{botVersion}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botVersion.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeCustomVocabularyMetadataCommand = async (
+  input: DescribeCustomVocabularyMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/bots/{botId}/botversions/{botVersion}/botlocales/{localeId}/customvocabulary/DEFAULT/metadata";
+  if (input.botId !== undefined) {
+    const labelValue: string = input.botId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botId.");
+    }
+    resolvedPath = resolvedPath.replace("{botId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botId.");
+  }
+  if (input.botVersion !== undefined) {
+    const labelValue: string = input.botVersion;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botVersion.");
+    }
+    resolvedPath = resolvedPath.replace("{botVersion}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botVersion.");
+  }
+  if (input.localeId !== undefined) {
+    const labelValue: string = input.localeId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: localeId.");
+    }
+    resolvedPath = resolvedPath.replace("{localeId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: localeId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -2173,6 +2280,7 @@ export const serializeAws_restJson1ListExportsCommand = async (
     ...(input.botVersion !== undefined && input.botVersion !== null && { botVersion: input.botVersion }),
     ...(input.filters !== undefined &&
       input.filters !== null && { filters: serializeAws_restJson1ExportFilters(input.filters, context) }),
+    ...(input.localeId !== undefined && input.localeId !== null && { localeId: input.localeId }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.sortBy !== undefined &&
@@ -2204,6 +2312,7 @@ export const serializeAws_restJson1ListImportsCommand = async (
     ...(input.botVersion !== undefined && input.botVersion !== null && { botVersion: input.botVersion }),
     ...(input.filters !== undefined &&
       input.filters !== null && { filters: serializeAws_restJson1ImportFilters(input.filters, context) }),
+    ...(input.localeId !== undefined && input.localeId !== null && { localeId: input.localeId }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.sortBy !== undefined &&
@@ -5176,6 +5285,113 @@ const deserializeAws_restJson1DeleteBotVersionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteCustomVocabularyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomVocabularyCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteCustomVocabularyCommandError(output, context);
+  }
+  const contents: DeleteCustomVocabularyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    botId: undefined,
+    botVersion: undefined,
+    customVocabularyStatus: undefined,
+    localeId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId !== undefined && data.botId !== null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion !== undefined && data.botVersion !== null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.customVocabularyStatus !== undefined && data.customVocabularyStatus !== null) {
+    contents.customVocabularyStatus = __expectString(data.customVocabularyStatus);
+  }
+  if (data.localeId !== undefined && data.localeId !== null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteCustomVocabularyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomVocabularyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      response = {
+        ...(await deserializeAws_restJson1PreconditionFailedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6461,6 +6677,113 @@ const deserializeAws_restJson1DescribeBotVersionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBotVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.lexmodelsv2#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.lexmodelsv2#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.lexmodelsv2#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeCustomVocabularyMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomVocabularyMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError(output, context);
+  }
+  const contents: DescribeCustomVocabularyMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    botId: undefined,
+    botVersion: undefined,
+    creationDateTime: undefined,
+    customVocabularyStatus: undefined,
+    lastUpdatedDateTime: undefined,
+    localeId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.botId !== undefined && data.botId !== null) {
+    contents.botId = __expectString(data.botId);
+  }
+  if (data.botVersion !== undefined && data.botVersion !== null) {
+    contents.botVersion = __expectString(data.botVersion);
+  }
+  if (data.creationDateTime !== undefined && data.creationDateTime !== null) {
+    contents.creationDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationDateTime)));
+  }
+  if (data.customVocabularyStatus !== undefined && data.customVocabularyStatus !== null) {
+    contents.customVocabularyStatus = __expectString(data.customVocabularyStatus);
+  }
+  if (data.lastUpdatedDateTime !== undefined && data.lastUpdatedDateTime !== null) {
+    contents.lastUpdatedDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastUpdatedDateTime)));
+  }
+  if (data.localeId !== undefined && data.localeId !== null) {
+    contents.localeId = __expectString(data.localeId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomVocabularyMetadataCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -8027,6 +8350,7 @@ export const deserializeAws_restJson1ListExportsCommand = async (
     botId: undefined,
     botVersion: undefined,
     exportSummaries: undefined,
+    localeId: undefined,
     nextToken: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -8038,6 +8362,9 @@ export const deserializeAws_restJson1ListExportsCommand = async (
   }
   if (data.exportSummaries !== undefined && data.exportSummaries !== null) {
     contents.exportSummaries = deserializeAws_restJson1ExportSummaryList(data.exportSummaries, context);
+  }
+  if (data.localeId !== undefined && data.localeId !== null) {
+    contents.localeId = __expectString(data.localeId);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -8110,6 +8437,7 @@ export const deserializeAws_restJson1ListImportsCommand = async (
     botId: undefined,
     botVersion: undefined,
     importSummaries: undefined,
+    localeId: undefined,
     nextToken: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -8121,6 +8449,9 @@ export const deserializeAws_restJson1ListImportsCommand = async (
   }
   if (data.importSummaries !== undefined && data.importSummaries !== null) {
     contents.importSummaries = deserializeAws_restJson1ImportSummaryList(data.importSummaries, context);
+  }
+  if (data.localeId !== undefined && data.localeId !== null) {
+    contents.localeId = __expectString(data.localeId);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -10513,6 +10844,16 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AdvancedRecognitionSetting = (
+  input: AdvancedRecognitionSetting,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.audioRecognitionStrategy !== undefined &&
+      input.audioRecognitionStrategy !== null && { audioRecognitionStrategy: input.audioRecognitionStrategy }),
+  };
+};
+
 const serializeAws_restJson1AggregatedUtterancesFilter = (
   input: AggregatedUtterancesFilter,
   context: __SerdeContext
@@ -10868,6 +11209,28 @@ const serializeAws_restJson1CustomPayload = (input: CustomPayload, context: __Se
   };
 };
 
+const serializeAws_restJson1CustomVocabularyExportSpecification = (
+  input: CustomVocabularyExportSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.botId !== undefined && input.botId !== null && { botId: input.botId }),
+    ...(input.botVersion !== undefined && input.botVersion !== null && { botVersion: input.botVersion }),
+    ...(input.localeId !== undefined && input.localeId !== null && { localeId: input.localeId }),
+  };
+};
+
+const serializeAws_restJson1CustomVocabularyImportSpecification = (
+  input: CustomVocabularyImportSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.botId !== undefined && input.botId !== null && { botId: input.botId }),
+    ...(input.botVersion !== undefined && input.botVersion !== null && { botVersion: input.botVersion }),
+    ...(input.localeId !== undefined && input.localeId !== null && { localeId: input.localeId }),
+  };
+};
+
 const serializeAws_restJson1DataPrivacy = (input: DataPrivacy, context: __SerdeContext): any => {
   return {
     ...(input.childDirected !== undefined && input.childDirected !== null && { childDirected: input.childDirected }),
@@ -10934,6 +11297,13 @@ const serializeAws_restJson1ExportResourceSpecification = (
       input.botLocaleExportSpecification !== null && {
         botLocaleExportSpecification: serializeAws_restJson1BotLocaleExportSpecification(
           input.botLocaleExportSpecification,
+          context
+        ),
+      }),
+    ...(input.customVocabularyExportSpecification !== undefined &&
+      input.customVocabularyExportSpecification !== null && {
+        customVocabularyExportSpecification: serializeAws_restJson1CustomVocabularyExportSpecification(
+          input.customVocabularyExportSpecification,
           context
         ),
       }),
@@ -11099,6 +11469,13 @@ const serializeAws_restJson1ImportResourceSpecification = (
       input.botLocaleImportSpecification !== null && {
         botLocaleImportSpecification: serializeAws_restJson1BotLocaleImportSpecification(
           input.botLocaleImportSpecification,
+          context
+        ),
+      }),
+    ...(input.customVocabularyImportSpecification !== undefined &&
+      input.customVocabularyImportSpecification !== null && {
+        customVocabularyImportSpecification: serializeAws_restJson1CustomVocabularyImportSpecification(
+          input.customVocabularyImportSpecification,
           context
         ),
       }),
@@ -11627,6 +12004,13 @@ const serializeAws_restJson1SlotValueSelectionSetting = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.advancedRecognitionSetting !== undefined &&
+      input.advancedRecognitionSetting !== null && {
+        advancedRecognitionSetting: serializeAws_restJson1AdvancedRecognitionSetting(
+          input.advancedRecognitionSetting,
+          context
+        ),
+      }),
     ...(input.regexFilter !== undefined &&
       input.regexFilter !== null && {
         regexFilter: serializeAws_restJson1SlotValueRegexFilter(input.regexFilter, context),
@@ -11781,6 +12165,15 @@ const serializeAws_restJson1WaitAndContinueSpecification = (
         waitingResponse: serializeAws_restJson1ResponseSpecification(input.waitingResponse, context),
       }),
   };
+};
+
+const deserializeAws_restJson1AdvancedRecognitionSetting = (
+  output: any,
+  context: __SerdeContext
+): AdvancedRecognitionSetting => {
+  return {
+    audioRecognitionStrategy: __expectString(output.audioRecognitionStrategy),
+  } as any;
 };
 
 const deserializeAws_restJson1AggregatedUtterancesSummary = (
@@ -12311,6 +12704,28 @@ const deserializeAws_restJson1CustomPayload = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1CustomVocabularyExportSpecification = (
+  output: any,
+  context: __SerdeContext
+): CustomVocabularyExportSpecification => {
+  return {
+    botId: __expectString(output.botId),
+    botVersion: __expectString(output.botVersion),
+    localeId: __expectString(output.localeId),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomVocabularyImportSpecification = (
+  output: any,
+  context: __SerdeContext
+): CustomVocabularyImportSpecification => {
+  return {
+    botId: __expectString(output.botId),
+    botVersion: __expectString(output.botVersion),
+    localeId: __expectString(output.localeId),
+  } as any;
+};
+
 const deserializeAws_restJson1DataPrivacy = (output: any, context: __SerdeContext): DataPrivacy => {
   return {
     childDirected: __expectBoolean(output.childDirected),
@@ -12359,6 +12774,13 @@ const deserializeAws_restJson1ExportResourceSpecification = (
     botLocaleExportSpecification:
       output.botLocaleExportSpecification !== undefined && output.botLocaleExportSpecification !== null
         ? deserializeAws_restJson1BotLocaleExportSpecification(output.botLocaleExportSpecification, context)
+        : undefined,
+    customVocabularyExportSpecification:
+      output.customVocabularyExportSpecification !== undefined && output.customVocabularyExportSpecification !== null
+        ? deserializeAws_restJson1CustomVocabularyExportSpecification(
+            output.customVocabularyExportSpecification,
+            context
+          )
         : undefined,
   } as any;
 };
@@ -12522,6 +12944,13 @@ const deserializeAws_restJson1ImportResourceSpecification = (
       output.botLocaleImportSpecification !== undefined && output.botLocaleImportSpecification !== null
         ? deserializeAws_restJson1BotLocaleImportSpecification(output.botLocaleImportSpecification, context)
         : undefined,
+    customVocabularyImportSpecification:
+      output.customVocabularyImportSpecification !== undefined && output.customVocabularyImportSpecification !== null
+        ? deserializeAws_restJson1CustomVocabularyImportSpecification(
+            output.customVocabularyImportSpecification,
+            context
+          )
+        : undefined,
   } as any;
 };
 
@@ -12535,6 +12964,7 @@ const deserializeAws_restJson1ImportSummary = (output: any, context: __SerdeCont
     importStatus: __expectString(output.importStatus),
     importedResourceId: __expectString(output.importedResourceId),
     importedResourceName: __expectString(output.importedResourceName),
+    importedResourceType: __expectString(output.importedResourceType),
     lastUpdatedDateTime:
       output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedDateTime)))
@@ -13089,6 +13519,10 @@ const deserializeAws_restJson1SlotValueSelectionSetting = (
   context: __SerdeContext
 ): SlotValueSelectionSetting => {
   return {
+    advancedRecognitionSetting:
+      output.advancedRecognitionSetting !== undefined && output.advancedRecognitionSetting !== null
+        ? deserializeAws_restJson1AdvancedRecognitionSetting(output.advancedRecognitionSetting, context)
+        : undefined,
     regexFilter:
       output.regexFilter !== undefined && output.regexFilter !== null
         ? deserializeAws_restJson1SlotValueRegexFilter(output.regexFilter, context)

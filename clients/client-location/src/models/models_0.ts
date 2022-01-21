@@ -1003,7 +1003,7 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *         <note>
-   *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the
+   *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the
    *                 position to the nearest road</a>. If Esri is the provider for your route calculator,
    *                 specifying a route that is longer than 400 km returns a <code>400 RoutesValidationException</code> error.</p>
    *         </note>
@@ -1022,7 +1022,7 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *         <note>
-   *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the position to the nearest road</a>. </p>
+   *             <p>If you specify a destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position to the nearest road</a>. </p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1041,7 +1041,7 @@ export interface CalculateRouteRequest {
    *             </li>
    *          </ul>
    *         <note>
-   *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the position to the nearest road</a>. </p>
+   *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">moves the position to the nearest road</a>. </p>
    *             <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code>
    *                 error.</p>
    *             <p>If Esri is the provider for your route calculator, specifying a
@@ -1055,7 +1055,8 @@ export interface CalculateRouteRequest {
   /**
    * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
    *             of travel and road compatibility.</p>
-   *         <p>The <code>TravelMode</code> you specify determines how you specify route preferences: </p>
+   *         <p>The <code>TravelMode</code> you specify also determines how you specify route
+   *             preferences: </p>
    *         <ul>
    *             <li>
    *                 <p>If traveling by <code>Car</code> use the <code>CarModeOptions</code>
@@ -1232,7 +1233,7 @@ export namespace Step {
  *             number of legs returned corresponds to one fewer than the total number of positions in
  *             the request. </p>
  *         <p>For example, a route with a departure position and destination position returns one
- *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p>
+ *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>:</p>
  *         <ul>
  *             <li>
  *                 <p>The <code>StartPosition</code> is the departure position.</p>
@@ -1259,7 +1260,7 @@ export interface Leg {
    * <p>The starting position of the leg. Follows the format
    *             <code>[longitude,latitude]</code>.</p>
    *         <note>
-   *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>. </p>
+   *             <p>If the <code>StartPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>. </p>
    *         </note>
    */
   StartPosition: number[] | undefined;
@@ -1268,7 +1269,7 @@ export interface Leg {
    * <p>The terminating position of the leg. Follows the format
    *                 <code>[longitude,latitude]</code>.</p>
    *         <note>
-   *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>. </p>
+   *             <p>If the <code>EndPosition</code> isn't located on a road, it's <a href="https://docs.aws.amazon.com/location/latest/developerguide/nap-to-nearby-road.html">snapped to a nearby road</a>. </p>
    *         </note>
    */
   EndPosition: number[] | undefined;
@@ -1415,7 +1416,7 @@ export interface CalculateRouteResponse {
    *             number of legs returned corresponds to one fewer than the total number of positions in
    *             the request. </p>
    *         <p>For example, a route with a departure position and destination position returns one
-   *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p>
+   *             leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html">snapped to a nearby road</a>:</p>
    *         <ul>
    *             <li>
    *                 <p>The <code>StartPosition</code> is the departure position.</p>
@@ -1458,6 +1459,344 @@ export namespace CalculateRouteResponse {
   });
 }
 
+export interface CalculateRouteMatrixRequest {
+  /**
+   * <p>The name of the route calculator resource that you want to use to calculate the route matrix. </p>
+   */
+  CalculatorName: string | undefined;
+
+  /**
+   * <p>The list of departure (origin) positions for the route matrix. An array of points,
+   *             each of which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
+   *             <code>[longitude, latitude]</code>. For example, <code>[-123.115,
+   *             49.285]</code>.</p>
+   *         <important>
+   *             <p>Depending on the data provider selected in the route calculator resource there may be additional
+   *                 restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits">
+   *                     Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *         </important>
+   *         <note>
+   *             <p>For route calculators that use Esri as the data provider, if you specify a
+   *                 departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the position
+   *                 to the nearest road</a>. The snapped value is available in the result in
+   *                 <code>SnappedDeparturePositions</code>.</p>
+   *         </note>
+   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </p>
+   */
+  DeparturePositions: number[][] | undefined;
+
+  /**
+   * <p>The list of destination positions for the route matrix. An array of points, each of
+   *             which is itself a 2-value array defined in <a href="https://earth-info.nga.mil/GandG/wgs84/index.html">WGS 84</a> format:
+   *             <code>[longitude, latitude]</code>. For example, <code>[-122.339,
+   *             47.615]</code>
+   *          </p>
+   *         <important>
+   *             <p>Depending on the data provider selected in the route calculator resource there may be additional
+   *                 restrictions on the inputs you can choose. See <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html#matrix-routing-position-limits">
+   *                     Position restrictions</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+   *         </important>
+   *         <note>
+   *             <p>For route calculators that use Esri as the data provider, if you specify a
+   *                 destination that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/snap-to-nearby-road.html"> moves the position
+   *                 to the nearest road</a>. The snapped value is available in the result in
+   *                 <code>SnappedDestinationPositions</code>.</p>
+   *         </note>
+   *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
+   *          </p>
+   */
+  DestinationPositions: number[][] | undefined;
+
+  /**
+   * <p>Specifies the mode of transport when calculating a route. Used in estimating the speed
+   *             of travel and road compatibility.</p>
+   *         <p>The <code>TravelMode</code> you specify also determines how you specify route
+   *             preferences: </p>
+   *         <ul>
+   *             <li>
+   *                 <p>If traveling by <code>Car</code> use the <code>CarModeOptions</code>
+   *                     parameter.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If traveling by <code>Truck</code> use the <code>TruckModeOptions</code>
+   *                     parameter.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default Value: <code>Car</code>
+   *          </p>
+   */
+  TravelMode?: TravelMode | string;
+
+  /**
+   * <p>Specifies the desired time of departure. Uses the given time to calculate the route
+   *             matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>. If
+   *             neither is set, the best time of day to travel with the best traffic conditions is used
+   *             to calculate the route matrix.</p>
+   *         <note>
+   *             <p>Setting a departure time in the past returns a <code>400
+   *                     ValidationException</code> error.</p>
+   *         </note>
+   *         <ul>
+   *             <li>
+   *                 <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                         8601</a> format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. For example,
+   *                         <code>2020–07-2T12:15:20.000Z+01:00</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  DepartureTime?: Date;
+
+  /**
+   * <p>Sets the time of departure as the current time. Uses the current time to calculate the
+   *             route matrix. You can't set both <code>DepartureTime</code> and <code>DepartNow</code>.
+   *             If neither is set, the best time of day to travel with the best traffic conditions is
+   *             used to calculate the route matrix.</p>
+   *         <p>Default Value: <code>false</code>
+   *          </p>
+   *         <p>Valid Values: <code>false</code> | <code>true</code>
+   *          </p>
+   */
+  DepartNow?: boolean;
+
+  /**
+   * <p>Set the unit system to specify the distance.</p>
+   *         <p>Default Value: <code>Kilometers</code>
+   *          </p>
+   */
+  DistanceUnit?: DistanceUnit | string;
+
+  /**
+   * <p>Specifies route preferences when traveling by <code>Car</code>, such as avoiding
+   *             routes that use ferries or tolls.</p>
+   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Car</code>.</p>
+   */
+  CarModeOptions?: CalculateRouteCarModeOptions;
+
+  /**
+   * <p>Specifies route preferences when traveling by <code>Truck</code>, such as avoiding
+   *             routes that use ferries or tolls, and truck specifications to consider when choosing an
+   *             optimal road.</p>
+   *         <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
+   */
+  TruckModeOptions?: CalculateRouteTruckModeOptions;
+}
+
+export namespace CalculateRouteMatrixRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteMatrixRequest): any => ({
+    ...obj,
+    ...(obj.DeparturePositions && { DeparturePositions: SENSITIVE_STRING }),
+    ...(obj.DestinationPositions && { DestinationPositions: SENSITIVE_STRING }),
+  });
+}
+
+export type RouteMatrixErrorCode =
+  | "DeparturePositionNotFound"
+  | "DestinationPositionNotFound"
+  | "OtherValidationError"
+  | "PositionsNotFound"
+  | "RouteNotFound"
+  | "RouteTooLong";
+
+/**
+ * <p>An error corresponding to the calculation of a route between the
+ *         <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
+ *         <p>The error code can be one of the following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>RouteNotFound</code> - Unable to find a
+ *                     valid route with the given parameters.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>RouteTooLong</code> - Route calculation went
+ *                     beyond the maximum size of a route and was terminated before completion.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>PositionsNotFound</code> - One or more of the
+ *                     input positions were not found on the route network.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>DestinationPositionNotFound</code> - The
+ *                     destination position was not found on the route network.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>DeparturePositionNotFound</code> - The
+ *                     departure position was not found on the route network.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>OtherValidationError</code> - The given inputs were not valid or a
+ *                     route was not found. More information is given in the error
+ *                     <code>Message</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface RouteMatrixEntryError {
+  /**
+   * <p>The type of error which occurred for the route calculation.</p>
+   */
+  Code: RouteMatrixErrorCode | string | undefined;
+
+  /**
+   * <p>A message about the error that occurred for the route calculation.</p>
+   */
+  Message?: string;
+}
+
+export namespace RouteMatrixEntryError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteMatrixEntryError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The result for one <code>SnappedDeparturePosition</code>
+ *             <code>SnappedDestinationPosition</code> pair.</p>
+ */
+export interface RouteMatrixEntry {
+  /**
+   * <p>The total distance of travel for the route.</p>
+   */
+  Distance?: number;
+
+  /**
+   * <p>The expected duration of travel for the route.</p>
+   */
+  DurationSeconds?: number;
+
+  /**
+   * <p>An error corresponding to the calculation of a route between the
+   *             <code>DeparturePosition</code> and <code>DestinationPosition</code>.</p>
+   */
+  Error?: RouteMatrixEntryError;
+}
+
+export namespace RouteMatrixEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteMatrixEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A summary of the calculated route matrix.</p>
+ */
+export interface CalculateRouteMatrixSummary {
+  /**
+   * <p>The data provider of traffic and road network data used to calculate the routes.
+   *             Indicates one of the available providers:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>Esri</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>Here</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   */
+  DataSource: string | undefined;
+
+  /**
+   * <p>The count of cells in the route matrix. Equal to the number of <code>DeparturePositions</code>
+   *          multiplied by the number of <code>DestinationPositions</code>.</p>
+   */
+  RouteCount: number | undefined;
+
+  /**
+   * <p>The count of error results in the route matrix. If this number is 0, all routes were calculated successfully.</p>
+   */
+  ErrorCount: number | undefined;
+
+  /**
+   * <p>The unit of measurement for route distances.</p>
+   */
+  DistanceUnit: DistanceUnit | string | undefined;
+}
+
+export namespace CalculateRouteMatrixSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteMatrixSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returns the result of the route matrix calculation.</p>
+ */
+export interface CalculateRouteMatrixResponse {
+  /**
+   * <p>The calculated route matrix containing the results for all pairs of
+   *         <code>DeparturePositions</code> to <code>DestinationPositions</code>.
+   *             Each row corresponds to one entry in <code>DeparturePositions</code>. Each
+   *             entry in the row corresponds to the route from that entry in
+   *             <code>DeparturePositions</code> to an entry in <code>DestinationPositions</code>.
+   *         </p>
+   */
+  RouteMatrix: RouteMatrixEntry[][] | undefined;
+
+  /**
+   * <p>For routes calculated using an Esri route calculator resource, departure positions
+   *             are snapped to the closest road. For Esri route calculator resources, this returns
+   *             the list of departure/origin positions used for calculation of the
+   *             <code>RouteMatrix</code>.</p>
+   */
+  SnappedDeparturePositions?: number[][];
+
+  /**
+   * <p>The list of destination positions for the route matrix used for calculation of the <code>RouteMatrix</code>.</p>
+   */
+  SnappedDestinationPositions?: number[][];
+
+  /**
+   * <p>Contains information about the route matrix, <code>DataSource</code>,
+   *         <code>DistanceUnit</code>, <code>RouteCount</code> and <code>ErrorCount</code>.</p>
+   */
+  Summary: CalculateRouteMatrixSummary | undefined;
+}
+
+export namespace CalculateRouteMatrixResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CalculateRouteMatrixResponse): any => ({
+    ...obj,
+    ...(obj.SnappedDeparturePositions && { SnappedDeparturePositions: SENSITIVE_STRING }),
+    ...(obj.SnappedDestinationPositions && { SnappedDestinationPositions: SENSITIVE_STRING }),
+  });
+}
+
 export type PricingPlan = "MobileAssetManagement" | "MobileAssetTracking" | "RequestBasedUsage";
 
 export interface CreateGeofenceCollectionRequest {
@@ -1480,31 +1819,17 @@ export interface CreateGeofenceCollectionRequest {
   CollectionName: string | undefined;
 
   /**
-   * <p>Optionally specifies the pricing plan for the geofence collection. Defaults to
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *             page</a>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>Specifies the data provider for the geofence collection.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Required value for the following pricing plans: <code>MobileAssetTracking
-   *                     </code>| <code>MobileAssetManagement</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *         <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">Data Providers</a>, and <a href="https://aws.amazon.com/location/pricing/">Pricing plans</a>, see the Amazon Location
-   *             Service product page.</p>
-   * 	        <note>
-   * 	           <p>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate billing for
-   *                 your geofence collection. Your data won't be shared with the data provider, and will
-   *                 remain in your AWS account or Region unless you move it.</p>
-   * 	        </note>
-   *         <p>Valid Values: <code>Esri </code>| <code>Here</code>
-   *          </p>
+   * @deprecated
+   *
+   * <p>This parameter is no longer used.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -1693,9 +2018,10 @@ export interface CreateMapRequest {
   Configuration: MapConfiguration | undefined;
 
   /**
-   * <p>Optionally specifies the pricing plan for the map resource. Defaults to
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -1880,9 +2206,10 @@ export interface CreatePlaceIndexRequest {
   DataSource: string | undefined;
 
   /**
-   * <p>Optionally specifies the pricing plan for the place index resource. Defaults to
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
    *          <code>RequestBasedUsage</code>.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -2015,9 +2342,10 @@ export interface CreateRouteCalculatorRequest {
   DataSource: string | undefined;
 
   /**
-   * <p>Optionally specifies the pricing plan for the route calculator resource. Defaults to
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -2139,9 +2467,10 @@ export interface CreateTrackerRequest {
   TrackerName: string | undefined;
 
   /**
-   * <p>Optionally specifies the pricing plan for the tracker resource. Defaults to
-   *             <code>RequestBasedUsage</code>.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
+   *            <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -2151,21 +2480,9 @@ export interface CreateTrackerRequest {
   KmsKeyId?: string;
 
   /**
-   * <p>Specifies the data provider for the tracker resource.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Required value for the following pricing plans: <code>MobileAssetTracking
-   *                </code>| <code>MobileAssetManagement</code>
-   *                </p>
-   *            </li>
-   *          </ul>
-   *          <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">Data Providers</a>, and <a href="https://aws.amazon.com/location/pricing/">Pricing plans</a>, see the Amazon Location
-   *            Service product page.</p>
-   * 	        <note>
-   * 	           <p>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate billing for your tracker resource. Your data will not be shared with the data provider, and will remain in your AWS account or Region unless you move it.</p>
-   * 	        </note>
-   *         <p>Valid values: <code>Esri</code> | <code>Here</code>
-   *          </p>
+   * @deprecated
+   *
+   * <p>This parameter is no longer used.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -2460,14 +2777,16 @@ export interface DescribeGeofenceCollectionResponse {
   Description: string | undefined;
 
   /**
-   * <p>The pricing plan selected for the specified geofence collection.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *                 page</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>The specified data provider for the geofence collection.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns an empty string.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -2541,11 +2860,11 @@ export interface DescribeMapResponse {
   MapArn: string | undefined;
 
   /**
-   * <p>The pricing plan selected for the specified map resource.</p>
+   * @deprecated
    *
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>Specifies the data provider for the associated map tiles.</p>
@@ -2625,10 +2944,11 @@ export interface DescribePlaceIndexResponse {
   IndexArn: string | undefined;
 
   /**
-   * <p>The pricing plan selected for the specified place index resource.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>The optional description for the place index resource.</p>
@@ -2721,10 +3041,11 @@ export interface DescribeRouteCalculatorResponse {
   CalculatorArn: string | undefined;
 
   /**
-   * <p>The pricing plan selected for the specified route calculator resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>The optional description of the route calculator resource.</p>
@@ -2830,13 +3151,16 @@ export interface DescribeTrackerResponse {
   Description: string | undefined;
 
   /**
-   * <p>The pricing plan selected for the specified tracker resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>The specified data provider for the tracker resource.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns an empty string.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -3190,14 +3514,16 @@ export interface ListGeofenceCollectionsResponseEntry {
   Description: string | undefined;
 
   /**
-   * <p>The pricing plan for the specified geofence collection.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *             page</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>The specified data provider for the geofence collection.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns an empty string.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -3430,27 +3756,17 @@ export interface UpdateGeofenceCollectionRequest {
   CollectionName: string | undefined;
 
   /**
-   * <p>Updates the pricing plan for the geofence collection.</p>
-   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service
-   *                 pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
+   *             <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>Updates the data provider for the geofence collection. </p>
-   *         <p>A required value for the following pricing plans: <code>MobileAssetTracking</code>|
-   *                 <code>MobileAssetManagement</code>
-   *         </p>
-   *         <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">data providers</a> and
-   *                 <a href="https://aws.amazon.com/location/pricing/">pricing plans</a>, see the
-   *             Amazon Location Service product page.</p>
-   *         <note>
-   *             <p>This can only be updated when updating the <code>PricingPlan</code> in the same
-   *                 request.</p>
-   *             <p>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate
-   *                 billing for your geofence collection. Your data won't be shared with the data
-   *                 provider, and will remain in your AWS account and Region unless you move it.</p>
-   *         </note>
+   * @deprecated
+   *
+   * <p>This parameter is no longer used.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -4044,10 +4360,11 @@ export interface ListMapsResponseEntry {
   DataSource: string | undefined;
 
   /**
-   * <p>The pricing plan for the specified map resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>The timestamp for when the map resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -4151,10 +4468,11 @@ export interface ListPlaceIndexesResponseEntry {
   DataSource: string | undefined;
 
   /**
-   * <p>The pricing plan for the specified place index resource.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>The timestamp for when the place index resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a> format:
@@ -4260,10 +4578,11 @@ export interface ListRouteCalculatorsResponseEntry {
   DataSource: string | undefined;
 
   /**
-   * <p>The pricing plan for the specified route calculator resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
    * <p>The timestamp when the route calculator resource was created in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601</a>
@@ -4415,13 +4734,16 @@ export interface ListTrackersResponseEntry {
   Description: string | undefined;
 
   /**
-   * <p>The pricing plan for the specified tracker resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan: PricingPlan | string | undefined;
+  PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>The specified data provider for the tracker resource.</p>
+   * @deprecated
+   *
+   * <p>No longer used. Always returns an empty string.</p>
    */
   PricingPlanDataSource?: string;
 
@@ -4477,8 +4799,10 @@ export interface UpdateMapRequest {
   MapName: string | undefined;
 
   /**
-   * <p>Updates the pricing plan for the map resource.</p>
-   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
+   *             <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -5270,8 +5594,10 @@ export interface UpdatePlaceIndexRequest {
   IndexName: string | undefined;
 
   /**
-   * <p>Updates the pricing plan for the place index resource.</p>
-   *          <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
+   *          <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -5337,9 +5663,10 @@ export interface UpdateRouteCalculatorRequest {
   CalculatorName: string | undefined;
 
   /**
-   * <p>Updates the pricing plan for the route calculator resource.</p>
-   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location
-   *             Service pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
+   *             <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
@@ -5400,25 +5727,17 @@ export interface UpdateTrackerRequest {
   TrackerName: string | undefined;
 
   /**
-   * <p>Updates the pricing plan for the tracker resource.</p>
-   *         <p>For more information about each pricing plan option restrictions, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service
-   *                 pricing</a>.</p>
+   * @deprecated
+   *
+   * <p>No longer used. If included, the only allowed value is
+   *             <code>RequestBasedUsage</code>.</p>
    */
   PricingPlan?: PricingPlan | string;
 
   /**
-   * <p>Updates the data provider for the tracker resource. </p>
-   *         <p>A required value for the following pricing plans: <code>MobileAssetTracking</code>| <code>MobileAssetManagement</code>
-   *             </p>
-   *         <p>For more information about <a href="https://aws.amazon.com/location/data-providers/">data providers</a> and <a href="https://aws.amazon.com/location/pricing/">pricing plans</a>, see the Amazon Location Service product
-   *             page</p>
-   *         <note>
-   *             <p>This can only be updated when updating the <code>PricingPlan</code> in the same
-   *                 request.</p>
-   *             <p>Amazon Location Service uses <code>PricingPlanDataSource</code> to calculate
-   *                 billing for your tracker resource. Your data won't be shared with the data provider,
-   *                 and will remain in your AWS account and Region unless you move it.</p>
-   *         </note>
+   * @deprecated
+   *
+   * <p>This parameter is no longer used.</p>
    */
   PricingPlanDataSource?: string;
 

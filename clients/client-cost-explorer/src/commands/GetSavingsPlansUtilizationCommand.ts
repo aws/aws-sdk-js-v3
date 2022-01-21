@@ -25,6 +25,8 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
  * 	        <note>
  *             <p>You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
+ *             <p>
+ *                <code>GetSavingsPlansUtilization</code> doesn't support filtering by tags. <code>GetSavingsPlansUtilization</code> also doesn't support the <code>OR</code> operator between filter dimensions. For the full request syntax with supported parameters, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetSavingsPlansUtilization.html#API_GetSavingsPlansUtilization_Examples">Examples</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

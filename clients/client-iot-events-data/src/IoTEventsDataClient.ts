@@ -249,11 +249,11 @@ type IoTEventsDataClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
 export interface IoTEventsDataClientResolvedConfig extends IoTEventsDataClientResolvedConfigType {}
 
 /**
- * <p>AWS IoT Events monitors your equipment or device fleets for failures or changes in operation, and
- *       triggers actions when such events occur. You can use AWS IoT Events Data API commands to send inputs to
+ * <p>IoT Events monitors your equipment or device fleets for failures or changes in operation, and
+ *       triggers actions when such events occur. You can use IoT Events Data API commands to send inputs to
  *       detectors, list detectors, and view or update a detector's status.</p>
- *          <p> For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html">What is AWS IoT Events?</a> in the
- *         <i>AWS IoT Events Developer Guide</i>.</p>
+ *          <p> For more information, see <a href="https://docs.aws.amazon.com/iotevents/latest/developerguide/what-is-iotevents.html">What is IoT Events?</a> in the
+ *         <i>IoT Events Developer Guide</i>.</p>
  */
 export class IoTEventsDataClient extends __Client<
   __HttpHandlerOptions,

@@ -64,6 +64,10 @@ import {
   CreateAnomalyDetectorCommandOutput,
 } from "./commands/CreateAnomalyDetectorCommand";
 import { CreateMetricSetCommandInput, CreateMetricSetCommandOutput } from "./commands/CreateMetricSetCommand";
+import {
+  DeactivateAnomalyDetectorCommandInput,
+  DeactivateAnomalyDetectorCommandOutput,
+} from "./commands/DeactivateAnomalyDetectorCommand";
 import { DeleteAlertCommandInput, DeleteAlertCommandOutput } from "./commands/DeleteAlertCommand";
 import {
   DeleteAnomalyDetectorCommandInput,
@@ -120,6 +124,7 @@ export type ServiceInputTypes =
   | CreateAlertCommandInput
   | CreateAnomalyDetectorCommandInput
   | CreateMetricSetCommandInput
+  | DeactivateAnomalyDetectorCommandInput
   | DeleteAlertCommandInput
   | DeleteAnomalyDetectorCommandInput
   | DescribeAlertCommandInput
@@ -148,6 +153,7 @@ export type ServiceOutputTypes =
   | CreateAlertCommandOutput
   | CreateAnomalyDetectorCommandOutput
   | CreateMetricSetCommandOutput
+  | DeactivateAnomalyDetectorCommandOutput
   | DeleteAlertCommandOutput
   | DeleteAnomalyDetectorCommandOutput
   | DescribeAlertCommandOutput

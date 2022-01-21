@@ -369,6 +369,7 @@ import {
   UserIdentityConfiguration,
   UserTokenConfiguration,
   ValidationException,
+  Warning,
   WebCrawlerConfiguration,
   WorkDocsConfiguration,
 } from "../models/models_0";
@@ -10897,6 +10898,10 @@ const deserializeAws_json1_1QueryResult = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1QueryResultItemList(output.ResultItems, context)
         : undefined,
     TotalNumberOfResults: __expectInt32(output.TotalNumberOfResults),
+    Warnings:
+      output.Warnings !== undefined && output.Warnings !== null
+        ? deserializeAws_json1_1WarningList(output.Warnings, context)
+        : undefined,
   } as any;
 };
 
@@ -11748,6 +11753,24 @@ const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeC
       [key]: __expectInt32(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_json1_1Warning = (output: any, context: __SerdeContext): Warning => {
+  return {
+    Code: __expectString(output.Code),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1WarningList = (output: any, context: __SerdeContext): Warning[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Warning(entry, context);
+    });
 };
 
 const deserializeAws_json1_1WebCrawlerConfiguration = (

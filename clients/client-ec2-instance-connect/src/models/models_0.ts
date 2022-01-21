@@ -19,6 +19,17 @@ export interface EC2InstanceNotFoundException extends __SmithyException, $Metada
 }
 
 /**
+ * <p>Unable to connect because the instance is not in a valid state.
+ *             Connecting to a stopped or terminated instance is not supported. If the instance is stopped,
+ *             start your instance, and try to connect again.</p>
+ */
+export interface EC2InstanceStateInvalidException extends __SmithyException, $MetadataBearer {
+  name: "EC2InstanceStateInvalidException";
+  $fault: "client";
+  Message?: string;
+}
+
+/**
  * <p>The instance type is not supported for connecting via the serial console. Only Nitro
  *             instance types are currently supported.</p>
  */
@@ -154,7 +165,7 @@ export interface SendSSHPublicKeyRequest {
   /**
    * <p>The Availability Zone in which the EC2 instance was launched.</p>
    */
-  AvailabilityZone: string | undefined;
+  AvailabilityZone?: string;
 }
 
 export namespace SendSSHPublicKeyRequest {

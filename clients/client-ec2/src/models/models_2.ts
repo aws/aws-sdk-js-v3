@@ -36,7 +36,6 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 import {
-  BgpStatus,
   DiskImageFormat,
   GroupIdentifier,
   Ipam,
@@ -46,13 +45,14 @@ import {
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  PlatformValues,
   ProtocolValue,
   SubnetCidrReservation,
   TransitGateway,
   TransitGatewayConnect,
   VolumeType,
 } from "./models_1";
+
+export type BgpStatus = "down" | "up";
 
 /**
  * <p>The BGP configuration information.</p>
@@ -5870,8 +5870,8 @@ export interface DeregisterImageRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -6702,8 +6702,8 @@ export interface DescribeBundleTasksRequest {
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -7907,6 +7907,20 @@ export namespace ClientConnectResponseOptions {
   });
 }
 
+export interface ClientLoginBannerResponseOptions {
+  Enabled?: boolean;
+  BannerText?: string;
+}
+
+export namespace ClientLoginBannerResponseOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClientLoginBannerResponseOptions): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Information about the client connection logging options for a Client VPN endpoint.</p>
  */
@@ -8050,6 +8064,9 @@ export interface ClientVpnEndpoint {
    * <p>The options for managing connection authorization for new client connections.</p>
    */
   ClientConnectOptions?: ClientConnectResponseOptions;
+
+  SessionTimeoutHours?: number;
+  ClientLoginBannerOptions?: ClientLoginBannerResponseOptions;
 }
 
 export namespace ClientVpnEndpoint {
@@ -8518,89 +8535,6 @@ export namespace DiskImageVolumeDescription {
    * @internal
    */
   export const filterSensitiveLog = (obj: DiskImageVolumeDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import volume task.</p>
- */
-export interface ImportInstanceVolumeDetailItem {
-  /**
-   * <p>The Availability Zone where the resulting instance will reside.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of bytes converted so far.</p>
-   */
-  BytesConverted?: number;
-
-  /**
-   * <p>A description of the task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The image.</p>
-   */
-  Image?: DiskImageDescription;
-
-  /**
-   * <p>The status of the import of this particular disk image.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The status information or errors related to the disk image.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The volume.</p>
-   */
-  Volume?: DiskImageVolumeDescription;
-}
-
-export namespace ImportInstanceVolumeDetailItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportInstanceVolumeDetailItem): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import instance task.</p>
- */
-export interface ImportInstanceTaskDetails {
-  /**
-   * <p>A description of the task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The instance operating system.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p>The volumes.</p>
-   */
-  Volumes?: ImportInstanceVolumeDetailItem[];
-}
-
-export namespace ImportInstanceTaskDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportInstanceTaskDetails): any => ({
     ...obj,
   });
 }

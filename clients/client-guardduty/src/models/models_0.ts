@@ -215,7 +215,7 @@ export namespace AccountLevelPermissions {
  */
 export interface DomainDetails {
   /**
-   * <p>The domain information for the AWS API call.</p>
+   * <p>The domain information for the Amazon Web Services API call.</p>
    */
   Domain?: string;
 }
@@ -225,6 +225,30 @@ export namespace DomainDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: DomainDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains details about the remote Amazon Web Services account that made the API call.</p>
+ */
+export interface RemoteAccountDetails {
+  /**
+   * <p>The Amazon Web Services account ID of the remote API caller.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Details on whether the Amazon Web Services account of the remote API caller is related to your GuardDuty environment.  If this value is <code>True</code> the API caller is affiliated to your account in some way. If it is <code>False</code> the API caller is from outside your environment.</p>
+   */
+  Affiliated?: boolean;
+}
+
+export namespace RemoteAccountDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemoteAccountDetails): any => ({
     ...obj,
   });
 }
@@ -375,34 +399,39 @@ export namespace RemoteIpDetails {
  */
 export interface AwsApiCallAction {
   /**
-   * <p>The AWS API name.</p>
+   * <p>The Amazon Web Services API name.</p>
    */
   Api?: string;
 
   /**
-   * <p>The AWS API caller type.</p>
+   * <p>The Amazon Web Services API caller type.</p>
    */
   CallerType?: string;
 
   /**
-   * <p>The domain information for the AWS API call.</p>
+   * <p>The domain information for the Amazon Web Services API call.</p>
    */
   DomainDetails?: DomainDetails;
 
   /**
-   * <p>The error code of the failed AWS API action.</p>
+   * <p>The error code of the failed Amazon Web Services API action.</p>
    */
   ErrorCode?: string;
 
   /**
-   * <p>The remote IP information of the connection that initiated the AWS API call.</p>
+   * <p>The remote IP information of the connection that initiated the Amazon Web Services API call.</p>
    */
   RemoteIpDetails?: RemoteIpDetails;
 
   /**
-   * <p>The AWS service name whose API was invoked.</p>
+   * <p>The Amazon Web Services service name whose API was invoked.</p>
    */
   ServiceName?: string;
+
+  /**
+   * <p>The details of the Amazon Web Services account that made the API call. This field appears if the call was made from outside your account.</p>
+   */
+  RemoteAccountDetails?: RemoteAccountDetails;
 }
 
 export namespace AwsApiCallAction {
@@ -652,7 +681,7 @@ export enum AdminStatus {
  */
 export interface AdminAccount {
   /**
-   * <p>The AWS account ID for the account.</p>
+   * <p>The Amazon Web Services account ID for the account.</p>
    */
   AdminAccountId?: string;
 
@@ -1176,6 +1205,21 @@ export interface CreateFilterRequest {
    *                <p>service.additionalInfo.threatListName</p>
    *             </li>
    *             <li>
+   *                <p>resource.s3BucketDetails.publicAccess.effectivePermissions</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.name</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.tags.key</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.tags.value</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.s3BucketDetails.type</p>
+   *             </li>
+   *             <li>
    *                <p>service.archived</p>
    *                <p>When this attribute is set to TRUE, only archived findings are listed. When it's set
    *           to FALSE, only unarchived findings are listed. When this attribute is not set, all
@@ -1263,8 +1307,7 @@ export interface CreateIPSetRequest {
   Format: IpSetFormat | string | undefined;
 
   /**
-   * <p>The URI of the file that contains the IPSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
+   * <p>The URI of the file that contains the IPSet. </p>
    */
   Location: string | undefined;
 
@@ -1338,7 +1381,7 @@ export namespace CreateMembersRequest {
  */
 export interface UnprocessedAccount {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AccountId: string | undefined;
 
@@ -1381,6 +1424,9 @@ export namespace CreateMembersResponse {
 export interface DestinationProperties {
   /**
    * <p>The ARN of the resource to publish to.</p>
+   *          <p>To specify an S3 bucket folder use the following format:
+   *         <code>arn:aws:s3:::DOC-EXAMPLE-BUCKET/myFolder/</code>
+   *          </p>
    */
   DestinationArn?: string;
 
@@ -1512,8 +1558,7 @@ export interface CreateThreatIntelSetRequest {
   Format: ThreatIntelSetFormat | string | undefined;
 
   /**
-   * <p>The URI of the file that contains the ThreatIntelSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
+   * <p>The URI of the file that contains the ThreatIntelSet. </p>
    */
   Location: string | undefined;
 
@@ -1662,7 +1707,7 @@ export namespace DataSourceConfigurationsResult {
 
 export interface DeclineInvitationsRequest {
   /**
-   * <p>A list of account IDs of the AWS accounts that sent invitations to the current member
+   * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member
    *       account that you want to decline invitations from.</p>
    */
   AccountIds: string[] | undefined;
@@ -1782,7 +1827,7 @@ export namespace DeleteFilterResponse {
 
 export interface DeleteInvitationsRequest {
   /**
-   * <p>A list of account IDs of the AWS accounts that sent invitations to the current member
+   * <p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member
    *       account that you want to delete invitations from.</p>
    */
   AccountIds: string[] | undefined;
@@ -2141,7 +2186,7 @@ export enum DetectorStatus {
 
 export interface DisableOrganizationAdminAccountRequest {
   /**
-   * <p>The AWS Account ID for the organizations account to be disabled as a GuardDuty delegated
+   * <p>The Amazon Web Services Account ID for the organizations account to be disabled as a GuardDuty delegated
    *       administrator.</p>
    */
   AdminAccountId: string | undefined;
@@ -2236,7 +2281,7 @@ export namespace DisassociateMembersResponse {
 
 export interface EnableOrganizationAdminAccountRequest {
   /**
-   * <p>The AWS Account ID for the organization account to be enabled as a GuardDuty delegated
+   * <p>The Amazon Web Services Account ID for the organization account to be enabled as a GuardDuty delegated
    *       administrator.</p>
    */
   AdminAccountId: string | undefined;
@@ -2536,7 +2581,7 @@ export interface InstanceDetails {
   InstanceType?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to AWS Outposts
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. Only applicable to Amazon Web Services Outposts
    *       instances.</p>
    */
   OutpostArn?: string;
@@ -2702,7 +2747,7 @@ export namespace S3BucketDetail {
 }
 
 /**
- * <p>Contains information about the AWS resource associated with the activity that prompted
+ * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
  *       GuardDuty to generate a finding.</p>
  */
 export interface Resource {
@@ -2724,7 +2769,7 @@ export interface Resource {
   InstanceDetails?: InstanceDetails;
 
   /**
-   * <p>The type of AWS resource.</p>
+   * <p>The type of Amazon Web Services resource.</p>
    */
   ResourceType?: string;
 }
@@ -2785,7 +2830,7 @@ export interface Service {
   ResourceRole?: string;
 
   /**
-   * <p>The name of the AWS service (GuardDuty) that generated a finding.</p>
+   * <p>The name of the Amazon Web Services service (GuardDuty) that generated a finding.</p>
    */
   ServiceName?: string;
 
@@ -2850,7 +2895,7 @@ export interface Finding {
   Region: string | undefined;
 
   /**
-   * <p>Contains information about the AWS resource associated with the activity that prompted
+   * <p>Contains information about the Amazon Web Services resource associated with the activity that prompted
    *       GuardDuty to generate a finding.</p>
    */
   Resource: Resource | undefined;
@@ -3228,8 +3273,7 @@ export interface GetIPSetResponse {
   Format: IpSetFormat | string | undefined;
 
   /**
-   * <p>The URI of the file that contains the IPSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
+   * <p>The URI of the file that contains the IPSet.</p>
    */
   Location: string | undefined;
 
@@ -3523,8 +3567,7 @@ export interface GetThreatIntelSetResponse {
   Format: ThreatIntelSetFormat | string | undefined;
 
   /**
-   * <p>The URI of the file that contains the ThreatIntelSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
+   * <p>The URI of the file that contains the ThreatIntelSet. </p>
    */
   Location: string | undefined;
 
@@ -3704,11 +3747,11 @@ export namespace UsageDataSourceResult {
 }
 
 /**
- * <p>Contains information on the sum of usage based on an AWS resource.</p>
+ * <p>Contains information on the sum of usage based on an Amazon Web Services resource.</p>
  */
 export interface UsageResourceResult {
   /**
-   * <p>The AWS resource that generated usage.</p>
+   * <p>The Amazon Web Services resource that generated usage.</p>
    */
   Resource?: string;
 
@@ -4056,9 +4099,6 @@ export interface ListFindingsRequest {
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.protocol</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.city.cityName</p>
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p>
@@ -4864,8 +4904,7 @@ export interface UpdateIPSetRequest {
   Name?: string;
 
   /**
-   * <p>The updated URI of the file that contains the IPSet. For example:
-   *       https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.</p>
+   * <p>The updated URI of the file that contains the IPSet. </p>
    */
   Location?: string;
 

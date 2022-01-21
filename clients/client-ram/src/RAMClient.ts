@@ -101,6 +101,10 @@ import {
   ListPendingInvitationResourcesCommandOutput,
 } from "./commands/ListPendingInvitationResourcesCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
+import {
+  ListPermissionVersionsCommandInput,
+  ListPermissionVersionsCommandOutput,
+} from "./commands/ListPermissionVersionsCommand";
 import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "./commands/ListPrincipalsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import {
@@ -139,6 +143,7 @@ export type ServiceInputTypes =
   | GetResourceShareInvitationsCommandInput
   | GetResourceSharesCommandInput
   | ListPendingInvitationResourcesCommandInput
+  | ListPermissionVersionsCommandInput
   | ListPermissionsCommandInput
   | ListPrincipalsCommandInput
   | ListResourceSharePermissionsCommandInput
@@ -165,6 +170,7 @@ export type ServiceOutputTypes =
   | GetResourceShareInvitationsCommandOutput
   | GetResourceSharesCommandOutput
   | ListPendingInvitationResourcesCommandOutput
+  | ListPermissionVersionsCommandOutput
   | ListPermissionsCommandOutput
   | ListPrincipalsCommandOutput
   | ListResourceSharePermissionsCommandOutput
