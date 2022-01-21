@@ -39,7 +39,7 @@
     "test:unit": "jest --config jest.config.js",
     "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
     "update:versions:default": "./scripts/update-versions/default.ts",
-    "update:versions:exact": "./scripts/update-versions/exact.ts"
+    "update:versions:current": "./scripts/update-versions/current.ts"
   },
   "repository": {
     "type": "git",

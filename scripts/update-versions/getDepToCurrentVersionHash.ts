@@ -3,7 +3,7 @@ import { basename, join } from "path";
 
 import { getWorkspacePaths } from "./getWorkspacePaths";
 
-export const getDepToExactVersionHash = () =>
+export const getDepToCurrentVersionHash = () =>
   getWorkspacePaths().reduce((acc, workspacePath) => {
     const packageJsonPath = join(workspacePath, "package.json");
     const packageJson = JSON.parse(readFileSync(packageJsonPath).toString());
