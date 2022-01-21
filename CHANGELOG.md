@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.47.2](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.1...v3.47.2) (2022-01-21)
+
+
+### Bug Fixes
+
+* **scripts:** convert update:versions scripts to mjs ([#3226](https://github.com/aws/aws-sdk-js-v3/issues/3226)) ([c237972](https://github.com/aws/aws-sdk-js-v3/commit/c237972c4116cb884061f017b81c4066c7d328e0))
+
+
+
+
+
 ## [3.47.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.0-release-test-1...v3.47.1) (2022-01-20)
 
 
