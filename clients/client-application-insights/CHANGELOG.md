@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.48.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.2...v3.48.0) (2022-01-22)
+
+
+### Features
+
+* **clients:** update clients as of 2022/01/21 ([#3228](https://github.com/aws/aws-sdk-js-v3/issues/3228)) ([fa713ef](https://github.com/aws/aws-sdk-js-v3/commit/fa713efca6b2f424c27535d000359f08830960b1))
+
+
+
+
+
 ## [3.47.2](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.1...v3.47.2) (2022-01-21)
 
 **Note:** Version bump only for package @aws-sdk/client-application-insights
