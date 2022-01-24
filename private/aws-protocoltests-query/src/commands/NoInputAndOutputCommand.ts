@@ -11,15 +11,15 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NoInputAndOutputOutput } from "../models/models_0";
+import { NoInputAndOutputInput, NoInputAndOutputOutput } from "../models/models_0";
 import {
   deserializeAws_queryNoInputAndOutputCommand,
   serializeAws_queryNoInputAndOutputCommand,
 } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
-export interface NoInputAndOutputCommandInput extends NoInputAndOutputOutput {}
-export interface NoInputAndOutputCommandOutput extends __MetadataBearer {}
+export interface NoInputAndOutputCommandInput extends NoInputAndOutputInput {}
+export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, __MetadataBearer {}
 
 /**
  * The example tests how requests and responses are serialized when there's
@@ -74,8 +74,8 @@ export class NoInputAndOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: NoInputAndOutputInput.filterSensitiveLog,
+      outputFilterSensitiveLog: NoInputAndOutputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

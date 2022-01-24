@@ -92,9 +92,9 @@ import {
 } from "./commands/HttpPayloadWithStructureCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "./commands/HttpPrefixHeadersCommand";
 import {
-  HttpPrefixHeadersResponseCommandInput,
-  HttpPrefixHeadersResponseCommandOutput,
-} from "./commands/HttpPrefixHeadersResponseCommand";
+  HttpPrefixHeadersInResponseCommandInput,
+  HttpPrefixHeadersInResponseCommandOutput,
+} from "./commands/HttpPrefixHeadersInResponseCommand";
 import {
   HttpRequestWithFloatLabelsCommandInput,
   HttpRequestWithFloatLabelsCommandOutput,
@@ -111,6 +111,10 @@ import {
   HttpRequestWithLabelsCommandInput,
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
+import {
+  HttpRequestWithRegexLiteralCommandInput,
+  HttpRequestWithRegexLiteralCommandOutput,
+} from "./commands/HttpRequestWithRegexLiteralCommand";
 import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "./commands/HttpResponseCodeCommand";
 import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "./commands/HttpStringPayloadCommand";
 import {
@@ -235,6 +239,7 @@ import {
   OmitsNullSerializesEmptyStringCommandInput,
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
+import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "./commands/PostPlayerActionCommand";
 import {
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -269,6 +274,7 @@ import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
 } from "./commands/TimestampFormatHeadersCommand";
+import { UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput } from "./commands/UnitInputAndOutputCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -288,11 +294,12 @@ export type ServiceInputTypes =
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithStructureCommandInput
   | HttpPrefixHeadersCommandInput
-  | HttpPrefixHeadersResponseCommandInput
+  | HttpPrefixHeadersInResponseCommandInput
   | HttpRequestWithFloatLabelsCommandInput
   | HttpRequestWithGreedyLabelInPathCommandInput
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
+  | HttpRequestWithRegexLiteralCommandInput
   | HttpResponseCodeCommandInput
   | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
@@ -342,6 +349,7 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersClientCommandInput
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
+  | PostPlayerActionCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
   | QueryParamsAsStringListMapCommandInput
   | QueryPrecedenceCommandInput
@@ -354,7 +362,8 @@ export type ServiceInputTypes =
   | TestNoPayloadCommandInput
   | TestPayloadBlobCommandInput
   | TestPayloadStructureCommandInput
-  | TimestampFormatHeadersCommandInput;
+  | TimestampFormatHeadersCommandInput
+  | UnitInputAndOutputCommandInput;
 
 export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
@@ -373,11 +382,12 @@ export type ServiceOutputTypes =
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithStructureCommandOutput
   | HttpPrefixHeadersCommandOutput
-  | HttpPrefixHeadersResponseCommandOutput
+  | HttpPrefixHeadersInResponseCommandOutput
   | HttpRequestWithFloatLabelsCommandOutput
   | HttpRequestWithGreedyLabelInPathCommandOutput
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
+  | HttpRequestWithRegexLiteralCommandOutput
   | HttpResponseCodeCommandOutput
   | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
@@ -427,6 +437,7 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersClientCommandOutput
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
+  | PostPlayerActionCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput
   | QueryParamsAsStringListMapCommandOutput
   | QueryPrecedenceCommandOutput
@@ -439,7 +450,8 @@ export type ServiceOutputTypes =
   | TestNoPayloadCommandOutput
   | TestPayloadBlobCommandOutput
   | TestPayloadStructureCommandOutput
-  | TimestampFormatHeadersCommandOutput;
+  | TimestampFormatHeadersCommandOutput
+  | UnitInputAndOutputCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

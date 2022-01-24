@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedAcceptWithPayloadInput } from "../models/models_0";
+import { MalformedAcceptWithPayloadOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedAcceptWithPayloadCommand,
   serializeAws_restJson1MalformedAcceptWithPayloadCommand,
@@ -19,7 +19,7 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 export interface MalformedAcceptWithPayloadCommandInput {}
-export interface MalformedAcceptWithPayloadCommandOutput extends MalformedAcceptWithPayloadInput, __MetadataBearer {}
+export interface MalformedAcceptWithPayloadCommandOutput extends MalformedAcceptWithPayloadOutput, __MetadataBearer {}
 
 export class MalformedAcceptWithPayloadCommand extends $Command<
   MalformedAcceptWithPayloadCommandInput,
@@ -55,7 +55,7 @@ export class MalformedAcceptWithPayloadCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: MalformedAcceptWithPayloadInput.filterSensitiveLog,
+      outputFilterSensitiveLog: MalformedAcceptWithPayloadOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

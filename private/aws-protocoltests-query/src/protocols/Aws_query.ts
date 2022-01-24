@@ -103,6 +103,7 @@ import {
   NestedStructuresInput,
   NestedStructWithList,
   NestedStructWithMap,
+  NoInputAndOutputInput,
   NoInputAndOutputOutput,
   QueryIdempotencyTokenAutoFillInput,
   QueryListsInput,
@@ -312,7 +313,7 @@ export const serializeAws_queryNoInputAndOutputCommand = async (
   };
   let body: any;
   body = buildFormUrlencodedString({
-    ...serializeAws_queryNoInputAndOutputOutput(input, context),
+    ...serializeAws_queryNoInputAndOutputInput(input, context),
     Action: "NoInputAndOutput",
     Version: "2020-01-08",
   });
@@ -1092,9 +1093,12 @@ export const deserializeAws_queryNoInputAndOutputCommand = async (
   if (output.statusCode >= 300) {
     return deserializeAws_queryNoInputAndOutputCommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryNoInputAndOutputOutput(data.NoInputAndOutputResult, context);
   const response: NoInputAndOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return Promise.resolve(response);
 };
@@ -2050,7 +2054,7 @@ const serializeAws_queryNestedStructWithMap = (input: NestedStructWithMap, conte
   return entries;
 };
 
-const serializeAws_queryNoInputAndOutputOutput = (input: NoInputAndOutputOutput, context: __SerdeContext): any => {
+const serializeAws_queryNoInputAndOutputInput = (input: NoInputAndOutputInput, context: __SerdeContext): any => {
   const entries: any = {};
   return entries;
 };
@@ -2467,6 +2471,11 @@ const deserializeAws_queryListWithNamespace = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_queryNoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInputAndOutputOutput => {
+  const contents: any = {};
+  return contents;
 };
 
 const deserializeAws_queryRecursiveXmlShapesOutput = (

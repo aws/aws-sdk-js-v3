@@ -287,29 +287,54 @@ export namespace HttpPayloadWithStructureInputOutput {
   });
 }
 
-export interface HttpPrefixHeadersInputOutput {
+export interface HttpPrefixHeadersInput {
   foo?: string;
   fooMap?: { [key: string]: string };
 }
 
-export namespace HttpPrefixHeadersInputOutput {
+export namespace HttpPrefixHeadersInput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: HttpPrefixHeadersInputOutput): any => ({
+  export const filterSensitiveLog = (obj: HttpPrefixHeadersInput): any => ({
     ...obj,
   });
 }
 
-export interface HttpPrefixHeadersResponseOutput {
-  prefixHeaders?: { [key: string]: string };
+export interface HttpPrefixHeadersOutput {
+  foo?: string;
+  fooMap?: { [key: string]: string };
 }
 
-export namespace HttpPrefixHeadersResponseOutput {
+export namespace HttpPrefixHeadersOutput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: HttpPrefixHeadersResponseOutput): any => ({
+  export const filterSensitiveLog = (obj: HttpPrefixHeadersOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface HttpPrefixHeadersInResponseInput {}
+
+export namespace HttpPrefixHeadersInResponseInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpPrefixHeadersInResponseInput): any => ({
+    ...obj,
+  });
+}
+
+export interface HttpPrefixHeadersInResponseOutput {
+  prefixHeaders?: { [key: string]: string };
+}
+
+export namespace HttpPrefixHeadersInResponseOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpPrefixHeadersInResponseOutput): any => ({
     ...obj,
   });
 }
@@ -384,6 +409,19 @@ export namespace HttpRequestWithLabelsAndTimestampFormatInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: HttpRequestWithLabelsAndTimestampFormatInput): any => ({
+    ...obj,
+  });
+}
+
+export interface HttpRequestWithRegexLiteralInput {
+  str: string | undefined;
+}
+
+export namespace HttpRequestWithRegexLiteralInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HttpRequestWithRegexLiteralInput): any => ({
     ...obj,
   });
 }
@@ -828,15 +866,15 @@ export namespace MalformedAcceptWithGenericStringInput {
   });
 }
 
-export interface MalformedAcceptWithPayloadInput {
+export interface MalformedAcceptWithPayloadOutput {
   payload?: Uint8Array;
 }
 
-export namespace MalformedAcceptWithPayloadInput {
+export namespace MalformedAcceptWithPayloadOutput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: MalformedAcceptWithPayloadInput): any => ({
+  export const filterSensitiveLog = (obj: MalformedAcceptWithPayloadOutput): any => ({
     ...obj,
   });
 }
@@ -1347,6 +1385,80 @@ export namespace PayloadConfig {
    */
   export const filterSensitiveLog = (obj: PayloadConfig): any => ({
     ...obj,
+  });
+}
+
+export interface Unit {}
+
+export namespace Unit {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Unit): any => ({
+    ...obj,
+  });
+}
+
+export type PlayerAction = PlayerAction.QuitMember | PlayerAction.$UnknownMember;
+
+export namespace PlayerAction {
+  /**
+   * Quit the game.
+   */
+  export interface QuitMember {
+    quit: Unit;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    quit?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    quit: (value: Unit) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PlayerAction, visitor: Visitor<T>): T => {
+    if (value.quit !== undefined) return visitor.quit(value.quit);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PlayerAction): any => {
+    if (obj.quit !== undefined) return { quit: Unit.filterSensitiveLog(obj.quit) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
+export interface PostPlayerActionInput {
+  action: PlayerAction | undefined;
+}
+
+export namespace PostPlayerActionInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PostPlayerActionInput): any => ({
+    ...obj,
+    ...(obj.action && { action: PlayerAction.filterSensitiveLog(obj.action) }),
+  });
+}
+
+export interface PostPlayerActionOutput {
+  action: PlayerAction | undefined;
+}
+
+export namespace PostPlayerActionOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PostPlayerActionOutput): any => ({
+    ...obj,
+    ...(obj.action && { action: PlayerAction.filterSensitiveLog(obj.action) }),
   });
 }
 

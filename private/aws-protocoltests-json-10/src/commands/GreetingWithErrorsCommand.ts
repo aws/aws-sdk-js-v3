@@ -12,13 +12,13 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { GreetingWithErrorsOutput } from "../models/models_0";
+import { GreetingWithErrorsInput, GreetingWithErrorsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GreetingWithErrorsCommand,
   serializeAws_json1_0GreetingWithErrorsCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface GreetingWithErrorsCommandInput {}
+export interface GreetingWithErrorsCommandInput extends GreetingWithErrorsInput {}
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**
@@ -78,7 +78,7 @@ export class GreetingWithErrorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
+      inputFilterSensitiveLog: GreetingWithErrorsInput.filterSensitiveLog,
       outputFilterSensitiveLog: GreetingWithErrorsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;

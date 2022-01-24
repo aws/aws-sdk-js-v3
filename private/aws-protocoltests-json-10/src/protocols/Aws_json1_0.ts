@@ -50,15 +50,19 @@ import {
   ComplexError,
   ComplexNestedErrorData,
   EmptyInputAndEmptyOutputInput,
+  EmptyInputAndEmptyOutputOutput,
+  EndpointWithHostLabelOperationInput,
   FooError,
   GreetingStruct,
+  GreetingWithErrorsInput,
   GreetingWithErrorsOutput,
-  HostLabelInput,
   InvalidGreeting,
+  JsonUnionsInput,
+  JsonUnionsOutput,
   MyUnion,
   NoInputAndOutputOutput,
-  SimpleScalarPropertiesInputOutput,
-  UnionInputOutput,
+  SimpleScalarPropertiesInput,
+  SimpleScalarPropertiesOutput,
 } from "../models/models_0";
 
 export const serializeAws_json1_0EmptyInputAndEmptyOutputCommand = async (
@@ -102,7 +106,7 @@ export const serializeAws_json1_0EndpointWithHostLabelOperationCommand = async (
     "x-amz-target": "JsonRpc10.EndpointWithHostLabelOperation",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0HostLabelInput(input, context));
+  body = JSON.stringify(serializeAws_json1_0EndpointWithHostLabelOperationInput(input, context));
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo.{label}." + resolvedHostname;
@@ -125,7 +129,8 @@ export const serializeAws_json1_0GreetingWithErrorsCommand = async (
     "content-type": "application/x-amz-json-1.0",
     "x-amz-target": "JsonRpc10.GreetingWithErrors",
   };
-  const body = "{}";
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0GreetingWithErrorsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -150,7 +155,7 @@ export const serializeAws_json1_0JsonUnionsCommand = async (
     "x-amz-target": "JsonRpc10.JsonUnions",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0UnionInputOutput(input, context));
+  body = JSON.stringify(serializeAws_json1_0JsonUnionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -187,7 +192,7 @@ export const serializeAws_json1_0SimpleScalarPropertiesCommand = async (
     "x-amz-target": "JsonRpc10.SimpleScalarProperties",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_0SimpleScalarPropertiesInputOutput(input, context));
+  body = JSON.stringify(serializeAws_json1_0SimpleScalarPropertiesInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -200,7 +205,7 @@ export const deserializeAws_json1_0EmptyInputAndEmptyOutputCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0EmptyInputAndEmptyOutputInput(data, context);
+  contents = deserializeAws_json1_0EmptyInputAndEmptyOutputOutput(data, context);
   const response: EmptyInputAndEmptyOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -445,7 +450,7 @@ export const deserializeAws_json1_0JsonUnionsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UnionInputOutput(data, context);
+  contents = deserializeAws_json1_0JsonUnionsOutput(data, context);
   const response: JsonUnionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -580,7 +585,7 @@ export const deserializeAws_json1_0SimpleScalarPropertiesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SimpleScalarPropertiesInputOutput(data, context);
+  contents = deserializeAws_json1_0SimpleScalarPropertiesOutput(data, context);
   const response: SimpleScalarPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -669,9 +674,25 @@ const serializeAws_json1_0EmptyInputAndEmptyOutputInput = (
   return {};
 };
 
-const serializeAws_json1_0HostLabelInput = (input: HostLabelInput, context: __SerdeContext): any => {
+const serializeAws_json1_0EndpointWithHostLabelOperationInput = (
+  input: EndpointWithHostLabelOperationInput,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.label !== undefined && input.label !== null && { label: input.label }),
+  };
+};
+
+const serializeAws_json1_0GreetingWithErrorsInput = (input: GreetingWithErrorsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.greeting !== undefined && input.greeting !== null && { greeting: input.greeting }),
+  };
+};
+
+const serializeAws_json1_0JsonUnionsInput = (input: JsonUnionsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.contents !== undefined &&
+      input.contents !== null && { contents: serializeAws_json1_0MyUnion(input.contents, context) }),
   };
 };
 
@@ -690,8 +711,8 @@ const serializeAws_json1_0MyUnion = (input: MyUnion, context: __SerdeContext): a
   });
 };
 
-const serializeAws_json1_0SimpleScalarPropertiesInputOutput = (
-  input: SimpleScalarPropertiesInputOutput,
+const serializeAws_json1_0SimpleScalarPropertiesInput = (
+  input: SimpleScalarPropertiesInput,
   context: __SerdeContext
 ): any => {
   return {
@@ -699,13 +720,6 @@ const serializeAws_json1_0SimpleScalarPropertiesInputOutput = (
       input.doubleValue !== null && { doubleValue: __serializeFloat(input.doubleValue) }),
     ...(input.floatValue !== undefined &&
       input.floatValue !== null && { floatValue: __serializeFloat(input.floatValue) }),
-  };
-};
-
-const serializeAws_json1_0UnionInputOutput = (input: UnionInputOutput, context: __SerdeContext): any => {
-  return {
-    ...(input.contents !== undefined &&
-      input.contents !== null && { contents: serializeAws_json1_0MyUnion(input.contents, context) }),
   };
 };
 
@@ -750,14 +764,14 @@ const deserializeAws_json1_0ComplexError = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_0ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   return {
-    Foo: __expectString(output.Fooooo),
+    Foo: __expectString(output.Foo),
   } as any;
 };
 
-const deserializeAws_json1_0EmptyInputAndEmptyOutputInput = (
+const deserializeAws_json1_0EmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
-): EmptyInputAndEmptyOutputInput => {
+): EmptyInputAndEmptyOutputOutput => {
   return {} as any;
 };
 
@@ -777,6 +791,15 @@ const deserializeAws_json1_0GreetingWithErrorsOutput = (
 const deserializeAws_json1_0InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
   return {
     Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_0JsonUnionsOutput = (output: any, context: __SerdeContext): JsonUnionsOutput => {
+  return {
+    contents:
+      output.contents !== undefined && output.contents !== null
+        ? deserializeAws_json1_0MyUnion(__expectUnion(output.contents), context)
+        : undefined,
   } as any;
 };
 
@@ -825,22 +848,13 @@ const deserializeAws_json1_0NoInputAndOutputOutput = (output: any, context: __Se
   return {} as any;
 };
 
-const deserializeAws_json1_0SimpleScalarPropertiesInputOutput = (
+const deserializeAws_json1_0SimpleScalarPropertiesOutput = (
   output: any,
   context: __SerdeContext
-): SimpleScalarPropertiesInputOutput => {
+): SimpleScalarPropertiesOutput => {
   return {
     doubleValue: __limitedParseDouble(output.doubleValue),
     floatValue: __limitedParseFloat32(output.floatValue),
-  } as any;
-};
-
-const deserializeAws_json1_0UnionInputOutput = (output: any, context: __SerdeContext): UnionInputOutput => {
-  return {
-    contents:
-      output.contents !== undefined && output.contents !== null
-        ? deserializeAws_json1_0MyUnion(__expectUnion(output.contents), context)
-        : undefined,
   } as any;
 };
 

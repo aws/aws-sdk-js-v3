@@ -77,10 +77,12 @@ import {
   KitchenSink,
   MyUnion,
   NullOperationInputOutput,
+  OperationWithOptionalInputOutputInput,
+  OperationWithOptionalInputOutputOutput,
   PutAndGetInlineDocumentsInputOutput,
   SimpleScalarPropertiesInputOutput,
   SimpleStruct,
-  StructWithLocationName,
+  StructWithJsonName,
   UnionInputOutput,
 } from "../models/models_0";
 
@@ -224,7 +226,7 @@ export const serializeAws_json1_1OperationWithOptionalInputOutputCommand = async
     "x-amz-target": "JsonProtocol.OperationWithOptionalInputOutput",
   };
   let body: any;
-  body = JSON.stringify(serializeAws_json1_1SimpleStruct(input, context));
+  body = JSON.stringify(serializeAws_json1_1OperationWithOptionalInputOutputInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -705,7 +707,7 @@ export const deserializeAws_json1_1OperationWithOptionalInputOutputCommand = asy
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SimpleStruct(data, context);
+  contents = deserializeAws_json1_1OperationWithOptionalInputOutputOutput(data, context);
   const response: OperationWithOptionalInputOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -996,9 +998,9 @@ const serializeAws_json1_1KitchenSink = (input: KitchenSink, context: __SerdeCon
     ...(input.SimpleStruct !== undefined &&
       input.SimpleStruct !== null && { SimpleStruct: serializeAws_json1_1SimpleStruct(input.SimpleStruct, context) }),
     ...(input.String !== undefined && input.String !== null && { String: input.String }),
-    ...(input.StructWithLocationName !== undefined &&
-      input.StructWithLocationName !== null && {
-        StructWithLocationName: serializeAws_json1_1StructWithLocationName(input.StructWithLocationName, context),
+    ...(input.StructWithJsonName !== undefined &&
+      input.StructWithJsonName !== null && {
+        StructWithJsonName: serializeAws_json1_1StructWithJsonName(input.StructWithJsonName, context),
       }),
     ...(input.Timestamp !== undefined &&
       input.Timestamp !== null && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
@@ -1157,6 +1159,15 @@ const serializeAws_json1_1NullOperationInputOutput = (
   };
 };
 
+const serializeAws_json1_1OperationWithOptionalInputOutputInput = (
+  input: OperationWithOptionalInputOutputInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
 const serializeAws_json1_1PutAndGetInlineDocumentsInputOutput = (
   input: PutAndGetInlineDocumentsInputOutput,
   context: __SerdeContext
@@ -1185,9 +1196,9 @@ const serializeAws_json1_1SimpleStruct = (input: SimpleStruct, context: __SerdeC
   };
 };
 
-const serializeAws_json1_1StructWithLocationName = (input: StructWithLocationName, context: __SerdeContext): any => {
+const serializeAws_json1_1StructWithJsonName = (input: StructWithJsonName, context: __SerdeContext): any => {
   return {
-    ...(input.Value !== undefined && input.Value !== null && { RenamedMember: input.Value }),
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
 };
 
@@ -1294,7 +1305,7 @@ const deserializeAws_json1_1ComplexError = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   return {
-    Foo: __expectString(output.Fooooo),
+    Foo: __expectString(output.Foo),
   } as any;
 };
 
@@ -1441,9 +1452,9 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
         ? deserializeAws_json1_1SimpleStruct(output.SimpleStruct, context)
         : undefined,
     String: __expectString(output.String),
-    StructWithLocationName:
-      output.StructWithLocationName !== undefined && output.StructWithLocationName !== null
-        ? deserializeAws_json1_1StructWithLocationName(output.StructWithLocationName, context)
+    StructWithJsonName:
+      output.StructWithJsonName !== undefined && output.StructWithJsonName !== null
+        ? deserializeAws_json1_1StructWithJsonName(output.StructWithJsonName, context)
         : undefined,
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
@@ -1644,6 +1655,15 @@ const deserializeAws_json1_1NullOperationInputOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1OperationWithOptionalInputOutputOutput = (
+  output: any,
+  context: __SerdeContext
+): OperationWithOptionalInputOutputOutput => {
+  return {
+    Value: __expectString(output.Value),
+  } as any;
+};
+
 const deserializeAws_json1_1PutAndGetInlineDocumentsInputOutput = (
   output: any,
   context: __SerdeContext
@@ -1672,9 +1692,9 @@ const deserializeAws_json1_1SimpleStruct = (output: any, context: __SerdeContext
   } as any;
 };
 
-const deserializeAws_json1_1StructWithLocationName = (output: any, context: __SerdeContext): StructWithLocationName => {
+const deserializeAws_json1_1StructWithJsonName = (output: any, context: __SerdeContext): StructWithJsonName => {
   return {
-    Value: __expectString(output.RenamedMember),
+    Value: __expectString(output.Value),
   } as any;
 };
 

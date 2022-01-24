@@ -11,42 +11,41 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HttpPrefixHeadersResponseOutput } from "../models/models_0";
 import {
-  deserializeAws_restJson1HttpPrefixHeadersResponseCommand,
-  serializeAws_restJson1HttpPrefixHeadersResponseCommand,
+  deserializeAws_restJson1UnitInputAndOutputCommand,
+  serializeAws_restJson1UnitInputAndOutputCommand,
 } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface HttpPrefixHeadersResponseCommandInput {}
-export interface HttpPrefixHeadersResponseCommandOutput extends HttpPrefixHeadersResponseOutput, __MetadataBearer {}
+export interface UnitInputAndOutputCommandInput {}
+export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
 
 /**
- * Clients that perform this test extract all headers from the response.
+ * This test is similar to NoInputAndNoOutput, but uses explicit Unit types.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestJsonProtocolClient, HttpPrefixHeadersResponseCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
- * // const { RestJsonProtocolClient, HttpPrefixHeadersResponseCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * import { RestJsonProtocolClient, UnitInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, UnitInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
- * const command = new HttpPrefixHeadersResponseCommand(input);
+ * const command = new UnitInputAndOutputCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link HttpPrefixHeadersResponseCommandInput} for command's `input` shape.
- * @see {@link HttpPrefixHeadersResponseCommandOutput} for command's `response` shape.
+ * @see {@link UnitInputAndOutputCommandInput} for command's `input` shape.
+ * @see {@link UnitInputAndOutputCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
-export class HttpPrefixHeadersResponseCommand extends $Command<
-  HttpPrefixHeadersResponseCommandInput,
-  HttpPrefixHeadersResponseCommandOutput,
+export class UnitInputAndOutputCommand extends $Command<
+  UnitInputAndOutputCommandInput,
+  UnitInputAndOutputCommandOutput,
   RestJsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: HttpPrefixHeadersResponseCommandInput) {
+  constructor(readonly input: UnitInputAndOutputCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -59,20 +58,20 @@ export class HttpPrefixHeadersResponseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<HttpPrefixHeadersResponseCommandInput, HttpPrefixHeadersResponseCommandOutput> {
+  ): Handler<UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RestJsonProtocolClient";
-    const commandName = "HttpPrefixHeadersResponseCommand";
+    const commandName = "UnitInputAndOutputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
       inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: HttpPrefixHeadersResponseOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -82,15 +81,12 @@ export class HttpPrefixHeadersResponseCommand extends $Command<
     );
   }
 
-  private serialize(input: HttpPrefixHeadersResponseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1HttpPrefixHeadersResponseCommand(input, context);
+  private serialize(input: UnitInputAndOutputCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UnitInputAndOutputCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<HttpPrefixHeadersResponseCommandOutput> {
-    return deserializeAws_restJson1HttpPrefixHeadersResponseCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnitInputAndOutputCommandOutput> {
+    return deserializeAws_restJson1UnitInputAndOutputCommand(output, context);
   }
 
   // Start section: command_body_extra

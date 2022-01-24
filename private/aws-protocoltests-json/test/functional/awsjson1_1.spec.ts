@@ -468,7 +468,7 @@ it("AwsJson11ComplexError:Error:GreetingWithErrors", async () => {
           "__type": "ComplexError",
           "TopLevel": "Top level",
           "Nested": {
-              "Fooooo": "bar"
+              "Foo": "bar"
           }
       }`
     ),
@@ -2792,7 +2792,7 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
   });
 
   const command = new KitchenSinkOperationCommand({
-    StructWithLocationName: {
+    StructWithJsonName: {
       Value: "some-value",
     } as any,
   } as any);
@@ -2815,7 +2815,7 @@ it("serializes_structure_members_with_locationname_traits:Request", async () => 
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `{\"StructWithLocationName\":{\"RenamedMember\":\"some-value\"}}`;
+    const bodyString = `{\"StructWithJsonName\":{\"Value\":\"some-value\"}}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }

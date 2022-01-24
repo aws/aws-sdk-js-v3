@@ -12,14 +12,14 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { EmptyInputAndEmptyOutputInput } from "../models/models_0";
+import { EmptyInputAndEmptyOutputInput, EmptyInputAndEmptyOutputOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0EmptyInputAndEmptyOutputCommand,
   serializeAws_json1_0EmptyInputAndEmptyOutputCommand,
 } from "../protocols/Aws_json1_0";
 
 export interface EmptyInputAndEmptyOutputCommandInput extends EmptyInputAndEmptyOutputInput {}
-export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmptyOutputInput, __MetadataBearer {}
+export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmptyOutputOutput, __MetadataBearer {}
 
 /**
  * The example tests how requests and responses are serialized when there's
@@ -75,7 +75,7 @@ export class EmptyInputAndEmptyOutputCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
-      outputFilterSensitiveLog: EmptyInputAndEmptyOutputInput.filterSensitiveLog,
+      outputFilterSensitiveLog: EmptyInputAndEmptyOutputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
