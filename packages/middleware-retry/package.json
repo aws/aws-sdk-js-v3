@@ -26,7 +26,8 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "*"
+    "@aws-sdk/node-config-provider": "*",
+    "@types/uuid": "^8.3.0"
   },
   "engines": {
     "node": ">= 12.0.0"
