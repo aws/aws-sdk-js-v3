@@ -34,15 +34,26 @@ export namespace EmptyInputAndEmptyOutputInput {
   });
 }
 
-export interface HostLabelInput {
-  label: string | undefined;
-}
+export interface EmptyInputAndEmptyOutputOutput {}
 
-export namespace HostLabelInput {
+export namespace EmptyInputAndEmptyOutputOutput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: HostLabelInput): any => ({
+  export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface EndpointWithHostLabelOperationInput {
+  label: string | undefined;
+}
+
+export namespace EndpointWithHostLabelOperationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EndpointWithHostLabelOperationInput): any => ({
     ...obj,
   });
 }
@@ -54,6 +65,19 @@ export namespace HostLabelInput {
 export interface FooError extends __SmithyException, $MetadataBearer {
   name: "FooError";
   $fault: "server";
+}
+
+export interface GreetingWithErrorsInput {
+  greeting?: string;
+}
+
+export namespace GreetingWithErrorsInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GreetingWithErrorsInput): any => ({
+    ...obj,
+  });
 }
 
 export interface GreetingWithErrorsOutput {
@@ -289,21 +313,35 @@ export namespace MyUnion {
   };
 }
 
-/**
- * A shared structure that contains a single union member.
- */
-export interface UnionInputOutput {
+export interface JsonUnionsInput {
   /**
    * A union with a representative set of types for members.
    */
   contents?: MyUnion;
 }
 
-export namespace UnionInputOutput {
+export namespace JsonUnionsInput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UnionInputOutput): any => ({
+  export const filterSensitiveLog = (obj: JsonUnionsInput): any => ({
+    ...obj,
+    ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
+  });
+}
+
+export interface JsonUnionsOutput {
+  /**
+   * A union with a representative set of types for members.
+   */
+  contents?: MyUnion;
+}
+
+export namespace JsonUnionsOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JsonUnionsOutput): any => ({
     ...obj,
     ...(obj.contents && { contents: MyUnion.filterSensitiveLog(obj.contents) }),
   });
@@ -320,16 +358,30 @@ export namespace NoInputAndOutputOutput {
   });
 }
 
-export interface SimpleScalarPropertiesInputOutput {
+export interface SimpleScalarPropertiesInput {
   floatValue?: number;
   doubleValue?: number;
 }
 
-export namespace SimpleScalarPropertiesInputOutput {
+export namespace SimpleScalarPropertiesInput {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
+  export const filterSensitiveLog = (obj: SimpleScalarPropertiesInput): any => ({
+    ...obj,
+  });
+}
+
+export interface SimpleScalarPropertiesOutput {
+  floatValue?: number;
+  doubleValue?: number;
+}
+
+export namespace SimpleScalarPropertiesOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SimpleScalarPropertiesOutput): any => ({
     ...obj,
   });
 }

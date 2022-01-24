@@ -20,11 +20,12 @@ import { HttpPayloadTraitsCommand } from "../../src/commands/HttpPayloadTraitsCo
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../src/commands/HttpPayloadTraitsWithMediaTypeCommand";
 import { HttpPayloadWithStructureCommand } from "../../src/commands/HttpPayloadWithStructureCommand";
 import { HttpPrefixHeadersCommand } from "../../src/commands/HttpPrefixHeadersCommand";
-import { HttpPrefixHeadersResponseCommand } from "../../src/commands/HttpPrefixHeadersResponseCommand";
+import { HttpPrefixHeadersInResponseCommand } from "../../src/commands/HttpPrefixHeadersInResponseCommand";
 import { HttpRequestWithFloatLabelsCommand } from "../../src/commands/HttpRequestWithFloatLabelsCommand";
 import { HttpRequestWithGreedyLabelInPathCommand } from "../../src/commands/HttpRequestWithGreedyLabelInPathCommand";
 import { HttpRequestWithLabelsAndTimestampFormatCommand } from "../../src/commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import { HttpRequestWithLabelsCommand } from "../../src/commands/HttpRequestWithLabelsCommand";
+import { HttpRequestWithRegexLiteralCommand } from "../../src/commands/HttpRequestWithRegexLiteralCommand";
 import { HttpResponseCodeCommand } from "../../src/commands/HttpResponseCodeCommand";
 import { HttpStringPayloadCommand } from "../../src/commands/HttpStringPayloadCommand";
 import { IgnoreQueryParamsInResponseCommand } from "../../src/commands/IgnoreQueryParamsInResponseCommand";
@@ -40,6 +41,7 @@ import { NoInputAndNoOutputCommand } from "../../src/commands/NoInputAndNoOutput
 import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputCommand";
 import { NullAndEmptyHeadersClientCommand } from "../../src/commands/NullAndEmptyHeadersClientCommand";
 import { OmitsNullSerializesEmptyStringCommand } from "../../src/commands/OmitsNullSerializesEmptyStringCommand";
+import { PostPlayerActionCommand } from "../../src/commands/PostPlayerActionCommand";
 import { QueryIdempotencyTokenAutoFillCommand } from "../../src/commands/QueryIdempotencyTokenAutoFillCommand";
 import { QueryParamsAsStringListMapCommand } from "../../src/commands/QueryParamsAsStringListMapCommand";
 import { QueryPrecedenceCommand } from "../../src/commands/QueryPrecedenceCommand";
@@ -53,6 +55,7 @@ import { TestNoPayloadCommand } from "../../src/commands/TestNoPayloadCommand";
 import { TestPayloadBlobCommand } from "../../src/commands/TestPayloadBlobCommand";
 import { TestPayloadStructureCommand } from "../../src/commands/TestPayloadStructureCommand";
 import { TimestampFormatHeadersCommand } from "../../src/commands/TimestampFormatHeadersCommand";
+import { UnitInputAndOutputCommand } from "../../src/commands/UnitInputAndOutputCommand";
 import { RestJsonProtocolClient } from "../../src/RestJsonProtocolClient";
 
 /**
@@ -2447,7 +2450,7 @@ it("HttpPrefixHeadersResponse:Response", async () => {
   });
 
   const params: any = {};
-  const command = new HttpPrefixHeadersResponseCommand(params);
+  const command = new HttpPrefixHeadersInResponseCommand(params);
 
   let r: any;
   try {
@@ -2728,6 +2731,35 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
 });
 
 /**
+ * Path matching is not broken by regex expressions in literal segments
+ */
+it("RestJsonToleratesRegexCharsInSegments:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpRequestWithRegexLiteralCommand({
+    str: "abc",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/ReDosLiteral/abc/(a+)+");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
  * Binds the http response code to an output structure. Note that
  * even though all members are bound outside of the payload, an
  * empty JSON object is serialized in the response. However,
@@ -2982,7 +3014,7 @@ it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Request", async () => {
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
     expect(r.headers["x-stringlist"]).toBeDefined();
-    expect(r.headers["x-stringlist"]).toBe('"b,c",""def"",a');
+    expect(r.headers["x-stringlist"]).toBe('"b,c", "\\"def\\"", a');
 
     expect(r.body).toBeFalsy();
   }
@@ -3093,7 +3125,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Request", async () => {
 /**
  * Tests requests with timestamp header bindings
  */
-it.skip("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
+it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -3116,7 +3148,7 @@ it.skip("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
     expect(r.path).toBe("/InputAndOutputWithHeaders");
 
     expect(r.headers["x-timestamplist"]).toBeDefined();
-    expect(r.headers["x-timestamplist"]).toBe('"Mon, 16 Dec 2019 23:48:18 GMT", "Mon, 16 Dec 2019 23:48:18 GMT"');
+    expect(r.headers["x-timestamplist"]).toBe("Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT");
 
     expect(r.body).toBeFalsy();
   }
@@ -3312,7 +3344,7 @@ it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, {
-      "x-stringlist": '"b,c",""def"",a',
+      "x-stringlist": '"b,c", "\\"def\\"", a',
     }),
   });
 
@@ -3329,7 +3361,7 @@ it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      headerStringList: ["a", "b,c", '"def"'],
+      headerStringList: ["b,c", '"def"', "a"],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3437,11 +3469,11 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
 /**
  * Tests responses with timestamp header bindings
  */
-it.skip("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
+it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, {
-      "x-timestamplist": '"Mon, 16 Dec 2019 23:48:18 GMT", "Mon, 16 Dec 2019 23:48:18 GMT"',
+      "x-timestamplist": "Mon, 16 Dec 2019 23:48:18 GMT, Mon, 16 Dec 2019 23:48:18 GMT",
     }),
   });
 
@@ -6402,6 +6434,92 @@ it("RestJsonSerializesEmptyQueryValue:Request", async () => {
 });
 
 /**
+ * Unit types in unions are serialized like normal structures in requests.
+ */
+it("RestJsonInputUnionWithUnitMember:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new PostPlayerActionCommand({
+    action: {
+      quit: {} as any,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/PostPlayerAction");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"action\": {
+            \"quit\": {}
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Unit types in unions are serialized like normal structures in responses.
+ */
+it("RestJsonOutputUnionWithUnitMember:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "action": {
+              "quit": {}
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new PostPlayerActionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      action: {
+        quit: {},
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Automatically adds idempotency token when not set
  */
 it("RestJsonQueryIdempotencyTokenAutoFill:Request", async () => {
@@ -7960,6 +8078,59 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
+});
+
+/**
+ * A unit type input serializes no payload. When clients do not
+ * need to serialize any data in the payload, they should omit
+ * a payload altogether.
+ */
+it("RestJsonUnitInputAndOutput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new UnitInputAndOutputCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/UnitInputAndOutput");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * When an operation defines Unit output, the service will respond
+ * with an empty payload, and may optionally include the content-type
+ * header.
+ */
+it("RestJsonUnitInputAndOutputNoOutput:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, ``),
+  });
+
+  const params: any = {};
+  const command = new UnitInputAndOutputCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**

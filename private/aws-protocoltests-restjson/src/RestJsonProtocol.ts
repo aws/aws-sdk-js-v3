@@ -81,10 +81,10 @@ import {
   HttpPrefixHeadersCommandOutput,
 } from "./commands/HttpPrefixHeadersCommand";
 import {
-  HttpPrefixHeadersResponseCommand,
-  HttpPrefixHeadersResponseCommandInput,
-  HttpPrefixHeadersResponseCommandOutput,
-} from "./commands/HttpPrefixHeadersResponseCommand";
+  HttpPrefixHeadersInResponseCommand,
+  HttpPrefixHeadersInResponseCommandInput,
+  HttpPrefixHeadersInResponseCommandOutput,
+} from "./commands/HttpPrefixHeadersInResponseCommand";
 import {
   HttpRequestWithFloatLabelsCommand,
   HttpRequestWithFloatLabelsCommandInput,
@@ -105,6 +105,11 @@ import {
   HttpRequestWithLabelsCommandInput,
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
+import {
+  HttpRequestWithRegexLiteralCommand,
+  HttpRequestWithRegexLiteralCommandInput,
+  HttpRequestWithRegexLiteralCommandOutput,
+} from "./commands/HttpRequestWithRegexLiteralCommand";
 import {
   HttpResponseCodeCommand,
   HttpResponseCodeCommandInput,
@@ -331,6 +336,11 @@ import {
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
 import {
+  PostPlayerActionCommand,
+  PostPlayerActionCommandInput,
+  PostPlayerActionCommandOutput,
+} from "./commands/PostPlayerActionCommand";
+import {
   QueryIdempotencyTokenAutoFillCommand,
   QueryIdempotencyTokenAutoFillCommandInput,
   QueryIdempotencyTokenAutoFillCommandOutput,
@@ -395,6 +405,11 @@ import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
 } from "./commands/TimestampFormatHeadersCommand";
+import {
+  UnitInputAndOutputCommand,
+  UnitInputAndOutputCommandInput,
+  UnitInputAndOutputCommandOutput,
+} from "./commands/UnitInputAndOutputCommand";
 import { RestJsonProtocolClient } from "./RestJsonProtocolClient";
 
 /**
@@ -925,25 +940,25 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   /**
    * Clients that perform this test extract all headers from the response.
    */
-  public httpPrefixHeadersResponse(
-    args: HttpPrefixHeadersResponseCommandInput,
+  public httpPrefixHeadersInResponse(
+    args: HttpPrefixHeadersInResponseCommandInput,
     options?: __HttpHandlerOptions
-  ): Promise<HttpPrefixHeadersResponseCommandOutput>;
-  public httpPrefixHeadersResponse(
-    args: HttpPrefixHeadersResponseCommandInput,
-    cb: (err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void
+  ): Promise<HttpPrefixHeadersInResponseCommandOutput>;
+  public httpPrefixHeadersInResponse(
+    args: HttpPrefixHeadersInResponseCommandInput,
+    cb: (err: any, data?: HttpPrefixHeadersInResponseCommandOutput) => void
   ): void;
-  public httpPrefixHeadersResponse(
-    args: HttpPrefixHeadersResponseCommandInput,
+  public httpPrefixHeadersInResponse(
+    args: HttpPrefixHeadersInResponseCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void
+    cb: (err: any, data?: HttpPrefixHeadersInResponseCommandOutput) => void
   ): void;
-  public httpPrefixHeadersResponse(
-    args: HttpPrefixHeadersResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void),
-    cb?: (err: any, data?: HttpPrefixHeadersResponseCommandOutput) => void
-  ): Promise<HttpPrefixHeadersResponseCommandOutput> | void {
-    const command = new HttpPrefixHeadersResponseCommand(args);
+  public httpPrefixHeadersInResponse(
+    args: HttpPrefixHeadersInResponseCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPrefixHeadersInResponseCommandOutput) => void),
+    cb?: (err: any, data?: HttpPrefixHeadersInResponseCommandOutput) => void
+  ): Promise<HttpPrefixHeadersInResponseCommandOutput> | void {
+    const command = new HttpPrefixHeadersInResponseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1070,6 +1085,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: HttpRequestWithLabelsAndTimestampFormatCommandOutput) => void
   ): Promise<HttpRequestWithLabelsAndTimestampFormatCommandOutput> | void {
     const command = new HttpRequestWithLabelsAndTimestampFormatCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public httpRequestWithRegexLiteral(
+    args: HttpRequestWithRegexLiteralCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpRequestWithRegexLiteralCommandOutput>;
+  public httpRequestWithRegexLiteral(
+    args: HttpRequestWithRegexLiteralCommandInput,
+    cb: (err: any, data?: HttpRequestWithRegexLiteralCommandOutput) => void
+  ): void;
+  public httpRequestWithRegexLiteral(
+    args: HttpRequestWithRegexLiteralCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpRequestWithRegexLiteralCommandOutput) => void
+  ): void;
+  public httpRequestWithRegexLiteral(
+    args: HttpRequestWithRegexLiteralCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpRequestWithRegexLiteralCommandOutput) => void),
+    cb?: (err: any, data?: HttpRequestWithRegexLiteralCommandOutput) => void
+  ): Promise<HttpRequestWithRegexLiteralCommandOutput> | void {
+    const command = new HttpRequestWithRegexLiteralCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2526,6 +2570,38 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
   }
 
   /**
+   * This operation defines a union with a Unit member.
+   */
+  public postPlayerAction(
+    args: PostPlayerActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PostPlayerActionCommandOutput>;
+  public postPlayerAction(
+    args: PostPlayerActionCommandInput,
+    cb: (err: any, data?: PostPlayerActionCommandOutput) => void
+  ): void;
+  public postPlayerAction(
+    args: PostPlayerActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PostPlayerActionCommandOutput) => void
+  ): void;
+  public postPlayerAction(
+    args: PostPlayerActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PostPlayerActionCommandOutput) => void),
+    cb?: (err: any, data?: PostPlayerActionCommandOutput) => void
+  ): Promise<PostPlayerActionCommandOutput> | void {
+    const command = new PostPlayerActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Automatically adds idempotency tokens.
    */
   public queryIdempotencyTokenAutoFill(
@@ -2953,6 +3029,38 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: TimestampFormatHeadersCommandOutput) => void
   ): Promise<TimestampFormatHeadersCommandOutput> | void {
     const command = new TimestampFormatHeadersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * This test is similar to NoInputAndNoOutput, but uses explicit Unit types.
+   */
+  public unitInputAndOutput(
+    args: UnitInputAndOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnitInputAndOutputCommandOutput>;
+  public unitInputAndOutput(
+    args: UnitInputAndOutputCommandInput,
+    cb: (err: any, data?: UnitInputAndOutputCommandOutput) => void
+  ): void;
+  public unitInputAndOutput(
+    args: UnitInputAndOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnitInputAndOutputCommandOutput) => void
+  ): void;
+  public unitInputAndOutput(
+    args: UnitInputAndOutputCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnitInputAndOutputCommandOutput) => void),
+    cb?: (err: any, data?: UnitInputAndOutputCommandOutput) => void
+  ): Promise<UnitInputAndOutputCommandOutput> | void {
+    const command = new UnitInputAndOutputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

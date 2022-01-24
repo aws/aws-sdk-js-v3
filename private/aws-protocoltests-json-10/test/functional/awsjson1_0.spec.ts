@@ -646,7 +646,7 @@ it("AwsJson10ComplexError:Error:GreetingWithErrors", async () => {
           "__type": "aws.protocoltests.json10#ComplexError",
           "TopLevel": "Top level",
           "Nested": {
-              "Fooooo": "bar"
+              "Foo": "bar"
           }
       }`
     ),

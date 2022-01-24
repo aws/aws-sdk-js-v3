@@ -12,14 +12,14 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { UnionInputOutput } from "../models/models_0";
+import { JsonUnionsInput, JsonUnionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0JsonUnionsCommand,
   serializeAws_json1_0JsonUnionsCommand,
 } from "../protocols/Aws_json1_0";
 
-export interface JsonUnionsCommandInput extends UnionInputOutput {}
-export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBearer {}
+export interface JsonUnionsCommandInput extends JsonUnionsInput {}
+export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBearer {}
 
 /**
  * This operation uses unions for inputs and outputs.
@@ -71,8 +71,8 @@ export class JsonUnionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnionInputOutput.filterSensitiveLog,
-      outputFilterSensitiveLog: UnionInputOutput.filterSensitiveLog,
+      inputFilterSensitiveLog: JsonUnionsInput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonUnionsOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

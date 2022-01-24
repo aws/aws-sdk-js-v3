@@ -65,15 +65,15 @@ export namespace SimpleStruct {
   });
 }
 
-export interface StructWithLocationName {
+export interface StructWithJsonName {
   Value?: string;
 }
 
-export namespace StructWithLocationName {
+export namespace StructWithJsonName {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: StructWithLocationName): any => ({
+  export const filterSensitiveLog = (obj: StructWithJsonName): any => ({
     ...obj,
   });
 }
@@ -378,6 +378,32 @@ export namespace NullOperationInputOutput {
   });
 }
 
+export interface OperationWithOptionalInputOutputInput {
+  Value?: string;
+}
+
+export namespace OperationWithOptionalInputOutputInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OperationWithOptionalInputOutputInput): any => ({
+    ...obj,
+  });
+}
+
+export interface OperationWithOptionalInputOutputOutput {
+  Value?: string;
+}
+
+export namespace OperationWithOptionalInputOutputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OperationWithOptionalInputOutputOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface PutAndGetInlineDocumentsInputOutput {
   inlineDocument?: __DocumentType;
 }
@@ -429,7 +455,7 @@ export interface KitchenSink {
   RecursiveStruct?: KitchenSink;
   SimpleStruct?: SimpleStruct;
   String?: string;
-  StructWithLocationName?: StructWithLocationName;
+  StructWithJsonName?: StructWithJsonName;
   Timestamp?: Date;
   UnixTimestamp?: Date;
 }

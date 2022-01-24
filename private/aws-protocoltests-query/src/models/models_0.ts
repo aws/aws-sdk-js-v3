@@ -146,6 +146,17 @@ export namespace IgnoresWrappingXmlNameOutput {
   });
 }
 
+export interface NoInputAndOutputInput {}
+
+export namespace NoInputAndOutputInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoInputAndOutputInput): any => ({
+    ...obj,
+  });
+}
+
 export interface NoInputAndOutputOutput {}
 
 export namespace NoInputAndOutputOutput {

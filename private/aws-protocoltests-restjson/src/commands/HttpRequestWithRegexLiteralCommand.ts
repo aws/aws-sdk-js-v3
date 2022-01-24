@@ -11,25 +11,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import { EndpointWithHostLabelOperationInput } from "../models/models_0";
+import { HttpRequestWithRegexLiteralInput } from "../models/models_0";
 import {
-  deserializeAws_json1_0EndpointWithHostLabelOperationCommand,
-  serializeAws_json1_0EndpointWithHostLabelOperationCommand,
-} from "../protocols/Aws_json1_0";
+  deserializeAws_restJson1HttpRequestWithRegexLiteralCommand,
+  serializeAws_restJson1HttpRequestWithRegexLiteralCommand,
+} from "../protocols/Aws_restJson1";
+import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
-export interface EndpointWithHostLabelOperationCommandInput extends EndpointWithHostLabelOperationInput {}
-export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataBearer {}
+export interface HttpRequestWithRegexLiteralCommandInput extends HttpRequestWithRegexLiteralInput {}
+export interface HttpRequestWithRegexLiteralCommandOutput extends __MetadataBearer {}
 
-export class EndpointWithHostLabelOperationCommand extends $Command<
-  EndpointWithHostLabelOperationCommandInput,
-  EndpointWithHostLabelOperationCommandOutput,
-  JSONRPC10ClientResolvedConfig
+export class HttpRequestWithRegexLiteralCommand extends $Command<
+  HttpRequestWithRegexLiteralCommandInput,
+  HttpRequestWithRegexLiteralCommandOutput,
+  RestJsonProtocolClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: EndpointWithHostLabelOperationCommandInput) {
+  constructor(readonly input: HttpRequestWithRegexLiteralCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -40,21 +40,21 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
    */
   resolveMiddleware(
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: JSONRPC10ClientResolvedConfig,
+    configuration: RestJsonProtocolClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EndpointWithHostLabelOperationCommandInput, EndpointWithHostLabelOperationCommandOutput> {
+  ): Handler<HttpRequestWithRegexLiteralCommandInput, HttpRequestWithRegexLiteralCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
-    const clientName = "JSONRPC10Client";
-    const commandName = "EndpointWithHostLabelOperationCommand";
+    const clientName = "RestJsonProtocolClient";
+    const commandName = "HttpRequestWithRegexLiteralCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EndpointWithHostLabelOperationInput.filterSensitiveLog,
+      inputFilterSensitiveLog: HttpRequestWithRegexLiteralInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
@@ -65,18 +65,15 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: EndpointWithHostLabelOperationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_0EndpointWithHostLabelOperationCommand(input, context);
+  private serialize(input: HttpRequestWithRegexLiteralCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1HttpRequestWithRegexLiteralCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<EndpointWithHostLabelOperationCommandOutput> {
-    return deserializeAws_json1_0EndpointWithHostLabelOperationCommand(output, context);
+  ): Promise<HttpRequestWithRegexLiteralCommandOutput> {
+    return deserializeAws_restJson1HttpRequestWithRegexLiteralCommand(output, context);
   }
 
   // Start section: command_body_extra

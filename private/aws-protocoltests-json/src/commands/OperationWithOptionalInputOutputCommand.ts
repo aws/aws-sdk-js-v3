@@ -12,14 +12,16 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import { SimpleStruct } from "../models/models_0";
+import { OperationWithOptionalInputOutputInput, OperationWithOptionalInputOutputOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1OperationWithOptionalInputOutputCommand,
   serializeAws_json1_1OperationWithOptionalInputOutputCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface OperationWithOptionalInputOutputCommandInput extends SimpleStruct {}
-export interface OperationWithOptionalInputOutputCommandOutput extends SimpleStruct, __MetadataBearer {}
+export interface OperationWithOptionalInputOutputCommandInput extends OperationWithOptionalInputOutputInput {}
+export interface OperationWithOptionalInputOutputCommandOutput
+  extends OperationWithOptionalInputOutputOutput,
+    __MetadataBearer {}
 
 export class OperationWithOptionalInputOutputCommand extends $Command<
   OperationWithOptionalInputOutputCommandInput,
@@ -54,8 +56,8 @@ export class OperationWithOptionalInputOutputCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
-      outputFilterSensitiveLog: SimpleStruct.filterSensitiveLog,
+      inputFilterSensitiveLog: OperationWithOptionalInputOutputInput.filterSensitiveLog,
+      outputFilterSensitiveLog: OperationWithOptionalInputOutputOutput.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
