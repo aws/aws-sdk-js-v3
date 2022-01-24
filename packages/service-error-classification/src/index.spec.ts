@@ -1,4 +1,4 @@
-import { RetryableTrait, SdkError } from "@aws-sdk/types";
+import { RetryableTrait, SdkException } from "@aws-sdk/types";
 
 import {
   CLOCK_SKEW_ERROR_CODES,
@@ -9,7 +9,7 @@ import {
 import { isClockSkewError, isRetryableByTrait, isThrottlingError, isTransientError } from "./index";
 
 const checkForErrorType = (
-  isErrorTypeFunc: (error: SdkError) => boolean,
+  isErrorTypeFunc: (error: SdkException) => boolean,
   options: {
     name?: string;
     httpStatusCode?: number;
@@ -23,7 +23,7 @@ const checkForErrorType = (
     $metadata: { httpStatusCode },
     $retryable,
   });
-  expect(isErrorTypeFunc(error as SdkError)).toBe(errorTypeResult);
+  expect(isErrorTypeFunc(error as SdkException)).toBe(errorTypeResult);
 };
 
 describe("isRetryableByTrait", () => {
