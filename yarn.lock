@@ -63,7 +63,7 @@
     "@aws-crypto/sha256-browser" "2.0.0"
     "@aws-crypto/sha256-js" "2.0.0"
     "@aws-sdk/config-resolver" "*"
-    "@aws-sdk/credential-provider-node" "3.48.0"
+    "@aws-sdk/credential-provider-node" "*"
     "@aws-sdk/fetch-http-handler" "*"
     "@aws-sdk/hash-node" "*"
     "@aws-sdk/invalid-dependency" "*"
@@ -4329,6 +4329,11 @@ core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+corepack@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/corepack/-/corepack-0.10.0.tgz#ef4621ddf4fdc418df7514fa228abea2c6a17303"
+  integrity sha512-aYNDvUd909DbxnC6XQtcvwEANhfis724VSifk/ADAAgJTc9cabKHR3tREJge0nIBr67vVEo1YPuLKgrnu7r99g==
 
 cors@2.8.5:
   version "2.8.5"
