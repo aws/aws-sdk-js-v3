@@ -12283,7 +12283,7 @@ __metadata:
 
 "@aws-sdk/client-sts@file:../../clients/client-sts::locator=%40aws-sdk%2Fkarma-credential-loader%40workspace%3Apackages%2Fkarma-credential-loader":
   version: 3.48.0
-  resolution: "@aws-sdk/client-sts@file:../../clients/client-sts#../../clients/client-sts::hash=82dca2&locator=%40aws-sdk%2Fkarma-credential-loader%40workspace%3Apackages%2Fkarma-credential-loader"
+  resolution: "@aws-sdk/client-sts@file:../../clients/client-sts#../../clients/client-sts::hash=f812c6&locator=%40aws-sdk%2Fkarma-credential-loader%40workspace%3Apackages%2Fkarma-credential-loader"
   dependencies:
     "@aws-crypto/sha256-browser": 2.0.0
     "@aws-crypto/sha256-js": 2.0.0
@@ -12320,7 +12320,7 @@ __metadata:
     entities: 2.2.0
     fast-xml-parser: 3.19.0
     tslib: ^2.3.0
-  checksum: c7c8e4b4a92792d4d133c4fbaf07284297b7408f3ddbcf920cf954e3e9c9a2fb505bec6126bca4538acb3ffd6346d827d0cb4ed2dc5e037a911351e37f8daa7e
+  checksum: e77821294ecd93e6c6bfd4a057eb2e66193f40bb1e373c59a22c0e0fa58131a5fcc3955403b67bfef027ec8dc37608bab14d0429bd5456f8b2eec3bbf754c253
   languageName: node
   linkType: hard
 
