@@ -122,13 +122,6 @@
       "lib/*",
       "packages/*",
       "private/*"
-    ],
-    "nohoist": [
-      "**/karma*",
-      "**/karma*/**",
-      "**/@types/mocha*",
-      "**/@types/mocha*/**",
-      "**/@aws-sdk/client-sso/**"
     ]
   },
   "husky": {
