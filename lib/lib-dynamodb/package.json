@@ -23,7 +23,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/util-dynamodb": "*",
+    "@aws-sdk/util-dynamodb": "3.48.0",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
@@ -32,9 +32,9 @@
     "@aws-sdk/types": "^3.0.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "*",
-    "@aws-sdk/smithy-client": "*",
-    "@aws-sdk/types": "*",
+    "@aws-sdk/client-dynamodb": "3.48.0",
+    "@aws-sdk/smithy-client": "3.47.2",
+    "@aws-sdk/types": "3.47.1",
     "@types/node": "^14.11.2"
   },
   "typesVersions": {
