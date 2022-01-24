@@ -24,7 +24,8 @@ export interface RetryableTrait {
 
 /**
  * Type that is implemented by all Smithy shapes marked with the
- * error trait.
+ * error trait. This interface has been renamed to {@link SdkException}
+ * @deprecated
  */
 export interface SmithyException {
   /**
@@ -53,4 +54,8 @@ export interface SmithyException {
   readonly $response?: HttpResponse;
 }
 
-export type SdkError = Error & Partial<SmithyException> & Partial<MetadataBearer>;
+/**
+ * Type that is implemented by all Smithy shapes marked with the
+ * error trait.
+ */
+export type SdkException = Error & Partial<SmithyException> & Partial<MetadataBearer>;
