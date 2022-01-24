@@ -2,8 +2,8 @@
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 
+import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
 import { getUpdatedPackageJson } from "./getUpdatedPackageJson.mjs";
-import { getWorkspacePaths } from "./getWorkspacePaths.mjs";
 
 export const updateVersions = (depToVersionHash) => {
   getWorkspacePaths().forEach((workspacePath) => {
