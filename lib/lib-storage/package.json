@@ -52,9 +52,9 @@
     }
   },
   "browser": {
+    "./runtimeConfig": "./src/runtimeConfig.browser",
     "fs": false,
-    "stream": "stream-browserify",
-    "./runtimeConfig": "./src/runtimeConfig.browser"
+    "stream": "stream-browserify"
   },
   "react-native": {
     "./runtimeConfig": "./src/runtimeConfig.native"
