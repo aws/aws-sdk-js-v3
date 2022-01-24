@@ -1,18 +1,18 @@
-import { SdkError } from "@aws-sdk/types";
+import { SdkException } from "@aws-sdk/types";
 
 import { INITIAL_RETRY_TOKENS, NO_RETRY_INCREMENT, RETRY_COST, TIMEOUT_RETRY_COST } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 
 describe("defaultRetryQuota", () => {
-  const getMockError = () => new Error() as SdkError;
+  const getMockError = () => new Error() as SdkException;
   const getMockTimeoutError = () =>
     Object.assign(new Error(), {
       name: "TimeoutError",
-    }) as SdkError;
+    }) as SdkException;
 
   const getDrainedRetryQuota = (
     targetCapacity: number,
-    error: SdkError,
+    error: SdkException,
     initialRetryTokens: number = INITIAL_RETRY_TOKENS
   ) => {
     const retryQuota = getDefaultRetryQuota(initialRetryTokens);

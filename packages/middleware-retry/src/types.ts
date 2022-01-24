@@ -1,4 +1,4 @@
-import { SdkError } from "@aws-sdk/types";
+import { SdkException } from "@aws-sdk/types";
 
 /**
  * Determines whether an error is retryable based on the number of retries
@@ -7,7 +7,7 @@ import { SdkError } from "@aws-sdk/types";
  * @param error         The error encountered.
  */
 export interface RetryDecider {
-  (error: SdkError): boolean;
+  (error: SdkException): boolean;
 }
 
 /**
@@ -27,13 +27,13 @@ export interface RetryQuota {
   /**
    * returns true if retry tokens are available from the retry quota bucket.
    */
-  hasRetryTokens: (error: SdkError) => boolean;
+  hasRetryTokens: (error: SdkException) => boolean;
 
   /**
    * returns token amount from the retry quota bucket.
    * throws error is retry tokens are not available.
    */
-  retrieveRetryTokens: (error: SdkError) => number;
+  retrieveRetryTokens: (error: SdkException) => number;
 
   /**
    * releases tokens back to the retry quota.

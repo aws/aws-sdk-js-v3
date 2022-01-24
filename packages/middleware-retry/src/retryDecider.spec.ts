@@ -4,14 +4,14 @@ import {
   isThrottlingError,
   isTransientError,
 } from "@aws-sdk/service-error-classification";
-import { SdkError } from "@aws-sdk/types";
+import { SdkException } from "@aws-sdk/types";
 
 import { defaultRetryDecider } from "./retryDecider";
 
 jest.mock("@aws-sdk/service-error-classification");
 
 describe("defaultRetryDecider", () => {
-  const createMockError = () => Object.assign(new Error(), { $metadata: {} }) as SdkError;
+  const createMockError = () => Object.assign(new Error(), { $metadata: {} }) as SdkException;
 
   beforeEach(() => {
     (isRetryableByTrait as jest.Mock).mockReturnValue(false);

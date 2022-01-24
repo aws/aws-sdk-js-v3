@@ -1,6 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
-import { SdkError } from "@aws-sdk/types";
+import { SdkException } from "@aws-sdk/types";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
 import { v4 } from "uuid";
 
@@ -38,7 +38,7 @@ export class StandardRetryStrategy implements RetryStrategy {
     this.retryQuota = options?.retryQuota ?? getDefaultRetryQuota(INITIAL_RETRY_TOKENS);
   }
 
-  private shouldRetry(error: SdkError, attempts: number, maxAttempts: number) {
+  private shouldRetry(error: SdkException, attempts: number, maxAttempts: number) {
     return attempts < maxAttempts && this.retryDecider(error) && this.retryQuota.hasRetryTokens(error);
   }
 
@@ -91,9 +91,9 @@ export class StandardRetryStrategy implements RetryStrategy {
 
         return { response, output };
       } catch (e) {
-        const err = asSdkError(e);
+        const err = asSdkException(e);
         attempts++;
-        if (this.shouldRetry(err as SdkError, attempts, maxAttempts)) {
+        if (this.shouldRetry(err as SdkException, attempts, maxAttempts)) {
           retryTokenAmount = this.retryQuota.retrieveRetryTokens(err);
           const delay = this.delayDecider(
             isThrottlingError(err) ? THROTTLING_RETRY_DELAY_BASE : DEFAULT_RETRY_DELAY_BASE,
@@ -117,7 +117,7 @@ export class StandardRetryStrategy implements RetryStrategy {
   }
 }
 
-const asSdkError = (error: unknown): SdkError => {
+const asSdkException = (error: unknown): SdkException => {
   if (error instanceof Error) return error;
   if (error instanceof Object) return Object.assign(new Error(), error);
   if (typeof error === "string") return new Error(error);

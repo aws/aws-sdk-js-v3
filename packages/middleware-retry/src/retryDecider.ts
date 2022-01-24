@@ -4,9 +4,9 @@ import {
   isThrottlingError,
   isTransientError,
 } from "@aws-sdk/service-error-classification";
-import { SdkError } from "@aws-sdk/types";
+import { SdkException } from "@aws-sdk/types";
 
-export const defaultRetryDecider = (error: SdkError) => {
+export const defaultRetryDecider = (error: SdkException) => {
   if (!error) {
     return false;
   }

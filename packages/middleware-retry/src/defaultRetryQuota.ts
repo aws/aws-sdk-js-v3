@@ -1,4 +1,4 @@
-import { SdkError } from "@aws-sdk/types";
+import { SdkException } from "@aws-sdk/types";
 
 import { NO_RETRY_INCREMENT, RETRY_COST, TIMEOUT_RETRY_COST } from "./constants";
 import { RetryQuota } from "./types";
@@ -30,11 +30,11 @@ export const getDefaultRetryQuota = (initialRetryTokens: number, options?: Defau
 
   let availableCapacity = initialRetryTokens;
 
-  const getCapacityAmount = (error: SdkError) => (error.name === "TimeoutError" ? timeoutRetryCost : retryCost);
+  const getCapacityAmount = (error: SdkException) => (error.name === "TimeoutError" ? timeoutRetryCost : retryCost);
 
-  const hasRetryTokens = (error: SdkError) => getCapacityAmount(error) <= availableCapacity;
+  const hasRetryTokens = (error: SdkException) => getCapacityAmount(error) <= availableCapacity;
 
-  const retrieveRetryTokens = (error: SdkError) => {
+  const retrieveRetryTokens = (error: SdkException) => {
     if (!hasRetryTokens(error)) {
       // retryStrategy should stop retrying, and return last error
       throw new Error("No retry token available");
