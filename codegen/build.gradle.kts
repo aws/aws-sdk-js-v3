@@ -31,7 +31,7 @@ allprojects {
     version = "0.8.0"
 }
 
-extra["smithyVersion"] = "[1.15.0,1.16.0["
+extra["smithyVersion"] = "[1.16.3,1.17.0["
 
 // The root project doesn't produce a JAR.
 tasks["jar"].enabled = false

@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.function.BiFunction;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.CollectionShape;
@@ -51,9 +52,21 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;
 
+    private final BiFunction<MemberShape, String, String> memberNameStrategy;
+
     JsonShapeSerVisitor(GenerationContext context) {
-        super(context);
+        this(context,
+                // Use the jsonName trait value if present, otherwise use the member name.
+                (memberShape, memberName) -> memberShape.getTrait(JsonNameTrait.class)
+                        .map(JsonNameTrait::getValue)
+                        .orElse(memberName));
     }
+
+    JsonShapeSerVisitor(GenerationContext context, BiFunction<MemberShape, String, String> memberNameStrategy) {
+        super(context);
+        this.memberNameStrategy = memberNameStrategy;
+    }
+
 
     private DocumentMemberSerVisitor getMemberVisitor(String dataSource) {
         return new JsonMemberSerVisitor(getContext(), dataSource, TIMESTAMP_FORMAT);
@@ -125,10 +138,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
-                // Use the jsonName trait value if present, otherwise use the member name.
-                String locationName = memberShape.getTrait(JsonNameTrait.class)
-                        .map(JsonNameTrait::getValue)
-                        .orElse(memberName);
+                String locationName = memberNameStrategy.apply(memberShape, memberName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
                 String inputLocation = "input." + memberName;
 
@@ -160,10 +170,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
             // Use a TreeMap to sort the members.
             Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
             members.forEach((memberName, memberShape) -> {
-                    // Use the jsonName trait value if present, otherwise use the member name.
-                    String locationName = memberShape.getTrait(JsonNameTrait.class)
-                            .map(JsonNameTrait::getValue)
-                            .orElse(memberName);
+                    String locationName = memberNameStrategy.apply(memberShape, memberName);
                     Shape target = model.expectShape(memberShape.getTarget());
                     // Dispatch to the input value provider for any additional handling.
                     writer.write("$L: value => ({ $S: $L }),", memberName, locationName,
