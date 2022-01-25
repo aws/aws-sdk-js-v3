@@ -30,6 +30,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/uuid": "^8.3.0",
     "jest-websocket-mock": "^2.0.2",
     "mock-socket": "^9.0.3"
   },
