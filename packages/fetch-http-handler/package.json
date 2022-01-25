@@ -27,7 +27,13 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "*"
+    "@aws-sdk/abort-controller": "*",
+    "@tsconfig/recommended": "1.0.1",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.7.0",
+    "rimraf": "3.0.2",
+    "typedoc": "0.19.2",
+    "typescript": "~4.3.5"
   },
   "typesVersions": {
     "<4.0": {
