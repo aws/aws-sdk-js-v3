@@ -12281,49 +12281,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws-sdk/client-sts@file:../../clients/client-sts::locator=%40aws-sdk%2Fkarma-credential-loader%40workspace%3Apackages%2Fkarma-credential-loader":
-  version: 3.48.0
-  resolution: "@aws-sdk/client-sts@file:../../clients/client-sts#../../clients/client-sts::hash=c6f7ea&locator=%40aws-sdk%2Fkarma-credential-loader%40workspace%3Apackages%2Fkarma-credential-loader"
-  dependencies:
-    "@aws-crypto/sha256-browser": 2.0.0
-    "@aws-crypto/sha256-js": 2.0.0
-    "@aws-sdk/config-resolver": "*"
-    "@aws-sdk/credential-provider-node": "*"
-    "@aws-sdk/fetch-http-handler": "*"
-    "@aws-sdk/hash-node": "*"
-    "@aws-sdk/invalid-dependency": "*"
-    "@aws-sdk/middleware-content-length": "*"
-    "@aws-sdk/middleware-host-header": "*"
-    "@aws-sdk/middleware-logger": "*"
-    "@aws-sdk/middleware-retry": "*"
-    "@aws-sdk/middleware-sdk-sts": "*"
-    "@aws-sdk/middleware-serde": "*"
-    "@aws-sdk/middleware-signing": "*"
-    "@aws-sdk/middleware-stack": "*"
-    "@aws-sdk/middleware-user-agent": "*"
-    "@aws-sdk/node-config-provider": "*"
-    "@aws-sdk/node-http-handler": "*"
-    "@aws-sdk/protocol-http": "*"
-    "@aws-sdk/smithy-client": "*"
-    "@aws-sdk/types": "*"
-    "@aws-sdk/url-parser": "*"
-    "@aws-sdk/util-base64-browser": "*"
-    "@aws-sdk/util-base64-node": "*"
-    "@aws-sdk/util-body-length-browser": "*"
-    "@aws-sdk/util-body-length-node": "*"
-    "@aws-sdk/util-defaults-mode-browser": "*"
-    "@aws-sdk/util-defaults-mode-node": "*"
-    "@aws-sdk/util-user-agent-browser": "*"
-    "@aws-sdk/util-user-agent-node": "*"
-    "@aws-sdk/util-utf8-browser": "*"
-    "@aws-sdk/util-utf8-node": "*"
-    entities: 2.2.0
-    fast-xml-parser: 3.19.0
-    tslib: ^2.3.0
-  checksum: dfcb92d532a528ce988cc0790f2dbd058d1ab7abe3e33229ac3e725c453515be1f06a4cace5333d6dd9d35d620f07aac84ea76648312e00bb39662c72069cd4b
-  languageName: node
-  linkType: hard
-
 "@aws-sdk/client-support@workspace:clients/client-support":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-support@workspace:clients/client-support"
@@ -13615,7 +13572,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/karma-credential-loader@workspace:packages/karma-credential-loader"
   dependencies:
-    "@aws-sdk/client-sts": "file:../../clients/client-sts"
+    "@aws-sdk/client-sts": "*"
     "@aws-sdk/credential-provider-node": "*"
     "@types/node": ^10.0.0
     tslib: ^2.3.0
