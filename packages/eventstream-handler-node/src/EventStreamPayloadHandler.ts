@@ -76,7 +76,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       eventSigner: await this.eventSigner(),
     });
 
-    pipeline(payloadStream, signingStream, request.body, (err) => {
+    pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
       if (err) {
         throw err;
       }
