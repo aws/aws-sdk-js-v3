@@ -36,16 +36,20 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
   for (const name of Object.keys(fromContent)) {
     if (fromContent[name].constructor.name === "Object") {
       if (name === "devDependencies") {
-        // Remove devDeps defined in monorepo root
-        const devDepsInRoot = [
-          "@tsconfig/recommended",
-          "concurrently",
-          "downlevel-dts",
-          "rimraf",
-          "typedoc",
-          "typescript",
-        ];
-        devDepsInRoot.forEach((devDep) => delete fromContent[name][devDep]);
+        // Use same versions of devDependencies across all workspaces.
+        // After moving to yarn modern, we'll use constraints feature to enforce
+        // consistency in dependency versions https://yarnpkg.com/features/constraints
+        const devDepToVersionHash = {
+          "@tsconfig/recommended": "1.0.1",
+          concurrently: "7.0.0",
+          "downlevel-dts": "0.7.0",
+          rimraf: "3.0.2",
+          typedoc: "0.19.2",
+          typescript: "~4.3.5",
+        };
+        fromContent[name] = Object.keys(fromContent[name])
+          .filter((dep) => Object.keys(devDepToVersionHash).includes(dep))
+          .reduce((acc, dep) => ({ ...acc, [dep]: devDepToVersionHash[dep] }), fromContent[name]);
       }
       merged[name] = mergeManifest(fromContent[name], toContent[name]);
       if (name === "scripts" || name === "devDependencies") {
