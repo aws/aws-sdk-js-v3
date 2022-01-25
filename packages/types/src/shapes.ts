@@ -55,7 +55,12 @@ export interface SmithyException {
 }
 
 /**
+ * @deprecated
+ */
+export type SdkError = Error & Partial<SmithyException> & Partial<MetadataBearer>;
+
+/**
  * Type that is implemented by all Smithy shapes marked with the
  * error trait.
  */
-export type SdkException = Error & Partial<SmithyException> & Partial<MetadataBearer>;
+export type SdkException = SdkError;
