@@ -1,21 +1,32 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { SdkException as __SdkException } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer, ResponseMetadata as __ResponseMetadata } from "@aws-sdk/types";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+export interface AccessDeniedException extends __SdkException {
   name: "AccessDeniedException";
   $fault: "client";
-  message: string | undefined;
+}
+
+export class AccessDeniedException extends __SdkException {
+  constructor(responseMetadata: __ResponseMetadata, deserialized: any) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      $metadata: responseMetadata,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    Object.assign(this, { ...deserialized });
+  }
 }
 
 /**
  * <p>A conflict exception error.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
+export interface ConflictException extends __SdkException {
   name: "ConflictException";
   $fault: "client";
-  message: string | undefined;
   /**
    * <p>The ID of the resource.</p>
    */
@@ -25,6 +36,18 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The resource type.</p>
    */
   resourceType: string | undefined;
+}
+
+export class ConflictException extends __SdkException {
+  constructor(responseMetadata: __ResponseMetadata, deserialized: any) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      $metadata: responseMetadata,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    Object.assign(this, { ...deserialized });
+  }
 }
 
 /**
@@ -98,24 +121,34 @@ export namespace CreateArchiveRuleRequest {
 /**
  * <p>Internal server error.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
+export interface InternalServerException extends __SdkException {
   name: "InternalServerException";
   $fault: "server";
   $retryable: {};
-  message: string | undefined;
   /**
    * <p>The seconds to wait to retry.</p>
    */
   retryAfterSeconds?: number;
 }
 
+export class InternalServerException extends __SdkException {
+  constructor(responseMetadata: __ResponseMetadata, deserialized: any) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      $metadata: responseMetadata,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    Object.assign(this, { ...deserialized });
+  }
+}
+
 /**
  * <p>The specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException extends __SdkException {
   name: "ResourceNotFoundException";
   $fault: "client";
-  message: string | undefined;
   /**
    * <p>The ID of the resource.</p>
    */
@@ -127,13 +160,24 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   resourceType: string | undefined;
 }
 
+export class ResourceNotFoundException extends __SdkException {
+  constructor(responseMetadata: __ResponseMetadata, deserialized: any) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      $metadata: responseMetadata,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    Object.assign(this, { ...deserialized });
+  }
+}
+
 /**
  * <p>Service quote met error.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+export interface ServiceQuotaExceededException extends __SdkException {
   name: "ServiceQuotaExceededException";
   $fault: "client";
-  message: string | undefined;
   /**
    * <p>The resource ID.</p>
    */
@@ -145,20 +189,43 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
   resourceType: string | undefined;
 }
 
+export class ServiceQuotaExceededException extends __SdkException {
+  constructor(responseMetadata: __ResponseMetadata, deserialized: any) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      $metadata: responseMetadata,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    Object.assign(this, { ...deserialized });
+  }
+}
+
 /**
  * <p>Throttling limit exceeded error.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+export interface ThrottlingException extends __SdkException {
   name: "ThrottlingException";
   $fault: "client";
   $retryable: {
     throttling: true;
   };
-  message: string | undefined;
   /**
    * <p>The seconds to wait to retry.</p>
    */
   retryAfterSeconds?: number;
+}
+
+export class ThrottlingException extends __SdkException {
+  constructor(responseMetadata: __ResponseMetadata, deserialized: any) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      $metadata: responseMetadata,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    Object.assign(this, { ...deserialized });
+  }
 }
 
 /**
@@ -195,10 +262,9 @@ export enum ValidationExceptionReason {
 /**
  * <p>Validation exception error.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
+export interface ValidationException extends __SdkException {
   name: "ValidationException";
   $fault: "client";
-  message: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    */
@@ -208,6 +274,18 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>A list of fields that didn't validate.</p>
    */
   fieldList?: ValidationExceptionField[];
+}
+
+export class ValidationException extends __SdkException {
+  constructor(responseMetadata: __ResponseMetadata, deserialized: any) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      $metadata: responseMetadata,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    Object.assign(this, { ...deserialized });
+  }
 }
 
 /**
