@@ -20595,7 +20595,6 @@ __metadata:
     chai-as-promised: ^7.1.1
     codecov: ^3.4.0
     concurrently: 7.0.0
-    corepack: 0.10.0
     cucumber: ^6.0.5
     downlevel-dts: 0.7.0
     eslint: 7.32.0
@@ -22389,19 +22388,6 @@ __metadata:
   version: 1.0.2
   resolution: "core-util-is@npm:1.0.2"
   checksum: 7a4c925b497a2c91421e25bf76d6d8190f0b2359a9200dbeed136e63b2931d6294d3b1893eda378883ed363cd950f44a12a401384c609839ea616befb7927dab
-  languageName: node
-  linkType: hard
-
-"corepack@npm:0.10.0":
-  version: 0.10.0
-  resolution: "corepack@npm:0.10.0"
-  bin:
-    corepack: ./dist/corepack.js
-    pnpm: ./dist/pnpm.js
-    pnpx: ./dist/pnpx.js
-    yarn: ./dist/yarn.js
-    yarnpkg: ./dist/yarnpkg.js
-  checksum: e8da1e744f5e59570df6fc095cab7f6cb37bb39490b8e93f29ee2a9703dc14505b005691666a49dca23210f6b15ee0e29633fba33a48c13e19b120606c8acc24
   languageName: node
   linkType: hard
 
