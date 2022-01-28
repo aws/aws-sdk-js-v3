@@ -1,19 +1,19 @@
 import { HttpResponse, MetadataBearer, ResponseMetadata, RetryableTrait, SmithyException } from "@aws-sdk/types";
 
-export interface SdkExceptionOptions extends SmithyException, MetadataBearer {
+export interface ServiceExceptionOptions extends SmithyException, MetadataBearer {
   message?: string;
 }
 
-export class SdkException extends Error implements SmithyException, MetadataBearer {
+export class ServiceException extends Error implements SmithyException, MetadataBearer {
   readonly $fault: "client" | "server";
 
   $response?: HttpResponse;
   $retryable?: RetryableTrait;
   $metadata: ResponseMetadata;
 
-  constructor(options: SdkExceptionOptions) {
+  constructor(options: ServiceExceptionOptions) {
     super(options.message);
-    Object.setPrototypeOf(this, SdkException.prototype);
+    Object.setPrototypeOf(this, ServiceException.prototype);
     this.name = options.name;
     this.$fault = options.$fault;
     this.$metadata = options.$metadata;
@@ -27,11 +27,11 @@ export class SdkException extends Error implements SmithyException, MetadataBear
  *
  * @internal
  */
-export const decorateSdkException = <E extends SdkException>(
+export const decorateServiceException = <E extends ServiceException>(
   exception: E,
   additions: { [key: string]: any } = {}
 ): E => {
-  // apply additional properties to deserialized SdkException object
+  // apply additional properties to deserialized ServiceException object
   Object.entries(additions)
     .filter(([, v]) => v !== undefined)
     .forEach(([k, v]) => {
