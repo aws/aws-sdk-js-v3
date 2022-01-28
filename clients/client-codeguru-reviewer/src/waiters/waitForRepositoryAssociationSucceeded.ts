@@ -26,6 +26,14 @@ const checkState = async (
       const returnComparator = () => {
         return result.RepositoryAssociation.State;
       };
+      if (returnComparator() === "Failed") {
+        return { state: WaiterState.FAILURE, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.RepositoryAssociation.State;
+      };
       if (returnComparator() === "Associating") {
         return { state: WaiterState.RETRY, reason };
       }

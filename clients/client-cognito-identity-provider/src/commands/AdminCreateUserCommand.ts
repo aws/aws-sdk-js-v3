@@ -28,33 +28,30 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
 
 /**
  * <p>Creates a new user in the specified user pool.</p>
- *         <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via
- *             email or phone (SMS).</p>
+ *         <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via email or phone (SMS).</p>
+ *
  *
  *         <note>
- *             <p>This action might generate an SMS text message. Starting June 1, 2021, U.S.
- *                 telecom carriers require that you register an origination phone number before you can
- *                 send SMS messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito,
- *                 you must register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>.
- *                 Cognito  will use the the registered number automatically. Otherwise, Cognito users that must
- *                 receive SMS messages might be unable to sign up, activate their accounts, or sign
- *                 in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon SNS might place your account in SMS sandbox. In <i>
- *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
- *                     mode</a>
- *                </i>, you’ll have limitations, such as sending messages
- *                 to only verified phone numbers. After testing in the sandbox environment, you can
- *                 move out of the SMS sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS message settings for Cognito User Pools</a> in the <i>Amazon
- *                         Cognito Developer Guide</i>. </p>
+ *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers require you to register an
+ *             origination phone number before you can send SMS messages to U.S. phone numbers. If you use SMS text messages in Amazon Cognito, you must
+ *             register a phone number with <a href="https://console.aws.amazon.com/pinpoint/home/">Amazon Pinpoint</a>. Amazon Cognito will use the registered number
+ *             automatically. Otherwise, Amazon Cognito users that must receive SMS messages might be unable to sign up, activate their accounts,
+ *             or sign in.</p>
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service, Amazon Simple Notification Service
+ *                 might place your account in SMS sandbox. In
+ *                 <i>
+ *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox mode</a>
+ *                </i>, you will have
+ *                 limitations, such as sending messages only to verified phone numbers. After testing in the sandbox environment, you can move
+ *                 out of the SMS sandbox and into production. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html"> SMS
+ *                     message settings for Amazon Cognito User Pools</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
  *         </note>
  *
- *         <p>This message is based on a template that you configured in your call to create or
- *             update a user pool. This template includes your custom sign-up instructions and
- *             placeholders for user name and temporary password.</p>
- *         <p>Alternatively, you can call <code>AdminCreateUser</code> with “SUPPRESS” for the
- *                 <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p>
- *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
- *             they sign in and change their password.</p>
+ *         <p>This message is based on a template that you configured in your call to create or update a user pool. This template includes your custom sign-up instructions and placeholders for
+ *             user name and temporary password.</p>
+ *         <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code> for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
+ *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p>
  *         <p>
  *             <code>AdminCreateUser</code> requires developer credentials.</p>
  * @example

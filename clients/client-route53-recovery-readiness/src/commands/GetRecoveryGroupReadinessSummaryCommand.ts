@@ -28,7 +28,7 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
     __MetadataBearer {}
 
 /**
- * Returns information about a Recovery Group.
+ * <p>Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

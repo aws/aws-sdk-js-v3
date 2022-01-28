@@ -24,6 +24,12 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
 /**
  * <p>Deletes the resource-based permission policy attached to the secret. To attach a policy to
  *       a secret, use <a>PutResourcePolicy</a>.</p>
+ *          <p>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:DeleteResourcePolicy</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

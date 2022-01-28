@@ -496,6 +496,9 @@ export class FSx extends FSxClient {
    *                <p>Amazon FSx for NetApp ONTAP</p>
    *             </li>
    *             <li>
+   *                <p>Amazon FSx for OpenZFS</p>
+   *             </li>
+   *             <li>
    *                <p>Amazon FSx for Windows File Server</p>
    *             </li>
    *          </ul>
@@ -1694,7 +1697,7 @@ export class FSx extends FSxClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For FSx for Lustre file systems, you can update the following
+   *          <p>For Amazon FSx for Lustre file systems, you can update the following
    *       properties:</p>
    *          <ul>
    *             <li>
@@ -1728,7 +1731,7 @@ export class FSx extends FSxClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For FSx for ONTAP file systems, you can update the following
+   *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
    *       properties:</p>
    *          <ul>
    *             <li>
@@ -1743,7 +1746,17 @@ export class FSx extends FSxClient {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>DiskIopsConfiguration</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>FsxAdminPassword</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StorageCapacity</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1773,11 +1786,6 @@ export class FSx extends FSxClient {
    *             <li>
    *                <p>
    *                   <code>DailyAutomaticBackupStartTime</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DiskIopsConfiguration</code>
    *                </p>
    *             </li>
    *             <li>

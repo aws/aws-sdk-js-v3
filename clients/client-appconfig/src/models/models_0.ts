@@ -28,16 +28,19 @@ export namespace Application {
 }
 
 /**
- * <p>Detailed information about the bad request exception error when creating a hosted configuration version.</p>
+ * <p>Detailed information about the bad request exception error when creating a hosted
+ *          configuration version.</p>
  */
 export interface InvalidConfigurationDetail {
   /**
-   * <p>The invalid or out-of-range validation constraint in your JSON schema that failed validation.</p>
+   * <p>The invalid or out-of-range validation constraint in your JSON schema that failed
+   *          validation.</p>
    */
   Constraint?: string;
 
   /**
-   * <p>Location of the validation constraint in the configuration JSON schema that failed validation.</p>
+   * <p>Location of the validation constraint in the configuration JSON schema that failed
+   *          validation.</p>
    */
   Location?: string;
 
@@ -62,13 +65,15 @@ export namespace InvalidConfigurationDetail {
 }
 
 /**
- * <p>Detailed information about the input that failed to satisfy the constraints specified by an AWS service.</p>
+ * <p>Detailed information about the input that failed to satisfy the constraints specified by
+ *          a call.</p>
  */
 export type BadRequestDetails = BadRequestDetails.InvalidConfigurationMember | BadRequestDetails.$UnknownMember;
 
 export namespace BadRequestDetails {
   /**
-   * <p>Detailed information about the bad request exception error when creating a hosted configuration version.</p>
+   * <p>Detailed information about the bad request exception error when creating a hosted
+   *          configuration version.</p>
    */
   export interface InvalidConfigurationMember {
     InvalidConfiguration: InvalidConfigurationDetail[];
@@ -117,7 +122,8 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Message?: string;
   Reason?: BadRequestReason | string;
   /**
-   * <p>Detailed information about the input that failed to satisfy the constraints specified by an AWS service.</p>
+   * <p>Detailed information about the input that failed to satisfy the constraints specified by
+   *          a call.</p>
    */
   Details?: BadRequestDetails;
 }
@@ -167,7 +173,7 @@ export enum ValidatorType {
 /**
  * <p>A validator provides a syntactic or semantic check to ensure the configuration that you
  *          want to deploy functions as intended. To validate your application configuration data, you
- *          provide a schema or a Lambda function that runs against the configuration. The
+ *          provide a schema or an Amazon Web Services Lambda function that runs against the configuration. The
  *          configuration deployment or update can only proceed when the configuration data is
  *          valid.</p>
  */
@@ -234,9 +240,17 @@ export interface ConfigurationProfile {
   Validators?: Validator[];
 
   /**
-   * <p>The type of configurations that the configuration profile contains. A configuration can
-   *          be a feature flag used for enabling or disabling new features or a free-form configuration
-   *          used for distributing configurations to your application. </p>
+   * <p>The type of configurations contained in the profile. AppConfig supports <code>feature
+   *             flags</code> and <code>freeform</code> configurations. We recommend you create feature
+   *          flag configurations to enable or disable new features and freeform configurations to
+   *          distribute configurations to an application. When calling this API, enter one of the
+   *          following values for <code>Type</code>:</p>
+   *          <p>
+   *             <code>AWS.AppConfig.FeatureFlags</code>
+   *          </p>
+   *          <p>
+   *             <code>AWS.Freeform</code>
+   *          </p>
    */
   Type?: string;
 }
@@ -306,9 +320,17 @@ export interface CreateConfigurationProfileRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The type of configurations that the configuration profile contains. A configuration can
-   *          be a feature flag used for enabling or disabling new features or a free-form configuration
-   *          used for distributing configurations to your application.</p>
+   * <p>The type of configurations contained in the profile. AppConfig supports <code>feature
+   *             flags</code> and <code>freeform</code> configurations. We recommend you create feature
+   *          flag configurations to enable or disable new features and freeform configurations to
+   *          distribute configurations to an application. When calling this API, enter one of the
+   *          following values for <code>Type</code>:</p>
+   *          <p>
+   *             <code>AWS.AppConfig.FeatureFlags</code>
+   *          </p>
+   *          <p>
+   *             <code>AWS.Freeform</code>
+   *          </p>
    */
   Type?: string;
 }
@@ -838,12 +860,11 @@ export interface Configuration {
   /**
    * <p>The content of the configuration or the configuration data.</p>
    *          <important>
-   *             <p>Compare the configuration version numbers of the configuration cached locally on your
-   *             machine and the configuration number in the the header. If the configuration numbers are
-   *             the same, the content can be ignored. The <code>Content</code> section only appears if
-   *             the system finds new or updated configuration data. If the system doesn't find new or
-   *             updated configuration data, then the <code>Content</code> section is not
-   *             returned.</p>
+   *             <p>The <code>Content</code> attribute only contains data if the system finds new or
+   *             updated configuration data. If there is no new or updated data and
+   *                <code>ClientConfigurationVersion</code> matches the version of the current
+   *             configuration, AppConfig returns a <code>204 No Content</code> HTTP response code and
+   *             the <code>Content</code> value will be empty.</p>
    *          </important>
    */
   Content?: Uint8Array;
@@ -1284,9 +1305,17 @@ export interface ConfigurationProfileSummary {
   ValidatorTypes?: (ValidatorType | string)[];
 
   /**
-   * <p>The type of configurations that the configuration profile contains. A configuration can
-   *          be a feature flag used for enabling or disabling new features or a free-form configuration
-   *          used to introduce changes to your application.</p>
+   * <p>The type of configurations contained in the profile. AppConfig supports <code>feature
+   *             flags</code> and <code>freeform</code> configurations. We recommend you create feature
+   *          flag configurations to enable or disable new features and freeform configurations to
+   *          distribute configurations to an application. When calling this API, enter one of the
+   *          following values for <code>Type</code>:</p>
+   *          <p>
+   *             <code>AWS.AppConfig.FeatureFlags</code>
+   *          </p>
+   *          <p>
+   *             <code>AWS.Freeform</code>
+   *          </p>
    */
   Type?: string;
 }
@@ -1341,7 +1370,7 @@ export interface ListConfigurationProfilesRequest {
 
   /**
    * <p>A filter based on the type of configurations that the configuration profile contains. A
-   *          configuration can be a feature flag or a free-form configuration.</p>
+   *          configuration can be a feature flag or a freeform configuration.</p>
    */
   Type?: string;
 }
@@ -1460,13 +1489,16 @@ export interface ListDeploymentsRequest {
   EnvironmentId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that
-   *          you can specify in a subsequent call to get the next set of results.</p>
+   * <p>The maximum number of items that may be returned for this call. If there are items that
+   *          have not yet been returned, the response will include a non-null <code>NextToken</code>
+   *          that you can provide in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
+   * <p>The token returned by a prior call to this operation indicating the next set of results
+   *          to be returned. If not specified, the operation will return the first set of
+   *          results.</p>
    */
   NextToken?: string;
 }

@@ -27,7 +27,7 @@ export interface CreateResourceServerCommandInput extends CreateResourceServerRe
 export interface CreateResourceServerCommandOutput extends CreateResourceServerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>
+ * <p>Creates a new OAuth2.0 resource server and defines custom scopes within it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

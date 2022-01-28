@@ -26,7 +26,7 @@ export interface CreateCellCommandInput extends CreateCellRequest {}
 export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataBearer {}
 
 /**
- * Creates a new Cell.
+ * <p>Creates a cell in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

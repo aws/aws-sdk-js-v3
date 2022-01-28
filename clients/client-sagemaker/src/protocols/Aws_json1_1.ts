@@ -1215,6 +1215,7 @@ import {
   EndpointSummary,
   Experiment,
   ExperimentSummary,
+  FailStepMetadata,
   FeatureGroup,
   FeatureGroupSummary,
   Filter,
@@ -1339,7 +1340,6 @@ import {
   ListSubscribedWorkteamsResponse,
   ListTagsInput,
   ListTagsOutput,
-  ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsRequest,
   ListTrainingJobsResponse,
   MetricData,
@@ -1390,6 +1390,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListTrainingJobsForHyperParameterTuningJobRequest,
   ListTrainingJobsForHyperParameterTuningJobResponse,
   ListTransformJobsRequest,
   ListTransformJobsResponse,
@@ -30875,6 +30876,12 @@ const deserializeAws_json1_1Explainability = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1FailStepMetadata = (output: any, context: __SerdeContext): FailStepMetadata => {
+  return {
+    ErrorMessage: __expectString(output.ErrorMessage),
+  } as any;
+};
+
 const deserializeAws_json1_1FeatureDefinition = (output: any, context: __SerdeContext): FeatureDefinition => {
   return {
     FeatureName: __expectString(output.FeatureName),
@@ -34534,6 +34541,10 @@ const deserializeAws_json1_1PipelineExecutionStepMetadata = (
       output.EMR !== undefined && output.EMR !== null
         ? deserializeAws_json1_1EMRStepMetadata(output.EMR, context)
         : undefined,
+    Fail:
+      output.Fail !== undefined && output.Fail !== null
+        ? deserializeAws_json1_1FailStepMetadata(output.Fail, context)
+        : undefined,
     Lambda:
       output.Lambda !== undefined && output.Lambda !== null
         ? deserializeAws_json1_1LambdaStepMetadata(output.Lambda, context)
@@ -34577,6 +34588,7 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
     PipelineExecutionArn: __expectString(output.PipelineExecutionArn),
     PipelineExecutionDescription: __expectString(output.PipelineExecutionDescription),
     PipelineExecutionDisplayName: __expectString(output.PipelineExecutionDisplayName),
+    PipelineExecutionFailureReason: __expectString(output.PipelineExecutionFailureReason),
     PipelineExecutionStatus: __expectString(output.PipelineExecutionStatus),
     StartTime:
       output.StartTime !== undefined && output.StartTime !== null

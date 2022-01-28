@@ -5310,6 +5310,11 @@ export interface AwsSecurityFinding {
    * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update their own values for confidence, criticality, related findings, severity, and types.</p>
    */
   FindingProviderFields?: FindingProviderFields;
+
+  /**
+   * <p>Indicates whether the finding is a sample finding.</p>
+   */
+  Sample?: boolean;
 }
 
 export namespace AwsSecurityFinding {
@@ -5611,6 +5616,25 @@ export namespace MapFilter {
    * @internal
    */
   export const filterSensitiveLog = (obj: MapFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Boolean filter for querying findings.</p>
+ */
+export interface BooleanFilter {
+  /**
+   * <p>The value of the boolean.</p>
+   */
+  Value?: boolean;
+}
+
+export namespace BooleanFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BooleanFilter): any => ({
     ...obj,
   });
 }
@@ -6205,6 +6229,11 @@ export interface AwsSecurityFindingFilters {
    *          Behaviors | Sensitive Data Identifications</p>
    */
   FindingProviderFieldsTypes?: StringFilter[];
+
+  /**
+   * <p>Indicates whether or not sample findings are included in the filter results.</p>
+   */
+  Sample?: BooleanFilter[];
 }
 
 export namespace AwsSecurityFindingFilters {

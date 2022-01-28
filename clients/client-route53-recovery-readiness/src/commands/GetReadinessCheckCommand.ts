@@ -26,7 +26,7 @@ export interface GetReadinessCheckCommandInput extends GetReadinessCheckRequest 
 export interface GetReadinessCheckCommandOutput extends GetReadinessCheckResponse, __MetadataBearer {}
 
 /**
- * Returns information about a ReadinessCheck.
+ * <p>Gets details about a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -11,4 +11,5 @@ export * from "./GetOutcomesPaginator";
 export * from "./Interfaces";
 export * from "./GetRulesPaginator";
 export * from "./GetVariablesPaginator";
+export * from "./ListEventPredictionsPaginator";
 export * from "./ListTagsForResourcePaginator";

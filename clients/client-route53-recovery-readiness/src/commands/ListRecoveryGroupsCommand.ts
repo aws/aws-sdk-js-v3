@@ -26,7 +26,7 @@ export interface ListRecoveryGroupsCommandInput extends ListRecoveryGroupsReques
 export interface ListRecoveryGroupsCommandOutput extends ListRecoveryGroupsResponse, __MetadataBearer {}
 
 /**
- * Returns a collection of Recovery Groups.
+ * <p>Lists the recovery groups in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -518,6 +518,14 @@ const deserializeAws_json1_1CreateSecretCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DecryptionFailure":
+    case "com.amazonaws.secretsmanager#DecryptionFailure":
+      response = {
+        ...(await deserializeAws_json1_1DecryptionFailureResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
       response = {
@@ -1338,6 +1346,14 @@ const deserializeAws_json1_1PutSecretValueCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DecryptionFailure":
+    case "com.amazonaws.secretsmanager#DecryptionFailure":
+      response = {
+        ...(await deserializeAws_json1_1DecryptionFailureResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
       response = {
@@ -1980,6 +1996,14 @@ const deserializeAws_json1_1UpdateSecretCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DecryptionFailure":
+    case "com.amazonaws.secretsmanager#DecryptionFailure":
+      response = {
+        ...(await deserializeAws_json1_1DecryptionFailureResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "EncryptionFailure":
     case "com.amazonaws.secretsmanager#EncryptionFailure":
       response = {
@@ -2661,6 +2685,8 @@ const serializeAws_json1_1RestoreSecretRequest = (input: RestoreSecretRequest, c
 const serializeAws_json1_1RotateSecretRequest = (input: RotateSecretRequest, context: __SerdeContext): any => {
   return {
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.RotateImmediately !== undefined &&
+      input.RotateImmediately !== null && { RotateImmediately: input.RotateImmediately }),
     ...(input.RotationLambdaARN !== undefined &&
       input.RotationLambdaARN !== null && { RotationLambdaARN: input.RotationLambdaARN }),
     ...(input.RotationRules !== undefined &&
@@ -2675,6 +2701,9 @@ const serializeAws_json1_1RotationRulesType = (input: RotationRulesType, context
   return {
     ...(input.AutomaticallyAfterDays !== undefined &&
       input.AutomaticallyAfterDays !== null && { AutomaticallyAfterDays: input.AutomaticallyAfterDays }),
+    ...(input.Duration !== undefined && input.Duration !== null && { Duration: input.Duration }),
+    ...(input.ScheduleExpression !== undefined &&
+      input.ScheduleExpression !== null && { ScheduleExpression: input.ScheduleExpression }),
   };
 };
 
@@ -3136,6 +3165,8 @@ const deserializeAws_json1_1RotateSecretResponse = (output: any, context: __Serd
 const deserializeAws_json1_1RotationRulesType = (output: any, context: __SerdeContext): RotationRulesType => {
   return {
     AutomaticallyAfterDays: __expectLong(output.AutomaticallyAfterDays),
+    Duration: __expectString(output.Duration),
+    ScheduleExpression: __expectString(output.ScheduleExpression),
   } as any;
 };
 

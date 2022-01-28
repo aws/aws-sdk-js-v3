@@ -28,7 +28,7 @@ export interface ListCrossAccountAuthorizationsCommandOutput
     __MetadataBearer {}
 
 /**
- * Returns a collection of cross account readiness authorizations.
+ * <p>Lists the cross-account readiness authorizations that are in place for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

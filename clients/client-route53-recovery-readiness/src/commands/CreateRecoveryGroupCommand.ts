@@ -26,7 +26,7 @@ export interface CreateRecoveryGroupCommandInput extends CreateRecoveryGroupRequ
 export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupResponse, __MetadataBearer {}
 
 /**
- * Creates a new Recovery Group.
+ * <p>Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

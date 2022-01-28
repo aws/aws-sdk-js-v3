@@ -348,11 +348,20 @@ export interface ListChangedBlocksRequest {
 
   /**
    * <p>The token to request the next page of results.</p>
+   *         <p>If you specify <b>NextToken</b>, then
+   *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The number of results to return.</p>
+   * <p>The maximum number of blocks to be returned by the request.</p>
+   *         <p>Even if additional blocks can be retrieved from the snapshot, the request can
+   *             return less blocks than <b>MaxResults</b> or an empty
+   *             array of blocks.</p>
+   *         <p>To retrieve the next set of blocks from the snapshot, make another request with
+   *             the returned <b>NextToken</b> value. The value of
+   *             <b>NextToken</b> is <code>null</code> when there are no
+   *             more blocks to return.</p>
    */
   MaxResults?: number;
 
@@ -360,6 +369,8 @@ export interface ListChangedBlocksRequest {
    * <p>The block index from which the comparison should start.</p>
    *         <p>The list in the response will start from this block index or the next valid block
    *             index in the snapshots.</p>
+   *         <p>If you specify <b>NextToken</b>, then
+   *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   StartingBlockIndex?: number;
 }
@@ -419,17 +430,28 @@ export interface ListSnapshotBlocksRequest {
 
   /**
    * <p>The token to request the next page of results.</p>
+   *         <p>If you specify <b>NextToken</b>, then
+   *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The number of results to return.</p>
+   * <p>The maximum number of blocks to be returned by the request.</p>
+   *         <p>Even if additional blocks can be retrieved from the snapshot, the request can
+   *             return less blocks than <b>MaxResults</b> or an empty
+   *             array of blocks.</p>
+   *         <p>To retrieve the next set of blocks from the snapshot, make another request with
+   *             the returned <b>NextToken</b> value. The value of
+   *             <b>NextToken</b> is <code>null</code> when there are no
+   *             more blocks to return.</p>
    */
   MaxResults?: number;
 
   /**
    * <p>The block index from which the list should start. The list in the response will start
    *             from this block index or the next valid block index in the snapshot.</p>
+   *         <p>If you specify <b>NextToken</b>, then
+   *             <b>StartingBlockIndex</b> is ignored.</p>
    */
   StartingBlockIndex?: number;
 }

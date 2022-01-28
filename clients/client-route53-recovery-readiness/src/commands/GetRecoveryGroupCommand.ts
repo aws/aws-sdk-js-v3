@@ -26,7 +26,7 @@ export interface GetRecoveryGroupCommandInput extends GetRecoveryGroupRequest {}
 export interface GetRecoveryGroupCommandOutput extends GetRecoveryGroupResponse, __MetadataBearer {}
 
 /**
- * Returns information about a Recovery Group.
+ * <p>Gets details about a recovery group, including a list of the cells that are included in it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

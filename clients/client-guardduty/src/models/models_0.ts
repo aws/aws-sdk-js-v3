@@ -418,6 +418,7 @@ export interface AwsApiCallAction {
    */
   ErrorCode?: string;
 
+  UserAgent?: string;
   /**
    * <p>The remote IP information of the connection that initiated the Amazon Web Services API call.</p>
    */
@@ -458,6 +459,55 @@ export namespace DnsRequestAction {
    * @internal
    */
   export const filterSensitiveLog = (obj: DnsRequestAction): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the Kubernetes API call action described in this finding.</p>
+ */
+export interface KubernetesApiCallAction {
+  /**
+   * <p>The Kubernetes API request URI.</p>
+   */
+  RequestUri?: string;
+
+  /**
+   * <p>The Kubernetes API request HTTP verb.</p>
+   */
+  Verb?: string;
+
+  /**
+   * <p>The IP of the  Kubernetes API caller and the IPs of any proxies or load balancers between the caller and the API endpoint.</p>
+   */
+  SourceIps?: string[];
+
+  /**
+   * <p>The user agent of the caller of the Kubernetes API.</p>
+   */
+  UserAgent?: string;
+
+  /**
+   * <p>Contains information about the remote IP address of the connection.</p>
+   */
+  RemoteIpDetails?: RemoteIpDetails;
+
+  /**
+   * <p>The resulting HTTP response code of the Kubernetes API call action.</p>
+   */
+  StatusCode?: number;
+
+  /**
+   * <p>Parameters related to the Kubernetes API call action.</p>
+   */
+  Parameters?: string;
+}
+
+export namespace KubernetesApiCallAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesApiCallAction): any => ({
     ...obj,
   });
 }
@@ -659,6 +709,11 @@ export interface Action {
    * <p>Information about the PORT_PROBE action described in this finding.</p>
    */
   PortProbeAction?: PortProbeAction;
+
+  /**
+   * <p>Information about the Kubernetes API call action described in this finding.</p>
+   */
+  KubernetesApiCallAction?: KubernetesApiCallAction;
 }
 
 export namespace Action {
@@ -914,6 +969,136 @@ export namespace Condition {
 }
 
 /**
+ * <p>Container security context.</p>
+ */
+export interface SecurityContext {
+  /**
+   * <p>Whether the container is privileged.</p>
+   */
+  Privileged?: boolean;
+}
+
+export namespace SecurityContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityContext): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Container volume mount.</p>
+ */
+export interface VolumeMount {
+  /**
+   * <p>Volume mount name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Volume mount path.</p>
+   */
+  MountPath?: string;
+}
+
+export namespace VolumeMount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VolumeMount): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details of a container.</p>
+ */
+export interface Container {
+  /**
+   * <p>The container runtime (such as, Docker or containerd) used to run the container.</p>
+   */
+  ContainerRuntime?: string;
+
+  /**
+   * <p>Container ID.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Container name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Container image.</p>
+   */
+  Image?: string;
+
+  /**
+   * <p>Part of the image name before the last slash. For example, imagePrefix for public.ecr.aws/amazonlinux/amazonlinux:latest would be public.ecr.aws/amazonlinux. If the image name is relative and does not have a slash, this field is empty.</p>
+   */
+  ImagePrefix?: string;
+
+  /**
+   * <p>Container volume mounts.</p>
+   */
+  VolumeMounts?: VolumeMount[];
+
+  /**
+   * <p>Container security context.</p>
+   */
+  SecurityContext?: SecurityContext;
+}
+
+export namespace Container {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Container): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
+ */
+export interface KubernetesAuditLogsConfiguration {
+  /**
+   * <p>The status of Kubernetes audit logs as a data source.</p>
+   */
+  Enable: boolean | undefined;
+}
+
+export namespace KubernetesAuditLogsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesAuditLogsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes whether any Kubernetes data sources are enabled.</p>
+ */
+export interface KubernetesConfiguration {
+  /**
+   * <p>The status of Kubernetes audit logs as a data source.</p>
+   */
+  AuditLogs: KubernetesAuditLogsConfiguration | undefined;
+}
+
+export namespace KubernetesConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes whether S3 data event logs will be enabled as a data source.</p>
  */
 export interface S3LogsConfiguration {
@@ -940,6 +1125,11 @@ export interface DataSourceConfigurations {
    * <p>Describes whether S3 data event logs are enabled as a data source.</p>
    */
   S3Logs?: S3LogsConfiguration;
+
+  /**
+   * <p>Describes whether any Kubernetes logs are enabled as data sources.</p>
+   */
+  Kubernetes?: KubernetesConfiguration;
 }
 
 export namespace DataSourceConfigurations {
@@ -1608,6 +1798,7 @@ export enum DataSource {
   CLOUD_TRAIL = "CLOUD_TRAIL",
   DNS_LOGS = "DNS_LOGS",
   FLOW_LOGS = "FLOW_LOGS",
+  KUBERNETES_AUDIT_LOGS = "KUBERNETES_AUDIT_LOGS",
   S3_LOGS = "S3_LOGS",
 }
 
@@ -1645,6 +1836,44 @@ export namespace FlowLogsConfigurationResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: FlowLogsConfigurationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
+ */
+export interface KubernetesAuditLogsConfigurationResult {
+  /**
+   * <p>A value that describes whether Kubernetes audit logs are enabled as a data source.</p>
+   */
+  Status: DataSourceStatus | string | undefined;
+}
+
+export namespace KubernetesAuditLogsConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesAuditLogsConfigurationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes whether any Kubernetes logs will be enabled as a data source.</p>
+ */
+export interface KubernetesConfigurationResult {
+  /**
+   * <p>Describes whether Kubernetes audit logs are enabled as a data source.</p>
+   */
+  AuditLogs: KubernetesAuditLogsConfigurationResult | undefined;
+}
+
+export namespace KubernetesConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesConfigurationResult): any => ({
     ...obj,
   });
 }
@@ -1694,6 +1923,11 @@ export interface DataSourceConfigurationsResult {
    *       source.</p>
    */
   S3Logs: S3LogsConfigurationResult | undefined;
+
+  /**
+   * <p>An object that contains information on the status of all Kubernetes data sources.</p>
+   */
+  Kubernetes?: KubernetesConfigurationResult;
 }
 
 export namespace DataSourceConfigurationsResult {
@@ -2011,6 +2245,44 @@ export namespace DescribeOrganizationConfigurationRequest {
 }
 
 /**
+ * <p>The current configuration of Kubernetes audit logs as a data source for the organization.</p>
+ */
+export interface OrganizationKubernetesAuditLogsConfigurationResult {
+  /**
+   * <p>Whether Kubernetes audit logs data source should be auto-enabled for new members joining the organization.</p>
+   */
+  AutoEnable: boolean | undefined;
+}
+
+export namespace OrganizationKubernetesAuditLogsConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrganizationKubernetesAuditLogsConfigurationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The current configuration of all Kubernetes data sources for the organization.</p>
+ */
+export interface OrganizationKubernetesConfigurationResult {
+  /**
+   * <p>The current configuration of Kubernetes audit logs as a data source for the organization.</p>
+   */
+  AuditLogs: OrganizationKubernetesAuditLogsConfigurationResult | undefined;
+}
+
+export namespace OrganizationKubernetesConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrganizationKubernetesConfigurationResult): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The current configuration of S3 data event logs as a data source for the
  *       organization.</p>
  */
@@ -2040,6 +2312,11 @@ export interface OrganizationDataSourceConfigurationsResult {
    * <p>Describes whether S3 data event logs are enabled as a data source.</p>
    */
   S3Logs: OrganizationS3LogsConfigurationResult | undefined;
+
+  /**
+   * <p>Describes the configuration of Kubernetes data sources.</p>
+   */
+  Kubernetes?: OrganizationKubernetesConfigurationResult;
 }
 
 export namespace OrganizationDataSourceConfigurationsResult {
@@ -2275,6 +2552,74 @@ export namespace DisassociateMembersResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a tag associated with the EC2 instance.</p>
+ */
+export interface Tag {
+  /**
+   * <p>The EC2 instance tag key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The EC2 instance tag value.</p>
+   */
+  Value?: string;
+}
+
+export namespace Tag {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the EKS cluster involved in a Kubernetes finding.</p>
+ */
+export interface EksClusterDetails {
+  /**
+   * <p>EKS cluster name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>EKS cluster ARN.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The VPC ID to which the EKS cluster is attached.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The EKS cluster status.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The EKS cluster tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The timestamp when the EKS cluster was created.</p>
+   */
+  CreatedAt?: Date;
+}
+
+export namespace EksClusterDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EksClusterDetails): any => ({
     ...obj,
   });
 }
@@ -2518,30 +2863,6 @@ export namespace ProductCode {
 }
 
 /**
- * <p>Contains information about a tag associated with the EC2 instance.</p>
- */
-export interface Tag {
-  /**
-   * <p>The EC2 instance tag key.</p>
-   */
-  Key?: string;
-
-  /**
-   * <p>The EC2 instance tag value.</p>
-   */
-  Value?: string;
-}
-
-export namespace Tag {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Tag): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>Contains information about the details of an instance.</p>
  */
 export interface InstanceDetails {
@@ -2617,6 +2938,151 @@ export namespace InstanceDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstanceDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the Kubernetes user involved in a Kubernetes finding.</p>
+ */
+export interface KubernetesUserDetails {
+  /**
+   * <p>The username of the user who called the Kubernetes API.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>The user ID of the user who called the Kubernetes API.</p>
+   */
+  Uid?: string;
+
+  /**
+   * <p>The groups that include the user who called the Kubernetes API.</p>
+   */
+  Groups?: string[];
+}
+
+export namespace KubernetesUserDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesUserDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
+ */
+export interface HostPath {
+  /**
+   * <p>Path of the file or directory on the host that the volume maps to.</p>
+   */
+  Path?: string;
+}
+
+export namespace HostPath {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HostPath): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Volume used by the Kubernetes workload.</p>
+ */
+export interface Volume {
+  /**
+   * <p>Volume name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Represents a pre-existing file or directory on the host machine that the volume maps to.</p>
+   */
+  HostPath?: HostPath;
+}
+
+export namespace Volume {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Volume): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the Kubernetes workload involved in a Kubernetes finding.</p>
+ */
+export interface KubernetesWorkloadDetails {
+  /**
+   * <p>Kubernetes workload name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Kubernetes workload type (e.g. Pod, Deployment, etc.).</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>Kubernetes workload ID.</p>
+   */
+  Uid?: string;
+
+  /**
+   * <p>Kubernetes namespace that the workload is part of.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>Whether the hostNetwork flag is enabled for the pods included in the workload.</p>
+   */
+  HostNetwork?: boolean;
+
+  /**
+   * <p>Containers running as part of the Kubernetes workload.</p>
+   */
+  Containers?: Container[];
+
+  /**
+   * <p>Volumes used by the Kubernetes workload.</p>
+   */
+  Volumes?: Volume[];
+}
+
+export namespace KubernetesWorkloadDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesWorkloadDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about Kubernetes resources such as a Kubernetes user or workload resource involved in a Kubernetes finding.</p>
+ */
+export interface KubernetesDetails {
+  /**
+   * <p>Details about the Kubernetes user involved in a Kubernetes finding.</p>
+   */
+  KubernetesUserDetails?: KubernetesUserDetails;
+
+  /**
+   * <p>Details about the Kubernetes workload involved in a Kubernetes finding.</p>
+   */
+  KubernetesWorkloadDetails?: KubernetesWorkloadDetails;
+}
+
+export namespace KubernetesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: KubernetesDetails): any => ({
     ...obj,
   });
 }
@@ -2767,6 +3233,16 @@ export interface Resource {
    *       GuardDuty to generate a finding.</p>
    */
   InstanceDetails?: InstanceDetails;
+
+  /**
+   * <p>Details about the EKS cluster involved in a Kubernetes finding.</p>
+   */
+  EksClusterDetails?: EksClusterDetails;
+
+  /**
+   * <p>Details about the Kubernetes user and workload involved in a Kubernetes finding.</p>
+   */
+  KubernetesDetails?: KubernetesDetails;
 
   /**
    * <p>The type of Amazon Web Services resource.</p>
@@ -4978,6 +5454,45 @@ export namespace UpdateMemberDetectorsResponse {
 }
 
 /**
+ * <p>Organization-wide Kubernetes audit logs configuration.</p>
+ */
+export interface OrganizationKubernetesAuditLogsConfiguration {
+  /**
+   * <p>A value that contains information on whether Kubernetes audit logs should be enabled
+   *       automatically as a data source for the organization.</p>
+   */
+  AutoEnable: boolean | undefined;
+}
+
+export namespace OrganizationKubernetesAuditLogsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrganizationKubernetesAuditLogsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Organization-wide Kubernetes data sources configurations.</p>
+ */
+export interface OrganizationKubernetesConfiguration {
+  /**
+   * <p>Whether Kubernetes audit logs data source should be auto-enabled for new members joining the organization.</p>
+   */
+  AuditLogs: OrganizationKubernetesAuditLogsConfiguration | undefined;
+}
+
+export namespace OrganizationKubernetesConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OrganizationKubernetesConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes whether S3 data event logs will be automatically enabled for new members of the
  *       organization.</p>
  */
@@ -5008,6 +5523,11 @@ export interface OrganizationDataSourceConfigurations {
    *       organization.</p>
    */
   S3Logs?: OrganizationS3LogsConfiguration;
+
+  /**
+   * <p>Describes the configuration of Kubernetes data sources for new members of the organization.</p>
+   */
+  Kubernetes?: OrganizationKubernetesConfiguration;
 }
 
 export namespace OrganizationDataSourceConfigurations {

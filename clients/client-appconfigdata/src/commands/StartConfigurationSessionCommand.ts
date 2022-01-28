@@ -22,7 +22,10 @@ export interface StartConfigurationSessionCommandInput extends StartConfiguratio
 export interface StartConfigurationSessionCommandOutput extends StartConfigurationSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a configuration session used to retrieve a deployed configuration. See the GetLatestConfiguration API for more details.</p>
+ * <p>Starts a configuration session used to retrieve a deployed configuration. For more
+ *          information about this API action and to view example CLI commands that show how to use
+ *          it with the <a>GetLatestConfiguration</a> API action, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration">Receiving the
+ *             configuration</a> in the <i>AppConfig User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

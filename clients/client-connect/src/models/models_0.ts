@@ -310,6 +310,69 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   Message?: string;
 }
 
+export enum VocabularyLanguageCode {
+  AR_AE = "ar-AE",
+  DE_CH = "de-CH",
+  DE_DE = "de-DE",
+  EN_AB = "en-AB",
+  EN_AU = "en-AU",
+  EN_GB = "en-GB",
+  EN_IE = "en-IE",
+  EN_IN = "en-IN",
+  EN_US = "en-US",
+  EN_WL = "en-WL",
+  ES_ES = "es-ES",
+  ES_US = "es-US",
+  FR_CA = "fr-CA",
+  FR_FR = "fr-FR",
+  HI_IN = "hi-IN",
+  IT_IT = "it-IT",
+  JA_JP = "ja-JP",
+  KO_KR = "ko-KR",
+  PT_BR = "pt-BR",
+  PT_PT = "pt-PT",
+  ZH_CN = "zh-CN",
+}
+
+export interface AssociateDefaultVocabularyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode: VocabularyLanguageCode | string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary. If this is empty, the default is set to none.</p>
+   */
+  VocabularyId?: string;
+}
+
+export namespace AssociateDefaultVocabularyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateDefaultVocabularyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateDefaultVocabularyResponse {}
+
+export namespace AssociateDefaultVocabularyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateDefaultVocabularyResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum InstanceStorageResourceType {
   AGENT_EVENTS = "AGENT_EVENTS",
   CALL_RECORDINGS = "CALL_RECORDINGS",
@@ -1525,8 +1588,7 @@ export interface CreateQuickConnectResponse {
   QuickConnectARN?: string;
 
   /**
-   * <p>The identifier for the quick connect.
-   *   </p>
+   * <p>The identifier for the quick connect. </p>
    */
   QuickConnectId?: string;
 }
@@ -1967,6 +2029,88 @@ export namespace CreateUserHierarchyGroupResponse {
   });
 }
 
+export interface CreateVocabularyRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If a create request is received more than once with same client token,
+   *    subsequent requests return the previous response without creating a vocabulary again.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   */
+  VocabularyName: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode: VocabularyLanguageCode | string | undefined;
+
+  /**
+   * <p>The content of the custom vocabulary in plain-text format with a table of values. Each row
+   *    in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>,
+   *    <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB
+   *    characters. The size limit is 50KB. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom
+   *     vocabulary using a table</a>.</p>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateVocabularyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVocabularyRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum VocabularyState {
+  ACTIVE = "ACTIVE",
+  CREATION_FAILED = "CREATION_FAILED",
+  CREATION_IN_PROGRESS = "CREATION_IN_PROGRESS",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+}
+
+export interface CreateVocabularyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   */
+  VocabularyArn: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  VocabularyId: string | undefined;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   */
+  State: VocabularyState | string | undefined;
+}
+
+export namespace CreateVocabularyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVocabularyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteContactFlowRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2216,6 +2360,53 @@ export namespace DeleteUserHierarchyGroupRequest {
   });
 }
 
+export interface DeleteVocabularyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  VocabularyId: string | undefined;
+}
+
+export namespace DeleteVocabularyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVocabularyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteVocabularyResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   */
+  VocabularyArn: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  VocabularyId: string | undefined;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   */
+  State: VocabularyState | string | undefined;
+}
+
+export namespace DeleteVocabularyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVocabularyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeAgentStatusRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2362,10 +2553,11 @@ export interface Contact {
   AgentInfo?: AgentInfo;
 
   /**
-   * <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is when the
-   *    contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For <code>CALLBACK</code>, this is when
-   *    the callback contact was created. For <code>TRANSFER</code> and <code>QUEUE_TRANSFER</code>, this is when the transfer was
-   *    initiated. For <code>API</code>, this is when the request arrived.</p>
+   * <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is
+   *    when the contact arrived. For <code>OUTBOUND</code>, this is when the agent began dialing. For
+   *     <code>CALLBACK</code>, this is when the callback contact was created. For <code>TRANSFER</code>
+   *    and <code>QUEUE_TRANSFER</code>, this is when the transfer was initiated. For <code>API</code>,
+   *    this is when the request arrived.</p>
    */
   InitiationTimestamp?: Date;
 
@@ -2380,7 +2572,8 @@ export interface Contact {
   LastUpdateTimestamp?: Date;
 
   /**
-   * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow. </p>
+   * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.
+   *   </p>
    */
   ScheduledTimestamp?: Date;
 }
@@ -3649,6 +3842,110 @@ export namespace DescribeUserHierarchyStructureResponse {
   });
 }
 
+export interface DescribeVocabularyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  VocabularyId: string | undefined;
+}
+
+export namespace DescribeVocabularyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVocabularyRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a custom vocabulary.</p>
+ */
+export interface Vocabulary {
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode: VocabularyLanguageCode | string | undefined;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   */
+  State: VocabularyState | string | undefined;
+
+  /**
+   * <p>The timestamp when the custom vocabulary was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The reason why the custom vocabulary was not created.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The content of the custom vocabulary in plain-text format with a table of values. Each row
+   *    in the table represents a word or a phrase, described with <code>Phrase</code>, <code>IPA</code>,
+   *     <code>SoundsLike</code>, and <code>DisplayAs</code> fields. Separate the fields with TAB
+   *    characters. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table">Create a custom
+   *     vocabulary using a table</a>.</p>
+   */
+  Content?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace Vocabulary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Vocabulary): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVocabularyResponse {
+  /**
+   * <p>A list of specific words that you want Contact Lens for Amazon Connect to recognize in your audio input. They
+   *    are generally domain-specific words and phrases, words that Contact Lens is not recognizing, or
+   *    proper nouns.</p>
+   */
+  Vocabulary: Vocabulary | undefined;
+}
+
+export namespace DescribeVocabularyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVocabularyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateApprovedOriginRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -3931,8 +4228,9 @@ export namespace CurrentMetric {
  */
 export interface Filters {
   /**
-   * <p>The queues to use to filter the metrics. You should specify at least one queue, and can specify up to 100 queues per
-   *    request.  The <code>GetCurrentMetricsData</code> API in particular requires a queue when you include a <code>Filter</code> in your request. </p>
+   * <p>The queues to use to filter the metrics. You should specify at least one queue, and can
+   *    specify up to 100 queues per request. The <code>GetCurrentMetricsData</code> API in particular
+   *    requires a queue when you include a <code>Filter</code> in your request. </p>
    */
   Queues?: string[];
 
@@ -4052,11 +4350,11 @@ export interface GetCurrentMetricDataRequest {
    *             <dd>
    *                <p>Unit: SECONDS</p>
    *                <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>
-   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For
-   *       example, if you get a response like this:</p>
+   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in
+   *       MILLISECONDS. For example, if you get a response like this:</p>
    *                <p>
    *                   <code>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
-   *      </code>}</p>
+   *       </code>}</p>
    *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
    *
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a>
@@ -5092,7 +5390,8 @@ export enum ReferenceStatus {
 }
 
 /**
- * <p>Information about the attachment reference if the <code>referenceType</code> is <code>ATTACHMENT</code>. Otherwise, null.</p>
+ * <p>Information about the attachment reference if the <code>referenceType</code> is
+ *     <code>ATTACHMENT</code>. Otherwise, null.</p>
  */
 export interface AttachmentReference {
   /**
@@ -5145,7 +5444,8 @@ export namespace UrlReference {
 }
 
 /**
- * <p>Contains summary information about a reference. <code>ReferenceSummary</code> contains only one non null field between the URL and attachment based on the reference type.</p>
+ * <p>Contains summary information about a reference. <code>ReferenceSummary</code> contains only
+ *    one non null field between the URL and attachment based on the reference type.</p>
  */
 export type ReferenceSummary =
   | ReferenceSummary.AttachmentMember
@@ -5164,7 +5464,8 @@ export namespace ReferenceSummary {
   }
 
   /**
-   * <p>Information about the attachment reference if the <code>referenceType</code> is <code>ATTACHMENT</code>. Otherwise, null.</p>
+   * <p>Information about the attachment reference if the <code>referenceType</code> is
+   *     <code>ATTACHMENT</code>. Otherwise, null.</p>
    */
   export interface AttachmentMember {
     Url?: never;
@@ -5224,6 +5525,97 @@ export namespace ListContactReferencesResponse {
     ...(obj.ReferenceSummaryList && {
       ReferenceSummaryList: obj.ReferenceSummaryList.map((item) => ReferenceSummary.filterSensitiveLog(item)),
     }),
+  });
+}
+
+export interface ListDefaultVocabulariesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode?: VocabularyLanguageCode | string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDefaultVocabulariesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDefaultVocabulariesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a default vocabulary.</p>
+ */
+export interface DefaultVocabulary {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode: VocabularyLanguageCode | string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  VocabularyId: string | undefined;
+
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   */
+  VocabularyName: string | undefined;
+}
+
+export namespace DefaultVocabulary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DefaultVocabulary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDefaultVocabulariesResponse {
+  /**
+   * <p>A list of default vocabularies.</p>
+   */
+  DefaultVocabularyList: DefaultVocabulary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDefaultVocabulariesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDefaultVocabulariesResponse): any => ({
+    ...obj,
   });
 }
 
@@ -5679,7 +6071,8 @@ export interface ListLexBotsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>
+   * <p>The maximum number of results to return per page. If no value is specified, the default is 10.
+   *    </p>
    */
   MaxResults?: number;
 }
@@ -7036,6 +7429,122 @@ export namespace ResumeContactRecordingResponse {
   });
 }
 
+export interface SearchVocabulariesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   */
+  State?: VocabularyState | string;
+
+  /**
+   * <p>The starting pattern of the name of the vocabulary.</p>
+   */
+  NameStartsWith?: string;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode?: VocabularyLanguageCode | string;
+}
+
+export namespace SearchVocabulariesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchVocabulariesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains summary information about the custom vocabulary.</p>
+ */
+export interface VocabularySummary {
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode: VocabularyLanguageCode | string | undefined;
+
+  /**
+   * <p>The current state of the custom vocabulary.</p>
+   */
+  State: VocabularyState | string | undefined;
+
+  /**
+   * <p>The timestamp when the custom vocabulary was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The reason why the custom vocabulary was not created.</p>
+   */
+  FailureReason?: string;
+}
+
+export namespace VocabularySummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VocabularySummary): any => ({
+    ...obj,
+  });
+}
+
+export interface SearchVocabulariesResponse {
+  /**
+   * <p>The list of the available custom vocabularies.</p>
+   */
+  VocabularySummaryList?: VocabularySummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace SearchVocabulariesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SearchVocabulariesResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A chat message.</p>
  */
@@ -7119,6 +7628,12 @@ export interface StartChatContactRequest {
    *    request.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The total duration of the newly started chat session. If not specified, the chat session duration defaults to 25 hour.
+   *    The minumum configurable time is 60 minutes. The maximum configurable time is 10,080 minutes (7 days).</p>
+   */
+  ChatDurationInMinutes?: number;
 }
 
 export namespace StartChatContactRequest {
@@ -7305,410 +7820,4 @@ export interface DestinationNotAllowedException extends __SmithyException, $Meta
    * <p>The message about the outbound calls.</p>
    */
   Message?: string;
-}
-
-/**
- * <p>The contact is not permitted.</p>
- */
-export interface OutboundContactNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OutboundContactNotPermittedException";
-  $fault: "client";
-  /**
-   * <p>The message about the contact.</p>
-   */
-  Message?: string;
-}
-
-/**
- * <p>Configuration of the answering machine detection.</p>
- */
-export interface AnswerMachineDetectionConfig {
-  /**
-   * <p>The flag to indicate if answer machine detection analysis needs to be performed for a voice
-   *    call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>.
-   *   </p>
-   */
-  EnableAnswerMachineDetection?: boolean;
-
-  /**
-   * <p>Wait for the answering machine prompt.</p>
-   */
-  AwaitAnswerMachinePrompt?: boolean;
-}
-
-export namespace AnswerMachineDetectionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AnswerMachineDetectionConfig): any => ({
-    ...obj,
-  });
-}
-
-export enum TrafficType {
-  CAMPAIGN = "CAMPAIGN",
-  GENERAL = "GENERAL",
-}
-
-export interface StartOutboundVoiceContactRequest {
-  /**
-   * <p>The phone number of the customer, in E.164 format.</p>
-   */
-  DestinationPhoneNumber: string | undefined;
-
-  /**
-   * <p>The
-   *    identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect
-   *    console user interface, on the navigation menu go to <b>Routing</b>,
-   *     <b>Contact Flows</b>. Choose the contact flow. On the contact flow
-   *    page, under the name of the contact flow, choose <b>Show additional flow
-   *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request. The token is valid for 7 days after creation. If a contact is already started, the
-   *    contact ID is returned.
-   *    </p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify
-   *    a source phone number, you must specify a queue.</p>
-   */
-  SourcePhoneNumber?: string;
-
-  /**
-   * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
-   *    phone number specified in the queue. If you do not specify a queue, the queue defined in the
-   *    contact flow is used. If you do not specify a queue, you must specify a source phone
-   *    number.</p>
-   */
-  QueueId?: string;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
-   * <p>Configuration of the answering machine detection for this outbound call. </p>
-   */
-  AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig;
-
-  /**
-   * <p>The campaign identifier of the outbound communication.</p>
-   */
-  CampaignId?: string;
-
-  /**
-   * <p>Denotes the class of traffic. Calls with different traffic types are handled differently by
-   *    Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code> if
-   *    <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
-   *    <code>GENERAL</code>. </p>
-   */
-  TrafficType?: TrafficType | string;
-}
-
-export namespace StartOutboundVoiceContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartOutboundVoiceContactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartOutboundVoiceContactResponse {
-  /**
-   * <p>The identifier of this contact within the Amazon Connect instance.</p>
-   */
-  ContactId?: string;
-}
-
-export namespace StartOutboundVoiceContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartOutboundVoiceContactResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A link that an agent selects to complete a given task. You can have up to 4,096 UTF-8 bytes
- *    across all references for a contact.</p>
- */
-export interface Reference {
-  /**
-   * <p>A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).</p>
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>The type of the reference. Only <code>URL</code> type can be added or updated on a contact.</p>
-   */
-  Type: ReferenceType | string | undefined;
-}
-
-export namespace Reference {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Reference): any => ({
-    ...obj,
-  });
-}
-
-export interface StartTaskContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the previous chat, voice, or task contact. </p>
-   */
-  PreviousContactId?: string;
-
-  /**
-   * <p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the
-   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
-   *    the contact flow page, under the name of the contact flow, choose <b>Show
-   *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
-   *    here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
-   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
-   * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
-   */
-  References?: { [key: string]: Reference };
-
-  /**
-   * <p>A description of the task that is shown to an agent in the Contact Control Panel
-   *    (CCP).</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
-   */
-  ScheduledTime?: Date;
-}
-
-export namespace StartTaskContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTaskContactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartTaskContactResponse {
-  /**
-   * <p>The identifier of this contact within the Amazon Connect instance.</p>
-   */
-  ContactId?: string;
-}
-
-export namespace StartTaskContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartTaskContactResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The contact with the specified ID is not active or does not exist.</p>
- */
-export interface ContactNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ContactNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The message.</p>
-   */
-  Message?: string;
-}
-
-export interface StopContactRequest {
-  /**
-   * <p>The ID of the contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-export namespace StopContactRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContactRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopContactResponse {}
-
-export namespace StopContactResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContactResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopContactRecordingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   */
-  InitialContactId: string | undefined;
-}
-
-export namespace StopContactRecordingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContactRecordingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopContactRecordingResponse {}
-
-export namespace StopContactRecordingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContactRecordingResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopContactStreamingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact that is associated with
-   *    the first interaction with the contact center.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the streaming configuration enabled. </p>
-   */
-  StreamingId: string | undefined;
-}
-
-export namespace StopContactStreamingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContactStreamingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopContactStreamingResponse {}
-
-export namespace StopContactStreamingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopContactStreamingResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface SuspendContactRecordingRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with the contact center.</p>
-   */
-  InitialContactId: string | undefined;
-}
-
-export namespace SuspendContactRecordingRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuspendContactRecordingRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface SuspendContactRecordingResponse {}
-
-export namespace SuspendContactRecordingResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuspendContactRecordingResponse): any => ({
-    ...obj,
-  });
 }

@@ -22,7 +22,7 @@ export interface ListDeploymentsCommandInput extends ListDeploymentsRequest {}
 export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBearer {}
 
 /**
- * <p>Lists the deployments for an environment.</p>
+ * <p>Lists the deployments for an environment in descending deployment number order.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

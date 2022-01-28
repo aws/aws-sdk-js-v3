@@ -5888,6 +5888,10 @@ const serializeAws_json1_1UpdateFileSystemOntapConfiguration = (
       input.DailyAutomaticBackupStartTime !== null && {
         DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
       }),
+    ...(input.DiskIopsConfiguration !== undefined &&
+      input.DiskIopsConfiguration !== null && {
+        DiskIopsConfiguration: serializeAws_json1_1DiskIopsConfiguration(input.DiskIopsConfiguration, context),
+      }),
     ...(input.FsxAdminPassword !== undefined &&
       input.FsxAdminPassword !== null && { FsxAdminPassword: input.FsxAdminPassword }),
     ...(input.WeeklyMaintenanceStartTime !== undefined &&

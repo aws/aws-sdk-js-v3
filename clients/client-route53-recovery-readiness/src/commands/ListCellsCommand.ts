@@ -26,7 +26,7 @@ export interface ListCellsCommandInput extends ListCellsRequest {}
 export interface ListCellsCommandOutput extends ListCellsResponse, __MetadataBearer {}
 
 /**
- * Returns a collection of Cells.
+ * <p>Lists the cells for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

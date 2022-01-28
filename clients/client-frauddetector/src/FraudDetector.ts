@@ -153,6 +153,11 @@ import {
   GetEventPredictionCommandOutput,
 } from "./commands/GetEventPredictionCommand";
 import {
+  GetEventPredictionMetadataCommand,
+  GetEventPredictionMetadataCommandInput,
+  GetEventPredictionMetadataCommandOutput,
+} from "./commands/GetEventPredictionMetadataCommand";
+import {
   GetEventTypesCommand,
   GetEventTypesCommandInput,
   GetEventTypesCommandOutput,
@@ -181,6 +186,11 @@ import {
   GetVariablesCommandInput,
   GetVariablesCommandOutput,
 } from "./commands/GetVariablesCommand";
+import {
+  ListEventPredictionsCommand,
+  ListEventPredictionsCommandInput,
+  ListEventPredictionsCommandOutput,
+} from "./commands/ListEventPredictionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -1414,6 +1424,40 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>
+   * Gets details of the past fraud predictions for the specified event ID, event type, detector ID, and detector version ID that was generated in the specified time period.
+   * </p>
+   */
+  public getEventPredictionMetadata(
+    args: GetEventPredictionMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventPredictionMetadataCommandOutput>;
+  public getEventPredictionMetadata(
+    args: GetEventPredictionMetadataCommandInput,
+    cb: (err: any, data?: GetEventPredictionMetadataCommandOutput) => void
+  ): void;
+  public getEventPredictionMetadata(
+    args: GetEventPredictionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventPredictionMetadataCommandOutput) => void
+  ): void;
+  public getEventPredictionMetadata(
+    args: GetEventPredictionMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventPredictionMetadataCommandOutput) => void),
+    cb?: (err: any, data?: GetEventPredictionMetadataCommandOutput) => void
+  ): Promise<GetEventPredictionMetadataCommandOutput> | void {
+    const command = new GetEventPredictionMetadataCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets all event types or a specific event type if name is provided. This is a paginated API. If you
    *          provide a null <code>maxResults</code>, this action retrieves a maximum of 10 records
    *          per page. If you provide a <code>maxResults</code>, the value must be between 5 and 10.
@@ -1696,6 +1740,51 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: GetVariablesCommandOutput) => void
   ): Promise<GetVariablesCommandOutput> | void {
     const command = new GetVariablesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of past predictions. The list can be filtered by detector ID, detector version ID, event ID, event type, or by specifying a time period.
+   *     If filter is not specified, the most recent prediction is returned.</p>
+   *
+   *          <p>For example, the following filter lists all past predictions for <code>xyz</code> event type -
+   *     <code>{
+   *         "eventType":{
+   *         "value": "xyz" }”
+   *         }  </code>
+   *          </p>
+   *
+   *          <p>This is a paginated API. If you provide a null <code>maxResults</code>, this action will retrieve a maximum of 10 records per page.
+   *   If you provide a <code>maxResults</code>, the value must be between 50 and 100. To get the next page results, provide
+   *   the <code>nextToken</code> from the response as part of your request. A null <code>nextToken</code> fetches the records from the beginning.
+   * </p>
+   */
+  public listEventPredictions(
+    args: ListEventPredictionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventPredictionsCommandOutput>;
+  public listEventPredictions(
+    args: ListEventPredictionsCommandInput,
+    cb: (err: any, data?: ListEventPredictionsCommandOutput) => void
+  ): void;
+  public listEventPredictions(
+    args: ListEventPredictionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventPredictionsCommandOutput) => void
+  ): void;
+  public listEventPredictions(
+    args: ListEventPredictionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventPredictionsCommandOutput) => void),
+    cb?: (err: any, data?: ListEventPredictionsCommandOutput) => void
+  ): Promise<ListEventPredictionsCommandOutput> | void {
+    const command = new ListEventPredictionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

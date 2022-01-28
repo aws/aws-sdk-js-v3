@@ -17,11 +17,11 @@ export enum InvalidParameterProblem {
 }
 
 /**
- * <p>Contains details about an invalid parameter.</p>
+ * <p>Information about an invalid parameter.</p>
  */
 export interface InvalidParameterDetail {
   /**
-   * <p>Detail describing why an individual parameter did not satisfy the constraints specified by the service</p>
+   * <p>The reason the parameter is invalid.</p>
    */
   Problem?: InvalidParameterProblem | string;
 }
@@ -36,13 +36,14 @@ export namespace InvalidParameterDetail {
 }
 
 /**
- * <p>Details describing why the request was invalid</p>
+ * <p>Detailed information about the input that failed to satisfy the constraints specified by
+ *          a call.</p>
  */
 export type BadRequestDetails = BadRequestDetails.InvalidParametersMember | BadRequestDetails.$UnknownMember;
 
 export namespace BadRequestDetails {
   /**
-   * <p>Present if the Reason for the bad request was 'InvalidParameters'</p>
+   * <p>One or more specified parameters are not valid for the call.</p>
    */
   export interface InvalidParametersMember {
     InvalidParameters: { [key: string]: InvalidParameterDetail };
@@ -103,7 +104,7 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
   Reason?: BadRequestReason | string;
 
   /**
-   * <p>Details describing why the request was invalid</p>
+   * <p>Details describing why the request was invalid.</p>
    */
   Details?: BadRequestDetails;
 }
@@ -158,9 +159,6 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   ReferencedBy?: { [key: string]: string };
 }
 
-/**
- * <p>Request parameters for the StartConfigurationSession API.</p>
- */
 export interface StartConfigurationSessionRequest {
   /**
    * <p>The application ID or the application name.</p>
@@ -178,9 +176,9 @@ export interface StartConfigurationSessionRequest {
   ConfigurationProfileIdentifier: string | undefined;
 
   /**
-   * <p>The interval at which your client will poll for configuration. If provided, the service
-   *         will throw a BadRequestException if the client polls before the specified poll interval. By default,
-   *         client poll intervals are not enforced.</p>
+   * <p>Sets a constraint on a session. If you specify a value of, for example, 60 seconds, then
+   *          the client that established the session can't call <a>GetLatestConfiguration</a>
+   *          more frequently then every 60 seconds.</p>
    */
   RequiredMinimumPollIntervalInSeconds?: number;
 }
@@ -194,17 +192,17 @@ export namespace StartConfigurationSessionRequest {
   });
 }
 
-/**
- * <p>Response parameters for the StartConfigurationSession API.</p>
- */
 export interface StartConfigurationSessionResponse {
   /**
-   * <p>Token encapsulating state about the configuration session. Provide this token to the GetLatestConfiguration API to retrieve configuration data.</p>
-   *         <important>
-   *             <p>This token should only be used once in your first call to GetLatestConfiguration. You MUST use the
-   *                 new token in the GetConfiguration response (NextPollConfigurationToken) in each subsequent call to
-   *                 GetLatestConfiguration.</p>
-   *         </important>
+   * <p>Token encapsulating state about the configuration session. Provide this token to the
+   *             <code>GetLatestConfiguration</code> API to retrieve configuration data.</p>
+   *          <important>
+   *             <p>This token should only be used once in your first call to
+   *                <code>GetLatestConfiguration</code>. You MUST use the new token in the
+   *                <code>GetLatestConfiguration</code> response
+   *             (<code>NextPollConfigurationToken</code>) in each subsequent call to
+   *                <code>GetLatestConfiguration</code>.</p>
+   *          </important>
    */
   InitialConfigurationToken?: string;
 }
@@ -227,12 +225,13 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
   Message?: string;
 }
 
-/**
- * <p>Request parameters for the GetLatestConfiguration API</p>
- */
 export interface GetLatestConfigurationRequest {
   /**
-   * <p>Token describing the current state of the configuration session. To obtain a token, first call the StartConfigurationSession API. Note that every call to GetLatestConfiguration will return a new ConfigurationToken (NextPollConfigurationToken in the response) and MUST be provided to subsequent GetLatestConfiguration API calls.</p>
+   * <p>Token describing the current state of the configuration session. To obtain a token,
+   *          first call the <a>StartConfigurationSession</a> API. Note that every call to
+   *             <code>GetLatestConfiguration</code> will return a new <code>ConfigurationToken</code>
+   *             (<code>NextPollConfigurationToken</code> in the response) and MUST be provided to
+   *          subsequent <code>GetLatestConfiguration</code> API calls.</p>
    */
   ConfigurationToken: string | undefined;
 }
@@ -246,17 +245,18 @@ export namespace GetLatestConfigurationRequest {
   });
 }
 
-/**
- * <p>Response parameters for the GetLatestConfiguration API</p>
- */
 export interface GetLatestConfigurationResponse {
   /**
-   * <p>The latest token describing the current state of the configuration session. This MUST be provided to the next call to GetLatestConfiguration.</p>
+   * <p>The latest token describing the current state of the configuration session. This MUST be
+   *          provided to the next call to <code>GetLatestConfiguration.</code>
+   *          </p>
    */
   NextPollConfigurationToken?: string;
 
   /**
-   * <p>The amount of time the client should wait before polling for configuration updates again. See RequiredMinimumPollIntervalInSeconds to set the desired poll interval.</p>
+   * <p>The amount of time the client should wait before polling for configuration updates
+   *          again. Use <code>RequiredMinimumPollIntervalInSeconds</code> to set the desired poll
+   *          interval.</p>
    */
   NextPollIntervalInSeconds?: number;
 
@@ -266,7 +266,8 @@ export interface GetLatestConfigurationResponse {
   ContentType?: string;
 
   /**
-   * <p>The data of the configuration. Note that this may be empty if the client already has the latest version of configuration.</p>
+   * <p>The data of the configuration. This may be empty if the client already has the latest
+   *          version of configuration.</p>
    */
   Configuration?: Uint8Array;
 }

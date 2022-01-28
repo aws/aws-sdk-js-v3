@@ -63,7 +63,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For FSx for Lustre file systems, you can update the following
+ *          <p>For Amazon FSx for Lustre file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -97,7 +97,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *                </p>
  *             </li>
  *          </ul>
- *          <p>For FSx for ONTAP file systems, you can update the following
+ *          <p>For Amazon FSx for NetApp ONTAP file systems, you can update the following
  *       properties:</p>
  *          <ul>
  *             <li>
@@ -112,7 +112,17 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <code>DiskIopsConfiguration</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <code>FsxAdminPassword</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>StorageCapacity</code>
  *                </p>
  *             </li>
  *             <li>
@@ -142,11 +152,6 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *             <li>
  *                <p>
  *                   <code>DailyAutomaticBackupStartTime</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DiskIopsConfiguration</code>
  *                </p>
  *             </li>
  *             <li>

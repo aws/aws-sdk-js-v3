@@ -11,6 +11,11 @@ import {
   AssociateBotCommandOutput,
 } from "./commands/AssociateBotCommand";
 import {
+  AssociateDefaultVocabularyCommand,
+  AssociateDefaultVocabularyCommandInput,
+  AssociateDefaultVocabularyCommandOutput,
+} from "./commands/AssociateDefaultVocabularyCommand";
+import {
   AssociateInstanceStorageConfigCommand,
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
@@ -98,6 +103,11 @@ import {
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
 import {
+  CreateVocabularyCommand,
+  CreateVocabularyCommandInput,
+  CreateVocabularyCommandOutput,
+} from "./commands/CreateVocabularyCommand";
+import {
   DeleteContactFlowCommand,
   DeleteContactFlowCommandInput,
   DeleteContactFlowCommandOutput,
@@ -143,6 +153,11 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "./commands/DeleteUserHierarchyGroupCommand";
+import {
+  DeleteVocabularyCommand,
+  DeleteVocabularyCommandInput,
+  DeleteVocabularyCommandOutput,
+} from "./commands/DeleteVocabularyCommand";
 import {
   DescribeAgentStatusCommand,
   DescribeAgentStatusCommandInput,
@@ -218,6 +233,11 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
+import {
+  DescribeVocabularyCommand,
+  DescribeVocabularyCommandInput,
+  DescribeVocabularyCommandOutput,
+} from "./commands/DescribeVocabularyCommand";
 import {
   DisassociateApprovedOriginCommand,
   DisassociateApprovedOriginCommandInput,
@@ -304,6 +324,11 @@ import {
   ListContactReferencesCommandInput,
   ListContactReferencesCommandOutput,
 } from "./commands/ListContactReferencesCommand";
+import {
+  ListDefaultVocabulariesCommand,
+  ListDefaultVocabulariesCommandInput,
+  ListDefaultVocabulariesCommandOutput,
+} from "./commands/ListDefaultVocabulariesCommand";
 import {
   ListHoursOfOperationsCommand,
   ListHoursOfOperationsCommandInput,
@@ -398,6 +423,11 @@ import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
 } from "./commands/ResumeContactRecordingCommand";
+import {
+  SearchVocabulariesCommand,
+  SearchVocabulariesCommandInput,
+  SearchVocabulariesCommandOutput,
+} from "./commands/SearchVocabulariesCommand";
 import {
   StartChatContactCommand,
   StartChatContactCommandInput,
@@ -611,9 +641,8 @@ import { ConnectClient } from "./ConnectClient";
  *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
  *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
- *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect
- *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
- *     Endpoints</a>.</p>
+ *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
+ *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  *          <note>
  *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>
@@ -672,6 +701,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: AssociateBotCommandOutput) => void
   ): Promise<AssociateBotCommandOutput> | void {
     const command = new AssociateBotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates an existing vocabulary as the default. Contact Lens for Amazon Connect uses the vocabulary in post-call and real-time analysis sessions for the given language.</p>
+   */
+  public associateDefaultVocabulary(
+    args: AssociateDefaultVocabularyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateDefaultVocabularyCommandOutput>;
+  public associateDefaultVocabulary(
+    args: AssociateDefaultVocabularyCommandInput,
+    cb: (err: any, data?: AssociateDefaultVocabularyCommandOutput) => void
+  ): void;
+  public associateDefaultVocabulary(
+    args: AssociateDefaultVocabularyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateDefaultVocabularyCommandOutput) => void
+  ): void;
+  public associateDefaultVocabulary(
+    args: AssociateDefaultVocabularyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateDefaultVocabularyCommandOutput) => void),
+    cb?: (err: any, data?: AssociateDefaultVocabularyCommandOutput) => void
+  ): Promise<AssociateDefaultVocabularyCommandOutput> | void {
+    const command = new AssociateDefaultVocabularyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1303,6 +1364,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Creates a custom vocabulary associated with your Amazon Connect instance. You can set a custom
+   *    vocabulary to be your default vocabulary for a given language. Contact Lens for Amazon Connect uses the default
+   *    vocabulary in post-call and real-time contact analysis sessions for that language.</p>
+   */
+  public createVocabulary(
+    args: CreateVocabularyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVocabularyCommandOutput>;
+  public createVocabulary(
+    args: CreateVocabularyCommandInput,
+    cb: (err: any, data?: CreateVocabularyCommandOutput) => void
+  ): void;
+  public createVocabulary(
+    args: CreateVocabularyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVocabularyCommandOutput) => void
+  ): void;
+  public createVocabulary(
+    args: CreateVocabularyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVocabularyCommandOutput) => void),
+    cb?: (err: any, data?: CreateVocabularyCommandOutput) => void
+  ): Promise<CreateVocabularyCommandOutput> | void {
+    const command = new CreateVocabularyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a contact flow for the specified Amazon Connect instance.</p>
    */
   public deleteContactFlow(
@@ -1436,8 +1531,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have
-   *    any use cases associated with it.</p>
+   * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association
+   *    must not have any use cases associated with it.</p>
    */
   public deleteIntegrationAssociation(
     args: DeleteIntegrationAssociationCommandInput,
@@ -1617,6 +1712,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteUserHierarchyGroupCommandOutput) => void
   ): Promise<DeleteUserHierarchyGroupCommandOutput> | void {
     const command = new DeleteUserHierarchyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the vocabulary that has the given identifier.</p>
+   */
+  public deleteVocabulary(
+    args: DeleteVocabularyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVocabularyCommandOutput>;
+  public deleteVocabulary(
+    args: DeleteVocabularyCommandInput,
+    cb: (err: any, data?: DeleteVocabularyCommandOutput) => void
+  ): void;
+  public deleteVocabulary(
+    args: DeleteVocabularyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVocabularyCommandOutput) => void
+  ): void;
+  public deleteVocabulary(
+    args: DeleteVocabularyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVocabularyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVocabularyCommandOutput) => void
+  ): Promise<DeleteVocabularyCommandOutput> | void {
+    const command = new DeleteVocabularyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2126,6 +2253,38 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Describes the specified vocabulary.</p>
+   */
+  public describeVocabulary(
+    args: DescribeVocabularyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVocabularyCommandOutput>;
+  public describeVocabulary(
+    args: DescribeVocabularyCommandInput,
+    cb: (err: any, data?: DescribeVocabularyCommandOutput) => void
+  ): void;
+  public describeVocabulary(
+    args: DescribeVocabularyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVocabularyCommandOutput) => void
+  ): void;
+  public describeVocabulary(
+    args: DescribeVocabularyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVocabularyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVocabularyCommandOutput) => void
+  ): Promise<DescribeVocabularyCommandOutput> | void {
+    const command = new DescribeVocabularyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Revokes access to integrated applications from Amazon Connect.</p>
    */
@@ -2600,8 +2759,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the
-   *    instance. </p>
+   *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently
+   *    associated with the instance. </p>
    */
   public listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   public listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
@@ -2718,6 +2877,38 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListContactReferencesCommandOutput) => void
   ): Promise<ListContactReferencesCommandOutput> | void {
     const command = new ListContactReferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the default vocabularies for the specified Amazon Connect instance.</p>
+   */
+  public listDefaultVocabularies(
+    args: ListDefaultVocabulariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDefaultVocabulariesCommandOutput>;
+  public listDefaultVocabularies(
+    args: ListDefaultVocabulariesCommandInput,
+    cb: (err: any, data?: ListDefaultVocabulariesCommandOutput) => void
+  ): void;
+  public listDefaultVocabularies(
+    args: ListDefaultVocabulariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDefaultVocabulariesCommandOutput) => void
+  ): void;
+  public listDefaultVocabularies(
+    args: ListDefaultVocabulariesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDefaultVocabulariesCommandOutput) => void),
+    cb?: (err: any, data?: ListDefaultVocabulariesCommandOutput) => void
+  ): Promise<ListDefaultVocabulariesCommandOutput> | void {
+    const command = new ListDefaultVocabulariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2866,8 +3057,8 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect
-   *    instance.</p>
+   * <p>Provides summary information about the Amazon Web Services resource associations for the
+   *    specified Amazon Connect instance.</p>
    */
   public listIntegrationAssociations(
     args: ListIntegrationAssociationsCommandInput,
@@ -3445,13 +3636,45 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Searches for vocabularies within a specific Amazon Connect instance using <code>State</code>, <code>NameStartsWith</code>, and <code>LanguageCode</code>.</p>
+   */
+  public searchVocabularies(
+    args: SearchVocabulariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchVocabulariesCommandOutput>;
+  public searchVocabularies(
+    args: SearchVocabulariesCommandInput,
+    cb: (err: any, data?: SearchVocabulariesCommandOutput) => void
+  ): void;
+  public searchVocabularies(
+    args: SearchVocabulariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchVocabulariesCommandOutput) => void
+  ): void;
+  public searchVocabularies(
+    args: SearchVocabulariesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchVocabulariesCommandOutput) => void),
+    cb?: (err: any, data?: SearchVocabulariesCommandOutput) => void
+  ): Promise<SearchVocabulariesCommandOutput> | void {
+    const command = new SearchVocabulariesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides
    *    a token required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
    *
    *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
    *    connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
    *
-   *          <p>A 429 error occurs in two situations:</p>
+   *          <p>A 429 error occurs in the following situations:</p>
    *          <ul>
    *             <li>
    *                <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code>
@@ -3463,6 +3686,9 @@ export class Connect extends ConnectClient {
    *       <code>LimitExceededException</code>.</p>
    *             </li>
    *          </ul>
+   *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your account may
+   *    not support the ability to configure custom chat durations. For more information, contact Amazon Web Services Support.
+   *   </p>
    *
    *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect Administrator
    *     Guide</i>.</p>
@@ -3538,7 +3764,7 @@ export class Connect extends ConnectClient {
   /**
    * <p> Initiates real-time message streaming for a new chat contact.</p>
    *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
-   *    streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   *     streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
   public startContactStreaming(
     args: StartContactStreamingCommandInput,
@@ -3586,8 +3812,9 @@ export class Connect extends ConnectClient {
    *          </note>
    *          <note>
    *             <p>Campaign calls are not allowed by default. Before you can make a call with
-   *     <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more information, see
-   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *      <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase
+   *     request. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a>
+   *     in the <i>Amazon Connect Administrator Guide</i>. </p>
    *          </note>
    */
   public startOutboundVoiceContact(
@@ -3788,8 +4015,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Adds the specified tags to the specified resource.</p>
-   *          <p>The supported resource types are users, routing profiles, queues, quick connects,
-   *    contact flows, agent status, and hours of operation.</p>
+   *          <p>The supported resource types are users, routing profiles, queues, quick connects, contact
+   *    flows, agent status, and hours of operation.</p>
    *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
    *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */

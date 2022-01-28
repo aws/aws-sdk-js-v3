@@ -27,7 +27,7 @@ export interface ListUserPoolsCommandInput extends ListUserPoolsRequest {}
 export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the user pools associated with an account.</p>
+ * <p>Lists the user pools associated with an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -27,9 +27,8 @@ export interface UpdateAuthEventFeedbackCommandInput extends UpdateAuthEventFeed
 export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFeedbackResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the feedback for an authentication event whether it was from a valid user or
- *             not. This feedback is used for improving the risk evaluation decision for the user pool
- *             as part of Amazon Cognito advanced security.</p>
+ * <p>Provides the feedback for an authentication event, whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part
+ *             of Amazon Cognito advanced security.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

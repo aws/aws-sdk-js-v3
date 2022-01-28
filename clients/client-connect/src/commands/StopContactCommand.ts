@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StopContactRequest, StopContactResponse } from "../models/models_0";
+import { StopContactRequest, StopContactResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1StopContactCommand,
   serializeAws_restJson1StopContactCommand,

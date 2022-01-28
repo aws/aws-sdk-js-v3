@@ -15,6 +15,11 @@ import {
   CreateMountTargetCommandInput,
   CreateMountTargetCommandOutput,
 } from "./commands/CreateMountTargetCommand";
+import {
+  CreateReplicationConfigurationCommand,
+  CreateReplicationConfigurationCommandInput,
+  CreateReplicationConfigurationCommandOutput,
+} from "./commands/CreateReplicationConfigurationCommand";
 import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   DeleteAccessPointCommand,
@@ -36,6 +41,11 @@ import {
   DeleteMountTargetCommandInput,
   DeleteMountTargetCommandOutput,
 } from "./commands/DeleteMountTargetCommand";
+import {
+  DeleteReplicationConfigurationCommand,
+  DeleteReplicationConfigurationCommandInput,
+  DeleteReplicationConfigurationCommandOutput,
+} from "./commands/DeleteReplicationConfigurationCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import {
   DescribeAccessPointsCommand,
@@ -77,6 +87,11 @@ import {
   DescribeMountTargetSecurityGroupsCommandInput,
   DescribeMountTargetSecurityGroupsCommandOutput,
 } from "./commands/DescribeMountTargetSecurityGroupsCommand";
+import {
+  DescribeReplicationConfigurationsCommand,
+  DescribeReplicationConfigurationsCommandInput,
+  DescribeReplicationConfigurationsCommandOutput,
+} from "./commands/DescribeReplicationConfigurationsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
@@ -128,7 +143,7 @@ import { EFSClient } from "./EFSClient";
 /**
  * <fullname>Amazon Elastic File System</fullname>
  *          <p>Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use
- *       with Amazon EC2 instances in the Amazon Web Services Cloud. With Amazon EFS, storage capacity is elastic,
+ *       with Amazon EC2 Linux and Mac instances in the Amazon Web Services Cloud. With Amazon EFS, storage capacity is elastic,
  *       growing and shrinking automatically as you add and remove files, so your applications have the
  *       storage they need, when they need it. For more information, see the <a href="https://docs.aws.amazon.com/efs/latest/ug/api-reference.html">Amazon Elastic File System API Reference</a> and the <a href="https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html">Amazon Elastic File System User Guide</a>.</p>
  */
@@ -431,6 +446,113 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * <p>Creates a replication configuration that replicates an existing EFS file
+   *       system to a new, read-only file system. For more information, see
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a>.
+   *     The replication configuration specifies the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Source file system</b> - an existing
+   *         EFS file system that you want replicated. The source file system cannot be a destination file system
+   *       in an existing replication configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Destination file system configuration</b>
+   *         - the configuration of the destination file system to which the source file system
+   *         will be replicated. There can only be one destination file system in a replication
+   *         configuration.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <b>Amazon Web Services Region</b> - The Amazon Web Services Region in which the destination
+   *           file system is created. EFS Replication is available in all Amazon Web Services Region that Amazon EFS is available in, except the following regions:
+   *           Asia Pacific (Hong Kong) Europe (Milan), Middle East (Bahrain), Africa (Cape Town), and Asia Pacific (Jakarta).</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>Availability zone</b> - If you want the destination file system to use
+   *           One Zone availability and durability, you must specify the Availability Zone to create the file system in.
+   *           For more information about EFS storage classes, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
+   *             Amazon EFS storage classes</a> in the <i>Amazon EFS User Guide</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <b>Encryption</b> - All destination file systems are
+   *           created with encryption at rest enabled. You can specify the
+   *           KMS key that is used to encrypt the destination file system.
+   *           Your service-managed KMS key for Amazon EFS is used if you don't specify a KMS key.
+   *           You cannot change this after the file system is created.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>The following properties are set by default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Performance mode</b> - The destination file system's
+   *         performance mode will match that of the source file system, unless the destination file
+   *         system uses One Zone storage. In that case, the <i>General Purpose</i>
+   *         performance mode is used. The Performance mode cannot be changed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Throughput mode</b> - The destination file system
+   *         use the Bursting throughput mode by default. You can modify the throughput mode once the file system
+   *         is created.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>The following properties are turned off by default:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Lifecycle management</b> - EFS lifecycle
+   *         management and intelligent tiering are not enabled on the destination file system. You can enable
+   *         EFS lifecycle management and intelligent tiering after the destination file system is created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Automatic backups</b> - Automatic daily backups
+   *         not enabled on the destination file system. You can change this setting after the file system is created.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a>.</p>
+   */
+  public createReplicationConfiguration(
+    args: CreateReplicationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReplicationConfigurationCommandOutput>;
+  public createReplicationConfiguration(
+    args: CreateReplicationConfigurationCommandInput,
+    cb: (err: any, data?: CreateReplicationConfigurationCommandOutput) => void
+  ): void;
+  public createReplicationConfiguration(
+    args: CreateReplicationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReplicationConfigurationCommandOutput) => void
+  ): void;
+  public createReplicationConfiguration(
+    args: CreateReplicationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReplicationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: CreateReplicationConfigurationCommandOutput) => void
+  ): Promise<CreateReplicationConfigurationCommandOutput> | void {
+    const command = new CreateReplicationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * @deprecated
    *
    * <note>
@@ -638,6 +760,42 @@ export class EFS extends EFSClient {
     cb?: (err: any, data?: DeleteMountTargetCommandOutput) => void
   ): Promise<DeleteMountTargetCommandOutput> | void {
     const command = new DeleteMountTargetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an existing replication configuration.  To delete a replication
+   *       configuration, you must make the request from the Amazon Web Services Region
+   *       in which the destination file system is located. Deleting a replication
+   *       configuration ends the replication process. You can write to the destination file
+   *       system once it's status becomes <code>Writeable</code>.</p>
+   */
+  public deleteReplicationConfiguration(
+    args: DeleteReplicationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReplicationConfigurationCommandOutput>;
+  public deleteReplicationConfiguration(
+    args: DeleteReplicationConfigurationCommandInput,
+    cb: (err: any, data?: DeleteReplicationConfigurationCommandOutput) => void
+  ): void;
+  public deleteReplicationConfiguration(
+    args: DeleteReplicationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReplicationConfigurationCommandOutput) => void
+  ): void;
+  public deleteReplicationConfiguration(
+    args: DeleteReplicationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReplicationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteReplicationConfigurationCommandOutput) => void
+  ): Promise<DeleteReplicationConfigurationCommandOutput> | void {
+    const command = new DeleteReplicationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -999,6 +1157,39 @@ export class EFS extends EFSClient {
   }
 
   /**
+   * <p>Retrieves the replication configurations for either a specific file system, or all configurations for the
+   *       Amazon Web Services account in an Amazon Web Services Region if a file system is not specified.</p>
+   */
+  public describeReplicationConfigurations(
+    args: DescribeReplicationConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplicationConfigurationsCommandOutput>;
+  public describeReplicationConfigurations(
+    args: DescribeReplicationConfigurationsCommandInput,
+    cb: (err: any, data?: DescribeReplicationConfigurationsCommandOutput) => void
+  ): void;
+  public describeReplicationConfigurations(
+    args: DescribeReplicationConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplicationConfigurationsCommandOutput) => void
+  ): void;
+  public describeReplicationConfigurations(
+    args: DescribeReplicationConfigurationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplicationConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplicationConfigurationsCommandOutput) => void
+  ): Promise<DescribeReplicationConfigurationsCommandOutput> | void {
+    const command = new DescribeReplicationConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * @deprecated
    *
    * <note>
@@ -1122,8 +1313,10 @@ export class EFS extends EFSClient {
   }
 
   /**
-   * <p>Use this operation to set the account preference in the current Amazon Web Services Region to use long 17 character (63 bit) or short 8 character (32 bit) resource IDs for
-   *       new EFS file system and mount target resources. All existing resource IDs are not affected by any changes you make. You can set the ID preference during the
+   * <p>Use this operation to set the account preference in the current Amazon Web Services Region
+   *       to use long 17 character (63 bit) or short 8 character (32 bit) resource IDs for
+   *       new EFS file system and mount target resources. All existing resource IDs are not affected
+   *       by any changes you make. You can set the ID preference during the
    *       opt-in period as EFS transitions to long resource IDs. For more information,
    *       see <a href="https://docs.aws.amazon.com/efs/latest/ug/manage-efs-resource-ids.html">Managing Amazon EFS resource IDs</a>.</p>
    *          <note>

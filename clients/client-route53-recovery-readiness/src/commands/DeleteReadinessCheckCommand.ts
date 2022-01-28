@@ -26,7 +26,7 @@ export interface DeleteReadinessCheckCommandInput extends DeleteReadinessCheckRe
 export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
 
 /**
- * Deletes an existing Readiness Check.
+ * <p>Deletes a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

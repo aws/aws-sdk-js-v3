@@ -32,6 +32,9 @@ export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse,
  *                <p>Amazon FSx for NetApp ONTAP</p>
  *             </li>
  *             <li>
+ *                <p>Amazon FSx for OpenZFS</p>
+ *             </li>
+ *             <li>
  *                <p>Amazon FSx for Windows File Server</p>
  *             </li>
  *          </ul>

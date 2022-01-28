@@ -26,7 +26,7 @@ export interface DeleteCellCommandInput extends DeleteCellRequest {}
 export interface DeleteCellCommandOutput extends __MetadataBearer {}
 
 /**
- * Deletes an existing Cell.
+ * <p>Delete a cell. When successful, the response code is 204, with no response body.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

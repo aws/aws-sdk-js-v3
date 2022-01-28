@@ -528,6 +528,7 @@ import {
   AwsWafWebAclRule,
   AwsXrayEncryptionConfigDetails,
   BatchUpdateFindingsUnprocessedFinding,
+  BooleanFilter,
   Cell,
   ClassificationResult,
   ClassificationStatus,
@@ -14273,6 +14274,7 @@ const serializeAws_restJson1AwsSecurityFinding = (input: AwsSecurityFinding, con
       input.Remediation !== null && { Remediation: serializeAws_restJson1Remediation(input.Remediation, context) }),
     ...(input.Resources !== undefined &&
       input.Resources !== null && { Resources: serializeAws_restJson1ResourceList(input.Resources, context) }),
+    ...(input.Sample !== undefined && input.Sample !== null && { Sample: input.Sample }),
     ...(input.SchemaVersion !== undefined && input.SchemaVersion !== null && { SchemaVersion: input.SchemaVersion }),
     ...(input.Severity !== undefined &&
       input.Severity !== null && { Severity: serializeAws_restJson1Severity(input.Severity, context) }),
@@ -14650,6 +14652,8 @@ const serializeAws_restJson1AwsSecurityFindingFilters = (
       input.ResourceType !== null && {
         ResourceType: serializeAws_restJson1StringFilterList(input.ResourceType, context),
       }),
+    ...(input.Sample !== undefined &&
+      input.Sample !== null && { Sample: serializeAws_restJson1BooleanFilterList(input.Sample, context) }),
     ...(input.SeverityLabel !== undefined &&
       input.SeverityLabel !== null && {
         SeverityLabel: serializeAws_restJson1StringFilterList(input.SeverityLabel, context),
@@ -15009,6 +15013,23 @@ const serializeAws_restJson1BatchImportFindingsRequestFindingList = (
         return null as any;
       }
       return serializeAws_restJson1AwsSecurityFinding(entry, context);
+    });
+};
+
+const serializeAws_restJson1BooleanFilter = (input: BooleanFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1BooleanFilterList = (input: BooleanFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1BooleanFilter(entry, context);
     });
 };
 
@@ -23663,6 +23684,7 @@ const deserializeAws_restJson1AwsSecurityFinding = (output: any, context: __Serd
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_restJson1ResourceList(output.Resources, context)
         : undefined,
+    Sample: __expectBoolean(output.Sample),
     SchemaVersion: __expectString(output.SchemaVersion),
     Severity:
       output.Severity !== undefined && output.Severity !== null
@@ -24012,6 +24034,10 @@ const deserializeAws_restJson1AwsSecurityFindingFilters = (
     ResourceType:
       output.ResourceType !== undefined && output.ResourceType !== null
         ? deserializeAws_restJson1StringFilterList(output.ResourceType, context)
+        : undefined,
+    Sample:
+      output.Sample !== undefined && output.Sample !== null
+        ? deserializeAws_restJson1BooleanFilterList(output.Sample, context)
         : undefined,
     SeverityLabel:
       output.SeverityLabel !== undefined && output.SeverityLabel !== null
@@ -24374,6 +24400,23 @@ const deserializeAws_restJson1BatchUpdateFindingsUnprocessedFindingsList = (
         return null as any;
       }
       return deserializeAws_restJson1BatchUpdateFindingsUnprocessedFinding(entry, context);
+    });
+};
+
+const deserializeAws_restJson1BooleanFilter = (output: any, context: __SerdeContext): BooleanFilter => {
+  return {
+    Value: __expectBoolean(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1BooleanFilterList = (output: any, context: __SerdeContext): BooleanFilter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1BooleanFilter(entry, context);
     });
 };
 

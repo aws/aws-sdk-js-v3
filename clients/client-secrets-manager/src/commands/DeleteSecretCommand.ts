@@ -35,6 +35,12 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *       remove the <code>DeletionDate</code> and cancel the deletion of the secret.</p>
  *          <p>In a secret scheduled for deletion, you cannot access the encrypted secret value.
  *       To access that information, first cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
+ *          <p>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:DeleteSecret</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

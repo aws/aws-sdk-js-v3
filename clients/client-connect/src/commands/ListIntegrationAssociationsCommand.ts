@@ -24,8 +24,8 @@ export interface ListIntegrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect
- *    instance.</p>
+ * <p>Provides summary information about the Amazon Web Services resource associations for the
+ *    specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

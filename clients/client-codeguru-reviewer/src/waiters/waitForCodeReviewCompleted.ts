@@ -23,6 +23,14 @@ const checkState = async (
       const returnComparator = () => {
         return result.CodeReview.State;
       };
+      if (returnComparator() === "Failed") {
+        return { state: WaiterState.FAILURE, reason };
+      }
+    } catch (e) {}
+    try {
+      const returnComparator = () => {
+        return result.CodeReview.State;
+      };
       if (returnComparator() === "Pending") {
         return { state: WaiterState.RETRY, reason };
       }

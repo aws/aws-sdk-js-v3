@@ -24,6 +24,12 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
 /**
  * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
  *       only returns fields that have a value in the response. </p>
+ *          <p>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:DescribeSecret</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

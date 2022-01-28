@@ -26,7 +26,7 @@ export interface DeleteRecoveryGroupCommandInput extends DeleteRecoveryGroupRequ
 export interface DeleteRecoveryGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * Deletes an existing Recovery Group.
+ * <p>Deletes a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

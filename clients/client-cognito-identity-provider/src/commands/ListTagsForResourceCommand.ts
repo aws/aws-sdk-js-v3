@@ -28,8 +28,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
- *         <p>A tag is a label that you can apply to user pools to categorize and manage them in
- *             different ways, such as by purpose, owner, environment, or other criteria.</p>
+ *         <p>A tag is a label that you can apply to user pools to categorize and manage them in different ways, such as by purpose, owner, environment, or other criteria.</p>
  *         <p>You can use this action up to 10 times per second, per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

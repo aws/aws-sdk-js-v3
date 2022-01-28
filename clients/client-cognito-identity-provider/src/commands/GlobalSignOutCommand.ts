@@ -27,9 +27,8 @@ export interface GlobalSignOutCommandInput extends GlobalSignOutRequest {}
 export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __MetadataBearer {}
 
 /**
- * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a
- *             user. The user's current access and Id tokens remain valid until their expiry. Access
- *             and Id tokens expire one hour after they are issued.</p>
+ * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a user. The user's current access and ID tokens remain valid until their expiry. Access and Id tokens expire
+ *             one hour after they're issued.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
