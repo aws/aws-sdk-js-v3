@@ -20,46 +20,29 @@ export class SdkException extends Error implements SmithyException, MetadataBear
   }
 }
 
-// const deserializeMetadata = (output: HttpResponse): ResponseMetadata => ({
-//   httpStatusCode: output.statusCode,
-//   requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
-//   extendedRequestId: output.headers["x-amz-id-2"],
-//   cfId: output.headers["x-amz-cf-id"],
-// });
-
-// export interface InvalidSignatureException extends SmithyException {
-//   name: "InvalidSignatureException";
-//   $fault: "client";
-//   SomeTrait: string | undefined;
-// }
-
-// export class InvalidSignatureException extends SmithyException {
-//   constructor(parsedOutput: HttpResponse, deserialized: any) {
-//     super({
-//       name: "InvalidSignatureException",
-//       $fault: "client",
-//       $metadata: deserializeMetadata(parsedOutput),
-//     });
-//     Object.setPrototypeOf(this, InvalidSignatureException.prototype);
-//     Object.assign(this, { ...deserialized });
-//   }
-// }
-
-// (async () => {
-//   const error = new InvalidSignatureException(
-//     {
-//       statusCode: 400,
-//       headers: {
-//         "x-amzn-request-id": "124",
-//       },
-//     },
-//     await Promise.resolve({ SomeTrait: "trait_value" })
-//   );
-
-//   console.log(error);
-//   console.log(error instanceof InvalidSignatureException);
-//   console.log(error instanceof SdkException);
-//   console.log(error instanceof Error);
-//   console.log(new Error() instanceof InvalidSignatureException);
-//   console.log(new Error() instanceof Error);
-// })();
+/**
+ * This method inject unmodeled member to a deserialized SDK exception,
+ * and load the error message from different possible keys('message',
+ * 'Message').
+ *
+ * @internal
+ */
+export const decorateSdkException = <E extends SdkException>(
+  exception: E,
+  additions: { [key: string]: any } = {}
+): E => {
+  // apply additional properties to deserialized SdkException object
+  Object.entries(additions)
+    .filter(([, v]) => v !== undefined)
+    .forEach(([k, v]) => {
+      // @ts-ignore assign unmodeled keys
+      exception[k] = v;
+    });
+  // load error message from possible locations
+  // @ts-expect-error message could exist in Message key.
+  const message = exception.message || exception.Message || "UnknownError";
+  exception.message = message;
+  // @ts-expect-error
+  delete exception.Message;
+  return exception;
+};
