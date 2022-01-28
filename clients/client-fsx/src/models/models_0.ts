@@ -1224,6 +1224,31 @@ export enum TieringPolicyName {
  * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
  *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
  *             pool storage based on your access patterns.</p>
+ *         <p>Valid tiering policies are the following:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>SNAPSHOT_ONLY</code> - (Default value) moves cold snapshots to the capacity pool storage tier.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>AUTO</code> - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>ALL</code> - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.</p>
+ *             </li>
+ *          </ul>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>NONE</code> - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.</p>
+ *             </li>
+ *          </ul>
  */
 export interface TieringPolicy {
   /**
@@ -3039,7 +3064,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             The <code>SCRATCH_2</code> deployment type provides in-transit encryption of data and higher burst
    *             throughput capacity than <code>SCRATCH_1</code>.</p>
    *         <p>Choose <code>PERSISTENT_1</code> for longer-term storage and for throughput-focused
-   *             workloads that aren’t latency-sensitive. a.
+   *             workloads that aren’t latency-sensitive.
    *             <code>PERSISTENT_1</code> supports encryption of data in transit, and is available in all
    *             Amazon Web Services Regions in which FSx for Lustre is available.</p>
    *         <p>Choose <code>PERSISTENT_2</code> for longer-term storage and for latency-sensitive workloads
@@ -3267,7 +3292,7 @@ export interface CreateFileSystemOntapConfiguration {
 
   /**
    * <p>Sets the throughput capacity for the file system that you're creating.
-   *             Valid values are 512, 1024, and 2048 MBps.</p>
+   *             Valid values are 128, 256, 512, 1024, and 2048 MBps.</p>
    */
   ThroughputCapacity: number | undefined;
 
@@ -3827,7 +3852,7 @@ export interface CreateFileSystemRequest {
    *             <li>
    *                <p>Set to <code>HDD</code> to use hard disk drive storage.
    *                 HDD is supported on <code>SINGLE_AZ_2</code> and <code>MULTI_AZ_1</code> Windows file system deployment types,
-   *                 and on <code>PERSISTENT</code> Lustre file system deployment types.
+   *                 and on <code>PERSISTENT_1</code> Lustre file system deployment types.
    *                 </p>
    *             </li>
    *          </ul>
@@ -4626,6 +4651,31 @@ export interface CreateOntapVolumeConfiguration {
    * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
    *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
    *             pool storage based on your access patterns.</p>
+   *         <p>Valid tiering policies are the following:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>SNAPSHOT_ONLY</code> - (Default value) moves cold snapshots to the capacity pool storage tier.</p>
+   *             </li>
+   *          </ul>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AUTO</code> - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.</p>
+   *             </li>
+   *          </ul>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>ALL</code> - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.</p>
+   *             </li>
+   *          </ul>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>NONE</code> - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.</p>
+   *             </li>
+   *          </ul>
    */
   TieringPolicy?: TieringPolicy;
 }
@@ -5410,8 +5460,8 @@ export enum DeleteOpenZFSVolumeOption {
  */
 export interface DeleteVolumeOpenZFSConfiguration {
   /**
-   * <p>To delete the volume's children and snapshots, use the string
-   *                 <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</p>
+   * <p>To delete the volume's child volumes, snapshots, and clones, use the string
+   *               <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</p>
    */
   Options?: (DeleteOpenZFSVolumeOption | string)[];
 }
@@ -6623,6 +6673,14 @@ export interface UpdateFileSystemOntapConfiguration {
    *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * <p>The SSD IOPS (input/output operations per second) configuration for an Amazon FSx for NetApp ONTAP file system. The default is 3 IOPS per GB of storage capacity,
+   *             but you can provision additional IOPS per GB of storage. The configuration consists
+   *             of an IOPS mode (<code>AUTOMATIC</code> or <code>USER_PROVISIONED</code>), and in
+   *             the case of <code>USER_PROVISIONED</code> IOPS, the total number of SSD IOPS provisioned.</p>
+   */
+  DiskIopsConfiguration?: DiskIopsConfiguration;
 }
 
 export namespace UpdateFileSystemOntapConfiguration {
@@ -6676,7 +6734,7 @@ export interface UpdateFileSystemOpenZFSConfiguration {
 
   /**
    * <p>The throughput of an Amazon FSx file system, measured in megabytes per second
-   *             (MBps), in 2 to the nth increments, between 2^3 (8) and 2^11 (2048). </p>
+   *             (MBps), in 2 to the nth increments, between 2^3 (8) and 2^12 (4096). </p>
    */
   ThroughputCapacity?: number;
 
@@ -6824,20 +6882,22 @@ export interface UpdateFileSystemRequest {
 
   /**
    * <p>Use this parameter to increase the storage capacity of an Amazon FSx for Windows
-   *       File Server or Amazon FSx for Lustre file system. Specifies the storage capacity
-   *       target value, in GiB, to increase the storage capacity for the file system that you're
-   *       updating. </p>
+   *       File Server, Amazon FSx for Lustre, or Amazon FSx for NetApp ONTAP file system.
+   *       Specifies the storage capacity target value, in GiB, to increase the storage capacity for
+   *       the file system that you're updating. </p>
    *          <note>
    *             <p>You can't make a storage capacity increase request if there is an existing storage
    *         capacity increase request in progress.</p>
    *          </note>
    *          <p>For Windows file systems, the storage capacity target value must be at least 10 percent
    *       greater than the current storage capacity value. To increase storage capacity, the file system
-   *       must have at least 16 MBps of throughput capacity.</p>
+   *       must have at least 16 MBps of throughput capacity. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage
+   *         capacity</a> in the <i>Amazon FSx for Windows File Server User
+   *           Guide</i>.</p>
    *          <p>For Lustre file systems, the storage capacity target value can be the following:</p>
    *          <ul>
    *             <li>
-   *                <p>For <code>SCRATCH_2</code> and <code>PERSISTENT_1 SSD</code> deployment types, valid values
+   *                <p>For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2 SSD</code> deployment types, valid values
    *           are in multiples of 2400 GiB. The value must be greater than the current storage capacity.</p>
    *             </li>
    *             <li>
@@ -6849,16 +6909,12 @@ export interface UpdateFileSystemRequest {
    *                <p>For <code>SCRATCH_1</code> file systems, you can't increase the storage capacity.</p>
    *             </li>
    *          </ul>
-   *          <p>For OpenZFS file systems, the input/output operations per second (IOPS) automatically
-   *       scale with increases to the storage capacity if IOPS is configured for automatic scaling. If
-   *       the storage capacity increase would result in less than 3 IOPS per GiB of storage, this
-   *       operation returns an error. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing storage
-   *         capacity</a> in the <i>Amazon FSx for Windows File Server User
-   *         Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage and throughput
-   *         capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>, and
-   *         <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html">Managing storage capacity</a> in the <i>Amazon FSx for OpenZFS User
-   *         Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage and throughput
+   *           capacity</a> in the <i>Amazon FSx for Lustre User Guide</i>.</p>
+   *          <p>For ONTAP file systems, the storage capacity target value must be at least 10 percent
+   *       greater than the current storage capacity value.  For more information, see
+   *       <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
+   *           Guide</i>.</p>
    */
   StorageCapacity?: number;
 
@@ -7178,17 +7234,13 @@ export interface AdministrativeAction {
    *                     successfully, a <code>STORAGE_OPTIMIZATION</code> task starts. </p>
    *                 <ul>
    *                   <li>
-   *                      <p>For Windows, storage optimization is the process of migrating the file system data
-   *                         to the new, larger disks.</p>
+   *                      <p>For Windows and ONTAP, storage optimization is the process of migrating the file system data
+   *                         to newer larger disks.</p>
    *                   </li>
    *                   <li>
    *                      <p>For Lustre, storage optimization consists of rebalancing the data across the existing and
    *                             newly added file servers.</p>
    *                   </li>
-   *                   <li>
-   *                         <p>For OpenZFS, storage optimization consists of migrating data from the
-   *                             older smaller disks to the newer larger disks.</p>
-   *                     </li>
    *                </ul>
    *                 <p>You can track the storage-optimization progress using the
    *                         <code>ProgressPercent</code> property. When
@@ -7198,8 +7250,9 @@ export interface AdministrativeAction {
    *                         storage capacity</a> in the <i>Amazon FSx for Windows
    *                         File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage
    *                         and throughput capacity</a> in the <i>Amazon FSx for
-   *                         Lustre User Guide</i>, and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-storage-capacity.html">Managing storage capacity</a> in the
-   *                             <i>Amazon FSx for OpenZFS User Guide</i>. </p>
+   *                             Lustre User Guide</i>, and
+   *                     <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
+   *                             Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7471,7 +7524,7 @@ export interface FileSystem {
   OntapConfiguration?: OntapFileSystemConfiguration;
 
   /**
-   * <p>The Lustre version of the Amazon FSx for Lustrefile system, either
+   * <p>The Lustre version of the Amazon FSx for Lustre file system, either
    *             <code>2.10</code> or <code>2.12</code>.</p>
    */
   FileSystemTypeVersion?: string;

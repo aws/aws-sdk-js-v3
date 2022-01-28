@@ -128,6 +128,10 @@ import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from 
 import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "./commands/GetEntityTypesCommand";
 import { GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
 import { GetEventPredictionCommandInput, GetEventPredictionCommandOutput } from "./commands/GetEventPredictionCommand";
+import {
+  GetEventPredictionMetadataCommandInput,
+  GetEventPredictionMetadataCommandOutput,
+} from "./commands/GetEventPredictionMetadataCommand";
 import { GetEventTypesCommandInput, GetEventTypesCommandOutput } from "./commands/GetEventTypesCommand";
 import { GetExternalModelsCommandInput, GetExternalModelsCommandOutput } from "./commands/GetExternalModelsCommand";
 import {
@@ -140,6 +144,10 @@ import { GetModelVersionCommandInput, GetModelVersionCommandOutput } from "./com
 import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand";
 import { GetRulesCommandInput, GetRulesCommandOutput } from "./commands/GetRulesCommand";
 import { GetVariablesCommandInput, GetVariablesCommandOutput } from "./commands/GetVariablesCommand";
+import {
+  ListEventPredictionsCommandInput,
+  ListEventPredictionsCommandOutput,
+} from "./commands/ListEventPredictionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -218,6 +226,7 @@ export type ServiceInputTypes =
   | GetEntityTypesCommandInput
   | GetEventCommandInput
   | GetEventPredictionCommandInput
+  | GetEventPredictionMetadataCommandInput
   | GetEventTypesCommandInput
   | GetExternalModelsCommandInput
   | GetKMSEncryptionKeyCommandInput
@@ -227,6 +236,7 @@ export type ServiceInputTypes =
   | GetOutcomesCommandInput
   | GetRulesCommandInput
   | GetVariablesCommandInput
+  | ListEventPredictionsCommandInput
   | ListTagsForResourceCommandInput
   | PutDetectorCommandInput
   | PutEntityTypeCommandInput
@@ -286,6 +296,7 @@ export type ServiceOutputTypes =
   | GetEntityTypesCommandOutput
   | GetEventCommandOutput
   | GetEventPredictionCommandOutput
+  | GetEventPredictionMetadataCommandOutput
   | GetEventTypesCommandOutput
   | GetExternalModelsCommandOutput
   | GetKMSEncryptionKeyCommandOutput
@@ -295,6 +306,7 @@ export type ServiceOutputTypes =
   | GetOutcomesCommandOutput
   | GetRulesCommandOutput
   | GetVariablesCommandOutput
+  | ListEventPredictionsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutDetectorCommandOutput
   | PutEntityTypeCommandOutput

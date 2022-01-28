@@ -366,8 +366,8 @@ export interface AppConfigClientResolvedConfig extends AppConfigClientResolvedCo
  *          systems where a simple typo could cause an unexpected outage, AppConfig includes
  *          validators. A validator provides a syntactic or semantic check to ensure that the
  *          configuration you want to deploy works as intended. To validate your application
- *          configuration data, you provide a schema or a Lambda function that runs against the
- *          configuration. The configuration deployment or update can only proceed when the
+ *          configuration data, you provide a schema or an Amazon Web Services Lambda function that runs against
+ *          the configuration. The configuration deployment or update can only proceed when the
  *          configuration data is valid.</p>
  *          <p>During a configuration deployment, AppConfig monitors the application to ensure that the
  *          deployment is successful. If the system encounters an error, AppConfig rolls back the
@@ -379,15 +379,15 @@ export interface AppConfigClientResolvedConfig extends AppConfigClientResolvedCo
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Application tuning</b>: Use AppConfig to carefully
- *                introduce changes to your application that can only be tested with production
- *                traffic.</p>
+ *                   <b>Feature flags</b>: Use AppConfig to turn on new
+ *                features that require a timely deployment, such as a product launch or announcement.
+ *             </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Feature toggle</b>: Use AppConfig to turn on new
- *                features that require a timely deployment, such as a product launch or announcement.
- *             </p>
+ *                   <b>Application tuning</b>: Use AppConfig to carefully
+ *                introduce changes to your application that can only be tested with production
+ *                traffic.</p>
  *             </li>
  *             <li>
  *                <p>

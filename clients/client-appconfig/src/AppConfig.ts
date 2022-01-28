@@ -173,8 +173,8 @@ import {
  *          systems where a simple typo could cause an unexpected outage, AppConfig includes
  *          validators. A validator provides a syntactic or semantic check to ensure that the
  *          configuration you want to deploy works as intended. To validate your application
- *          configuration data, you provide a schema or a Lambda function that runs against the
- *          configuration. The configuration deployment or update can only proceed when the
+ *          configuration data, you provide a schema or an Amazon Web Services Lambda function that runs against
+ *          the configuration. The configuration deployment or update can only proceed when the
  *          configuration data is valid.</p>
  *          <p>During a configuration deployment, AppConfig monitors the application to ensure that the
  *          deployment is successful. If the system encounters an error, AppConfig rolls back the
@@ -186,15 +186,15 @@ import {
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Application tuning</b>: Use AppConfig to carefully
- *                introduce changes to your application that can only be tested with production
- *                traffic.</p>
+ *                   <b>Feature flags</b>: Use AppConfig to turn on new
+ *                features that require a timely deployment, such as a product launch or announcement.
+ *             </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Feature toggle</b>: Use AppConfig to turn on new
- *                features that require a timely deployment, such as a product launch or announcement.
- *             </p>
+ *                   <b>Application tuning</b>: Use AppConfig to carefully
+ *                introduce changes to your application that can only be tested with production
+ *                traffic.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -264,7 +264,7 @@ export class AppConfig extends AppConfigClient {
    *             </li>
    *             <li>
    *                <p>A validator for the configuration data. Available validators include either a JSON
-   *                Schema or an Lambda function.</p>
+   *                Schema or an Amazon Web Services Lambda function.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
@@ -604,18 +604,39 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Retrieves information about a configuration.</p>
+   * @deprecated
+   *
+   * <p>Retrieves the latest deployed configuration.</p>
+   *
    *          <important>
-   *             <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code> parameter to
-   *             identify the configuration version on your clients. If you don’t send
-   *                <code>ClientConfigurationVersion</code> with each call to
-   *                <code>GetConfiguration</code>, your clients receive the current configuration. You
-   *             are charged each time your clients receive a configuration.</p>
-   *             <p>To avoid excess charges, we recommend that you include the
-   *                <code>ClientConfigurationVersion</code> value with every call to
-   *                <code>GetConfiguration</code>. This value must be saved on your client. Subsequent
-   *             calls to <code>GetConfiguration</code> must pass this value by using the
-   *                <code>ClientConfigurationVersion</code> parameter. </p>
+   *             <p>Note the following important information.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>This API action has been deprecated. Calls to receive configuration data should
+   *                   use the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a> APIs instead. </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>GetConfiguration</code> is a priced call. For more information, see
+   *                      <a href="https://aws.amazon.com/systems-manager/pricing/">Pricing</a>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code>
+   *                   parameter to identify the configuration version on your clients. If you don’t send
+   *                      <code>ClientConfigurationVersion</code> with each call to
+   *                      <code>GetConfiguration</code>, your clients receive the current configuration.
+   *                   You are charged each time your clients receive a configuration.</p>
+   *                   <p>To avoid excess charges, we recommend you use the <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html">StartConfigurationSession</a> and <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html">GetLatestConfiguration</a> APIs, which track the client configuration
+   *                   version on your behalf. If you choose to continue using
+   *                      <code>GetConfiguration</code>, we recommend that you include the
+   *                      <code>ClientConfigurationVersion</code> value with every call to
+   *                      <code>GetConfiguration</code>. The value to use for
+   *                      <code>ClientConfigurationVersion</code> comes from the
+   *                      <code>ConfigurationVersion</code> attribute returned by
+   *                      <code>GetConfiguration</code> when there is new or updated data, and should be
+   *                   saved for subsequent calls to <code>GetConfiguration</code>.</p>
+   *                </li>
+   *             </ul>
    *          </important>
    */
   public getConfiguration(
@@ -880,7 +901,7 @@ export class AppConfig extends AppConfigClient {
   }
 
   /**
-   * <p>Lists the deployments for an environment.</p>
+   * <p>Lists the deployments for an environment in descending deployment number order.</p>
    */
   public listDeployments(
     args: ListDeploymentsCommandInput,

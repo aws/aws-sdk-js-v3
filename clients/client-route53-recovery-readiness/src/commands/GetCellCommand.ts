@@ -26,7 +26,7 @@ export interface GetCellCommandInput extends GetCellRequest {}
 export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer {}
 
 /**
- * Returns information about a Cell.
+ * <p>Gets information about a cell including cell name, cell Amazon Resource Name (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with their associated recovery group ARNs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -26,7 +26,7 @@ export interface UpdateReadinessCheckCommandInput extends UpdateReadinessCheckRe
 export interface UpdateReadinessCheckCommandOutput extends UpdateReadinessCheckResponse, __MetadataBearer {}
 
 /**
- * Updates an exisiting Readiness Check.
+ * <p>Updates a readiness check.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

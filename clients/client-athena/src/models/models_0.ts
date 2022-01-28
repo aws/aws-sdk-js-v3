@@ -190,7 +190,8 @@ export namespace EngineVersion {
  */
 export interface QueryExecutionContext {
   /**
-   * <p>The name of the database used in the query execution. The database must exist in the catalog.</p>
+   * <p>The name of the database used in the query execution. The database must exist in the
+   *             catalog.</p>
    */
   Database?: string;
 
@@ -352,6 +353,37 @@ export namespace QueryExecutionStatistics {
   });
 }
 
+/**
+ * <p>Provides information about an Athena query error. The
+ *                 <code>AthenaError</code> feature provides standardized error information to help you
+ *             understand failed queries and take steps after a query failure occurs.
+ *                 <code>AthenaError</code> includes an <code>ErrorCategory</code> field that specifies
+ *             whether the cause of the failed query is due to system error, user error, or unknown
+ *             error.</p>
+ */
+export interface AthenaError {
+  /**
+   * <p>An integer value that specifies the category of a query failure error. The following
+   *             list shows the category for each integer value.</p>
+   *         <p>
+   *             <b>1</b> - System</p>
+   *         <p>
+   *             <b>2</b> - User</p>
+   *         <p>
+   *             <b>3</b> - Unknown</p>
+   */
+  ErrorCategory?: number;
+}
+
+export namespace AthenaError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AthenaError): any => ({
+    ...obj,
+  });
+}
+
 export enum QueryExecutionState {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
@@ -395,6 +427,11 @@ export interface QueryExecutionStatus {
    * <p>The date and time that the query completed.</p>
    */
   CompletionDateTime?: Date;
+
+  /**
+   * <p>Provides information about an Athena query error.</p>
+   */
+  AthenaError?: AthenaError;
 }
 
 export namespace QueryExecutionStatus {
@@ -573,8 +610,9 @@ export enum DataCatalogType {
 export interface CreateDataCatalogInput {
   /**
    * <p>The name of the data catalog to create. The catalog name must be unique for the
-   *                 Amazon Web Services account and can use a maximum of 128 alphanumeric, underscore, at
-   *             sign, or hyphen characters.</p>
+   *                 Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at
+   *             sign, or hyphen characters. The remainder of the length constraint of 256 is reserved
+   *             for use by Athena.</p>
    */
   Name: string | undefined;
 
@@ -840,7 +878,7 @@ export interface WorkGroupConfiguration {
    *             workgroup members cannot query data from Requester Pays buckets, and queries that
    *             retrieve data from Requester Pays buckets cause an error. The default is
    *                 <code>false</code>. For more information about Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html">Requester
-   *                     Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer
+   *                 Pays Buckets</a> in the <i>Amazon Simple Storage Service Developer
    *                 Guide</i>.</p>
    */
   RequesterPaysEnabled?: boolean;
@@ -1140,8 +1178,9 @@ export namespace GetDataCatalogInput {
  */
 export interface DataCatalog {
   /**
-   * <p>The name of the data catalog. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 128 alphanumeric, underscore, at sign,
-   *             or hyphen characters.</p>
+   * <p>The name of the data catalog. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign,
+   *             or hyphen characters. The remainder of the length constraint of 256 is reserved for use
+   *             by Athena.</p>
    */
   Name: string | undefined;
 
@@ -1894,7 +1933,9 @@ export namespace ListDataCatalogsInput {
  */
 export interface DataCatalogSummary {
   /**
-   * <p>The name of the data catalog.</p>
+   * <p>The name of the data catalog. The catalog name is unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign,
+   *             or hyphen characters. The remainder of the length constraint of 256 is reserved for use
+   *             by Athena.</p>
    */
   CatalogName?: string;
 
@@ -2540,8 +2581,9 @@ export namespace UntagResourceOutput {
 export interface UpdateDataCatalogInput {
   /**
    * <p>The name of the data catalog to update. The catalog name must be unique for the
-   *                 Amazon Web Services account and can use a maximum of 128 alphanumeric, underscore, at
-   *             sign, or hyphen characters.</p>
+   *                 Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at
+   *             sign, or hyphen characters. The remainder of the length constraint of 256 is reserved
+   *             for use by Athena.</p>
    */
   Name: string | undefined;
 

@@ -165,6 +165,7 @@ import {
   City,
   CloudTrailConfigurationResult,
   Condition,
+  Container,
   Country,
   DataSource,
   DataSourceConfigurations,
@@ -175,6 +176,7 @@ import {
   DNSLogsConfigurationResult,
   DnsRequestAction,
   DomainDetails,
+  EksClusterDetails,
   Evidence,
   Finding,
   FindingCriteria,
@@ -182,10 +184,19 @@ import {
   FindingStatisticType,
   FlowLogsConfigurationResult,
   GeoLocation,
+  HostPath,
   IamInstanceProfile,
   InstanceDetails,
   InternalServerErrorException,
   Invitation,
+  KubernetesApiCallAction,
+  KubernetesAuditLogsConfiguration,
+  KubernetesAuditLogsConfigurationResult,
+  KubernetesConfiguration,
+  KubernetesConfigurationResult,
+  KubernetesDetails,
+  KubernetesUserDetails,
+  KubernetesWorkloadDetails,
   LocalIpDetails,
   LocalPortDetails,
   Master,
@@ -196,6 +207,10 @@ import {
   Organization,
   OrganizationDataSourceConfigurations,
   OrganizationDataSourceConfigurationsResult,
+  OrganizationKubernetesAuditLogsConfiguration,
+  OrganizationKubernetesAuditLogsConfigurationResult,
+  OrganizationKubernetesConfiguration,
+  OrganizationKubernetesConfigurationResult,
   OrganizationS3LogsConfiguration,
   OrganizationS3LogsConfigurationResult,
   Owner,
@@ -212,6 +227,7 @@ import {
   S3BucketDetail,
   S3LogsConfiguration,
   S3LogsConfigurationResult,
+  SecurityContext,
   SecurityGroup,
   Service,
   SortCriteria,
@@ -224,6 +240,8 @@ import {
   UsageDataSourceResult,
   UsageResourceResult,
   UsageStatistics,
+  Volume,
+  VolumeMount,
 } from "../models/models_0";
 
 export const serializeAws_restJson1AcceptInvitationCommand = async (
@@ -6101,6 +6119,10 @@ const serializeAws_restJson1DataSourceConfigurations = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Kubernetes !== undefined &&
+      input.Kubernetes !== null && {
+        kubernetes: serializeAws_restJson1KubernetesConfiguration(input.Kubernetes, context),
+      }),
     ...(input.S3Logs !== undefined &&
       input.S3Logs !== null && { s3Logs: serializeAws_restJson1S3LogsConfiguration(input.S3Logs, context) }),
   };
@@ -6190,6 +6212,27 @@ const serializeAws_restJson1FindingTypes = (input: string[], context: __SerdeCon
     });
 };
 
+const serializeAws_restJson1KubernetesAuditLogsConfiguration = (
+  input: KubernetesAuditLogsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enable !== undefined && input.Enable !== null && { enable: input.Enable }),
+  };
+};
+
+const serializeAws_restJson1KubernetesConfiguration = (
+  input: KubernetesConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditLogs !== undefined &&
+      input.AuditLogs !== null && {
+        auditLogs: serializeAws_restJson1KubernetesAuditLogsConfiguration(input.AuditLogs, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1Neq = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -6217,9 +6260,34 @@ const serializeAws_restJson1OrganizationDataSourceConfigurations = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Kubernetes !== undefined &&
+      input.Kubernetes !== null && {
+        kubernetes: serializeAws_restJson1OrganizationKubernetesConfiguration(input.Kubernetes, context),
+      }),
     ...(input.S3Logs !== undefined &&
       input.S3Logs !== null && {
         s3Logs: serializeAws_restJson1OrganizationS3LogsConfiguration(input.S3Logs, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1OrganizationKubernetesAuditLogsConfiguration = (
+  input: OrganizationKubernetesAuditLogsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoEnable !== undefined && input.AutoEnable !== null && { autoEnable: input.AutoEnable }),
+  };
+};
+
+const serializeAws_restJson1OrganizationKubernetesConfiguration = (
+  input: OrganizationKubernetesConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AuditLogs !== undefined &&
+      input.AuditLogs !== null && {
+        auditLogs: serializeAws_restJson1OrganizationKubernetesAuditLogsConfiguration(input.AuditLogs, context),
       }),
   };
 };
@@ -6319,6 +6387,10 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
       output.dnsRequestAction !== undefined && output.dnsRequestAction !== null
         ? deserializeAws_restJson1DnsRequestAction(output.dnsRequestAction, context)
         : undefined,
+    KubernetesApiCallAction:
+      output.kubernetesApiCallAction !== undefined && output.kubernetesApiCallAction !== null
+        ? deserializeAws_restJson1KubernetesApiCallAction(output.kubernetesApiCallAction, context)
+        : undefined,
     NetworkConnectionAction:
       output.networkConnectionAction !== undefined && output.networkConnectionAction !== null
         ? deserializeAws_restJson1NetworkConnectionAction(output.networkConnectionAction, context)
@@ -6366,6 +6438,7 @@ const deserializeAws_restJson1AwsApiCallAction = (output: any, context: __SerdeC
         ? deserializeAws_restJson1RemoteIpDetails(output.remoteIpDetails, context)
         : undefined,
     ServiceName: __expectString(output.serviceName),
+    UserAgent: __expectString(output.userAgent),
   } as any;
 };
 
@@ -6443,6 +6516,35 @@ const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_restJson1Container = (output: any, context: __SerdeContext): Container => {
+  return {
+    ContainerRuntime: __expectString(output.containerRuntime),
+    Id: __expectString(output.id),
+    Image: __expectString(output.image),
+    ImagePrefix: __expectString(output.imagePrefix),
+    Name: __expectString(output.name),
+    SecurityContext:
+      output.securityContext !== undefined && output.securityContext !== null
+        ? deserializeAws_restJson1SecurityContext(output.securityContext, context)
+        : undefined,
+    VolumeMounts:
+      output.volumeMounts !== undefined && output.volumeMounts !== null
+        ? deserializeAws_restJson1VolumeMounts(output.volumeMounts, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Containers = (output: any, context: __SerdeContext): Container[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Container(entry, context);
+    });
+};
+
 const deserializeAws_restJson1CountBySeverity = (output: any, context: __SerdeContext): { [key: string]: number } => {
   return Object.entries(output).reduce((acc: { [key: string]: number }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -6490,6 +6592,10 @@ const deserializeAws_restJson1DataSourceConfigurationsResult = (
     FlowLogs:
       output.flowLogs !== undefined && output.flowLogs !== null
         ? deserializeAws_restJson1FlowLogsConfigurationResult(output.flowLogs, context)
+        : undefined,
+    Kubernetes:
+      output.kubernetes !== undefined && output.kubernetes !== null
+        ? deserializeAws_restJson1KubernetesConfigurationResult(output.kubernetes, context)
         : undefined,
     S3Logs:
       output.s3Logs !== undefined && output.s3Logs !== null
@@ -6563,6 +6669,23 @@ const deserializeAws_restJson1DnsRequestAction = (output: any, context: __SerdeC
 const deserializeAws_restJson1DomainDetails = (output: any, context: __SerdeContext): DomainDetails => {
   return {
     Domain: __expectString(output.domain),
+  } as any;
+};
+
+const deserializeAws_restJson1EksClusterDetails = (output: any, context: __SerdeContext): EksClusterDetails => {
+  return {
+    Arn: __expectString(output.arn),
+    CreatedAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        : undefined,
+    Name: __expectString(output.name),
+    Status: __expectString(output.status),
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
+    VpcId: __expectString(output.vpcId),
   } as any;
 };
 
@@ -6690,6 +6813,23 @@ const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1Groups = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1HostPath = (output: any, context: __SerdeContext): HostPath => {
+  return {
+    Path: __expectString(output.path),
+  } as any;
+};
+
 const deserializeAws_restJson1IamInstanceProfile = (output: any, context: __SerdeContext): IamInstanceProfile => {
   return {
     Arn: __expectString(output.arn),
@@ -6767,6 +6907,93 @@ const deserializeAws_restJson1Ipv6Addresses = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1KubernetesApiCallAction = (
+  output: any,
+  context: __SerdeContext
+): KubernetesApiCallAction => {
+  return {
+    Parameters: __expectString(output.parameters),
+    RemoteIpDetails:
+      output.remoteIpDetails !== undefined && output.remoteIpDetails !== null
+        ? deserializeAws_restJson1RemoteIpDetails(output.remoteIpDetails, context)
+        : undefined,
+    RequestUri: __expectString(output.requestUri),
+    SourceIps:
+      output.sourceIps !== undefined && output.sourceIps !== null
+        ? deserializeAws_restJson1SourceIps(output.sourceIps, context)
+        : undefined,
+    StatusCode: __expectInt32(output.statusCode),
+    UserAgent: __expectString(output.userAgent),
+    Verb: __expectString(output.verb),
+  } as any;
+};
+
+const deserializeAws_restJson1KubernetesAuditLogsConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): KubernetesAuditLogsConfigurationResult => {
+  return {
+    Status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1KubernetesConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): KubernetesConfigurationResult => {
+  return {
+    AuditLogs:
+      output.auditLogs !== undefined && output.auditLogs !== null
+        ? deserializeAws_restJson1KubernetesAuditLogsConfigurationResult(output.auditLogs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KubernetesDetails = (output: any, context: __SerdeContext): KubernetesDetails => {
+  return {
+    KubernetesUserDetails:
+      output.kubernetesUserDetails !== undefined && output.kubernetesUserDetails !== null
+        ? deserializeAws_restJson1KubernetesUserDetails(output.kubernetesUserDetails, context)
+        : undefined,
+    KubernetesWorkloadDetails:
+      output.kubernetesWorkloadDetails !== undefined && output.kubernetesWorkloadDetails !== null
+        ? deserializeAws_restJson1KubernetesWorkloadDetails(output.kubernetesWorkloadDetails, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1KubernetesUserDetails = (output: any, context: __SerdeContext): KubernetesUserDetails => {
+  return {
+    Groups:
+      output.groups !== undefined && output.groups !== null
+        ? deserializeAws_restJson1Groups(output.groups, context)
+        : undefined,
+    Uid: __expectString(output.uid),
+    Username: __expectString(output.username),
+  } as any;
+};
+
+const deserializeAws_restJson1KubernetesWorkloadDetails = (
+  output: any,
+  context: __SerdeContext
+): KubernetesWorkloadDetails => {
+  return {
+    Containers:
+      output.containers !== undefined && output.containers !== null
+        ? deserializeAws_restJson1Containers(output.containers, context)
+        : undefined,
+    HostNetwork: __expectBoolean(output.hostNetwork),
+    Name: __expectString(output.name),
+    Namespace: __expectString(output.namespace),
+    Type: __expectString(output.type),
+    Uid: __expectString(output.uid),
+    Volumes:
+      output.volumes !== undefined && output.volumes !== null
+        ? deserializeAws_restJson1Volumes(output.volumes, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1LocalIpDetails = (output: any, context: __SerdeContext): LocalIpDetails => {
@@ -6939,9 +7166,34 @@ const deserializeAws_restJson1OrganizationDataSourceConfigurationsResult = (
   context: __SerdeContext
 ): OrganizationDataSourceConfigurationsResult => {
   return {
+    Kubernetes:
+      output.kubernetes !== undefined && output.kubernetes !== null
+        ? deserializeAws_restJson1OrganizationKubernetesConfigurationResult(output.kubernetes, context)
+        : undefined,
     S3Logs:
       output.s3Logs !== undefined && output.s3Logs !== null
         ? deserializeAws_restJson1OrganizationS3LogsConfigurationResult(output.s3Logs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OrganizationKubernetesAuditLogsConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationKubernetesAuditLogsConfigurationResult => {
+  return {
+    AutoEnable: __expectBoolean(output.autoEnable),
+  } as any;
+};
+
+const deserializeAws_restJson1OrganizationKubernetesConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationKubernetesConfigurationResult => {
+  return {
+    AuditLogs:
+      output.auditLogs !== undefined && output.auditLogs !== null
+        ? deserializeAws_restJson1OrganizationKubernetesAuditLogsConfigurationResult(output.auditLogs, context)
         : undefined,
   } as any;
 };
@@ -7109,9 +7361,17 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
       output.accessKeyDetails !== undefined && output.accessKeyDetails !== null
         ? deserializeAws_restJson1AccessKeyDetails(output.accessKeyDetails, context)
         : undefined,
+    EksClusterDetails:
+      output.eksClusterDetails !== undefined && output.eksClusterDetails !== null
+        ? deserializeAws_restJson1EksClusterDetails(output.eksClusterDetails, context)
+        : undefined,
     InstanceDetails:
       output.instanceDetails !== undefined && output.instanceDetails !== null
         ? deserializeAws_restJson1InstanceDetails(output.instanceDetails, context)
+        : undefined,
+    KubernetesDetails:
+      output.kubernetesDetails !== undefined && output.kubernetesDetails !== null
+        ? deserializeAws_restJson1KubernetesDetails(output.kubernetesDetails, context)
         : undefined,
     ResourceType: __expectString(output.resourceType),
     S3BucketDetails:
@@ -7169,6 +7429,12 @@ const deserializeAws_restJson1S3LogsConfigurationResult = (
   } as any;
 };
 
+const deserializeAws_restJson1SecurityContext = (output: any, context: __SerdeContext): SecurityContext => {
+  return {
+    Privileged: __expectBoolean(output.privileged),
+  } as any;
+};
+
 const deserializeAws_restJson1SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup => {
   return {
     GroupId: __expectString(output.groupId),
@@ -7206,6 +7472,17 @@ const deserializeAws_restJson1Service = (output: any, context: __SerdeContext): 
     ServiceName: __expectString(output.serviceName),
     UserFeedback: __expectString(output.userFeedback),
   } as any;
+};
+
+const deserializeAws_restJson1SourceIps = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -7400,6 +7677,45 @@ const deserializeAws_restJson1UsageStatistics = (output: any, context: __SerdeCo
         ? deserializeAws_restJson1UsageResourceResultList(output.topResources, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Volume = (output: any, context: __SerdeContext): Volume => {
+  return {
+    HostPath:
+      output.hostPath !== undefined && output.hostPath !== null
+        ? deserializeAws_restJson1HostPath(output.hostPath, context)
+        : undefined,
+    Name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1VolumeMount = (output: any, context: __SerdeContext): VolumeMount => {
+  return {
+    MountPath: __expectString(output.mountPath),
+    Name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1VolumeMounts = (output: any, context: __SerdeContext): VolumeMount[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VolumeMount(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Volumes = (output: any, context: __SerdeContext): Volume[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Volume(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

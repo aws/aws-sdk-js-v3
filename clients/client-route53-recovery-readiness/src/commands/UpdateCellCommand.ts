@@ -26,7 +26,7 @@ export interface UpdateCellCommandInput extends UpdateCellRequest {}
 export interface UpdateCellCommandOutput extends UpdateCellResponse, __MetadataBearer {}
 
 /**
- * Updates an existing Cell.
+ * <p>Updates a cell to replace the list of nested cells with a new list of nested cells.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

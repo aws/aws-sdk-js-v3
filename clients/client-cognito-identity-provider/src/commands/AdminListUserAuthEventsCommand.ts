@@ -27,8 +27,7 @@ export interface AdminListUserAuthEventsCommandInput extends AdminListUserAuthEv
 export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthEventsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists a history of user activity and any risks detected as part of Amazon Cognito
- *             advanced security.</p>
+ * <p>A history of user activity and any risks detected as part of Amazon Cognito advanced security.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

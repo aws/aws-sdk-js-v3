@@ -33,6 +33,12 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  *         new version to see if it should be deleted. You can delete a version by removing all staging labels
  *         from it.</p>
  *          </note>
+ *          <p>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:CancelRotateSecret</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -7,7 +7,7 @@
 
 AWS SDK for JavaScript Route53RecoveryReadiness Client for Node.js, Browser and React Native.
 
-AWS Route53 Recovery Readiness
+<p>Recovery readiness</p>
 
 ## Installing
 

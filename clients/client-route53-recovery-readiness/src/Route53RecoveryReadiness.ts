@@ -135,11 +135,11 @@ import {
 import { Route53RecoveryReadinessClient } from "./Route53RecoveryReadinessClient";
 
 /**
- * AWS Route53 Recovery Readiness
+ * <p>Recovery readiness</p>
  */
 export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   /**
-   * Creates a new Cell.
+   * <p>Creates a cell in an account.</p>
    */
   public createCell(args: CreateCellCommandInput, options?: __HttpHandlerOptions): Promise<CreateCellCommandOutput>;
   public createCell(args: CreateCellCommandInput, cb: (err: any, data?: CreateCellCommandOutput) => void): void;
@@ -165,7 +165,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Create a new cross account readiness authorization.
+   * <p>Creates a cross-account readiness authorization. This lets you authorize another account to work with Route 53 Application Recovery Controller, for example, to check the readiness status of resources in a separate account.</p>
    */
   public createCrossAccountAuthorization(
     args: CreateCrossAccountAuthorizationCommandInput,
@@ -197,7 +197,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Creates a new Readiness Check.
+   * <p>Creates a readiness check in an account. A readiness check monitors a resource set in your application, such as a set of Amazon Aurora instances, that Application Recovery Controller is auditing recovery readiness for. The audits run once every minute on every resource that's associated with a readiness check.</p>
    */
   public createReadinessCheck(
     args: CreateReadinessCheckCommandInput,
@@ -229,7 +229,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Creates a new Recovery Group.
+   * <p>Creates a recovery group in an account. A recovery group corresponds to an application and includes a list of the cells that make up the application.</p>
    */
   public createRecoveryGroup(
     args: CreateRecoveryGroupCommandInput,
@@ -261,7 +261,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Creates a new Resource Set.
+   * <p>Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.</p>
    */
   public createResourceSet(
     args: CreateResourceSetCommandInput,
@@ -293,7 +293,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Deletes an existing Cell.
+   * <p>Delete a cell. When successful, the response code is 204, with no response body.</p>
    */
   public deleteCell(args: DeleteCellCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCellCommandOutput>;
   public deleteCell(args: DeleteCellCommandInput, cb: (err: any, data?: DeleteCellCommandOutput) => void): void;
@@ -319,7 +319,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Delete cross account readiness authorization
+   * <p>Deletes cross account readiness authorization.</p>
    */
   public deleteCrossAccountAuthorization(
     args: DeleteCrossAccountAuthorizationCommandInput,
@@ -351,7 +351,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Deletes an existing Readiness Check.
+   * <p>Deletes a readiness check.</p>
    */
   public deleteReadinessCheck(
     args: DeleteReadinessCheckCommandInput,
@@ -383,7 +383,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Deletes an existing Recovery Group.
+   * <p>Deletes a recovery group.</p>
    */
   public deleteRecoveryGroup(
     args: DeleteRecoveryGroupCommandInput,
@@ -415,7 +415,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Deletes an existing Resource Set.
+   * <p>Deletes a resource set.</p>
    */
   public deleteResourceSet(
     args: DeleteResourceSetCommandInput,
@@ -447,7 +447,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a collection of recommendations to improve resilliance and readiness check quality for a Recovery Group.
+   * <p>Gets recommendations about architecture designs for improving resiliency for an application, based on a recovery group.</p>
    */
   public getArchitectureRecommendations(
     args: GetArchitectureRecommendationsCommandInput,
@@ -479,7 +479,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns information about a Cell.
+   * <p>Gets information about a cell including cell name, cell Amazon Resource Name (ARN), ARNs of nested cells for this cell, and a list of those cell ARNs with their associated recovery group ARNs.</p>
    */
   public getCell(args: GetCellCommandInput, options?: __HttpHandlerOptions): Promise<GetCellCommandOutput>;
   public getCell(args: GetCellCommandInput, cb: (err: any, data?: GetCellCommandOutput) => void): void;
@@ -505,7 +505,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns information about readiness of a Cell.
+   * <p>Gets readiness for a cell. Aggregates the readiness of all the resources that are associated with the cell into a single value.</p>
    */
   public getCellReadinessSummary(
     args: GetCellReadinessSummaryCommandInput,
@@ -537,7 +537,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns information about a ReadinessCheck.
+   * <p>Gets details about a readiness check.</p>
    */
   public getReadinessCheck(
     args: GetReadinessCheckCommandInput,
@@ -569,7 +569,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns detailed information about the status of an individual resource within a Readiness Check's Resource Set.
+   * <p>Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary.</p>
    */
   public getReadinessCheckResourceStatus(
     args: GetReadinessCheckResourceStatusCommandInput,
@@ -601,7 +601,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns information about the status of a Readiness Check.
+   * <p>Gets the readiness status for an individual readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in a recovery group, use GetRecoveryGroupReadinessSummary.</p>
    */
   public getReadinessCheckStatus(
     args: GetReadinessCheckStatusCommandInput,
@@ -633,7 +633,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns information about a Recovery Group.
+   * <p>Gets details about a recovery group, including a list of the cells that are included in it.</p>
    */
   public getRecoveryGroup(
     args: GetRecoveryGroupCommandInput,
@@ -665,7 +665,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns information about a Recovery Group.
+   * <p>Displays a summary of information about a recovery group's readiness status. Includes the readiness checks for resources in the recovery group and the readiness status of each one.</p>
    */
   public getRecoveryGroupReadinessSummary(
     args: GetRecoveryGroupReadinessSummaryCommandInput,
@@ -697,7 +697,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns information about a Resource Set.
+   * <p>Displays the details about a resource set, including a list of the resources in the set.</p>
    */
   public getResourceSet(
     args: GetResourceSetCommandInput,
@@ -729,7 +729,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a collection of Cells.
+   * <p>Lists the cells for an account.</p>
    */
   public listCells(args: ListCellsCommandInput, options?: __HttpHandlerOptions): Promise<ListCellsCommandOutput>;
   public listCells(args: ListCellsCommandInput, cb: (err: any, data?: ListCellsCommandOutput) => void): void;
@@ -755,7 +755,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a collection of cross account readiness authorizations.
+   * <p>Lists the cross-account readiness authorizations that are in place for an account.</p>
    */
   public listCrossAccountAuthorizations(
     args: ListCrossAccountAuthorizationsCommandInput,
@@ -787,7 +787,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a collection of Readiness Checks.
+   * <p>Lists the readiness checks for an account.</p>
    */
   public listReadinessChecks(
     args: ListReadinessChecksCommandInput,
@@ -819,7 +819,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a collection of Recovery Groups.
+   * <p>Lists the recovery groups in an account.</p>
    */
   public listRecoveryGroups(
     args: ListRecoveryGroupsCommandInput,
@@ -851,7 +851,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a collection of Resource Sets.
+   * <p>Lists the resource sets in an account.</p>
    */
   public listResourceSets(
     args: ListResourceSetsCommandInput,
@@ -883,7 +883,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a collection of rules that are applied as part of Readiness Checks.
+   * <p>Lists all readiness rules, or lists the readiness rules for a specific resource type.</p>
    */
   public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
   public listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
@@ -909,7 +909,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Returns a list of the tags assigned to the specified resource.
+   * <p>Lists the tags for a resource.</p>
    */
   public listTagsForResources(
     args: ListTagsForResourcesCommandInput,
@@ -941,7 +941,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Adds tags to the specified resource. You can specify one or more tags to add.
+   * <p>Adds a tag to a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -967,7 +967,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Removes tags from the specified resource. You can specify one or more tags to remove.
+   * <p>Removes a tag from a resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -999,7 +999,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Updates an existing Cell.
+   * <p>Updates a cell to replace the list of nested cells with a new list of nested cells.</p>
    */
   public updateCell(args: UpdateCellCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCellCommandOutput>;
   public updateCell(args: UpdateCellCommandInput, cb: (err: any, data?: UpdateCellCommandOutput) => void): void;
@@ -1025,7 +1025,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Updates an exisiting Readiness Check.
+   * <p>Updates a readiness check.</p>
    */
   public updateReadinessCheck(
     args: UpdateReadinessCheckCommandInput,
@@ -1057,7 +1057,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Updates an existing Recovery Group.
+   * <p>Updates a recovery group.</p>
    */
   public updateRecoveryGroup(
     args: UpdateRecoveryGroupCommandInput,
@@ -1089,7 +1089,7 @@ export class Route53RecoveryReadiness extends Route53RecoveryReadinessClient {
   }
 
   /**
-   * Updates an existing Resource Set.
+   * <p>Updates a resource set.</p>
    */
   public updateResourceSet(
     args: UpdateResourceSetCommandInput,

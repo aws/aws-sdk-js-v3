@@ -1,6 +1,30 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
+ * Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+ */
+export interface ProvisionedThroughput {
+  /**
+   * Provisioned throughput is enabled or not.
+   */
+  Enabled?: boolean;
+
+  /**
+   * Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second.
+   */
+  VolumeThroughput?: number;
+}
+
+export namespace ProvisionedThroughput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProvisionedThroughput): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies the EBS volume upgrade information. The broker identifier must be set to the keyword ALL. This means the changes apply to all the brokers in the cluster.</p>
  */
 export interface BrokerEBSVolumeInfo {
@@ -10,9 +34,14 @@ export interface BrokerEBSVolumeInfo {
   KafkaBrokerNodeId: string | undefined;
 
   /**
+   * EBS volume provisioned throughput information.
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
+  /**
    * <p>Size of the EBS volume to update.</p>
    */
-  VolumeSizeGB: number | undefined;
+  VolumeSizeGB?: number;
 }
 
 export namespace BrokerEBSVolumeInfo {
@@ -75,6 +104,11 @@ export namespace ConnectivityInfo {
  * <p>Contains information about the EBS storage volumes attached to Apache Kafka broker nodes.</p>
  */
 export interface EBSStorageInfo {
+  /**
+   * EBS volume provisioned throughput information.
+   */
+  ProvisionedThroughput?: ProvisionedThroughput;
+
   /**
    * <p>The size in GiB of the EBS volume for the data drive on each broker node.</p>
    */

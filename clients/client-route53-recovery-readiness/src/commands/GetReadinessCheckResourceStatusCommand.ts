@@ -28,7 +28,7 @@ export interface GetReadinessCheckResourceStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * Returns detailed information about the status of an individual resource within a Readiness Check's Resource Set.
+ * <p>Gets individual readiness status for a readiness check. To see the overall readiness status for a recovery group, that considers the readiness status for all the readiness checks in the recovery group, use GetRecoveryGroupReadinessSummary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

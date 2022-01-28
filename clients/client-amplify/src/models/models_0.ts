@@ -43,7 +43,7 @@ export interface AutoBranchCreationConfig {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The basic authorization credentials for the autocreated branch. </p>
+   * <p> The basic authorization credentials for the autocreated branch. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -211,7 +211,7 @@ export interface CreateAppRequest {
   enableBasicAuth?: boolean;
 
   /**
-   * <p> The credentials for basic authorization for an Amplify app. </p>
+   * <p> The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -383,7 +383,7 @@ export interface App {
   enableBasicAuth: boolean | undefined;
 
   /**
-   * <p> The basic authorization credentials for branches for the Amplify app. </p>
+   * <p> The basic authorization credentials for branches for the Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -645,7 +645,7 @@ export interface CreateBranchRequest {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The basic authorization credentials for the branch. </p>
+   * <p> The basic authorization credentials for the branch. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -803,7 +803,7 @@ export interface Branch {
   thumbnailUrl?: string;
 
   /**
-   * <p> The basic authorization credentials for a branch of an Amplify app. </p>
+   * <p> The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -2794,7 +2794,7 @@ export interface UpdateAppRequest {
   enableBasicAuth?: boolean;
 
   /**
-   * <p> The basic authorization credentials for an Amplify app. </p>
+   * <p> The basic authorization credentials for an Amplify app. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -2928,7 +2928,7 @@ export interface UpdateBranchRequest {
   environmentVariables?: { [key: string]: string };
 
   /**
-   * <p> The basic authorization credentials for the branch. </p>
+   * <p> The basic authorization credentials for the branch. You must base64-encode the authorization credentials and provide them in the format <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 

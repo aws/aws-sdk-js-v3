@@ -5857,6 +5857,7 @@ export enum TargetDevice {
 export enum TargetPlatformAccelerator {
   INTEL_GRAPHICS = "INTEL_GRAPHICS",
   MALI = "MALI",
+  NNA = "NNA",
   NVIDIA = "NVIDIA",
 }
 
@@ -9637,9 +9638,7 @@ export interface CreateEndpointConfigInput {
   /**
    * <p>Specifies configuration for how an endpoint performs asynchronous inference.
    *             This is a required field in order for your Endpoint to be invoked using
-   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html">
-   *                <code>InvokeEndpointAsync</code>
-   *             </a>.</p>
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html">InvokeEndpointAsync</a>.</p>
    */
   AsyncInferenceConfig?: AsyncInferenceConfig;
 }

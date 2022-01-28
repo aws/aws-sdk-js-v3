@@ -28,7 +28,7 @@ export interface GetArchitectureRecommendationsCommandOutput
     __MetadataBearer {}
 
 /**
- * Returns a collection of recommendations to improve resilliance and readiness check quality for a Recovery Group.
+ * <p>Gets recommendations about architecture designs for improving resiliency for an application, based on a recovery group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

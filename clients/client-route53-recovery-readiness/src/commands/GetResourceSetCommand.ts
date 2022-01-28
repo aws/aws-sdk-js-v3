@@ -26,7 +26,7 @@ export interface GetResourceSetCommandInput extends GetResourceSetRequest {}
 export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __MetadataBearer {}
 
 /**
- * Returns information about a Resource Set.
+ * <p>Displays the details about a resource set, including a list of the resources in the set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

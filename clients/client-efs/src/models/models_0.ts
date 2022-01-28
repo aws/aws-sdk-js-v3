@@ -7,8 +7,21 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 export interface AccessPointAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "AccessPointAlreadyExists";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
+
   AccessPointId: string | undefined;
 }
 
@@ -225,7 +238,19 @@ export namespace AccessPointDescription {
 export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "AccessPointLimitExceeded";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -236,7 +261,19 @@ export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBe
 export interface AccessPointNotFound extends __SmithyException, $MetadataBearer {
   name: "AccessPointNotFound";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -247,7 +284,19 @@ export interface AccessPointNotFound extends __SmithyException, $MetadataBearer 
 export interface AvailabilityZonesMismatch extends __SmithyException, $MetadataBearer {
   name: "AvailabilityZonesMismatch";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode?: string;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -327,7 +376,19 @@ export namespace BackupPolicyDescription {
 export interface BadRequest extends __SmithyException, $MetadataBearer {
   name: "BadRequest";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -386,7 +447,19 @@ export namespace CreateAccessPointRequest {
 export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
   name: "FileSystemNotFound";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -396,7 +469,19 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
 export interface IncorrectFileSystemLifeCycleState extends __SmithyException, $MetadataBearer {
   name: "IncorrectFileSystemLifeCycleState";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -406,7 +491,19 @@ export interface IncorrectFileSystemLifeCycleState extends __SmithyException, $M
 export interface InternalServerError extends __SmithyException, $MetadataBearer {
   name: "InternalServerError";
   $fault: "server";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -441,18 +538,18 @@ export interface CreateFileSystemRequest {
 
   /**
    * <p>A Boolean value that, if true, creates an encrypted file system. When creating an
-   *       encrypted file system, you have the option of specifying <a>CreateFileSystemRequest$KmsKeyId</a> for an existing Key Management Service (KMS
-   *       customer master key (CMK). If you don't specify a CMK, then the default CMK for
+   *       encrypted file system, you have the option of specifying an existing Key Management Service key (KMS key).
+   *       If you don't specify a KMS key, then the default KMS key for
    *       Amazon EFS, <code>/aws/elasticfilesystem</code>, is used to protect the encrypted file system.
    *     </p>
    */
   Encrypted?: boolean;
 
   /**
-   * <p>The ID of the KMS CMK that you want to use to protect the encrypted file system. This
+   * <p>The ID of the KMS key that you want to use to protect the encrypted file system. This
    *       parameter is only required if you want to use a non-default KMS key. If this parameter is not
-   *       specified, the default CMK for Amazon EFS is used. This ID can be in one of the following
-   *       formats:</p>
+   *       specified, the default KMS key for Amazon EFS is used. You can specify a KMS key
+   *       ID using the following formats:</p>
    *          <ul>
    *             <li>
    *                <p>Key ID - A unique identifier of the key, for example
@@ -471,9 +568,11 @@ export interface CreateFileSystemRequest {
    *             <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>If <code>KmsKeyId</code> is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must be set to true.</p>
+   *          <p>If you use <code>KmsKeyId</code>, you must set the <a>CreateFileSystemRequest$Encrypted</a>
+   *       parameter to true.</p>
    *          <important>
-   *             <p>EFS accepts only symmetric KMS keys. You cannot use asymmetric KMS keys with EFS file systems.</p>
+   *             <p>EFS accepts only symmetric KMS keys. You cannot use asymmetric
+   *       KMS keys with Amazon EFS file systems.</p>
    *          </important>
    */
   KmsKeyId?: string;
@@ -521,7 +620,7 @@ export interface CreateFileSystemRequest {
    *          <p>Default is <code>false</code>. However, if you specify an <code>AvailabilityZoneName</code>,
    *       the default is <code>true</code>.</p>
    *          <note>
-   *             <p>Backup is not available in all Amazon Web Services Regionswhere Amazon EFS is available.</p>
+   *             <p>Backup is not available in all Amazon Web Services Regions where Amazon EFS is available.</p>
    *          </note>
    */
   Backup?: boolean;
@@ -552,8 +651,21 @@ export namespace CreateFileSystemRequest {
 export interface FileSystemAlreadyExists extends __SmithyException, $MetadataBearer {
   name: "FileSystemAlreadyExists";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
+
   FileSystemId: string | undefined;
 }
 
@@ -676,8 +788,7 @@ export interface FileSystemDescription {
   Encrypted?: boolean;
 
   /**
-   * <p>The ID of an Key Management Service customer master key (CMK) that was
-   *       used to protect the encrypted file system.</p>
+   * <p>The ID of an KMS key used to protect the encrypted file system.</p>
    */
   KmsKeyId?: string;
 
@@ -732,7 +843,19 @@ export namespace FileSystemDescription {
 export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "FileSystemLimitExceeded";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -746,7 +869,19 @@ export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBea
 export interface InsufficientThroughputCapacity extends __SmithyException, $MetadataBearer {
   name: "InsufficientThroughputCapacity";
   $fault: "server";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -757,7 +892,19 @@ export interface InsufficientThroughputCapacity extends __SmithyException, $Meta
 export interface ThroughputLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "ThroughputLimitExceeded";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -767,7 +914,19 @@ export interface ThroughputLimitExceeded extends __SmithyException, $MetadataBea
 export interface UnsupportedAvailabilityZone extends __SmithyException, $MetadataBearer {
   name: "UnsupportedAvailabilityZone";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -814,7 +973,19 @@ export namespace CreateMountTargetRequest {
 export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
   name: "IpAddressInUse";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -825,7 +996,19 @@ export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
 export interface MountTargetConflict extends __SmithyException, $MetadataBearer {
   name: "MountTargetConflict";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -907,7 +1090,19 @@ export namespace MountTargetDescription {
 export interface NetworkInterfaceLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "NetworkInterfaceLimitExceeded";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -918,7 +1113,19 @@ export interface NetworkInterfaceLimitExceeded extends __SmithyException, $Metad
 export interface NoFreeAddressesInSubnet extends __SmithyException, $MetadataBearer {
   name: "NoFreeAddressesInSubnet";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -929,7 +1136,19 @@ export interface NoFreeAddressesInSubnet extends __SmithyException, $MetadataBea
 export interface SecurityGroupLimitExceeded extends __SmithyException, $MetadataBearer {
   name: "SecurityGroupLimitExceeded";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -940,7 +1159,19 @@ export interface SecurityGroupLimitExceeded extends __SmithyException, $Metadata
 export interface SecurityGroupNotFound extends __SmithyException, $MetadataBearer {
   name: "SecurityGroupNotFound";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -951,7 +1182,221 @@ export interface SecurityGroupNotFound extends __SmithyException, $MetadataBeare
 export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
   name: "SubnetNotFound";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Describes the destination file system to create in the replication configuration.</p>
+ */
+export interface DestinationToCreate {
+  /**
+   * <p>To create a file system that uses regional storage, specify the Amazon Web Services Region
+   *       in which to create the destination file system.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>To create a file system that uses One Zone storage, specify the name of the
+   *       Availability Zone in which to create the destination file system.</p>
+   */
+  AvailabilityZoneName?: string;
+
+  /**
+   * <p>Specifies the KMS key you want to use to encrypt the destination file system. If you do not
+   *       specify a KMS key, EFS uses your default KMS key for Amazon EFS,
+   *       <code>/aws/elasticfilesystem</code>. This ID can be in one of the following
+   *       formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID - A unique identifier of the key, for example
+   *           <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>ARN - An Amazon Resource Name (ARN) for the key, for example
+   *           <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias - A previously created display name for a key, for example
+   *           <code>alias/projectKey1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias ARN - An ARN for a key alias, for example
+   *           <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace DestinationToCreate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DestinationToCreate): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateReplicationConfigurationRequest {
+  /**
+   * <p>Specifies the Amazon EFS file system that you want to replicate. This file system cannot already be
+   *     a source or destination file system in another replication configuration.</p>
+   */
+  SourceFileSystemId: string | undefined;
+
+  /**
+   * <p>An array of destination configuration objects. Only one destination configuration object is supported.</p>
+   */
+  Destinations: DestinationToCreate[] | undefined;
+}
+
+export namespace CreateReplicationConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateReplicationConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ReplicationStatus {
+  DELETING = "DELETING",
+  ENABLED = "ENABLED",
+  ENABLING = "ENABLING",
+  ERROR = "ERROR",
+}
+
+/**
+ * <p>Describes the destination file system in the replication configuration.</p>
+ */
+export interface Destination {
+  /**
+   * <p>Describes the status of the destination Amazon EFS file system.</p>
+   */
+  Status: ReplicationStatus | string | undefined;
+
+  /**
+   * <p>The ID of the destination Amazon EFS file system.</p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region in which the destination file system is located.</p>
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The time when the most recent sync successfully completed on the destination file system.
+   *       Any changes to data on the source file system that occurred prior to this time were successfully
+   *       replicated to the destination file system. Any changes that occurred after this time might not be
+   *       fully replicated.</p>
+   */
+  LastReplicatedTimestamp?: Date;
+}
+
+export namespace Destination {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Destination): any => ({
+    ...obj,
+  });
+}
+
+export interface ReplicationConfigurationDescription {
+  /**
+   * <p>The ID of the source Amazon EFS file system that is being replicated.</p>
+   */
+  SourceFileSystemId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region in which the source Amazon EFS  file system is located.</p>
+   */
+  SourceFileSystemRegion: string | undefined;
+
+  /**
+   * <p>The ARN of the current source file system in the replication configuration.</p>
+   */
+  SourceFileSystemArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the original source Amazon EFS  file system in the replication configuration.</p>
+   */
+  OriginalSourceFileSystemArn: string | undefined;
+
+  /**
+   * <p>Describes when the replication configuration was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Array of destination objects. Only one destination object is supported.</p>
+   */
+  Destinations: Destination[] | undefined;
+}
+
+export namespace ReplicationConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReplicationConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Returned if the specified file system did not have a replication configuration.</p>
+ */
+export interface ReplicationNotFound extends __SmithyException, $MetadataBearer {
+  name: "ReplicationNotFound";
+  $fault: "client";
+  /**
+   * <p>ReplicationNotFound</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -1022,7 +1467,19 @@ export namespace DeleteFileSystemRequest {
 export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
   name: "FileSystemInUse";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -1068,7 +1525,19 @@ export namespace DeleteMountTargetRequest {
 export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
   name: "DependencyTimeout";
   $fault: "server";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -1079,8 +1548,36 @@ export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
 export interface MountTargetNotFound extends __SmithyException, $MetadataBearer {
   name: "MountTargetNotFound";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
+}
+
+export interface DeleteReplicationConfigurationRequest {
+  /**
+   * <p>The ID of the source file system in the replication configuration.</p>
+   */
+  SourceFileSystemId: string | undefined;
+}
+
+export namespace DeleteReplicationConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteReplicationConfigurationRequest): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -1117,7 +1614,8 @@ export interface DescribeAccessPointsRequest {
 
   /**
    * <p>
-   *             <code>NextToken</code> is present if the response is paginated. You can use <code>NextMarker</code> in the subsequent request to fetch the next page of access point descriptions.</p>
+   *             <code>NextToken</code> is present if the response is paginated. You can use
+   *       <code>NextMarker</code> in the subsequent request to fetch the next page of access point descriptions.</p>
    */
   NextToken?: string;
 
@@ -1265,17 +1763,19 @@ export namespace DescribeBackupPolicyRequest {
 export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
   name: "PolicyNotFound";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode?: string;
-  Message?: string;
-}
 
-/**
- * <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  ErrorCode: string | undefined;
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -1588,8 +2088,71 @@ export namespace DescribeMountTargetSecurityGroupsResponse {
 export interface IncorrectMountTargetState extends __SmithyException, $MetadataBearer {
   name: "IncorrectMountTargetState";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
+}
+
+export interface DescribeReplicationConfigurationsRequest {
+  /**
+   * <p>You can retrieve replication configurations for a specific file system by providing a file system ID.</p>
+   */
+  FileSystemId?: string;
+
+  /**
+   * <p>
+   *             <code>NextToken</code> is present if the response is paginated. You can use
+   *       <code>NextMarker</code> in a subsequent request to fetch the next page of output.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>(Optional) You can optionally specify the <code>MaxItems</code> parameter
+   *       to limit the number of objects returned in a response. The default value is 100. </p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeReplicationConfigurationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReplicationConfigurationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeReplicationConfigurationsResponse {
+  /**
+   * <p>The collection of replication configurations returned.</p>
+   */
+  Replications?: ReplicationConfigurationDescription[];
+
+  /**
+   * <p>You can use the <code>NextToken</code> from the previous response in a subsequent
+   *       request to fetch the additional descriptions.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeReplicationConfigurationsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeReplicationConfigurationsResponse): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -1665,7 +2228,19 @@ export namespace DescribeTagsResponse {
 export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
   name: "InvalidPolicyException";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode?: string;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 
@@ -1743,11 +2318,13 @@ export namespace ModifyMountTargetSecurityGroupsRequest {
 
 export interface PutAccountPreferencesRequest {
   /**
-   * <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account, in the current Amazon Web Services Region,
-   *       either <code>LONG_ID</code> (17 characters), or <code>SHORT_ID</code> (8 characters).</p>
+   * <p>Specifies the EFS resource ID preference to set for the user's Amazon Web Services account,
+   *       in the current Amazon Web Services Region, either <code>LONG_ID</code> (17 characters), or
+   *       <code>SHORT_ID</code> (8 characters).</p>
    *          <note>
-   *             <p>Starting in October, 2021, you will receive an error when setting the account preference to <code>SHORT_ID</code>.
-   *       Contact Amazon Web Services support if you receive an error and need to use short IDs for file system and mount target resources.</p>
+   *             <p>Starting in October, 2021, you will receive an error when setting the account
+   *       preference to <code>SHORT_ID</code>. Contact Amazon Web Services support if you receive an
+   *       error and need to use short IDs for file system and mount target resources.</p>
    *          </note>
    */
   ResourceIdType: ResourceIdType | string | undefined;
@@ -1924,7 +2501,19 @@ export namespace UntagResourceRequest {
 export interface TooManyRequests extends __SmithyException, $MetadataBearer {
   name: "TooManyRequests";
   $fault: "client";
+  /**
+   * <p>The error code is a string that uniquely identifies an error condition.
+   *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
+   */
   ErrorCode: string | undefined;
+
+  /**
+   * <p>The error message contains a generic description of the error
+   *         condition in English. It is intended for a human audience. Simple programs display the message directly
+   *         to the end user if they encounter an error condition they don't know how or don't care to handle.
+   *         Sophisticated programs with more exhaustive error handling and proper internationalization are
+   *         more likely to ignore the error message.</p>
+   */
   Message?: string;
 }
 

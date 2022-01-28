@@ -56,6 +56,10 @@ import {
 } from "./commands/AssociateApprovedOriginCommand";
 import { AssociateBotCommandInput, AssociateBotCommandOutput } from "./commands/AssociateBotCommand";
 import {
+  AssociateDefaultVocabularyCommandInput,
+  AssociateDefaultVocabularyCommandOutput,
+} from "./commands/AssociateDefaultVocabularyCommand";
+import {
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
 } from "./commands/AssociateInstanceStorageConfigCommand";
@@ -107,6 +111,7 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "./commands/CreateUserHierarchyGroupCommand";
+import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "./commands/CreateVocabularyCommand";
 import { DeleteContactFlowCommandInput, DeleteContactFlowCommandOutput } from "./commands/DeleteContactFlowCommand";
 import {
   DeleteContactFlowModuleCommandInput,
@@ -132,6 +137,7 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "./commands/DeleteUserHierarchyGroupCommand";
+import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "./commands/DeleteVocabularyCommand";
 import {
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
@@ -180,6 +186,7 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
+import { DescribeVocabularyCommandInput, DescribeVocabularyCommandOutput } from "./commands/DescribeVocabularyCommand";
 import {
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
@@ -231,6 +238,10 @@ import {
   ListContactReferencesCommandInput,
   ListContactReferencesCommandOutput,
 } from "./commands/ListContactReferencesCommand";
+import {
+  ListDefaultVocabulariesCommandInput,
+  ListDefaultVocabulariesCommandOutput,
+} from "./commands/ListDefaultVocabulariesCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -292,6 +303,7 @@ import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
 } from "./commands/ResumeContactRecordingCommand";
+import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "./commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "./commands/StartChatContactCommand";
 import {
   StartContactRecordingCommandInput,
@@ -438,6 +450,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AssociateApprovedOriginCommandInput
   | AssociateBotCommandInput
+  | AssociateDefaultVocabularyCommandInput
   | AssociateInstanceStorageConfigCommandInput
   | AssociateLambdaFunctionCommandInput
   | AssociateLexBotCommandInput
@@ -457,6 +470,7 @@ export type ServiceInputTypes =
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
+  | CreateVocabularyCommandInput
   | DeleteContactFlowCommandInput
   | DeleteContactFlowModuleCommandInput
   | DeleteHoursOfOperationCommandInput
@@ -467,6 +481,7 @@ export type ServiceInputTypes =
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
+  | DeleteVocabularyCommandInput
   | DescribeAgentStatusCommandInput
   | DescribeContactCommandInput
   | DescribeContactFlowCommandInput
@@ -482,6 +497,7 @@ export type ServiceInputTypes =
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
   | DescribeUserHierarchyStructureCommandInput
+  | DescribeVocabularyCommandInput
   | DisassociateApprovedOriginCommandInput
   | DisassociateBotCommandInput
   | DisassociateInstanceStorageConfigCommandInput
@@ -500,6 +516,7 @@ export type ServiceInputTypes =
   | ListContactFlowModulesCommandInput
   | ListContactFlowsCommandInput
   | ListContactReferencesCommandInput
+  | ListDefaultVocabulariesCommandInput
   | ListHoursOfOperationsCommandInput
   | ListInstanceAttributesCommandInput
   | ListInstanceStorageConfigsCommandInput
@@ -522,6 +539,7 @@ export type ServiceInputTypes =
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
   | ResumeContactRecordingCommandInput
+  | SearchVocabulariesCommandInput
   | StartChatContactCommandInput
   | StartContactRecordingCommandInput
   | StartContactStreamingCommandInput
@@ -568,6 +586,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateApprovedOriginCommandOutput
   | AssociateBotCommandOutput
+  | AssociateDefaultVocabularyCommandOutput
   | AssociateInstanceStorageConfigCommandOutput
   | AssociateLambdaFunctionCommandOutput
   | AssociateLexBotCommandOutput
@@ -587,6 +606,7 @@ export type ServiceOutputTypes =
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
+  | CreateVocabularyCommandOutput
   | DeleteContactFlowCommandOutput
   | DeleteContactFlowModuleCommandOutput
   | DeleteHoursOfOperationCommandOutput
@@ -597,6 +617,7 @@ export type ServiceOutputTypes =
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
+  | DeleteVocabularyCommandOutput
   | DescribeAgentStatusCommandOutput
   | DescribeContactCommandOutput
   | DescribeContactFlowCommandOutput
@@ -612,6 +633,7 @@ export type ServiceOutputTypes =
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
   | DescribeUserHierarchyStructureCommandOutput
+  | DescribeVocabularyCommandOutput
   | DisassociateApprovedOriginCommandOutput
   | DisassociateBotCommandOutput
   | DisassociateInstanceStorageConfigCommandOutput
@@ -630,6 +652,7 @@ export type ServiceOutputTypes =
   | ListContactFlowModulesCommandOutput
   | ListContactFlowsCommandOutput
   | ListContactReferencesCommandOutput
+  | ListDefaultVocabulariesCommandOutput
   | ListHoursOfOperationsCommandOutput
   | ListInstanceAttributesCommandOutput
   | ListInstanceStorageConfigsCommandOutput
@@ -652,6 +675,7 @@ export type ServiceOutputTypes =
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
   | ResumeContactRecordingCommandOutput
+  | SearchVocabulariesCommandOutput
   | StartChatContactCommandOutput
   | StartContactRecordingCommandOutput
   | StartContactStreamingCommandOutput
@@ -857,9 +881,8 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *          <p>There are limits to the number of Amazon Connect resources that you can create. There are also limits
  *    to the number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
- *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect
- *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
- *     Endpoints</a>.</p>
+ *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
+ *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  *          <note>
  *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  *          </note>

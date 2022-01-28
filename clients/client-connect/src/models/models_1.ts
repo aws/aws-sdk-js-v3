@@ -1,3 +1,5 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   AgentStatusState,
   ContactFlowModuleState,
@@ -10,11 +12,419 @@ import {
   OutboundCallerConfig,
   QueueStatus,
   QuickConnectConfig,
-  Reference,
+  ReferenceType,
   RoutingProfileQueueConfig,
   UserIdentityInfo,
   UserPhoneConfig,
 } from "./models_0";
+
+/**
+ * <p>The contact is not permitted.</p>
+ */
+export interface OutboundContactNotPermittedException extends __SmithyException, $MetadataBearer {
+  name: "OutboundContactNotPermittedException";
+  $fault: "client";
+  /**
+   * <p>The message about the contact.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>Configuration of the answering machine detection.</p>
+ */
+export interface AnswerMachineDetectionConfig {
+  /**
+   * <p>The flag to indicate if answer machine detection analysis needs to be performed for a voice
+   *    call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>.
+   *   </p>
+   */
+  EnableAnswerMachineDetection?: boolean;
+
+  /**
+   * <p>Wait for the answering machine prompt.</p>
+   */
+  AwaitAnswerMachinePrompt?: boolean;
+}
+
+export namespace AnswerMachineDetectionConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnswerMachineDetectionConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum TrafficType {
+  CAMPAIGN = "CAMPAIGN",
+  GENERAL = "GENERAL",
+}
+
+export interface StartOutboundVoiceContactRequest {
+  /**
+   * <p>The phone number of the customer, in E.164 format.</p>
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The
+   *    identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect
+   *    console user interface, on the navigation menu go to <b>Routing</b>,
+   *     <b>Contact Flows</b>. Choose the contact flow. On the contact flow
+   *    page, under the name of the contact flow, choose <b>Show additional flow
+   *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
+   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
+   *          </p>
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request. The token is valid for 7 days after creation. If a contact is already started, the
+   *    contact ID is returned.
+   *    </p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify
+   *    a source phone number, you must specify a queue.</p>
+   */
+  SourcePhoneNumber?: string;
+
+  /**
+   * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
+   *    phone number specified in the queue. If you do not specify a queue, the queue defined in the
+   *    contact flow is used. If you do not specify a queue, you must specify a source phone
+   *    number.</p>
+   */
+  QueueId?: string;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
+   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   */
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>Configuration of the answering machine detection for this outbound call. </p>
+   */
+  AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig;
+
+  /**
+   * <p>The campaign identifier of the outbound communication.</p>
+   */
+  CampaignId?: string;
+
+  /**
+   * <p>Denotes the class of traffic. Calls with different traffic types are handled differently by
+   *    Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code> if
+   *     <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
+   *     <code>GENERAL</code>. </p>
+   */
+  TrafficType?: TrafficType | string;
+}
+
+export namespace StartOutboundVoiceContactRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartOutboundVoiceContactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartOutboundVoiceContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance.</p>
+   */
+  ContactId?: string;
+}
+
+export namespace StartOutboundVoiceContactResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartOutboundVoiceContactResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A link that an agent selects to complete a given task. You can have up to 4,096 UTF-8 bytes
+ *    across all references for a contact.</p>
+ */
+export interface Reference {
+  /**
+   * <p>A valid value for the reference. For example, for a URL reference, a formatted URL that is
+   *    displayed to an agent in the Contact Control Panel (CCP).</p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>The type of the reference. Only <code>URL</code> type can be added or updated on a
+   *    contact.</p>
+   */
+  Type: ReferenceType | string | undefined;
+}
+
+export namespace Reference {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Reference): any => ({
+    ...obj,
+  });
+}
+
+export interface StartTaskContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the previous chat, voice, or task contact. </p>
+   */
+  PreviousContactId?: string;
+
+  /**
+   * <p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the
+   *    Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On
+   *    the contact flow page, under the name of the contact flow, choose <b>Show
+   *     additional flow information</b>. The ContactFlowId is the last part of the ARN, shown
+   *    here in bold: </p>
+   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
+   *          </p>
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect
+   *    attributes, and can be accessed in contact flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   */
+  Attributes?: { [key: string]: string };
+
+  /**
+   * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
+   */
+  References?: { [key: string]: Reference };
+
+  /**
+   * <p>A description of the task that is shown to an agent in the Contact Control Panel
+   *    (CCP).</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound contact flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
+   */
+  ScheduledTime?: Date;
+}
+
+export namespace StartTaskContactRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartTaskContactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartTaskContactResponse {
+  /**
+   * <p>The identifier of this contact within the Amazon Connect instance.</p>
+   */
+  ContactId?: string;
+}
+
+export namespace StartTaskContactResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartTaskContactResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The contact with the specified ID is not active or does not exist.</p>
+ */
+export interface ContactNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ContactNotFoundException";
+  $fault: "client";
+  /**
+   * <p>The message.</p>
+   */
+  Message?: string;
+}
+
+export interface StopContactRequest {
+  /**
+   * <p>The ID of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace StopContactRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopContactResponse {}
+
+export namespace StopContactResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopContactRecordingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the
+   *    first interaction with the contact center.</p>
+   */
+  InitialContactId: string | undefined;
+}
+
+export namespace StopContactRecordingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactRecordingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopContactRecordingResponse {}
+
+export namespace StopContactRecordingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactRecordingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopContactStreamingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact that is associated with
+   *    the first interaction with the contact center.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the streaming configuration enabled. </p>
+   */
+  StreamingId: string | undefined;
+}
+
+export namespace StopContactStreamingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactStreamingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopContactStreamingResponse {}
+
+export namespace StopContactStreamingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactStreamingResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface SuspendContactRecordingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the
+   *    first interaction with the contact center.</p>
+   */
+  InitialContactId: string | undefined;
+}
+
+export namespace SuspendContactRecordingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuspendContactRecordingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SuspendContactRecordingResponse {}
+
+export namespace SuspendContactRecordingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuspendContactRecordingResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface TagResourceRequest {
   /**
@@ -459,7 +869,8 @@ export interface UpdateInstanceAttributeRequest {
   /**
    * <p>The type of attribute.</p>
    *          <note>
-   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support  for allowlisting.</p>
+   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature,
+   *     contact Amazon Web Services Support for allowlisting.</p>
    *          </note>
    */
   AttributeType: InstanceAttributeType | string | undefined;

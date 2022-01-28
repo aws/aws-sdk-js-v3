@@ -116,21 +116,14 @@ import { SecretsManagerClient } from "./SecretsManagerClient";
  *          </p>
  *
  *          <p>This version of the Secrets Manager API Reference documents the Secrets Manager API version 2017-10-17.</p>
- *          <note>
- *             <p>As an alternative to using the API, you can use one of the Amazon Web Services SDKs, which consist of
- *         libraries and sample code for various programming languages and platforms such as Java,
- *         Ruby, .NET, iOS, and Android. The SDKs provide a convenient way to create programmatic
- *         access to Amazon Web Services Secrets Manager. For example, the SDKs provide cryptographically signing requests,
- *         managing errors, and retrying requests automatically. For more information about the Amazon Web Services
- *         SDKs, including downloading and installing them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
- *          </note>
- *          <p>We recommend you use the Amazon Web Services SDKs to make programmatic API calls to Secrets Manager. However, you
- *       also can use the Secrets Manager HTTP Query API to make direct calls to the Secrets Manager web service. To learn
- *       more about the Secrets Manager HTTP Query API, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/query-requests.html">Making Query Requests</a> in the
- *       <i>Amazon Web Services Secrets Manager User Guide</i>. </p>
- *          <p>Secrets Manager API supports GET and POST requests for all actions, and doesn't require you to use
- *       GET for some actions and POST for others. However, GET requests are subject to the limitation
- *       size of a URL. Therefore, for operations that require larger sizes, use a POST request.</p>
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  *
  *
  *
@@ -141,22 +134,9 @@ import { SecretsManagerClient } from "./SecretsManagerClient";
  *          <p>
  *             <b>Support and Feedback for Amazon Web Services Secrets Manager</b>
  *          </p>
- *
  *          <p>We welcome your feedback. Send your comments to <a href="mailto:awssecretsmanager-feedback@amazon.com">awssecretsmanager-feedback@amazon.com</a>, or post your feedback and questions in the <a href="http://forums.aws.amazon.com/forum.jspa?forumID=296">Amazon Web Services Secrets Manager Discussion Forum</a>. For more
  *       information about the Amazon Web Services Discussion Forums, see <a href="http://forums.aws.amazon.com/help.jspa">Forums
  *         Help</a>.</p>
- *
- *          <p>
- *             <b>How examples are presented</b>
- *          </p>
- *
- *          <p>The JSON that Amazon Web Services Secrets Manager expects as your request parameters and the service returns as a
- *       response to HTTP query requests contain single, long strings without line breaks or white
- *       space formatting. The JSON shown in the examples displays the code formatted with both line
- *       breaks and white space to improve readability. When example input parameters can also cause
- *       long strings extending beyond the screen, you can insert line breaks to enhance readability.
- *       You should always submit the input as a single JSON text string.</p>
- *
  *
  *          <p>
  *             <b>Logging API Requests</b>
@@ -182,6 +162,12 @@ export class SecretsManager extends SecretsManagerClient {
    *         new version to see if it should be deleted. You can delete a version by removing all staging labels
    *         from it.</p>
    *          </note>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:CancelRotateSecret</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
@@ -233,6 +219,12 @@ export class SecretsManager extends SecretsManagerClient {
    *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then
    *       you can't use <code>aws/secretsmanager</code> to encrypt the secret, and you must create
    *       and use a customer managed KMS key. </p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:CreateSecret</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public createSecret(
     args: CreateSecretCommandInput,
@@ -263,6 +255,12 @@ export class SecretsManager extends SecretsManagerClient {
   /**
    * <p>Deletes the resource-based permission policy attached to the secret. To attach a policy to
    *       a secret, use <a>PutResourcePolicy</a>.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:DeleteResourcePolicy</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -307,6 +305,12 @@ export class SecretsManager extends SecretsManagerClient {
    *       remove the <code>DeletionDate</code> and cancel the deletion of the secret.</p>
    *          <p>In a secret scheduled for deletion, you cannot access the encrypted secret value.
    *       To access that information, first cancel the deletion with <a>RestoreSecret</a> and then retrieve the information.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:DeleteSecret</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public deleteSecret(
     args: DeleteSecretCommandInput,
@@ -337,6 +341,12 @@ export class SecretsManager extends SecretsManagerClient {
   /**
    * <p>Retrieves the details of a secret. It does not include the encrypted secret value. Secrets Manager
    *       only returns fields that have a value in the response. </p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:DescribeSecret</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public describeSecret(
     args: DescribeSecretCommandInput,
@@ -371,6 +381,12 @@ export class SecretsManager extends SecretsManagerClient {
    * <p>Generates a random password. We recommend that you specify the
    *       maximum length and include every character type that the system you are generating a password
    *       for can support.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:GetRandomPassword</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public getRandomPassword(
     args: GetRandomPasswordCommandInput,
@@ -406,6 +422,12 @@ export class SecretsManager extends SecretsManagerClient {
    *       secret. For more information about permissions policies attached to a secret, see
    *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-policies.html">Permissions
    *         policies attached to a secret</a>.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:GetResourcePolicy</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -440,10 +462,18 @@ export class SecretsManager extends SecretsManagerClient {
    * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
    *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
    *       content.</p>
-   *          <p>For information about retrieving the secret value in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Retrieve secrets</a>. </p>
-   *          <p>To run this command, you must have <code>secretsmanager:GetSecretValue</code> permissions.
+   *          <p>We recommend that you cache your secret values by using client-side caching.
+   *       Caching secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache secrets for
+   *         your applications</a>.</p>
+   *
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:GetSecretValue</code>.
    *       If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key
-   *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.</p>
+   *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public getSecretValue(
     args: GetSecretValueCommandInput,
@@ -482,10 +512,11 @@ export class SecretsManager extends SecretsManagerClient {
    *          <p>For information about finding secrets in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Enhanced search capabilities
    *       for secrets in Secrets Manager</a>.</p>
    *          <p>
-   *             <b>Minimum
-   *         permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have <code>secretsmanager:ListSecrets</code> permissions.</p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:ListSecrets</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public listSecrets(args: ListSecretsCommandInput, options?: __HttpHandlerOptions): Promise<ListSecretsCommandOutput>;
   public listSecrets(args: ListSecretsCommandInput, cb: (err: any, data?: ListSecretsCommandOutput) => void): void;
@@ -515,12 +546,12 @@ export class SecretsManager extends SecretsManagerClient {
    *          <p>To list the secrets in the account, use <a>ListSecrets</a>.</p>
    *          <p>To get the secret value from <code>SecretString</code> or <code>SecretBinary</code>,
    *       call <a>GetSecretValue</a>.</p>
-   *
    *          <p>
-   *             <b>Minimum
-   *       permissions</b>
-   *          </p>
-   *          <p>To run this command, you must have <code>secretsmanager:ListSecretVersionIds</code> permissions.</p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:ListSecretVersionIds</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
@@ -557,6 +588,12 @@ export class SecretsManager extends SecretsManagerClient {
    *          </p>
    *          <p>For information about attaching a policy in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Attach a
    *       permissions policy to a secret</a>.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:PutResourcePolicy</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -609,6 +646,12 @@ export class SecretsManager extends SecretsManagerClient {
    *       same secret data, the operation succeeds but does nothing. However, if the secret data is
    *       different, then the operation fails because you can't modify an existing version; you can
    *       only create new ones.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:PutSecretValue</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public putSecretValue(
     args: PutSecretValueCommandInput,
@@ -641,6 +684,12 @@ export class SecretsManager extends SecretsManagerClient {
 
   /**
    * <p>For a secret that is replicated to other Regions, deletes the secret replicas from the Regions you specify.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:RemoveRegionsFromReplication</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public removeRegionsFromReplication(
     args: RemoveRegionsFromReplicationCommandInput,
@@ -673,6 +722,12 @@ export class SecretsManager extends SecretsManagerClient {
 
   /**
    * <p>Replicates the secret to a new Regions. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/create-manage-multi-region-secrets.html">Multi-Region secrets</a>.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:ReplicateSecretToRegions</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public replicateSecretToRegions(
     args: ReplicateSecretToRegionsCommandInput,
@@ -706,6 +761,12 @@ export class SecretsManager extends SecretsManagerClient {
   /**
    * <p>Cancels the scheduled deletion of a secret by removing the <code>DeletedDate</code> time
    *       stamp. You can access a secret again after it has been restored.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:RestoreSecret</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public restoreSecret(
     args: RestoreSecretCommandInput,
@@ -754,8 +815,14 @@ export class SecretsManager extends SecretsManagerClient {
    *          <p>If the <code>AWSPENDING</code> staging label is present but not attached to the same version as
    *       <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code> assumes that a previous
    *       rotation request is still in progress and returns an error.</p>
-   *          <p>To run this command, you must have <code>secretsmanager:RotateSecret</code> permissions and
-   *       <code>lambda:InvokeFunction</code> permissions on the function specified in the secret's metadata.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:RotateSecret</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. You also need <code>lambda:InvokeFunction</code> permissions on the rotation function.
+   *       For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets-required-permissions-function.html">
+   *         Permissions for rotation</a>.</p>
    */
   public rotateSecret(
     args: RotateSecretCommandInput,
@@ -786,6 +853,12 @@ export class SecretsManager extends SecretsManagerClient {
   /**
    * <p>Removes the link between the replica secret and the primary secret and promotes the replica to a primary secret in the replica Region.</p>
    *          <p>You must call this operation from the Region in which you want to promote the replica to a primary secret.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:StopReplicationToReplica</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public stopReplicationToReplica(
     args: StopReplicationToReplicaCommandInput,
@@ -852,6 +925,12 @@ export class SecretsManager extends SecretsManagerClient {
    *         your permissions for this secret, then the operation is blocked and returns an Access Denied
    *         error.</p>
    *          </important>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:TagResource</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -886,6 +965,12 @@ export class SecretsManager extends SecretsManagerClient {
    *         permissions for this secret, then the operation is blocked and returns an Access Denied
    *         error.</p>
    *          </important>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:UntagResource</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -940,9 +1025,15 @@ export class SecretsManager extends SecretsManagerClient {
    *       significant delay in returning the result.  </p>
    *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then you can't
    *       use <code>aws/secretsmanager</code> to encrypt the secret, and you must create and use a customer managed key. </p>
-   *
-   *          <p>To run this command, you must have <code>secretsmanager:UpdateSecret</code> permissions. If you use a
-   *       customer managed key, you must also have <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions .</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:UpdateSecret</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>.
+   *       If you use a customer managed key, you must also have <code>kms:GenerateDataKey</code> and
+   *       <code>kms:Decrypt</code> permissions on the key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
+   *         Secret encryption and decryption</a>.</p>
    */
   public updateSecret(
     args: UpdateSecretCommandInput,
@@ -986,6 +1077,12 @@ export class SecretsManager extends SecretsManagerClient {
    *          </note>
    *          <p>If this action results in the last label being removed from a version, then the version is
    *       considered to be 'deprecated' and can be deleted by Secrets Manager.</p>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:UpdateSecretVersionStage</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
@@ -1032,6 +1129,12 @@ export class SecretsManager extends SecretsManagerClient {
    *                <p>Verifies the policy does not lock out a caller.</p>
    *             </li>
    *          </ul>
+   *          <p>
+   *             <b>Required permissions: </b>
+   *             <code>secretsmanager:ValidateResourcePolicy</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+   *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+   *       and access control in Secrets Manager</a>. </p>
    */
   public validateResourcePolicy(
     args: ValidateResourcePolicyCommandInput,

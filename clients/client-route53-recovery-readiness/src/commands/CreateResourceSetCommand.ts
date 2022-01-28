@@ -26,7 +26,7 @@ export interface CreateResourceSetCommandInput extends CreateResourceSetRequest 
 export interface CreateResourceSetCommandOutput extends CreateResourceSetResponse, __MetadataBearer {}
 
 /**
- * Creates a new Resource Set.
+ * <p>Creates a resource set. A resource set is a set of resources of one type that span multiple cells. You can associate a resource set with a readiness check to monitor the resources for failover readiness.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

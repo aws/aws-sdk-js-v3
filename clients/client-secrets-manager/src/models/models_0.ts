@@ -83,7 +83,7 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
 }
 
 /**
- * <p>The parameter name is invalid value.</p>
+ * <p>The parameter name or value is invalid.</p>
  */
 export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterException";
@@ -397,6 +397,15 @@ export namespace CreateSecretResponse {
 }
 
 /**
+ * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ */
+export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
+  name: "DecryptionFailure";
+  $fault: "client";
+  Message?: string;
+}
+
+/**
  * <p>Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the
  *       KMS key is available, enabled, and not in an invalid state. For more
  *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a>.</p>
@@ -439,15 +448,6 @@ export interface PreconditionNotMetException extends __SmithyException, $Metadat
  */
 export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
   name: "ResourceExistsException";
-  $fault: "client";
-  Message?: string;
-}
-
-/**
- * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
- */
-export interface DecryptionFailure extends __SmithyException, $MetadataBearer {
-  name: "DecryptionFailure";
   $fault: "client";
   Message?: string;
 }
@@ -584,14 +584,45 @@ export namespace DescribeSecretRequest {
  */
 export interface RotationRulesType {
   /**
-   * <p>Specifies the number of days between automatic scheduled rotations of the secret.</p>
-   *          <p>Secrets Manager schedules the next rotation when the previous
-   *       one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the
-   *       actual date of the last rotation. The service chooses the hour within that 24-hour date window
-   *       randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour
-   *       and influenced by a variety of factors that help distribute load.</p>
+   * <p>The number of days between automatic scheduled rotations of the secret. You can use this
+   *       value to check that your secret meets your compliance guidelines for how often secrets must
+   *       be rotated.</p>
+   *          <p>In <code>DescribeSecret</code> and <code>ListSecrets</code>, this value is calculated from
+   *       the rotation schedule after every successful rotation. In <code>RotateSecret</code>, you can
+   *       set the rotation schedule in <code>RotationRules</code> with <code>AutomaticallyAfterDays</code>
+   *       or <code>ScheduleExpression</code>, but not both.</p>
    */
   AutomaticallyAfterDays?: number;
+
+  /**
+   * <p>The length of the rotation window in hours, for example <code>3h</code> for a three hour window. Secrets Manager
+   *       rotates your secret at any time during this window. The window must not go into the next UTC
+   *       day. If you don't specify this value, the window automatically ends at the end of
+   *       the UTC day. The window begins according to the <code>ScheduleExpression</code>. For more
+   *       information, including examples, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule expressions
+   *         in Secrets Manager rotation</a>.</p>
+   */
+  Duration?: string;
+
+  /**
+   * <p>A <code>cron()</code> or <code>rate()</code> expression that defines the schedule for
+   *       rotating your secret. Secrets Manager rotation schedules use UTC time zone. </p>
+   *          <p>Secrets Manager <code>rate()</code> expressions
+   *       represent the interval in days that you want to rotate your secret, for example
+   *       <code>rate(10 days)</code>. If you use a <code>rate()</code> expression, the rotation
+   *       window opens at midnight, and Secrets Manager rotates your secret any time that day after midnight.
+   *       You can set a <code>Duration</code> to shorten the rotation window.</p>
+   *          <p>You can use a <code>cron()</code> expression to create rotation schedules that are
+   *       more detailed than a rotation interval. For more information, including examples, see
+   *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_schedule.html">Schedule expressions
+   *         in Secrets Manager rotation</a>. If you use a <code>cron()</code> expression, Secrets Manager rotates
+   *       your secret any time during that day after the window opens. For example,
+   *       <code>cron(0 8 1 * ? *)</code> represents a rotation window that occurs on the first
+   *       day of every month beginning at 8:00 AM UTC. Secrets Manager rotates the secret any time that day
+   *       after 8:00 AM. You can set a <code>Duration</code> to shorten
+   *       the rotation window.</p>
+   */
+  ScheduleExpression?: string;
 }
 
 export namespace RotationRulesType {
@@ -1074,8 +1105,9 @@ export namespace ListSecretsRequest {
 
 /**
  * <p>A structure that contains the details about a secret. It does not include the encrypted
- *         <code>SecretString</code> and <code>SecretBinary</code> values. To get those values, use the
- *         <a>GetSecretValue</a> operation.</p>
+ *         <code>SecretString</code> and <code>SecretBinary</code> values. To get those values, use
+ *       <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html">GetSecretValue</a>
+ *       .</p>
  */
 export interface SecretListEntry {
   /**
@@ -1109,7 +1141,9 @@ export interface SecretListEntry {
 
   /**
    * <p>The ARN of an Amazon Web Services Lambda function invoked by Secrets Manager to rotate and expire the
-   *       secret either automatically per the schedule or manually by a call to <a>RotateSecret</a>.</p>
+   *       secret either automatically per the schedule or manually by a call to <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_RotateSecret.html">
+   *                <code>RotateSecret</code>
+   *             </a>.</p>
    */
   RotationLambdaARN?: string;
 
@@ -1137,13 +1171,20 @@ export interface SecretListEntry {
   /**
    * <p>The date and time the deletion of the secret occurred. Not present on active secrets. The
    *       secret can be recovered until the number of days in the recovery window has passed, as
-   *       specified in the <code>RecoveryWindowInDays</code> parameter of the <a>DeleteSecret</a> operation.</p>
+   *       specified in the <code>RecoveryWindowInDays</code> parameter of the <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_DeleteSecret.html">
+   *                <code>DeleteSecret</code>
+   *             </a> operation.</p>
    */
   DeletedDate?: Date;
 
   /**
    * <p>The list of user-defined tags associated with the secret. To add tags to a
-   *       secret, use <a>TagResource</a>. To remove tags, use <a>UntagResource</a>.</p>
+   *       secret, use <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_TagResource.html">
+   *                <code>TagResource</code>
+   *             </a>.
+   *       To remove tags, use <a href="https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_UntagResource.html">
+   *                <code>UntagResource</code>
+   *             </a>.</p>
    */
   Tags?: Tag[];
 
@@ -1663,6 +1704,17 @@ export interface RotateSecretRequest {
    * <p>A structure that defines the rotation configuration for this secret.</p>
    */
   RotationRules?: RotationRulesType;
+
+  /**
+   * <p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
+   *     The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</p>
+   *          <p>If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
+   *     <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">
+   *                <code>testSecret</code>
+   *       step</a> of the Lambda rotation function. The test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p>
+   *          <p>If you don't specify this value, then by default, Secrets Manager rotates the secret immediately.</p>
+   */
+  RotateImmediately?: boolean;
 }
 
 export namespace RotateSecretRequest {

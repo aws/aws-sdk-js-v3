@@ -28,7 +28,7 @@ export interface DeleteCrossAccountAuthorizationCommandOutput
     __MetadataBearer {}
 
 /**
- * Delete cross account readiness authorization
+ * <p>Deletes cross account readiness authorization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

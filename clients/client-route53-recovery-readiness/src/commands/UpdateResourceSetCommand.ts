@@ -26,7 +26,7 @@ export interface UpdateResourceSetCommandInput extends UpdateResourceSetRequest 
 export interface UpdateResourceSetCommandOutput extends UpdateResourceSetResponse, __MetadataBearer {}
 
 /**
- * Updates an existing Resource Set.
+ * <p>Updates a resource set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

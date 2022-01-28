@@ -145,6 +145,7 @@ import {
   PrometheusInfo,
   Provisioned,
   ProvisionedRequest,
+  ProvisionedThroughput,
   PublicAccess,
   S3,
   Sasl,
@@ -4921,6 +4922,10 @@ const serializeAws_restJson1BrokerEBSVolumeInfo = (input: BrokerEBSVolumeInfo, c
   return {
     ...(input.KafkaBrokerNodeId !== undefined &&
       input.KafkaBrokerNodeId !== null && { kafkaBrokerNodeId: input.KafkaBrokerNodeId }),
+    ...(input.ProvisionedThroughput !== undefined &&
+      input.ProvisionedThroughput !== null && {
+        provisionedThroughput: serializeAws_restJson1ProvisionedThroughput(input.ProvisionedThroughput, context),
+      }),
     ...(input.VolumeSizeGB !== undefined && input.VolumeSizeGB !== null && { volumeSizeGB: input.VolumeSizeGB }),
   };
 };
@@ -4993,6 +4998,10 @@ const serializeAws_restJson1ConnectivityInfo = (input: ConnectivityInfo, context
 
 const serializeAws_restJson1EBSStorageInfo = (input: EBSStorageInfo, context: __SerdeContext): any => {
   return {
+    ...(input.ProvisionedThroughput !== undefined &&
+      input.ProvisionedThroughput !== null && {
+        provisionedThroughput: serializeAws_restJson1ProvisionedThroughput(input.ProvisionedThroughput, context),
+      }),
     ...(input.VolumeSize !== undefined && input.VolumeSize !== null && { volumeSize: input.VolumeSize }),
   };
 };
@@ -5106,6 +5115,14 @@ const serializeAws_restJson1ProvisionedRequest = (input: ProvisionedRequest, con
       input.OpenMonitoring !== null && {
         openMonitoring: serializeAws_restJson1OpenMonitoringInfo(input.OpenMonitoring, context),
       }),
+  };
+};
+
+const serializeAws_restJson1ProvisionedThroughput = (input: ProvisionedThroughput, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && input.Enabled !== null && { enabled: input.Enabled }),
+    ...(input.VolumeThroughput !== undefined &&
+      input.VolumeThroughput !== null && { volumeThroughput: input.VolumeThroughput }),
   };
 };
 
@@ -5376,6 +5393,10 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 const deserializeAws_restJson1BrokerEBSVolumeInfo = (output: any, context: __SerdeContext): BrokerEBSVolumeInfo => {
   return {
     KafkaBrokerNodeId: __expectString(output.kafkaBrokerNodeId),
+    ProvisionedThroughput:
+      output.provisionedThroughput !== undefined && output.provisionedThroughput !== null
+        ? deserializeAws_restJson1ProvisionedThroughput(output.provisionedThroughput, context)
+        : undefined,
     VolumeSizeGB: __expectInt32(output.volumeSizeGB),
   } as any;
 };
@@ -5660,6 +5681,10 @@ const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
   return {
+    ProvisionedThroughput:
+      output.provisionedThroughput !== undefined && output.provisionedThroughput !== null
+        ? deserializeAws_restJson1ProvisionedThroughput(output.provisionedThroughput, context)
+        : undefined,
     VolumeSize: __expectInt32(output.volumeSize),
   } as any;
 };
@@ -5878,6 +5903,13 @@ const deserializeAws_restJson1Provisioned = (output: any, context: __SerdeContex
         : undefined,
     ZookeeperConnectString: __expectString(output.zookeeperConnectString),
     ZookeeperConnectStringTls: __expectString(output.zookeeperConnectStringTls),
+  } as any;
+};
+
+const deserializeAws_restJson1ProvisionedThroughput = (output: any, context: __SerdeContext): ProvisionedThroughput => {
+  return {
+    Enabled: __expectBoolean(output.enabled),
+    VolumeThroughput: __expectInt32(output.volumeThroughput),
   } as any;
 };
 

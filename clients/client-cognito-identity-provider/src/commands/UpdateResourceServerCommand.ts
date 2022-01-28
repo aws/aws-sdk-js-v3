@@ -28,10 +28,9 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
 
 /**
  * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>
- *         <important>
- *             <p>If you don't provide a value for an attribute, it will be set to the default
- *                 value.</p>
- *         </important>
+ *          <important>
+ *             <p>If you don't provide a value for an attribute, it is set to the default value.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -355,7 +355,7 @@ export interface Route53RecoveryReadinessClientResolvedConfig
   extends Route53RecoveryReadinessClientResolvedConfigType {}
 
 /**
- * AWS Route53 Recovery Readiness
+ * <p>Recovery readiness</p>
  */
 export class Route53RecoveryReadinessClient extends __Client<
   __HttpHandlerOptions,

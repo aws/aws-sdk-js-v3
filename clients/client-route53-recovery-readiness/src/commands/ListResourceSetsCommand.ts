@@ -26,7 +26,7 @@ export interface ListResourceSetsCommandInput extends ListResourceSetsRequest {}
 export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse, __MetadataBearer {}
 
 /**
- * Returns a collection of Resource Sets.
+ * <p>Lists the resource sets in an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

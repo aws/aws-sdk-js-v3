@@ -42,6 +42,12 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *          <p>If the secret is in a different Amazon Web Services account from the credentials calling the API, then
  *       you can't use <code>aws/secretsmanager</code> to encrypt the secret, and you must create
  *       and use a customer managed KMS key. </p>
+ *          <p>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:CreateSecret</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

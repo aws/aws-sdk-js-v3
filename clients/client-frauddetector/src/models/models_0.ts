@@ -2849,6 +2849,478 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
   message?: string;
 }
 
+export interface GetEventPredictionMetadataRequest {
+  /**
+   * <p>
+   * The event ID.
+   * </p>
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>
+   * The event type associated with the detector specified for the prediction.
+   * </p>
+   */
+  eventTypeName: string | undefined;
+
+  /**
+   * <p>
+   * The detector ID.
+   * </p>
+   */
+  detectorId: string | undefined;
+
+  /**
+   * <p>
+   * The detector version ID.
+   * </p>
+   */
+  detectorVersionId: string | undefined;
+
+  /**
+   * <p>
+   * The timestamp that defines when the prediction was generated.
+   * </p>
+   */
+  predictionTimestamp: string | undefined;
+}
+
+export namespace GetEventPredictionMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventPredictionMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * The details of the external (Amazon Sagemaker) model evaluated for generating predictions.
+ * </p>
+ */
+export interface EvaluatedExternalModel {
+  /**
+   * <p>
+   * The endpoint of the external (Amazon Sagemaker) model.
+   * </p>
+   */
+  modelEndpoint?: string;
+
+  /**
+   * <p>
+   * Indicates whether event variables were used to generate predictions.
+   * </p>
+   */
+  useEventVariables?: boolean;
+
+  /**
+   * <p>
+   * Input variables use for generating predictions.
+   * </p>
+   */
+  inputVariables?: { [key: string]: string };
+
+  /**
+   * <p>
+   * Output variables.
+   * </p>
+   */
+  outputVariables?: { [key: string]: string };
+}
+
+export namespace EvaluatedExternalModel {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EvaluatedExternalModel): any => ({
+    ...obj,
+    ...(obj.inputVariables && { inputVariables: SENSITIVE_STRING }),
+    ...(obj.outputVariables && { outputVariables: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>
+ * The details of the event variable's impact on the prediction score.
+ * </p>
+ */
+export interface VariableImpactExplanation {
+  /**
+   * <p>
+   * The event variable name.
+   * </p>
+   */
+  eventVariableName?: string;
+
+  /**
+   * <p>
+   *     The event variable's relative impact in terms of magnitude on the prediction scores.
+   *     The relative impact values consist of a numerical rating (0-5, 5 being the highest) and direction (increased/decreased) impact of the fraud risk.
+   * </p>
+   */
+  relativeImpact?: string;
+
+  /**
+   * <p>
+   *     The raw, uninterpreted value represented as log-odds of the fraud. These values are usually between -10 to +10, but range from - infinity to + infinity.</p>
+   *          <ul>
+   *             <li>
+   *                <p>A positive value indicates that the variable drove the risk score up.</p>
+   *             </li>
+   *             <li>
+   *                <p>A negative value indicates that the variable drove the risk score down.</p>
+   *             </li>
+   *          </ul>
+   */
+  logOddsImpact?: number;
+}
+
+export namespace VariableImpactExplanation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VariableImpactExplanation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * The prediction explanations that provide insight into how each event variable impacted the model version's fraud prediction score.
+ * </p>
+ */
+export interface PredictionExplanations {
+  /**
+   * <p>
+   * The details of the event variable's impact on the prediction score.
+   * </p>
+   */
+  variableImpactExplanations?: VariableImpactExplanation[];
+}
+
+export namespace PredictionExplanations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictionExplanations): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * The model version evalutions.
+ * </p>
+ */
+export interface ModelVersionEvaluation {
+  /**
+   * <p>
+   * The output variable name.
+   * </p>
+   */
+  outputVariableName?: string;
+
+  /**
+   * <p>
+   * The evaluation score generated for the model version.
+   * </p>
+   */
+  evaluationScore?: string;
+
+  /**
+   * <p>
+   * The prediction explanations generated for the model version.
+   * </p>
+   */
+  predictionExplanations?: PredictionExplanations;
+}
+
+export namespace ModelVersionEvaluation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelVersionEvaluation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * The model version evaluated for generating prediction.
+ * </p>
+ */
+export interface EvaluatedModelVersion {
+  /**
+   * <p>
+   * The model ID.
+   * </p>
+   */
+  modelId?: string;
+
+  /**
+   * <p>
+   * The model version.
+   * </p>
+   */
+  modelVersion?: string;
+
+  /**
+   * <p>The model type. </p>
+   *          <p>Valid values: <code>ONLINE_FRAUD_INSIGHTS</code> | <code>TRANSACTION_FRAUD_INSIGHTS</code>
+   *          </p>
+   */
+  modelType?: string;
+
+  /**
+   * <p>
+   * Evaluations generated for the model version.
+   * </p>
+   */
+  evaluations?: ModelVersionEvaluation[];
+}
+
+export namespace EvaluatedModelVersion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EvaluatedModelVersion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Information about the summary of an event variable that was evaluated for generating prediction.
+ * </p>
+ */
+export interface EventVariableSummary {
+  /**
+   * <p>
+   * The event variable name.
+   * </p>
+   */
+  name?: string;
+
+  /**
+   * <p>
+   * The value of the event variable.
+   * </p>
+   */
+  value?: string;
+
+  /**
+   * <p>
+   * The event variable source.
+   * </p>
+   */
+  source?: string;
+}
+
+export namespace EventVariableSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventVariableSummary): any => ({
+    ...obj,
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.value && { value: SENSITIVE_STRING }),
+    ...(obj.source && { source: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>
+ * The details of the rule used for evaluating variable values.
+ * </p>
+ */
+export interface EvaluatedRule {
+  /**
+   * <p>
+   * The rule ID.
+   * </p>
+   */
+  ruleId?: string;
+
+  /**
+   * <p>
+   * The rule version.
+   * </p>
+   */
+  ruleVersion?: string;
+
+  /**
+   * <p>
+   * The rule expression.
+   * </p>
+   */
+  expression?: string;
+
+  /**
+   * <p>
+   * The rule expression value.
+   * </p>
+   */
+  expressionWithValues?: string;
+
+  /**
+   * <p>
+   * The rule outcome.
+   * </p>
+   */
+  outcomes?: string[];
+
+  /**
+   * <p>
+   * Indicates whether the rule was evaluated.
+   * </p>
+   */
+  evaluated?: boolean;
+
+  /**
+   * <p>
+   * Indicates whether the rule matched.
+   * </p>
+   */
+  matched?: boolean;
+}
+
+export namespace EvaluatedRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EvaluatedRule): any => ({
+    ...obj,
+    ...(obj.expression && { expression: SENSITIVE_STRING }),
+    ...(obj.expressionWithValues && { expressionWithValues: SENSITIVE_STRING }),
+  });
+}
+
+export interface GetEventPredictionMetadataResult {
+  /**
+   * <p>
+   * The event ID.
+   * </p>
+   */
+  eventId?: string;
+
+  /**
+   * <p>
+   * The event type associated with the detector specified for this prediction.
+   * </p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>
+   * The entity ID.
+   * </p>
+   */
+  entityId?: string;
+
+  /**
+   * <p>
+   * The entity type.
+   * </p>
+   */
+  entityType?: string;
+
+  /**
+   * <p>
+   * The timestamp for when the prediction was generated for the associated event ID.
+   * </p>
+   */
+  eventTimestamp?: string;
+
+  /**
+   * <p>
+   * The detector ID.
+   * </p>
+   */
+  detectorId?: string;
+
+  /**
+   * <p>
+   * The detector version ID.
+   * </p>
+   */
+  detectorVersionId?: string;
+
+  /**
+   * <p>
+   * The status of the detector version.
+   * </p>
+   */
+  detectorVersionStatus?: string;
+
+  /**
+   * <p>
+   * A list of event variables that influenced the prediction scores.
+   * </p>
+   */
+  eventVariables?: EventVariableSummary[];
+
+  /**
+   * <p>
+   * List of rules associated with the detector version that were used for evaluating variable values.
+   * </p>
+   */
+  rules?: EvaluatedRule[];
+
+  /**
+   * <p>
+   * The execution mode of the rule used for evaluating variable values.
+   * </p>
+   */
+  ruleExecutionMode?: RuleExecutionMode | string;
+
+  /**
+   * <p>
+   * The outcomes of the matched rule, based on the rule execution mode.
+   * </p>
+   */
+  outcomes?: string[];
+
+  /**
+   * <p>
+   * Model versions that were evaluated for generating predictions.
+   * </p>
+   */
+  evaluatedModelVersions?: EvaluatedModelVersion[];
+
+  /**
+   * <p>
+   * External (Amazon SageMaker) models that were evaluated for generating predictions.
+   * </p>
+   */
+  evaluatedExternalModels?: EvaluatedExternalModel[];
+
+  /**
+   * <p>The timestamp that defines when the prediction was generated.
+   * </p>
+   */
+  predictionTimestamp?: string;
+}
+
+export namespace GetEventPredictionMetadataResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventPredictionMetadataResult): any => ({
+    ...obj,
+    ...(obj.eventVariables && {
+      eventVariables: obj.eventVariables.map((item) => EventVariableSummary.filterSensitiveLog(item)),
+    }),
+    ...(obj.rules && { rules: obj.rules.map((item) => EvaluatedRule.filterSensitiveLog(item)) }),
+    ...(obj.evaluatedExternalModels && {
+      evaluatedExternalModels: obj.evaluatedExternalModels.map((item) =>
+        EvaluatedExternalModel.filterSensitiveLog(item)
+      ),
+    }),
+  });
+}
+
 export interface GetEventTypesRequest {
   /**
    * <p>The name.</p>
@@ -3807,6 +4279,202 @@ export namespace GetVariablesResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetVariablesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * A conditional statement for filtering a list of past predictions.
+ * </p>
+ */
+export interface FilterCondition {
+  /**
+   * <p>
+   * A statement containing a resource property and a value to specify filter condition.
+   * </p>
+   */
+  value?: string;
+}
+
+export namespace FilterCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FilterCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * The time period for when the predictions were generated.
+ * </p>
+ */
+export interface PredictionTimeRange {
+  /**
+   * <p>
+   * The start time of the time period for when the predictions were generated.
+   * </p>
+   */
+  startTime: string | undefined;
+
+  /**
+   * <p>
+   * The end time of the time period for when the predictions were generated.
+   * </p>
+   */
+  endTime: string | undefined;
+}
+
+export namespace PredictionTimeRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PredictionTimeRange): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEventPredictionsRequest {
+  /**
+   * <p>
+   * The event ID.
+   * </p>
+   */
+  eventId?: FilterCondition;
+
+  /**
+   * <p>
+   * The event type associated with the detector.
+   * </p>
+   */
+  eventType?: FilterCondition;
+
+  /**
+   * <p>
+   * The detector ID.
+   * </p>
+   */
+  detectorId?: FilterCondition;
+
+  /**
+   * <p>
+   * The detector version ID.
+   * </p>
+   */
+  detectorVersionId?: FilterCondition;
+
+  /**
+   * <p>
+   * The time period for when the predictions were generated.
+   * </p>
+   */
+  predictionTimeRange?: PredictionTimeRange;
+
+  /**
+   * <p>
+   * Identifies the next page of results to return. Use the token to make the call again to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours.
+   * </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>
+   * The maximum number of predictions to return for the request.
+   * </p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListEventPredictionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventPredictionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Information about the summary of an event prediction.
+ * </p>
+ */
+export interface EventPredictionSummary {
+  /**
+   * <p>
+   * The event ID.
+   * </p>
+   */
+  eventId?: string;
+
+  /**
+   * <p>
+   * The event type.
+   * </p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>
+   * The timestamp of the event.
+   * </p>
+   */
+  eventTimestamp?: string;
+
+  /**
+   * <p>
+   * The timestamp when the prediction was generated.
+   * </p>
+   */
+  predictionTimestamp?: string;
+
+  /**
+   * <p>
+   * The detector ID.
+   * </p>
+   */
+  detectorId?: string;
+
+  /**
+   * <p>
+   * The detector version ID.
+   * </p>
+   */
+  detectorVersionId?: string;
+}
+
+export namespace EventPredictionSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventPredictionSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEventPredictionsResult {
+  /**
+   * <p>
+   * The summary of the past predictions.
+   * </p>
+   */
+  eventPredictionSummaries?: EventPredictionSummary[];
+
+  /**
+   * <p>
+   * Identifies the next page of results to return. Use the token to make the call again to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours.
+   * </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListEventPredictionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventPredictionsResult): any => ({
     ...obj,
   });
 }

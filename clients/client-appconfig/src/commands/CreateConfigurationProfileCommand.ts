@@ -38,7 +38,7 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *             </li>
  *             <li>
  *                <p>A validator for the configuration data. Available validators include either a JSON
- *                Schema or an Lambda function.</p>
+ *                Schema or an Amazon Web Services Lambda function.</p>
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a

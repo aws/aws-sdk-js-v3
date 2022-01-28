@@ -93,6 +93,7 @@ import {
   ServiceCatalogProvisionedProductDetails,
   SortBy,
   SortOrder,
+  TrainingJobSortByOptions,
   TransformJobStatus,
   TrialComponentMetricSummary,
   TrialComponentSource,
@@ -101,6 +102,57 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListTrainingJobsForHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job whose training jobs you want to list.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+
+  /**
+   * <p>If the result of the previous <code>ListTrainingJobsForHyperParameterTuningJob</code>
+   *             request was truncated, the response includes a <code>NextToken</code>. To retrieve the
+   *             next set of training jobs, use the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of training jobs to return. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A filter that returns only training jobs with the
+   *             specified
+   *             status.</p>
+   */
+  StatusEquals?: TrainingJobStatus | string;
+
+  /**
+   * <p>The field to sort
+   *             results
+   *             by. The default is <code>Name</code>.</p>
+   *         <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training
+   *             jobs that did not return an objective metric are not listed.</p>
+   */
+  SortBy?: TrainingJobSortByOptions | string;
+
+  /**
+   * <p>The sort order
+   *             for
+   *             results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: SortOrder | string;
+}
+
+export namespace ListTrainingJobsForHyperParameterTuningJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTrainingJobsForHyperParameterTuningJobRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ListTrainingJobsForHyperParameterTuningJobResponse {
   /**

@@ -80,6 +80,10 @@ import {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
+import {
+  DescribeDomainChangeProgressCommandInput,
+  DescribeDomainChangeProgressCommandOutput,
+} from "./commands/DescribeDomainChangeProgressCommand";
 import { DescribeDomainCommandInput, DescribeDomainCommandOutput } from "./commands/DescribeDomainCommand";
 import {
   DescribeDomainConfigCommandInput,
@@ -164,6 +168,7 @@ export type ServiceInputTypes =
   | DeleteOutboundConnectionCommandInput
   | DeletePackageCommandInput
   | DescribeDomainAutoTunesCommandInput
+  | DescribeDomainChangeProgressCommandInput
   | DescribeDomainCommandInput
   | DescribeDomainConfigCommandInput
   | DescribeDomainsCommandInput
@@ -205,6 +210,7 @@ export type ServiceOutputTypes =
   | DeleteOutboundConnectionCommandOutput
   | DeletePackageCommandOutput
   | DescribeDomainAutoTunesCommandOutput
+  | DescribeDomainChangeProgressCommandOutput
   | DescribeDomainCommandOutput
   | DescribeDomainConfigCommandOutput
   | DescribeDomainsCommandOutput

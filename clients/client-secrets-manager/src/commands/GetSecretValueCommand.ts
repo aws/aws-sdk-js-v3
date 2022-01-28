@@ -25,10 +25,18 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * <p>Retrieves the contents of the encrypted fields <code>SecretString</code> or
  *         <code>SecretBinary</code> from the specified version of a secret, whichever contains
  *       content.</p>
- *          <p>For information about retrieving the secret value in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Retrieve secrets</a>. </p>
- *          <p>To run this command, you must have <code>secretsmanager:GetSecretValue</code> permissions.
+ *          <p>We recommend that you cache your secret values by using client-side caching.
+ *       Caching secrets improves speed and reduces your costs. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html">Cache secrets for
+ *         your applications</a>.</p>
+ *
+ *          <p>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:GetSecretValue</code>.
  *       If the secret is encrypted using a customer-managed key instead of the Amazon Web Services managed key
- *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.</p>
+ *       <code>aws/secretsmanager</code>, then you also need <code>kms:Decrypt</code> permissions for that key.
+ *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

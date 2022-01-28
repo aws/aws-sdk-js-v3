@@ -27,9 +27,8 @@ export interface AdminUserGlobalSignOutCommandInput extends AdminUserGlobalSignO
 export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSignOutResponse, __MetadataBearer {}
 
 /**
- * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh
- *             tokens issued to a user. The user's current access and Id tokens remain valid until
- *             their expiry. Access and Id tokens expire one hour after they are issued.</p>
+ * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh tokens issued to a user. The user's current access and Id tokens remain valid until their expiry. Access and
+ *             Id tokens expire one hour after they're issued.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

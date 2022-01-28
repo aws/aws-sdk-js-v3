@@ -26,7 +26,7 @@ export interface GetCellReadinessSummaryCommandInput extends GetCellReadinessSum
 export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSummaryResponse, __MetadataBearer {}
 
 /**
- * Returns information about readiness of a Cell.
+ * <p>Gets readiness for a cell. Aggregates the readiness of all the resources that are associated with the cell into a single value.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

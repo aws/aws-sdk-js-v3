@@ -80,6 +80,7 @@ import {
 } from "../commands/UpdatePreparedStatementCommand";
 import { UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput } from "../commands/UpdateWorkGroupCommand";
 import {
+  AthenaError,
   BatchGetNamedQueryInput,
   BatchGetNamedQueryOutput,
   BatchGetQueryExecutionInput,
@@ -3386,6 +3387,12 @@ const serializeAws_json1_1WorkGroupConfigurationUpdates = (
   };
 };
 
+const deserializeAws_json1_1AthenaError = (output: any, context: __SerdeContext): AthenaError => {
+  return {
+    ErrorCategory: __expectInt32(output.ErrorCategory),
+  } as any;
+};
+
 const deserializeAws_json1_1BatchGetNamedQueryOutput = (
   output: any,
   context: __SerdeContext
@@ -3976,6 +3983,10 @@ const deserializeAws_json1_1QueryExecutionStatistics = (
 
 const deserializeAws_json1_1QueryExecutionStatus = (output: any, context: __SerdeContext): QueryExecutionStatus => {
   return {
+    AthenaError:
+      output.AthenaError !== undefined && output.AthenaError !== null
+        ? deserializeAws_json1_1AthenaError(output.AthenaError, context)
+        : undefined,
     CompletionDateTime:
       output.CompletionDateTime !== undefined && output.CompletionDateTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDateTime)))

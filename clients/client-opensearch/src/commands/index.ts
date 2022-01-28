@@ -10,6 +10,7 @@ export * from "./DeleteInboundConnectionCommand";
 export * from "./DeleteOutboundConnectionCommand";
 export * from "./DeletePackageCommand";
 export * from "./DescribeDomainAutoTunesCommand";
+export * from "./DescribeDomainChangeProgressCommand";
 export * from "./DescribeDomainCommand";
 export * from "./DescribeDomainConfigCommand";
 export * from "./DescribeDomainsCommand";

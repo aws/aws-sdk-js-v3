@@ -27,6 +27,10 @@ import {
 } from "../commands/AssociateApprovedOriginCommand";
 import { AssociateBotCommandInput, AssociateBotCommandOutput } from "../commands/AssociateBotCommand";
 import {
+  AssociateDefaultVocabularyCommandInput,
+  AssociateDefaultVocabularyCommandOutput,
+} from "../commands/AssociateDefaultVocabularyCommand";
+import {
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
 } from "../commands/AssociateInstanceStorageConfigCommand";
@@ -78,6 +82,7 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "../commands/CreateUserHierarchyGroupCommand";
+import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "../commands/CreateVocabularyCommand";
 import { DeleteContactFlowCommandInput, DeleteContactFlowCommandOutput } from "../commands/DeleteContactFlowCommand";
 import {
   DeleteContactFlowModuleCommandInput,
@@ -103,6 +108,7 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "../commands/DeleteUserHierarchyGroupCommand";
+import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "../commands/DeleteVocabularyCommand";
 import {
   DescribeAgentStatusCommandInput,
   DescribeAgentStatusCommandOutput,
@@ -151,6 +157,7 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "../commands/DescribeUserHierarchyStructureCommand";
+import { DescribeVocabularyCommandInput, DescribeVocabularyCommandOutput } from "../commands/DescribeVocabularyCommand";
 import {
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
@@ -202,6 +209,10 @@ import {
   ListContactReferencesCommandInput,
   ListContactReferencesCommandOutput,
 } from "../commands/ListContactReferencesCommand";
+import {
+  ListDefaultVocabulariesCommandInput,
+  ListDefaultVocabulariesCommandOutput,
+} from "../commands/ListDefaultVocabulariesCommand";
 import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
@@ -263,6 +274,7 @@ import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
 } from "../commands/ResumeContactRecordingCommand";
+import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "../commands/SearchVocabulariesCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
 import {
   StartContactRecordingCommandInput,
@@ -409,7 +421,6 @@ import {
   AgentInfo,
   AgentStatus,
   AgentStatusSummary,
-  AnswerMachineDetectionConfig,
   AttachmentReference,
   Attribute,
   Channel,
@@ -421,11 +432,11 @@ import {
   ContactFlowModuleSummary,
   ContactFlowNotPublishedException,
   ContactFlowSummary,
-  ContactNotFoundException,
   Credentials,
   CurrentMetric,
   CurrentMetricData,
   CurrentMetricResult,
+  DefaultVocabulary,
   DestinationNotAllowedException,
   Dimensions,
   DuplicateResourceException,
@@ -464,7 +475,6 @@ import {
   LimitExceededException,
   MediaConcurrency,
   OutboundCallerConfig,
-  OutboundContactNotPermittedException,
   ParticipantDetails,
   PhoneNumberQuickConnectConfig,
   PhoneNumberSummary,
@@ -478,7 +488,6 @@ import {
   QuickConnect,
   QuickConnectConfig,
   QuickConnectSummary,
-  Reference,
   ReferenceSummary,
   ResourceConflictException,
   ResourceInUseException,
@@ -503,9 +512,18 @@ import {
   UserPhoneConfig,
   UserQuickConnectConfig,
   UserSummary,
+  Vocabulary,
+  VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_0";
-import { HierarchyLevelUpdate, HierarchyStructureUpdate } from "../models/models_1";
+import {
+  AnswerMachineDetectionConfig,
+  ContactNotFoundException,
+  HierarchyLevelUpdate,
+  HierarchyStructureUpdate,
+  OutboundContactNotPermittedException,
+  Reference,
+} from "../models/models_1";
 
 export const serializeAws_restJson1AssociateApprovedOriginCommand = async (
   input: AssociateApprovedOriginCommandInput,
@@ -566,6 +584,50 @@ export const serializeAws_restJson1AssociateBotCommand = async (
       input.LexBot !== null && { LexBot: serializeAws_restJson1LexBot(input.LexBot, context) }),
     ...(input.LexV2Bot !== undefined &&
       input.LexV2Bot !== null && { LexV2Bot: serializeAws_restJson1LexV2Bot(input.LexV2Bot, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateDefaultVocabularyCommand = async (
+  input: AssociateDefaultVocabularyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/default-vocabulary/{InstanceId}/{LanguageCode}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.LanguageCode !== undefined) {
+    const labelValue: string = input.LanguageCode;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: LanguageCode.");
+    }
+    resolvedPath = resolvedPath.replace("{LanguageCode}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: LanguageCode.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.VocabularyId !== undefined && input.VocabularyId !== null && { VocabularyId: input.VocabularyId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1345,6 +1407,44 @@ export const serializeAws_restJson1CreateUserHierarchyGroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateVocabularyCommand = async (
+  input: CreateVocabularyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vocabulary/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteContactFlowCommand = async (
   input: DeleteContactFlowCommandInput,
   context: __SerdeContext
@@ -1726,6 +1826,45 @@ export const serializeAws_restJson1DeleteUserHierarchyGroupCommand = async (
     hostname,
     port,
     method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteVocabularyCommand = async (
+  input: DeleteVocabularyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/vocabulary-remove/{InstanceId}/{VocabularyId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.VocabularyId !== undefined) {
+    const labelValue: string = input.VocabularyId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VocabularyId.");
+    }
+    resolvedPath = resolvedPath.replace("{VocabularyId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VocabularyId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -2284,6 +2423,44 @@ export const serializeAws_restJson1DescribeUserHierarchyStructureCommand = async
     resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeVocabularyCommand = async (
+  input: DescribeVocabularyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vocabulary/{InstanceId}/{VocabularyId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  if (input.VocabularyId !== undefined) {
+    const labelValue: string = input.VocabularyId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VocabularyId.");
+    }
+    resolvedPath = resolvedPath.replace("{VocabularyId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VocabularyId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -2989,6 +3166,42 @@ export const serializeAws_restJson1ListContactReferencesCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListDefaultVocabulariesCommand = async (
+  input: ListDefaultVocabulariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/default-vocabulary-summary/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3773,6 +3986,45 @@ export const serializeAws_restJson1ResumeContactRecordingCommand = async (
   });
 };
 
+export const serializeAws_restJson1SearchVocabulariesCommand = async (
+  input: SearchVocabulariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vocabulary-summary/{InstanceId}";
+  if (input.InstanceId !== undefined) {
+    const labelValue: string = input.InstanceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: InstanceId.");
+    }
+    resolvedPath = resolvedPath.replace("{InstanceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: InstanceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NameStartsWith !== undefined &&
+      input.NameStartsWith !== null && { NameStartsWith: input.NameStartsWith }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StartChatContactCommand = async (
   input: StartChatContactCommandInput,
   context: __SerdeContext
@@ -3786,6 +4038,8 @@ export const serializeAws_restJson1StartChatContactCommand = async (
   body = JSON.stringify({
     ...(input.Attributes !== undefined &&
       input.Attributes !== null && { Attributes: serializeAws_restJson1Attributes(input.Attributes, context) }),
+    ...(input.ChatDurationInMinutes !== undefined &&
+      input.ChatDurationInMinutes !== null && { ChatDurationInMinutes: input.ChatDurationInMinutes }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ContactFlowId !== undefined && input.ContactFlowId !== null && { ContactFlowId: input.ContactFlowId }),
     ...(input.InitialMessage !== undefined &&
@@ -5671,6 +5925,89 @@ const deserializeAws_restJson1AssociateBotCommandError = async (
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       response = {
         ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateDefaultVocabularyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDefaultVocabularyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateDefaultVocabularyCommandError(output, context);
+  }
+  const contents: AssociateDefaultVocabularyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateDefaultVocabularyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDefaultVocabularyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7645,6 +7982,117 @@ const deserializeAws_restJson1CreateUserHierarchyGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateVocabularyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVocabularyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateVocabularyCommandError(output, context);
+  }
+  const contents: CreateVocabularyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    State: undefined,
+    VocabularyArn: undefined,
+    VocabularyId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.State !== undefined && data.State !== null) {
+    contents.State = __expectString(data.State);
+  }
+  if (data.VocabularyArn !== undefined && data.VocabularyArn !== null) {
+    contents.VocabularyArn = __expectString(data.VocabularyArn);
+  }
+  if (data.VocabularyId !== undefined && data.VocabularyId !== null) {
+    contents.VocabularyId = __expectString(data.VocabularyId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateVocabularyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVocabularyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteContactFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8430,6 +8878,109 @@ const deserializeAws_restJson1DeleteUserHierarchyGroupCommandError = async (
     case "com.amazonaws.connect#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteVocabularyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVocabularyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteVocabularyCommandError(output, context);
+  }
+  const contents: DeleteVocabularyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    State: undefined,
+    VocabularyArn: undefined,
+    VocabularyId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.State !== undefined && data.State !== null) {
+    contents.State = __expectString(data.State);
+  }
+  if (data.VocabularyArn !== undefined && data.VocabularyArn !== null) {
+    contents.VocabularyArn = __expectString(data.VocabularyArn);
+  }
+  if (data.VocabularyId !== undefined && data.VocabularyId !== null) {
+    contents.VocabularyId = __expectString(data.VocabularyId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteVocabularyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVocabularyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9743,6 +10294,93 @@ const deserializeAws_restJson1DescribeUserHierarchyStructureCommandError = async
     case "com.amazonaws.connect#InvalidParameterException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeVocabularyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVocabularyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeVocabularyCommandError(output, context);
+  }
+  const contents: DescribeVocabularyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Vocabulary: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Vocabulary !== undefined && data.Vocabulary !== null) {
+    contents.Vocabulary = deserializeAws_restJson1Vocabulary(data.Vocabulary, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeVocabularyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVocabularyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -11322,6 +11960,89 @@ const deserializeAws_restJson1ListContactReferencesCommandError = async (
     case "com.amazonaws.connect#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListDefaultVocabulariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDefaultVocabulariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListDefaultVocabulariesCommandError(output, context);
+  }
+  const contents: ListDefaultVocabulariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    DefaultVocabularyList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DefaultVocabularyList !== undefined && data.DefaultVocabularyList !== null) {
+    contents.DefaultVocabularyList = deserializeAws_restJson1DefaultVocabularyList(data.DefaultVocabularyList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListDefaultVocabulariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDefaultVocabulariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13291,6 +14012,89 @@ const deserializeAws_restJson1ResumeContactRecordingCommandError = async (
     case "com.amazonaws.connect#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1SearchVocabulariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchVocabulariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchVocabulariesCommandError(output, context);
+  }
+  const contents: SearchVocabulariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    VocabularySummaryList: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.VocabularySummaryList !== undefined && data.VocabularySummaryList !== null) {
+    contents.VocabularySummaryList = deserializeAws_restJson1VocabularySummaryList(data.VocabularySummaryList, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SearchVocabulariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchVocabulariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -18005,6 +18809,26 @@ const deserializeAws_restJson1CurrentMetricResults = (output: any, context: __Se
     });
 };
 
+const deserializeAws_restJson1DefaultVocabulary = (output: any, context: __SerdeContext): DefaultVocabulary => {
+  return {
+    InstanceId: __expectString(output.InstanceId),
+    LanguageCode: __expectString(output.LanguageCode),
+    VocabularyId: __expectString(output.VocabularyId),
+    VocabularyName: __expectString(output.VocabularyName),
+  } as any;
+};
+
+const deserializeAws_restJson1DefaultVocabularyList = (output: any, context: __SerdeContext): DefaultVocabulary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DefaultVocabulary(entry, context);
+    });
+};
+
 const deserializeAws_restJson1Dimensions = (output: any, context: __SerdeContext): Dimensions => {
   return {
     Channel: __expectString(output.Channel),
@@ -19007,6 +19831,52 @@ const deserializeAws_restJson1UserSummaryList = (output: any, context: __SerdeCo
         return null as any;
       }
       return deserializeAws_restJson1UserSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Vocabulary = (output: any, context: __SerdeContext): Vocabulary => {
+  return {
+    Arn: __expectString(output.Arn),
+    Content: __expectString(output.Content),
+    FailureReason: __expectString(output.FailureReason),
+    Id: __expectString(output.Id),
+    LanguageCode: __expectString(output.LanguageCode),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    State: __expectString(output.State),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1TagMap(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VocabularySummary = (output: any, context: __SerdeContext): VocabularySummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    FailureReason: __expectString(output.FailureReason),
+    Id: __expectString(output.Id),
+    LanguageCode: __expectString(output.LanguageCode),
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_restJson1VocabularySummaryList = (output: any, context: __SerdeContext): VocabularySummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1VocabularySummary(entry, context);
     });
 };
 

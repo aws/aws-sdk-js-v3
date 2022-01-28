@@ -2,6 +2,14 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "secretsmanager-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-east-1": {
     variants: [
       {
@@ -65,6 +73,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-2",
       "ap-southeast-3",
       "ca-central-1",
+      "ca-central-1-fips",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",

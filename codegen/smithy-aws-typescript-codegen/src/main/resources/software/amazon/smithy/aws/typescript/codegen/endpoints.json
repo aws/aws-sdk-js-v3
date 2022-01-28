@@ -4399,6 +4399,14 @@
                 }
               ]
             },
+            "ap-southeast-3": {
+              "variants": [
+                {
+                  "hostname": "elasticfilesystem-fips.ap-southeast-3.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "ca-central-1": {
               "variants": [
                 {
@@ -4510,6 +4518,13 @@
               },
               "deprecated": true,
               "hostname": "elasticfilesystem-fips.ap-southeast-2.amazonaws.com"
+            },
+            "fips-ap-southeast-3": {
+              "credentialScope": {
+                "region": "ap-southeast-3"
+              },
+              "deprecated": true,
+              "hostname": "elasticfilesystem-fips.ap-southeast-3.amazonaws.com"
             },
             "fips-ca-central-1": {
               "credentialScope": {
@@ -6148,6 +6163,7 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ca-central-1": {},
             "eu-central-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
@@ -6891,9 +6907,11 @@
         },
         "kafka": {
           "endpoints": {
+            "af-south-1": {},
             "ap-east-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
+            "ap-northeast-3": {},
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
@@ -11214,7 +11232,21 @@
             "ap-southeast-1": {},
             "ap-southeast-2": {},
             "ap-southeast-3": {},
-            "ca-central-1": {},
+            "ca-central-1": {
+              "variants": [
+                {
+                  "hostname": "secretsmanager-fips.ca-central-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "ca-central-1-fips": {
+              "credentialScope": {
+                "region": "ca-central-1"
+              },
+              "deprecated": true,
+              "hostname": "secretsmanager-fips.ca-central-1.amazonaws.com"
+            },
             "eu-central-1": {},
             "eu-north-1": {},
             "eu-south-1": {},

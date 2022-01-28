@@ -43,6 +43,12 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *       same secret data, the operation succeeds but does nothing. However, if the secret data is
  *       different, then the operation fails because you can't modify an existing version; you can
  *       only create new ones.</p>
+ *          <p>
+ *             <b>Required permissions: </b>
+ *             <code>secretsmanager:PutSecretValue</code>.
+ *       For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions">
+ *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
+ *       and access control in Secrets Manager</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

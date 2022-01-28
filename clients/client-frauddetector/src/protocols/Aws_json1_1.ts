@@ -93,6 +93,10 @@ import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from 
 import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "../commands/GetEntityTypesCommand";
 import { GetEventCommandInput, GetEventCommandOutput } from "../commands/GetEventCommand";
 import { GetEventPredictionCommandInput, GetEventPredictionCommandOutput } from "../commands/GetEventPredictionCommand";
+import {
+  GetEventPredictionMetadataCommandInput,
+  GetEventPredictionMetadataCommandOutput,
+} from "../commands/GetEventPredictionMetadataCommand";
 import { GetEventTypesCommandInput, GetEventTypesCommandOutput } from "../commands/GetEventTypesCommand";
 import { GetExternalModelsCommandInput, GetExternalModelsCommandOutput } from "../commands/GetExternalModelsCommand";
 import {
@@ -105,6 +109,10 @@ import { GetModelVersionCommandInput, GetModelVersionCommandOutput } from "../co
 import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "../commands/GetOutcomesCommand";
 import { GetRulesCommandInput, GetRulesCommandOutput } from "../commands/GetRulesCommand";
 import { GetVariablesCommandInput, GetVariablesCommandOutput } from "../commands/GetVariablesCommand";
+import {
+  ListEventPredictionsCommandInput,
+  ListEventPredictionsCommandOutput,
+} from "../commands/ListEventPredictionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -212,14 +220,20 @@ import {
   DetectorVersionSummary,
   Entity,
   EntityType,
+  EvaluatedExternalModel,
+  EvaluatedModelVersion,
+  EvaluatedRule,
   Event,
+  EventPredictionSummary,
   EventType,
+  EventVariableSummary,
   ExternalEventsDetail,
   ExternalModel,
   ExternalModelOutputs,
   ExternalModelSummary,
   FieldValidationMessage,
   FileValidationMessage,
+  FilterCondition,
   GetBatchImportJobsRequest,
   GetBatchImportJobsResult,
   GetBatchPredictionJobsRequest,
@@ -232,6 +246,8 @@ import {
   GetDetectorVersionResult,
   GetEntityTypesRequest,
   GetEntityTypesResult,
+  GetEventPredictionMetadataRequest,
+  GetEventPredictionMetadataResult,
   GetEventPredictionRequest,
   GetEventPredictionResult,
   GetEventRequest,
@@ -260,6 +276,8 @@ import {
   KMSKey,
   Label,
   LabelSchema,
+  ListEventPredictionsRequest,
+  ListEventPredictionsResult,
   ListTagsForResourceRequest,
   ListTagsForResourceResult,
   LogOddsMetric,
@@ -271,7 +289,10 @@ import {
   ModelScores,
   ModelVersion,
   ModelVersionDetail,
+  ModelVersionEvaluation,
   Outcome,
+  PredictionExplanations,
+  PredictionTimeRange,
   PutDetectorRequest,
   PutDetectorResult,
   PutEntityTypeRequest,
@@ -325,6 +346,7 @@ import {
   ValidationException,
   Variable,
   VariableEntry,
+  VariableImpactExplanation,
   VariableImportanceMetrics,
 } from "../models/models_0";
 
@@ -796,6 +818,19 @@ export const serializeAws_json1_1GetEventPredictionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetEventPredictionMetadataCommand = async (
+  input: GetEventPredictionMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetEventPredictionMetadata",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetEventPredictionMetadataRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetEventTypesCommand = async (
   input: GetEventTypesCommandInput,
   context: __SerdeContext
@@ -909,6 +944,19 @@ export const serializeAws_json1_1GetVariablesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetVariablesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListEventPredictionsCommand = async (
+  input: ListEventPredictionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.ListEventPredictions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListEventPredictionsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4241,6 +4289,92 @@ const deserializeAws_json1_1GetEventPredictionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetEventPredictionMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventPredictionMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetEventPredictionMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetEventPredictionMetadataResult(data, context);
+  const response: GetEventPredictionMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetEventPredictionMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventPredictionMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetEventTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4970,6 +5104,84 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
     case "com.amazonaws.frauddetector#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListEventPredictionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventPredictionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListEventPredictionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListEventPredictionsResult(data, context);
+  const response: ListEventPredictionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListEventPredictionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventPredictionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7327,6 +7539,12 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
   }, {});
 };
 
+const serializeAws_json1_1FilterCondition = (input: FilterCondition, context: __SerdeContext): any => {
+  return {
+    ...(input.value !== undefined && input.value !== null && { value: input.value }),
+  };
+};
+
 const serializeAws_json1_1GetBatchImportJobsRequest = (
   input: GetBatchImportJobsRequest,
   context: __SerdeContext
@@ -7382,6 +7600,21 @@ const serializeAws_json1_1GetEntityTypesRequest = (input: GetEntityTypesRequest,
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  };
+};
+
+const serializeAws_json1_1GetEventPredictionMetadataRequest = (
+  input: GetEventPredictionMetadataRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.detectorId !== undefined && input.detectorId !== null && { detectorId: input.detectorId }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && { detectorVersionId: input.detectorVersionId }),
+    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.predictionTimestamp !== undefined &&
+      input.predictionTimestamp !== null && { predictionTimestamp: input.predictionTimestamp }),
   };
 };
 
@@ -7543,6 +7776,30 @@ const serializeAws_json1_1LabelSchema = (input: LabelSchema, context: __SerdeCon
   };
 };
 
+const serializeAws_json1_1ListEventPredictionsRequest = (
+  input: ListEventPredictionsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.detectorId !== undefined &&
+      input.detectorId !== null && { detectorId: serializeAws_json1_1FilterCondition(input.detectorId, context) }),
+    ...(input.detectorVersionId !== undefined &&
+      input.detectorVersionId !== null && {
+        detectorVersionId: serializeAws_json1_1FilterCondition(input.detectorVersionId, context),
+      }),
+    ...(input.eventId !== undefined &&
+      input.eventId !== null && { eventId: serializeAws_json1_1FilterCondition(input.eventId, context) }),
+    ...(input.eventType !== undefined &&
+      input.eventType !== null && { eventType: serializeAws_json1_1FilterCondition(input.eventType, context) }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.predictionTimeRange !== undefined &&
+      input.predictionTimeRange !== null && {
+        predictionTimeRange: serializeAws_json1_1PredictionTimeRange(input.predictionTimeRange, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1listOfEntities = (input: Entity[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7655,6 +7912,13 @@ const serializeAws_json1_1NonEmptyListOfStrings = (input: string[], context: __S
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1PredictionTimeRange = (input: PredictionTimeRange, context: __SerdeContext): any => {
+  return {
+    ...(input.endTime !== undefined && input.endTime !== null && { endTime: input.endTime }),
+    ...(input.startTime !== undefined && input.startTime !== null && { startTime: input.startTime }),
+  };
 };
 
 const serializeAws_json1_1PutDetectorRequest = (input: PutDetectorRequest, context: __SerdeContext): any => {
@@ -8405,6 +8669,59 @@ const deserializeAws_json1_1entityTypeList = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_json1_1EvaluatedExternalModel = (output: any, context: __SerdeContext): EvaluatedExternalModel => {
+  return {
+    inputVariables:
+      output.inputVariables !== undefined && output.inputVariables !== null
+        ? deserializeAws_json1_1MapOfStrings(output.inputVariables, context)
+        : undefined,
+    modelEndpoint: __expectString(output.modelEndpoint),
+    outputVariables:
+      output.outputVariables !== undefined && output.outputVariables !== null
+        ? deserializeAws_json1_1MapOfStrings(output.outputVariables, context)
+        : undefined,
+    useEventVariables: __expectBoolean(output.useEventVariables),
+  } as any;
+};
+
+const deserializeAws_json1_1EvaluatedModelVersion = (output: any, context: __SerdeContext): EvaluatedModelVersion => {
+  return {
+    evaluations:
+      output.evaluations !== undefined && output.evaluations !== null
+        ? deserializeAws_json1_1ListOfModelVersionEvaluations(output.evaluations, context)
+        : undefined,
+    modelId: __expectString(output.modelId),
+    modelType: __expectString(output.modelType),
+    modelVersion: __expectString(output.modelVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1EvaluatedRule = (output: any, context: __SerdeContext): EvaluatedRule => {
+  return {
+    evaluated: __expectBoolean(output.evaluated),
+    expression: __expectString(output.expression),
+    expressionWithValues: __expectString(output.expressionWithValues),
+    matched: __expectBoolean(output.matched),
+    outcomes:
+      output.outcomes !== undefined && output.outcomes !== null
+        ? deserializeAws_json1_1ListOfStrings(output.outcomes, context)
+        : undefined,
+    ruleId: __expectString(output.ruleId),
+    ruleVersion: __expectString(output.ruleVersion),
+  } as any;
+};
+
+const deserializeAws_json1_1EvaluatedRuleList = (output: any, context: __SerdeContext): EvaluatedRule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EvaluatedRule(entry, context);
+    });
+};
+
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
     currentLabel: __expectString(output.currentLabel),
@@ -8433,6 +8750,17 @@ const deserializeAws_json1_1EventAttributeMap = (output: any, context: __SerdeCo
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_json1_1EventPredictionSummary = (output: any, context: __SerdeContext): EventPredictionSummary => {
+  return {
+    detectorId: __expectString(output.detectorId),
+    detectorVersionId: __expectString(output.detectorVersionId),
+    eventId: __expectString(output.eventId),
+    eventTimestamp: __expectString(output.eventTimestamp),
+    eventTypeName: __expectString(output.eventTypeName),
+    predictionTimestamp: __expectString(output.predictionTimestamp),
+  } as any;
 };
 
 const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): EventType => {
@@ -8471,6 +8799,14 @@ const deserializeAws_json1_1eventTypeList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1EventType(entry, context);
     });
+};
+
+const deserializeAws_json1_1EventVariableSummary = (output: any, context: __SerdeContext): EventVariableSummary => {
+  return {
+    name: __expectString(output.name),
+    source: __expectString(output.source),
+    value: __expectString(output.value),
+  } as any;
 };
 
 const deserializeAws_json1_1ExternalEventsDetail = (output: any, context: __SerdeContext): ExternalEventsDetail => {
@@ -8673,6 +9009,44 @@ const deserializeAws_json1_1GetEntityTypesResult = (output: any, context: __Serd
         ? deserializeAws_json1_1entityTypeList(output.entityTypes, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1GetEventPredictionMetadataResult = (
+  output: any,
+  context: __SerdeContext
+): GetEventPredictionMetadataResult => {
+  return {
+    detectorId: __expectString(output.detectorId),
+    detectorVersionId: __expectString(output.detectorVersionId),
+    detectorVersionStatus: __expectString(output.detectorVersionStatus),
+    entityId: __expectString(output.entityId),
+    entityType: __expectString(output.entityType),
+    evaluatedExternalModels:
+      output.evaluatedExternalModels !== undefined && output.evaluatedExternalModels !== null
+        ? deserializeAws_json1_1ListOfEvaluatedExternalModels(output.evaluatedExternalModels, context)
+        : undefined,
+    evaluatedModelVersions:
+      output.evaluatedModelVersions !== undefined && output.evaluatedModelVersions !== null
+        ? deserializeAws_json1_1ListOfEvaluatedModelVersions(output.evaluatedModelVersions, context)
+        : undefined,
+    eventId: __expectString(output.eventId),
+    eventTimestamp: __expectString(output.eventTimestamp),
+    eventTypeName: __expectString(output.eventTypeName),
+    eventVariables:
+      output.eventVariables !== undefined && output.eventVariables !== null
+        ? deserializeAws_json1_1ListOfEventVariableSummaries(output.eventVariables, context)
+        : undefined,
+    outcomes:
+      output.outcomes !== undefined && output.outcomes !== null
+        ? deserializeAws_json1_1ListOfStrings(output.outcomes, context)
+        : undefined,
+    predictionTimestamp: __expectString(output.predictionTimestamp),
+    ruleExecutionMode: __expectString(output.ruleExecutionMode),
+    rules:
+      output.rules !== undefined && output.rules !== null
+        ? deserializeAws_json1_1EvaluatedRuleList(output.rules, context)
+        : undefined,
   } as any;
 };
 
@@ -8918,6 +9292,19 @@ const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext)
   } as any;
 };
 
+const deserializeAws_json1_1ListEventPredictionsResult = (
+  output: any,
+  context: __SerdeContext
+): ListEventPredictionsResult => {
+  return {
+    eventPredictionSummaries:
+      output.eventPredictionSummaries !== undefined && output.eventPredictionSummaries !== null
+        ? deserializeAws_json1_1ListOfEventPredictionSummaries(output.eventPredictionSummaries, context)
+        : undefined,
+    nextToken: __expectString(output.nextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1listOfEntities = (output: any, context: __SerdeContext): Entity[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -8926,6 +9313,62 @@ const deserializeAws_json1_1listOfEntities = (output: any, context: __SerdeConte
         return null as any;
       }
       return deserializeAws_json1_1Entity(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ListOfEvaluatedExternalModels = (
+  output: any,
+  context: __SerdeContext
+): EvaluatedExternalModel[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EvaluatedExternalModel(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ListOfEvaluatedModelVersions = (
+  output: any,
+  context: __SerdeContext
+): EvaluatedModelVersion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EvaluatedModelVersion(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ListOfEventPredictionSummaries = (
+  output: any,
+  context: __SerdeContext
+): EventPredictionSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EventPredictionSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ListOfEventVariableSummaries = (
+  output: any,
+  context: __SerdeContext
+): EventVariableSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1EventVariableSummary(entry, context);
     });
 };
 
@@ -8965,6 +9408,20 @@ const deserializeAws_json1_1ListOfModelScores = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_json1_1ListOfModelVersionEvaluations = (
+  output: any,
+  context: __SerdeContext
+): ModelVersionEvaluation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ModelVersionEvaluation(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ListOfModelVersions = (output: any, context: __SerdeContext): ModelVersion[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -8998,6 +9455,20 @@ const deserializeAws_json1_1ListOfStrings = (output: any, context: __SerdeContex
     });
 };
 
+const deserializeAws_json1_1listOfVariableImpactExplanations = (
+  output: any,
+  context: __SerdeContext
+): VariableImpactExplanation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1VariableImpactExplanation(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ListTagsForResourceResult = (
   output: any,
   context: __SerdeContext
@@ -9017,6 +9488,18 @@ const deserializeAws_json1_1LogOddsMetric = (output: any, context: __SerdeContex
     variableName: __expectString(output.variableName),
     variableType: __expectString(output.variableType),
   } as any;
+};
+
+const deserializeAws_json1_1MapOfStrings = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_json1_1MetricDataPoint = (output: any, context: __SerdeContext): MetricDataPoint => {
@@ -9166,6 +9649,17 @@ const deserializeAws_json1_1modelVersionDetailList = (output: any, context: __Se
     });
 };
 
+const deserializeAws_json1_1ModelVersionEvaluation = (output: any, context: __SerdeContext): ModelVersionEvaluation => {
+  return {
+    evaluationScore: __expectString(output.evaluationScore),
+    outputVariableName: __expectString(output.outputVariableName),
+    predictionExplanations:
+      output.predictionExplanations !== undefined && output.predictionExplanations !== null
+        ? deserializeAws_json1_1PredictionExplanations(output.predictionExplanations, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1NonEmptyListOfStrings = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -9196,6 +9690,15 @@ const deserializeAws_json1_1OutcomeList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Outcome(entry, context);
     });
+};
+
+const deserializeAws_json1_1PredictionExplanations = (output: any, context: __SerdeContext): PredictionExplanations => {
+  return {
+    variableImpactExplanations:
+      output.variableImpactExplanations !== undefined && output.variableImpactExplanations !== null
+        ? deserializeAws_json1_1listOfVariableImpactExplanations(output.variableImpactExplanations, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1PutDetectorResult = (output: any, context: __SerdeContext): PutDetectorResult => {
@@ -9467,6 +9970,17 @@ const deserializeAws_json1_1Variable = (output: any, context: __SerdeContext): V
     lastUpdatedTime: __expectString(output.lastUpdatedTime),
     name: __expectString(output.name),
     variableType: __expectString(output.variableType),
+  } as any;
+};
+
+const deserializeAws_json1_1VariableImpactExplanation = (
+  output: any,
+  context: __SerdeContext
+): VariableImpactExplanation => {
+  return {
+    eventVariableName: __expectString(output.eventVariableName),
+    logOddsImpact: __limitedParseFloat32(output.logOddsImpact),
+    relativeImpact: __expectString(output.relativeImpact),
   } as any;
 };
 
