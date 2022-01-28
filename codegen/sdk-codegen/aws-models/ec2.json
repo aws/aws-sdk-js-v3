@@ -46858,6 +46858,30 @@
             "name": "x1e_32xlarge"
           },
           {
+            "value": "x2iezn.2xlarge",
+            "name": "x2iezn_2xlarge"
+          },
+          {
+            "value": "x2iezn.4xlarge",
+            "name": "x2iezn_4xlarge"
+          },
+          {
+            "value": "x2iezn.6xlarge",
+            "name": "x2iezn_6xlarge"
+          },
+          {
+            "value": "x2iezn.8xlarge",
+            "name": "x2iezn_8xlarge"
+          },
+          {
+            "value": "x2iezn.12xlarge",
+            "name": "x2iezn_12xlarge"
+          },
+          {
+            "value": "x2iezn.metal",
+            "name": "x2iezn_metal"
+          },
+          {
             "value": "x2gd.medium",
             "name": "x2gd_medium"
           },
