@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
+
+
+### Bug Fixes
+
+* **eventstream-handler-node:** explicitly define type of err ([#3240](https://github.com/aws/aws-sdk-js-v3/issues/3240)) ([4098091](https://github.com/aws/aws-sdk-js-v3/commit/4098091d054f804013f89c536710f5fcfb10951d))
+
+
+
+
+
 ## [3.47.2](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.1...v3.47.2) (2022-01-21)
 
 **Note:** Version bump only for package @aws-sdk/eventstream-handler-node

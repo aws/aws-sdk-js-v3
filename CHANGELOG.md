@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
+
+
+### Bug Fixes
+
+* **eventstream-handler-node:** explicitly define type of err ([#3240](https://github.com/aws/aws-sdk-js-v3/issues/3240)) ([4098091](https://github.com/aws/aws-sdk-js-v3/commit/4098091d054f804013f89c536710f5fcfb10951d))
+
+
+### Features
+
+* **clients:** bump smithy to 1.16.3 ([#3236](https://github.com/aws/aws-sdk-js-v3/issues/3236)) ([a227791](https://github.com/aws/aws-sdk-js-v3/commit/a227791076d07b15c4cf223673d32f73d206140a))
+* **clients:** update clients as of 01/28/2022 ([#3263](https://github.com/aws/aws-sdk-js-v3/issues/3263)) ([c207cf4](https://github.com/aws/aws-sdk-js-v3/commit/c207cf4a70ba9ef14dc5b94da7883b0889d64918))
+* **codegen:** update to Smithy-1.16.3 ([#3215](https://github.com/aws/aws-sdk-js-v3/issues/3215)) ([f8db067](https://github.com/aws/aws-sdk-js-v3/commit/f8db06770c727bb098db509ed94dfc17ce9b60b8))
+
+
+
+
+
 # [3.48.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.47.2...v3.48.0) (2022-01-22)
 
 
