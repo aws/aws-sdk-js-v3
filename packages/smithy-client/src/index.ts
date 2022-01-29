@@ -4,6 +4,7 @@ export * from "./constants";
 export * from "./date-utils";
 export * from "./defaults-mode";
 export * from "./emitWarningIfUnsupportedVersion";
+export * from "./exceptions";
 export * from "./extended-encode-uri-component";
 export * from "./get-array-if-single-item";
 export * from "./get-value-from-text-node";
