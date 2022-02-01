@@ -22,11 +22,11 @@ export const bucketEndpointMiddleware =
   ): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     const { Bucket: bucketName } = args.input as { Bucket: string };
-    let replaceBucketInPath = options.bucketEndpoint;
+    let replaceBucketInPath = false;
     const request = args.request;
     if (HttpRequest.isInstance(request)) {
       if (options.bucketEndpoint) {
-        request.hostname = bucketName;
+        replaceBucketInPath = true;
       } else if (validateArn(bucketName)) {
         const bucketArn = parseArn(bucketName);
         const clientRegion = await options.region();
