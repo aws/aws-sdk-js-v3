@@ -2,7 +2,8 @@ import { Provider, RegionInfoProvider } from "@aws-sdk/types";
 
 export interface BucketEndpointInputConfig {
   /**
-   * Whether the provided endpoint addresses an individual bucket.
+   * Whether to overwrite the request endpoint with the value of the `Bucket` in the request parameter. This option
+   * overwrites the custom endpoints too.
    */
   bucketEndpoint?: boolean;
   /**
