@@ -2,7 +2,16 @@ import { Provider, RegionInfoProvider } from "@aws-sdk/types";
 
 export interface BucketEndpointInputConfig {
   /**
-   * Whether the provided endpoint addresses an individual bucket.
+   * Whether to use the bucket name as the endpoint for this request. The bucket
+   * name must be a domain name with a CNAME record alias to an appropriate virtual
+   * hosted-style S3 hostname, e.g. a bucket of `images.johnsmith.net` and a DNS
+   * record of:
+   *
+   * ```
+   * images.johnsmith.net CNAME 			images.johnsmith.net.s3.amazonaws.com.
+   * ```
+   *
+   * @see https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#VirtualHostingCustomURLs
    */
   bucketEndpoint?: boolean;
   /**

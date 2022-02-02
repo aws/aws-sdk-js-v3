@@ -146,7 +146,9 @@ might not have the same name either.
     more [in v3 reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_types.retrystrategy-1.html)
 - [`s3BucketEndpoint`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#s3BucketEndpoint-property)
   - **v2**: Whether the provided endpoint addresses an individual bucket (false if it addresses the root API endpoint).
-  - **v3**: Renamed to `bucketEndpoint`
+  - **v3**: Changed to `bucketEndpoint`. See more in [v3 reference for bucketEndpoint](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3/interfaces/s3clientconfig.html#bucketendpoint).
+    Note that when set to `true`, you specify the request endpoint in the `Bucket` request parameter, the original endpoint
+    will be overwritten. Whereas in v2, the request endpoint in client constructor overwrites the `Bucket` request parameter.
 - [`s3DisableBodySigning`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#s3DisableBodySigning-property)
   - **v2**: Whether to disable S3 body signing when using signature version v4.
   - **v3**: Renamed to `applyChecksum`
