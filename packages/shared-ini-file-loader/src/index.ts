@@ -36,23 +36,29 @@ export interface SharedConfigFiles {
 
 const swallowError = () => ({});
 
-export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<SharedConfigFiles> => {
-  const {
-    filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
-    configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config"),
-  } = init;
+const loadSharedConfigRequestQueue: { resolve: Function }[] = [];
 
-  return Promise.all([
-    slurpFile(configFilepath).then(parseIni).then(normalizeConfigFile).catch(swallowError),
-    slurpFile(filepath).then(parseIni).catch(swallowError),
-  ]).then((parsedFiles: Array<ParsedIniData>) => {
-    const [configFile, credentialsFile] = parsedFiles;
-    return {
-      configFile,
-      credentialsFile,
-    };
+export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<SharedConfigFiles> =>
+  new Promise((resolve) => {
+    loadSharedConfigRequestQueue.push({ resolve });
+    if (loadSharedConfigRequestQueue.length === 1) {
+      const {
+        filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
+        configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config"),
+      } = init;
+
+      Promise.all([
+        slurpFile(configFilepath).then(parseIni).then(normalizeConfigFile).catch(swallowError),
+        slurpFile(filepath).then(parseIni).catch(swallowError),
+      ]).then((parsedFiles: Array<ParsedIniData>) => {
+        const [configFile, credentialsFile] = parsedFiles;
+        while (loadSharedConfigRequestQueue.length) {
+          const { resolve } = loadSharedConfigRequestQueue.pop()!;
+          resolve({ configFile, credentialsFile });
+        }
+      });
+    }
   });
-};
 
 const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
 const normalizeConfigFile = (data: ParsedIniData): ParsedIniData => {
