@@ -62,6 +62,11 @@ import {
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
 import {
+  DescribeDomainChangeProgressCommand,
+  DescribeDomainChangeProgressCommandInput,
+  DescribeDomainChangeProgressCommandOutput,
+} from "./commands/DescribeDomainChangeProgressCommand";
+import {
   DescribeElasticsearchDomainCommand,
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
@@ -612,6 +617,39 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
     cb?: (err: any, data?: DescribeDomainAutoTunesCommandOutput) => void
   ): Promise<DescribeDomainAutoTunesCommandOutput> | void {
     const command = new DescribeDomainAutoTunesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the current blue/green deployment happening on a domain, including
+   *         a change ID, status, and progress stages.</p>
+   */
+  public describeDomainChangeProgress(
+    args: DescribeDomainChangeProgressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDomainChangeProgressCommandOutput>;
+  public describeDomainChangeProgress(
+    args: DescribeDomainChangeProgressCommandInput,
+    cb: (err: any, data?: DescribeDomainChangeProgressCommandOutput) => void
+  ): void;
+  public describeDomainChangeProgress(
+    args: DescribeDomainChangeProgressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDomainChangeProgressCommandOutput) => void
+  ): void;
+  public describeDomainChangeProgress(
+    args: DescribeDomainChangeProgressCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainChangeProgressCommandOutput) => void),
+    cb?: (err: any, data?: DescribeDomainChangeProgressCommandOutput) => void
+  ): Promise<DescribeDomainChangeProgressCommandOutput> | void {
+    const command = new DescribeDomainChangeProgressCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

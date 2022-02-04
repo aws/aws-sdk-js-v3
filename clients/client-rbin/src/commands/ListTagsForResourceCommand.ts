@@ -22,7 +22,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags assigned a specific resource.</p>
+ * <p>Lists the tags assigned to a retention rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

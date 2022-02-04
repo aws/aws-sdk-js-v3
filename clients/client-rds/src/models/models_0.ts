@@ -3429,7 +3429,7 @@ export interface CreateDBClusterMessage {
    * <p>A DB subnet group to associate with this DB cluster.</p>
    *          <p>This setting is required to create a Multi-AZ DB cluster.</p>
    *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -5764,7 +5764,9 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>A DB subnet group to associate with this DB instance.</p>
-   *          <p>If there is no DB subnet group, then it is a non-VPC DB instance.</p>
+   *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
+   *          <p>Example: <code>mydbsubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName?: string;
 
@@ -7655,7 +7657,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName?: string;
@@ -8812,8 +8814,19 @@ export namespace CreateDBSnapshotResult {
 export interface CreateDBSubnetGroupMessage {
   /**
    * <p>The name for the DB subnet group. This value is stored as a lowercase string.</p>
-   *          <p>Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *               <p>Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *               <p>Must not be default.</p>
+   *             </li>
+   *             <li>
+   *               <p>First character must be a letter.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName: string | undefined;
@@ -9015,7 +9028,7 @@ export interface EventSubscriptionQuotaExceededFault extends __SmithyException, 
 }
 
 /**
- * <p>SNS has responded that there is a problem with the SND topic specified.</p>
+ * <p>SNS has responded that there is a problem with the SNS topic specified.</p>
  */
 export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
   name: "SNSInvalidTopicFault";
@@ -10333,9 +10346,8 @@ export interface DeleteDBSubnetGroupMessage {
    *          <note>
    *             <p>You can't delete the default subnet group.</p>
    *          </note>
-   *          <p>Constraints:</p>
    *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName: string | undefined;

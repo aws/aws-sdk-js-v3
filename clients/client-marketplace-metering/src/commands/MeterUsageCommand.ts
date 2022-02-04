@@ -26,13 +26,17 @@ export interface MeterUsageCommandInput extends MeterUsageRequest {}
 export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBearer {}
 
 /**
- * <p>API to emit metering records. For identical requests, the API is idempotent. It
- *             simply returns the metering record ID.</p>
- *         <p>MeterUsage is authenticated on the buyer's AWS account using credentials from the
- *             EC2 instance, ECS task, or EKS pod.</p>
- *         <p>MeterUsage can optionally include multiple usage allocations, to provide customers
- *             with usage data split into buckets by tags that you define (or allow the customer to
- *             define).</p>
+ * <p>API to emit metering records. For identical requests, the API is idempotent. It simply
+ *             returns the metering record ID.</p>
+ *         <p>
+ *             <code>MeterUsage</code> is authenticated on the buyer's AWS account using credentials
+ *             from the EC2 instance, ECS task, or EKS pod.</p>
+ *         <p>
+ *             <code>MeterUsage</code> can optionally include multiple usage allocations, to provide
+ *             customers with usage data split into buckets by tags that you define (or allow the
+ *             customer to define).</p>
+ *         <p>Usage records are expected to be submitted as quickly as possible after the event that
+ *             is being recorded, and are not accepted more than 6 hours after the event.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

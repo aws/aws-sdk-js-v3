@@ -23,8 +23,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
 
 /**
  * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
- *       custom model
- *       </p>
+ *       custom model </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

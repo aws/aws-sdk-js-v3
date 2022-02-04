@@ -22,22 +22,22 @@ import { RbinClient } from "./RbinClient";
  * <p>This is the <i>Recycle Bin API Reference</i>. This documentation provides
  *       descriptions and syntax for each of the actions and data types in Recycle Bin.</p>
  *
- *          <p>Recycle Bin is a snapshot recovery feature that enables you to restore accidentally
- *       deleted snapshots. When using Recycle Bin, if your snapshots are deleted, they are retained
- *       in the Recycle Bin for a time period that you specify.</p>
+ *          <p>Recycle Bin is a resource recovery feature that enables you to restore accidentally
+ *       deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are
+ *       deleted, they are retained in the Recycle Bin for a time period that you specify.</p>
  *
- *          <p>You can restore a snapshot from the Recycle Bin at any time before its retention period
- *       expires. After you restore a snapshot from the Recycle Bin, the snapshot is removed from the
- *       Recycle Bin, and you can then use it in the same way you use any other snapshot in your
- *       account. If the retention period expires and the snapshot is not restored, the snapshot is
- *       permanently deleted from the Recycle Bin and is no longer available for recovery. For more
+ *          <p>You can restore a resource from the Recycle Bin at any time before its retention period
+ *       expires. After you restore a resource from the Recycle Bin, the resource is removed from the
+ *       Recycle Bin, and you can then use it in the same way you use any other resource of that type
+ *       in your account. If the retention period expires and the resource is not restored, the resource
+ *       is permanently deleted from the Recycle Bin and is no longer available for recovery. For more
  *       information about Recycle Bin, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-recycle-bin.html">
- *         Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *         Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class Rbin extends RbinClient {
   /**
    * <p>Creates a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule">
-   *       Create Recycle Bin retention rules</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       Create Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
   public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
@@ -64,7 +64,7 @@ export class Rbin extends RbinClient {
 
   /**
    * <p>Deletes a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule">
-   *       Delete Recycle Bin retention rules</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       Delete Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
   public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
@@ -142,7 +142,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
-   * <p>Lists the tags assigned a specific resource.</p>
+   * <p>Lists the tags assigned to a retention rule.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -174,7 +174,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
-   * <p>Assigns tags to the specified resource.</p>
+   * <p>Assigns tags to the specified retention rule.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -200,7 +200,7 @@ export class Rbin extends RbinClient {
   }
 
   /**
-   * <p>Unassigns a tag from a resource.</p>
+   * <p>Unassigns a tag from a retention rule.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -233,7 +233,7 @@ export class Rbin extends RbinClient {
 
   /**
    * <p>Updates an existing Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-update-rule">
-   *       Update Recycle Bin retention rules</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       Update Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
   public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;

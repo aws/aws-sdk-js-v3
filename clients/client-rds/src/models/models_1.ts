@@ -4398,7 +4398,7 @@ export interface ModifyDBInstanceMessage {
    *         unless you enable <code>ApplyImmediately</code>.</p>
    *          <p> This parameter doesn't apply to RDS Custom.</p>
    *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetGroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName?: string;
@@ -5580,7 +5580,7 @@ export interface ModifyDBSubnetGroupMessage {
    *           You can't modify the default subnet group.
    *       </p>
    *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName: string | undefined;
@@ -6674,10 +6674,9 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>A DB subnet group to associate with the restored DB cluster.</p>
-   *         <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.
-   *         </p>
-   *         <p>Example: <code>mySubnetgroup</code>
-   *         </p>
+   *         <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *         <p>Example: <code>mydbsubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName?: string;
 
@@ -7103,7 +7102,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The name of the DB subnet group to use for the new DB cluster.</p>
    *          <p>Constraints: If supplied, must match the name of an existing DB subnet group.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -7477,7 +7476,7 @@ export interface RestoreDBClusterToPointInTimeMessage {
   /**
    * <p>The DB subnet group name to use for the new DB cluster.</p>
    *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
@@ -7812,7 +7811,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   /**
    * <p>The DB subnet group name to use for the new instance.</p>
    *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName?: string;
@@ -8007,7 +8006,12 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   Domain?: string;
 
   /**
-   * <p>A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance. By default, tags are not copied.</p>
+   * <p>A value that indicates whether to copy all tags from the restored DB instance to snapshots of the DB instance.</p>
+   *          <p>In most cases, tags aren't copied by default. However, when you restore a DB instance from a DB snapshot, RDS checks whether you
+   *           specify new tags. If yes, the new tags are added to the restored DB instance. If there are no new tags, RDS looks for the tags from
+   *           the source DB instance for the DB snapshot, and then adds those tags to the restored DB instance.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.CopyTags">
+   *           Copying tags to DB instance snapshots</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
   CopyTagsToSnapshot?: boolean;
 
@@ -8113,8 +8117,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          </ul>
    *         <p>For the list of permissions required for the IAM role, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
-   *                 Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service
-   *                     User Guide</i>.</p>
+   *                 Configure IAM and your VPC</a> in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>This setting is required for RDS Custom.</p>
    */
   CustomIamInstanceProfile?: string;
@@ -8285,6 +8288,9 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>A DB subnet group to associate with this DB instance.</p>
+   *         <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *         <p>Example: <code>mydbsubnetgroup</code>
+   *          </p>
    */
   DBSubnetGroupName?: string;
 
@@ -8747,7 +8753,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * <p>The DB subnet group name to use for the new instance.</p>
    *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
+   *          <p>Example: <code>mydbsubnetgroup</code>
    *          </p>
    */
   DBSubnetGroupName?: string;

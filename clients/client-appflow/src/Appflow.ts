@@ -14,6 +14,11 @@ import {
 } from "./commands/DeleteConnectorProfileCommand";
 import { DeleteFlowCommand, DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import {
+  DescribeConnectorCommand,
+  DescribeConnectorCommandInput,
+  DescribeConnectorCommandOutput,
+} from "./commands/DescribeConnectorCommand";
+import {
   DescribeConnectorEntityCommand,
   DescribeConnectorEntityCommandInput,
   DescribeConnectorEntityCommandOutput,
@@ -43,15 +48,30 @@ import {
   ListConnectorEntitiesCommandInput,
   ListConnectorEntitiesCommandOutput,
 } from "./commands/ListConnectorEntitiesCommand";
+import {
+  ListConnectorsCommand,
+  ListConnectorsCommandInput,
+  ListConnectorsCommandOutput,
+} from "./commands/ListConnectorsCommand";
 import { ListFlowsCommand, ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  RegisterConnectorCommand,
+  RegisterConnectorCommandInput,
+  RegisterConnectorCommandOutput,
+} from "./commands/RegisterConnectorCommand";
 import { StartFlowCommand, StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
 import { StopFlowCommand, StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UnregisterConnectorCommand,
+  UnregisterConnectorCommandInput,
+  UnregisterConnectorCommandOutput,
+} from "./commands/UnregisterConnectorCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -109,10 +129,10 @@ import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } fr
  */
 export class Appflow extends AppflowClient {
   /**
-   * <p> Creates a new connector profile associated with your Amazon Web Services account. There is a soft quota
-   *       of 100 connector profiles per Amazon Web Services account. If you need more connector profiles than this quota
-   *       allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support
-   *       channel. </p>
+   * <p> Creates a new connector profile associated with your Amazon Web Services account. There
+   *       is a soft quota of 100 connector profiles per Amazon Web Services account. If you need more
+   *       connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team
+   *       through the Amazon AppFlow support channel. </p>
    */
   public createConnectorProfile(
     args: CreateConnectorProfileCommandInput,
@@ -222,6 +242,40 @@ export class Appflow extends AppflowClient {
     cb?: (err: any, data?: DeleteFlowCommandOutput) => void
   ): Promise<DeleteFlowCommandOutput> | void {
     const command = new DeleteFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the given custom connector registered in your Amazon Web Services account. This
+   *       API can be used for custom connectors that are registered in your account and also for Amazon
+   *       authored connectors.</p>
+   */
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectorCommandOutput>;
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    cb: (err: any, data?: DescribeConnectorCommandOutput) => void
+  ): void;
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectorCommandOutput) => void
+  ): void;
+  public describeConnector(
+    args: DescribeConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectorCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConnectorCommandOutput) => void
+  ): Promise<DescribeConnectorCommandOutput> | void {
+    const command = new DescribeConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -434,6 +488,40 @@ export class Appflow extends AppflowClient {
   }
 
   /**
+   * <p>Returns the list of all registered custom connectors in your Amazon Web Services account.
+   *       This API lists only custom connectors registered in this account, not the Amazon Web Services
+   *       authored connectors. </p>
+   */
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorsCommandOutput>;
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  public listConnectors(
+    args: ListConnectorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConnectorsCommandOutput) => void),
+    cb?: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): Promise<ListConnectorsCommandOutput> | void {
+    const command = new ListConnectorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p> Lists all of the flows associated with your account. </p>
    */
   public listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
@@ -481,6 +569,39 @@ export class Appflow extends AppflowClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers a new connector with your Amazon Web Services account. Before you can register
+   *       the connector, you must deploy lambda in your account.</p>
+   */
+  public registerConnector(
+    args: RegisterConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterConnectorCommandOutput>;
+  public registerConnector(
+    args: RegisterConnectorCommandInput,
+    cb: (err: any, data?: RegisterConnectorCommandOutput) => void
+  ): void;
+  public registerConnector(
+    args: RegisterConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterConnectorCommandOutput) => void
+  ): void;
+  public registerConnector(
+    args: RegisterConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterConnectorCommandOutput) => void),
+    cb?: (err: any, data?: RegisterConnectorCommandOutput) => void
+  ): Promise<RegisterConnectorCommandOutput> | void {
+    const command = new RegisterConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -562,6 +683,39 @@ export class Appflow extends AppflowClient {
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Unregisters the custom connector registered in your account that matches the
+   *       connectorLabel provided in the request.</p>
+   */
+  public unregisterConnector(
+    args: UnregisterConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnregisterConnectorCommandOutput>;
+  public unregisterConnector(
+    args: UnregisterConnectorCommandInput,
+    cb: (err: any, data?: UnregisterConnectorCommandOutput) => void
+  ): void;
+  public unregisterConnector(
+    args: UnregisterConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnregisterConnectorCommandOutput) => void
+  ): void;
+  public unregisterConnector(
+    args: UnregisterConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UnregisterConnectorCommandOutput) => void),
+    cb?: (err: any, data?: UnregisterConnectorCommandOutput) => void
+  ): Promise<UnregisterConnectorCommandOutput> | void {
+    const command = new UnregisterConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

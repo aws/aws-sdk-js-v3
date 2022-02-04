@@ -11,6 +11,7 @@ export * from "./DeleteInboundCrossClusterSearchConnectionCommand";
 export * from "./DeleteOutboundCrossClusterSearchConnectionCommand";
 export * from "./DeletePackageCommand";
 export * from "./DescribeDomainAutoTunesCommand";
+export * from "./DescribeDomainChangeProgressCommand";
 export * from "./DescribeElasticsearchDomainCommand";
 export * from "./DescribeElasticsearchDomainConfigCommand";
 export * from "./DescribeElasticsearchDomainsCommand";

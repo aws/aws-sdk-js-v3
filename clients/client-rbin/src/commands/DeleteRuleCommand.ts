@@ -23,7 +23,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
 
 /**
  * <p>Deletes a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-delete-rule">
- *       Delete Recycle Bin retention rules</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *       Delete Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

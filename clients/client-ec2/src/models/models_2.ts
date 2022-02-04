@@ -7907,8 +7907,23 @@ export namespace ClientConnectResponseOptions {
   });
 }
 
+/**
+ * <p>Current state of options for customizable text banner that will be displayed on
+ * 			Amazon Web Services provided clients when a VPN session is established.</p>
+ */
 export interface ClientLoginBannerResponseOptions {
+  /**
+   * <p>Current state of text banner feature.</p>
+   * 		       <p>Valid values: <code>true | false</code>
+   *          </p>
+   */
   Enabled?: boolean;
+
+  /**
+   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
+   * 			clients when a VPN session is established. UTF-8 encoded
+   * 			characters only. Maximum of 1400 characters.</p>
+   */
   BannerText?: string;
 }
 
@@ -8065,7 +8080,19 @@ export interface ClientVpnEndpoint {
    */
   ClientConnectOptions?: ClientConnectResponseOptions;
 
+  /**
+   * <p>The maximum VPN session duration time in hours.</p>
+   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          </p>
+   * 		       <p>Default value: <code>24</code>
+   *          </p>
+   */
   SessionTimeoutHours?: number;
+
+  /**
+   * <p>Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is
+   * 			established.</p>
+   */
   ClientLoginBannerOptions?: ClientLoginBannerResponseOptions;
 }
 

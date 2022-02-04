@@ -25,6 +25,7 @@ import {
 import { ClientVpnConnectionStatus, Filter, TransitGatewayRoute } from "./models_2";
 import {
   HttpTokensState,
+  InstanceAttributeName,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
@@ -32,8 +33,105 @@ import {
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
 } from "./models_3";
-import { InstanceNetworkInterfaceSpecification, RunInstancesMonitoringEnabled } from "./models_4";
+import {
+  InstanceNetworkInterfaceSpecification,
+  RunInstancesMonitoringEnabled,
+  SnapshotAttributeName,
+} from "./models_4";
 import { CapacityReservationSpecification, InstanceMonitoring, Status } from "./models_5";
+
+export interface ResetInstanceAttributeRequest {
+  /**
+   * <p>The attribute to reset.</p>
+   *         <important>
+   *             <p>You can only reset the following attributes: <code>kernel</code> |
+   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance
+   *                 attribute, use <a>ModifyInstanceAttribute</a>.</p>
+   *         </important>
+   */
+  Attribute: InstanceAttributeName | string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace ResetInstanceAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetInstanceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
+ */
+export interface ResetNetworkInterfaceAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
+   */
+  SourceDestCheck?: string;
+}
+
+export namespace ResetNetworkInterfaceAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ResetSnapshotAttributeRequest {
+  /**
+   * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
+   *       be reset.</p>
+   */
+  Attribute: SnapshotAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ResetSnapshotAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResetSnapshotAttributeRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface RestoreAddressToClassicRequest {
   /**
@@ -75,6 +173,45 @@ export namespace RestoreAddressToClassicResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: RestoreAddressToClassicResult): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreImageFromRecycleBinRequest {
+  /**
+   * <p>The ID of the AMI to restore.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace RestoreImageFromRecycleBinRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreImageFromRecycleBinRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RestoreImageFromRecycleBinResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace RestoreImageFromRecycleBinResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RestoreImageFromRecycleBinResult): any => ({
     ...obj,
   });
 }

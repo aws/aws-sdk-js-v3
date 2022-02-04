@@ -257,7 +257,7 @@ export interface S3DataConfig {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key that Amazon Personalize uses to
-   *       encrypt or decrypt the input and output files of a batch inference job.</p>
+   *       encrypt or decrypt the input and output files.</p>
    */
   kmsKeyArn?: string;
 }
@@ -971,6 +971,12 @@ export interface RecommenderConfig {
    *       (not popular items or similar items).</p>
    */
   itemExplorationConfig?: { [key: string]: string };
+
+  /**
+   * <p>Specifies the requested minimum provisioned recommendation requests per second that
+   *       Amazon Personalize will support.</p>
+   */
+  minRecommendationRequestsPerSecond?: number;
 }
 
 export namespace RecommenderConfig {
@@ -2958,7 +2964,7 @@ export namespace DescribeRecommenderRequest {
 
 /**
  * <p>Provides a summary of the properties of a recommender update. For a complete listing, call the
- *       <a>DescribeRecommender</a> API.</p>
+ *       DescribeRecommender API operation.</p>
  */
 export interface RecommenderUpdateSummary {
   /**

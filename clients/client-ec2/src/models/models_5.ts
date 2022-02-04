@@ -3073,6 +3073,105 @@ export namespace ImportVolumeResult {
   });
 }
 
+export interface ListImagesInRecycleBinRequest {
+  /**
+   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that
+   *       are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If you do not specify a value for <i>MaxResults</i>, the request
+   *       returns 1,000 items per page by default. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">
+   *         Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ListImagesInRecycleBinRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImagesInRecycleBinRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an AMI that is currently in the Recycle Bin.</p>
+ */
+export interface ImageRecycleBinInfo {
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The name of the AMI.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the AMI.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time when the AMI entered the Recycle Bin.</p>
+   */
+  RecycleBinEnterTime?: Date;
+
+  /**
+   * <p>The date and time when the AMI is to be permanently deleted from the Recycle Bin.</p>
+   */
+  RecycleBinExitTime?: Date;
+}
+
+export namespace ImageRecycleBinInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImageRecycleBinInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface ListImagesInRecycleBinResult {
+  /**
+   * <p>Information about the AMIs.</p>
+   */
+  Images?: ImageRecycleBinInfo[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListImagesInRecycleBinResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListImagesInRecycleBinResult): any => ({
+    ...obj,
+  });
+}
+
 export interface ListSnapshotsInRecycleBinRequest {
   /**
    * <p>The maximum number of results to return with a single call.
@@ -3524,7 +3623,19 @@ export interface ModifyClientVpnEndpointRequest {
    */
   ClientConnectOptions?: ClientConnectOptions;
 
+  /**
+   * <p>The maximum VPN session duration time in hours.</p>
+   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          </p>
+   * 		       <p>Default value: <code>24</code>
+   *          </p>
+   */
   SessionTimeoutHours?: number;
+
+  /**
+   * <p>Options for enabling a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   */
   ClientLoginBannerOptions?: ClientLoginBannerOptions;
 }
 
@@ -9653,99 +9764,6 @@ export namespace ResetImageAttributeRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: ResetImageAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResetInstanceAttributeRequest {
-  /**
-   * <p>The attribute to reset.</p>
-   *         <important>
-   *             <p>You can only reset the following attributes: <code>kernel</code> |
-   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance
-   *                 attribute, use <a>ModifyInstanceAttribute</a>.</p>
-   *         </important>
-   */
-  Attribute: InstanceAttributeName | string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-export namespace ResetInstanceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetInstanceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
- */
-export interface ResetNetworkInterfaceAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The source/destination checking attribute. Resets the value to <code>true</code>.</p>
-   */
-  SourceDestCheck?: string;
-}
-
-export namespace ResetNetworkInterfaceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetNetworkInterfaceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ResetSnapshotAttributeRequest {
-  /**
-   * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
-   *       be reset.</p>
-   */
-  Attribute: SnapshotAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ResetSnapshotAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResetSnapshotAttributeRequest): any => ({
     ...obj,
   });
 }

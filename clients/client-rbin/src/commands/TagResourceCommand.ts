@@ -22,7 +22,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns tags to the specified resource.</p>
+ * <p>Assigns tags to the specified retention rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -5625,6 +5625,10 @@ const serializeAws_json1_1RecommenderConfig = (input: RecommenderConfig, context
       input.itemExplorationConfig !== null && {
         itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
       }),
+    ...(input.minRecommendationRequestsPerSecond !== undefined &&
+      input.minRecommendationRequestsPerSecond !== null && {
+        minRecommendationRequestsPerSecond: input.minRecommendationRequestsPerSecond,
+      }),
   };
 };
 
@@ -7256,6 +7260,7 @@ const deserializeAws_json1_1RecommenderConfig = (output: any, context: __SerdeCo
       output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
         ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
         : undefined,
+    minRecommendationRequestsPerSecond: __expectInt32(output.minRecommendationRequestsPerSecond),
   } as any;
 };
 

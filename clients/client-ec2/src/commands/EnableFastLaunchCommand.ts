@@ -28,6 +28,9 @@ export interface EnableFastLaunchCommandOutput extends EnableFastLaunchResult, _
  * 			Then it creates a set of reserved snapshots that are used for subsequent launches. The
  * 			reserved snapshots are automatically replenished as they are used, depending on your
  * 			settings for launch frequency.</p>
+ * 		       <note>
+ * 			         <p>To change these settings, you must own the AMI.</p>
+ * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,12 @@ export interface DescribeRobotCommandInput extends DescribeRobotRequest {}
 export interface DescribeRobotCommandOutput extends DescribeRobotResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Describes a robot.</p>
+ *          <important>
+ *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1054,6 +1054,7 @@ const deserializeAws_json1_1RegisterUsageResult = (output: any, context: __Serde
 
 const deserializeAws_json1_1ResolveCustomerResult = (output: any, context: __SerdeContext): ResolveCustomerResult => {
   return {
+    CustomerAWSAccountId: __expectString(output.CustomerAWSAccountId),
     CustomerIdentifier: __expectString(output.CustomerIdentifier),
     ProductCode: __expectString(output.ProductCode),
   } as any;

@@ -5289,6 +5289,14 @@ const deserializeAws_json1_1CreateRegistryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServiceException":
     case "com.amazonaws.glue#InternalServiceException":
       response = {
@@ -5371,6 +5379,14 @@ const deserializeAws_json1_1CreateSchemaCommandError = async (
     case "com.amazonaws.glue#AlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1AlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentModificationException":
+    case "com.amazonaws.glue#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

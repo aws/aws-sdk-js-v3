@@ -19,7 +19,7 @@ export enum InstanceFleetType {
  */
 export interface VolumeSpecification {
   /**
-   * <p>The volume type. Volume types supported are gp2, io1, standard.</p>
+   * <p>The volume type. Volume types supported are gp2, io1, and standard.</p>
    */
   VolumeType: string | undefined;
 
@@ -193,6 +193,10 @@ export type SpotProvisioningTimeoutAction = "SWITCH_TO_ON_DEMAND" | "TERMINATE_C
  *             later, excluding 5.0.x versions. Spot Instance allocation strategy is available in
  *             Amazon EMR version 5.12.1 and later.</p>
  *          </note>
+ *          <note>
+ *             <p>Spot Instances with a defined duration (also known as Spot blocks) are no longer available to new customers from July 1, 2021. For customers who have previously used the feature, we will continue to support Spot Instances with a defined duration until December 31, 2022.
+ *          </p>
+ *          </note>
  */
 export interface SpotProvisioningSpecification {
   /**
@@ -221,6 +225,10 @@ export interface SpotProvisioningSpecification {
    *          ID. At the end of the duration, Amazon EC2 marks the Spot Instance for termination and
    *          provides a Spot Instance termination notice, which gives the instance a two-minute warning
    *          before it terminates. </p>
+   *          <note>
+   *             <p>Spot Instances with a defined duration (also known as Spot blocks) are no longer available to new customers from July 1, 2021. For customers who have previously used the feature, we will continue to support Spot Instances with a defined duration until December 31, 2022.
+   *          </p>
+   *          </note>
    */
   BlockDurationMinutes?: number;
 
@@ -887,7 +895,7 @@ export namespace AddJobFlowStepsOutput {
 export interface Tag {
   /**
    * <p>A user-defined key, which is the minimum required information for a valid tag. For more
-   *          information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag </a>. </p>
+   *          information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag</a>. </p>
    */
   Key?: string;
 
@@ -2199,7 +2207,7 @@ export interface InstanceGroupDetail {
   InstanceRunningCount: number | undefined;
 
   /**
-   * <p>State of instance group. The following values are deprecated: STARTING, TERMINATED, and
+   * <p>State of instance group. The following values are no longer supported: STARTING, TERMINATED, and
    *          FAILED.</p>
    */
   State: InstanceGroupState | string | undefined;
@@ -2502,7 +2510,7 @@ export interface JobFlowDetail {
    *          Amazon Web Services account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
    *          <p>The default value is <code>true</code> if a value is not provided when creating a
    *          cluster using the EMR API <a>RunJobFlow</a> command, the CLI
-   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console. IAM principals that are authorized to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -5712,8 +5720,7 @@ export interface Cluster {
    *          Amazon Web Services account can perform EMR cluster actions on the cluster that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions, regardless of IAM permissions policies attached to other IAM principals.</p>
    *          <p>The default value is <code>true</code> if a value is not provided when creating a
    *          cluster using the EMR API <a>RunJobFlow</a> command, the CLI
-   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console. IAM principals that are
-   *          allowed to perform actions on the cluster can use the <a>SetVisibleToAllUsers</a> action to change the value on a running cluster. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
+   *          <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command, or the Amazon Web Services Management Console.</p>
    */
   VisibleToAllUsers?: boolean;
 
@@ -6843,7 +6850,7 @@ export interface RunJobFlowInput {
   /**
    * <p>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications
    *          for Amazon EMR to install and configure when launching the cluster. For a list of
-   *          applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMR Release
+   *          applications available for each Amazon EMR release version, see the <a href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon EMRRelease
    *          Guide</a>.</p>
    */
   Applications?: Application[];
@@ -6855,7 +6862,10 @@ export interface RunJobFlowInput {
   Configurations?: Configuration[];
 
   /**
-   * <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
+   * <important>
+   *             <p>The VisibleToAllUsers parameter is no longer supported. By default, the value is set to <code>true</code>. Setting it to <code>false</code> now has no effect.</p>
+   *          </important>
+   *          <p>Set this value to <code>true</code> so that IAM principals in the Amazon Web Services account associated with the cluster can perform EMR actions on the cluster that their IAM policies allow. This value defaults to <code>true</code> for clusters created using the EMR API or the CLI <a href="https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html">create-cluster</a> command.</p>
    *          <p>When set to <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions for the cluster, regardless of the IAM permissions policies attached to other IAM principals. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>
    */
   VisibleToAllUsers?: boolean;

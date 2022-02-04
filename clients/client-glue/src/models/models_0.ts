@@ -3467,11 +3467,12 @@ export namespace CancelMLTaskRunResponse {
 export enum DataFormat {
   AVRO = "AVRO",
   JSON = "JSON",
+  PROTOBUF = "PROTOBUF",
 }
 
 export interface CheckSchemaVersionValidityInput {
   /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
   DataFormat: DataFormat | string | undefined;
 
@@ -5218,7 +5219,7 @@ export interface CreateSchemaInput {
   SchemaName: string | undefined;
 
   /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
   DataFormat: DataFormat | string | undefined;
 
@@ -5327,7 +5328,7 @@ export interface CreateSchemaResponse {
   Description?: string;
 
   /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
   DataFormat?: DataFormat | string;
 

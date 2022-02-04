@@ -113,6 +113,7 @@ export * from "./GetTransitGatewayPrefixListReferencesPaginator";
 export * from "./GetTransitGatewayRouteTableAssociationsPaginator";
 export * from "./GetTransitGatewayRouteTablePropagationsPaginator";
 export * from "./GetVpnConnectionDeviceTypesPaginator";
+export * from "./ListImagesInRecycleBinPaginator";
 export * from "./ListSnapshotsInRecycleBinPaginator";
 export * from "./SearchLocalGatewayRoutesPaginator";
 export * from "./SearchTransitGatewayMulticastGroupsPaginator";

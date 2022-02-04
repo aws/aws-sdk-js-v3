@@ -59,6 +59,10 @@ import {
   DeleteEntityRecognizerCommandOutput,
 } from "../commands/DeleteEntityRecognizerCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
 } from "../commands/DescribeDocumentClassificationJobCommand";
@@ -92,6 +96,10 @@ import {
   DescribePiiEntitiesDetectionJobCommandOutput,
 } from "../commands/DescribePiiEntitiesDetectionJobCommand";
 import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "../commands/DescribeResourcePolicyCommand";
+import {
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
 } from "../commands/DescribeSentimentDetectionJobCommand";
@@ -108,6 +116,7 @@ import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "../
 import { DetectPiiEntitiesCommandInput, DetectPiiEntitiesCommandOutput } from "../commands/DetectPiiEntitiesCommand";
 import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "../commands/DetectSentimentCommand";
 import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "../commands/DetectSyntaxCommand";
+import { ImportModelCommandInput, ImportModelCommandOutput } from "../commands/ImportModelCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput,
@@ -161,6 +170,7 @@ import {
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
 } from "../commands/ListTopicsDetectionJobsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   StartDocumentClassificationJobCommandInput,
   StartDocumentClassificationJobCommandOutput,
@@ -266,6 +276,8 @@ import {
   DeleteEndpointResponse,
   DeleteEntityRecognizerRequest,
   DeleteEntityRecognizerResponse,
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyResponse,
   DescribeDocumentClassificationJobRequest,
   DescribeDocumentClassificationJobResponse,
   DescribeDocumentClassifierRequest,
@@ -284,6 +296,8 @@ import {
   DescribeKeyPhrasesDetectionJobResponse,
   DescribePiiEntitiesDetectionJobRequest,
   DescribePiiEntitiesDetectionJobResponse,
+  DescribeResourcePolicyRequest,
+  DescribeResourcePolicyResponse,
   DescribeSentimentDetectionJobRequest,
   DescribeSentimentDetectionJobResponse,
   DescribeTopicsDetectionJobRequest,
@@ -334,6 +348,8 @@ import {
   EntityTypesListItem,
   EventsDetectionJobFilter,
   EventsDetectionJobProperties,
+  ImportModelRequest,
+  ImportModelResponse,
   InputDataConfig,
   InternalServerException,
   InvalidFilterException,
@@ -378,6 +394,8 @@ import {
   PiiEntity,
   PiiEntityType,
   PiiOutputDataConfig,
+  PutResourcePolicyRequest,
+  PutResourcePolicyResponse,
   RedactionConfig,
   ResourceInUseException,
   ResourceLimitExceededException,
@@ -605,6 +623,19 @@ export const serializeAws_json1_1DeleteEntityRecognizerCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DeleteResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeDocumentClassificationJobCommand = async (
   input: DescribeDocumentClassificationJobCommandInput,
   context: __SerdeContext
@@ -722,6 +753,19 @@ export const serializeAws_json1_1DescribePiiEntitiesDetectionJobCommand = async 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeResourcePolicyCommand = async (
+  input: DescribeResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.DescribeResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeResourcePolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeSentimentDetectionJobCommand = async (
   input: DescribeSentimentDetectionJobCommandInput,
   context: __SerdeContext
@@ -823,6 +867,19 @@ export const serializeAws_json1_1DetectSyntaxCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectSyntaxRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ImportModelCommand = async (
+  input: ImportModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.ImportModel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1005,6 +1062,19 @@ export const serializeAws_json1_1ListTopicsDetectionJobsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListTopicsDetectionJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Comprehend_20171127.PutResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2437,6 +2507,76 @@ const deserializeAws_json1_1DeleteEntityRecognizerCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeDocumentClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3139,6 +3279,76 @@ const deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommandError = async 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeResourcePolicyResponse(data, context);
+  const response: DescribeResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeSentimentDetectionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3742,6 +3952,124 @@ const deserializeAws_json1_1DetectSyntaxCommandError = async (
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
       response = {
         ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ImportModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportModelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportModelResponse(data, context);
+  const response: ImportModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KmsKeyValidationException":
+    case "com.amazonaws.comprehend#KmsKeyValidationException":
+      response = {
+        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.comprehend#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.comprehend#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceUnavailableException":
+    case "com.amazonaws.comprehend#ResourceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.comprehend#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyTagsException":
+    case "com.amazonaws.comprehend#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4802,6 +5130,76 @@ const deserializeAws_json1_1ListTopicsDetectionJobsCommandError = async (
     case "com.amazonaws.comprehend#TooManyRequestsException":
       response = {
         ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.comprehend#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6751,6 +7149,7 @@ const serializeAws_json1_1CreateDocumentClassifierRequest = (
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
     ...(input.ModelKmsKeyId !== undefined && input.ModelKmsKeyId !== null && { ModelKmsKeyId: input.ModelKmsKeyId }),
+    ...(input.ModelPolicy !== undefined && input.ModelPolicy !== null && { ModelPolicy: input.ModelPolicy }),
     ...(input.OutputDataConfig !== undefined &&
       input.OutputDataConfig !== null && {
         OutputDataConfig: serializeAws_json1_1DocumentClassifierOutputDataConfig(input.OutputDataConfig, context),
@@ -6791,6 +7190,7 @@ const serializeAws_json1_1CreateEntityRecognizerRequest = (
       }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.ModelKmsKeyId !== undefined && input.ModelKmsKeyId !== null && { ModelKmsKeyId: input.ModelKmsKeyId }),
+    ...(input.ModelPolicy !== undefined && input.ModelPolicy !== null && { ModelPolicy: input.ModelPolicy }),
     ...(input.RecognizerName !== undefined &&
       input.RecognizerName !== null && { RecognizerName: input.RecognizerName }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
@@ -6836,6 +7236,17 @@ const serializeAws_json1_1DeleteEntityRecognizerRequest = (
   return {
     ...(input.EntityRecognizerArn !== undefined &&
       input.EntityRecognizerArn !== null && { EntityRecognizerArn: input.EntityRecognizerArn }),
+  };
+};
+
+const serializeAws_json1_1DeleteResourcePolicyRequest = (
+  input: DeleteResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PolicyRevisionId !== undefined &&
+      input.PolicyRevisionId !== null && { PolicyRevisionId: input.PolicyRevisionId }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -6916,6 +7327,15 @@ const serializeAws_json1_1DescribePiiEntitiesDetectionJobRequest = (
 ): any => {
   return {
     ...(input.JobId !== undefined && input.JobId !== null && { JobId: input.JobId }),
+  };
+};
+
+const serializeAws_json1_1DescribeResourcePolicyRequest = (
+  input: DescribeResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -7229,6 +7649,19 @@ const serializeAws_json1_1EventsDetectionJobFilter = (
   };
 };
 
+const serializeAws_json1_1ImportModelRequest = (input: ImportModelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DataAccessRoleArn !== undefined &&
+      input.DataAccessRoleArn !== null && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.ModelKmsKeyId !== undefined && input.ModelKmsKeyId !== null && { ModelKmsKeyId: input.ModelKmsKeyId }),
+    ...(input.ModelName !== undefined && input.ModelName !== null && { ModelName: input.ModelName }),
+    ...(input.SourceModelArn !== undefined &&
+      input.SourceModelArn !== null && { SourceModelArn: input.SourceModelArn }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.VersionName !== undefined && input.VersionName !== null && { VersionName: input.VersionName }),
+  };
+};
+
 const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
   return {
     ...(input.DocumentReaderConfig !== undefined &&
@@ -7457,6 +7890,19 @@ const serializeAws_json1_1PiiEntitiesDetectionJobFilter = (
       input.SubmitTimeAfter !== null && { SubmitTimeAfter: Math.round(input.SubmitTimeAfter.getTime() / 1000) }),
     ...(input.SubmitTimeBefore !== undefined &&
       input.SubmitTimeBefore !== null && { SubmitTimeBefore: Math.round(input.SubmitTimeBefore.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_json1_1PutResourcePolicyRequest = (
+  input: PutResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PolicyRevisionId !== undefined &&
+      input.PolicyRevisionId !== null && { PolicyRevisionId: input.PolicyRevisionId }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+    ...(input.ResourcePolicy !== undefined &&
+      input.ResourcePolicy !== null && { ResourcePolicy: input.ResourcePolicy }),
   };
 };
 
@@ -8194,6 +8640,13 @@ const deserializeAws_json1_1DeleteEntityRecognizerResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteResourcePolicyResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DescribeDocumentClassificationJobResponse = (
   output: any,
   context: __SerdeContext
@@ -8303,6 +8756,24 @@ const deserializeAws_json1_1DescribePiiEntitiesDetectionJobResponse = (
       output.PiiEntitiesDetectionJobProperties !== undefined && output.PiiEntitiesDetectionJobProperties !== null
         ? deserializeAws_json1_1PiiEntitiesDetectionJobProperties(output.PiiEntitiesDetectionJobProperties, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeResourcePolicyResponse => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
+    ResourcePolicy: __expectString(output.ResourcePolicy),
   } as any;
 };
 
@@ -8521,6 +8992,7 @@ const deserializeAws_json1_1DocumentClassifierProperties = (
       output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
         ? deserializeAws_json1_1DocumentClassifierOutputDataConfig(output.OutputDataConfig, context)
         : undefined,
+    SourceModelArn: __expectString(output.SourceModelArn),
     Status: __expectString(output.Status),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
@@ -8914,6 +9386,7 @@ const deserializeAws_json1_1EntityRecognizerProperties = (
       output.RecognizerMetadata !== undefined && output.RecognizerMetadata !== null
         ? deserializeAws_json1_1EntityRecognizerMetadata(output.RecognizerMetadata, context)
         : undefined,
+    SourceModelArn: __expectString(output.SourceModelArn),
     Status: __expectString(output.Status),
     SubmitTime:
       output.SubmitTime !== undefined && output.SubmitTime !== null
@@ -9055,6 +9528,12 @@ const deserializeAws_json1_1EventsDetectionJobPropertiesList = (
       }
       return deserializeAws_json1_1EventsDetectionJobProperties(entry, context);
     });
+};
+
+const deserializeAws_json1_1ImportModelResponse = (output: any, context: __SerdeContext): ImportModelResponse => {
+  return {
+    ModelArn: __expectString(output.ModelArn),
+  } as any;
 };
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
@@ -9623,6 +10102,15 @@ const deserializeAws_json1_1PiiOutputDataConfig = (output: any, context: __Serde
   return {
     KmsKeyId: __expectString(output.KmsKeyId),
     S3Uri: __expectString(output.S3Uri),
+  } as any;
+};
+
+const deserializeAws_json1_1PutResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutResourcePolicyResponse => {
+  return {
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
   } as any;
 };
 

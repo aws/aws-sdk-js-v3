@@ -1536,6 +1536,30 @@ export namespace AutoTuneOptionsOutput {
 }
 
 /**
+ * <p>Specifies change details of the domain configuration change.</p>
+ */
+export interface ChangeProgressDetails {
+  /**
+   * <p>The unique change identifier associated with a specific domain configuration change.</p>
+   */
+  ChangeId?: string;
+
+  /**
+   * <p>Contains an optional message associated with the domain configuration change.</p>
+   */
+  Message?: string;
+}
+
+export namespace ChangeProgressDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChangeProgressDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
 export interface VPCDerivedInfo {
@@ -1688,6 +1712,11 @@ export interface ElasticsearchDomainStatus {
    * <p>The current status of the Elasticsearch domain's Auto-Tune options.</p>
    */
   AutoTuneOptions?: AutoTuneOptionsOutput;
+
+  /**
+   * <p>Specifies change details of the domain configuration change.</p>
+   */
+  ChangeProgressDetails?: ChangeProgressDetails;
 }
 
 export namespace ElasticsearchDomainStatus {
@@ -2354,6 +2383,146 @@ export namespace DescribeDomainAutoTunesResponse {
 }
 
 /**
+ * <p>Container for the parameters to the <code>DescribeDomainChangeProgress</code> operation. Specifies the
+ *         domain name and optional change specific identity for which you want progress information.
+ *       </p>
+ */
+export interface DescribeDomainChangeProgressRequest {
+  /**
+   * <p>The domain you want to get the progress information about.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The specific change ID for which you want to get progress information. This is an optional parameter.
+   *         If omitted, the service returns information about the most recent configuration change.
+   *       </p>
+   */
+  ChangeId?: string;
+}
+
+export namespace DescribeDomainChangeProgressRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDomainChangeProgressRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A progress stage details of a specific domain configuration change.</p>
+ */
+export interface ChangeProgressStage {
+  /**
+   * <p>The name of the specific progress stage.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The overall status of a specific progress stage.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The description of the progress stage.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The last updated timestamp of the progress stage.</p>
+   */
+  LastUpdated?: Date;
+}
+
+export namespace ChangeProgressStage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChangeProgressStage): any => ({
+    ...obj,
+  });
+}
+
+export enum OverallChangeStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  PROCESSING = "PROCESSING",
+}
+
+/**
+ * <p>The progress details of a specific domain configuration change.</p>
+ */
+export interface ChangeProgressStatusDetails {
+  /**
+   * <p>The unique change identifier associated with a specific domain configuration change.</p>
+   */
+  ChangeId?: string;
+
+  /**
+   * <p>The time at which the configuration change is made on the domain.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The overall status of the domain configuration change. This field can take the following values: <code>PENDING</code>, <code>PROCESSING</code>, <code>COMPLETED</code> and <code>FAILED</code></p>
+   */
+  Status?: OverallChangeStatus | string;
+
+  /**
+   * <p>The list of properties involved in the domain configuration change that are still in pending.</p>
+   */
+  PendingProperties?: string[];
+
+  /**
+   * <p>The list of properties involved in the domain configuration change that are completed.</p>
+   */
+  CompletedProperties?: string[];
+
+  /**
+   * <p>The total number of stages required for the configuration change.</p>
+   */
+  TotalNumberOfStages?: number;
+
+  /**
+   * <p>The specific stages that the domain is going through to perform the configuration change.</p>
+   */
+  ChangeProgressStages?: ChangeProgressStage[];
+}
+
+export namespace ChangeProgressStatusDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChangeProgressStatusDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The result of a <code>DescribeDomainChangeProgress</code> request. Contains the progress information of
+ *         the requested domain change.
+ *       </p>
+ */
+export interface DescribeDomainChangeProgressResponse {
+  /**
+   * <p>Progress information for the configuration change that is requested in the <code>DescribeDomainChangeProgress</code> request.
+   *       </p>
+   */
+  ChangeProgressStatus?: ChangeProgressStatusDetails;
+}
+
+export namespace DescribeDomainChangeProgressResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDomainChangeProgressResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
  */
 export interface DescribeElasticsearchDomainRequest {
@@ -2825,6 +2994,11 @@ export interface ElasticsearchDomainConfig {
    * <p>Specifies <code>AutoTuneOptions</code> for the domain. </p>
    */
   AutoTuneOptions?: AutoTuneOptionsStatus;
+
+  /**
+   * <p>Specifies change details of the domain configuration change.</p>
+   */
+  ChangeProgressDetails?: ChangeProgressDetails;
 }
 
 export namespace ElasticsearchDomainConfig {
@@ -5051,6 +5225,11 @@ export interface UpgradeElasticsearchDomainResponse {
    *     </p>
    */
   PerformCheckOnly?: boolean;
+
+  /**
+   * <p>Specifies change details of the domain configuration change.</p>
+   */
+  ChangeProgressDetails?: ChangeProgressDetails;
 }
 
 export namespace UpgradeElasticsearchDomainResponse {

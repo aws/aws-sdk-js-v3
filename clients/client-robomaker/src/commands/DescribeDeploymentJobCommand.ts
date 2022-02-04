@@ -22,7 +22,12 @@ export interface DescribeDeploymentJobCommandInput extends DescribeDeploymentJob
 export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJobResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Describes a deployment job.</p>
+ *          <important>
+ *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

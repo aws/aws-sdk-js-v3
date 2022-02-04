@@ -2873,6 +2873,7 @@
         },
         "connect": {
           "endpoints": {
+            "af-south-1": {},
             "ap-northeast-1": {},
             "ap-northeast-2": {},
             "ap-southeast-1": {},
@@ -12883,6 +12884,32 @@
             }
           }
         },
+        "synthetics": {
+          "endpoints": {
+            "af-south-1": {},
+            "ap-east-1": {},
+            "ap-northeast-1": {},
+            "ap-northeast-2": {},
+            "ap-northeast-3": {},
+            "ap-south-1": {},
+            "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "ap-southeast-3": {},
+            "ca-central-1": {},
+            "eu-central-1": {},
+            "eu-north-1": {},
+            "eu-south-1": {},
+            "eu-west-1": {},
+            "eu-west-2": {},
+            "eu-west-3": {},
+            "me-south-1": {},
+            "sa-east-1": {},
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-1": {},
+            "us-west-2": {}
+          }
+        },
         "tagging": {
           "endpoints": {
             "af-south-1": {},
@@ -14222,6 +14249,12 @@
             "cn-northwest-1": {}
           }
         },
+        "codepipeline": {
+          "endpoints": {
+            "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
         "cognito-identity": {
           "endpoints": {
             "cn-north-1": {}
@@ -14952,6 +14985,12 @@
           "partitionEndpoint": "aws-cn-global"
         },
         "swf": {
+          "endpoints": {
+            "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
+        "synthetics": {
           "endpoints": {
             "cn-north-1": {},
             "cn-northwest-1": {}
@@ -18538,6 +18577,12 @@
             }
           }
         },
+        "synthetics": {
+          "endpoints": {
+            "us-gov-east-1": {},
+            "us-gov-west-1": {}
+          }
+        },
         "tagging": {
           "endpoints": {
             "us-gov-east-1": {},
@@ -19265,6 +19310,11 @@
             "us-iso-west-1": {}
           }
         },
+        "synthetics": {
+          "endpoints": {
+            "us-iso-east-1": {}
+          }
+        },
         "transcribe": {
           "defaults": {
             "protocols": ["https"]
@@ -19635,6 +19685,11 @@
           "partitionEndpoint": "aws-iso-b-global"
         },
         "swf": {
+          "endpoints": {
+            "us-isob-east-1": {}
+          }
+        },
+        "synthetics": {
           "endpoints": {
             "us-isob-east-1": {}
           }

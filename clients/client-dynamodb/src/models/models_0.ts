@@ -1321,10 +1321,6 @@ export interface PointInTimeRecoveryDescription {
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>ENABLING</code> - Point in time recovery is being enabled.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
    *                     <code>ENABLED</code> - Point in time recovery is enabled.</p>
    *             </li>
    *             <li>

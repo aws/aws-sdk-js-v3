@@ -3502,7 +3502,7 @@ export interface UpdateTableObjectsRequest {
   /**
    * <p>The transaction at which to do the write.</p>
    */
-  TransactionId: string | undefined;
+  TransactionId?: string;
 
   /**
    * <p>A list of <code>WriteOperation</code> objects that define an object to add to or delete from the manifest for a governed table.</p>

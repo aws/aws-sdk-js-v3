@@ -2809,6 +2809,9 @@
           "target": "com.amazonaws.ec2#ImportVolume"
         },
         {
+          "target": "com.amazonaws.ec2#ListImagesInRecycleBin"
+        },
+        {
           "target": "com.amazonaws.ec2#ListSnapshotsInRecycleBin"
         },
         {
@@ -3089,6 +3092,9 @@
         },
         {
           "target": "com.amazonaws.ec2#RestoreAddressToClassic"
+        },
+        {
+          "target": "com.amazonaws.ec2#RestoreImageFromRecycleBin"
         },
         {
           "target": "com.amazonaws.ec2#RestoreManagedPrefixListVersion"
@@ -8199,11 +8205,20 @@
       "type": "structure",
       "members": {
         "Enabled": {
-          "target": "com.amazonaws.ec2#Boolean"
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable or disable a customizable text banner that will be displayed on\n\t\t\tAmazon Web Services provided clients when a VPN session is established.</p>\n\t\t       <p>Valid values: <code>true | false</code>\n         </p>\n\t\t       <p>Default value: <code>false</code>\n         </p>"
+          }
         },
         "BannerText": {
-          "target": "com.amazonaws.ec2#String"
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Customizable text that will be displayed in a banner on Amazon Web Services provided\n\t\t\tclients when a VPN session is established. UTF-8 encoded characters only. Maximum of\n\t\t\t1400 characters.</p>"
+          }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options for enabling a customizable text banner that will be displayed on\n\t\t\tAmazon Web Services provided clients when a VPN session is established.</p>"
       }
     },
     "com.amazonaws.ec2#ClientLoginBannerResponseOptions": {
@@ -8213,6 +8228,7 @@
           "target": "com.amazonaws.ec2#Boolean",
           "traits": {
             "aws.protocols#ec2QueryName": "Enabled",
+            "smithy.api#documentation": "<p>Current state of text banner feature.</p>\n\t\t       <p>Valid values: <code>true | false</code>\n         </p>",
             "smithy.api#xmlName": "enabled"
           }
         },
@@ -8220,9 +8236,13 @@
           "target": "com.amazonaws.ec2#String",
           "traits": {
             "aws.protocols#ec2QueryName": "BannerText",
+            "smithy.api#documentation": "<p>Customizable text that will be displayed in a banner on Amazon Web Services provided\n\t\t\tclients when a VPN session is established. UTF-8 encoded\n\t\t\tcharacters only. Maximum of 1400 characters.</p>",
             "smithy.api#xmlName": "bannerText"
           }
         }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Current state of options for customizable text banner that will be displayed on\n\t\t\tAmazon Web Services provided clients when a VPN session is established.</p>"
       }
     },
     "com.amazonaws.ec2#ClientVpnAssociationId": {
@@ -8735,6 +8755,7 @@
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
             "aws.protocols#ec2QueryName": "SessionTimeoutHours",
+            "smithy.api#documentation": "<p>The maximum VPN session duration time in hours.</p>\n\t\t       <p>Valid values: <code>8 | 10 | 12 | 24</code>\n         </p>\n\t\t       <p>Default value: <code>24</code>\n         </p>",
             "smithy.api#xmlName": "sessionTimeoutHours"
           }
         },
@@ -8742,6 +8763,7 @@
           "target": "com.amazonaws.ec2#ClientLoginBannerResponseOptions",
           "traits": {
             "aws.protocols#ec2QueryName": "ClientLoginBannerOptions",
+            "smithy.api#documentation": "<p>Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a VPN session is\n\t\t\testablished.</p>",
             "smithy.api#xmlName": "clientLoginBannerOptions"
           }
         }
@@ -10306,10 +10328,16 @@
           }
         },
         "SessionTimeoutHours": {
-          "target": "com.amazonaws.ec2#Integer"
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum VPN session duration time in hours.</p>\n\t\t       <p>Valid values: <code>8 | 10 | 12 | 24</code>\n         </p>\n\t\t       <p>Default value: <code>24</code>\n         </p>"
+          }
         },
         "ClientLoginBannerOptions": {
-          "target": "com.amazonaws.ec2#ClientLoginBannerOptions"
+          "target": "com.amazonaws.ec2#ClientLoginBannerOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Options for enabling a customizable text banner that will be displayed on\n\t\t\tAmazon Web Services provided clients when a VPN session is established.</p>"
+          }
         }
       }
     },
@@ -11158,7 +11186,7 @@
         "target": "com.amazonaws.ec2#CreateImageResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance \n     \tthat is either running or stopped.</p>\n     \n     \n   \n   \t\n   \t     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the \n     \tnew AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, \n     \tthe instance automatically launches with those additional volumes.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\">Creating Amazon EBS-Backed Linux AMIs</a> \n\t\t\t\tin the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance \n     \tthat is either running or stopped.</p>\n         <important>\n            <p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on \n         the instance is stopped and in a consistent state during the creation process. If you're confident that your \n         instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b> \n         parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p>\n         </important>\n     \n     \n   \n   \t\n   \t     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the \n     \tnew AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI, \n     \tthe instance automatically launches with those additional volumes.</p>\n   \t     <p>For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html\">Creating Amazon EBS-Backed Linux AMIs</a> \n\t\t\t\tin the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#CreateImageRequest": {
@@ -18756,7 +18784,7 @@
         "target": "com.amazonaws.ec2#DeregisterImageRequest"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch\n\t\t\tnew instances; however, it doesn't affect any instances that you've already launched\n\t\t\tfrom the AMI. You'll continue to incur usage costs for those instances until you\n\t\t\tterminate them.</p>\n   \t     <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was\n\t\t\tcreated for the root volume of the instance during the AMI creation process. When you\n\t\t\tderegister an instance store-backed AMI, it doesn't affect the files that you uploaded\n\t\t\tto Amazon S3 when you created the AMI.</p>"
+        "smithy.api#documentation": "<p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to \n       launch new instances.</p>\n     \n     \n         <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is \n      retained in the Recycle Bin for the specified retention period. For more information, \n      see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recycle\n        Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>\n     \n         <p>When you deregister an AMI, it doesn't affect any instances that you've already \n       launched from the AMI. You'll continue to incur usage costs for those instances until \n       you terminate them.</p>\n   \t     <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was\n\t\t\tcreated for the root volume of the instance during the AMI creation process. When you\n\t\t\tderegister an instance store-backed AMI, it doesn't affect the files that you uploaded\n\t\t\tto Amazon S3 when you created the AMI.</p>"
       }
     },
     "com.amazonaws.ec2#DeregisterImageRequest": {
@@ -30875,7 +30903,7 @@
         "target": "com.amazonaws.ec2#DisableFastLaunchResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. \n\t\t\tWhen you disable faster launching, the AMI uses the standard launch process for each \n\t\t\tinstance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>"
+        "smithy.api#documentation": "<p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots. \n\t\t\tWhen you disable faster launching, the AMI uses the standard launch process for each \n\t\t\tinstance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>\n\t\t       <note>\n\t\t\t         <p>To change these settings, you must own the AMI.</p>\n\t\t       </note>"
       }
     },
     "com.amazonaws.ec2#DisableFastLaunchRequest": {
@@ -33137,7 +33165,7 @@
         "target": "com.amazonaws.ec2#EnableFastLaunchResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>When you enable faster launching for a Windows AMI, images are pre-provisioned, \n\t\t\tusing snapshots to launch instances up to 65% faster. To create the optimized Windows \n\t\t\timage, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. \n\t\t\tThen it creates a set of reserved snapshots that are used for subsequent launches. The \n\t\t\treserved snapshots are automatically replenished as they are used, depending on your \n\t\t\tsettings for launch frequency.</p>"
+        "smithy.api#documentation": "<p>When you enable faster launching for a Windows AMI, images are pre-provisioned, \n\t\t\tusing snapshots to launch instances up to 65% faster. To create the optimized Windows \n\t\t\timage, Amazon EC2 launches an instance and runs through Sysprep steps, rebooting as required. \n\t\t\tThen it creates a set of reserved snapshots that are used for subsequent launches. The \n\t\t\treserved snapshots are automatically replenished as they are used, depending on your \n\t\t\tsettings for launch frequency.</p>\n\t\t       <note>\n\t\t\t         <p>To change these settings, you must own the AMI.</p>\n\t\t       </note>"
       }
     },
     "com.amazonaws.ec2#EnableFastLaunchRequest": {
@@ -33171,7 +33199,7 @@
         "MaxParallelLaunches": {
           "target": "com.amazonaws.ec2#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of parallel instances to launch for creating resources.</p>"
+            "smithy.api#documentation": "<p>The maximum number of parallel instances to launch for creating resources. Value must be <code>6</code> or greater. </p>"
           }
         },
         "DryRun": {
@@ -40796,6 +40824,63 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.ec2#Image",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
+      }
+    },
+    "com.amazonaws.ec2#ImageRecycleBinInfo": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImageId",
+            "smithy.api#documentation": "<p>The ID of the AMI.</p>",
+            "smithy.api#xmlName": "imageId"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Name",
+            "smithy.api#documentation": "<p>The name of the AMI.</p>",
+            "smithy.api#xmlName": "name"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Description",
+            "smithy.api#documentation": "<p>The description of the AMI.</p>",
+            "smithy.api#xmlName": "description"
+          }
+        },
+        "RecycleBinEnterTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RecycleBinEnterTime",
+            "smithy.api#documentation": "<p>The date and time when the AMI entered the Recycle Bin.</p>",
+            "smithy.api#xmlName": "recycleBinEnterTime"
+          }
+        },
+        "RecycleBinExitTime": {
+          "target": "com.amazonaws.ec2#MillisecondDateTime",
+          "traits": {
+            "aws.protocols#ec2QueryName": "RecycleBinExitTime",
+            "smithy.api#documentation": "<p>The date and time when the AMI is to be permanently deleted from the Recycle Bin.</p>",
+            "smithy.api#xmlName": "recycleBinExitTime"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about an AMI that is currently in the Recycle Bin.</p>"
+      }
+    },
+    "com.amazonaws.ec2#ImageRecycleBinInfoList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#ImageRecycleBinInfo",
         "traits": {
           "smithy.api#xmlName": "item"
         }
@@ -51387,6 +51472,85 @@
         }
       }
     },
+    "com.amazonaws.ec2#ListImagesInRecycleBin": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#ListImagesInRecycleBinRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#ListImagesInRecycleBinResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Lists one or more AMIs that are currently in the Recycle Bin. For more information, \n      see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recycle\n        Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Images",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.ec2#ListImagesInRecycleBinMaxResults": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000
+        }
+      }
+    },
+    "com.amazonaws.ec2#ListImagesInRecycleBinRequest": {
+      "type": "structure",
+      "members": {
+        "ImageIds": {
+          "target": "com.amazonaws.ec2#ImageIdStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that \n      are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>",
+            "smithy.api#xmlName": "ImageId"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next page of results.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.ec2#ListImagesInRecycleBinMaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return with a single call.\n\tTo retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\n         <p>If you do not specify a value for <i>MaxResults</i>, the request \n      returns 1,000 items per page by default. For more information, see \n      <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination\">\n        Pagination</a>.</p>"
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#ListImagesInRecycleBinResult": {
+      "type": "structure",
+      "members": {
+        "Images": {
+          "target": "com.amazonaws.ec2#ImageRecycleBinInfoList",
+          "traits": {
+            "aws.protocols#ec2QueryName": "ImageSet",
+            "smithy.api#documentation": "<p>Information about the AMIs.</p>",
+            "smithy.api#xmlName": "imageSet"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "NextToken",
+            "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>",
+            "smithy.api#xmlName": "nextToken"
+          }
+        }
+      }
+    },
     "com.amazonaws.ec2#ListSnapshotsInRecycleBin": {
       "type": "operation",
       "input": {
@@ -52964,10 +53128,16 @@
           }
         },
         "SessionTimeoutHours": {
-          "target": "com.amazonaws.ec2#Integer"
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum VPN session duration time in hours.</p>\n\t\t       <p>Valid values: <code>8 | 10 | 12 | 24</code>\n         </p>\n\t\t       <p>Default value: <code>24</code>\n         </p>"
+          }
         },
         "ClientLoginBannerOptions": {
-          "target": "com.amazonaws.ec2#ClientLoginBannerOptions"
+          "target": "com.amazonaws.ec2#ClientLoginBannerOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Options for enabling a customizable text banner that will be displayed on\n\t\t\tAmazon Web Services provided clients when a VPN session is established.</p>"
+          }
         }
       }
     },
@@ -65566,6 +65736,49 @@
             "aws.protocols#ec2QueryName": "Status",
             "smithy.api#documentation": "<p>The move status for the IP address.</p>",
             "smithy.api#xmlName": "status"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#RestoreImageFromRecycleBin": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ec2#RestoreImageFromRecycleBinRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ec2#RestoreImageFromRecycleBinResult"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Restores an AMI from the Recycle Bin. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html\">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>"
+      }
+    },
+    "com.amazonaws.ec2#RestoreImageFromRecycleBinRequest": {
+      "type": "structure",
+      "members": {
+        "ImageId": {
+          "target": "com.amazonaws.ec2#ImageId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the AMI to restore.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DryRun": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n\t\t\tand provides an error response. If you have the required permissions, the error response is \n\t\t\t<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ec2#RestoreImageFromRecycleBinResult": {
+      "type": "structure",
+      "members": {
+        "Return": {
+          "target": "com.amazonaws.ec2#Boolean",
+          "traits": {
+            "aws.protocols#ec2QueryName": "Return",
+            "smithy.api#documentation": "<p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>",
+            "smithy.api#xmlName": "return"
           }
         }
       }

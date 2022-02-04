@@ -42,6 +42,7 @@ export async function* paginateDescribeConnectors(
   let page: DescribeConnectorsCommandOutput;
   while (hasNext) {
     input.nextToken = token;
+    input["maxResults"] = config.pageSize;
     if (config.client instanceof Appflow) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof AppflowClient) {

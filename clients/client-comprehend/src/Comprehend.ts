@@ -66,6 +66,11 @@ import {
   DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DescribeDocumentClassificationJobCommand,
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
@@ -111,6 +116,11 @@ import {
   DescribePiiEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribePiiEntitiesDetectionJobCommand";
 import {
+  DescribeResourcePolicyCommand,
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
+import {
   DescribeSentimentDetectionJobCommand,
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
@@ -150,6 +160,7 @@ import {
   DetectSyntaxCommandInput,
   DetectSyntaxCommandOutput,
 } from "./commands/DetectSyntaxCommand";
+import { ImportModelCommand, ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import {
   ListDocumentClassificationJobsCommand,
   ListDocumentClassificationJobsCommandInput,
@@ -220,6 +231,11 @@ import {
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
 } from "./commands/ListTopicsDetectionJobsCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   StartDocumentClassificationJobCommand,
   StartDocumentClassificationJobCommandInput,
@@ -591,8 +607,7 @@ export class Comprehend extends ComprehendClient {
 
   /**
    * <p>Creates a model-specific endpoint for synchronous inference for a previously trained
-   *       custom model
-   *       </p>
+   *       custom model </p>
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -756,6 +771,38 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: DeleteEntityRecognizerCommandOutput) => void
   ): Promise<DeleteEntityRecognizerCommandOutput> | void {
     const command = new DeleteEntityRecognizerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a resource-based policy that is attached to a custom model.</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1062,6 +1109,39 @@ export class Comprehend extends ComprehendClient {
   }
 
   /**
+   * <p>Gets the details of a resource-based policy that is attached to a custom model, including
+   *       the JSON body of the policy.</p>
+   */
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeResourcePolicyCommandOutput>;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+  public describeResourcePolicy(
+    args: DescribeResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): Promise<DescribeResourcePolicyCommandOutput> | void {
+    const command = new DescribeResourcePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the properties associated with a sentiment detection job. Use this operation to get
    *       the status of a detection job.</p>
    */
@@ -1311,6 +1391,37 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: DetectSyntaxCommandOutput) => void
   ): Promise<DetectSyntaxCommandOutput> | void {
     const command = new DetectSyntaxCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new custom model that replicates a source custom model that you import. The
+   *       source model can be in your AWS account or another one.</p>
+   *          <p>If the source model is in another AWS account, then it must have a resource-based policy
+   *       that authorizes you to import it.</p>
+   *          <p>The source model must be in the same AWS region that you're using when you import. You
+   *       can't import a model that's in a different region.</p>
+   */
+  public importModel(args: ImportModelCommandInput, options?: __HttpHandlerOptions): Promise<ImportModelCommandOutput>;
+  public importModel(args: ImportModelCommandInput, cb: (err: any, data?: ImportModelCommandOutput) => void): void;
+  public importModel(
+    args: ImportModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportModelCommandOutput) => void
+  ): void;
+  public importModel(
+    args: ImportModelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportModelCommandOutput) => void),
+    cb?: (err: any, data?: ImportModelCommandOutput) => void
+  ): Promise<ImportModelCommandOutput> | void {
+    const command = new ImportModelCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1764,6 +1875,40 @@ export class Comprehend extends ComprehendClient {
     cb?: (err: any, data?: ListTopicsDetectionJobsCommandOutput) => void
   ): Promise<ListTopicsDetectionJobsCommandOutput> | void {
     const command = new ListTopicsDetectionJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Attaches a resource-based policy to a custom model. You can use this policy to authorize
+   *       an entity in another AWS account to import the custom model, which replicates it in Amazon
+   *       Comprehend in their account.</p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

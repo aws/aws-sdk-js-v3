@@ -9450,7 +9450,7 @@ export interface EnableFastLaunchRequest {
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest;
 
   /**
-   * <p>The maximum number of parallel instances to launch for creating resources.</p>
+   * <p>The maximum number of parallel instances to launch for creating resources. Value must be <code>6</code> or greater. </p>
    */
   MaxParallelLaunches?: number;
 

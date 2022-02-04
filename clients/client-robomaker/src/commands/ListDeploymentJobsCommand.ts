@@ -22,8 +22,12 @@ export interface ListDeploymentJobsCommandInput extends ListDeploymentJobsReques
 export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to
- *          retrieve specific deployment jobs. </p>
+ * @deprecated
+ *
+ * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.</p>
+ *          <important>
+ *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

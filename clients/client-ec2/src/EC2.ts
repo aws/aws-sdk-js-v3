@@ -1949,6 +1949,11 @@ import {
   ImportVolumeCommandOutput,
 } from "./commands/ImportVolumeCommand";
 import {
+  ListImagesInRecycleBinCommand,
+  ListImagesInRecycleBinCommandInput,
+  ListImagesInRecycleBinCommandOutput,
+} from "./commands/ListImagesInRecycleBinCommand";
+import {
   ListSnapshotsInRecycleBinCommand,
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
@@ -2406,6 +2411,11 @@ import {
   RestoreAddressToClassicCommandInput,
   RestoreAddressToClassicCommandOutput,
 } from "./commands/RestoreAddressToClassicCommand";
+import {
+  RestoreImageFromRecycleBinCommand,
+  RestoreImageFromRecycleBinCommandInput,
+  RestoreImageFromRecycleBinCommandOutput,
+} from "./commands/RestoreImageFromRecycleBinCommand";
 import {
   RestoreManagedPrefixListVersionCommand,
   RestoreManagedPrefixListVersionCommandInput,
@@ -4893,6 +4903,12 @@ export class EC2 extends EC2Client {
   /**
    * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
    *      	that is either running or stopped.</p>
+   *          <important>
+   *             <p>By default, Amazon EC2 shuts down and reboots the instance before creating the AMI to ensure that everything on
+   *          the instance is stopped and in a consistent state during the creation process. If you're confident that your
+   *          instance is in a consistent state appropriate for AMI creation, use the <b>NoReboot</b>
+   *          parameter to prevent Amazon EC2 from shutting down and rebooting the instance. </p>
+   *          </important>
    *
    *
    *
@@ -9253,10 +9269,18 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch
-   * 			new instances; however, it doesn't affect any instances that you've already launched
-   * 			from the AMI. You'll continue to incur usage costs for those instances until you
-   * 			terminate them.</p>
+   * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
+   *        launch new instances.</p>
+   *
+   *
+   *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is
+   *       retained in the Recycle Bin for the specified retention period. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
+   *         Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   *
+   *          <p>When you deregister an AMI, it doesn't affect any instances that you've already
+   *        launched from the AMI. You'll continue to incur usage costs for those instances until
+   *        you terminate them.</p>
    *    	     <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
    * 			created for the root volume of the instance during the AMI creation process. When you
    * 			deregister an instance store-backed AMI, it doesn't affect the files that you uploaded
@@ -14333,6 +14357,9 @@ export class EC2 extends EC2Client {
    * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
    * 			When you disable faster launching, the AMI uses the standard launch process for each
    * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
+   * 		       <note>
+   * 			         <p>To change these settings, you must own the AMI.</p>
+   * 		       </note>
    */
   public disableFastLaunch(
     args: DisableFastLaunchCommandInput,
@@ -15080,6 +15107,9 @@ export class EC2 extends EC2Client {
    * 			Then it creates a set of reserved snapshots that are used for subsequent launches. The
    * 			reserved snapshots are automatically replenished as they are used, depending on your
    * 			settings for launch frequency.</p>
+   * 		       <note>
+   * 			         <p>To change these settings, you must own the AMI.</p>
+   * 		       </note>
    */
   public enableFastLaunch(
     args: EnableFastLaunchCommandInput,
@@ -16949,6 +16979,40 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ImportVolumeCommandOutput) => void
   ): Promise<ImportVolumeCommandOutput> | void {
     const command = new ImportVolumeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
+   *         Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   */
+  public listImagesInRecycleBin(
+    args: ListImagesInRecycleBinCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImagesInRecycleBinCommandOutput>;
+  public listImagesInRecycleBin(
+    args: ListImagesInRecycleBinCommandInput,
+    cb: (err: any, data?: ListImagesInRecycleBinCommandOutput) => void
+  ): void;
+  public listImagesInRecycleBin(
+    args: ListImagesInRecycleBinCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImagesInRecycleBinCommandOutput) => void
+  ): void;
+  public listImagesInRecycleBin(
+    args: ListImagesInRecycleBinCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImagesInRecycleBinCommandOutput) => void),
+    cb?: (err: any, data?: ListImagesInRecycleBinCommandOutput) => void
+  ): Promise<ListImagesInRecycleBinCommandOutput> | void {
+    const command = new ListImagesInRecycleBinCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -20502,6 +20566,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: RestoreAddressToClassicCommandOutput) => void
   ): Promise<RestoreAddressToClassicCommandOutput> | void {
     const command = new RestoreAddressToClassicCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   */
+  public restoreImageFromRecycleBin(
+    args: RestoreImageFromRecycleBinCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreImageFromRecycleBinCommandOutput>;
+  public restoreImageFromRecycleBin(
+    args: RestoreImageFromRecycleBinCommandInput,
+    cb: (err: any, data?: RestoreImageFromRecycleBinCommandOutput) => void
+  ): void;
+  public restoreImageFromRecycleBin(
+    args: RestoreImageFromRecycleBinCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreImageFromRecycleBinCommandOutput) => void
+  ): void;
+  public restoreImageFromRecycleBin(
+    args: RestoreImageFromRecycleBinCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreImageFromRecycleBinCommandOutput) => void),
+    cb?: (err: any, data?: RestoreImageFromRecycleBinCommandOutput) => void
+  ): Promise<RestoreImageFromRecycleBinCommandOutput> | void {
+    const command = new RestoreImageFromRecycleBinCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

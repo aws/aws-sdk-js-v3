@@ -3198,6 +3198,8 @@ const serializeAws_json1_1ResultConfiguration = (input: ResultConfiguration, con
       input.EncryptionConfiguration !== null && {
         EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
       }),
+    ...(input.ExpectedBucketOwner !== undefined &&
+      input.ExpectedBucketOwner !== null && { ExpectedBucketOwner: input.ExpectedBucketOwner }),
     ...(input.OutputLocation !== undefined &&
       input.OutputLocation !== null && { OutputLocation: input.OutputLocation }),
   };
@@ -3212,12 +3214,16 @@ const serializeAws_json1_1ResultConfigurationUpdates = (
       input.EncryptionConfiguration !== null && {
         EncryptionConfiguration: serializeAws_json1_1EncryptionConfiguration(input.EncryptionConfiguration, context),
       }),
+    ...(input.ExpectedBucketOwner !== undefined &&
+      input.ExpectedBucketOwner !== null && { ExpectedBucketOwner: input.ExpectedBucketOwner }),
     ...(input.OutputLocation !== undefined &&
       input.OutputLocation !== null && { OutputLocation: input.OutputLocation }),
     ...(input.RemoveEncryptionConfiguration !== undefined &&
       input.RemoveEncryptionConfiguration !== null && {
         RemoveEncryptionConfiguration: input.RemoveEncryptionConfiguration,
       }),
+    ...(input.RemoveExpectedBucketOwner !== undefined &&
+      input.RemoveExpectedBucketOwner !== null && { RemoveExpectedBucketOwner: input.RemoveExpectedBucketOwner }),
     ...(input.RemoveOutputLocation !== undefined &&
       input.RemoveOutputLocation !== null && { RemoveOutputLocation: input.RemoveOutputLocation }),
   };
@@ -4016,6 +4022,7 @@ const deserializeAws_json1_1ResultConfiguration = (output: any, context: __Serde
       output.EncryptionConfiguration !== undefined && output.EncryptionConfiguration !== null
         ? deserializeAws_json1_1EncryptionConfiguration(output.EncryptionConfiguration, context)
         : undefined,
+    ExpectedBucketOwner: __expectString(output.ExpectedBucketOwner),
     OutputLocation: __expectString(output.OutputLocation),
   } as any;
 };
