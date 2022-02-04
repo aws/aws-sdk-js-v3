@@ -1,12 +1,6 @@
-import { readFile } from "fs";
+// ToDo: Change to "fs/promises" when supporting nodejs>=14
+import { promises as fsPromises } from "fs";
 
-export const slurpFile = (path: string): Promise<string> =>
-  new Promise((resolve, reject) => {
-    readFile(path, "utf8", (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(data);
-      }
-    });
-  });
+const { readFile } = fsPromises;
+
+export const slurpFile = async (path: string) => readFile(path, "utf8");
