@@ -37,17 +37,16 @@ const callReadFile = (path: string, cbs: callbacks) => {
 export const slurpFile = (path: string) =>
   new Promise<string>((resolve, reject) => {
     if (!fileReadHash[path]) {
-      // File not read yet, set file isReading to true.
+      // File not read yet, set file isReading to true and read file.
       fileReadHash[path] = { isReading: true, lastModified: new Date(0), contents: "", requestQueue: [] };
-      // Read file.
       callReadFile(path, { resolve, reject });
     } else if (fileReadHash[path].isReading) {
-      // File currently being read. Add to request queue.
+      // File currently being read. Add callbacks to the request queue.
       fileReadHash[path].requestQueue.push({ resolve, reject });
     } else {
-      // File already read, or read failed.
-      if (fileReadHash[path].lastModified === null) {
-        // Read failed. Read file again.
+      // File read was attempted in the past.
+      if (fileReadHash[path].lastModified.getTime() === 0) {
+        // Previous read attempt failed. Attempt read file again.
         callReadFile(path, { resolve, reject });
       } else {
         // Read file only if it's modified.
