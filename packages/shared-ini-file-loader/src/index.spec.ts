@@ -1,38 +1,7 @@
 import { join, sep } from "path";
 
 import { ENV_CONFIG_PATH, ENV_CREDENTIALS_PATH, loadSharedConfigFiles } from "./";
-
-jest.mock("fs", () => {
-  interface FsModule {
-    __addMatcher(toMatch: string, toReturn: string): void;
-    __clearMatchers(): void;
-    readFile: (path: string, encoding: string, cb: (err: Error | null, data?: string) => void) => void;
-  }
-
-  const fs: FsModule = <FsModule>jest.genMockFromModule("fs");
-  const matchers = new Map<string, string>();
-
-  function readFile(path: string, encoding: string, callback: (err: Error | null, data?: string) => void): void {
-    if (matchers.has(path)) {
-      callback(null, matchers.get(path));
-      return;
-    }
-
-    callback(new Error("ENOENT: no such file or directory"));
-  }
-
-  fs.__addMatcher = function (toMatch: string, toReturn: string): void {
-    matchers.set(toMatch, toReturn);
-  };
-  fs.__clearMatchers = function (): void {
-    matchers.clear();
-  };
-  fs.readFile = readFile;
-
-  return fs;
-});
-import fs from "fs";
-const { __addMatcher, __clearMatchers } = fs as any;
+import { slurpFile } from "./slurpFile";
 
 jest.mock("os", () => {
   interface OsModule {
@@ -47,6 +16,8 @@ jest.mock("os", () => {
   return os;
 });
 import { homedir } from "os";
+
+jest.mock("./slurpFile");
 
 const DEFAULT_CREDS = {
   accessKeyId: "AKIAIOSFODNN7EXAMPLE",
@@ -78,21 +49,33 @@ const envAtLoadTime: { [key: string]: string | undefined } = [
   return envState;
 }, {});
 
-beforeEach(() => {
-  __clearMatchers();
-  Object.keys(envAtLoadTime).forEach((envKey) => {
-    delete process.env[envKey];
-  });
-});
+describe(loadSharedConfigFiles.name, () => {
+  const __addMatcher = (nameToFileMatchers: [string, string][]) => {
+    (slurpFile as jest.Mock).mockImplementation(async (path) => {
+      for (const [pathToMatch, dataToReturn] of nameToFileMatchers) {
+        if (path === pathToMatch) return dataToReturn;
+      }
+      throw new Error("ENOENT: no such file or directory");
+    });
+  };
 
-afterAll(() => {
-  __clearMatchers();
-  Object.keys(envAtLoadTime).forEach((envKey) => {
-    process.env[envKey] = envAtLoadTime[envKey];
+  beforeEach(() => {
+    (slurpFile as jest.Mock).mockRejectedValue("ENOENT: no such file or directory");
+    Object.keys(envAtLoadTime).forEach((envKey) => {
+      delete process.env[envKey];
+    });
   });
-});
 
-describe("loadSharedConfigFiles", () => {
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+
+  afterAll(() => {
+    Object.keys(envAtLoadTime).forEach((envKey) => {
+      process.env[envKey] = envAtLoadTime[envKey];
+    });
+  });
+
   it("should return empty objects if no files are found", async () => {
     const profiles = await loadSharedConfigFiles();
     expect(profiles.configFile).toEqual({});
@@ -126,7 +109,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
     const DEFAULT_PATH = join(homedir(), ".aws", "credentials");
 
     it("should read credentials from ~/.aws/credentials", async () => {
-      __addMatcher(DEFAULT_PATH, SIMPLE_CREDS_FILE);
+      __addMatcher([[DEFAULT_PATH, SIMPLE_CREDS_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -136,7 +119,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
     it("should read from a filepath if provided", async () => {
       const customPath = join(homedir(), ".aws", "foo");
-      __addMatcher(customPath, SIMPLE_CREDS_FILE);
+      __addMatcher([[customPath, SIMPLE_CREDS_FILE]]);
 
       expect(await loadSharedConfigFiles({ filepath: customPath })).toEqual({
         configFile: {},
@@ -146,7 +129,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
     it(`should read from a filepath specified in ${ENV_CREDENTIALS_PATH}`, async () => {
       process.env[ENV_CREDENTIALS_PATH] = join("foo", "bar", "baz");
-      __addMatcher(process.env[ENV_CREDENTIALS_PATH], SIMPLE_CREDS_FILE);
+      __addMatcher([[process.env[ENV_CREDENTIALS_PATH], SIMPLE_CREDS_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -157,9 +140,10 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
     it("should prefer a provided filepath over one specified via environment variables", async () => {
       process.env[ENV_CREDENTIALS_PATH] = join("foo", "bar", "baz");
       const customPath = join("fizz", "buzz", "pop");
-      __addMatcher(customPath, SIMPLE_CREDS_FILE);
-
-      __addMatcher(process.env[ENV_CREDENTIALS_PATH], "");
+      __addMatcher([
+        [customPath, SIMPLE_CREDS_FILE],
+        [process.env[ENV_CREDENTIALS_PATH], ""],
+      ]);
 
       expect(await loadSharedConfigFiles({ filepath: customPath })).toEqual({
         configFile: {},
@@ -169,7 +153,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
+      __addMatcher([[`${sep}foo${sep}bar${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -179,7 +163,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
 
     it("should use $USERPROFILE when available", async () => {
       process.env.USERPROFILE = "C:\\Users\\user";
-      __addMatcher(`C:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
+      __addMatcher([[`C:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -190,7 +174,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
     it("should use $HOMEPATH/$HOMEDRIVE when available", async () => {
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user";
-      __addMatcher(`D:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE);
+      __addMatcher([[`D:\\Users\\user${sep}.aws${sep}credentials`, SIMPLE_CREDS_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -202,23 +186,24 @@ aws_session_token = ${FOO_CREDS.sessionToken}`;
       process.env.HOME = `${sep}foo${sep}bar`;
       process.env.USERPROFILE = "C:\\Users\\user";
 
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
-        `
-[default]
-aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
-aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
-aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
-      );
-
-      __addMatcher(
-        `C:\\Users\\user${sep}.aws${sep}credentials`,
-        `
+      __addMatcher([
+        [
+          `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
+          `
+  [default]
+  aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
+  aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
+  aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim(),
+        ],
+        [
+          `C:\\Users\\user${sep}.aws${sep}credentials`,
+          `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
-aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
-      );
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -233,23 +218,24 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user2";
 
-      __addMatcher(
-        `C:\\Users\\user${sep}.aws${sep}credentials`,
-        `
+      __addMatcher([
+        [
+          `C:\\Users\\user${sep}.aws${sep}credentials`,
+          `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
-aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
-      );
-
-      __addMatcher(
-        `D:\\Users\\user2${sep}.aws${sep}credentials`,
-        `
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim(),
+        ],
+        [
+          `D:\\Users\\user2${sep}.aws${sep}credentials`,
+          `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
-aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
-      );
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -264,23 +250,24 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user2";
 
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
-        `
+      __addMatcher([
+        [
+          `${sep}foo${sep}bar${sep}.aws${sep}credentials`,
+          `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
-aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
-      );
-
-      __addMatcher(
-        `D:\\Users\\user2${sep}.aws${sep}credentials`,
-        `
-[default]
-aws_access_key_id = ${FOO_CREDS.accessKeyId}
-aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
-aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
-      );
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim(),
+        ],
+        [
+          `D:\\Users\\user2${sep}.aws${sep}credentials`,
+          `
+  [default]
+  aws_access_key_id = ${FOO_CREDS.accessKeyId}
+  aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
+  aws_session_token = ${FOO_CREDS.sessionToken}`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -291,12 +278,14 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
     });
 
     it("should ignore profile name in block list", async () => {
-      __addMatcher(
-        DEFAULT_PATH,
-        `
+      __addMatcher([
+        [
+          DEFAULT_PATH,
+          `
 [__proto__]
-foo = not_exist`.trim()
-      );
+foo = not_exist`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
@@ -342,7 +331,7 @@ aws_session_token = ${FIZZ_CREDS.sessionToken}`;
     const DEFAULT_PATH = join(homedir(), ".aws", "config");
 
     it("should read credentials from ~/.aws/config", async () => {
-      __addMatcher(DEFAULT_PATH, SIMPLE_CONFIG_FILE);
+      __addMatcher([[DEFAULT_PATH, SIMPLE_CONFIG_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -351,9 +340,10 @@ aws_session_token = ${FIZZ_CREDS.sessionToken}`;
     });
 
     it("should ignore non-profile sections of the file", async () => {
-      __addMatcher(
-        DEFAULT_PATH,
-        `[default]
+      __addMatcher([
+        [
+          DEFAULT_PATH,
+          `[default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
 aws_session_token = ${DEFAULT_CREDS.sessionToken}
@@ -369,8 +359,9 @@ aws_secret_access_key = ${FIZZ_CREDS.secretAccessKey}
 aws_session_token = ${FIZZ_CREDS.sessionToken}
 
 [fizz]
-key = value`
-      );
+key = value`,
+        ],
+      ]);
 
       const { configFile } = await loadSharedConfigFiles();
       expect(configFile.default).toEqual(parsed.default);
@@ -380,7 +371,7 @@ key = value`
 
     it("should read from a filepath if provided", async () => {
       const customPath = join(homedir(), ".aws", "foo");
-      __addMatcher(customPath, SIMPLE_CONFIG_FILE);
+      __addMatcher([[customPath, SIMPLE_CONFIG_FILE]]);
 
       expect(await loadSharedConfigFiles({ configFilepath: customPath })).toEqual({
         credentialsFile: {},
@@ -390,7 +381,7 @@ key = value`
 
     it(`should read from a filepath specified in ${ENV_CREDENTIALS_PATH}`, async () => {
       process.env[ENV_CONFIG_PATH] = join("foo", "bar", "baz");
-      __addMatcher(process.env[ENV_CONFIG_PATH], SIMPLE_CONFIG_FILE);
+      __addMatcher([[process.env[ENV_CONFIG_PATH], SIMPLE_CONFIG_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -401,23 +392,24 @@ key = value`
     it("should prefer a provided filepath over one specified via environment variables", async () => {
       process.env[ENV_CONFIG_PATH] = join("foo", "bar", "baz");
       const customPath = join("fizz", "buzz", "pop");
-      __addMatcher(
-        customPath,
-        `
+      __addMatcher([
+        [
+          customPath,
+          `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
-aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
-      );
-
-      __addMatcher(
-        process.env[ENV_CONFIG_PATH],
-        `
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim(),
+        ],
+        [
+          process.env[ENV_CONFIG_PATH],
+          `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
-aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
-      );
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles({ configFilepath: customPath })).toEqual({
         credentialsFile: {},
@@ -427,7 +419,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
     it("should use $HOME when available", async () => {
       process.env.HOME = `${sep}foo${sep}bar`;
-      __addMatcher(`${sep}foo${sep}bar${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
+      __addMatcher([[`${sep}foo${sep}bar${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -437,7 +429,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
 
     it("should use $USERPROFILE when available", async () => {
       process.env.USERPROFILE = "C:\\Users\\user";
-      __addMatcher(`C:\\Users\\user${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
+      __addMatcher([[`C:\\Users\\user${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -448,7 +440,7 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
     it("should use $HOMEPATH/$HOMEDRIVE when available", async () => {
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user";
-      __addMatcher(`D:\\Users\\user${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE);
+      __addMatcher([[`D:\\Users\\user${sep}.aws${sep}config`, SIMPLE_CONFIG_FILE]]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -460,23 +452,24 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       process.env.HOME = `${sep}foo${sep}bar`;
       process.env.USERPROFILE = "C:\\Users\\user";
 
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}config`,
-        `
+      __addMatcher([
+        [
+          `${sep}foo${sep}bar${sep}.aws${sep}config`,
+          `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
-aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
-      );
-
-      __addMatcher(
-        `C:\\Users\\user${sep}.aws${sep}config`,
-        `
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim(),
+        ],
+        [
+          `C:\\Users\\user${sep}.aws${sep}config`,
+          `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
-aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
-      );
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -489,23 +482,24 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user2";
 
-      __addMatcher(
-        `C:\\Users\\user${sep}.aws${sep}config`,
-        `
+      __addMatcher([
+        [
+          `C:\\Users\\user${sep}.aws${sep}config`,
+          `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
-aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
-      );
-
-      __addMatcher(
-        `D:\\Users\\user2${sep}.aws${sep}config`,
-        `
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim(),
+        ],
+        [
+          `D:\\Users\\user2${sep}.aws${sep}config`,
+          `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
-aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
-      );
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -518,23 +512,24 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
       process.env.HOMEDRIVE = "D:\\";
       process.env.HOMEPATH = "Users\\user2";
 
-      __addMatcher(
-        `${sep}foo${sep}bar${sep}.aws${sep}config`,
-        `
+      __addMatcher([
+        [
+          `${sep}foo${sep}bar${sep}.aws${sep}config`,
+          `
 [default]
 aws_access_key_id = ${DEFAULT_CREDS.accessKeyId}
 aws_secret_access_key = ${DEFAULT_CREDS.secretAccessKey}
-aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim()
-      );
-
-      __addMatcher(
-        `D:\\Users\\user2${sep}.aws${sep}config`,
-        `
+aws_session_token = ${DEFAULT_CREDS.sessionToken}`.trim(),
+        ],
+        [
+          `D:\\Users\\user2${sep}.aws${sep}config`,
+          `
 [default]
 aws_access_key_id = ${FOO_CREDS.accessKeyId}
 aws_secret_access_key = ${FOO_CREDS.secretAccessKey}
-aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
-      );
+aws_session_token = ${FOO_CREDS.sessionToken}`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         credentialsFile: {},
@@ -543,12 +538,14 @@ aws_session_token = ${FOO_CREDS.sessionToken}`.trim()
     });
 
     it("should ignore profile name in block list", async () => {
-      __addMatcher(
-        DEFAULT_PATH,
-        `
+      __addMatcher([
+        [
+          DEFAULT_PATH,
+          `
 [profile __proto__]
-foo = not_exist`.trim()
-      );
+foo = not_exist`.trim(),
+        ],
+      ]);
 
       expect(await loadSharedConfigFiles()).toEqual({
         configFile: {},
