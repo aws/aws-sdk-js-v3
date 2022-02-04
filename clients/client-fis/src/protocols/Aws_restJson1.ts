@@ -31,6 +31,10 @@ import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "../commands/GetExperimentTemplateCommand";
+import {
+  GetTargetResourceTypeCommandInput,
+  GetTargetResourceTypeCommandOutput,
+} from "../commands/GetTargetResourceTypeCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "../commands/ListExperimentsCommand";
 import {
@@ -41,6 +45,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTargetResourceTypesCommandInput,
+  ListTargetResourceTypesCommandOutput,
+} from "../commands/ListTargetResourceTypesCommand";
 import { StartExperimentCommandInput, StartExperimentCommandOutput } from "../commands/StartExperimentCommand";
 import { StopExperimentCommandInput, StopExperimentCommandOutput } from "../commands/StopExperimentCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -75,6 +83,9 @@ import {
   ExperimentTemplateTargetInputFilter,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  TargetResourceType,
+  TargetResourceTypeParameter,
+  TargetResourceTypeSummary,
   UpdateExperimentTemplateActionInputItem,
   UpdateExperimentTemplateStopConditionInput,
   UpdateExperimentTemplateTargetInput,
@@ -237,6 +248,35 @@ export const serializeAws_restJson1GetExperimentTemplateCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetTargetResourceTypeCommand = async (
+  input: GetTargetResourceTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/targetResourceTypes/{resourceType}";
+  if (input.resourceType !== undefined) {
+    const labelValue: string = input.resourceType;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceType.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceType}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceType.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListActionsCommand = async (
   input: ListActionsCommandInput,
   context: __SerdeContext
@@ -333,6 +373,30 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTargetResourceTypesCommand = async (
+  input: ListTargetResourceTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/targetResourceTypes";
+  const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -838,6 +902,69 @@ const deserializeAws_restJson1GetExperimentTemplateCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetTargetResourceTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTargetResourceTypeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetTargetResourceTypeCommandError(output, context);
+  }
+  const contents: GetTargetResourceTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    targetResourceType: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.targetResourceType !== undefined && data.targetResourceType !== null) {
+    contents.targetResourceType = deserializeAws_restJson1TargetResourceType(data.targetResourceType, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetTargetResourceTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTargetResourceTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1048,6 +1175,68 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListTargetResourceTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetResourceTypesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTargetResourceTypesCommandError(output, context);
+  }
+  const contents: ListTargetResourceTypesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    targetResourceTypes: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.targetResourceTypes !== undefined && data.targetResourceTypes !== null) {
+    contents.targetResourceTypes = deserializeAws_restJson1TargetResourceTypeSummaryList(
+      data.targetResourceTypes,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTargetResourceTypesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetResourceTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1502,6 +1691,10 @@ const serializeAws_restJson1CreateExperimentTemplateTargetInput = (
       input.filters !== null && {
         filters: serializeAws_restJson1ExperimentTemplateTargetFilterInputList(input.filters, context),
       }),
+    ...(input.parameters !== undefined &&
+      input.parameters !== null && {
+        parameters: serializeAws_restJson1ExperimentTemplateTargetParameterMap(input.parameters, context),
+      }),
     ...(input.resourceArns !== undefined &&
       input.resourceArns !== null && {
         resourceArns: serializeAws_restJson1ResourceArnList(input.resourceArns, context),
@@ -1610,6 +1803,21 @@ const serializeAws_restJson1ExperimentTemplateTargetInputFilter = (
   };
 };
 
+const serializeAws_restJson1ExperimentTemplateTargetParameterMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_restJson1ResourceArnList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1702,6 +1910,10 @@ const serializeAws_restJson1UpdateExperimentTemplateTargetInput = (
     ...(input.filters !== undefined &&
       input.filters !== null && {
         filters: serializeAws_restJson1ExperimentTemplateTargetFilterInputList(input.filters, context),
+      }),
+    ...(input.parameters !== undefined &&
+      input.parameters !== null && {
+        parameters: serializeAws_restJson1ExperimentTemplateTargetParameterMap(input.parameters, context),
       }),
     ...(input.resourceArns !== undefined &&
       input.resourceArns !== null && {
@@ -2018,6 +2230,10 @@ const deserializeAws_restJson1ExperimentTarget = (output: any, context: __SerdeC
       output.filters !== undefined && output.filters !== null
         ? deserializeAws_restJson1ExperimentTargetFilterList(output.filters, context)
         : undefined,
+    parameters:
+      output.parameters !== undefined && output.parameters !== null
+        ? deserializeAws_restJson1ExperimentTargetParameterMap(output.parameters, context)
+        : undefined,
     resourceArns:
       output.resourceArns !== undefined && output.resourceArns !== null
         ? deserializeAws_restJson1ResourceArnList(output.resourceArns, context)
@@ -2080,6 +2296,21 @@ const deserializeAws_restJson1ExperimentTargetMap = (
     return {
       ...acc,
       [key]: deserializeAws_restJson1ExperimentTarget(value, context),
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1ExperimentTargetParameterMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
     };
   }, {});
 };
@@ -2269,6 +2500,10 @@ const deserializeAws_restJson1ExperimentTemplateTarget = (
       output.filters !== undefined && output.filters !== null
         ? deserializeAws_restJson1ExperimentTemplateTargetFilterList(output.filters, context)
         : undefined,
+    parameters:
+      output.parameters !== undefined && output.parameters !== null
+        ? deserializeAws_restJson1ExperimentTemplateTargetParameterMap(output.parameters, context)
+        : undefined,
     resourceArns:
       output.resourceArns !== undefined && output.resourceArns !== null
         ? deserializeAws_restJson1ResourceArnList(output.resourceArns, context)
@@ -2341,6 +2576,21 @@ const deserializeAws_restJson1ExperimentTemplateTargetMap = (
   );
 };
 
+const deserializeAws_restJson1ExperimentTemplateTargetParameterMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
 const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -2362,6 +2612,69 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1TargetResourceType = (output: any, context: __SerdeContext): TargetResourceType => {
+  return {
+    description: __expectString(output.description),
+    parameters:
+      output.parameters !== undefined && output.parameters !== null
+        ? deserializeAws_restJson1TargetResourceTypeParameterMap(output.parameters, context)
+        : undefined,
+    resourceType: __expectString(output.resourceType),
+  } as any;
+};
+
+const deserializeAws_restJson1TargetResourceTypeParameter = (
+  output: any,
+  context: __SerdeContext
+): TargetResourceTypeParameter => {
+  return {
+    description: __expectString(output.description),
+    required: __expectBoolean(output.required),
+  } as any;
+};
+
+const deserializeAws_restJson1TargetResourceTypeParameterMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: TargetResourceTypeParameter } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: TargetResourceTypeParameter }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1TargetResourceTypeParameter(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1TargetResourceTypeSummary = (
+  output: any,
+  context: __SerdeContext
+): TargetResourceTypeSummary => {
+  return {
+    description: __expectString(output.description),
+    resourceType: __expectString(output.resourceType),
+  } as any;
+};
+
+const deserializeAws_restJson1TargetResourceTypeSummaryList = (
+  output: any,
+  context: __SerdeContext
+): TargetResourceTypeSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TargetResourceTypeSummary(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

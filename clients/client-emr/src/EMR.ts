@@ -331,6 +331,9 @@ export class EMR extends EMRClient {
    *          step was running must have completed and run successfully.</p>
    *          <p>You can only add steps to a cluster that is in one of the following states: STARTING,
    *          BOOTSTRAPPING, RUNNING, or WAITING.</p>
+   *          <note>
+   *             <p>The string values passed into <code>HadoopJarStep</code> object cannot exceed a total of 10240 characters.</p>
+   *          </note>
    */
   public addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
@@ -1482,7 +1485,10 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Creates or updates an auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster termination</a>.</p>
+   * <note>
+   *             <p>Auto-termination is supported in Amazon EMR versions 5.30.0 and 6.1.0 and later. For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-auto-termination-policy.html">Using an auto-termination policy</a>.</p>
+   *          </note>
+   *          <p>Creates or updates an auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. For alternative cluster termination options, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control cluster termination</a>.</p>
    */
   public putAutoTerminationPolicy(
     args: PutAutoTerminationPolicyCommandInput,
@@ -1804,7 +1810,12 @@ export class EMR extends EMRClient {
   }
 
   /**
-   * <p>Sets the <a>Cluster$VisibleToAllUsers</a> value for an EMR cluster. When <code>true</code>, IAM principals in the
+   * <important>
+   *             <p>The SetVisibleToAllUsers parameter is no longer supported. Your cluster may be visible to all users in your account.
+   *             To restrict cluster access using an IAM policy, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html">Identity and Access Management for EMR</a>.
+   *             </p>
+   *          </important>
+   *          <p>Sets the <a>Cluster$VisibleToAllUsers</a> value for an EMR cluster. When <code>true</code>, IAM principals in the
    *          Amazon Web Services account can perform EMR cluster actions that their IAM policies allow. When <code>false</code>, only the IAM principal that created the cluster and the Amazon Web Services account root user can perform EMR actions on the cluster, regardless of IAM permissions policies attached to other IAM principals.</p>
    *          <p>This action works on running clusters. When you create a cluster, use the <a>RunJobFlowInput$VisibleToAllUsers</a> parameter.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users">Understanding the EMR Cluster VisibleToAllUsers Setting</a> in the <i>Amazon EMRManagement Guide</i>.</p>

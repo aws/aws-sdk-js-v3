@@ -31,8 +31,6 @@ export interface GetSavingsPlansUtilizationDetailsCommandOutput
  * 	        <note>
  *             <p>
  *                <code>GetSavingsPlanUtilizationDetails</code> internally groups data by <code>SavingsPlansArn</code>.</p>
- * 	           <p>
- *                <code>GetSavingsPlansUtilizationDetails</code> doesn't support filtering by tags. <code>GetSavingsPlansUtilizationDetails</code> also doesn't support the <code>OR</code> operator between filter dimensions. For the full request syntax with supported parameters, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetSavingsPlansUtilizationDetails.html#API_GetSavingsPlansUtilizationDetails_Examples">Examples</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

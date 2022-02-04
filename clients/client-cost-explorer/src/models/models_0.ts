@@ -243,6 +243,7 @@ export enum Dimension {
   DEPLOYMENT_OPTION = "DEPLOYMENT_OPTION",
   INSTANCE_TYPE = "INSTANCE_TYPE",
   INSTANCE_TYPE_FAMILY = "INSTANCE_TYPE_FAMILY",
+  INVOICING_ENTITY = "INVOICING_ENTITY",
   LEGAL_ENTITY_NAME = "LEGAL_ENTITY_NAME",
   LINKED_ACCOUNT = "LINKED_ACCOUNT",
   LINKED_ACCOUNT_NAME = "LINKED_ACCOUNT_NAME",
@@ -4568,8 +4569,8 @@ export interface GetCostAndUsageRequest {
    * 			and get the costs that are associated with that account's usage of that service. You can nest <code>Expression</code> objects
    * 			to define any combination of dimension filters. For more information, see
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
-   * 	        <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    * 	        <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</p>
+   * 	        <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    */
   Filter?: Expression;
 
@@ -4595,7 +4596,7 @@ export interface GetCostAndUsageRequest {
   /**
    * <p>You can group Amazon Web Services costs using up to two different groups, either dimensions, tag keys,
    *       cost categories, or any two group by types.</p>
-   * 	        <p>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>, <code>LINKED_ACCOUNT</code>,
+   * 	        <p>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>, <code>INVOICING_ENTITY</code>, <code>LINKED_ACCOUNT</code>,
    * 			<code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>,
    * 		  <code>TENANCY</code>, <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</p>
    * 	        <p>When you group by the <code>TAG</code>  type and include a valid tag key, you get all tag values, including empty strings.</p>
@@ -4639,8 +4640,8 @@ export interface GetCostAndUsageWithResourcesRequest {
    *          <p>The <code>GetCostAndUsageWithResources</code> operation requires that you either group by or filter by a
    *       <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
    *             <code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</p>
-   *          <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>The default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>. Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
    */
   Filter: Expression | undefined;
 
@@ -5022,7 +5023,7 @@ export interface GetDimensionValuesRequest {
 
   /**
    * <p>The name of the dimension. Each <code>Dimension</code> is available for a different <code>Context</code>.
-   * 		  For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html#awscostmanagement-GetDimensionValues-request-Context">Context</a>.
+   * 			For more information, see <code>Context</code>.
    *
    * 		</p>
    */
@@ -5040,10 +5041,28 @@ export interface GetDimensionValuesRequest {
    *                <p>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</p>
    *             </li>
    *             <li>
+   *                <p>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible values are the following:</p>
+   *                <p>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services services.</p>
+   *                <p>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that is an acting reseller for Amazon Web Services services in India.</p>
+   *                <p>- Amazon Web Services Marketplace: The entity that supports the sale of solutions built on Amazon Web Services by third-party software providers.</p>
+   *              </li>
+   *             <li>
+   *                <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</p>
+   *             </li>
+   *             <li>
+   *                <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora or MySQL.</p>
    *             </li>
    *             <li>
    *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases. Examples are <code>Compute Optimized</code> (<code>C4</code>, <code>C5</code>, <code>C6g</code>, <code>C7g</code> etc.), <code>Memory Optimization</code> (<code>R4</code>, <code>R5n</code>, <code>R5b</code>, <code>R6g</code> etc).</p>
+   *             </li>
+   *             <li>
+   *                <p>INVOICING_ENTITY - The name of the entity issuing the Amazon Web Services invoice.</p>
    *             </li>
    *             <li>
    *                <p>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services services, such as Amazon Web Services.</p>
@@ -5066,7 +5085,19 @@ export interface GetDimensionValuesRequest {
    *                Instances and Standard Reserved Instances.</p>
    *             </li>
    *             <li>
+   *                <p>RESERVATION_ID - The unique identifier for an Amazon Web Services Reservation Instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</p>
+   *             </li>
+   *             <li>
+   *                <p>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute).</p>
+   *             </li>
+   *             <li>
    *                <p>SERVICE - The Amazon Web Services service such as Amazon DynamoDB.</p>
+   *             </li>
+   *             <li>
+   *                <p>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</p>
    *             </li>
    *             <li>
    *                <p>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response for the <code>GetDimensionValues</code> operation
@@ -5140,7 +5171,7 @@ export interface GetDimensionValuesRequest {
    *                field contains the Amazon Web Services ID of the member account.</p>
    *             </li>
    *             <li>
-   *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan</p>
+   *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</p>
    *             </li>
    *          </ul>
    */
@@ -5301,6 +5332,9 @@ export interface GetReservationCoverageRequest {
    *                <p>INSTANCE_TYPE</p>
    *             </li>
    *             <li>
+   *                <p>INVOICING_ENTITY</p>
+   *             </li>
+   *             <li>
    *                <p>LINKED_ACCOUNT</p>
    *             </li>
    *             <li>
@@ -5370,7 +5404,8 @@ export interface GetReservationCoverageRequest {
    * 		       <p>
    *             <code>GetReservationCoverage</code> uses the same
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
-   * 			as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only one level deep.</p>
+   * 			as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only one level deep.
+   * 			If there are multiple values for a dimension, they are OR'd together.</p>
    * 		       <p>If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.</p>
    * 	        <p>Cost category is also supported.</p>
    */
@@ -5638,7 +5673,7 @@ export interface GetReservationUtilizationRequest {
    *             <code>GetReservationUtilization</code> uses the same
    * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    * 			as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is supported up to
-   * 			only one level deep.</p>
+   * 			only one level deep. If there are multiple values for a dimension, they are OR'd together.</p>
    */
   Filter?: Expression;
 
@@ -5897,8 +5932,8 @@ export interface GetSavingsPlansCoverageRequest {
    *          <p>
    *             <code>GetSavingsPlansCoverage</code> uses the same
    *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
-   *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
-   *          <p>Cost category is supported. Tags are not supported.</p>
+   *       as the other operations, but only <code>AND</code> is supported among each dimension. If there are multiple values for a dimension, they are OR'd together.</p>
+   *          <p>Cost category is also supported.</p>
    */
   Filter?: Expression;
 
@@ -6073,7 +6108,6 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
    *             <code>GetSavingsPlansUtilizationDetails</code> uses the same
    *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
-   *          <p>Filtering by tags isn't supported.</p>
    */
   Filter?: Expression;
 
@@ -6198,7 +6232,6 @@ export interface GetSavingsPlansUtilizationRequest {
    *             <code>GetSavingsPlansUtilization</code> uses the same
    *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
-   *          <p>Filtering by tags isn't supported.</p>
    */
   Filter?: Expression;
 

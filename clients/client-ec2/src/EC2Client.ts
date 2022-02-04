@@ -1378,6 +1378,10 @@ import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./command
 import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "./commands/ImportSnapshotCommand";
 import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "./commands/ImportVolumeCommand";
 import {
+  ListImagesInRecycleBinCommandInput,
+  ListImagesInRecycleBinCommandOutput,
+} from "./commands/ListImagesInRecycleBinCommand";
+import {
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
 } from "./commands/ListSnapshotsInRecycleBinCommand";
@@ -1693,6 +1697,10 @@ import {
   RestoreAddressToClassicCommandInput,
   RestoreAddressToClassicCommandOutput,
 } from "./commands/RestoreAddressToClassicCommand";
+import {
+  RestoreImageFromRecycleBinCommandInput,
+  RestoreImageFromRecycleBinCommandOutput,
+} from "./commands/RestoreImageFromRecycleBinCommand";
 import {
   RestoreManagedPrefixListVersionCommandInput,
   RestoreManagedPrefixListVersionCommandOutput,
@@ -2178,6 +2186,7 @@ export type ServiceInputTypes =
   | ImportKeyPairCommandInput
   | ImportSnapshotCommandInput
   | ImportVolumeCommandInput
+  | ListImagesInRecycleBinCommandInput
   | ListSnapshotsInRecycleBinCommandInput
   | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
@@ -2272,6 +2281,7 @@ export type ServiceInputTypes =
   | ResetNetworkInterfaceAttributeCommandInput
   | ResetSnapshotAttributeCommandInput
   | RestoreAddressToClassicCommandInput
+  | RestoreImageFromRecycleBinCommandInput
   | RestoreManagedPrefixListVersionCommandInput
   | RestoreSnapshotFromRecycleBinCommandInput
   | RestoreSnapshotTierCommandInput
@@ -2699,6 +2709,7 @@ export type ServiceOutputTypes =
   | ImportKeyPairCommandOutput
   | ImportSnapshotCommandOutput
   | ImportVolumeCommandOutput
+  | ListImagesInRecycleBinCommandOutput
   | ListSnapshotsInRecycleBinCommandOutput
   | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
@@ -2793,6 +2804,7 @@ export type ServiceOutputTypes =
   | ResetNetworkInterfaceAttributeCommandOutput
   | ResetSnapshotAttributeCommandOutput
   | RestoreAddressToClassicCommandOutput
+  | RestoreImageFromRecycleBinCommandOutput
   | RestoreManagedPrefixListVersionCommandOutput
   | RestoreSnapshotFromRecycleBinCommandOutput
   | RestoreSnapshotTierCommandOutput

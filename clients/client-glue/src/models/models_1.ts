@@ -2739,7 +2739,7 @@ export interface GetSchemaResponse {
   Description?: string;
 
   /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
   DataFormat?: DataFormat | string;
 
@@ -2829,7 +2829,7 @@ export interface GetSchemaByDefinitionResponse {
   SchemaArn?: string;
 
   /**
-   * <p>The data format of the schema definition. Currently only <code>AVRO</code> and <code>JSON</code> are supported.</p>
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
   DataFormat?: DataFormat | string;
 
@@ -2923,7 +2923,7 @@ export interface GetSchemaVersionResponse {
   SchemaDefinition?: string;
 
   /**
-   * <p>The data format of the schema definition. Currently <code>AVRO</code> and <code>JSON</code> are supported.</p>
+   * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
   DataFormat?: DataFormat | string;
 

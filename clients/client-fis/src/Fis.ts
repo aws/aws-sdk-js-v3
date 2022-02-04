@@ -21,6 +21,11 @@ import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
+import {
+  GetTargetResourceTypeCommand,
+  GetTargetResourceTypeCommandInput,
+  GetTargetResourceTypeCommandOutput,
+} from "./commands/GetTargetResourceTypeCommand";
 import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
   ListExperimentsCommand,
@@ -37,6 +42,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetResourceTypesCommand,
+  ListTargetResourceTypesCommandInput,
+  ListTargetResourceTypesCommandOutput,
+} from "./commands/ListTargetResourceTypesCommand";
 import {
   StartExperimentCommand,
   StartExperimentCommandInput,
@@ -242,6 +252,38 @@ export class Fis extends FisClient {
   }
 
   /**
+   * <p>Gets information about the specified resource type.</p>
+   */
+  public getTargetResourceType(
+    args: GetTargetResourceTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTargetResourceTypeCommandOutput>;
+  public getTargetResourceType(
+    args: GetTargetResourceTypeCommandInput,
+    cb: (err: any, data?: GetTargetResourceTypeCommandOutput) => void
+  ): void;
+  public getTargetResourceType(
+    args: GetTargetResourceTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTargetResourceTypeCommandOutput) => void
+  ): void;
+  public getTargetResourceType(
+    args: GetTargetResourceTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTargetResourceTypeCommandOutput) => void),
+    cb?: (err: any, data?: GetTargetResourceTypeCommandOutput) => void
+  ): Promise<GetTargetResourceTypeCommandOutput> | void {
+    const command = new GetTargetResourceTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the available FIS actions.</p>
    */
   public listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
@@ -353,6 +395,38 @@ export class Fis extends FisClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the target resource types.</p>
+   */
+  public listTargetResourceTypes(
+    args: ListTargetResourceTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTargetResourceTypesCommandOutput>;
+  public listTargetResourceTypes(
+    args: ListTargetResourceTypesCommandInput,
+    cb: (err: any, data?: ListTargetResourceTypesCommandOutput) => void
+  ): void;
+  public listTargetResourceTypes(
+    args: ListTargetResourceTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTargetResourceTypesCommandOutput) => void
+  ): void;
+  public listTargetResourceTypes(
+    args: ListTargetResourceTypesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTargetResourceTypesCommandOutput) => void),
+    cb?: (err: any, data?: ListTargetResourceTypesCommandOutput) => void
+  ): Promise<ListTargetResourceTypesCommandOutput> | void {
+    const command = new ListTargetResourceTypesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

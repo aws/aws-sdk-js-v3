@@ -64,6 +64,10 @@ import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
+import {
+  GetTargetResourceTypeCommandInput,
+  GetTargetResourceTypeCommandOutput,
+} from "./commands/GetTargetResourceTypeCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "./commands/ListExperimentsCommand";
 import {
@@ -74,6 +78,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTargetResourceTypesCommandInput,
+  ListTargetResourceTypesCommandOutput,
+} from "./commands/ListTargetResourceTypesCommand";
 import { StartExperimentCommandInput, StartExperimentCommandOutput } from "./commands/StartExperimentCommand";
 import { StopExperimentCommandInput, StopExperimentCommandOutput } from "./commands/StopExperimentCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -90,10 +98,12 @@ export type ServiceInputTypes =
   | GetActionCommandInput
   | GetExperimentCommandInput
   | GetExperimentTemplateCommandInput
+  | GetTargetResourceTypeCommandInput
   | ListActionsCommandInput
   | ListExperimentTemplatesCommandInput
   | ListExperimentsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTargetResourceTypesCommandInput
   | StartExperimentCommandInput
   | StopExperimentCommandInput
   | TagResourceCommandInput
@@ -106,10 +116,12 @@ export type ServiceOutputTypes =
   | GetActionCommandOutput
   | GetExperimentCommandOutput
   | GetExperimentTemplateCommandOutput
+  | GetTargetResourceTypeCommandOutput
   | ListActionsCommandOutput
   | ListExperimentTemplatesCommandOutput
   | ListExperimentsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTargetResourceTypesCommandOutput
   | StartExperimentCommandOutput
   | StopExperimentCommandOutput
   | TagResourceCommandOutput

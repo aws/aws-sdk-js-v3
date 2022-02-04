@@ -1,6 +1,15 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+/**
+ * <p>AppFlow/Requester has invalid or missing permissions.</p>
+ */
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  message?: string;
+}
+
 export enum AggregationType {
   NONE = "None",
   SINGLE_FILE = "SingleFile",
@@ -53,6 +62,7 @@ export namespace AmplitudeConnectorProfileCredentials {
    */
   export const filterSensitiveLog = (obj: AmplitudeConnectorProfileCredentials): any => ({
     ...obj,
+    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
     ...(obj.secretKey && { secretKey: SENSITIVE_STRING }),
   });
 }
@@ -102,6 +112,191 @@ export namespace AmplitudeSourceProperties {
   export const filterSensitiveLog = (obj: AmplitudeSourceProperties): any => ({
     ...obj,
   });
+}
+
+/**
+ * <p>The API key credentials required for API key authentication.</p>
+ */
+export interface ApiKeyCredentials {
+  /**
+   * <p>The API key required for API key authentication.</p>
+   */
+  apiKey: string | undefined;
+
+  /**
+   * <p>The API secret key required for API key authentication.</p>
+   */
+  apiSecretKey?: string;
+}
+
+export namespace ApiKeyCredentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ApiKeyCredentials): any => ({
+    ...obj,
+    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
+    ...(obj.apiSecretKey && { apiSecretKey: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Information about required authentication parameters.</p>
+ */
+export interface AuthParameter {
+  /**
+   * <p>The authentication key required to authenticate with the connector.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>Indicates whether this authentication parameter is required.</p>
+   */
+  isRequired?: boolean;
+
+  /**
+   * <p>Label used for authentication parameter.</p>
+   */
+  label?: string;
+
+  /**
+   * <p>A description about the authentication parameter.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates whether this authentication parameter is a sensitive field.</p>
+   */
+  isSensitiveField?: boolean;
+
+  /**
+   * <p>Contains default values for this authentication parameter that are supplied by the
+   *       connector.</p>
+   */
+  connectorSuppliedValues?: string[];
+}
+
+export namespace AuthParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration information required for custom authentication.</p>
+ */
+export interface CustomAuthConfig {
+  /**
+   * <p>The authentication type that the custom connector uses.</p>
+   */
+  customAuthenticationType?: string;
+
+  /**
+   * <p>Information about authentication parameters required for authentication.</p>
+   */
+  authParameters?: AuthParameter[];
+}
+
+export namespace CustomAuthConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomAuthConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum OAuth2GrantType {
+  AUTHORIZATION_CODE = "AUTHORIZATION_CODE",
+  CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS",
+}
+
+/**
+ * <p>Contains the default values required for OAuth 2.0 authentication.</p>
+ */
+export interface OAuth2Defaults {
+  /**
+   * <p>OAuth 2.0 scopes that the connector supports.</p>
+   */
+  oauthScopes?: string[];
+
+  /**
+   * <p>Token URLs that can be used for OAuth 2.0 authentication.</p>
+   */
+  tokenUrls?: string[];
+
+  /**
+   * <p>Auth code URLs that can be used for OAuth 2.0 authentication.</p>
+   */
+  authCodeUrls?: string[];
+
+  /**
+   * <p>OAuth 2.0 grant types supported by the connector.</p>
+   */
+  oauth2GrantTypesSupported?: (OAuth2GrantType | string)[];
+}
+
+export namespace OAuth2Defaults {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OAuth2Defaults): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the authentication config that the connector supports.</p>
+ */
+export interface AuthenticationConfig {
+  /**
+   * <p>Indicates whether basic authentication is supported by the connector.</p>
+   */
+  isBasicAuthSupported?: boolean;
+
+  /**
+   * <p>Indicates whether API key authentication is supported by the connector</p>
+   */
+  isApiKeyAuthSupported?: boolean;
+
+  /**
+   * <p>Indicates whether OAuth 2.0 authentication is supported by the connector.</p>
+   */
+  isOAuth2Supported?: boolean;
+
+  /**
+   * <p>Indicates whether custom authentication is supported by the connector</p>
+   */
+  isCustomAuthSupported?: boolean;
+
+  /**
+   * <p>Contains the default values required for OAuth 2.0 authentication.</p>
+   */
+  oAuth2Defaults?: OAuth2Defaults;
+
+  /**
+   * <p>Contains information required for custom authentication.</p>
+   */
+  customAuthConfigs?: CustomAuthConfig[];
+}
+
+export namespace AuthenticationConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AuthenticationConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum AuthenticationType {
+  APIKEY = "APIKEY",
+  BASIC = "BASIC",
+  CUSTOM = "CUSTOM",
+  OAUTH2 = "OAUTH2",
 }
 
 /**
@@ -583,8 +778,104 @@ export namespace ConnectorMetadata {
   });
 }
 
+/**
+ * <p>Contains information about the configuration of the lambda which is being registered as
+ *       the connector.</p>
+ */
+export interface LambdaConnectorProvisioningConfig {
+  /**
+   * <p>Lambda ARN of the connector being registered.</p>
+   */
+  lambdaArn: string | undefined;
+}
+
+export namespace LambdaConnectorProvisioningConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LambdaConnectorProvisioningConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about the configuration of the connector being registered.</p>
+ */
+export interface ConnectorProvisioningConfig {
+  /**
+   * <p>Contains information about the configuration of the lambda which is being registered as
+   *       the connector.</p>
+   */
+  lambda?: LambdaConnectorProvisioningConfig;
+}
+
+export namespace ConnectorProvisioningConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectorProvisioningConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum ConnectorProvisioningType {
+  LAMBDA = "LAMBDA",
+}
+
+/**
+ * <p>Contains information about the connector runtime settings that are required for flow
+ *       execution.</p>
+ */
+export interface ConnectorRuntimeSetting {
+  /**
+   * <p>Contains value information about the connector runtime setting.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>Data type of the connector runtime setting.</p>
+   */
+  dataType?: string;
+
+  /**
+   * <p>Indicates whether this connector runtime setting is required.</p>
+   */
+  isRequired?: boolean;
+
+  /**
+   * <p>A label used for connector runtime setting.</p>
+   */
+  label?: string;
+
+  /**
+   * <p>A description about the connector runtime setting.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates the scope of the connector runtime setting.</p>
+   */
+  scope?: string;
+
+  /**
+   * <p>Contains default values for the connector runtime setting that are supplied by the
+   *       connector.</p>
+   */
+  connectorSuppliedValueOptions?: string[];
+}
+
+export namespace ConnectorRuntimeSetting {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectorRuntimeSetting): any => ({
+    ...obj,
+  });
+}
+
 export enum ConnectorType {
   AMPLITUDE = "Amplitude",
+  CUSTOMCONNECTOR = "CustomConnector",
   CUSTOMERPROFILES = "CustomerProfiles",
   DATADOG = "Datadog",
   DYNATRACE = "Dynatrace",
@@ -608,6 +899,30 @@ export enum ConnectorType {
   ZENDESK = "Zendesk",
 }
 
+export enum Operators {
+  ADDITION = "ADDITION",
+  BETWEEN = "BETWEEN",
+  CONTAINS = "CONTAINS",
+  DIVISION = "DIVISION",
+  EQUAL_TO = "EQUAL_TO",
+  GREATER_THAN = "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  LESS_THAN = "LESS_THAN",
+  LESS_THAN_OR_EQUAL_TO = "LESS_THAN_OR_EQUAL_TO",
+  MASK_ALL = "MASK_ALL",
+  MASK_FIRST_N = "MASK_FIRST_N",
+  MASK_LAST_N = "MASK_LAST_N",
+  MULTIPLICATION = "MULTIPLICATION",
+  NOT_EQUAL_TO = "NOT_EQUAL_TO",
+  NO_OP = "NO_OP",
+  PROJECTION = "PROJECTION",
+  SUBTRACTION = "SUBTRACTION",
+  VALIDATE_NON_NEGATIVE = "VALIDATE_NON_NEGATIVE",
+  VALIDATE_NON_NULL = "VALIDATE_NON_NULL",
+  VALIDATE_NON_ZERO = "VALIDATE_NON_ZERO",
+  VALIDATE_NUMERIC = "VALIDATE_NUMERIC",
+}
+
 export enum ScheduleFrequencyType {
   BYMINUTE = "BYMINUTE",
   DAILY = "DAILY",
@@ -621,6 +936,13 @@ export enum TriggerType {
   EVENT = "Event",
   ONDEMAND = "OnDemand",
   SCHEDULED = "Scheduled",
+}
+
+export enum WriteOperationType {
+  DELETE = "DELETE",
+  INSERT = "INSERT",
+  UPDATE = "UPDATE",
+  UPSERT = "UPSERT",
 }
 
 /**
@@ -667,6 +989,96 @@ export interface ConnectorConfiguration {
    *         <code>supportedRegions</code>, <code>privateLinkServiceUrl</code>, and so on. </p>
    */
   connectorMetadata?: ConnectorMetadata;
+
+  /**
+   * <p>The connector type.</p>
+   */
+  connectorType?: ConnectorType | string;
+
+  /**
+   * <p>The label used for registering the connector.</p>
+   */
+  connectorLabel?: string;
+
+  /**
+   * <p>A description about the connector.</p>
+   */
+  connectorDescription?: string;
+
+  /**
+   * <p>The owner who developed the connector.</p>
+   */
+  connectorOwner?: string;
+
+  /**
+   * <p>The connector name.</p>
+   */
+  connectorName?: string;
+
+  /**
+   * <p>The connector version.</p>
+   */
+  connectorVersion?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the registered connector.</p>
+   */
+  connectorArn?: string;
+
+  /**
+   * <p>The connection modes that the connector supports.</p>
+   */
+  connectorModes?: string[];
+
+  /**
+   * <p>The authentication config required for the connector.</p>
+   */
+  authenticationConfig?: AuthenticationConfig;
+
+  /**
+   * <p>The required connector runtime settings.</p>
+   */
+  connectorRuntimeSettings?: ConnectorRuntimeSetting[];
+
+  /**
+   * <p>A list of API versions that are supported by the connector.</p>
+   */
+  supportedApiVersions?: string[];
+
+  /**
+   * <p>A list of operators supported by the connector.</p>
+   */
+  supportedOperators?: (Operators | string)[];
+
+  /**
+   * <p>A list of write operations supported by the connector.</p>
+   */
+  supportedWriteOperations?: (WriteOperationType | string)[];
+
+  /**
+   * <p>The provisioning type used to register the connector.</p>
+   */
+  connectorProvisioningType?: ConnectorProvisioningType | string;
+
+  /**
+   * <p>The configuration required for registering the connector.</p>
+   */
+  connectorProvisioningConfig?: ConnectorProvisioningConfig;
+
+  /**
+   * <p>Logo URL of the connector.</p>
+   */
+  logoURL?: string;
+
+  /**
+   * <p>The date on which the connector was registered.</p>
+   */
+  registeredAt?: Date;
+
+  /**
+   * <p>Information about who registered the connector.</p>
+   */
+  registeredBy?: string;
 }
 
 export namespace ConnectorConfiguration {
@@ -674,6 +1086,75 @@ export namespace ConnectorConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConnectorConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the registered connector.</p>
+ */
+export interface ConnectorDetail {
+  /**
+   * <p>A description about the registered connector.</p>
+   */
+  connectorDescription?: string;
+
+  /**
+   * <p>The name of the connector.</p>
+   */
+  connectorName?: string;
+
+  /**
+   * <p>The owner of the connector.</p>
+   */
+  connectorOwner?: string;
+
+  /**
+   * <p>The connector version.</p>
+   */
+  connectorVersion?: string;
+
+  /**
+   * <p>The application type of the connector.</p>
+   */
+  applicationType?: string;
+
+  /**
+   * <p>The connector type.</p>
+   */
+  connectorType?: ConnectorType | string;
+
+  /**
+   * <p>A label used for the connector.</p>
+   */
+  connectorLabel?: string;
+
+  /**
+   * <p>The time at which the connector was registered.</p>
+   */
+  registeredAt?: Date;
+
+  /**
+   * <p>The user who registered the connector.</p>
+   */
+  registeredBy?: string;
+
+  /**
+   * <p>The provisioning type that the connector uses.</p>
+   */
+  connectorProvisioningType?: ConnectorProvisioningType | string;
+
+  /**
+   * <p>The connection mode that the connector supports.</p>
+   */
+  connectorModes?: string[];
+}
+
+export namespace ConnectorDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectorDetail): any => ({
     ...obj,
   });
 }
@@ -713,12 +1194,6 @@ export namespace ConnectorEntity {
   });
 }
 
-export enum WriteOperationType {
-  INSERT = "INSERT",
-  UPDATE = "UPDATE",
-  UPSERT = "UPSERT",
-}
-
 /**
  * <p> The properties that can be applied to a field when connector is being used as a
  *       destination. </p>
@@ -745,6 +1220,11 @@ export interface DestinationFieldProperties {
    *         <code>UPSERT</code> write operation. </p>
    */
   isUpdatable?: boolean;
+
+  /**
+   * <p>Specifies whether the field can use the default value during a Create operation.</p>
+   */
+  isDefaultedOnCreate?: boolean;
 
   /**
    * <p> A list of supported write operations. For each write operation listed, this field can be
@@ -777,6 +1257,11 @@ export interface SourceFieldProperties {
    * <p> Indicates if the field can be queried. </p>
    */
   isQueryable?: boolean;
+
+  /**
+   * <p>Indicates if this timestamp field can be used for incremental queries.</p>
+   */
+  isTimestampFieldForIncrementalQueries?: boolean;
 }
 
 export namespace SourceFieldProperties {
@@ -784,6 +1269,30 @@ export namespace SourceFieldProperties {
    * @internal
    */
   export const filterSensitiveLog = (obj: SourceFieldProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The range of values that the property supports.</p>
+ */
+export interface Range {
+  /**
+   * <p>Maximum value supported by the field.</p>
+   */
+  maximum?: number;
+
+  /**
+   * <p>Minimum value supported by the field.</p>
+   */
+  minimum?: number;
+}
+
+export namespace Range {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Range): any => ({
     ...obj,
   });
 }
@@ -832,6 +1341,26 @@ export interface FieldTypeDetails {
    *         <code>fieldType</code> can have two values: "true" and "false". </p>
    */
   supportedValues?: string[];
+
+  /**
+   * <p>The regular expression pattern for the field name.</p>
+   */
+  valueRegexPattern?: string;
+
+  /**
+   * <p>The date format that the field supports.</p>
+   */
+  supportedDateFormat?: string;
+
+  /**
+   * <p>The range of values this field can hold.</p>
+   */
+  fieldValueRange?: Range;
+
+  /**
+   * <p>This is the allowable length range for this field's value.</p>
+   */
+  fieldLengthRange?: Range;
 }
 
 export namespace FieldTypeDetails {
@@ -876,9 +1405,29 @@ export interface ConnectorEntityField {
   identifier: string | undefined;
 
   /**
+   * <p>The parent identifier of the connector field.</p>
+   */
+  parentIdentifier?: string;
+
+  /**
    * <p> The label applied to a connector entity field. </p>
    */
   label?: string;
+
+  /**
+   * <p>Booelan value that indicates whether this field can be used as a primary key.</p>
+   */
+  isPrimaryKey?: boolean;
+
+  /**
+   * <p>Default value that can be assigned to this field.</p>
+   */
+  defaultValue?: string;
+
+  /**
+   * <p>Booelan value that indicates whether this field is deprecated or not.</p>
+   */
+  isDeprecated?: boolean;
 
   /**
    * <p> Contains details regarding the supported <code>FieldType</code>, including the
@@ -902,6 +1451,11 @@ export interface ConnectorEntityField {
    *     </p>
    */
   destinationProperties?: DestinationFieldProperties;
+
+  /**
+   * <p>A map that has specific properties related to the ConnectorEntityField.</p>
+   */
+  customProperties?: { [key: string]: string };
 }
 
 export namespace ConnectorEntityField {
@@ -1288,6 +1842,11 @@ export interface ConnectorOperator {
    * <p> The operation to be performed on the provided SAPOData source fields. </p>
    */
   SAPOData?: SAPODataConnectorOperator | string;
+
+  /**
+   * <p>Operators supported by the custom connector.</p>
+   */
+  CustomConnector?: Operator | string;
 }
 
 export namespace ConnectorOperator {
@@ -1295,6 +1854,54 @@ export namespace ConnectorOperator {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConnectorOperator): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The OAuth 2.0 properties required for OAuth 2.0 authentication.</p>
+ */
+export interface OAuth2Properties {
+  /**
+   * <p>The token URL required for OAuth 2.0 authentication.</p>
+   */
+  tokenUrl: string | undefined;
+
+  /**
+   * <p>The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication.</p>
+   */
+  oAuth2GrantType: OAuth2GrantType | string | undefined;
+}
+
+export namespace OAuth2Properties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OAuth2Properties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The profile properties required by the custom connector.</p>
+ */
+export interface CustomConnectorProfileProperties {
+  /**
+   * <p>A map of properties that are required to create a profile for the custom connector.</p>
+   */
+  profileProperties?: { [key: string]: string };
+
+  /**
+   * <p>The OAuth 2.0 properties required for OAuth 2.0 authentication.</p>
+   */
+  oAuth2Properties?: OAuth2Properties;
+}
+
+export namespace CustomConnectorProfileProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomConnectorProfileProperties): any => ({
     ...obj,
   });
 }
@@ -1468,14 +2075,14 @@ export namespace SalesforceConnectorProfileProperties {
  */
 export interface OAuthProperties {
   /**
-   * <p> The token url required to fetch access/refresh tokens using authorization code and also to refresh expired
-   *       access token using refresh token.</p>
+   * <p> The token url required to fetch access/refresh tokens using authorization code and also
+   *       to refresh expired access token using refresh token.</p>
    */
   tokenUrl: string | undefined;
 
   /**
-   * <p> The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type
-   *       authentication. </p>
+   * <p> The authorization code url required to redirect to SAP Login Page to fetch authorization
+   *       code for OAuth type authentication. </p>
    */
   authCodeUrl: string | undefined;
 
@@ -1786,6 +2393,11 @@ export interface ConnectorProfileProperties {
    * <p> The connector-specific profile properties required when using SAPOData. </p>
    */
   SAPOData?: SAPODataConnectorProfileProperties;
+
+  /**
+   * <p>The properties required by the custom connector.</p>
+   */
+  CustomConnector?: CustomConnectorProfileProperties;
 }
 
 export namespace ConnectorProfileProperties {
@@ -1865,6 +2477,11 @@ export interface ConnectorProfile {
   connectorType?: ConnectorType | string;
 
   /**
+   * <p>The label for the connector profile being created.</p>
+   */
+  connectorLabel?: string;
+
+  /**
    * <p> Indicates the connection mode and if it is public or private. </p>
    */
   connectionMode?: ConnectionMode | string;
@@ -1905,6 +2522,120 @@ export namespace ConnectorProfile {
 }
 
 /**
+ * <p>The custom credentials required for custom authentication.</p>
+ */
+export interface CustomAuthCredentials {
+  /**
+   * <p>The custom authentication type that the connector uses.</p>
+   */
+  customAuthenticationType: string | undefined;
+
+  /**
+   * <p>A map that holds custom authentication credentials.</p>
+   */
+  credentialsMap?: { [key: string]: string };
+}
+
+export namespace CustomAuthCredentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomAuthCredentials): any => ({
+    ...obj,
+    ...(obj.credentialsMap && { credentialsMap: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The OAuth 2.0 credentials required for OAuth 2.0 authentication.</p>
+ */
+export interface OAuth2Credentials {
+  /**
+   * <p>The identifier for the desired client.</p>
+   */
+  clientId?: string;
+
+  /**
+   * <p>The client secret used by the OAuth client to authenticate to the authorization
+   *       server.</p>
+   */
+  clientSecret?: string;
+
+  /**
+   * <p>The access token used to access the connector on your behalf.</p>
+   */
+  accessToken?: string;
+
+  /**
+   * <p>The refresh token used to refresh an expired access token.</p>
+   */
+  refreshToken?: string;
+
+  /**
+   * <p> Used by select connectors for which the OAuth workflow is supported, such as Salesforce,
+   *       Google Analytics, Marketo, Zendesk, and Slack. </p>
+   */
+  oAuthRequest?: ConnectorOAuthRequest;
+}
+
+export namespace OAuth2Credentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OAuth2Credentials): any => ({
+    ...obj,
+    ...(obj.clientSecret && { clientSecret: SENSITIVE_STRING }),
+    ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The connector-specific profile credentials that are required when using the custom
+ *       connector.</p>
+ */
+export interface CustomConnectorProfileCredentials {
+  /**
+   * <p>The authentication type that the custom connector uses for authenticating while creating a
+   *       connector profile.</p>
+   */
+  authenticationType: AuthenticationType | string | undefined;
+
+  /**
+   * <p>The basic credentials that are required for the authentication of the user.</p>
+   */
+  basic?: BasicAuthCredentials;
+
+  /**
+   * <p>The OAuth 2.0 credentials required for the authentication of the user.</p>
+   */
+  oauth2?: OAuth2Credentials;
+
+  /**
+   * <p>The API keys required for the authentication of the user.</p>
+   */
+  apiKey?: ApiKeyCredentials;
+
+  /**
+   * <p>If the connector uses the custom authentication mechanism, this holds the required
+   *       credentials.</p>
+   */
+  custom?: CustomAuthCredentials;
+}
+
+export namespace CustomConnectorProfileCredentials {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomConnectorProfileCredentials): any => ({
+    ...obj,
+    ...(obj.basic && { basic: BasicAuthCredentials.filterSensitiveLog(obj.basic) }),
+    ...(obj.oauth2 && { oauth2: OAuth2Credentials.filterSensitiveLog(obj.oauth2) }),
+    ...(obj.apiKey && { apiKey: ApiKeyCredentials.filterSensitiveLog(obj.apiKey) }),
+    ...(obj.custom && { custom: CustomAuthCredentials.filterSensitiveLog(obj.custom) }),
+  });
+}
+
+/**
  * <p> The connector-specific credentials required by Datadog. </p>
  */
 export interface DatadogConnectorProfileCredentials {
@@ -1928,6 +2659,7 @@ export namespace DatadogConnectorProfileCredentials {
    */
   export const filterSensitiveLog = (obj: DatadogConnectorProfileCredentials): any => ({
     ...obj,
+    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
   });
 }
 
@@ -2274,6 +3006,7 @@ export namespace SingularConnectorProfileCredentials {
    */
   export const filterSensitiveLog = (obj: SingularConnectorProfileCredentials): any => ({
     ...obj,
+    ...(obj.apiKey && { apiKey: SENSITIVE_STRING }),
   });
 }
 
@@ -2511,6 +3244,12 @@ export interface ConnectorProfileCredentials {
    * <p> The connector-specific profile credentials required when using SAPOData. </p>
    */
   SAPOData?: SAPODataConnectorProfileCredentials;
+
+  /**
+   * <p>The connector-specific profile credentials that are required when using the custom
+   *       connector.</p>
+   */
+  CustomConnector?: CustomConnectorProfileCredentials;
 }
 
 export namespace ConnectorProfileCredentials {
@@ -2520,6 +3259,7 @@ export namespace ConnectorProfileCredentials {
   export const filterSensitiveLog = (obj: ConnectorProfileCredentials): any => ({
     ...obj,
     ...(obj.Amplitude && { Amplitude: AmplitudeConnectorProfileCredentials.filterSensitiveLog(obj.Amplitude) }),
+    ...(obj.Datadog && { Datadog: DatadogConnectorProfileCredentials.filterSensitiveLog(obj.Datadog) }),
     ...(obj.GoogleAnalytics && {
       GoogleAnalytics: GoogleAnalyticsConnectorProfileCredentials.filterSensitiveLog(obj.GoogleAnalytics),
     }),
@@ -2529,12 +3269,16 @@ export namespace ConnectorProfileCredentials {
     ...(obj.Redshift && { Redshift: RedshiftConnectorProfileCredentials.filterSensitiveLog(obj.Redshift) }),
     ...(obj.Salesforce && { Salesforce: SalesforceConnectorProfileCredentials.filterSensitiveLog(obj.Salesforce) }),
     ...(obj.ServiceNow && { ServiceNow: ServiceNowConnectorProfileCredentials.filterSensitiveLog(obj.ServiceNow) }),
+    ...(obj.Singular && { Singular: SingularConnectorProfileCredentials.filterSensitiveLog(obj.Singular) }),
     ...(obj.Slack && { Slack: SlackConnectorProfileCredentials.filterSensitiveLog(obj.Slack) }),
     ...(obj.Snowflake && { Snowflake: SnowflakeConnectorProfileCredentials.filterSensitiveLog(obj.Snowflake) }),
     ...(obj.Trendmicro && { Trendmicro: TrendmicroConnectorProfileCredentials.filterSensitiveLog(obj.Trendmicro) }),
     ...(obj.Veeva && { Veeva: VeevaConnectorProfileCredentials.filterSensitiveLog(obj.Veeva) }),
     ...(obj.Zendesk && { Zendesk: ZendeskConnectorProfileCredentials.filterSensitiveLog(obj.Zendesk) }),
     ...(obj.SAPOData && { SAPOData: SAPODataConnectorProfileCredentials.filterSensitiveLog(obj.SAPOData) }),
+    ...(obj.CustomConnector && {
+      CustomConnector: CustomConnectorProfileCredentials.filterSensitiveLog(obj.CustomConnector),
+    }),
   });
 }
 
@@ -2596,9 +3340,16 @@ export interface CreateConnectorProfileRequest {
   connectorType: ConnectorType | string | undefined;
 
   /**
+   * <p>The label of the connector. The label is unique for each
+   *         <code>ConnectorRegistration</code> in your Amazon Web Services account. Only needed if
+   *       calling for CUSTOMCONNECTOR connector type/.</p>
+   */
+  connectorLabel?: string;
+
+  /**
    * <p> Indicates the connection mode and specifies whether it is public or private. Private
-   *       flows use Amazon Web Services PrivateLink to route data over Amazon Web Services infrastructure without exposing it to the
-   *       public internet. </p>
+   *       flows use Amazon Web Services PrivateLink to route data over Amazon Web Services infrastructure
+   *       without exposing it to the public internet. </p>
    */
   connectionMode: ConnectionMode | string | undefined;
 
@@ -2663,31 +3414,6 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 /**
- * <p> The properties that are applied when Amazon Connect Customer Profiles is used as a
- *       destination. </p>
- */
-export interface CustomerProfilesDestinationProperties {
-  /**
-   * <p> The unique name of the Amazon Connect Customer Profiles domain. </p>
-   */
-  domainName: string | undefined;
-
-  /**
-   * <p> The object specified in the Amazon Connect Customer Profiles flow destination. </p>
-   */
-  objectTypeName?: string;
-}
-
-export namespace CustomerProfilesDestinationProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CustomerProfilesDestinationProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
  *       destination. For example, this setting would determine if the flow should fail after one
  *       insertion error, or continue and attempt to insert every record regardless of the initial
@@ -2717,6 +3443,75 @@ export namespace ErrorHandlingConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: ErrorHandlingConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when the custom connector is being used as a
+ *       destination.</p>
+ */
+export interface CustomConnectorDestinationProperties {
+  /**
+   * <p>The entity specified in the custom connector as a destination in the flow.</p>
+   */
+  entityName: string | undefined;
+
+  /**
+   * <p>The settings that determine how Amazon AppFlow handles an error when placing data in the
+   *       custom connector as destination.</p>
+   */
+  errorHandlingConfig?: ErrorHandlingConfig;
+
+  /**
+   * <p>Specifies the type of write operation to be performed in the custom connector when it's
+   *       used as destination.</p>
+   */
+  writeOperationType?: WriteOperationType | string;
+
+  /**
+   * <p>The name of the field that Amazon AppFlow uses as an ID when performing a write operation
+   *       such as update, delete, or upsert.</p>
+   */
+  idFieldNames?: string[];
+
+  /**
+   * <p>The custom properties that are specific to the connector when it's used as a destination
+   *       in the flow.</p>
+   */
+  customProperties?: { [key: string]: string };
+}
+
+export namespace CustomConnectorDestinationProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomConnectorDestinationProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p> The properties that are applied when Amazon Connect Customer Profiles is used as a
+ *       destination. </p>
+ */
+export interface CustomerProfilesDestinationProperties {
+  /**
+   * <p> The unique name of the Amazon Connect Customer Profiles domain. </p>
+   */
+  domainName: string | undefined;
+
+  /**
+   * <p> The object specified in the Amazon Connect Customer Profiles flow destination. </p>
+   */
+  objectTypeName?: string;
+}
+
+export namespace CustomerProfilesDestinationProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomerProfilesDestinationProperties): any => ({
     ...obj,
   });
 }
@@ -3180,6 +3975,11 @@ export interface DestinationConnectorProperties {
    * <p>The properties required to query Zendesk.</p>
    */
   Zendesk?: ZendeskDestinationProperties;
+
+  /**
+   * <p>The properties that are required to query the custom Connector.</p>
+   */
+  CustomConnector?: CustomConnectorDestinationProperties;
 }
 
 export namespace DestinationConnectorProperties {
@@ -3200,6 +4000,11 @@ export interface DestinationFlowConfig {
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType: ConnectorType | string | undefined;
+
+  /**
+   * <p>The API version that the destination connector uses.</p>
+   */
+  apiVersion?: string;
 
   /**
    * <p> The name of the connector profile. This name must be unique for each connector profile in
@@ -3239,6 +4044,31 @@ export namespace IncrementalPullConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: IncrementalPullConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when the custom connector is being used as a
+ *       source.</p>
+ */
+export interface CustomConnectorSourceProperties {
+  /**
+   * <p>The entity specified in the custom connector as a source in the flow.</p>
+   */
+  entityName: string | undefined;
+
+  /**
+   * <p>Custom properties that are required to use the custom connector as a source.</p>
+   */
+  customProperties?: { [key: string]: string };
+}
+
+export namespace CustomConnectorSourceProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomConnectorSourceProperties): any => ({
     ...obj,
   });
 }
@@ -3652,6 +4482,12 @@ export interface SourceConnectorProperties {
    * <p> The properties that are applied when using SAPOData as a flow source. </p>
    */
   SAPOData?: SAPODataSourceProperties;
+
+  /**
+   * <p>The properties that are applied when the custom connector is being used as a
+   *       source.</p>
+   */
+  CustomConnector?: CustomConnectorSourceProperties;
 }
 
 export namespace SourceConnectorProperties {
@@ -3672,6 +4508,11 @@ export interface SourceFlowConfig {
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType: ConnectorType | string | undefined;
+
+  /**
+   * <p>The API version of the connector when it's used as a source in the flow.</p>
+   */
+  apiVersion?: string;
 
   /**
    * <p> The name of the connector profile. This name must be unique for each connector profile in
@@ -4047,6 +4888,46 @@ export namespace DeleteFlowResponse {
   });
 }
 
+export interface DescribeConnectorRequest {
+  /**
+   * <p>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose
+   *       CUSTOMCONNECTOR for Lambda based custom connectors.</p>
+   */
+  connectorType: ConnectorType | string | undefined;
+
+  /**
+   * <p>The label of the connector. The label is unique for each
+   *         <code>ConnectorRegistration</code> in your Amazon Web Services account. Only needed if
+   *       calling for CUSTOMCONNECTOR connector type/.</p>
+   */
+  connectorLabel?: string;
+}
+
+export namespace DescribeConnectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeConnectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeConnectorResponse {
+  /**
+   * <p>Configuration info of all the connectors that the user requested.</p>
+   */
+  connectorConfiguration?: ConnectorConfiguration;
+}
+
+export namespace DescribeConnectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeConnectorResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeConnectorEntityRequest {
   /**
    * <p> The entity name for that connector. </p>
@@ -4063,6 +4944,11 @@ export interface DescribeConnectorEntityRequest {
    *         <code>ConnectorProfile</code> in the Amazon Web Services account. </p>
    */
   connectorProfileName?: string;
+
+  /**
+   * <p>The version of the API that's used by the connector.</p>
+   */
+  apiVersion?: string;
 }
 
 export namespace DescribeConnectorEntityRequest {
@@ -4103,6 +4989,13 @@ export interface DescribeConnectorProfilesRequest {
    * <p> The type of connector, such as Salesforce, Amplitude, and so on. </p>
    */
   connectorType?: ConnectorType | string;
+
+  /**
+   * <p>The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
+   *       in your Amazon Web Services account. Only needed if calling for CUSTOMCONNECTOR connector
+   *       type/.</p>
+   */
+  connectorLabel?: string;
 
   /**
    * <p> Specifies the maximum number of items that should be returned in the result set. The
@@ -4154,6 +5047,12 @@ export interface DescribeConnectorsRequest {
   connectorTypes?: (ConnectorType | string)[];
 
   /**
+   * <p>The maximum number of items that should be returned in the result set. The default is
+   *       20.</p>
+   */
+  maxResults?: number;
+
+  /**
    * <p> The pagination token for the next page of data. </p>
    */
   nextToken?: string;
@@ -4173,6 +5072,11 @@ export interface DescribeConnectorsResponse {
    * <p> The configuration that is applied to the connectors used in the flow. </p>
    */
   connectorConfigurations?: { [key: string]: ConnectorConfiguration };
+
+  /**
+   * <p>Information about the connectors supported in Amazon AppFlow.</p>
+   */
+  connectors?: ConnectorDetail[];
 
   /**
    * <p> The pagination token for the next page of data. </p>
@@ -4534,10 +5438,20 @@ export interface FlowDefinition {
   sourceConnectorType?: ConnectorType | string;
 
   /**
+   * <p>The label of the source connector in the flow.</p>
+   */
+  sourceConnectorLabel?: string;
+
+  /**
    * <p> Specifies the destination connector type, such as Salesforce, Amazon S3, Amplitude, and
    *       so on. </p>
    */
   destinationConnectorType?: ConnectorType | string;
+
+  /**
+   * <p>The label of the destination connector in the flow.</p>
+   */
+  destinationConnectorLabel?: string;
 
   /**
    * <p> Specifies the type of flow trigger. This can be <code>OnDemand</code>,
@@ -4588,8 +5502,8 @@ export namespace FlowDefinition {
 export interface ListConnectorEntitiesRequest {
   /**
    * <p> The name of the connector profile. The name is unique for each
-   *         <code>ConnectorProfile</code> in the Amazon Web Services account, and is used to query the downstream
-   *       connector. </p>
+   *         <code>ConnectorProfile</code> in the Amazon Web Services account, and is used to query the
+   *       downstream connector. </p>
    */
   connectorProfileName?: string;
 
@@ -4606,6 +5520,11 @@ export interface ListConnectorEntitiesRequest {
    *       roots. Otherwise, this request returns all entities supported by the provider. </p>
    */
   entitiesPath?: string;
+
+  /**
+   * <p>The version of the API that's used by the connector.</p>
+   */
+  apiVersion?: string;
 }
 
 export namespace ListConnectorEntitiesRequest {
@@ -4631,6 +5550,50 @@ export namespace ListConnectorEntitiesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListConnectorEntitiesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListConnectorsRequest {
+  /**
+   * <p>Specifies the maximum number of items that should be returned in the result set. The
+   *       default for <code>maxResults</code> is 20 (for all paginated API operations).</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The pagination token for the next page of data.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListConnectorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListConnectorsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListConnectorsResponse {
+  /**
+   * <p>Contains information about the connectors supported by Amazon AppFlow.</p>
+   */
+  connectors?: ConnectorDetail[];
+
+  /**
+   * <p>The pagination token for the next page of data. If nextToken=null, this means that all
+   *       records have been fetched.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListConnectorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListConnectorsResponse): any => ({
     ...obj,
   });
 }
@@ -4707,6 +5670,66 @@ export namespace ListTagsForResourceResponse {
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
+}
+
+export interface RegisterConnectorRequest {
+  /**
+   * <p> The name of the connector. The name is unique for each <code>ConnectorRegistration</code>
+   *       in your Amazon Web Services account.</p>
+   */
+  connectorLabel?: string;
+
+  /**
+   * <p>A description about the connector that's being registered.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The provisioning type of the connector. Currently the only supported value is LAMBDA.
+   *     </p>
+   */
+  connectorProvisioningType?: ConnectorProvisioningType | string;
+
+  /**
+   * <p>The provisioning type of the connector. Currently the only supported value is
+   *       LAMBDA.</p>
+   */
+  connectorProvisioningConfig?: ConnectorProvisioningConfig;
+}
+
+export namespace RegisterConnectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterConnectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterConnectorResponse {
+  /**
+   * <p>The ARN of the connector being registered.</p>
+   */
+  connectorArn?: string;
+}
+
+export namespace RegisterConnectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterConnectorResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>API calls have exceeded the maximum allowed API request rate per account and per Region.
+ *     </p>
+ */
+export interface ThrottlingException extends __SmithyException, $MetadataBearer {
+  name: "ThrottlingException";
+  $fault: "client";
+  message?: string;
 }
 
 export interface StartFlowRequest {
@@ -4828,6 +5851,40 @@ export namespace TagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UnregisterConnectorRequest {
+  /**
+   * <p>The label of the connector. The label is unique for each
+   *         <code>ConnectorRegistration</code> in your Amazon Web Services account.</p>
+   */
+  connectorLabel: string | undefined;
+
+  /**
+   * <p>Indicates whether Amazon AppFlow should unregister the connector, even if it is currently
+   *       in use in one or more connector profiles. The default value is false.</p>
+   */
+  forceDelete?: boolean;
+}
+
+export namespace UnregisterConnectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnregisterConnectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UnregisterConnectorResponse {}
+
+export namespace UnregisterConnectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnregisterConnectorResponse): any => ({
     ...obj,
   });
 }

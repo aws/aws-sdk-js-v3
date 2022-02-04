@@ -8,6 +8,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
 } from "@aws-sdk/smithy-client";
 import {
@@ -28,6 +29,7 @@ import {
   DeleteConnectorProfileCommandOutput,
 } from "../commands/DeleteConnectorProfileCommand";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "../commands/DeleteFlowCommand";
+import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "../commands/DescribeConnectorCommand";
 import {
   DescribeConnectorEntityCommandInput,
   DescribeConnectorEntityCommandOutput,
@@ -46,14 +48,20 @@ import {
   ListConnectorEntitiesCommandInput,
   ListConnectorEntitiesCommandOutput,
 } from "../commands/ListConnectorEntitiesCommand";
+import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "../commands/ListFlowsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { RegisterConnectorCommandInput, RegisterConnectorCommandOutput } from "../commands/RegisterConnectorCommand";
 import { StartFlowCommandInput, StartFlowCommandOutput } from "../commands/StartFlowCommand";
 import { StopFlowCommandInput, StopFlowCommandOutput } from "../commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import {
+  UnregisterConnectorCommandInput,
+  UnregisterConnectorCommandOutput,
+} from "../commands/UnregisterConnectorCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateConnectorProfileCommandInput,
@@ -61,15 +69,20 @@ import {
 } from "../commands/UpdateConnectorProfileCommand";
 import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "../commands/UpdateFlowCommand";
 import {
+  AccessDeniedException,
   AggregationConfig,
   AmplitudeConnectorProfileCredentials,
   AmplitudeConnectorProfileProperties,
   AmplitudeMetadata,
   AmplitudeSourceProperties,
+  ApiKeyCredentials,
+  AuthenticationConfig,
+  AuthParameter,
   BasicAuthCredentials,
   ConflictException,
   ConnectorAuthenticationException,
   ConnectorConfiguration,
+  ConnectorDetail,
   ConnectorEntity,
   ConnectorEntityField,
   ConnectorMetadata,
@@ -79,8 +92,16 @@ import {
   ConnectorProfileConfig,
   ConnectorProfileCredentials,
   ConnectorProfileProperties,
+  ConnectorProvisioningConfig,
+  ConnectorRuntimeSetting,
   ConnectorServerException,
   ConnectorType,
+  CustomAuthConfig,
+  CustomAuthCredentials,
+  CustomConnectorDestinationProperties,
+  CustomConnectorProfileCredentials,
+  CustomConnectorProfileProperties,
+  CustomConnectorSourceProperties,
   CustomerProfilesDestinationProperties,
   CustomerProfilesMetadata,
   DatadogConnectorProfileCredentials,
@@ -117,17 +138,24 @@ import {
   InforNexusMetadata,
   InforNexusSourceProperties,
   InternalServerException,
+  LambdaConnectorProvisioningConfig,
   LookoutMetricsDestinationProperties,
   MarketoConnectorProfileCredentials,
   MarketoConnectorProfileProperties,
   MarketoMetadata,
   MarketoSourceProperties,
+  OAuth2Credentials,
+  OAuth2Defaults,
+  OAuth2GrantType,
+  OAuth2Properties,
   OAuthCredentials,
   OAuthProperties,
   Operator,
   OperatorPropertiesKeys,
+  Operators,
   PrefixConfig,
   PrivateConnectionProvisioningState,
+  Range,
   RedshiftConnectorProfileCredentials,
   RedshiftConnectorProfileProperties,
   RedshiftDestinationProperties,
@@ -171,6 +199,7 @@ import {
   SourceFlowConfig,
   SupportedFieldTypeDetails,
   Task,
+  ThrottlingException,
   TrendmicroConnectorProfileCredentials,
   TrendmicroConnectorProfileProperties,
   TrendmicroMetadata,
@@ -209,6 +238,8 @@ export const serializeAws_restJson1CreateConnectorProfileCommand = async (
   body = JSON.stringify({
     ...(input.connectionMode !== undefined &&
       input.connectionMode !== null && { connectionMode: input.connectionMode }),
+    ...(input.connectorLabel !== undefined &&
+      input.connectorLabel !== null && { connectorLabel: input.connectorLabel }),
     ...(input.connectorProfileConfig !== undefined &&
       input.connectorProfileConfig !== null && {
         connectorProfileConfig: serializeAws_restJson1ConnectorProfileConfig(input.connectorProfileConfig, context),
@@ -325,6 +356,32 @@ export const serializeAws_restJson1DeleteFlowCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeConnectorCommand = async (
+  input: DescribeConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-connector";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.connectorLabel !== undefined &&
+      input.connectorLabel !== null && { connectorLabel: input.connectorLabel }),
+    ...(input.connectorType !== undefined && input.connectorType !== null && { connectorType: input.connectorType }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeConnectorEntityCommand = async (
   input: DescribeConnectorEntityCommandInput,
   context: __SerdeContext
@@ -337,6 +394,7 @@ export const serializeAws_restJson1DescribeConnectorEntityCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-connector-entity";
   let body: any;
   body = JSON.stringify({
+    ...(input.apiVersion !== undefined && input.apiVersion !== null && { apiVersion: input.apiVersion }),
     ...(input.connectorEntityName !== undefined &&
       input.connectorEntityName !== null && { connectorEntityName: input.connectorEntityName }),
     ...(input.connectorProfileName !== undefined &&
@@ -366,6 +424,8 @@ export const serializeAws_restJson1DescribeConnectorProfilesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-connector-profiles";
   let body: any;
   body = JSON.stringify({
+    ...(input.connectorLabel !== undefined &&
+      input.connectorLabel !== null && { connectorLabel: input.connectorLabel }),
     ...(input.connectorProfileNames !== undefined &&
       input.connectorProfileNames !== null && {
         connectorProfileNames: serializeAws_restJson1ConnectorProfileNameList(input.connectorProfileNames, context),
@@ -400,6 +460,7 @@ export const serializeAws_restJson1DescribeConnectorsCommand = async (
       input.connectorTypes !== null && {
         connectorTypes: serializeAws_restJson1ConnectorTypeList(input.connectorTypes, context),
       }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
@@ -476,10 +537,36 @@ export const serializeAws_restJson1ListConnectorEntitiesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-connector-entities";
   let body: any;
   body = JSON.stringify({
+    ...(input.apiVersion !== undefined && input.apiVersion !== null && { apiVersion: input.apiVersion }),
     ...(input.connectorProfileName !== undefined &&
       input.connectorProfileName !== null && { connectorProfileName: input.connectorProfileName }),
     ...(input.connectorType !== undefined && input.connectorType !== null && { connectorType: input.connectorType }),
     ...(input.entitiesPath !== undefined && input.entitiesPath !== null && { entitiesPath: input.entitiesPath }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListConnectorsCommand = async (
+  input: ListConnectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-connectors";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -539,6 +626,41 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
     hostname,
     port,
     method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RegisterConnectorCommand = async (
+  input: RegisterConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/register-connector";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.connectorLabel !== undefined &&
+      input.connectorLabel !== null && { connectorLabel: input.connectorLabel }),
+    ...(input.connectorProvisioningConfig !== undefined &&
+      input.connectorProvisioningConfig !== null && {
+        connectorProvisioningConfig: serializeAws_restJson1ConnectorProvisioningConfig(
+          input.connectorProvisioningConfig,
+          context
+        ),
+      }),
+    ...(input.connectorProvisioningType !== undefined &&
+      input.connectorProvisioningType !== null && { connectorProvisioningType: input.connectorProvisioningType }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -614,6 +736,32 @@ export const serializeAws_restJson1TagResourceCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UnregisterConnectorCommand = async (
+  input: UnregisterConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/unregister-connector";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.connectorLabel !== undefined &&
+      input.connectorLabel !== null && { connectorLabel: input.connectorLabel }),
+    ...(input.forceDelete !== undefined && input.forceDelete !== null && { forceDelete: input.forceDelete }),
   });
   return new __HttpRequest({
     protocol,
@@ -1060,6 +1208,80 @@ const deserializeAws_restJson1DeleteFlowCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeConnectorCommandError(output, context);
+  }
+  const contents: DescribeConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    connectorConfiguration: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.connectorConfiguration !== undefined && data.connectorConfiguration !== null) {
+    contents.connectorConfiguration = deserializeAws_restJson1ConnectorConfiguration(
+      data.connectorConfiguration,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appflow#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.appflow#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeConnectorEntityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1230,6 +1452,7 @@ export const deserializeAws_restJson1DescribeConnectorsCommand = async (
   const contents: DescribeConnectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     connectorConfigurations: undefined,
+    connectors: undefined,
     nextToken: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -1238,6 +1461,9 @@ export const deserializeAws_restJson1DescribeConnectorsCommand = async (
       data.connectorConfigurations,
       context
     );
+  }
+  if (data.connectors !== undefined && data.connectors !== null) {
+    contents.connectors = deserializeAws_restJson1ConnectorList(data.connectors, context);
   }
   if (data.nextToken !== undefined && data.nextToken !== null) {
     contents.nextToken = __expectString(data.nextToken);
@@ -1578,6 +1804,73 @@ const deserializeAws_restJson1ListConnectorEntitiesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListConnectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListConnectorsCommandError(output, context);
+  }
+  const contents: ListConnectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    connectors: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.connectors !== undefined && data.connectors !== null) {
+    contents.connectors = deserializeAws_restJson1ConnectorList(data.connectors, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListConnectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.appflow#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1687,6 +1980,125 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     case "com.amazonaws.appflow#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.appflow#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RegisterConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RegisterConnectorCommandError(output, context);
+  }
+  const contents: RegisterConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    connectorArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.connectorArn !== undefined && data.connectorArn !== null) {
+    contents.connectorArn = __expectString(data.connectorArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RegisterConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appflow#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.appflow#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConnectorAuthenticationException":
+    case "com.amazonaws.appflow#ConnectorAuthenticationException":
+      response = {
+        ...(await deserializeAws_restJson1ConnectorAuthenticationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConnectorServerException":
+    case "com.amazonaws.appflow#ConnectorServerException":
+      response = {
+        ...(await deserializeAws_restJson1ConnectorServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appflow#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appflow#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.appflow#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1932,6 +2344,73 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     case "com.amazonaws.appflow#ValidationException":
       response = {
         ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UnregisterConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnregisterConnectorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UnregisterConnectorCommandError(output, context);
+  }
+  const contents: UnregisterConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UnregisterConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnregisterConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.appflow#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appflow#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2210,6 +2689,23 @@ const deserializeAws_restJson1UpdateFlowCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2312,6 +2808,23 @@ const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_restJson1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const contents: ThrottlingException = {
+    name: "ThrottlingException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
 const deserializeAws_restJson1UnsupportedOperationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2379,6 +2892,13 @@ const serializeAws_restJson1AmplitudeSourceProperties = (
   };
 };
 
+const serializeAws_restJson1ApiKeyCredentials = (input: ApiKeyCredentials, context: __SerdeContext): any => {
+  return {
+    ...(input.apiKey !== undefined && input.apiKey !== null && { apiKey: input.apiKey }),
+    ...(input.apiSecretKey !== undefined && input.apiSecretKey !== null && { apiSecretKey: input.apiSecretKey }),
+  };
+};
+
 const serializeAws_restJson1BasicAuthCredentials = (input: BasicAuthCredentials, context: __SerdeContext): any => {
   return {
     ...(input.password !== undefined && input.password !== null && { password: input.password }),
@@ -2396,6 +2916,8 @@ const serializeAws_restJson1ConnectorOAuthRequest = (input: ConnectorOAuthReques
 const serializeAws_restJson1ConnectorOperator = (input: ConnectorOperator, context: __SerdeContext): any => {
   return {
     ...(input.Amplitude !== undefined && input.Amplitude !== null && { Amplitude: input.Amplitude }),
+    ...(input.CustomConnector !== undefined &&
+      input.CustomConnector !== null && { CustomConnector: input.CustomConnector }),
     ...(input.Datadog !== undefined && input.Datadog !== null && { Datadog: input.Datadog }),
     ...(input.Dynatrace !== undefined && input.Dynatrace !== null && { Dynatrace: input.Dynatrace }),
     ...(input.GoogleAnalytics !== undefined &&
@@ -2441,6 +2963,10 @@ const serializeAws_restJson1ConnectorProfileCredentials = (
     ...(input.Amplitude !== undefined &&
       input.Amplitude !== null && {
         Amplitude: serializeAws_restJson1AmplitudeConnectorProfileCredentials(input.Amplitude, context),
+      }),
+    ...(input.CustomConnector !== undefined &&
+      input.CustomConnector !== null && {
+        CustomConnector: serializeAws_restJson1CustomConnectorProfileCredentials(input.CustomConnector, context),
       }),
     ...(input.Datadog !== undefined &&
       input.Datadog !== null && {
@@ -2528,6 +3054,10 @@ const serializeAws_restJson1ConnectorProfileProperties = (
       input.Amplitude !== null && {
         Amplitude: serializeAws_restJson1AmplitudeConnectorProfileProperties(input.Amplitude, context),
       }),
+    ...(input.CustomConnector !== undefined &&
+      input.CustomConnector !== null && {
+        CustomConnector: serializeAws_restJson1CustomConnectorProfileProperties(input.CustomConnector, context),
+      }),
     ...(input.Datadog !== undefined &&
       input.Datadog !== null && {
         Datadog: serializeAws_restJson1DatadogConnectorProfileProperties(input.Datadog, context),
@@ -2594,6 +3124,18 @@ const serializeAws_restJson1ConnectorProfileProperties = (
   };
 };
 
+const serializeAws_restJson1ConnectorProvisioningConfig = (
+  input: ConnectorProvisioningConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.lambda !== undefined &&
+      input.lambda !== null && {
+        lambda: serializeAws_restJson1LambdaConnectorProvisioningConfig(input.lambda, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1ConnectorTypeList = (input: (ConnectorType | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2605,6 +3147,99 @@ const serializeAws_restJson1ConnectorTypeList = (input: (ConnectorType | string)
     });
 };
 
+const serializeAws_restJson1CredentialsMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_restJson1CustomAuthCredentials = (input: CustomAuthCredentials, context: __SerdeContext): any => {
+  return {
+    ...(input.credentialsMap !== undefined &&
+      input.credentialsMap !== null && {
+        credentialsMap: serializeAws_restJson1CredentialsMap(input.credentialsMap, context),
+      }),
+    ...(input.customAuthenticationType !== undefined &&
+      input.customAuthenticationType !== null && { customAuthenticationType: input.customAuthenticationType }),
+  };
+};
+
+const serializeAws_restJson1CustomConnectorDestinationProperties = (
+  input: CustomConnectorDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.customProperties !== undefined &&
+      input.customProperties !== null && {
+        customProperties: serializeAws_restJson1CustomProperties(input.customProperties, context),
+      }),
+    ...(input.entityName !== undefined && input.entityName !== null && { entityName: input.entityName }),
+    ...(input.errorHandlingConfig !== undefined &&
+      input.errorHandlingConfig !== null && {
+        errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
+      }),
+    ...(input.idFieldNames !== undefined &&
+      input.idFieldNames !== null && {
+        idFieldNames: serializeAws_restJson1IdFieldNameList(input.idFieldNames, context),
+      }),
+    ...(input.writeOperationType !== undefined &&
+      input.writeOperationType !== null && { writeOperationType: input.writeOperationType }),
+  };
+};
+
+const serializeAws_restJson1CustomConnectorProfileCredentials = (
+  input: CustomConnectorProfileCredentials,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.apiKey !== undefined &&
+      input.apiKey !== null && { apiKey: serializeAws_restJson1ApiKeyCredentials(input.apiKey, context) }),
+    ...(input.authenticationType !== undefined &&
+      input.authenticationType !== null && { authenticationType: input.authenticationType }),
+    ...(input.basic !== undefined &&
+      input.basic !== null && { basic: serializeAws_restJson1BasicAuthCredentials(input.basic, context) }),
+    ...(input.custom !== undefined &&
+      input.custom !== null && { custom: serializeAws_restJson1CustomAuthCredentials(input.custom, context) }),
+    ...(input.oauth2 !== undefined &&
+      input.oauth2 !== null && { oauth2: serializeAws_restJson1OAuth2Credentials(input.oauth2, context) }),
+  };
+};
+
+const serializeAws_restJson1CustomConnectorProfileProperties = (
+  input: CustomConnectorProfileProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.oAuth2Properties !== undefined &&
+      input.oAuth2Properties !== null && {
+        oAuth2Properties: serializeAws_restJson1OAuth2Properties(input.oAuth2Properties, context),
+      }),
+    ...(input.profileProperties !== undefined &&
+      input.profileProperties !== null && {
+        profileProperties: serializeAws_restJson1ProfilePropertiesMap(input.profileProperties, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1CustomConnectorSourceProperties = (
+  input: CustomConnectorSourceProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.customProperties !== undefined &&
+      input.customProperties !== null && {
+        customProperties: serializeAws_restJson1CustomProperties(input.customProperties, context),
+      }),
+    ...(input.entityName !== undefined && input.entityName !== null && { entityName: input.entityName }),
+  };
+};
+
 const serializeAws_restJson1CustomerProfilesDestinationProperties = (
   input: CustomerProfilesDestinationProperties,
   context: __SerdeContext
@@ -2614,6 +3249,18 @@ const serializeAws_restJson1CustomerProfilesDestinationProperties = (
     ...(input.objectTypeName !== undefined &&
       input.objectTypeName !== null && { objectTypeName: input.objectTypeName }),
   };
+};
+
+const serializeAws_restJson1CustomProperties = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1DatadogConnectorProfileCredentials = (
@@ -2650,6 +3297,10 @@ const serializeAws_restJson1DestinationConnectorProperties = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.CustomConnector !== undefined &&
+      input.CustomConnector !== null && {
+        CustomConnector: serializeAws_restJson1CustomConnectorDestinationProperties(input.CustomConnector, context),
+      }),
     ...(input.CustomerProfiles !== undefined &&
       input.CustomerProfiles !== null && {
         CustomerProfiles: serializeAws_restJson1CustomerProfilesDestinationProperties(input.CustomerProfiles, context),
@@ -2693,6 +3344,7 @@ const serializeAws_restJson1DestinationConnectorProperties = (
 
 const serializeAws_restJson1DestinationFlowConfig = (input: DestinationFlowConfig, context: __SerdeContext): any => {
   return {
+    ...(input.apiVersion !== undefined && input.apiVersion !== null && { apiVersion: input.apiVersion }),
     ...(input.connectorProfileName !== undefined &&
       input.connectorProfileName !== null && { connectorProfileName: input.connectorProfileName }),
     ...(input.connectorType !== undefined && input.connectorType !== null && { connectorType: input.connectorType }),
@@ -2884,6 +3536,15 @@ const serializeAws_restJson1InforNexusSourceProperties = (
   };
 };
 
+const serializeAws_restJson1LambdaConnectorProvisioningConfig = (
+  input: LambdaConnectorProvisioningConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.lambdaArn !== undefined && input.lambdaArn !== null && { lambdaArn: input.lambdaArn }),
+  };
+};
+
 const serializeAws_restJson1LookoutMetricsDestinationProperties = (
   input: LookoutMetricsDestinationProperties,
   context: __SerdeContext
@@ -2921,6 +3582,27 @@ const serializeAws_restJson1MarketoSourceProperties = (
 ): any => {
   return {
     ...(input.object !== undefined && input.object !== null && { object: input.object }),
+  };
+};
+
+const serializeAws_restJson1OAuth2Credentials = (input: OAuth2Credentials, context: __SerdeContext): any => {
+  return {
+    ...(input.accessToken !== undefined && input.accessToken !== null && { accessToken: input.accessToken }),
+    ...(input.clientId !== undefined && input.clientId !== null && { clientId: input.clientId }),
+    ...(input.clientSecret !== undefined && input.clientSecret !== null && { clientSecret: input.clientSecret }),
+    ...(input.oAuthRequest !== undefined &&
+      input.oAuthRequest !== null && {
+        oAuthRequest: serializeAws_restJson1ConnectorOAuthRequest(input.oAuthRequest, context),
+      }),
+    ...(input.refreshToken !== undefined && input.refreshToken !== null && { refreshToken: input.refreshToken }),
+  };
+};
+
+const serializeAws_restJson1OAuth2Properties = (input: OAuth2Properties, context: __SerdeContext): any => {
+  return {
+    ...(input.oAuth2GrantType !== undefined &&
+      input.oAuth2GrantType !== null && { oAuth2GrantType: input.oAuth2GrantType }),
+    ...(input.tokenUrl !== undefined && input.tokenUrl !== null && { tokenUrl: input.tokenUrl }),
   };
 };
 
@@ -2962,6 +3644,18 @@ const serializeAws_restJson1PrefixConfig = (input: PrefixConfig, context: __Serd
     ...(input.prefixFormat !== undefined && input.prefixFormat !== null && { prefixFormat: input.prefixFormat }),
     ...(input.prefixType !== undefined && input.prefixType !== null && { prefixType: input.prefixType }),
   };
+};
+
+const serializeAws_restJson1ProfilePropertiesMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1RedshiftConnectorProfileCredentials = (
@@ -3307,6 +4001,10 @@ const serializeAws_restJson1SourceConnectorProperties = (
       input.Amplitude !== null && {
         Amplitude: serializeAws_restJson1AmplitudeSourceProperties(input.Amplitude, context),
       }),
+    ...(input.CustomConnector !== undefined &&
+      input.CustomConnector !== null && {
+        CustomConnector: serializeAws_restJson1CustomConnectorSourceProperties(input.CustomConnector, context),
+      }),
     ...(input.Datadog !== undefined &&
       input.Datadog !== null && { Datadog: serializeAws_restJson1DatadogSourceProperties(input.Datadog, context) }),
     ...(input.Dynatrace !== undefined &&
@@ -3363,6 +4061,7 @@ const serializeAws_restJson1SourceFields = (input: string[], context: __SerdeCon
 
 const serializeAws_restJson1SourceFlowConfig = (input: SourceFlowConfig, context: __SerdeContext): any => {
   return {
+    ...(input.apiVersion !== undefined && input.apiVersion !== null && { apiVersion: input.apiVersion }),
     ...(input.connectorProfileName !== undefined &&
       input.connectorProfileName !== null && { connectorProfileName: input.connectorProfileName }),
     ...(input.connectorType !== undefined && input.connectorType !== null && { connectorType: input.connectorType }),
@@ -3619,22 +4318,113 @@ const deserializeAws_restJson1AmplitudeSourceProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1AuthCodeUrlList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1AuthenticationConfig = (output: any, context: __SerdeContext): AuthenticationConfig => {
+  return {
+    customAuthConfigs:
+      output.customAuthConfigs !== undefined && output.customAuthConfigs !== null
+        ? deserializeAws_restJson1CustomAuthConfigList(output.customAuthConfigs, context)
+        : undefined,
+    isApiKeyAuthSupported: __expectBoolean(output.isApiKeyAuthSupported),
+    isBasicAuthSupported: __expectBoolean(output.isBasicAuthSupported),
+    isCustomAuthSupported: __expectBoolean(output.isCustomAuthSupported),
+    isOAuth2Supported: __expectBoolean(output.isOAuth2Supported),
+    oAuth2Defaults:
+      output.oAuth2Defaults !== undefined && output.oAuth2Defaults !== null
+        ? deserializeAws_restJson1OAuth2Defaults(output.oAuth2Defaults, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AuthParameter = (output: any, context: __SerdeContext): AuthParameter => {
+  return {
+    connectorSuppliedValues:
+      output.connectorSuppliedValues !== undefined && output.connectorSuppliedValues !== null
+        ? deserializeAws_restJson1ConnectorSuppliedValueList(output.connectorSuppliedValues, context)
+        : undefined,
+    description: __expectString(output.description),
+    isRequired: __expectBoolean(output.isRequired),
+    isSensitiveField: __expectBoolean(output.isSensitiveField),
+    key: __expectString(output.key),
+    label: __expectString(output.label),
+  } as any;
+};
+
+const deserializeAws_restJson1AuthParameterList = (output: any, context: __SerdeContext): AuthParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AuthParameter(entry, context);
+    });
+};
+
 const deserializeAws_restJson1ConnectorConfiguration = (
   output: any,
   context: __SerdeContext
 ): ConnectorConfiguration => {
   return {
+    authenticationConfig:
+      output.authenticationConfig !== undefined && output.authenticationConfig !== null
+        ? deserializeAws_restJson1AuthenticationConfig(output.authenticationConfig, context)
+        : undefined,
     canUseAsDestination: __expectBoolean(output.canUseAsDestination),
     canUseAsSource: __expectBoolean(output.canUseAsSource),
+    connectorArn: __expectString(output.connectorArn),
+    connectorDescription: __expectString(output.connectorDescription),
+    connectorLabel: __expectString(output.connectorLabel),
     connectorMetadata:
       output.connectorMetadata !== undefined && output.connectorMetadata !== null
         ? deserializeAws_restJson1ConnectorMetadata(output.connectorMetadata, context)
         : undefined,
+    connectorModes:
+      output.connectorModes !== undefined && output.connectorModes !== null
+        ? deserializeAws_restJson1ConnectorModeList(output.connectorModes, context)
+        : undefined,
+    connectorName: __expectString(output.connectorName),
+    connectorOwner: __expectString(output.connectorOwner),
+    connectorProvisioningConfig:
+      output.connectorProvisioningConfig !== undefined && output.connectorProvisioningConfig !== null
+        ? deserializeAws_restJson1ConnectorProvisioningConfig(output.connectorProvisioningConfig, context)
+        : undefined,
+    connectorProvisioningType: __expectString(output.connectorProvisioningType),
+    connectorRuntimeSettings:
+      output.connectorRuntimeSettings !== undefined && output.connectorRuntimeSettings !== null
+        ? deserializeAws_restJson1ConnectorRuntimeSettingList(output.connectorRuntimeSettings, context)
+        : undefined,
+    connectorType: __expectString(output.connectorType),
+    connectorVersion: __expectString(output.connectorVersion),
     isPrivateLinkEnabled: __expectBoolean(output.isPrivateLinkEnabled),
     isPrivateLinkEndpointUrlRequired: __expectBoolean(output.isPrivateLinkEndpointUrlRequired),
+    logoURL: __expectString(output.logoURL),
+    registeredAt:
+      output.registeredAt !== undefined && output.registeredAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registeredAt)))
+        : undefined,
+    registeredBy: __expectString(output.registeredBy),
+    supportedApiVersions:
+      output.supportedApiVersions !== undefined && output.supportedApiVersions !== null
+        ? deserializeAws_restJson1SupportedApiVersionList(output.supportedApiVersions, context)
+        : undefined,
     supportedDestinationConnectors:
       output.supportedDestinationConnectors !== undefined && output.supportedDestinationConnectors !== null
         ? deserializeAws_restJson1ConnectorTypeList(output.supportedDestinationConnectors, context)
+        : undefined,
+    supportedOperators:
+      output.supportedOperators !== undefined && output.supportedOperators !== null
+        ? deserializeAws_restJson1SupportedOperatorList(output.supportedOperators, context)
         : undefined,
     supportedSchedulingFrequencies:
       output.supportedSchedulingFrequencies !== undefined && output.supportedSchedulingFrequencies !== null
@@ -3643,6 +4433,10 @@ const deserializeAws_restJson1ConnectorConfiguration = (
     supportedTriggerTypes:
       output.supportedTriggerTypes !== undefined && output.supportedTriggerTypes !== null
         ? deserializeAws_restJson1TriggerTypeList(output.supportedTriggerTypes, context)
+        : undefined,
+    supportedWriteOperations:
+      output.supportedWriteOperations !== undefined && output.supportedWriteOperations !== null
+        ? deserializeAws_restJson1SupportedWriteOperationList(output.supportedWriteOperations, context)
         : undefined,
   } as any;
 };
@@ -3665,6 +4459,28 @@ const deserializeAws_restJson1ConnectorConfigurationsMap = (
   );
 };
 
+const deserializeAws_restJson1ConnectorDetail = (output: any, context: __SerdeContext): ConnectorDetail => {
+  return {
+    applicationType: __expectString(output.applicationType),
+    connectorDescription: __expectString(output.connectorDescription),
+    connectorLabel: __expectString(output.connectorLabel),
+    connectorModes:
+      output.connectorModes !== undefined && output.connectorModes !== null
+        ? deserializeAws_restJson1ConnectorModeList(output.connectorModes, context)
+        : undefined,
+    connectorName: __expectString(output.connectorName),
+    connectorOwner: __expectString(output.connectorOwner),
+    connectorProvisioningType: __expectString(output.connectorProvisioningType),
+    connectorType: __expectString(output.connectorType),
+    connectorVersion: __expectString(output.connectorVersion),
+    registeredAt:
+      output.registeredAt !== undefined && output.registeredAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.registeredAt)))
+        : undefined,
+    registeredBy: __expectString(output.registeredBy),
+  } as any;
+};
+
 const deserializeAws_restJson1ConnectorEntity = (output: any, context: __SerdeContext): ConnectorEntity => {
   return {
     hasNestedEntities: __expectBoolean(output.hasNestedEntities),
@@ -3675,13 +4491,21 @@ const deserializeAws_restJson1ConnectorEntity = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ConnectorEntityField = (output: any, context: __SerdeContext): ConnectorEntityField => {
   return {
+    customProperties:
+      output.customProperties !== undefined && output.customProperties !== null
+        ? deserializeAws_restJson1CustomProperties(output.customProperties, context)
+        : undefined,
+    defaultValue: __expectString(output.defaultValue),
     description: __expectString(output.description),
     destinationProperties:
       output.destinationProperties !== undefined && output.destinationProperties !== null
         ? deserializeAws_restJson1DestinationFieldProperties(output.destinationProperties, context)
         : undefined,
     identifier: __expectString(output.identifier),
+    isDeprecated: __expectBoolean(output.isDeprecated),
+    isPrimaryKey: __expectBoolean(output.isPrimaryKey),
     label: __expectString(output.label),
+    parentIdentifier: __expectString(output.parentIdentifier),
     sourceProperties:
       output.sourceProperties !== undefined && output.sourceProperties !== null
         ? deserializeAws_restJson1SourceFieldProperties(output.sourceProperties, context)
@@ -3731,6 +4555,17 @@ const deserializeAws_restJson1ConnectorEntityMap = (
       [key]: deserializeAws_restJson1ConnectorEntityList(value, context),
     };
   }, {});
+};
+
+const deserializeAws_restJson1ConnectorList = (output: any, context: __SerdeContext): ConnectorDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConnectorDetail(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __SerdeContext): ConnectorMetadata => {
@@ -3822,9 +4657,21 @@ const deserializeAws_restJson1ConnectorMetadata = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1ConnectorModeList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1ConnectorOperator = (output: any, context: __SerdeContext): ConnectorOperator => {
   return {
     Amplitude: __expectString(output.Amplitude),
+    CustomConnector: __expectString(output.CustomConnector),
     Datadog: __expectString(output.Datadog),
     Dynatrace: __expectString(output.Dynatrace),
     GoogleAnalytics: __expectString(output.GoogleAnalytics),
@@ -3845,6 +4692,7 @@ const deserializeAws_restJson1ConnectorOperator = (output: any, context: __Serde
 const deserializeAws_restJson1ConnectorProfile = (output: any, context: __SerdeContext): ConnectorProfile => {
   return {
     connectionMode: __expectString(output.connectionMode),
+    connectorLabel: __expectString(output.connectorLabel),
     connectorProfileArn: __expectString(output.connectorProfileArn),
     connectorProfileName: __expectString(output.connectorProfileName),
     connectorProfileProperties:
@@ -3890,6 +4738,10 @@ const deserializeAws_restJson1ConnectorProfileProperties = (
     Amplitude:
       output.Amplitude !== undefined && output.Amplitude !== null
         ? deserializeAws_restJson1AmplitudeConnectorProfileProperties(output.Amplitude, context)
+        : undefined,
+    CustomConnector:
+      output.CustomConnector !== undefined && output.CustomConnector !== null
+        ? deserializeAws_restJson1CustomConnectorProfileProperties(output.CustomConnector, context)
         : undefined,
     Datadog:
       output.Datadog !== undefined && output.Datadog !== null
@@ -3958,6 +4810,72 @@ const deserializeAws_restJson1ConnectorProfileProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1ConnectorProvisioningConfig = (
+  output: any,
+  context: __SerdeContext
+): ConnectorProvisioningConfig => {
+  return {
+    lambda:
+      output.lambda !== undefined && output.lambda !== null
+        ? deserializeAws_restJson1LambdaConnectorProvisioningConfig(output.lambda, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectorRuntimeSetting = (
+  output: any,
+  context: __SerdeContext
+): ConnectorRuntimeSetting => {
+  return {
+    connectorSuppliedValueOptions:
+      output.connectorSuppliedValueOptions !== undefined && output.connectorSuppliedValueOptions !== null
+        ? deserializeAws_restJson1ConnectorSuppliedValueOptionList(output.connectorSuppliedValueOptions, context)
+        : undefined,
+    dataType: __expectString(output.dataType),
+    description: __expectString(output.description),
+    isRequired: __expectBoolean(output.isRequired),
+    key: __expectString(output.key),
+    label: __expectString(output.label),
+    scope: __expectString(output.scope),
+  } as any;
+};
+
+const deserializeAws_restJson1ConnectorRuntimeSettingList = (
+  output: any,
+  context: __SerdeContext
+): ConnectorRuntimeSetting[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConnectorRuntimeSetting(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ConnectorSuppliedValueList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1ConnectorSuppliedValueOptionList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1ConnectorTypeList = (
   output: any,
   context: __SerdeContext
@@ -3970,6 +4888,78 @@ const deserializeAws_restJson1ConnectorTypeList = (
       }
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restJson1CustomAuthConfig = (output: any, context: __SerdeContext): CustomAuthConfig => {
+  return {
+    authParameters:
+      output.authParameters !== undefined && output.authParameters !== null
+        ? deserializeAws_restJson1AuthParameterList(output.authParameters, context)
+        : undefined,
+    customAuthenticationType: __expectString(output.customAuthenticationType),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomAuthConfigList = (output: any, context: __SerdeContext): CustomAuthConfig[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1CustomAuthConfig(entry, context);
+    });
+};
+
+const deserializeAws_restJson1CustomConnectorDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): CustomConnectorDestinationProperties => {
+  return {
+    customProperties:
+      output.customProperties !== undefined && output.customProperties !== null
+        ? deserializeAws_restJson1CustomProperties(output.customProperties, context)
+        : undefined,
+    entityName: __expectString(output.entityName),
+    errorHandlingConfig:
+      output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
+        ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
+        : undefined,
+    idFieldNames:
+      output.idFieldNames !== undefined && output.idFieldNames !== null
+        ? deserializeAws_restJson1IdFieldNameList(output.idFieldNames, context)
+        : undefined,
+    writeOperationType: __expectString(output.writeOperationType),
+  } as any;
+};
+
+const deserializeAws_restJson1CustomConnectorProfileProperties = (
+  output: any,
+  context: __SerdeContext
+): CustomConnectorProfileProperties => {
+  return {
+    oAuth2Properties:
+      output.oAuth2Properties !== undefined && output.oAuth2Properties !== null
+        ? deserializeAws_restJson1OAuth2Properties(output.oAuth2Properties, context)
+        : undefined,
+    profileProperties:
+      output.profileProperties !== undefined && output.profileProperties !== null
+        ? deserializeAws_restJson1ProfilePropertiesMap(output.profileProperties, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CustomConnectorSourceProperties = (
+  output: any,
+  context: __SerdeContext
+): CustomConnectorSourceProperties => {
+  return {
+    customProperties:
+      output.customProperties !== undefined && output.customProperties !== null
+        ? deserializeAws_restJson1CustomProperties(output.customProperties, context)
+        : undefined,
+    entityName: __expectString(output.entityName),
+  } as any;
 };
 
 const deserializeAws_restJson1CustomerProfilesDestinationProperties = (
@@ -3987,6 +4977,18 @@ const deserializeAws_restJson1CustomerProfilesMetadata = (
   context: __SerdeContext
 ): CustomerProfilesMetadata => {
   return {} as any;
+};
+
+const deserializeAws_restJson1CustomProperties = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1DatadogConnectorProfileProperties = (
@@ -4016,6 +5018,10 @@ const deserializeAws_restJson1DestinationConnectorProperties = (
   context: __SerdeContext
 ): DestinationConnectorProperties => {
   return {
+    CustomConnector:
+      output.CustomConnector !== undefined && output.CustomConnector !== null
+        ? deserializeAws_restJson1CustomConnectorDestinationProperties(output.CustomConnector, context)
+        : undefined,
     CustomerProfiles:
       output.CustomerProfiles !== undefined && output.CustomerProfiles !== null
         ? deserializeAws_restJson1CustomerProfilesDestinationProperties(output.CustomerProfiles, context)
@@ -4065,6 +5071,7 @@ const deserializeAws_restJson1DestinationFieldProperties = (
 ): DestinationFieldProperties => {
   return {
     isCreatable: __expectBoolean(output.isCreatable),
+    isDefaultedOnCreate: __expectBoolean(output.isDefaultedOnCreate),
     isNullable: __expectBoolean(output.isNullable),
     isUpdatable: __expectBoolean(output.isUpdatable),
     isUpsertable: __expectBoolean(output.isUpsertable),
@@ -4077,6 +5084,7 @@ const deserializeAws_restJson1DestinationFieldProperties = (
 
 const deserializeAws_restJson1DestinationFlowConfig = (output: any, context: __SerdeContext): DestinationFlowConfig => {
   return {
+    apiVersion: __expectString(output.apiVersion),
     connectorProfileName: __expectString(output.connectorProfileName),
     connectorType: __expectString(output.connectorType),
     destinationConnectorProperties:
@@ -4206,15 +5214,25 @@ const deserializeAws_restJson1ExecutionResult = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1FieldTypeDetails = (output: any, context: __SerdeContext): FieldTypeDetails => {
   return {
+    fieldLengthRange:
+      output.fieldLengthRange !== undefined && output.fieldLengthRange !== null
+        ? deserializeAws_restJson1Range(output.fieldLengthRange, context)
+        : undefined,
     fieldType: __expectString(output.fieldType),
+    fieldValueRange:
+      output.fieldValueRange !== undefined && output.fieldValueRange !== null
+        ? deserializeAws_restJson1Range(output.fieldValueRange, context)
+        : undefined,
     filterOperators:
       output.filterOperators !== undefined && output.filterOperators !== null
         ? deserializeAws_restJson1FilterOperatorList(output.filterOperators, context)
         : undefined,
+    supportedDateFormat: __expectString(output.supportedDateFormat),
     supportedValues:
       output.supportedValues !== undefined && output.supportedValues !== null
         ? deserializeAws_restJson1SupportedValueList(output.supportedValues, context)
         : undefined,
+    valueRegexPattern: __expectString(output.valueRegexPattern),
   } as any;
 };
 
@@ -4237,6 +5255,7 @@ const deserializeAws_restJson1FlowDefinition = (output: any, context: __SerdeCon
         : undefined,
     createdBy: __expectString(output.createdBy),
     description: __expectString(output.description),
+    destinationConnectorLabel: __expectString(output.destinationConnectorLabel),
     destinationConnectorType: __expectString(output.destinationConnectorType),
     flowArn: __expectString(output.flowArn),
     flowName: __expectString(output.flowName),
@@ -4250,6 +5269,7 @@ const deserializeAws_restJson1FlowDefinition = (output: any, context: __SerdeCon
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdatedAt)))
         : undefined,
     lastUpdatedBy: __expectString(output.lastUpdatedBy),
+    sourceConnectorLabel: __expectString(output.sourceConnectorLabel),
     sourceConnectorType: __expectString(output.sourceConnectorType),
     tags:
       output.tags !== undefined && output.tags !== null
@@ -4377,6 +5397,15 @@ const deserializeAws_restJson1InforNexusSourceProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1LambdaConnectorProvisioningConfig = (
+  output: any,
+  context: __SerdeContext
+): LambdaConnectorProvisioningConfig => {
+  return {
+    lambdaArn: __expectString(output.lambdaArn),
+  } as any;
+};
+
 const deserializeAws_restJson1LookoutMetricsDestinationProperties = (
   output: any,
   context: __SerdeContext
@@ -4403,6 +5432,48 @@ const deserializeAws_restJson1MarketoSourceProperties = (
 ): MarketoSourceProperties => {
   return {
     object: __expectString(output.object),
+  } as any;
+};
+
+const deserializeAws_restJson1OAuth2Defaults = (output: any, context: __SerdeContext): OAuth2Defaults => {
+  return {
+    authCodeUrls:
+      output.authCodeUrls !== undefined && output.authCodeUrls !== null
+        ? deserializeAws_restJson1AuthCodeUrlList(output.authCodeUrls, context)
+        : undefined,
+    oauth2GrantTypesSupported:
+      output.oauth2GrantTypesSupported !== undefined && output.oauth2GrantTypesSupported !== null
+        ? deserializeAws_restJson1OAuth2GrantTypeSupportedList(output.oauth2GrantTypesSupported, context)
+        : undefined,
+    oauthScopes:
+      output.oauthScopes !== undefined && output.oauthScopes !== null
+        ? deserializeAws_restJson1OAuthScopeList(output.oauthScopes, context)
+        : undefined,
+    tokenUrls:
+      output.tokenUrls !== undefined && output.tokenUrls !== null
+        ? deserializeAws_restJson1TokenUrlList(output.tokenUrls, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1OAuth2GrantTypeSupportedList = (
+  output: any,
+  context: __SerdeContext
+): (OAuth2GrantType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1OAuth2Properties = (output: any, context: __SerdeContext): OAuth2Properties => {
+  return {
+    oAuth2GrantType: __expectString(output.oAuth2GrantType),
+    tokenUrl: __expectString(output.tokenUrl),
   } as any;
 };
 
@@ -4443,6 +5514,28 @@ const deserializeAws_restJson1PrivateConnectionProvisioningState = (
     failureCause: __expectString(output.failureCause),
     failureMessage: __expectString(output.failureMessage),
     status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1ProfilePropertiesMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1Range = (output: any, context: __SerdeContext): Range => {
+  return {
+    maximum: __limitedParseDouble(output.maximum),
+    minimum: __limitedParseDouble(output.minimum),
   } as any;
 };
 
@@ -4768,6 +5861,10 @@ const deserializeAws_restJson1SourceConnectorProperties = (
       output.Amplitude !== undefined && output.Amplitude !== null
         ? deserializeAws_restJson1AmplitudeSourceProperties(output.Amplitude, context)
         : undefined,
+    CustomConnector:
+      output.CustomConnector !== undefined && output.CustomConnector !== null
+        ? deserializeAws_restJson1CustomConnectorSourceProperties(output.CustomConnector, context)
+        : undefined,
     Datadog:
       output.Datadog !== undefined && output.Datadog !== null
         ? deserializeAws_restJson1DatadogSourceProperties(output.Datadog, context)
@@ -4831,6 +5928,7 @@ const deserializeAws_restJson1SourceFieldProperties = (output: any, context: __S
   return {
     isQueryable: __expectBoolean(output.isQueryable),
     isRetrievable: __expectBoolean(output.isRetrievable),
+    isTimestampFieldForIncrementalQueries: __expectBoolean(output.isTimestampFieldForIncrementalQueries),
   } as any;
 };
 
@@ -4847,6 +5945,7 @@ const deserializeAws_restJson1SourceFields = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SourceFlowConfig = (output: any, context: __SerdeContext): SourceFlowConfig => {
   return {
+    apiVersion: __expectString(output.apiVersion),
     connectorProfileName: __expectString(output.connectorProfileName),
     connectorType: __expectString(output.connectorType),
     incrementalPullConfig:
@@ -4860,6 +5959,17 @@ const deserializeAws_restJson1SourceFlowConfig = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1SupportedApiVersionList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1SupportedFieldTypeDetails = (
   output: any,
   context: __SerdeContext
@@ -4870,6 +5980,20 @@ const deserializeAws_restJson1SupportedFieldTypeDetails = (
         ? deserializeAws_restJson1FieldTypeDetails(output.v1, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1SupportedOperatorList = (
+  output: any,
+  context: __SerdeContext
+): (Operators | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1SupportedValueList = (output: any, context: __SerdeContext): string[] => {
@@ -4951,6 +6075,17 @@ const deserializeAws_restJson1Tasks = (output: any, context: __SerdeContext): Ta
         return null as any;
       }
       return deserializeAws_restJson1Task(entry, context);
+    });
+};
+
+const deserializeAws_restJson1TokenUrlList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 

@@ -60,6 +60,10 @@ import {
   DescribeDomainAutoTunesCommandOutput,
 } from "../commands/DescribeDomainAutoTunesCommand";
 import {
+  DescribeDomainChangeProgressCommandInput,
+  DescribeDomainChangeProgressCommandOutput,
+} from "../commands/DescribeDomainChangeProgressCommand";
+import {
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
 } from "../commands/DescribeElasticsearchDomainCommand";
@@ -160,6 +164,9 @@ import {
   AutoTuneOptionsStatus,
   AutoTuneStatus,
   BaseException,
+  ChangeProgressDetails,
+  ChangeProgressStage,
+  ChangeProgressStatusDetails,
   CognitoOptions,
   CognitoOptionsStatus,
   ColdStorageOptions,
@@ -672,6 +679,40 @@ export const serializeAws_restJson1DescribeDomainAutoTunesCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeDomainChangeProgressCommand = async (
+  input: DescribeDomainChangeProgressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2015-01-01/es/domain/{DomainName}/progress";
+  if (input.DomainName !== undefined) {
+    const labelValue: string = input.DomainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DomainName.");
+    }
+    resolvedPath = resolvedPath.replace("{DomainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DomainName.");
+  }
+  const query: any = {
+    ...(input.ChangeId !== undefined && { changeid: input.ChangeId }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -2575,6 +2616,88 @@ const deserializeAws_restJson1DescribeDomainAutoTunesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDomainAutoTunesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BaseException":
+    case "com.amazonaws.elasticsearchservice#BaseException":
+      response = {
+        ...(await deserializeAws_restJson1BaseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.elasticsearchservice#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.elasticsearchservice#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.elasticsearchservice#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeDomainChangeProgressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainChangeProgressCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeDomainChangeProgressCommandError(output, context);
+  }
+  const contents: DescribeDomainChangeProgressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChangeProgressStatus: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChangeProgressStatus !== undefined && data.ChangeProgressStatus !== null) {
+    contents.ChangeProgressStatus = deserializeAws_restJson1ChangeProgressStatusDetails(
+      data.ChangeProgressStatus,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeDomainChangeProgressCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDomainChangeProgressCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4850,11 +4973,15 @@ export const deserializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   }
   const contents: UpgradeElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ChangeProgressDetails: undefined,
     DomainName: undefined,
     PerformCheckOnly: undefined,
     TargetVersion: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChangeProgressDetails !== undefined && data.ChangeProgressDetails !== null) {
+    contents.ChangeProgressDetails = deserializeAws_restJson1ChangeProgressDetails(data.ChangeProgressDetails, context);
+  }
   if (data.DomainName !== undefined && data.DomainName !== null) {
     contents.DomainName = __expectString(data.DomainName);
   }
@@ -5715,6 +5842,66 @@ const deserializeAws_restJson1AutoTuneStatus = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1ChangeProgressDetails = (output: any, context: __SerdeContext): ChangeProgressDetails => {
+  return {
+    ChangeId: __expectString(output.ChangeId),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_restJson1ChangeProgressStage = (output: any, context: __SerdeContext): ChangeProgressStage => {
+  return {
+    Description: __expectString(output.Description),
+    LastUpdated:
+      output.LastUpdated !== undefined && output.LastUpdated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdated)))
+        : undefined,
+    Name: __expectString(output.Name),
+    Status: __expectString(output.Status),
+  } as any;
+};
+
+const deserializeAws_restJson1ChangeProgressStageList = (
+  output: any,
+  context: __SerdeContext
+): ChangeProgressStage[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChangeProgressStage(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ChangeProgressStatusDetails = (
+  output: any,
+  context: __SerdeContext
+): ChangeProgressStatusDetails => {
+  return {
+    ChangeId: __expectString(output.ChangeId),
+    ChangeProgressStages:
+      output.ChangeProgressStages !== undefined && output.ChangeProgressStages !== null
+        ? deserializeAws_restJson1ChangeProgressStageList(output.ChangeProgressStages, context)
+        : undefined,
+    CompletedProperties:
+      output.CompletedProperties !== undefined && output.CompletedProperties !== null
+        ? deserializeAws_restJson1StringList(output.CompletedProperties, context)
+        : undefined,
+    PendingProperties:
+      output.PendingProperties !== undefined && output.PendingProperties !== null
+        ? deserializeAws_restJson1StringList(output.PendingProperties, context)
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
+        : undefined,
+    Status: __expectString(output.Status),
+    TotalNumberOfStages: __expectInt32(output.TotalNumberOfStages),
+  } as any;
+};
+
 const deserializeAws_restJson1CognitoOptions = (output: any, context: __SerdeContext): CognitoOptions => {
   return {
     Enabled: __expectBoolean(output.Enabled),
@@ -5951,6 +6138,10 @@ const deserializeAws_restJson1ElasticsearchDomainConfig = (
       output.AutoTuneOptions !== undefined && output.AutoTuneOptions !== null
         ? deserializeAws_restJson1AutoTuneOptionsStatus(output.AutoTuneOptions, context)
         : undefined,
+    ChangeProgressDetails:
+      output.ChangeProgressDetails !== undefined && output.ChangeProgressDetails !== null
+        ? deserializeAws_restJson1ChangeProgressDetails(output.ChangeProgressDetails, context)
+        : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null
         ? deserializeAws_restJson1CognitoOptionsStatus(output.CognitoOptions, context)
@@ -6012,6 +6203,10 @@ const deserializeAws_restJson1ElasticsearchDomainStatus = (
     AutoTuneOptions:
       output.AutoTuneOptions !== undefined && output.AutoTuneOptions !== null
         ? deserializeAws_restJson1AutoTuneOptionsOutput(output.AutoTuneOptions, context)
+        : undefined,
+    ChangeProgressDetails:
+      output.ChangeProgressDetails !== undefined && output.ChangeProgressDetails !== null
+        ? deserializeAws_restJson1ChangeProgressDetails(output.ChangeProgressDetails, context)
         : undefined,
     CognitoOptions:
       output.CognitoOptions !== undefined && output.CognitoOptions !== null

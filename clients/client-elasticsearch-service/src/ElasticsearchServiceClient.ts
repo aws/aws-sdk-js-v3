@@ -91,6 +91,10 @@ import {
   DescribeDomainAutoTunesCommandOutput,
 } from "./commands/DescribeDomainAutoTunesCommand";
 import {
+  DescribeDomainChangeProgressCommandInput,
+  DescribeDomainChangeProgressCommandOutput,
+} from "./commands/DescribeDomainChangeProgressCommand";
+import {
   DescribeElasticsearchDomainCommandInput,
   DescribeElasticsearchDomainCommandOutput,
 } from "./commands/DescribeElasticsearchDomainCommand";
@@ -190,6 +194,7 @@ export type ServiceInputTypes =
   | DeleteOutboundCrossClusterSearchConnectionCommandInput
   | DeletePackageCommandInput
   | DescribeDomainAutoTunesCommandInput
+  | DescribeDomainChangeProgressCommandInput
   | DescribeElasticsearchDomainCommandInput
   | DescribeElasticsearchDomainConfigCommandInput
   | DescribeElasticsearchDomainsCommandInput
@@ -232,6 +237,7 @@ export type ServiceOutputTypes =
   | DeleteOutboundCrossClusterSearchConnectionCommandOutput
   | DeletePackageCommandOutput
   | DescribeDomainAutoTunesCommandOutput
+  | DescribeDomainChangeProgressCommandOutput
   | DescribeElasticsearchDomainCommandOutput
   | DescribeElasticsearchDomainConfigCommandOutput
   | DescribeElasticsearchDomainsCommandOutput

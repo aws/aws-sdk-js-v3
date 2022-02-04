@@ -22,8 +22,12 @@ export interface ListFleetsCommandInput extends ListFleetsRequest {}
 export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of fleets. You can optionally provide filters to retrieve specific
- *          fleets. </p>
+ * @deprecated
+ *
+ * <p>Returns a list of fleets. You can optionally provide filters to retrieve specific fleets.</p>
+ *          <important>
+ *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

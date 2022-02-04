@@ -228,7 +228,7 @@ export namespace ExperimentTemplateTargetInputFilter {
  */
 export interface CreateExperimentTemplateTargetInput {
   /**
-   * <p>The Amazon Web Services resource type. The resource type must be supported for the specified action.</p>
+   * <p>The resource type. The resource type must be supported for the specified action.</p>
    */
   resourceType: string | undefined;
 
@@ -264,6 +264,11 @@ export interface CreateExperimentTemplateTargetInput {
    *          </ul>
    */
   selectionMode: string | undefined;
+
+  /**
+   * <p>The resource type parameters.</p>
+   */
+  parameters?: { [key: string]: string };
 }
 
 export namespace CreateExperimentTemplateTargetInput {
@@ -436,6 +441,11 @@ export interface ExperimentTemplateTarget {
    * <p>Scopes the identified resources to a specific count or percentage.</p>
    */
   selectionMode?: string;
+
+  /**
+   * <p>The resource type parameters.</p>
+   */
+  parameters?: { [key: string]: string };
 }
 
 export namespace ExperimentTemplateTarget {
@@ -780,6 +790,11 @@ export interface ExperimentTarget {
    * <p>Scopes the identified resources to a specific count or percentage.</p>
    */
   selectionMode?: string;
+
+  /**
+   * <p>The resource type parameters.</p>
+   */
+  parameters?: { [key: string]: string };
 }
 
 export namespace ExperimentTarget {
@@ -1034,6 +1049,92 @@ export namespace GetExperimentTemplateResponse {
   });
 }
 
+export interface GetTargetResourceTypeRequest {
+  /**
+   * <p>The resource type.</p>
+   */
+  resourceType: string | undefined;
+}
+
+export namespace GetTargetResourceTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTargetResourceTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the parameters for a resource type. Use parameters to determine which tasks are
+ *           identified during target resolution.</p>
+ */
+export interface TargetResourceTypeParameter {
+  /**
+   * <p>A description of the parameter.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Indicates whether the parameter is required.</p>
+   */
+  required?: boolean;
+}
+
+export namespace TargetResourceTypeParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetResourceTypeParameter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource type.</p>
+ */
+export interface TargetResourceType {
+  /**
+   * <p>The resource type.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>A description of the resource type.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The parameters for the resource type.</p>
+   */
+  parameters?: { [key: string]: TargetResourceTypeParameter };
+}
+
+export namespace TargetResourceType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetResourceType): any => ({
+    ...obj,
+  });
+}
+
+export interface GetTargetResourceTypeResponse {
+  /**
+   * <p>Information about the resource type.</p>
+   */
+  targetResourceType?: TargetResourceType;
+}
+
+export namespace GetTargetResourceTypeResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetTargetResourceTypeResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListActionsRequest {
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
@@ -1188,6 +1289,72 @@ export namespace ListTagsForResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTargetResourceTypesRequest {
+  /**
+   * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListTargetResourceTypesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTargetResourceTypesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource type.</p>
+ */
+export interface TargetResourceTypeSummary {
+  /**
+   * <p>The resource type.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>A description of the resource type.</p>
+   */
+  description?: string;
+}
+
+export namespace TargetResourceTypeSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetResourceTypeSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTargetResourceTypesResponse {
+  /**
+   * <p>The target resource types.</p>
+   */
+  targetResourceTypes?: TargetResourceTypeSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListTargetResourceTypesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTargetResourceTypesResponse): any => ({
     ...obj,
   });
 }
@@ -1400,7 +1567,7 @@ export namespace UpdateExperimentTemplateStopConditionInput {
  */
 export interface UpdateExperimentTemplateTargetInput {
   /**
-   * <p>The Amazon Web Services resource type. The resource type must be supported for the specified action.</p>
+   * <p>The resource type. The resource type must be supported for the specified action.</p>
    */
   resourceType: string | undefined;
 
@@ -1423,6 +1590,11 @@ export interface UpdateExperimentTemplateTargetInput {
    * <p>Scopes the identified resources to a specific count or percentage.</p>
    */
   selectionMode: string | undefined;
+
+  /**
+   * <p>The resource type parameters.</p>
+   */
+  parameters?: { [key: string]: string };
 }
 
 export namespace UpdateExperimentTemplateTargetInput {

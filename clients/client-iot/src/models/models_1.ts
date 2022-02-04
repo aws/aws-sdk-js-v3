@@ -298,7 +298,10 @@ export namespace DeleteTopicRuleDestinationResponse {
 }
 
 export enum LogTargetType {
+  CLIENT_ID = "CLIENT_ID",
   DEFAULT = "DEFAULT",
+  PRINCIPAL_ID = "PRINCIPAL_ID",
+  SOURCE_IP = "SOURCE_IP",
   THING_GROUP = "THING_GROUP",
 }
 

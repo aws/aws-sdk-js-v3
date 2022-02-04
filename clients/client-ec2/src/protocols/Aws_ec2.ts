@@ -1352,6 +1352,10 @@ import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "../comman
 import { ImportSnapshotCommandInput, ImportSnapshotCommandOutput } from "../commands/ImportSnapshotCommand";
 import { ImportVolumeCommandInput, ImportVolumeCommandOutput } from "../commands/ImportVolumeCommand";
 import {
+  ListImagesInRecycleBinCommandInput,
+  ListImagesInRecycleBinCommandOutput,
+} from "../commands/ListImagesInRecycleBinCommand";
+import {
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
 } from "../commands/ListSnapshotsInRecycleBinCommand";
@@ -1667,6 +1671,10 @@ import {
   RestoreAddressToClassicCommandInput,
   RestoreAddressToClassicCommandOutput,
 } from "../commands/RestoreAddressToClassicCommand";
+import {
+  RestoreImageFromRecycleBinCommandInput,
+  RestoreImageFromRecycleBinCommandOutput,
+} from "../commands/RestoreImageFromRecycleBinCommand";
 import {
   RestoreManagedPrefixListVersionCommandInput,
   RestoreManagedPrefixListVersionCommandOutput,
@@ -3078,6 +3086,7 @@ import {
   GetVpnConnectionDeviceTypesRequest,
   GetVpnConnectionDeviceTypesResult,
   ImageDiskContainer,
+  ImageRecycleBinInfo,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,
@@ -3101,6 +3110,8 @@ import {
   IpamCidrAuthorizationContext,
   IpamResourceCidr,
   LaunchPermissionModifications,
+  ListImagesInRecycleBinRequest,
+  ListImagesInRecycleBinResult,
   ListSnapshotsInRecycleBinRequest,
   ListSnapshotsInRecycleBinResult,
   LoadPermissionModifications,
@@ -3285,9 +3296,6 @@ import {
   ResetFpgaImageAttributeRequest,
   ResetFpgaImageAttributeResult,
   ResetImageAttributeRequest,
-  ResetInstanceAttributeRequest,
-  ResetNetworkInterfaceAttributeRequest,
-  ResetSnapshotAttributeRequest,
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SnapshotDiskContainer,
@@ -3322,8 +3330,13 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  ResetInstanceAttributeRequest,
+  ResetNetworkInterfaceAttributeRequest,
+  ResetSnapshotAttributeRequest,
   RestoreAddressToClassicRequest,
   RestoreAddressToClassicResult,
+  RestoreImageFromRecycleBinRequest,
+  RestoreImageFromRecycleBinResult,
   RestoreManagedPrefixListVersionRequest,
   RestoreManagedPrefixListVersionResult,
   RestoreSnapshotFromRecycleBinRequest,
@@ -9786,6 +9799,22 @@ export const serializeAws_ec2ImportVolumeCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2ListImagesInRecycleBinCommand = async (
+  input: ListImagesInRecycleBinCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ListImagesInRecycleBinRequest(input, context),
+    Action: "ListImagesInRecycleBin",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2ListSnapshotsInRecycleBinCommand = async (
   input: ListSnapshotsInRecycleBinCommandInput,
   context: __SerdeContext
@@ -11285,6 +11314,22 @@ export const serializeAws_ec2RestoreAddressToClassicCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2RestoreAddressToClassicRequest(input, context),
     Action: "RestoreAddressToClassic",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2RestoreImageFromRecycleBinCommand = async (
+  input: RestoreImageFromRecycleBinCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2RestoreImageFromRecycleBinRequest(input, context),
+    Action: "RestoreImageFromRecycleBin",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -29985,6 +30030,52 @@ const deserializeAws_ec2ImportVolumeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2ListImagesInRecycleBinCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImagesInRecycleBinCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ListImagesInRecycleBinCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ListImagesInRecycleBinResult(data, context);
+  const response: ListImagesInRecycleBinCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ListImagesInRecycleBinCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImagesInRecycleBinCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ListSnapshotsInRecycleBinCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -34230,6 +34321,52 @@ const deserializeAws_ec2RestoreAddressToClassicCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RestoreAddressToClassicCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2RestoreImageFromRecycleBinCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreImageFromRecycleBinCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2RestoreImageFromRecycleBinCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2RestoreImageFromRecycleBinResult(data, context);
+  const response: RestoreImageFromRecycleBinCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2RestoreImageFromRecycleBinCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreImageFromRecycleBinCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -49022,6 +49159,30 @@ const serializeAws_ec2LicenseSpecificationListRequest = (
   return entries;
 };
 
+const serializeAws_ec2ListImagesInRecycleBinRequest = (
+  input: ListImagesInRecycleBinRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ImageIds !== undefined && input.ImageIds !== null) {
+    const memberEntries = serializeAws_ec2ImageIdStringList(input.ImageIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ImageId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ListSnapshotsInRecycleBinRequest = (
   input: ListSnapshotsInRecycleBinRequest,
   context: __SerdeContext
@@ -53570,6 +53731,20 @@ const serializeAws_ec2RestoreAddressToClassicRequest = (
   }
   if (input.PublicIp !== undefined && input.PublicIp !== null) {
     entries["PublicIp"] = input.PublicIp;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RestoreImageFromRecycleBinRequest = (
+  input: RestoreImageFromRecycleBinRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ImageId !== undefined && input.ImageId !== null) {
+    entries["ImageId"] = input.ImageId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -68889,6 +69064,43 @@ const deserializeAws_ec2ImageList = (output: any, context: __SerdeContext): Imag
     });
 };
 
+const deserializeAws_ec2ImageRecycleBinInfo = (output: any, context: __SerdeContext): ImageRecycleBinInfo => {
+  const contents: any = {
+    ImageId: undefined,
+    Name: undefined,
+    Description: undefined,
+    RecycleBinEnterTime: undefined,
+    RecycleBinExitTime: undefined,
+  };
+  if (output["imageId"] !== undefined) {
+    contents.ImageId = __expectString(output["imageId"]);
+  }
+  if (output["name"] !== undefined) {
+    contents.Name = __expectString(output["name"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["recycleBinEnterTime"] !== undefined) {
+    contents.RecycleBinEnterTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinEnterTime"]));
+  }
+  if (output["recycleBinExitTime"] !== undefined) {
+    contents.RecycleBinExitTime = __expectNonNull(__parseRfc3339DateTime(output["recycleBinExitTime"]));
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ImageRecycleBinInfoList = (output: any, context: __SerdeContext): ImageRecycleBinInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2ImageRecycleBinInfo(entry, context);
+    });
+};
+
 const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListResult = (
   output: any,
   context: __SerdeContext
@@ -73131,6 +73343,29 @@ const deserializeAws_ec2LicenseList = (output: any, context: __SerdeContext): Li
       }
       return deserializeAws_ec2LicenseConfiguration(entry, context);
     });
+};
+
+const deserializeAws_ec2ListImagesInRecycleBinResult = (
+  output: any,
+  context: __SerdeContext
+): ListImagesInRecycleBinResult => {
+  const contents: any = {
+    Images: undefined,
+    NextToken: undefined,
+  };
+  if (output.imageSet === "") {
+    contents.Images = [];
+  }
+  if (output["imageSet"] !== undefined && output["imageSet"]["item"] !== undefined) {
+    contents.Images = deserializeAws_ec2ImageRecycleBinInfoList(
+      __getArrayIfSingleItem(output["imageSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2ListSnapshotsInRecycleBinResult = (
@@ -77953,6 +78188,19 @@ const deserializeAws_ec2RestoreAddressToClassicResult = (
   }
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2RestoreImageFromRecycleBinResult = (
+  output: any,
+  context: __SerdeContext
+): RestoreImageFromRecycleBinResult => {
+  const contents: any = {
+    Return: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
   }
   return contents;
 };

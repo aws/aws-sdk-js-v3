@@ -22,8 +22,11 @@ export interface AugmentedManifestsListItem {
   S3Uri: string | undefined;
 
   /**
-   * <p>The purpose of the data you've provided in the augmented manifest. You can either train or test this data. If you don't specify, the default is train.</p>
-   *          <p>TRAIN - all of the documents in the manifest will be used for training. If no test documents are provided, Amazon Comprehend will automatically reserve a portion of the training documents for testing.</p>
+   * <p>The purpose of the data you've provided in the augmented manifest. You can either train or
+   *       test this data. If you don't specify, the default is train.</p>
+   *          <p>TRAIN - all of the documents in the manifest will be used for training. If no test
+   *       documents are provided, Amazon Comprehend will automatically reserve a portion of the training
+   *       documents for testing.</p>
    *          <p> TEST - all of the documents in the manifest will be used for testing.</p>
    */
   Split?: Split | string;
@@ -41,26 +44,31 @@ export interface AugmentedManifestsListItem {
   AttributeNames: string[] | undefined;
 
   /**
-   * <p>The S3 prefix to the annotation files that are referred in the augmented manifest file.</p>
+   * <p>The S3 prefix to the annotation files that are referred in the augmented manifest
+   *       file.</p>
    */
   AnnotationDataS3Uri?: string;
 
   /**
-   * <p>The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.</p>
+   * <p>The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest
+   *       file.</p>
    */
   SourceDocumentsS3Uri?: string;
 
   /**
-   * <p>The type of augmented manifest. PlainTextDocument or SemiStructuredDocument. If you don't specify, the default is PlainTextDocument. </p>
+   * <p>The type of augmented manifest. PlainTextDocument or SemiStructuredDocument. If you don't
+   *       specify, the default is PlainTextDocument. </p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that is encoded in UTF-8.</p>
+   *                   <code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that
+   *           is encoded in UTF-8.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SEMI_STRUCTURED_DOCUMENT</code> A document type with positional and structural context, like a PDF. For training with Amazon Comprehend, only PDFs are supported.
-   *          For inference, Amazon Comprehend support PDFs, DOCX and TXT.</p>
+   *                   <code>SEMI_STRUCTURED_DOCUMENT</code> A document type with positional and structural
+   *           context, like a PDF. For training with Amazon Comprehend, only PDFs are supported. For
+   *           inference, Amazon Comprehend support PDFs, DOCX and TXT.</p>
    *             </li>
    *          </ul>
    */
@@ -788,8 +796,8 @@ export namespace SyntaxToken {
 }
 
 /**
- * <p>The result of calling the  operation. The operation
- *       returns one object that is successfully processed by the operation.</p>
+ * <p>The result of calling the  operation. The
+ *       operation returns one object that is successfully processed by the operation.</p>
  */
 export interface BatchDetectSyntaxItemResult {
   /**
@@ -814,10 +822,10 @@ export namespace BatchDetectSyntaxItemResult {
 
 export interface BatchDetectSyntaxResponse {
   /**
-   * <p>A list of  objects containing the results
-   *       of the operation. The results are sorted in ascending order by the <code>Index</code> field
-   *       and match the order of the documents in the input list. If all of the documents contain an
-   *       error, the <code>ResultList</code> is empty.</p>
+   * <p>A list of  objects containing the
+   *       results of the operation. The results are sorted in ascending order by the <code>Index</code>
+   *       field and match the order of the documents in the input list. If all of the documents contain
+   *       an error, the <code>ResultList</code> is empty.</p>
    */
   ResultList: BatchDetectSyntaxItemResult[] | undefined;
 
@@ -1195,9 +1203,9 @@ export interface DocumentClassifierInputDataConfig {
   S3Uri?: string;
 
   /**
-   * <p>The Amazon S3 URI for the input data.
-   *       The Amazon S3 bucket must be in the same AWS Region as the API endpoint that you are calling.
-   *       The URI can point to a single input file or it can provide the prefix for a collection of input files. </p>
+   * <p>The Amazon S3 URI for the input data. The Amazon S3 bucket must be in the same AWS Region
+   *       as the API endpoint that you are calling. The URI can point to a single input file or it can
+   *       provide the prefix for a collection of input files. </p>
    */
   TestS3Uri?: string;
 
@@ -1360,9 +1368,10 @@ export interface CreateDocumentClassifierRequest {
   DocumentClassifierName: string | undefined;
 
   /**
-   * <p>The version name given to the newly created classifier.
-   *       Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
-   *       The version name must be unique among all models with the same classifier name in the account/AWS Region.</p>
+   * <p>The version name given to the newly created classifier. Version names can have a maximum
+   *       of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The
+   *       version name must be unique among all models with the same classifier name in the account/AWS
+   *       Region.</p>
    */
   VersionName?: string;
 
@@ -1454,6 +1463,24 @@ export interface CreateDocumentClassifierRequest {
    *          </ul>
    */
   ModelKmsKeyId?: string;
+
+  /**
+   * <p>The resource-based policy to attach to your custom document classifier model. You can use
+   *       this policy to allow another AWS account to import your custom model.</p>
+   *          <p>Provide your policy as a JSON body that you enter as a UTF-8 encoded string without line
+   *       breaks. To provide valid JSON, enclose the attribute names and values in double quotes. If the
+   *       JSON body is also enclosed in double quotes, then you must escape the double quotes that are
+   *       inside the policy:</p>
+   *          <p>
+   *             <code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code>
+   *          </p>
+   *          <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+   *       quotes to enclose the JSON names and values:</p>
+   *          <p>
+   *             <code>'{"attribute": "value", "attribute": ["value"]}'</code>
+   *          </p>
+   */
+  ModelPolicy?: string;
 }
 
 export namespace CreateDocumentClassifierRequest {
@@ -1618,8 +1645,9 @@ export interface EntityRecognizerAnnotations {
   S3Uri: string | undefined;
 
   /**
-   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer are located.
-   *       The URI must be in the same AWS Region as the API endpoint that you are calling.</p>
+   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer
+   *       are located. The URI must be in the same AWS Region as the API endpoint that you are
+   *       calling.</p>
    */
   TestS3Uri?: string;
 }
@@ -1655,17 +1683,18 @@ export interface EntityRecognizerDocuments {
   S3Uri: string | undefined;
 
   /**
-   * <p> Specifies the Amazon S3 location where the test documents for an entity recognizer are located.
-   *       The URI must be in the same AWS Region as the API endpoint that you are calling.</p>
+   * <p> Specifies the Amazon S3 location where the test documents for an entity recognizer are
+   *       located. The URI must be in the same AWS Region as the API endpoint that you are
+   *       calling.</p>
    */
   TestS3Uri?: string;
 
   /**
-   * <p> Specifies how the text in an input file should be processed. This is optional, and the default is ONE_DOC_PER_LINE.
-   *
-   *       ONE_DOC_PER_FILE - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers.
-   *
-   *       ONE_DOC_PER_LINE - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p>
+   * <p> Specifies how the text in an input file should be processed. This is optional, and the
+   *       default is ONE_DOC_PER_LINE. ONE_DOC_PER_FILE - Each file is considered a separate document.
+   *       Use this option when you are processing large documents, such as newspaper articles or
+   *       scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
+   *       Use this option when you are processing many short documents, such as text messages.</p>
    */
   InputFormat?: InputFormat | string;
 }
@@ -1812,9 +1841,10 @@ export interface CreateEntityRecognizerRequest {
   RecognizerName: string | undefined;
 
   /**
-   * <p>The version name given to the newly created recognizer.
-   *       Version names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed.
-   *       The version name must be unique among all models with the same recognizer name in the account/ AWS Region.</p>
+   * <p>The version name given to the newly created recognizer. Version names can be a maximum of
+   *       256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The
+   *       version name must be unique among all models with the same recognizer name in the account/ AWS
+   *       Region.</p>
    */
   VersionName?: string;
 
@@ -1893,6 +1923,24 @@ export interface CreateEntityRecognizerRequest {
    *          </ul>
    */
   ModelKmsKeyId?: string;
+
+  /**
+   * <p>The JSON resource-based policy to attach to your custom entity recognizer model. You can
+   *       use this policy to allow another AWS account to import your custom model.</p>
+   *          <p>Provide your JSON as a UTF-8 encoded string without line breaks. To provide valid JSON for
+   *       your policy, enclose the attribute names and values in double quotes. If the JSON body is also
+   *       enclosed in double quotes, then you must escape the double quotes that are inside the
+   *       policy:</p>
+   *          <p>
+   *             <code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code>
+   *          </p>
+   *          <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+   *       quotes to enclose the JSON names and values:</p>
+   *          <p>
+   *             <code>'{"attribute": "value", "attribute": ["value"]}'</code>
+   *          </p>
+   */
+  ModelPolicy?: string;
 }
 
 export namespace CreateEntityRecognizerRequest {
@@ -2001,6 +2049,38 @@ export namespace DeleteEntityRecognizerResponse {
   });
 }
 
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model version that has the policy to delete.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The revision ID of the policy to delete.</p>
+   */
+  PolicyRevisionId?: string;
+}
+
+export namespace DeleteResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResourcePolicyResponse {}
+
+export namespace DeleteResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeDocumentClassificationJobRequest {
   /**
    * <p>The identifier that Amazon Comprehend generated for the job. The  operation returns this identifier in its
@@ -2042,11 +2122,13 @@ export interface DocumentReaderConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText for PDF documents per page.</p>
+   *                   <code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText
+   *           for PDF documents per page.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF documents per page.</p>
+   *                   <code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF
+   *           documents per page.</p>
    *             </li>
    *          </ul>
    */
@@ -2057,12 +2139,13 @@ export interface DocumentReaderConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For Digital PDF it would mean using an internal parser instead of Textract APIs</p>
+   *                   <code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For
+   *           Digital PDF it would mean using an internal parser instead of Textract APIs</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for DocumentReadAction, including Digital PDF.
-   *         </p>
+   *                   <code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for
+   *           DocumentReadAction, including Digital PDF. </p>
    *             </li>
    *          </ul>
    */
@@ -2117,9 +2200,11 @@ export interface InputDataConfig {
   InputFormat?: InputFormat | string;
 
   /**
-   * <p>The document reader config field applies only for InputDataConfig of StartEntitiesDetectionJob. </p>
-   *          <p>Use DocumentReaderConfig to provide specifications about how you want your inference documents read.
-   *       Currently it applies for PDF documents in StartEntitiesDetectionJob custom inference.</p>
+   * <p>The document reader config field applies only for InputDataConfig of
+   *       StartEntitiesDetectionJob. </p>
+   *          <p>Use DocumentReaderConfig to provide specifications about how you want your inference
+   *       documents read. Currently it applies for PDF documents in StartEntitiesDetectionJob custom
+   *       inference.</p>
    */
   DocumentReaderConfig?: DocumentReaderConfig;
 }
@@ -2482,6 +2567,12 @@ export interface DocumentClassifierProperties {
    * <p>The version name that you assigned to the document classifier.</p>
    */
   VersionName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source model. This model was imported from a
+   *       different AWS account to create the document classifier model in your AWS account.</p>
+   */
+  SourceModelArn?: string;
 }
 
 export namespace DocumentClassifierProperties {
@@ -2701,7 +2792,8 @@ export interface EndpointProperties {
   ModelArn?: string;
 
   /**
-   * <p>ARN of the new model to use for updating an existing endpoint. This ARN is going to be different from the model ARN when the update is in progress</p>
+   * <p>ARN of the new model to use for updating an existing endpoint. This ARN is going to be
+   *       different from the model ARN when the update is in progress</p>
    */
   DesiredModelArn?: string;
 
@@ -2735,7 +2827,8 @@ export interface EndpointProperties {
   DataAccessRoleArn?: string;
 
   /**
-   * <p>Data access role ARN to use in case the new model is encrypted with a customer KMS key.</p>
+   * <p>Data access role ARN to use in case the new model is encrypted with a customer KMS
+   *       key.</p>
    */
   DesiredDataAccessRoleArn?: string;
 }
@@ -3171,6 +3264,12 @@ export interface EntityRecognizerProperties {
    * <p>The version name you assigned to the entity recognizer.</p>
    */
   VersionName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source model. This model was imported from a
+   *       different AWS account to create the entity recognizer model in your AWS account.</p>
+   */
+  SourceModelArn?: string;
 }
 
 export namespace EntityRecognizerProperties {
@@ -3652,6 +3751,54 @@ export namespace DescribePiiEntitiesDetectionJobResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribePiiEntitiesDetectionJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the policy to describe.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export namespace DescribeResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeResourcePolicyResponse {
+  /**
+   * <p>The JSON body of the resource-based policy.</p>
+   */
+  ResourcePolicy?: string;
+
+  /**
+   * <p>The time at which the policy was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The time at which the policy was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The revision ID of the policy. Each time you modify a policy, Amazon Comprehend assigns a
+   *       new revision ID, and it deletes the prior version of the policy.</p>
+   */
+  PolicyRevisionId?: string;
+}
+
+export namespace DescribeResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
     ...obj,
   });
 }
@@ -4245,6 +4392,84 @@ export namespace DetectSyntaxResponse {
   });
 }
 
+export interface ImportModelRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model to import.</p>
+   */
+  SourceModelArn: string | undefined;
+
+  /**
+   * <p>The name to assign to the custom model that is created in Amazon Comprehend by this
+   *       import.</p>
+   */
+  ModelName?: string;
+
+  /**
+   * <p>The version name given to the custom model that is created by this import. Version names
+   *       can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_)
+   *       are allowed. The version name must be unique among all models with the same classifier name in
+   *       the account/AWS Region.</p>
+   */
+  VersionName?: string;
+
+  /**
+   * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+   *       trained custom models. The ModelKmsKeyId can be either of the following formats:</p>
+   *          <ul>
+   *             <li>
+   *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key:
+   *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ModelKmsKeyId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role that allows
+   *       Amazon Comprehend to use Amazon Key Management Service (KMS) to encrypt or decrypt the custom
+   *       model.</p>
+   */
+  DataAccessRoleArn?: string;
+
+  /**
+   * <p>Tags to be associated with the custom model that is created by this import. A tag is a
+   *       key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a
+   *       tag with "Sales" as the key might be added to a resource to indicate its use by the sales
+   *       department.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ImportModelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportModelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ImportModelResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model being imported.</p>
+   */
+  ModelArn?: string;
+}
+
+export namespace ImportModelResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportModelResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The filter specified for the operation is invalid. Specify a different
  *       filter.</p>
@@ -4518,7 +4743,8 @@ export namespace ListDocumentClassifierSummariesResponse {
 
 /**
  * <p>Provides information for filtering a list of dominant language detection jobs. For more
- *       information, see the  operation.</p>
+ *       information, see the
+ *       operation.</p>
  */
 export interface DominantLanguageDetectionJobFilter {
   /**
@@ -5429,6 +5655,62 @@ export namespace ListTopicsDetectionJobsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListTopicsDetectionJobsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom model to attach the policy to.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The JSON resource-based policy to attach to your custom model. Provide your JSON as a
+   *       UTF-8 encoded string without line breaks. To provide valid JSON for your policy, enclose the
+   *       attribute names and values in double quotes. If the JSON body is also enclosed in double
+   *       quotes, then you must escape the double quotes that are inside the policy:</p>
+   *          <p>
+   *             <code>"{\"attribute\": \"value\", \"attribute\": [\"value\"]}"</code>
+   *          </p>
+   *          <p>To avoid escaping quotes, you can use single quotes to enclose the policy and double
+   *       quotes to enclose the JSON names and values:</p>
+   *          <p>
+   *             <code>'{"attribute": "value", "attribute": ["value"]}'</code>
+   *          </p>
+   */
+  ResourcePolicy: string | undefined;
+
+  /**
+   * <p>The revision ID that Amazon Comprehend assigned to the policy that you are updating. If
+   *       you are creating a new policy that has no prior version, don't use this parameter. Amazon
+   *       Comprehend creates the revision ID for you.</p>
+   */
+  PolicyRevisionId?: string;
+}
+
+export namespace PutResourcePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The revision ID of the policy. Each time you modify a policy, Amazon Comprehend assigns a
+   *       new revision ID, and it deletes the prior version of the policy.</p>
+   */
+  PolicyRevisionId?: string;
+}
+
+export namespace PutResourcePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
     ...obj,
   });
 }

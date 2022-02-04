@@ -22,7 +22,12 @@ export interface CreateRobotCommandInput extends CreateRobotRequest {}
 export interface CreateRobotCommandOutput extends CreateRobotResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Creates a robot.</p>
+ *          <important>
+ *             <p>This API is no longer supported and will throw an error if used.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -39,6 +39,9 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *          step was running must have completed and run successfully.</p>
  *          <p>You can only add steps to a cluster that is in one of the following states: STARTING,
  *          BOOTSTRAPPING, RUNNING, or WAITING.</p>
+ *          <note>
+ *             <p>The string values passed into <code>HadoopJarStep</code> object cannot exceed a total of 10240 characters.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

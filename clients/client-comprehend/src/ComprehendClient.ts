@@ -91,6 +91,10 @@ import {
   DeleteEntityRecognizerCommandOutput,
 } from "./commands/DeleteEntityRecognizerCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DescribeDocumentClassificationJobCommandInput,
   DescribeDocumentClassificationJobCommandOutput,
 } from "./commands/DescribeDocumentClassificationJobCommand";
@@ -124,6 +128,10 @@ import {
   DescribePiiEntitiesDetectionJobCommandOutput,
 } from "./commands/DescribePiiEntitiesDetectionJobCommand";
 import {
+  DescribeResourcePolicyCommandInput,
+  DescribeResourcePolicyCommandOutput,
+} from "./commands/DescribeResourcePolicyCommand";
+import {
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand";
@@ -140,6 +148,7 @@ import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./c
 import { DetectPiiEntitiesCommandInput, DetectPiiEntitiesCommandOutput } from "./commands/DetectPiiEntitiesCommand";
 import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand";
 import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand";
+import { ImportModelCommandInput, ImportModelCommandOutput } from "./commands/ImportModelCommand";
 import {
   ListDocumentClassificationJobsCommandInput,
   ListDocumentClassificationJobsCommandOutput,
@@ -193,6 +202,7 @@ import {
   ListTopicsDetectionJobsCommandInput,
   ListTopicsDetectionJobsCommandOutput,
 } from "./commands/ListTopicsDetectionJobsCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   StartDocumentClassificationJobCommandInput,
   StartDocumentClassificationJobCommandOutput,
@@ -276,6 +286,7 @@ export type ServiceInputTypes =
   | DeleteDocumentClassifierCommandInput
   | DeleteEndpointCommandInput
   | DeleteEntityRecognizerCommandInput
+  | DeleteResourcePolicyCommandInput
   | DescribeDocumentClassificationJobCommandInput
   | DescribeDocumentClassifierCommandInput
   | DescribeDominantLanguageDetectionJobCommandInput
@@ -285,6 +296,7 @@ export type ServiceInputTypes =
   | DescribeEventsDetectionJobCommandInput
   | DescribeKeyPhrasesDetectionJobCommandInput
   | DescribePiiEntitiesDetectionJobCommandInput
+  | DescribeResourcePolicyCommandInput
   | DescribeSentimentDetectionJobCommandInput
   | DescribeTopicsDetectionJobCommandInput
   | DetectDominantLanguageCommandInput
@@ -293,6 +305,7 @@ export type ServiceInputTypes =
   | DetectPiiEntitiesCommandInput
   | DetectSentimentCommandInput
   | DetectSyntaxCommandInput
+  | ImportModelCommandInput
   | ListDocumentClassificationJobsCommandInput
   | ListDocumentClassifierSummariesCommandInput
   | ListDocumentClassifiersCommandInput
@@ -307,6 +320,7 @@ export type ServiceInputTypes =
   | ListSentimentDetectionJobsCommandInput
   | ListTagsForResourceCommandInput
   | ListTopicsDetectionJobsCommandInput
+  | PutResourcePolicyCommandInput
   | StartDocumentClassificationJobCommandInput
   | StartDominantLanguageDetectionJobCommandInput
   | StartEntitiesDetectionJobCommandInput
@@ -341,6 +355,7 @@ export type ServiceOutputTypes =
   | DeleteDocumentClassifierCommandOutput
   | DeleteEndpointCommandOutput
   | DeleteEntityRecognizerCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DescribeDocumentClassificationJobCommandOutput
   | DescribeDocumentClassifierCommandOutput
   | DescribeDominantLanguageDetectionJobCommandOutput
@@ -350,6 +365,7 @@ export type ServiceOutputTypes =
   | DescribeEventsDetectionJobCommandOutput
   | DescribeKeyPhrasesDetectionJobCommandOutput
   | DescribePiiEntitiesDetectionJobCommandOutput
+  | DescribeResourcePolicyCommandOutput
   | DescribeSentimentDetectionJobCommandOutput
   | DescribeTopicsDetectionJobCommandOutput
   | DetectDominantLanguageCommandOutput
@@ -358,6 +374,7 @@ export type ServiceOutputTypes =
   | DetectPiiEntitiesCommandOutput
   | DetectSentimentCommandOutput
   | DetectSyntaxCommandOutput
+  | ImportModelCommandOutput
   | ListDocumentClassificationJobsCommandOutput
   | ListDocumentClassifierSummariesCommandOutput
   | ListDocumentClassifiersCommandOutput
@@ -372,6 +389,7 @@ export type ServiceOutputTypes =
   | ListSentimentDetectionJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTopicsDetectionJobsCommandOutput
+  | PutResourcePolicyCommandOutput
   | StartDocumentClassificationJobCommandOutput
   | StartDominantLanguageDetectionJobCommandOutput
   | StartEntitiesDetectionJobCommandOutput

@@ -22,7 +22,12 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Creates a fleet, a logical group of robots running the same robot application.</p>
+ *          <important>
+ *             <p>This API is no longer supported and will throw an error if used.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

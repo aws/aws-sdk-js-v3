@@ -60,6 +60,7 @@ import {
   DeleteConnectorProfileCommandOutput,
 } from "./commands/DeleteConnectorProfileCommand";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
+import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "./commands/DescribeConnectorCommand";
 import {
   DescribeConnectorEntityCommandInput,
   DescribeConnectorEntityCommandOutput,
@@ -78,14 +79,20 @@ import {
   ListConnectorEntitiesCommandInput,
   ListConnectorEntitiesCommandOutput,
 } from "./commands/ListConnectorEntitiesCommand";
+import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { RegisterConnectorCommandInput, RegisterConnectorCommandOutput } from "./commands/RegisterConnectorCommand";
 import { StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand";
 import { StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UnregisterConnectorCommandInput,
+  UnregisterConnectorCommandOutput,
+} from "./commands/UnregisterConnectorCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateConnectorProfileCommandInput,
@@ -99,17 +106,21 @@ export type ServiceInputTypes =
   | CreateFlowCommandInput
   | DeleteConnectorProfileCommandInput
   | DeleteFlowCommandInput
+  | DescribeConnectorCommandInput
   | DescribeConnectorEntityCommandInput
   | DescribeConnectorProfilesCommandInput
   | DescribeConnectorsCommandInput
   | DescribeFlowCommandInput
   | DescribeFlowExecutionRecordsCommandInput
   | ListConnectorEntitiesCommandInput
+  | ListConnectorsCommandInput
   | ListFlowsCommandInput
   | ListTagsForResourceCommandInput
+  | RegisterConnectorCommandInput
   | StartFlowCommandInput
   | StopFlowCommandInput
   | TagResourceCommandInput
+  | UnregisterConnectorCommandInput
   | UntagResourceCommandInput
   | UpdateConnectorProfileCommandInput
   | UpdateFlowCommandInput;
@@ -119,17 +130,21 @@ export type ServiceOutputTypes =
   | CreateFlowCommandOutput
   | DeleteConnectorProfileCommandOutput
   | DeleteFlowCommandOutput
+  | DescribeConnectorCommandOutput
   | DescribeConnectorEntityCommandOutput
   | DescribeConnectorProfilesCommandOutput
   | DescribeConnectorsCommandOutput
   | DescribeFlowCommandOutput
   | DescribeFlowExecutionRecordsCommandOutput
   | ListConnectorEntitiesCommandOutput
+  | ListConnectorsCommandOutput
   | ListFlowsCommandOutput
   | ListTagsForResourceCommandOutput
+  | RegisterConnectorCommandOutput
   | StartFlowCommandOutput
   | StopFlowCommandOutput
   | TagResourceCommandOutput
+  | UnregisterConnectorCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectorProfileCommandOutput
   | UpdateFlowCommandOutput;

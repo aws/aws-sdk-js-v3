@@ -324,7 +324,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Cancels the specified deployment job.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public cancelDeploymentJob(
     args: CancelDeploymentJobCommandInput,
@@ -485,7 +490,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Deploys a specific version of a robot application to robots in a fleet.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    *          <p>The robot application must have a numbered <code>applicationVersion</code> for
    *          consistency reasons. To create a new version, use
    *             <code>CreateRobotApplicationVersion</code> or see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating a Robot Application Version</a>. </p>
@@ -524,7 +534,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Creates a fleet, a logical group of robots running the same robot application.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
   public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
   public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
@@ -550,7 +565,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Creates a robot.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
   public createRobot(args: CreateRobotCommandInput, options?: __HttpHandlerOptions): Promise<CreateRobotCommandOutput>;
   public createRobot(args: CreateRobotCommandInput, cb: (err: any, data?: CreateRobotCommandOutput) => void): void;
@@ -836,7 +856,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Deletes a fleet.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
   public deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
@@ -862,7 +887,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Deletes a robot.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public deleteRobot(args: DeleteRobotCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRobotCommandOutput>;
   public deleteRobot(args: DeleteRobotCommandInput, cb: (err: any, data?: DeleteRobotCommandOutput) => void): void;
@@ -984,7 +1014,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Deregisters a robot.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public deregisterRobot(
     args: DeregisterRobotCommandInput,
@@ -1016,7 +1051,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Describes a deployment job.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public describeDeploymentJob(
     args: DescribeDeploymentJobCommandInput,
@@ -1048,7 +1088,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Describes a fleet.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public describeFleet(
     args: DescribeFleetCommandInput,
@@ -1080,7 +1125,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Describes a robot.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public describeRobot(
     args: DescribeRobotCommandInput,
@@ -1400,8 +1450,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to
-   *          retrieve specific deployment jobs. </p>
+   * @deprecated
+   *
+   * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public listDeploymentJobs(
     args: ListDeploymentJobsCommandInput,
@@ -1433,8 +1487,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   * <p>Returns a list of fleets. You can optionally provide filters to retrieve specific
-   *          fleets. </p>
+   * @deprecated
+   *
+   * <p>Returns a list of fleets. You can optionally provide filters to retrieve specific fleets.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
   public listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
@@ -1493,8 +1551,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   * <p>Returns a list of robots. You can optionally provide filters to retrieve specific
-   *          robots.</p>
+   * @deprecated
+   *
+   * <p>Returns a list of robots. You can optionally provide filters to retrieve specific robots.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public listRobots(args: ListRobotsCommandInput, options?: __HttpHandlerOptions): Promise<ListRobotsCommandOutput>;
   public listRobots(args: ListRobotsCommandInput, cb: (err: any, data?: ListRobotsCommandOutput) => void): void;
@@ -1773,7 +1835,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Registers a robot with a fleet.</p>
+   *          <important>
+   *             <p>This API is no longer supported and will throw an error if used.</p>
+   *          </important>
    */
   public registerRobot(
     args: RegisterRobotCommandInput,
@@ -1870,8 +1937,12 @@ export class RoboMaker extends RoboMakerClient {
   }
 
   /**
-   * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were
-   *          added after a deployment.</p>
+   * @deprecated
+   *
+   * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were added after a deployment.</p>
+   *          <important>
+   *             <p>This API will no longer be supported as of May 2, 2022. Use it to remove resources that were created for Deployment Service.</p>
+   *          </important>
    */
   public syncDeploymentJob(
     args: SyncDeploymentJobCommandInput,

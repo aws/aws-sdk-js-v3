@@ -22,7 +22,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Unassigns a tag from a resource.</p>
+ * <p>Unassigns a tag from a retention rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

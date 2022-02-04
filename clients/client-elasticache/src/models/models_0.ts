@@ -2415,7 +2415,7 @@ export interface CreateCacheClusterMessage {
    *             on the cluster is performed. It is specified as a range in
    *             the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum
    *             maintenance window is a 60 minute period.
-   *             Valid values for <code>ddd</code> are:</p>
+   *            </p>
    */
   PreferredMaintenanceWindow?: string;
 
@@ -3588,8 +3588,7 @@ export interface CreateCacheParameterGroupMessage {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
-   *       <code>redis6.0</code> |
-   *             <code>redis6.2</code>
+   *       <code>redis6.x</code>
    *          </p>
    */
   CacheParameterGroupFamily: string | undefined;
@@ -3634,7 +3633,7 @@ export interface CacheParameterGroup {
    *     <code>redis3.2</code> |
    *     <code>redis4.0</code> |
    *      <code>redis5.0</code> |
-   *       <code>redis6.0</code> |
+   *       <code>redis6.x</code> |
    *     </p>
    */
   CacheParameterGroupFamily?: string;

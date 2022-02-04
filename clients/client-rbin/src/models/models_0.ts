@@ -1,7 +1,8 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>Information about a resource tag used to identify resources that are to be retained by a Recycle Bin retention rule.</p>
+ * <p>Information about the resource tags used to identify resources that are retained by the retention
+ *       rule.</p>
  */
 export interface ResourceTag {
   /**
@@ -26,6 +27,7 @@ export namespace ResourceTag {
 
 export enum ResourceType {
   EBS_SNAPSHOT = "EBS_SNAPSHOT",
+  EC2_IMAGE = "EC2_IMAGE",
 }
 
 export enum RetentionPeriodUnit {
@@ -33,7 +35,7 @@ export enum RetentionPeriodUnit {
 }
 
 /**
- * <p>Information about the retention period for which a retention rule is to retain resources.</p>
+ * <p>Information about the retention period for which the retention rule is to retain resources.</p>
  */
 export interface RetentionPeriod {
   /**
@@ -59,7 +61,7 @@ export namespace RetentionPeriod {
 }
 
 /**
- * <p>Information about the tags assigned to a Recycle Bin retention rule.</p>
+ * <p>Information about the tags to assign to the retention rule.</p>
  */
 export interface Tag {
   /**
@@ -89,7 +91,7 @@ export interface CreateRuleRequest {
   RetentionPeriod: RetentionPeriod | undefined;
 
   /**
-   * <p>A brief description for the retention rule.</p>
+   * <p>The retention rule description.</p>
    */
   Description?: string;
 
@@ -99,18 +101,21 @@ export interface CreateRuleRequest {
   Tags?: Tag[];
 
   /**
-   * <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots are
-   *       supported.</p>
+   * <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots
+   *       and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To
+   *       retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
    */
   ResourceType: ResourceType | string | undefined;
 
   /**
-   * <p>Information about the resource tags to use to identify resources that are to be retained
-   *       by the retention rule. The retention rule retains only deleted snapshots that have one or more
-   *       of the specified tag key and value pairs. If a snapshot is deleted, but it does not have
-   *       any of the specified tag key and value pairs, it is immediately deleted without being retained
-   *       by the retention rule.</p>
+   * <p>Specifies the resource tags to use to identify resources that are to be retained by a
+   *   tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that
+   *   have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have
+   *   any of the specified tag key and value pairs, it is immediately deleted without being retained by the retention rule.</p>
    *          <p>You can add the same tag key and value pair to a maximum or five retention rules.</p>
+   *          <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule
+   *       does not have any resource tags specified. It retains all deleted resources of the specified
+   *       resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
    */
   ResourceTags?: ResourceTag[];
 }
@@ -131,12 +136,12 @@ export enum RuleStatus {
 
 export interface CreateRuleResponse {
   /**
-   * <p>The unique identifier of the retention rule.</p>
+   * <p>The unique ID of the retention rule.</p>
    */
   Identifier?: string;
 
   /**
-   * <p>Information about the retention period for which a retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
    */
   RetentionPeriod?: RetentionPeriod;
 
@@ -146,7 +151,7 @@ export interface CreateRuleResponse {
   Description?: string;
 
   /**
-   * <p>The tags assigned to the retention rule.</p>
+   * <p>Information about the tags assigned to the retention rule.</p>
    */
   Tags?: Tag[];
 
@@ -162,7 +167,8 @@ export interface CreateRuleResponse {
   ResourceTags?: ResourceTag[];
 
   /**
-   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code> state retain snapshots.</p>
+   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
+   *       state retain resources.</p>
    */
   Status?: RuleStatus | string;
 }
@@ -222,7 +228,7 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 
 export interface DeleteRuleRequest {
   /**
-   * <p>The unique ID of the retention rule to delete.</p>
+   * <p>The unique ID of the retention rule.</p>
    */
   Identifier: string | undefined;
 }
@@ -287,27 +293,29 @@ export interface GetRuleResponse {
   Identifier?: string;
 
   /**
-   * <p>The description assigned to the retention rule.</p>
+   * <p>The retention rule description.</p>
    */
   Description?: string;
 
   /**
-   * <p>The resource type retained by the retention rule. Currently, only Amazon EBS snapshots are supported.</p>
+   * <p>The resource type retained by the retention rule.</p>
    */
   ResourceType?: ResourceType | string;
 
   /**
-   * <p>Information about the period for which the retention rule retains resources.</p>
+   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
    */
   RetentionPeriod?: RetentionPeriod;
 
   /**
-   * <p>The resource tags used to identify resources that are to be retained by the retention rule.</p>
+   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   *       rule.</p>
    */
   ResourceTags?: ResourceTag[];
 
   /**
-   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code> state retain snapshots.</p>
+   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
+   *       state retain resources.</p>
    */
   Status?: RuleStatus | string;
 }
@@ -323,23 +331,28 @@ export namespace GetRuleResponse {
 
 export interface ListRulesRequest {
   /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>The token to use to retrieve the next page of results.</p>
+   * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The resource type retained by the retention rule. Only retention rules that retain the specified resource type
-   *       are listed.</p>
+   * <p>The resource type retained by the retention rule. Only retention rules that retain
+   *       the specified resource type are listed. Currently, only Amazon EBS snapshots and EBS-backed
+   *       AMIs are supported. To list retention rules that retain snapshots, specify
+   *       <code>EBS_SNAPSHOT</code>. To list retention rules that retain EBS-backed AMIs, specify
+   *       <code>EC2_IMAGE</code>.</p>
    */
   ResourceType: ResourceType | string | undefined;
 
   /**
-   * <p>The tags used to identify resources that are to be retained by the retention rule.</p>
+   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   *       rule.</p>
    */
   ResourceTags?: ResourceTag[];
 }
@@ -363,12 +376,12 @@ export interface RuleSummary {
   Identifier?: string;
 
   /**
-   * <p>The description for the retention rule.</p>
+   * <p>The retention rule description.</p>
    */
   Description?: string;
 
   /**
-   * <p>Information about the retention period for which the retention rule retains resources</p>
+   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
    */
   RetentionPeriod?: RetentionPeriod;
 }
@@ -405,7 +418,7 @@ export namespace ListRulesResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to list the tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -421,7 +434,7 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Information about the tags assigned to the resource.</p>
+   * <p>Information about the tags assigned to the retention rule.</p>
    */
   Tags?: Tag[];
 }
@@ -437,12 +450,12 @@ export namespace ListTagsForResourceResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource to which to assign the tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Information about the tags to assign to the resource.</p>
+   * <p>Information about the tags to assign to the retention rule.</p>
    */
   Tags: Tag[] | undefined;
 }
@@ -469,12 +482,12 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource from which to unassign the tags.</p>
+   * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>Information about the tags to unassign from the resource.</p>
+   * <p>The tag keys of the tags to unassign. All tags that have the specified tag key are unassigned.</p>
    */
   TagKeys: string[] | undefined;
 }
@@ -501,7 +514,7 @@ export namespace UntagResourceResponse {
 
 export interface UpdateRuleRequest {
   /**
-   * <p>The unique ID of the retention rule to update.</p>
+   * <p>The unique ID of the retention rule.</p>
    */
   Identifier: string | undefined;
 
@@ -516,17 +529,21 @@ export interface UpdateRuleRequest {
   Description?: string;
 
   /**
-   * <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots are supported.</p>
+   * <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots
+   *       and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To
+   *       retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
    */
   ResourceType?: ResourceType | string;
 
   /**
-   * <p>Information about the resource tags to use to identify resources that are to be retained
-   *       by the retention rule. The retention rule retains only deleted snapshots that have one or more
-   *       of the specified tag key and value pairs. If a snapshot is deleted, but it does not have
-   *       any of the specified tag key and value pairs, it is immediately deleted without being retained
-   *       by the retention rule. </p>
+   * <p>Specifies the resource tags to use to identify resources that are to be retained by a
+   *   tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that
+   *   have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have
+   *   any of the specified tag key and value pairs, it is immediately deleted without being retained by the retention rule.</p>
    *          <p>You can add the same tag key and value pair to a maximum or five retention rules.</p>
+   *          <p>To create a Region-level retention rule, omit this parameter. A Region-level retention rule
+   *       does not have any resource tags specified. It retains all deleted resources of the specified
+   *       resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
    */
   ResourceTags?: ResourceTag[];
 }
@@ -547,7 +564,7 @@ export interface UpdateRuleResponse {
   Identifier?: string;
 
   /**
-   * <p>Information about the retention period for which a retention rule is to retain resources.</p>
+   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
    */
   RetentionPeriod?: RetentionPeriod;
 
@@ -568,7 +585,8 @@ export interface UpdateRuleResponse {
   ResourceTags?: ResourceTag[];
 
   /**
-   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code> state retain snapshots.</p>
+   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
+   *       state retain resources.</p>
    */
   Status?: RuleStatus | string;
 }
