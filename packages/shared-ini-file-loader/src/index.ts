@@ -1,7 +1,8 @@
 // ToDo: Change to "fs/promises" when supporting nodejs>=14
 import { promises as fsPromises } from "fs";
-import { homedir } from "os";
-import { join, sep } from "path";
+import { join } from "path";
+
+import { getHomeDir } from "./getHomeDir";
 
 export const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
 export const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
@@ -97,19 +98,4 @@ const parseIni = (iniData: string): ParsedIniData => {
   }
 
   return map;
-};
-
-/**
- * Get the HOME directory for the current runtime.
- *
- * @internal
- */
-export const getHomeDir = (): string => {
-  const { HOME, USERPROFILE, HOMEPATH, HOMEDRIVE = `C:${sep}` } = process.env;
-
-  if (HOME) return HOME;
-  if (USERPROFILE) return USERPROFILE;
-  if (HOMEPATH) return `${HOMEDRIVE}${HOMEPATH}`;
-
-  return homedir();
 };
