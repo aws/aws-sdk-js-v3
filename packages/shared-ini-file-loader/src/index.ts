@@ -1,4 +1,5 @@
-import { readFile } from "fs";
+// ToDo: Change to "fs/promises" when supporting nodejs>=14
+import { promises as fsPromises } from "fs";
 import { homedir } from "os";
 import { join, sep } from "path";
 
@@ -36,6 +37,7 @@ export interface SharedConfigFiles {
 
 const swallowError = () => ({});
 
+const { readFile } = fsPromises;
 export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<SharedConfigFiles> => {
   const {
     filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
@@ -43,8 +45,8 @@ export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<Shar
   } = init;
 
   return Promise.all([
-    slurpFile(configFilepath).then(parseIni).then(normalizeConfigFile).catch(swallowError),
-    slurpFile(filepath).then(parseIni).catch(swallowError),
+    readFile(configFilepath, "utf8").then(parseIni).then(normalizeConfigFile).catch(swallowError),
+    readFile(filepath, "utf8").then(parseIni).catch(swallowError),
   ]).then((parsedFiles: Array<ParsedIniData>) => {
     const [configFile, credentialsFile] = parsedFiles;
     return {
@@ -96,17 +98,6 @@ const parseIni = (iniData: string): ParsedIniData => {
 
   return map;
 };
-
-const slurpFile = (path: string): Promise<string> =>
-  new Promise((resolve, reject) => {
-    readFile(path, "utf8", (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(data);
-      }
-    });
-  });
 
 /**
  * Get the HOME directory for the current runtime.
