@@ -3,6 +3,7 @@ import { promises as fsPromises } from "fs";
 import { join } from "path";
 
 import { getHomeDir } from "./getHomeDir";
+import { normalizeConfigFile } from "./normalizeConfigFile";
 import { parseIni } from "./parseIni";
 import { ParsedIniData, SharedConfigFiles } from "./types";
 
@@ -26,8 +27,8 @@ export interface SharedConfigInit {
 }
 
 const swallowError = () => ({});
-
 const { readFile } = fsPromises;
+
 export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<SharedConfigFiles> => {
   const {
     filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
@@ -44,23 +45,4 @@ export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<Shar
       credentialsFile,
     };
   });
-};
-
-const profileKeyRegex = /^profile\s(["'])?([^\1]+)\1$/;
-const normalizeConfigFile = (data: ParsedIniData): ParsedIniData => {
-  const map: ParsedIniData = {};
-  for (const key of Object.keys(data)) {
-    let matches: Array<string> | null;
-    if (key === "default") {
-      map.default = data.default;
-    } else if ((matches = profileKeyRegex.exec(key))) {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const [_1, _2, normalizedKey] = matches;
-      if (normalizedKey) {
-        map[normalizedKey] = data[key];
-      }
-    }
-  }
-
-  return map;
 };
