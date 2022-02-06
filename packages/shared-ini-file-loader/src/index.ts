@@ -3,6 +3,8 @@ import { promises as fsPromises } from "fs";
 import { join } from "path";
 
 import { getHomeDir } from "./getHomeDir";
+import { parseIni } from "./parseIni";
+import { ParsedIniData, SharedConfigFiles } from "./types";
 
 export const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
 export const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
@@ -21,19 +23,6 @@ export interface SharedConfigInit {
    * `~/.aws/config` otherwise.
    */
   configFilepath?: string;
-}
-
-export interface Profile {
-  [key: string]: string | undefined;
-}
-
-export interface ParsedIniData {
-  [key: string]: Profile;
-}
-
-export interface SharedConfigFiles {
-  credentialsFile: ParsedIniData;
-  configFile: ParsedIniData;
 }
 
 const swallowError = () => ({});
@@ -69,30 +58,6 @@ const normalizeConfigFile = (data: ParsedIniData): ParsedIniData => {
       const [_1, _2, normalizedKey] = matches;
       if (normalizedKey) {
         map[normalizedKey] = data[key];
-      }
-    }
-  }
-
-  return map;
-};
-
-const profileNameBlockList = ["__proto__", "profile __proto__"];
-const parseIni = (iniData: string): ParsedIniData => {
-  const map: ParsedIniData = {};
-  let currentSection: string | undefined;
-  for (let line of iniData.split(/\r?\n/)) {
-    line = line.split(/(^|\s)[;#]/)[0]; // remove comments
-    const section = line.match(/^\s*\[([^\[\]]+)]\s*$/);
-    if (section) {
-      currentSection = section[1];
-      if (profileNameBlockList.includes(currentSection)) {
-        throw new Error(`Found invalid profile name "${currentSection}"`);
-      }
-    } else if (currentSection) {
-      const item = line.match(/^\s*(.+?)\s*=\s*(.+?)\s*$/);
-      if (item) {
-        map[currentSection] = map[currentSection] || {};
-        map[currentSection][item[1]] = item[2];
       }
     }
   }
