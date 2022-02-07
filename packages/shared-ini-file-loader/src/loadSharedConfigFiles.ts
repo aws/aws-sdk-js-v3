@@ -27,22 +27,43 @@ export interface SharedConfigInit {
 }
 
 const swallowError = () => ({});
-const { readFile } = fsPromises;
 
-export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<SharedConfigFiles> => {
-  const {
-    filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
-    configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config"),
-  } = init;
-
-  return Promise.all([
-    readFile(configFilepath, "utf8").then(parseIni).then(normalizeConfigFile).catch(swallowError),
-    readFile(filepath, "utf8").then(parseIni).catch(swallowError),
-  ]).then((parsedFiles: Array<ParsedIniData>) => {
-    const [configFile, credentialsFile] = parsedFiles;
-    return {
-      configFile,
-      credentialsFile,
-    };
-  });
+type SharedConfigStatus = {
+  contents: SharedConfigFiles;
+  isReading: boolean;
+  requestQueue: { resolve: Function }[];
 };
+const SharedConfigHash: { [key: string]: SharedConfigStatus } = {};
+
+export const loadSharedConfigFiles = (init: SharedConfigInit = {}): Promise<SharedConfigFiles> =>
+  new Promise((resolve) => {
+    const {
+      filepath = process.env[ENV_CREDENTIALS_PATH] || join(getHomeDir(), ".aws", "credentials"),
+      configFilepath = process.env[ENV_CONFIG_PATH] || join(getHomeDir(), ".aws", "config"),
+    } = init;
+
+    const key = JSON.stringify({ filepath, configFilepath });
+
+    if (!SharedConfigHash[key]) {
+      // Config not read yet. Set to isReading and read shared config.
+      SharedConfigHash[key] = { isReading: true, contents: {} as SharedConfigFiles, requestQueue: [{ resolve }] };
+
+      Promise.all([
+        fsPromises.readFile(configFilepath, "utf-8").then(parseIni).then(normalizeConfigFile).catch(swallowError),
+        fsPromises.readFile(filepath, "utf-8").then(parseIni).catch(swallowError),
+      ]).then((parsedFiles: Array<ParsedIniData>) => {
+        const [configFile, credentialsFile] = parsedFiles;
+        const sharedConfig = { configFile, credentialsFile };
+        SharedConfigHash[key].isReading = false;
+        SharedConfigHash[key].contents = sharedConfig;
+        while (SharedConfigHash[key].requestQueue.length) {
+          const { resolve } = SharedConfigHash[key].requestQueue.pop()!;
+          resolve(sharedConfig);
+        }
+      });
+    } else if (SharedConfigHash[key].isReading) {
+      SharedConfigHash[key].requestQueue.push({ resolve });
+    } else {
+      resolve(SharedConfigHash[key].contents);
+    }
+  });
