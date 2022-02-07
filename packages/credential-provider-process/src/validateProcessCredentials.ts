@@ -2,7 +2,7 @@ import { Credentials } from "@aws-sdk/types";
 
 import { ProcessCredentials } from "./ProcessCredentials";
 
-export const validateCredentialsFromProcess = (profileName: string, data: ProcessCredentials): Credentials => {
+export const validateProcessCredentials = (profileName: string, data: ProcessCredentials): Credentials => {
   if (data.Version !== 1) {
     throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
   }

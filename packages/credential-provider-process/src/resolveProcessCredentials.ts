@@ -5,7 +5,7 @@ import { exec } from "child_process";
 import { promisify } from "util";
 
 import { ProcessCredentials } from "./ProcessCredentials";
-import { validateCredentialsFromProcess } from "./validateCredentialsFromProcess";
+import { validateProcessCredentials } from "./validateProcessCredentials";
 
 export const resolveProcessCredentials = async (profileName: string, profiles: ParsedIniData): Promise<Credentials> => {
   const profile = profiles[profileName];
@@ -22,7 +22,7 @@ export const resolveProcessCredentials = async (profileName: string, profiles: P
         } catch {
           throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
         }
-        return validateCredentialsFromProcess(profileName, data as ProcessCredentials);
+        return validateProcessCredentials(profileName, data as ProcessCredentials);
       } catch (error) {
         throw new CredentialsProviderError(error.message);
       }
