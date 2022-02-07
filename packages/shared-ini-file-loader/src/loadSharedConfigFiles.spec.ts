@@ -1,6 +1,3 @@
-// import * as fs from "fs";
-import { join } from "path";
-
 describe("loadSharedConfigFiles", () => {
   let ENV_CONFIG_PATH;
   let ENV_CREDENTIALS_PATH;
