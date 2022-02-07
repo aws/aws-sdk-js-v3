@@ -3,6 +3,7 @@ import { ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
 import { exec } from "child_process";
+import { promisify } from "util";
 
 /**
  * @internal
@@ -28,52 +29,52 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
   if (profiles[profileName]) {
     const credentialProcess = profile["credential_process"];
     if (credentialProcess !== undefined) {
-      return await execPromise(credentialProcess)
-        .then((processResult: any) => {
-          let data;
-          try {
-            data = JSON.parse(processResult);
-          } catch {
-            throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
+      const execPromise = promisify(exec);
+      try {
+        const { stdout } = await execPromise(credentialProcess);
+        let data;
+        try {
+          data = JSON.parse(stdout.trim());
+        } catch {
+          throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
+        }
+
+        const {
+          Version: version,
+          AccessKeyId: accessKeyId,
+          SecretAccessKey: secretAccessKey,
+          SessionToken: sessionToken,
+          Expiration: expiration,
+        } = data;
+
+        if (version !== 1) {
+          throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
+        }
+
+        if (accessKeyId === undefined || secretAccessKey === undefined) {
+          throw Error(`Profile ${profileName} credential_process returned invalid credentials.`);
+        }
+
+        let expirationUnix;
+
+        if (expiration) {
+          const currentTime = new Date();
+          const expireTime = new Date(expiration);
+          if (expireTime < currentTime) {
+            throw Error(`Profile ${profileName} credential_process returned expired credentials.`);
           }
+          expirationUnix = Math.floor(new Date(expiration).valueOf() / 1000);
+        }
 
-          const {
-            Version: version,
-            AccessKeyId: accessKeyId,
-            SecretAccessKey: secretAccessKey,
-            SessionToken: sessionToken,
-            Expiration: expiration,
-          } = data;
-
-          if (version !== 1) {
-            throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
-          }
-
-          if (accessKeyId === undefined || secretAccessKey === undefined) {
-            throw Error(`Profile ${profileName} credential_process returned invalid credentials.`);
-          }
-
-          let expirationUnix;
-
-          if (expiration) {
-            const currentTime = new Date();
-            const expireTime = new Date(expiration);
-            if (expireTime < currentTime) {
-              throw Error(`Profile ${profileName} credential_process returned expired credentials.`);
-            }
-            expirationUnix = Math.floor(new Date(expiration).valueOf() / 1000);
-          }
-
-          return {
-            accessKeyId,
-            secretAccessKey,
-            sessionToken,
-            expirationUnix,
-          };
-        })
-        .catch((error: Error) => {
-          throw new CredentialsProviderError(error.message);
-        });
+        return {
+          accessKeyId,
+          secretAccessKey,
+          sessionToken,
+          expiration: expirationUnix,
+        };
+      } catch (error) {
+        throw new CredentialsProviderError(error.message);
+      }
     } else {
       throw new CredentialsProviderError(`Profile ${profileName} did not contain credential_process.`);
     }
@@ -85,15 +86,3 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
     throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
 };
-
-const execPromise = (command: string) =>
-  new Promise(function (resolve, reject) {
-    exec(command, (error, stdout) => {
-      if (error) {
-        reject(error);
-        return;
-      }
-
-      resolve(stdout.trim());
-    });
-  });
