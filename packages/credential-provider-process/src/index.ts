@@ -5,6 +5,9 @@ import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-s
 import { exec } from "child_process";
 import { promisify } from "util";
 
+import { ProcessCredentials } from "./ProcessCredentials";
+import { validateCredentialsFromProcess } from "./validateCredentialsFromProcess";
+
 /**
  * @internal
  */
@@ -52,37 +55,4 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
     // a parameter, anenvironment variable, or another profile's `source_profile` key).
     throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
-};
-
-type ProcessCredentials = {
-  Version: number;
-  AccessKeyId: string;
-  SecretAccessKey: string;
-  SessionToken?: string;
-  Expiration?: string;
-};
-
-const validateCredentialsFromProcess = (profileName: string, data: ProcessCredentials): Credentials => {
-  if (data.Version !== 1) {
-    throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
-  }
-
-  if (data.AccessKeyId === undefined || data.SecretAccessKey === undefined) {
-    throw Error(`Profile ${profileName} credential_process returned invalid credentials.`);
-  }
-
-  if (data.Expiration) {
-    const currentTime = new Date();
-    const expireTime = new Date(data.Expiration);
-    if (expireTime < currentTime) {
-      throw Error(`Profile ${profileName} credential_process returned expired credentials.`);
-    }
-  }
-
-  return {
-    accessKeyId: data.AccessKeyId,
-    secretAccessKey: data.SecretAccessKey,
-    ...(data.SessionToken && { sessionToken: data.SessionToken }),
-    ...(data.Expiration && { expiration: new Date(data.Expiration) }),
-  };
 };
