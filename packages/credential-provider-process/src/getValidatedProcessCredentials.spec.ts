@@ -1,3 +1,5 @@
+import { Credentials } from "@aws-sdk/types";
+
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
 
@@ -42,5 +44,26 @@ describe(getValidatedProcessCredentials.name, () => {
         Expiration: expirationDayBefore,
       });
     }).toThrow(`Profile ${mockProfileName} credential_process returned expired credentials.`);
+  });
+
+  describe("returns validated Process credentials", () => {
+    const getValidatedCredentials = (data: ProcessCredentials): Credentials => ({
+      accessKeyId: data.AccessKeyId,
+      secretAccessKey: data.SecretAccessKey,
+      ...(data.SessionToken && { sessionToken: data.SessionToken }),
+      ...(data.Expiration && { expiration: new Date(data.Expiration) }),
+    });
+
+    it("with all values", () => {
+      const mockProcessCreds = getMockProcessCreds();
+      const mockOutputCreds = getValidatedCredentials(mockProcessCreds);
+      expect(getValidatedProcessCredentials(mockProfileName, mockProcessCreds)).toStrictEqual(mockOutputCreds);
+    });
+
+    it.each(["SessionToken", "Expiration"])("without '%s'", (key) => {
+      const mockProcessCreds = { ...getMockProcessCreds(), [key]: undefined };
+      const mockOutputCreds = getValidatedCredentials(mockProcessCreds);
+      expect(getValidatedProcessCredentials(mockProfileName, mockProcessCreds)).toStrictEqual(mockOutputCreds);
+    });
   });
 });
