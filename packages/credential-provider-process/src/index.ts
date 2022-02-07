@@ -38,40 +38,7 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
         } catch {
           throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
         }
-
-        const {
-          Version: version,
-          AccessKeyId: accessKeyId,
-          SecretAccessKey: secretAccessKey,
-          SessionToken: sessionToken,
-          Expiration: expiration,
-        } = data;
-
-        if (version !== 1) {
-          throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
-        }
-
-        if (accessKeyId === undefined || secretAccessKey === undefined) {
-          throw Error(`Profile ${profileName} credential_process returned invalid credentials.`);
-        }
-
-        let expirationUnix;
-
-        if (expiration) {
-          const currentTime = new Date();
-          const expireTime = new Date(expiration);
-          if (expireTime < currentTime) {
-            throw Error(`Profile ${profileName} credential_process returned expired credentials.`);
-          }
-          expirationUnix = Math.floor(new Date(expiration).valueOf() / 1000);
-        }
-
-        return {
-          accessKeyId,
-          secretAccessKey,
-          sessionToken,
-          expiration: expirationUnix,
-        };
+        return validateCredentialsFromProcess(profileName, data);
       } catch (error) {
         throw new CredentialsProviderError(error.message);
       }
@@ -85,4 +52,46 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
     // a parameter, anenvironment variable, or another profile's `source_profile` key).
     throw new CredentialsProviderError(`Profile ${profileName} could not be found in shared credentials file.`);
   }
+};
+
+const validateCredentialsFromProcess = (profileName: string, data: unknown): Credentials => {
+  if (!isProcessCredentials(profileName, data)) {
+    return;
+  }
+
+  if (data.Version !== 1) {
+    throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
+  }
+
+  if (data.Expiration) {
+    const currentTime = new Date();
+    const expireTime = new Date(data.Expiration);
+    if (expireTime < currentTime) {
+      throw Error(`Profile ${profileName} credential_process returned expired credentials.`);
+    }
+  }
+
+  return {
+    accessKeyId: data.AccessKeyId,
+    secretAccessKey: data.SecretAccessKey,
+    ...(data.SessionToken && { sessionToken: data.SessionToken }),
+    ...(data.Expiration && { expiration: new Date(data.Expiration) }),
+  };
+};
+
+type ProcessCredentials = {
+  Version: number;
+  AccessKeyId: string;
+  SecretAccessKey: string;
+  SessionToken?: string;
+  Expiration?: string;
+};
+
+const isProcessCredentials = (profileName: string, data: unknown): data is ProcessCredentials => {
+  for (const key in ["Version", "AccessKeyId", "SecretAccessKey"]) {
+    if ((data as ProcessCredentials)[key] === undefined) {
+      throw new Error(`Profile ${profileName} credential_process returned missing value for "${key}".`);
+    }
+  }
+  return true;
 };
