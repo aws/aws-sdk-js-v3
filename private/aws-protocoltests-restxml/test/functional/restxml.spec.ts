@@ -6473,7 +6473,7 @@ it("XmlUnionsWithBooleanMember:Request", async () => {
 });
 
 /**
- * Serializes union union member
+ * Serializes union member
  */
 it("XmlUnionsWithUnionMember:Request", async () => {
   const client = new RestXmlProtocolClient({
@@ -6680,7 +6680,7 @@ it("XmlUnionsWithBooleanMember:Response", async () => {
 });
 
 /**
- * Serializes union union member
+ * Serializes union member
  */
 it("XmlUnionsWithUnionMember:Response", async () => {
   const client = new RestXmlProtocolClient({
