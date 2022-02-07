@@ -1,9 +1,7 @@
-import { Credentials } from "@aws-sdk/types";
-
+import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
-import { validateProcessCredentials } from "./validateProcessCredentials";
 
-describe(validateProcessCredentials.name, () => {
+describe(getValidatedProcessCredentials.name, () => {
   const mockProfileName = "mockProfileName";
   const mockAccessKeyId = "mockAccessKeyId";
   const mockSecretAccessKey = "mockSecretAccessKey";
@@ -20,7 +18,7 @@ describe(validateProcessCredentials.name, () => {
 
   it.each([undefined, 2])("throws Error when Version is %s", (Version) => {
     expect(() => {
-      validateProcessCredentials(mockProfileName, {
+      getValidatedProcessCredentials(mockProfileName, {
         ...getMockProcessCreds(),
         Version,
       });
@@ -29,7 +27,7 @@ describe(validateProcessCredentials.name, () => {
 
   it.each(["AccessKeyId", "SecretAccessKey"])("throws Error when '%s' is not defined", (key) => {
     expect(() => {
-      validateProcessCredentials(mockProfileName, {
+      getValidatedProcessCredentials(mockProfileName, {
         ...getMockProcessCreds(),
         [key]: undefined,
       });
@@ -39,7 +37,7 @@ describe(validateProcessCredentials.name, () => {
   it("throws error when credentials are expired", () => {
     const expirationDayBefore = Date.now() - 24 * 60 * 60 * 1000;
     expect(() => {
-      validateProcessCredentials(mockProfileName, {
+      getValidatedProcessCredentials(mockProfileName, {
         ...getMockProcessCreds(),
         Expiration: expirationDayBefore,
       });
