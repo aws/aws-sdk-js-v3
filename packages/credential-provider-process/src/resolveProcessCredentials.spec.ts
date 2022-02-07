@@ -68,7 +68,6 @@ describe(resolveProcessCredentials.name, () => {
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
-    expect(mockExecPromise).toHaveBeenCalledTimes(1);
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
     expect(getValidatedProcessCredentials).not.toHaveBeenCalled();
   });
@@ -85,7 +84,6 @@ describe(resolveProcessCredentials.name, () => {
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
-    expect(mockExecPromise).toHaveBeenCalledTimes(1);
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
     expect(getValidatedProcessCredentials).not.toHaveBeenCalled();
   });
@@ -100,23 +98,19 @@ describe(resolveProcessCredentials.name, () => {
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
-    expect(mockExecPromise).toHaveBeenCalledTimes(1);
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
-    expect(getValidatedProcessCredentials).toHaveBeenCalledTimes(1);
     expect(getValidatedProcessCredentials).toHaveBeenCalledWith(mockProfileName, JSON.parse(mockExecPromiseOutput));
   });
 
   it("returns data from getValidatedProcessCredentials", async () => {
-    const exeptedCreds: Credentials = {
+    const expectedCreds: Credentials = {
       accessKeyId: "mockAccessKeyId",
       secretAccessKey: "mockSecretAccessKey",
     };
-    (getValidatedProcessCredentials as jest.Mock).mockResolvedValue(exeptedCreds);
+    (getValidatedProcessCredentials as jest.Mock).mockResolvedValue(expectedCreds);
     const receivedCreds = await resolveProcessCredentials(mockProfileName, getMockProfiles());
-    expect(receivedCreds).toStrictEqual(exeptedCreds);
-    expect(mockExecPromise).toHaveBeenCalledTimes(1);
+    expect(receivedCreds).toStrictEqual(expectedCreds);
     expect(mockExecPromise).toHaveBeenCalledWith(mockCredentialProcess);
-    expect(getValidatedProcessCredentials).toHaveBeenCalledTimes(1);
     expect(getValidatedProcessCredentials).toHaveBeenCalledWith(mockProfileName, JSON.parse(mockExecPromiseOutput));
   });
 });
