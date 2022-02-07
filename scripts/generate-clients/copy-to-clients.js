@@ -173,6 +173,9 @@ const copyServerTests = async (sourceDir, destinationDir) => {
             directory: `private/${testName}`,
           },
         };
+        if (!mergedManifest.scripts.test) {
+          mergedManifest.scripts.test = "jest --coverage --passWithNoTests";
+        }
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
@@ -180,6 +183,20 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           overwrite: true,
         });
       }
+      const jestConfigPath = join(destPath, "jest.config.js");
+      writeFileSync(
+        jestConfigPath,
+        'const base = require("../../jest.config.base.js");\n' +
+          "\n" +
+          "module.exports = {\n" +
+          "  ...base,\n" +
+          "  globals: {\n" +
+          "    'ts-jest': {\n" +
+          "      isolatedModules: true\n" +
+          "    }\n" +
+          "  }\n" +
+          "};\n"
+      );
     }
   }
 };
