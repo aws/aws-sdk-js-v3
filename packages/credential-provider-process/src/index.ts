@@ -38,7 +38,7 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
         } catch {
           throw Error(`Profile ${profileName} credential_process returned invalid JSON.`);
         }
-        return validateCredentialsFromProcess(profileName, data);
+        return validateCredentialsFromProcess(profileName, data as ProcessCredentials);
       } catch (error) {
         throw new CredentialsProviderError(error.message);
       }
@@ -54,13 +54,21 @@ const resolveProcessCredentials = async (profileName: string, profiles: ParsedIn
   }
 };
 
-const validateCredentialsFromProcess = (profileName: string, data: unknown): Credentials => {
-  if (!isProcessCredentials(profileName, data)) {
-    return;
-  }
+type ProcessCredentials = {
+  Version: number;
+  AccessKeyId: string;
+  SecretAccessKey: string;
+  SessionToken?: string;
+  Expiration?: string;
+};
 
+const validateCredentialsFromProcess = (profileName: string, data: ProcessCredentials): Credentials => {
   if (data.Version !== 1) {
     throw Error(`Profile ${profileName} credential_process did not return Version 1.`);
+  }
+
+  if (data.AccessKeyId === undefined || data.SecretAccessKey === undefined) {
+    throw Error(`Profile ${profileName} credential_process returned invalid credentials.`);
   }
 
   if (data.Expiration) {
@@ -77,21 +85,4 @@ const validateCredentialsFromProcess = (profileName: string, data: unknown): Cre
     ...(data.SessionToken && { sessionToken: data.SessionToken }),
     ...(data.Expiration && { expiration: new Date(data.Expiration) }),
   };
-};
-
-type ProcessCredentials = {
-  Version: number;
-  AccessKeyId: string;
-  SecretAccessKey: string;
-  SessionToken?: string;
-  Expiration?: string;
-};
-
-const isProcessCredentials = (profileName: string, data: unknown): data is ProcessCredentials => {
-  for (const key in ["Version", "AccessKeyId", "SecretAccessKey"]) {
-    if ((data as ProcessCredentials)[key] === undefined) {
-      throw new Error(`Profile ${profileName} credential_process returned missing value for "${key}".`);
-    }
-  }
-  return true;
 };
