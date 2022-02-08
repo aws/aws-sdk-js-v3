@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.50.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.49.0...v3.50.0) (2022-02-08)
+
+**Note:** Version bump only for package @aws-sdk/hash-blob-browser
+
+
+
+
+
 # [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
 
 **Note:** Version bump only for package @aws-sdk/hash-blob-browser

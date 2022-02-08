@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.50.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.49.0...v3.50.0) (2022-02-08)
+
+
+### Features
+
+* **smithy-client:** implement SdkException class ([#3261](https://github.com/aws/aws-sdk-js-v3/issues/3261)) ([6a23634](https://github.com/aws/aws-sdk-js-v3/commit/6a23634ec278fe0d275f58fb6b981440be6a3db8))
+
+
+
+
+
 # [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client

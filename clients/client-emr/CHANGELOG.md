@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.50.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.49.0...v3.50.0) (2022-02-08)
+
+
+### Features
+
+* **clients:** update clients as of 02/04/2022 ([#3280](https://github.com/aws/aws-sdk-js-v3/issues/3280)) ([63d7f8c](https://github.com/aws/aws-sdk-js-v3/commit/63d7f8c539e0fd782fa5bf997bd6ac2730e4bfda))
+
+
+
+
+
 # [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
 
 **Note:** Version bump only for package @aws-sdk/client-emr
