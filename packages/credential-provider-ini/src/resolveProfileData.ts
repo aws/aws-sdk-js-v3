@@ -50,7 +50,5 @@ export const resolveProfileData = async (
   // terminal resolution error if a profile has been specified by the user
   // (whether via a parameter, an environment variable, or another profile's
   // `source_profile` key).
-  throw new CredentialsProviderError(
-    `Profile ${profileName} could not be found or parsed in shared` + ` credentials file.`
-  );
+  throw new CredentialsProviderError(`Profile ${profileName} could not be found or parsed in shared credentials file.`);
 };
