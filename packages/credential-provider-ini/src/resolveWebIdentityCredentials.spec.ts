@@ -55,9 +55,33 @@ describe(resolveWebIdentityCredentials.name, () => {
     jest.clearAllMocks();
   });
 
-  it("calls fromTokenFile", async () => {
+  it("throws error when fromTokenFile throws", async () => {
     const mockProfile = getMockWebIdentityProfile();
     const mockOptions = { roleAssumerWithWebIdentity: jest.fn() };
+    const expectedError = new Error("error from fromTokenFile");
+
+    (fromTokenFile as jest.Mock).mockReturnValue(() => Promise.reject(expectedError));
+
+    try {
+      await resolveWebIdentityCredentials(mockProfile, mockOptions);
+      fail(`expected ${expectedError}`);
+    } catch (error) {
+      expect(error).toStrictEqual(expectedError);
+    }
+    expect(fromTokenFile).toHaveBeenCalledWith({
+      webIdentityTokenFile: mockProfile.web_identity_token_file,
+      roleArn: mockProfile.role_arn,
+      roleSessionName: mockProfile.role_session_name,
+      roleAssumerWithWebIdentity: mockOptions.roleAssumerWithWebIdentity,
+    });
+  });
+
+  it("returns creds from fromTokenFile", async () => {
+    const mockProfile = getMockWebIdentityProfile();
+    const mockOptions = { roleAssumerWithWebIdentity: jest.fn() };
+
+    (fromTokenFile as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+
     const receivedCreds = await resolveWebIdentityCredentials(mockProfile, mockOptions);
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(fromTokenFile).toHaveBeenCalledWith({
