@@ -2,7 +2,7 @@ import { fromTokenFile } from "@aws-sdk/credential-provider-web-identity";
 import { Profile } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
 
-import { FromIniInit } from "./index";
+import { FromIniInit } from "./fromIni";
 
 export interface WebIdentityProfile extends Profile {
   web_identity_token_file: string;
