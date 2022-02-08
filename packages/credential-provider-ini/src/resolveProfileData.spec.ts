@@ -1,6 +1,4 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { ParsedIniData } from "@aws-sdk/shared-ini-file-loader";
-import { Credentials } from "@aws-sdk/types";
 
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
