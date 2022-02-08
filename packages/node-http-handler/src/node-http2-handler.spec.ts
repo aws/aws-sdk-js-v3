@@ -374,7 +374,7 @@ describe(NodeHttp2Handler.name, () => {
   });
 
   it("will throw reasonable error when connection aborted abnormally", async () => {
-    nodeH2Handler = new NodeHttp2Handler();
+    nodeH2Handler = new NodeHttp2Handler({ requestTimeout: 0 });
     // Create a session by sending a request.
     await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
     const authority = `${protocol}//${hostname}:${port}`;
@@ -399,7 +399,7 @@ describe(NodeHttp2Handler.name, () => {
   });
 
   it("will throw reasonable error when frameError is thrown", async () => {
-    nodeH2Handler = new NodeHttp2Handler();
+    nodeH2Handler = new NodeHttp2Handler({ requestTimeout: 0 });
     // Create a session by sending a request.
     await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
     const authority = `${protocol}//${hostname}:${port}`;

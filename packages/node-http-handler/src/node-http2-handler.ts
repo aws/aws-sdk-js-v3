@@ -41,7 +41,7 @@ export class NodeHttp2Handler implements HttpHandler {
   private sessionCache: Map<string, ClientHttp2Session[]>;
 
   constructor({ requestTimeout, sessionTimeout, disableConcurrentStreams }: NodeHttp2HandlerOptions = {}) {
-    this.requestTimeout = requestTimeout;
+    this.requestTimeout = requestTimeout === undefined ? 10000 : requestTimeout;
     this.sessionTimeout = sessionTimeout;
     this.disableConcurrentStreams = disableConcurrentStreams;
     this.sessionCache = new Map<string, ClientHttp2Session[]>();

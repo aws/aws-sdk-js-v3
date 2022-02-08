@@ -59,7 +59,7 @@ export class NodeHttpHandler implements HttpHandler {
     const maxSockets = 50;
     return {
       connectionTimeout,
-      socketTimeout,
+      socketTimeout: socketTimeout === undefined ? 10000 : socketTimeout,
       httpAgent: httpAgent || new hAgent({ keepAlive, maxSockets }),
       httpsAgent: httpsAgent || new hsAgent({ keepAlive, maxSockets }),
     };
