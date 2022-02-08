@@ -72,21 +72,14 @@ export const resolveAssumeRoleCredentials = async (
 ) => {
   const data = profiles[profileName];
 
-  const {
-    external_id: ExternalId,
-    mfa_serial,
-    role_session_name: RoleSessionName = "aws-sdk-js-" + Date.now(),
-    source_profile,
-    credential_source,
-  } = data;
-
   if (!options.roleAssumer) {
     throw new CredentialsProviderError(
-      `Profile ${profileName} requires a role to be assumed, but no` + ` role assumption callback was provided.`,
+      `Profile ${profileName} requires a role to be assumed, but no role assumption callback was provided.`,
       false
     );
   }
 
+  const { source_profile } = data;
   if (source_profile && source_profile in visitedProfiles) {
     throw new CredentialsProviderError(
       `Detected a cycle attempting to resolve credentials for profile` +
@@ -96,18 +89,24 @@ export const resolveAssumeRoleCredentials = async (
     );
   }
 
-  const sourceCreds = source_profile
+  const sourceCredsProvider = source_profile
     ? resolveProfileData(source_profile, profiles, options, {
         ...visitedProfiles,
         [source_profile]: true,
       })
-    : resolveCredentialSource(credential_source!, profileName)();
+    : resolveCredentialSource(data.credential_source!, profileName)();
 
-  const params: AssumeRoleParams = { RoleArn: data.role_arn!, RoleSessionName, ExternalId };
+  const params: AssumeRoleParams = {
+    RoleArn: data.role_arn!,
+    RoleSessionName: data.role_session_name || `aws-sdk-js-${Date.now()}`,
+    ExternalId: data.external_id,
+  };
+
+  const { mfa_serial } = data;
   if (mfa_serial) {
     if (!options.mfaCodeProvider) {
       throw new CredentialsProviderError(
-        `Profile ${profileName} requires multi-factor authentication,` + ` but no MFA code callback was provided.`,
+        `Profile ${profileName} requires multi-factor authentication, but no MFA code callback was provided.`,
         false
       );
     }
@@ -115,5 +114,6 @@ export const resolveAssumeRoleCredentials = async (
     params.TokenCode = await options.mfaCodeProvider(mfa_serial);
   }
 
-  return options.roleAssumer(await sourceCreds, params);
+  const sourceCreds = await sourceCredsProvider;
+  return options.roleAssumer(sourceCreds, params);
 };
