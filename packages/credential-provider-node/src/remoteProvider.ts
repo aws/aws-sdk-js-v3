@@ -16,7 +16,9 @@ export const remoteProvider = (init: RemoteProviderInit): CredentialProvider => 
   }
 
   if (process.env[ENV_IMDS_DISABLED]) {
-    return () => Promise.reject(new CredentialsProviderError("EC2 Instance Metadata Service access disabled"));
+    return async () => {
+      throw new CredentialsProviderError("EC2 Instance Metadata Service access disabled");
+    };
   }
 
   return fromInstanceMetadata(init);
