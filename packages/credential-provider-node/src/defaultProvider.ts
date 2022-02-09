@@ -48,10 +48,14 @@ import { remoteProvider } from "./remoteProvider";
 export const defaultProvider = (
   init: FromIniInit & RemoteProviderInit & FromProcessInit & FromSSOInit & FromTokenFileInit = {}
 ): CredentialProvider => {
-  const options = { profile: process.env[ENV_PROFILE], ...init };
-  if (!options.loadedConfig) options.loadedConfig = loadSharedConfigFiles(init);
+  const options = {
+    profile: process.env[ENV_PROFILE],
+    ...init,
+    ...(!init.loadedConfig && { loadedConfig: loadSharedConfigFiles(init) }),
+  };
 
-  const providers = [
+  const providerChain = chain(
+    ...(options.profile ? [] : [fromEnv()]),
     fromSSO(options),
     fromIni(options),
     fromProcess(options),
@@ -59,12 +63,8 @@ export const defaultProvider = (
     remoteProvider(options),
     async () => {
       throw new CredentialsProviderError("Could not load credentials from any providers", false);
-    },
-  ];
-
-  if (!options.profile) providers.unshift(fromEnv());
-
-  const providerChain = chain(...providers);
+    }
+  );
 
   return memoize(
     providerChain,
