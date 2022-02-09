@@ -14,14 +14,15 @@ export const ENV_EXPIRATION = "AWS_CREDENTIAL_EXPIRATION";
 export const fromEnv = (): CredentialProvider => async () => {
   const accessKeyId: string | undefined = process.env[ENV_KEY];
   const secretAccessKey: string | undefined = process.env[ENV_SECRET];
+  const sessionToken: string | undefined = process.env[ENV_SESSION];
   const expiry: string | undefined = process.env[ENV_EXPIRATION];
 
   if (accessKeyId && secretAccessKey) {
     return {
       accessKeyId,
       secretAccessKey,
-      sessionToken: process.env[ENV_SESSION],
-      expiration: expiry ? new Date(expiry) : undefined,
+      ...(sessionToken && { sessionToken }),
+      ...(expiry && { expiration: new Date(expiry) }),
     };
   }
 
