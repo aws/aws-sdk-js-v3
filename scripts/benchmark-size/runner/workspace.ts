@@ -87,12 +87,11 @@ export const validatePackagesAlreadyBuilt = async (packages: WorkspacePackage[])
     return true;
   };
 
-  const notBuilt: string[] = [];
-  for (const pkg of packages) {
-    if (!(await isBuilt(pkg.location))) {
-      notBuilt.push(pkg.name);
-    }
-  }
+  const notBuilt: string[] = await (
+    await Promise.all(packages.map(async (pkg) => ({ ...pkg, isBuilt: await isBuilt(pkg.location) })))
+  )
+    .filter((pkg) => !pkg.isBuilt)
+    .map((pkg) => pkg.name);
   if (notBuilt.length > 0) {
     throw new Error(`Please make sure these packages are fully built: ${notBuilt.join(", ")}`);
   }

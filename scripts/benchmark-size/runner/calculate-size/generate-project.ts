@@ -12,13 +12,11 @@ export const generateProject = async (projectDir: string, options: PackageSizeRe
     ...options.packageContext,
     dependencies: [...peerDependencies, ...(options.packageContext?.dependencies ?? [])],
   };
-  // console.error("CONTEXT||||||||", contextWithPeerDep);
   for (const [name, template] of Object.entries(options.templates)) {
     const filePath = join(projectDir, name);
     const file = prettier.format(template(contextWithPeerDep), {
       filepath: filePath,
     });
-    // console.error("FILE|||||||, ", file);
     await fsPromise.writeFile(filePath, file);
   }
 
