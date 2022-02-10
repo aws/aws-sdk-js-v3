@@ -29,6 +29,8 @@ jest.mock("@aws-sdk/client-sso", () => ({
   GetRoleCredentialsCommand: mockGetRoleCredentialsCommand,
 }));
 
+jest.mock("@aws-sdk/shared-ini-file-loader", () => ({ getHomeDir: () => "/homedir" }));
+
 import { EXPIRE_WINDOW_MS, fromSSO } from "./index";
 
 const toRFC3339String = (date: number): string => {
