@@ -25,43 +25,46 @@ export interface PackageSizeReportOutput {
 
 export const getPackageSizeReportRunner =
   (options: PackageSizeReportOptions) => async (context: ListrContext, task: ListrTaskWrapper<ListrContext, any>) => {
-    task.output = "preparing...";
-    const projectDir = join(options.tmpDir, options.packageName.replace("/", "_"));
-    await fsPromise.rmdir(projectDir, { recursive: true });
-    await fsPromise.mkdir(projectDir);
-    const entryPoint = join(projectDir, "index.js");
-    const bundlersContext = { ...options, entryPoint, projectDir };
+    try {
+      task.output = "preparing...";
+      const projectDir = join(options.tmpDir, options.packageName.replace("/", "_"));
+      await fsPromise.mkdir(projectDir);
+      const entryPoint = join(projectDir, "index.js");
+      const bundlersContext = { ...options, entryPoint, projectDir };
 
-    task.output = "generating project and installing dependencies";
-    await generateProject(projectDir, options);
+      task.output = "generating project and installing dependencies";
+      await generateProject(projectDir, options);
 
-    task.output = "calculating npm size";
-    const npmSizeResult = calculateNpmSize(projectDir, options.packageName);
+      task.output = "calculating npm size";
+      const npmSizeResult = calculateNpmSize(projectDir, options.packageName);
 
-    const skipBundlerTests = bundlersContext.packageContext.skipBundlerTests;
+      const skipBundlerTests = bundlersContext.packageContext.skipBundlerTests;
 
-    task.output = "calculating webpack 5 full bundle size";
-    const webpackSize = skipBundlerTests ? undefined : await getWebpackSize(bundlersContext);
+      task.output = "calculating webpack 5 full bundle size";
+      const webpackSize = skipBundlerTests ? undefined : await getWebpackSize(bundlersContext);
 
-    task.output = "calculating rollup full bundle size";
-    const rollupSize = skipBundlerTests ? undefined : await getRollupSize(bundlersContext);
+      task.output = "calculating rollup full bundle size";
+      const rollupSize = skipBundlerTests ? undefined : await getRollupSize(bundlersContext);
 
-    task.output = "calculating esbuild full bundle size";
-    const esbuildSize = skipBundlerTests ? undefined : await getEsbuildSize(bundlersContext);
+      task.output = "calculating esbuild full bundle size";
+      const esbuildSize = skipBundlerTests ? undefined : await getEsbuildSize(bundlersContext);
 
-    task.output = "output results";
-    const packageVersion = JSON.parse(
-      await fsPromise.readFile(
-        join(options.workspacePackages.filter((pkg) => pkg.name === options.packageName)[0].location, "package.json"),
-        "utf8"
-      )
-    ).version;
-    options.output.push({
-      name: options.packageName,
-      version: packageVersion,
-      ...npmSizeResult,
-      webpackSize,
-      esbuildSize,
-      rollupSize,
-    });
+      task.output = "output results";
+      const packageVersion = JSON.parse(
+        await fsPromise.readFile(
+          join(options.workspacePackages.filter((pkg) => pkg.name === options.packageName)[0].location, "package.json"),
+          "utf8"
+        )
+      ).version;
+      options.output.push({
+        name: options.packageName,
+        version: packageVersion,
+        ...npmSizeResult,
+        webpackSize,
+        esbuildSize,
+        rollupSize,
+      });
+    } catch (e) {
+      e.message = `[${options.packageName}]` + e.message;
+    }
   };
