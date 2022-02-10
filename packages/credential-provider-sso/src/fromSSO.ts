@@ -32,13 +32,13 @@ export interface SsoCredentialsParameters {
 export interface FromSSOInit extends SourceProfileInit {
   ssoClient?: SSOClient;
 }
+
 /**
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
  */
-
 export const fromSSO =
-  (init: FromSSOInit & Partial<SsoCredentialsParameters> = {} as any): CredentialProvider =>
+  (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): CredentialProvider =>
   async () => {
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient } = init;
     if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName) {
@@ -46,9 +46,11 @@ export const fromSSO =
       const profiles = await parseKnownFiles(init);
       const profileName = getMasterProfileName(init);
       const profile = profiles[profileName];
+
       if (!isSsoProfile(profile)) {
         throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
       }
+
       const { sso_start_url, sso_account_id, sso_region, sso_role_name } = validateSsoProfile(profile);
       return resolveSSOCredentials({
         ssoStartUrl: sso_start_url,
