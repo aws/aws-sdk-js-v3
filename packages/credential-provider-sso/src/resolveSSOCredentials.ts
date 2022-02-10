@@ -3,7 +3,8 @@ import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { getHomeDir } from "@aws-sdk/shared-ini-file-loader";
 import { Credentials } from "@aws-sdk/types";
 import { createHash } from "crypto";
-import { readFileSync } from "fs";
+// ToDo: Change to "fs/promises" when supporting nodejs>=14
+import { promises as fsPromises } from "fs";
 import { join } from "path";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
@@ -19,6 +20,8 @@ const EXPIRE_WINDOW_MS = 15 * 60 * 1000;
 
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 
+const { readFile } = fsPromises;
+
 export const resolveSSOCredentials = async ({
   ssoStartUrl,
   ssoAccountId,
@@ -29,19 +32,25 @@ export const resolveSSOCredentials = async ({
   const hasher = createHash("sha1");
   const cacheName = hasher.update(ssoStartUrl).digest("hex");
   const tokenFile = join(getHomeDir(), ".aws", "sso", "cache", `${cacheName}.json`);
+
   let token: SSOToken;
+  const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
   try {
-    token = JSON.parse(readFileSync(tokenFile, { encoding: "utf-8" }));
-    if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
-      throw new Error("SSO token is expired.");
-    }
+    token = JSON.parse(await readFile(tokenFile, "utf8"));
   } catch (e) {
     throw new CredentialsProviderError(
-      `The SSO session associated with this profile has expired or is otherwise invalid. To refresh this SSO session ` +
-        `run aws sso login with the corresponding profile.`,
+      `The SSO session associated with this profile is invalid. ${refreshMessage}`,
       SHOULD_FAIL_CREDENTIAL_CHAIN
     );
   }
+
+  if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {
+    throw new CredentialsProviderError(
+      `The SSO session associated with this profile has expired. ${refreshMessage}`,
+      SHOULD_FAIL_CREDENTIAL_CHAIN
+    );
+  }
+
   const { accessToken } = token;
   const sso = ssoClient || new SSOClient({ region: ssoRegion });
   let ssoResp: GetRoleCredentialsCommandOutput;
@@ -56,9 +65,11 @@ export const resolveSSOCredentials = async ({
   } catch (e) {
     throw CredentialsProviderError.from(e, SHOULD_FAIL_CREDENTIAL_CHAIN);
   }
+
   const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration } = {} } = ssoResp;
   if (!accessKeyId || !secretAccessKey || !sessionToken || !expiration) {
     throw new CredentialsProviderError("SSO returns an invalid temporary credential.", SHOULD_FAIL_CREDENTIAL_CHAIN);
   }
+
   return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration) };
 };
