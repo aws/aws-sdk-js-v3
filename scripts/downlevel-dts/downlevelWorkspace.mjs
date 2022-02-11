@@ -20,10 +20,8 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
   try {
     await access(declarationDir);
   } catch (error) {
-    throw new Error(
-      `The types for "${workspaceName}" do not exist.\n` +
-        `Please build types for workspace "${workspaceDir}" before running downlevel-dts script.`
-    );
+    console.log(`The types for "${workspaceName}" do not exist.\n`);
+    return;
   }
 
   const downlevelDir = join(declarationDir, downlevelDirname);
