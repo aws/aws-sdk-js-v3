@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.51.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.50.0...v3.51.0) (2022-02-12)
+
+
+### Bug Fixes
+
+* **package.json:** update version to v3.50.0 ([#3300](https://github.com/aws/aws-sdk-js-v3/issues/3300)) ([23a2463](https://github.com/aws/aws-sdk-js-v3/commit/23a246385d3034e1a617ed37a98b346ec2ed84c4))
+* **scripts:** log when types not present in downlevel script ([#3307](https://github.com/aws/aws-sdk-js-v3/issues/3307)) ([68c0d1f](https://github.com/aws/aws-sdk-js-v3/commit/68c0d1f404f3abb756bdd1e43955afbfb9df9dcb))
+
+
+### Features
+
+* **credential-provider-ini:** refactor into modular components ([#3289](https://github.com/aws/aws-sdk-js-v3/issues/3289)) ([7c891b2](https://github.com/aws/aws-sdk-js-v3/commit/7c891b215cf3a9ea343447ced51e5d7be86caba9))
+* **credential-provider-process:** refactor into modular components ([#3287](https://github.com/aws/aws-sdk-js-v3/issues/3287)) ([2b64304](https://github.com/aws/aws-sdk-js-v3/commit/2b64304c17191b3ffad4965b8a88509ddf4e79c7))
+* **shared-ini-file-loader:** refactor loadSharedConfigFiles into modular components ([#3285](https://github.com/aws/aws-sdk-js-v3/issues/3285)) ([2613f66](https://github.com/aws/aws-sdk-js-v3/commit/2613f668da8a9d6edabe3821a43c8345869f3957))
+
+
+
+
+
 # [3.50.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.49.0...v3.50.0) (2022-02-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.51.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.50.0...v3.51.0) (2022-02-12)
+
+
+### Features
+
+* **shared-ini-file-loader:** refactor loadSharedConfigFiles into modular components ([#3285](https://github.com/aws/aws-sdk-js-v3/issues/3285)) ([2613f66](https://github.com/aws/aws-sdk-js-v3/commit/2613f668da8a9d6edabe3821a43c8345869f3957))
+
+
+
+
+
 # [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
 
 **Note:** Version bump only for package @aws-sdk/shared-ini-file-loader

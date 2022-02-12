@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.51.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.50.0...v3.51.0) (2022-02-12)
+
+
+### Features
+
+* **credential-provider-process:** refactor into modular components ([#3287](https://github.com/aws/aws-sdk-js-v3/issues/3287)) ([2b64304](https://github.com/aws/aws-sdk-js-v3/commit/2b64304c17191b3ffad4965b8a88509ddf4e79c7))
+
+
+
+
+
 # [3.50.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.49.0...v3.50.0) (2022-02-08)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-process
