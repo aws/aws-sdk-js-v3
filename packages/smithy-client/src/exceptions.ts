@@ -49,8 +49,11 @@ export const decorateServiceException = <E extends ServiceException>(
   Object.entries(additions)
     .filter(([, v]) => v !== undefined)
     .forEach(([k, v]) => {
-      // @ts-ignore assign unmodeled keys
-      exception[k] = v;
+      // @ts-ignore examine unmodeled keys
+      if (exception[k] == undefined || exception[k] === "") {
+        // @ts-ignore assign unmodeled keys
+        exception[k] = v;
+      }
     });
   // load error message from possible locations
   // @ts-expect-error message could exist in Message key.
