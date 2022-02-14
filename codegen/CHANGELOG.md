@@ -1,5 +1,12 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.9.0 (2022-02-14)
+
+### Features
+
+* Updated Smithy version to `1.17.0`. ([#3288](https://github.com/aws/aws-sdk-js-v3/pull/3288))
+* Added support for `defaultsMode`. ([#3192](https://github.com/aws/aws-sdk-js-v3/pull/3192))
+
 ## 0.8.0 (2021-11-23)
 
 ### Features
