@@ -2,7 +2,7 @@
 import { readFileSync } from "fs";
 import { basename, join } from "path";
 
-import { getWorkspacePaths } from "./getWorkspacePaths.mjs";
+import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
 
 export const getDepToCurrentVersionHash = () =>
   getWorkspacePaths().reduce((acc, workspacePath) => {
