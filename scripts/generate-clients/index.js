@@ -8,6 +8,7 @@ const {
   CODE_GEN_SDK_OUTPUT_DIR,
   CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR,
   CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
+  DEFAULT_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
@@ -22,6 +23,7 @@ const {
   output: clientsDir,
   noPrivateClients,
   s: serverOnly,
+  batchSize,
 } = yargs
   .alias("m", "models")
   .string("m")
@@ -41,6 +43,10 @@ const {
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
   .conflicts("s", ["m", "g", "n"])
+  .describe("b", "Batchsize for generating clients")
+  .number("b")
+  .alias("b", "batch-size")
+  .default("b", 50)
   .help().argv;
 
 (async () => {
@@ -58,7 +64,7 @@ const {
       return;
     }
 
-    await generateClients(models || globs);
+    await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
     if (!noPrivateClients) {
       await generateGenericClient();
       await generateProtocolTests();
