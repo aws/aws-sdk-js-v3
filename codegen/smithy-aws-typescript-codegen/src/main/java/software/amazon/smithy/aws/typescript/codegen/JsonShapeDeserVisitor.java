@@ -33,6 +33,7 @@ import software.amazon.smithy.model.traits.MediaTypeTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
+import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings.ArtifactType;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
@@ -83,11 +84,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
             potentialFilter = ".filter((e: any) => e != null)";
         }
 
-        if (shape.isSetShape()) {
-            writer.write("const uniqueValues = new Set<any>();");
-        }
-
-        writer.openBlock("return (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
+        writer.openBlock("const retVal = (output || [])$L.map((entry: any) => {", "});", potentialFilter, () -> {
             // Short circuit null values from serialization.
             writer.openBlock("if (entry === null) {", "}", () -> {
                 // In the SSDK we want to be very strict about not accepting nulls in non-sparse lists.
@@ -99,20 +96,19 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
                 }
             });
 
-            if (shape.isSetShape()) {
-                writer.write("const parsedEntry = $L$L;",
-                        target.accept(getMemberVisitor(shape.getMember(), "entry")),
-                        usesExpect(target) ? " as any" : "");
-                writer.write("if (uniqueValues.has(parsedEntry)) { throw new "
-                                + "TypeError('All elements of the set $S must be unique.'); } else { "
-                                + "uniqueValues.add(parsedEntry)\nreturn parsedEntry; }",
-                        shape.getId());
-            } else {
-                // Dispatch to the output value provider for any additional handling.
-                writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), "entry")),
-                        usesExpect(target) ? " as any" : "");
-            }
+            // Dispatch to the output value provider for any additional handling.
+            writer.write("return $L$L;", target.accept(getMemberVisitor(shape.getMember(), "entry")),
+                    usesExpect(target) ? " as any" : "");
         });
+        if (shape.isSetShape() && artifactType.equals(ArtifactType.SSDK)) {
+            writer.addDependency(TypeScriptDependency.SERVER_COMMON);
+            writer.addImport("findDuplicates", "__findDuplicates", "@aws-smithy/server-common");
+            writer.openBlock("if (__findDuplicates(retVal).length > 0) {", "}", () -> {
+                writer.write("throw new TypeError('All elements of the set $S must be unique.');",
+                        shape.getId());
+            });
+        }
+        writer.write("return retVal;");
     }
 
     @Override
