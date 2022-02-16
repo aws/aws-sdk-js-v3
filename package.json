@@ -24,7 +24,7 @@
     "generate-clients": "node ./scripts/generate-clients",
     "generate:clients:generic": "node ./scripts/generate-clients/generic",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
-    "lerna:version": "lerna version --exact --conventional-commits --no-push --no-git-tag-version --no-commit-hooks --loglevel silent --no-private --yes",
+    "lerna:version": "lerna version --exact --conventional-commits --no-push --no-git-tag-version --no-commit-hooks --loglevel silent --yes",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
     "test:all": "yarn build:all && jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}' && yarn test:versions",
     "test:e2e": "yarn build:e2e && node ./tests/e2e/index.js",
