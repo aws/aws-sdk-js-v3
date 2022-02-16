@@ -6478,7 +6478,7 @@ it("RestJsonInputUnionWithUnitMember:Request", async () => {
 /**
  * Unit types in unions are serialized like normal structures in responses.
  */
-it("RestJsonOutputUnionWithUnitMember:Response", async () => {
+it.skip("RestJsonOutputUnionWithUnitMember:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(

@@ -1435,7 +1435,7 @@ export namespace PlayerAction {
 }
 
 export interface PostPlayerActionInput {
-  action?: PlayerAction;
+  action: PlayerAction | undefined;
 }
 
 export namespace PostPlayerActionInput {
