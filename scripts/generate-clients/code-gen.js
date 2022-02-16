@@ -1,9 +1,15 @@
 // @ts-check
 const { basename, join, relative } = require("path");
-const { emptyDirSync } = require("fs-extra");
+const { copySync, emptyDirSync } = require("fs-extra");
 const { copyFileSync } = require("fs");
 const { spawnProcess } = require("../utils/spawn-process");
-const { CODE_GEN_ROOT, CODE_GEN_SDK_ROOT, TEMP_CODE_GEN_INPUT_DIR } = require("./code-gen-dir");
+const {
+  CODE_GEN_ROOT,
+  CODE_GEN_SDK_ROOT,
+  CODE_GEN_SDK_OUTPUT_DIR,
+  TEMP_CODE_GEN_INPUT_DIR,
+  TEMP_CODE_GEN_SDK_OUTPUT_DIR,
+} = require("./code-gen-dir");
 const { getModelFilepaths } = require("./get-model-filepaths");
 
 const generateClients = async (models, batchSize) => {
@@ -22,7 +28,13 @@ const generateClients = async (models, batchSize) => {
       copyFileSync(filepath, join(TEMP_CODE_GEN_INPUT_DIR, filename));
     }
     await spawnProcess("./gradlew", options, { cwd: CODE_GEN_ROOT });
+    // We're copying generated code to temporary directory as it's cleans
+    // codegen directory in every run.
+    // Refs: https://github.com/aws/aws-sdk-js-v3/issues/3321
+    copySync(CODE_GEN_SDK_OUTPUT_DIR, TEMP_CODE_GEN_SDK_OUTPUT_DIR);
   }
+  copySync(TEMP_CODE_GEN_SDK_OUTPUT_DIR, CODE_GEN_SDK_OUTPUT_DIR);
+  emptyDirSync(TEMP_CODE_GEN_SDK_OUTPUT_DIR);
 };
 
 const generateProtocolTests = async () => {

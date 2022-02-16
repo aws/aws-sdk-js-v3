@@ -15,6 +15,7 @@ const getCodeGenOutputDir = (dir) =>
 const CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR = getCodeGenOutputDir("protocol-test-codegen");
 const CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR = getCodeGenOutputDir("generic-client-test-codegen");
 const CODE_GEN_SDK_OUTPUT_DIR = getCodeGenOutputDir("sdk-codegen");
+const TEMP_CODE_GEN_SDK_OUTPUT_DIR = normalize(join(__dirname, ".sdk-codegen"));
 
 module.exports = {
   CODE_GEN_ROOT,
@@ -25,4 +26,5 @@ module.exports = {
   CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR,
   DEFAULT_CODE_GEN_INPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
+  TEMP_CODE_GEN_SDK_OUTPUT_DIR,
 };
