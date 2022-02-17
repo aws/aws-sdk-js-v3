@@ -81,12 +81,13 @@ export const createPresignedPost = async (
   const signature = await hmac(sha256, signingKey, encodedPolicy);
 
   const endpoint = await client.config.endpoint();
-  if (!client.config.bucketEndpoint) {
-    endpoint.path = `/${Bucket}`;
-  }
+  const url = formatUrl({
+    ...endpoint,
+    ...!client.config.bucketEndpoint && { path: `/${Bucket}` }
+  })
 
   return {
-    url: formatUrl(endpoint),
+    url,
     fields: {
       ...fields,
       key: Key,
