@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -11,10 +12,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -88,6 +87,7 @@ import {
   StopDataCollectionByAgentIdsCommandOutput,
 } from "../commands/StopDataCollectionByAgentIdsCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
+import { ApplicationDiscoveryServiceServiceException as __BaseException } from "../models/ApplicationDiscoveryServiceServiceException";
 import {
   AgentConfigurationStatus,
   AgentInfo,
@@ -516,65 +516,34 @@ const deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchDeleteImportDataCommand = async (
@@ -602,65 +571,34 @@ const deserializeAws_json1_1BatchDeleteImportDataCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateApplicationCommand = async (
@@ -688,65 +626,34 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateTagsCommand = async (
@@ -774,73 +681,37 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteApplicationsCommand = async (
@@ -868,65 +739,34 @@ const deserializeAws_json1_1DeleteApplicationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteTagsCommand = async (
@@ -954,73 +794,37 @@ const deserializeAws_json1_1DeleteTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeAgentsCommand = async (
@@ -1048,65 +852,34 @@ const deserializeAws_json1_1DescribeAgentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeConfigurationsCommand = async (
@@ -1134,65 +907,34 @@ const deserializeAws_json1_1DescribeConfigurationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeContinuousExportsCommand = async (
@@ -1220,81 +962,40 @@ const deserializeAws_json1_1DescribeContinuousExportsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeExportConfigurationsCommand = async (
@@ -1322,73 +1023,37 @@ const deserializeAws_json1_1DescribeExportConfigurationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeExportTasksCommand = async (
@@ -1416,65 +1081,34 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeImportTasksCommand = async (
@@ -1502,65 +1136,34 @@ const deserializeAws_json1_1DescribeImportTasksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeTagsCommand = async (
@@ -1588,73 +1191,37 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand = async (
@@ -1682,65 +1249,34 @@ const deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ExportConfigurationsCommand = async (
@@ -1768,73 +1304,37 @@ const deserializeAws_json1_1ExportConfigurationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetDiscoverySummaryCommand = async (
@@ -1862,65 +1362,34 @@ const deserializeAws_json1_1GetDiscoverySummaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListConfigurationsCommand = async (
@@ -1948,73 +1417,37 @@ const deserializeAws_json1_1ListConfigurationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListServerNeighborsCommand = async (
@@ -2042,65 +1475,34 @@ const deserializeAws_json1_1ListServerNeighborsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartContinuousExportCommand = async (
@@ -2128,89 +1530,43 @@ const deserializeAws_json1_1StartContinuousExportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "ConflictErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ConflictErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ConflictErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConflictErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartDataCollectionByAgentIdsCommand = async (
@@ -2238,65 +1594,34 @@ const deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartExportTaskCommand = async (
@@ -2324,73 +1649,37 @@ const deserializeAws_json1_1StartExportTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartImportTaskCommand = async (
@@ -2418,73 +1707,37 @@ const deserializeAws_json1_1StartImportTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopContinuousExportCommand = async (
@@ -2512,89 +1765,43 @@ const deserializeAws_json1_1StopContinuousExportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopDataCollectionByAgentIdsCommand = async (
@@ -2622,65 +1829,34 @@ const deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateApplicationCommand = async (
@@ -2708,65 +1884,34 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
     case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      response = {
-        ...(await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthorizationErrorExceptionResponse(parsedOutput, context);
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      response = {
-        ...(await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1HomeRegionNotSetExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerInternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1AuthorizationErrorExceptionResponse = async (
@@ -2775,13 +1920,11 @@ const deserializeAws_json1_1AuthorizationErrorExceptionResponse = async (
 ): Promise<AuthorizationErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AuthorizationErrorException(body, context);
-  const contents: AuthorizationErrorException = {
-    name: "AuthorizationErrorException",
-    $fault: "client",
+  const exception = new AuthorizationErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ConflictErrorExceptionResponse = async (
@@ -2790,13 +1933,11 @@ const deserializeAws_json1_1ConflictErrorExceptionResponse = async (
 ): Promise<ConflictErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConflictErrorException(body, context);
-  const contents: ConflictErrorException = {
-    name: "ConflictErrorException",
-    $fault: "client",
+  const exception = new ConflictErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1HomeRegionNotSetExceptionResponse = async (
@@ -2805,13 +1946,11 @@ const deserializeAws_json1_1HomeRegionNotSetExceptionResponse = async (
 ): Promise<HomeRegionNotSetException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1HomeRegionNotSetException(body, context);
-  const contents: HomeRegionNotSetException = {
-    name: "HomeRegionNotSetException",
-    $fault: "client",
+  const exception = new HomeRegionNotSetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
@@ -2820,13 +1959,11 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
-  const contents: InvalidParameterException = {
-    name: "InvalidParameterException",
-    $fault: "client",
+  const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
@@ -2835,13 +1972,11 @@ const deserializeAws_json1_1InvalidParameterValueExceptionResponse = async (
 ): Promise<InvalidParameterValueException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterValueException(body, context);
-  const contents: InvalidParameterValueException = {
-    name: "InvalidParameterValueException",
-    $fault: "client",
+  const exception = new InvalidParameterValueException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
@@ -2850,13 +1985,11 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(body, context);
-  const contents: OperationNotPermittedException = {
-    name: "OperationNotPermittedException",
-    $fault: "client",
+  const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
@@ -2865,13 +1998,11 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
@@ -2880,13 +2011,11 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServerInternalErrorExceptionResponse = async (
@@ -2895,13 +2024,11 @@ const deserializeAws_json1_1ServerInternalErrorExceptionResponse = async (
 ): Promise<ServerInternalErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServerInternalErrorException(body, context);
-  const contents: ServerInternalErrorException = {
-    name: "ServerInternalErrorException",
-    $fault: "server",
+  const exception = new ServerInternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AgentIds = (input: string[], context: __SerdeContext): any => {

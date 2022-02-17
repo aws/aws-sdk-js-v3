@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -12,10 +13,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { ActivateGatewayCommandInput, ActivateGatewayCommandOutput } from "../commands/ActivateGatewayCommand";
@@ -478,6 +477,7 @@ import {
   VolumeRecoveryPointInfo,
   VTLDevice,
 } from "../models/models_0";
+import { StorageGatewayServiceException as __BaseException } from "../models/StorageGatewayServiceException";
 
 export const serializeAws_json1_1ActivateGatewayCommand = async (
   input: ActivateGatewayCommandInput,
@@ -1674,41 +1674,25 @@ const deserializeAws_json1_1ActivateGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AddCacheCommand = async (
@@ -1736,41 +1720,25 @@ const deserializeAws_json1_1AddCacheCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AddTagsToResourceCommand = async (
@@ -1798,41 +1766,25 @@ const deserializeAws_json1_1AddTagsToResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AddUploadBufferCommand = async (
@@ -1860,41 +1812,25 @@ const deserializeAws_json1_1AddUploadBufferCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AddWorkingStorageCommand = async (
@@ -1922,41 +1858,25 @@ const deserializeAws_json1_1AddWorkingStorageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AssignTapePoolCommand = async (
@@ -1984,41 +1904,25 @@ const deserializeAws_json1_1AssignTapePoolCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AssociateFileSystemCommand = async (
@@ -2046,41 +1950,25 @@ const deserializeAws_json1_1AssociateFileSystemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AttachVolumeCommand = async (
@@ -2108,41 +1996,25 @@ const deserializeAws_json1_1AttachVolumeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CancelArchivalCommand = async (
@@ -2170,41 +2042,25 @@ const deserializeAws_json1_1CancelArchivalCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CancelRetrievalCommand = async (
@@ -2232,41 +2088,25 @@ const deserializeAws_json1_1CancelRetrievalCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateCachediSCSIVolumeCommand = async (
@@ -2294,41 +2134,25 @@ const deserializeAws_json1_1CreateCachediSCSIVolumeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateNFSFileShareCommand = async (
@@ -2356,41 +2180,25 @@ const deserializeAws_json1_1CreateNFSFileShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateSMBFileShareCommand = async (
@@ -2418,41 +2226,25 @@ const deserializeAws_json1_1CreateSMBFileShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateSnapshotCommand = async (
@@ -2480,49 +2272,28 @@ const deserializeAws_json1_1CreateSnapshotCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.storagegateway#ServiceUnavailableError":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand = async (
@@ -2550,49 +2321,28 @@ const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.storagegateway#ServiceUnavailableError":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateStorediSCSIVolumeCommand = async (
@@ -2620,41 +2370,25 @@ const deserializeAws_json1_1CreateStorediSCSIVolumeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateTapePoolCommand = async (
@@ -2682,41 +2416,25 @@ const deserializeAws_json1_1CreateTapePoolCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateTapesCommand = async (
@@ -2744,41 +2462,25 @@ const deserializeAws_json1_1CreateTapesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateTapeWithBarcodeCommand = async (
@@ -2806,41 +2508,25 @@ const deserializeAws_json1_1CreateTapeWithBarcodeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand = async (
@@ -2868,41 +2554,25 @@ const deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteBandwidthRateLimitCommand = async (
@@ -2930,41 +2600,25 @@ const deserializeAws_json1_1DeleteBandwidthRateLimitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteChapCredentialsCommand = async (
@@ -2992,41 +2646,25 @@ const deserializeAws_json1_1DeleteChapCredentialsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteFileShareCommand = async (
@@ -3054,41 +2692,25 @@ const deserializeAws_json1_1DeleteFileShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteGatewayCommand = async (
@@ -3116,41 +2738,25 @@ const deserializeAws_json1_1DeleteGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteSnapshotScheduleCommand = async (
@@ -3178,41 +2784,25 @@ const deserializeAws_json1_1DeleteSnapshotScheduleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteTapeCommand = async (
@@ -3240,41 +2830,25 @@ const deserializeAws_json1_1DeleteTapeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteTapeArchiveCommand = async (
@@ -3302,41 +2876,25 @@ const deserializeAws_json1_1DeleteTapeArchiveCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteTapePoolCommand = async (
@@ -3364,41 +2922,25 @@ const deserializeAws_json1_1DeleteTapePoolCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteVolumeCommand = async (
@@ -3426,41 +2968,25 @@ const deserializeAws_json1_1DeleteVolumeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand = async (
@@ -3488,41 +3014,25 @@ const deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeBandwidthRateLimitCommand = async (
@@ -3550,41 +3060,25 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommand = async (
@@ -3612,41 +3106,25 @@ const deserializeAws_json1_1DescribeBandwidthRateLimitScheduleCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeCacheCommand = async (
@@ -3674,41 +3152,25 @@ const deserializeAws_json1_1DescribeCacheCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeCachediSCSIVolumesCommand = async (
@@ -3736,41 +3198,25 @@ const deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeChapCredentialsCommand = async (
@@ -3798,41 +3244,25 @@ const deserializeAws_json1_1DescribeChapCredentialsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeFileSystemAssociationsCommand = async (
@@ -3860,41 +3290,25 @@ const deserializeAws_json1_1DescribeFileSystemAssociationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeGatewayInformationCommand = async (
@@ -3922,41 +3336,25 @@ const deserializeAws_json1_1DescribeGatewayInformationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeMaintenanceStartTimeCommand = async (
@@ -3984,41 +3382,25 @@ const deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeNFSFileSharesCommand = async (
@@ -4046,41 +3428,25 @@ const deserializeAws_json1_1DescribeNFSFileSharesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeSMBFileSharesCommand = async (
@@ -4108,41 +3474,25 @@ const deserializeAws_json1_1DescribeSMBFileSharesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeSMBSettingsCommand = async (
@@ -4170,41 +3520,25 @@ const deserializeAws_json1_1DescribeSMBSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeSnapshotScheduleCommand = async (
@@ -4232,41 +3566,25 @@ const deserializeAws_json1_1DescribeSnapshotScheduleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeStorediSCSIVolumesCommand = async (
@@ -4294,41 +3612,25 @@ const deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeTapeArchivesCommand = async (
@@ -4356,41 +3658,25 @@ const deserializeAws_json1_1DescribeTapeArchivesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeTapeRecoveryPointsCommand = async (
@@ -4418,41 +3704,25 @@ const deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeTapesCommand = async (
@@ -4480,41 +3750,25 @@ const deserializeAws_json1_1DescribeTapesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeUploadBufferCommand = async (
@@ -4542,41 +3796,25 @@ const deserializeAws_json1_1DescribeUploadBufferCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeVTLDevicesCommand = async (
@@ -4604,41 +3842,25 @@ const deserializeAws_json1_1DescribeVTLDevicesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeWorkingStorageCommand = async (
@@ -4666,41 +3888,25 @@ const deserializeAws_json1_1DescribeWorkingStorageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetachVolumeCommand = async (
@@ -4728,41 +3934,25 @@ const deserializeAws_json1_1DetachVolumeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisableGatewayCommand = async (
@@ -4790,41 +3980,25 @@ const deserializeAws_json1_1DisableGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateFileSystemCommand = async (
@@ -4852,41 +4026,25 @@ const deserializeAws_json1_1DisassociateFileSystemCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1JoinDomainCommand = async (
@@ -4914,41 +4072,25 @@ const deserializeAws_json1_1JoinDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommand = async (
@@ -4976,41 +4118,25 @@ const deserializeAws_json1_1ListAutomaticTapeCreationPoliciesCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListFileSharesCommand = async (
@@ -5038,41 +4164,25 @@ const deserializeAws_json1_1ListFileSharesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListFileSystemAssociationsCommand = async (
@@ -5100,41 +4210,25 @@ const deserializeAws_json1_1ListFileSystemAssociationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListGatewaysCommand = async (
@@ -5162,41 +4256,25 @@ const deserializeAws_json1_1ListGatewaysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListLocalDisksCommand = async (
@@ -5224,41 +4302,25 @@ const deserializeAws_json1_1ListLocalDisksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForResourceCommand = async (
@@ -5286,41 +4348,25 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTapePoolsCommand = async (
@@ -5348,41 +4394,25 @@ const deserializeAws_json1_1ListTapePoolsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTapesCommand = async (
@@ -5410,41 +4440,25 @@ const deserializeAws_json1_1ListTapesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListVolumeInitiatorsCommand = async (
@@ -5472,41 +4486,25 @@ const deserializeAws_json1_1ListVolumeInitiatorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListVolumeRecoveryPointsCommand = async (
@@ -5534,41 +4532,25 @@ const deserializeAws_json1_1ListVolumeRecoveryPointsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListVolumesCommand = async (
@@ -5596,41 +4578,25 @@ const deserializeAws_json1_1ListVolumesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1NotifyWhenUploadedCommand = async (
@@ -5658,41 +4624,25 @@ const deserializeAws_json1_1NotifyWhenUploadedCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RefreshCacheCommand = async (
@@ -5720,41 +4670,25 @@ const deserializeAws_json1_1RefreshCacheCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
@@ -5782,41 +4716,25 @@ const deserializeAws_json1_1RemoveTagsFromResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ResetCacheCommand = async (
@@ -5844,41 +4762,25 @@ const deserializeAws_json1_1ResetCacheCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RetrieveTapeArchiveCommand = async (
@@ -5906,41 +4808,25 @@ const deserializeAws_json1_1RetrieveTapeArchiveCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RetrieveTapeRecoveryPointCommand = async (
@@ -5968,41 +4854,25 @@ const deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1SetLocalConsolePasswordCommand = async (
@@ -6030,41 +4900,25 @@ const deserializeAws_json1_1SetLocalConsolePasswordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1SetSMBGuestPasswordCommand = async (
@@ -6092,41 +4946,25 @@ const deserializeAws_json1_1SetSMBGuestPasswordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ShutdownGatewayCommand = async (
@@ -6154,41 +4992,25 @@ const deserializeAws_json1_1ShutdownGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartAvailabilityMonitorTestCommand = async (
@@ -6216,41 +5038,25 @@ const deserializeAws_json1_1StartAvailabilityMonitorTestCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartGatewayCommand = async (
@@ -6278,41 +5084,25 @@ const deserializeAws_json1_1StartGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommand = async (
@@ -6340,41 +5130,25 @@ const deserializeAws_json1_1UpdateAutomaticTapeCreationPolicyCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateBandwidthRateLimitCommand = async (
@@ -6402,41 +5176,25 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand = async (
@@ -6464,41 +5222,25 @@ const deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateChapCredentialsCommand = async (
@@ -6526,41 +5268,25 @@ const deserializeAws_json1_1UpdateChapCredentialsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateFileSystemAssociationCommand = async (
@@ -6588,41 +5314,25 @@ const deserializeAws_json1_1UpdateFileSystemAssociationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateGatewayInformationCommand = async (
@@ -6650,41 +5360,25 @@ const deserializeAws_json1_1UpdateGatewayInformationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateGatewaySoftwareNowCommand = async (
@@ -6712,41 +5406,25 @@ const deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateMaintenanceStartTimeCommand = async (
@@ -6774,41 +5452,25 @@ const deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateNFSFileShareCommand = async (
@@ -6836,41 +5498,25 @@ const deserializeAws_json1_1UpdateNFSFileShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateSMBFileShareCommand = async (
@@ -6898,41 +5544,25 @@ const deserializeAws_json1_1UpdateSMBFileShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
@@ -6960,41 +5590,25 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateSMBLocalGroupsCommand = async (
@@ -7022,41 +5636,25 @@ const deserializeAws_json1_1UpdateSMBLocalGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
@@ -7084,41 +5682,25 @@ const deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateSnapshotScheduleCommand = async (
@@ -7146,41 +5728,25 @@ const deserializeAws_json1_1UpdateSnapshotScheduleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateVTLDeviceTypeCommand = async (
@@ -7208,41 +5774,25 @@ const deserializeAws_json1_1UpdateVTLDeviceTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerError":
     case "com.amazonaws.storagegateway#InternalServerError":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
     case "InvalidGatewayRequestException":
     case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1InternalServerErrorResponse = async (
@@ -7251,13 +5801,11 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
 ): Promise<InternalServerError> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalServerError(body, context);
-  const contents: InternalServerError = {
-    name: "InternalServerError",
-    $fault: "server",
+  const exception = new InternalServerError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidGatewayRequestExceptionResponse = async (
@@ -7266,13 +5814,11 @@ const deserializeAws_json1_1InvalidGatewayRequestExceptionResponse = async (
 ): Promise<InvalidGatewayRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidGatewayRequestException(body, context);
-  const contents: InvalidGatewayRequestException = {
-    name: "InvalidGatewayRequestException",
-    $fault: "client",
+  const exception = new InvalidGatewayRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
@@ -7281,13 +5827,11 @@ const deserializeAws_json1_1ServiceUnavailableErrorResponse = async (
 ): Promise<ServiceUnavailableError> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceUnavailableError(body, context);
-  const contents: ServiceUnavailableError = {
-    name: "ServiceUnavailableError",
-    $fault: "server",
+  const exception = new ServiceUnavailableError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1ActivateGatewayInput = (input: ActivateGatewayInput, context: __SerdeContext): any => {

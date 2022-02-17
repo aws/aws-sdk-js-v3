@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ElasticLoadBalancingV2ServiceException as __BaseException } from "./ElasticLoadBalancingV2ServiceException";
 
 export enum AuthenticateCognitoActionConditionalBehaviorEnum {
   ALLOW = "allow",
@@ -514,28 +517,64 @@ export namespace AddListenerCertificatesOutput {
 /**
  * <p>The specified certificate does not exist.</p>
  */
-export interface CertificateNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CertificateNotFoundException";
-  $fault: "client";
+export class CertificateNotFoundException extends __BaseException {
+  readonly name: "CertificateNotFoundException" = "CertificateNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateNotFoundException, __BaseException>) {
+    super({
+      name: "CertificateNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified listener does not exist.</p>
  */
-export interface ListenerNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ListenerNotFoundException";
-  $fault: "client";
+export class ListenerNotFoundException extends __BaseException {
+  readonly name: "ListenerNotFoundException" = "ListenerNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ListenerNotFoundException, __BaseException>) {
+    super({
+      name: "ListenerNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ListenerNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of certificates per load balancer.</p>
  */
-export interface TooManyCertificatesException extends __SmithyException, $MetadataBearer {
-  name: "TooManyCertificatesException";
-  $fault: "client";
+export class TooManyCertificatesException extends __BaseException {
+  readonly name: "TooManyCertificatesException" = "TooManyCertificatesException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCertificatesException, __BaseException>) {
+    super({
+      name: "TooManyCertificatesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCertificatesException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -597,64 +636,148 @@ export namespace AddTagsOutput {
 /**
  * <p>A tag key was specified more than once.</p>
  */
-export interface DuplicateTagKeysException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateTagKeysException";
-  $fault: "client";
+export class DuplicateTagKeysException extends __BaseException {
+  readonly name: "DuplicateTagKeysException" = "DuplicateTagKeysException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateTagKeysException, __BaseException>) {
+    super({
+      name: "DuplicateTagKeysException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateTagKeysException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified load balancer does not exist.</p>
  */
-export interface LoadBalancerNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "LoadBalancerNotFoundException";
-  $fault: "client";
+export class LoadBalancerNotFoundException extends __BaseException {
+  readonly name: "LoadBalancerNotFoundException" = "LoadBalancerNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LoadBalancerNotFoundException, __BaseException>) {
+    super({
+      name: "LoadBalancerNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LoadBalancerNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified rule does not exist.</p>
  */
-export interface RuleNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "RuleNotFoundException";
-  $fault: "client";
+export class RuleNotFoundException extends __BaseException {
+  readonly name: "RuleNotFoundException" = "RuleNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RuleNotFoundException, __BaseException>) {
+    super({
+      name: "RuleNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuleNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified target group does not exist.</p>
  */
-export interface TargetGroupNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TargetGroupNotFoundException";
-  $fault: "client";
+export class TargetGroupNotFoundException extends __BaseException {
+  readonly name: "TargetGroupNotFoundException" = "TargetGroupNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetGroupNotFoundException, __BaseException>) {
+    super({
+      name: "TargetGroupNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetGroupNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of tags per load balancer.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified allocation ID does not exist.</p>
  */
-export interface AllocationIdNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "AllocationIdNotFoundException";
-  $fault: "client";
+export class AllocationIdNotFoundException extends __BaseException {
+  readonly name: "AllocationIdNotFoundException" = "AllocationIdNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AllocationIdNotFoundException, __BaseException>) {
+    super({
+      name: "AllocationIdNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AllocationIdNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified ALPN policy is not supported.</p>
  */
-export interface ALPNPolicyNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "ALPNPolicyNotSupportedException";
-  $fault: "client";
+export class ALPNPolicyNotSupportedException extends __BaseException {
+  readonly name: "ALPNPolicyNotSupportedException" = "ALPNPolicyNotSupportedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ALPNPolicyNotSupportedException, __BaseException>) {
+    super({
+      name: "ALPNPolicyNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ALPNPolicyNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -732,10 +855,22 @@ export namespace AvailabilityZone {
 /**
  * <p>The specified Availability Zone is not supported.</p>
  */
-export interface AvailabilityZoneNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "AvailabilityZoneNotSupportedException";
-  $fault: "client";
+export class AvailabilityZoneNotSupportedException extends __BaseException {
+  readonly name: "AvailabilityZoneNotSupportedException" = "AvailabilityZoneNotSupportedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AvailabilityZoneNotSupportedException, __BaseException>) {
+    super({
+      name: "AvailabilityZoneNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AvailabilityZoneNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -930,92 +1065,212 @@ export namespace CreateListenerOutput {
 /**
  * <p>A listener with the specified port already exists.</p>
  */
-export interface DuplicateListenerException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateListenerException";
-  $fault: "client";
+export class DuplicateListenerException extends __BaseException {
+  readonly name: "DuplicateListenerException" = "DuplicateListenerException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateListenerException, __BaseException>) {
+    super({
+      name: "DuplicateListenerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateListenerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified configuration is not valid with this protocol.</p>
  */
-export interface IncompatibleProtocolsException extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleProtocolsException";
-  $fault: "client";
+export class IncompatibleProtocolsException extends __BaseException {
+  readonly name: "IncompatibleProtocolsException" = "IncompatibleProtocolsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleProtocolsException, __BaseException>) {
+    super({
+      name: "IncompatibleProtocolsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleProtocolsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested configuration is not valid.</p>
  */
-export interface InvalidConfigurationRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConfigurationRequestException";
-  $fault: "client";
+export class InvalidConfigurationRequestException extends __BaseException {
+  readonly name: "InvalidConfigurationRequestException" = "InvalidConfigurationRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidConfigurationRequestException, __BaseException>) {
+    super({
+      name: "InvalidConfigurationRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConfigurationRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested action is not valid.</p>
  */
-export interface InvalidLoadBalancerActionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLoadBalancerActionException";
-  $fault: "client";
+export class InvalidLoadBalancerActionException extends __BaseException {
+  readonly name: "InvalidLoadBalancerActionException" = "InvalidLoadBalancerActionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLoadBalancerActionException, __BaseException>) {
+    super({
+      name: "InvalidLoadBalancerActionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLoadBalancerActionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified SSL policy does not exist.</p>
  */
-export interface SSLPolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "SSLPolicyNotFoundException";
-  $fault: "client";
+export class SSLPolicyNotFoundException extends __BaseException {
+  readonly name: "SSLPolicyNotFoundException" = "SSLPolicyNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SSLPolicyNotFoundException, __BaseException>) {
+    super({
+      name: "SSLPolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SSLPolicyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of load balancers per target group.</p>
  */
-export interface TargetGroupAssociationLimitException extends __SmithyException, $MetadataBearer {
-  name: "TargetGroupAssociationLimitException";
-  $fault: "client";
+export class TargetGroupAssociationLimitException extends __BaseException {
+  readonly name: "TargetGroupAssociationLimitException" = "TargetGroupAssociationLimitException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetGroupAssociationLimitException, __BaseException>) {
+    super({
+      name: "TargetGroupAssociationLimitException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetGroupAssociationLimitException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of actions per rule.</p>
  */
-export interface TooManyActionsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyActionsException";
-  $fault: "client";
+export class TooManyActionsException extends __BaseException {
+  readonly name: "TooManyActionsException" = "TooManyActionsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyActionsException, __BaseException>) {
+    super({
+      name: "TooManyActionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyActionsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of listeners per load balancer.</p>
  */
-export interface TooManyListenersException extends __SmithyException, $MetadataBearer {
-  name: "TooManyListenersException";
-  $fault: "client";
+export class TooManyListenersException extends __BaseException {
+  readonly name: "TooManyListenersException" = "TooManyListenersException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyListenersException, __BaseException>) {
+    super({
+      name: "TooManyListenersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyListenersException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of times a target can be registered with a load
  *       balancer.</p>
  */
-export interface TooManyRegistrationsForTargetIdException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRegistrationsForTargetIdException";
-  $fault: "client";
+export class TooManyRegistrationsForTargetIdException extends __BaseException {
+  readonly name: "TooManyRegistrationsForTargetIdException" = "TooManyRegistrationsForTargetIdException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRegistrationsForTargetIdException, __BaseException>) {
+    super({
+      name: "TooManyRegistrationsForTargetIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRegistrationsForTargetIdException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of targets.</p>
  */
-export interface TooManyTargetsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTargetsException";
-  $fault: "client";
+export class TooManyTargetsException extends __BaseException {
+  readonly name: "TooManyTargetsException" = "TooManyTargetsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTargetsException, __BaseException>) {
+    super({
+      name: "TooManyTargetsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTargetsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1023,19 +1278,44 @@ export interface TooManyTargetsException extends __SmithyException, $MetadataBea
  *       all listeners. If a target group is used by multiple actions for a load balancer, it is
  *       counted as only one use.</p>
  */
-export interface TooManyUniqueTargetGroupsPerLoadBalancerException extends __SmithyException, $MetadataBearer {
-  name: "TooManyUniqueTargetGroupsPerLoadBalancerException";
-  $fault: "client";
+export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseException {
+  readonly name: "TooManyUniqueTargetGroupsPerLoadBalancerException" =
+    "TooManyUniqueTargetGroupsPerLoadBalancerException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyUniqueTargetGroupsPerLoadBalancerException, __BaseException>) {
+    super({
+      name: "TooManyUniqueTargetGroupsPerLoadBalancerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyUniqueTargetGroupsPerLoadBalancerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified protocol is not supported.</p>
  */
-export interface UnsupportedProtocolException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedProtocolException";
-  $fault: "client";
+export class UnsupportedProtocolException extends __BaseException {
+  readonly name: "UnsupportedProtocolException" = "UnsupportedProtocolException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedProtocolException, __BaseException>) {
+    super({
+      name: "UnsupportedProtocolException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedProtocolException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum IpAddressType {
@@ -1325,74 +1605,170 @@ export namespace CreateLoadBalancerOutput {
 /**
  * <p>A load balancer with the specified name already exists.</p>
  */
-export interface DuplicateLoadBalancerNameException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateLoadBalancerNameException";
-  $fault: "client";
+export class DuplicateLoadBalancerNameException extends __BaseException {
+  readonly name: "DuplicateLoadBalancerNameException" = "DuplicateLoadBalancerNameException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateLoadBalancerNameException, __BaseException>) {
+    super({
+      name: "DuplicateLoadBalancerNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateLoadBalancerNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested scheme is not valid.</p>
  */
-export interface InvalidSchemeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSchemeException";
-  $fault: "client";
+export class InvalidSchemeException extends __BaseException {
+  readonly name: "InvalidSchemeException" = "InvalidSchemeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSchemeException, __BaseException>) {
+    super({
+      name: "InvalidSchemeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSchemeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified security group does not exist.</p>
  */
-export interface InvalidSecurityGroupException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSecurityGroupException";
-  $fault: "client";
+export class InvalidSecurityGroupException extends __BaseException {
+  readonly name: "InvalidSecurityGroupException" = "InvalidSecurityGroupException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSecurityGroupException, __BaseException>) {
+    super({
+      name: "InvalidSecurityGroupException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSecurityGroupException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified subnet is out of available addresses.</p>
  */
-export interface InvalidSubnetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnetException";
-  $fault: "client";
+export class InvalidSubnetException extends __BaseException {
+  readonly name: "InvalidSubnetException" = "InvalidSubnetException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnetException, __BaseException>) {
+    super({
+      name: "InvalidSubnetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnetException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This operation is not allowed.</p>
  */
-export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedException";
-  $fault: "client";
+export class OperationNotPermittedException extends __BaseException {
+  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
+    super({
+      name: "OperationNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A specified resource is in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified subnet does not exist.</p>
  */
-export interface SubnetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "SubnetNotFoundException";
-  $fault: "client";
+export class SubnetNotFoundException extends __BaseException {
+  readonly name: "SubnetNotFoundException" = "SubnetNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetNotFoundException, __BaseException>) {
+    super({
+      name: "SubnetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of load balancers for your Amazon Web Services
  *       account.</p>
  */
-export interface TooManyLoadBalancersException extends __SmithyException, $MetadataBearer {
-  name: "TooManyLoadBalancersException";
-  $fault: "client";
+export class TooManyLoadBalancersException extends __BaseException {
+  readonly name: "TooManyLoadBalancersException" = "TooManyLoadBalancersException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyLoadBalancersException, __BaseException>) {
+    super({
+      name: "TooManyLoadBalancersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyLoadBalancersException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1822,29 +2198,65 @@ export namespace CreateRuleOutput {
 /**
  * <p>The specified priority is in use.</p>
  */
-export interface PriorityInUseException extends __SmithyException, $MetadataBearer {
-  name: "PriorityInUseException";
-  $fault: "client";
+export class PriorityInUseException extends __BaseException {
+  readonly name: "PriorityInUseException" = "PriorityInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PriorityInUseException, __BaseException>) {
+    super({
+      name: "PriorityInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PriorityInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of rules per load balancer.</p>
  */
-export interface TooManyRulesException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRulesException";
-  $fault: "client";
+export class TooManyRulesException extends __BaseException {
+  readonly name: "TooManyRulesException" = "TooManyRulesException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRulesException, __BaseException>) {
+    super({
+      name: "TooManyRulesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRulesException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You've reached the limit on the number of target groups for your Amazon Web Services
  *       account.</p>
  */
-export interface TooManyTargetGroupsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTargetGroupsException";
-  $fault: "client";
+export class TooManyTargetGroupsException extends __BaseException {
+  readonly name: "TooManyTargetGroupsException" = "TooManyTargetGroupsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTargetGroupsException, __BaseException>) {
+    super({
+      name: "TooManyTargetGroupsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTargetGroupsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum TargetGroupIpAddressTypeEnum {
@@ -2190,10 +2602,22 @@ export namespace CreateTargetGroupOutput {
 /**
  * <p>A target group with the specified name already exists.</p>
  */
-export interface DuplicateTargetGroupNameException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateTargetGroupNameException";
-  $fault: "client";
+export class DuplicateTargetGroupNameException extends __BaseException {
+  readonly name: "DuplicateTargetGroupNameException" = "DuplicateTargetGroupNameException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateTargetGroupNameException, __BaseException>) {
+    super({
+      name: "DuplicateTargetGroupNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateTargetGroupNameException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteListenerInput {
@@ -2388,10 +2812,22 @@ export namespace DeregisterTargetsOutput {
  * <p>The specified target does not exist, is not in the same VPC as the target group, or has an
  *       unsupported instance type.</p>
  */
-export interface InvalidTargetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTargetException";
-  $fault: "client";
+export class InvalidTargetException extends __BaseException {
+  readonly name: "InvalidTargetException" = "InvalidTargetException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTargetException, __BaseException>) {
+    super({
+      name: "InvalidTargetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeAccountLimitsInput {
@@ -3478,10 +3914,22 @@ export namespace DescribeTargetHealthOutput {
  * <p>The health of the specified targets could not be retrieved due to an internal
  *       error.</p>
  */
-export interface HealthUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "HealthUnavailableException";
-  $fault: "server";
+export class HealthUnavailableException extends __BaseException {
+  readonly name: "HealthUnavailableException" = "HealthUnavailableException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HealthUnavailableException, __BaseException>) {
+    super({
+      name: "HealthUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HealthUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ModifyListenerInput {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { FMSServiceException as __BaseException } from "./FMSServiceException";
 
 export enum AccountRoleStatus {
   Creating = "CREATING",
@@ -169,19 +172,43 @@ export namespace AssociateAdminAccountRequest {
  * <p>The operation failed because of a system problem, even though the request was valid. Retry
  *       your request.</p>
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "client";
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The parameters of the request were invalid.</p>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -191,10 +218,22 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
  *   that's disabled by default, and that you need to enable for the Firewall Manager
  *   administrator account and for Organizations before you can access it.</p>
  */
-export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -203,19 +242,43 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
  *       see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html">Firewall
  *         Manager Limits</a> in the <i>WAF Developer Guide</i>.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -967,10 +1030,22 @@ export namespace GetPolicyResponse {
 /**
  * <p>The value of the <code>Type</code> parameter is invalid.</p>
  */
-export interface InvalidTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTypeException";
-  $fault: "client";
+export class InvalidTypeException extends __BaseException {
+  readonly name: "InvalidTypeException" = "InvalidTypeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTypeException, __BaseException>) {
+    super({
+      name: "InvalidTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTypeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetProtectionStatusRequest {

@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -11,10 +12,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -215,6 +214,7 @@ import {
   UpdateVirtualInterfaceAttributesCommandInput,
   UpdateVirtualInterfaceAttributesCommandOutput,
 } from "../commands/UpdateVirtualInterfaceAttributesCommand";
+import { DirectConnectServiceException as __BaseException } from "../models/DirectConnectServiceException";
 import {
   AcceptDirectConnectGatewayAssociationProposalRequest,
   AcceptDirectConnectGatewayAssociationProposalResult,
@@ -1192,41 +1192,25 @@ const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AllocateConnectionOnInterconnectCommand = async (
@@ -1254,41 +1238,25 @@ const deserializeAws_json1_1AllocateConnectionOnInterconnectCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AllocateHostedConnectionCommand = async (
@@ -1316,57 +1284,31 @@ const deserializeAws_json1_1AllocateHostedConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand = async (
@@ -1394,57 +1336,31 @@ const deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand = async (
@@ -1472,57 +1388,31 @@ const deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand = async (
@@ -1550,57 +1440,31 @@ const deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AssociateConnectionWithLagCommand = async (
@@ -1628,41 +1492,25 @@ const deserializeAws_json1_1AssociateConnectionWithLagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AssociateHostedConnectionCommand = async (
@@ -1690,41 +1538,25 @@ const deserializeAws_json1_1AssociateHostedConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AssociateMacSecKeyCommand = async (
@@ -1752,41 +1584,25 @@ const deserializeAws_json1_1AssociateMacSecKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1AssociateVirtualInterfaceCommand = async (
@@ -1814,41 +1630,25 @@ const deserializeAws_json1_1AssociateVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ConfirmConnectionCommand = async (
@@ -1876,41 +1676,25 @@ const deserializeAws_json1_1ConfirmConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ConfirmCustomerAgreementCommand = async (
@@ -1938,41 +1722,25 @@ const deserializeAws_json1_1ConfirmCustomerAgreementCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand = async (
@@ -2000,41 +1768,25 @@ const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand = async (
@@ -2062,41 +1814,25 @@ const deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand = async (
@@ -2124,41 +1860,25 @@ const deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateBGPPeerCommand = async (
@@ -2186,41 +1906,25 @@ const deserializeAws_json1_1CreateBGPPeerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateConnectionCommand = async (
@@ -2248,57 +1952,31 @@ const deserializeAws_json1_1CreateConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateDirectConnectGatewayCommand = async (
@@ -2326,41 +2004,25 @@ const deserializeAws_json1_1CreateDirectConnectGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand = async (
@@ -2388,41 +2050,25 @@ const deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand = async (
@@ -2450,41 +2096,25 @@ const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateInterconnectCommand = async (
@@ -2512,57 +2142,31 @@ const deserializeAws_json1_1CreateInterconnectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateLagCommand = async (
@@ -2590,57 +2194,31 @@ const deserializeAws_json1_1CreateLagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand = async (
@@ -2668,57 +2246,31 @@ const deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreatePublicVirtualInterfaceCommand = async (
@@ -2746,57 +2298,31 @@ const deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateTransitVirtualInterfaceCommand = async (
@@ -2824,57 +2350,31 @@ const deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteBGPPeerCommand = async (
@@ -2902,41 +2402,25 @@ const deserializeAws_json1_1DeleteBGPPeerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteConnectionCommand = async (
@@ -2964,41 +2448,25 @@ const deserializeAws_json1_1DeleteConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteDirectConnectGatewayCommand = async (
@@ -3026,41 +2494,25 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand = async (
@@ -3088,41 +2540,25 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand = async (
@@ -3150,41 +2586,25 @@ const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteInterconnectCommand = async (
@@ -3212,41 +2632,25 @@ const deserializeAws_json1_1DeleteInterconnectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteLagCommand = async (
@@ -3274,41 +2678,25 @@ const deserializeAws_json1_1DeleteLagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteVirtualInterfaceCommand = async (
@@ -3336,41 +2724,25 @@ const deserializeAws_json1_1DeleteVirtualInterfaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeConnectionLoaCommand = async (
@@ -3398,41 +2770,25 @@ const deserializeAws_json1_1DescribeConnectionLoaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeConnectionsCommand = async (
@@ -3460,41 +2816,25 @@ const deserializeAws_json1_1DescribeConnectionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand = async (
@@ -3522,41 +2862,25 @@ const deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeCustomerMetadataCommand = async (
@@ -3584,41 +2908,25 @@ const deserializeAws_json1_1DescribeCustomerMetadataCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand = async (
@@ -3646,41 +2954,25 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsComm
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand = async (
@@ -3708,41 +3000,25 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommandError
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand = async (
@@ -3770,41 +3046,25 @@ const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDirectConnectGatewaysCommand = async (
@@ -3832,41 +3092,25 @@ const deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeHostedConnectionsCommand = async (
@@ -3894,41 +3138,25 @@ const deserializeAws_json1_1DescribeHostedConnectionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeInterconnectLoaCommand = async (
@@ -3956,41 +3184,25 @@ const deserializeAws_json1_1DescribeInterconnectLoaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeInterconnectsCommand = async (
@@ -4018,41 +3230,25 @@ const deserializeAws_json1_1DescribeInterconnectsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeLagsCommand = async (
@@ -4080,41 +3276,25 @@ const deserializeAws_json1_1DescribeLagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeLoaCommand = async (
@@ -4142,41 +3322,25 @@ const deserializeAws_json1_1DescribeLoaCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeLocationsCommand = async (
@@ -4204,41 +3368,25 @@ const deserializeAws_json1_1DescribeLocationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeRouterConfigurationCommand = async (
@@ -4266,41 +3414,25 @@ const deserializeAws_json1_1DescribeRouterConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeTagsCommand = async (
@@ -4328,41 +3460,25 @@ const deserializeAws_json1_1DescribeTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeVirtualGatewaysCommand = async (
@@ -4390,41 +3506,25 @@ const deserializeAws_json1_1DescribeVirtualGatewaysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeVirtualInterfacesCommand = async (
@@ -4452,41 +3552,25 @@ const deserializeAws_json1_1DescribeVirtualInterfacesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateConnectionFromLagCommand = async (
@@ -4514,41 +3598,25 @@ const deserializeAws_json1_1DisassociateConnectionFromLagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateMacSecKeyCommand = async (
@@ -4576,41 +3644,25 @@ const deserializeAws_json1_1DisassociateMacSecKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = async (
@@ -4638,41 +3690,25 @@ const deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartBgpFailoverTestCommand = async (
@@ -4700,41 +3736,25 @@ const deserializeAws_json1_1StartBgpFailoverTestCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopBgpFailoverTestCommand = async (
@@ -4762,41 +3782,25 @@ const deserializeAws_json1_1StopBgpFailoverTestCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourceCommand = async (
@@ -4824,57 +3828,31 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.directconnect#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourceCommand = async (
@@ -4902,41 +3880,25 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateConnectionCommand = async (
@@ -4964,41 +3926,25 @@ const deserializeAws_json1_1UpdateConnectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateDirectConnectGatewayCommand = async (
@@ -5026,41 +3972,25 @@ const deserializeAws_json1_1UpdateDirectConnectGatewayCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand = async (
@@ -5088,41 +4018,25 @@ const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateLagCommand = async (
@@ -5150,41 +4064,25 @@ const deserializeAws_json1_1UpdateLagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand = async (
@@ -5212,41 +4110,25 @@ const deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DirectConnectClientException":
     case "com.amazonaws.directconnect#DirectConnectClientException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context);
     case "DirectConnectServerException":
     case "com.amazonaws.directconnect#DirectConnectServerException":
-      response = {
-        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1DirectConnectClientExceptionResponse = async (
@@ -5255,13 +4137,11 @@ const deserializeAws_json1_1DirectConnectClientExceptionResponse = async (
 ): Promise<DirectConnectClientException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DirectConnectClientException(body, context);
-  const contents: DirectConnectClientException = {
-    name: "DirectConnectClientException",
-    $fault: "client",
+  const exception = new DirectConnectClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DirectConnectServerExceptionResponse = async (
@@ -5270,13 +4150,11 @@ const deserializeAws_json1_1DirectConnectServerExceptionResponse = async (
 ): Promise<DirectConnectServerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DirectConnectServerException(body, context);
-  const contents: DirectConnectServerException = {
-    name: "DirectConnectServerException",
-    $fault: "server",
+  const exception = new DirectConnectServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicateTagKeysExceptionResponse = async (
@@ -5285,13 +4163,11 @@ const deserializeAws_json1_1DuplicateTagKeysExceptionResponse = async (
 ): Promise<DuplicateTagKeysException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateTagKeysException(body, context);
-  const contents: DuplicateTagKeysException = {
-    name: "DuplicateTagKeysException",
-    $fault: "client",
+  const exception = new DuplicateTagKeysException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
@@ -5300,13 +4176,11 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
-  const contents: TooManyTagsException = {
-    name: "TooManyTagsException",
-    $fault: "client",
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalRequest = (

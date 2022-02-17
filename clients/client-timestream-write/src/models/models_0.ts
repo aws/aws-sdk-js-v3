@@ -1,21 +1,48 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { TimestreamWriteServiceException as __BaseException } from "./TimestreamWriteServiceException";
 
 /**
  * <p>You are not authorized to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Timestream was unable to process this request because it contains resource that already exists.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -148,46 +175,106 @@ export namespace CreateDatabaseResponse {
 /**
  * <p> Timestream was unable to fully process this request because of an internal server error.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested endpoint was invalid.</p>
  */
-export interface InvalidEndpointException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEndpointException";
-  $fault: "client";
+export class InvalidEndpointException extends __BaseException {
+  readonly name: "InvalidEndpointException" = "InvalidEndpointException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEndpointException, __BaseException>) {
+    super({
+      name: "InvalidEndpointException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEndpointException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> Instance quota of resource exceeded for this account.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> Too many requests were made by a user exceeding service quotas. The request was throttled.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> Invalid or malformed request.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum S3EncryptionOption {
@@ -424,10 +511,22 @@ export namespace CreateTableResponse {
 /**
  * <p>The operation tried to access a nonexistent resource. The resource might not be specified correctly, or its status might not be ACTIVE.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteDatabaseRequest {
@@ -1040,11 +1139,24 @@ export namespace RejectedRecord {
  *          For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Quotas</a> in the Timestream Developer Guide.
  *          </p>
  */
-export interface RejectedRecordsException extends __SmithyException, $MetadataBearer {
-  name: "RejectedRecordsException";
-  $fault: "client";
+export class RejectedRecordsException extends __BaseException {
+  readonly name: "RejectedRecordsException" = "RejectedRecordsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   RejectedRecords?: RejectedRecord[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RejectedRecordsException, __BaseException>) {
+    super({
+      name: "RejectedRecordsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RejectedRecordsException.prototype);
+    this.Message = opts.Message;
+    this.RejectedRecords = opts.RejectedRecords;
+  }
 }
 
 export interface TagResourceRequest {

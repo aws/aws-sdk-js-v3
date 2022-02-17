@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -9,10 +10,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -335,6 +334,7 @@ import {
   UpdateThingRuntimeConfigurationCommandInput,
   UpdateThingRuntimeConfigurationCommandOutput,
 } from "../commands/UpdateThingRuntimeConfigurationCommand";
+import { GreengrassServiceException as __BaseException } from "../models/GreengrassServiceException";
 import {
   BadRequestException,
   BulkDeployment,
@@ -3445,41 +3445,25 @@ const deserializeAws_restJson1AssociateRoleToGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1AssociateServiceRoleToAccountCommand = async (
@@ -3508,41 +3492,25 @@ const deserializeAws_restJson1AssociateServiceRoleToAccountCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateConnectorDefinitionCommand = async (
@@ -3595,33 +3563,22 @@ const deserializeAws_restJson1CreateConnectorDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateConnectorDefinitionVersionCommand = async (
@@ -3662,33 +3619,22 @@ const deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateCoreDefinitionCommand = async (
@@ -3741,33 +3687,22 @@ const deserializeAws_restJson1CreateCoreDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateCoreDefinitionVersionCommand = async (
@@ -3808,33 +3743,22 @@ const deserializeAws_restJson1CreateCoreDefinitionVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateDeploymentCommand = async (
@@ -3867,33 +3791,22 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateDeviceDefinitionCommand = async (
@@ -3946,33 +3859,22 @@ const deserializeAws_restJson1CreateDeviceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateDeviceDefinitionVersionCommand = async (
@@ -4013,33 +3915,22 @@ const deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateFunctionDefinitionCommand = async (
@@ -4092,33 +3983,22 @@ const deserializeAws_restJson1CreateFunctionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateFunctionDefinitionVersionCommand = async (
@@ -4159,33 +4039,22 @@ const deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateGroupCommand = async (
@@ -4238,33 +4107,22 @@ const deserializeAws_restJson1CreateGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateGroupCertificateAuthorityCommand = async (
@@ -4293,41 +4151,25 @@ const deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateGroupVersionCommand = async (
@@ -4368,33 +4210,22 @@ const deserializeAws_restJson1CreateGroupVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateLoggerDefinitionCommand = async (
@@ -4447,33 +4278,22 @@ const deserializeAws_restJson1CreateLoggerDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateLoggerDefinitionVersionCommand = async (
@@ -4514,33 +4334,22 @@ const deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateResourceDefinitionCommand = async (
@@ -4593,33 +4402,22 @@ const deserializeAws_restJson1CreateResourceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateResourceDefinitionVersionCommand = async (
@@ -4660,33 +4458,22 @@ const deserializeAws_restJson1CreateResourceDefinitionVersionCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateSoftwareUpdateJobCommand = async (
@@ -4723,41 +4510,25 @@ const deserializeAws_restJson1CreateSoftwareUpdateJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateSubscriptionDefinitionCommand = async (
@@ -4810,33 +4581,22 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand = async (
@@ -4877,33 +4637,22 @@ const deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteConnectorDefinitionCommand = async (
@@ -4928,33 +4677,22 @@ const deserializeAws_restJson1DeleteConnectorDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteCoreDefinitionCommand = async (
@@ -4979,33 +4717,22 @@ const deserializeAws_restJson1DeleteCoreDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteDeviceDefinitionCommand = async (
@@ -5030,33 +4757,22 @@ const deserializeAws_restJson1DeleteDeviceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteFunctionDefinitionCommand = async (
@@ -5081,33 +4797,22 @@ const deserializeAws_restJson1DeleteFunctionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteGroupCommand = async (
@@ -5132,33 +4837,22 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteLoggerDefinitionCommand = async (
@@ -5183,33 +4877,22 @@ const deserializeAws_restJson1DeleteLoggerDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteResourceDefinitionCommand = async (
@@ -5234,33 +4917,22 @@ const deserializeAws_restJson1DeleteResourceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteSubscriptionDefinitionCommand = async (
@@ -5285,33 +4957,22 @@ const deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DisassociateRoleFromGroupCommand = async (
@@ -5340,41 +5001,25 @@ const deserializeAws_restJson1DisassociateRoleFromGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommand = async (
@@ -5403,33 +5048,22 @@ const deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetAssociatedRoleCommand = async (
@@ -5462,41 +5096,25 @@ const deserializeAws_restJson1GetAssociatedRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetBulkDeploymentStatusCommand = async (
@@ -5545,33 +5163,22 @@ const deserializeAws_restJson1GetBulkDeploymentStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetConnectivityInfoCommand = async (
@@ -5604,41 +5211,25 @@ const deserializeAws_restJson1GetConnectivityInfoCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetConnectorDefinitionCommand = async (
@@ -5695,33 +5286,22 @@ const deserializeAws_restJson1GetConnectorDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetConnectorDefinitionVersionCommand = async (
@@ -5770,33 +5350,22 @@ const deserializeAws_restJson1GetConnectorDefinitionVersionCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetCoreDefinitionCommand = async (
@@ -5853,33 +5422,22 @@ const deserializeAws_restJson1GetCoreDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetCoreDefinitionVersionCommand = async (
@@ -5928,33 +5486,22 @@ const deserializeAws_restJson1GetCoreDefinitionVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetDeploymentStatusCommand = async (
@@ -5999,33 +5546,22 @@ const deserializeAws_restJson1GetDeploymentStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetDeviceDefinitionCommand = async (
@@ -6082,33 +5618,22 @@ const deserializeAws_restJson1GetDeviceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetDeviceDefinitionVersionCommand = async (
@@ -6157,33 +5682,22 @@ const deserializeAws_restJson1GetDeviceDefinitionVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetFunctionDefinitionCommand = async (
@@ -6240,33 +5754,22 @@ const deserializeAws_restJson1GetFunctionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetFunctionDefinitionVersionCommand = async (
@@ -6315,33 +5818,22 @@ const deserializeAws_restJson1GetFunctionDefinitionVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetGroupCommand = async (
@@ -6398,33 +5890,22 @@ const deserializeAws_restJson1GetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetGroupCertificateAuthorityCommand = async (
@@ -6461,41 +5942,25 @@ const deserializeAws_restJson1GetGroupCertificateAuthorityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetGroupCertificateConfigurationCommand = async (
@@ -6535,41 +6000,25 @@ const deserializeAws_restJson1GetGroupCertificateConfigurationCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetGroupVersionCommand = async (
@@ -6614,33 +6063,22 @@ const deserializeAws_restJson1GetGroupVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetLoggerDefinitionCommand = async (
@@ -6697,33 +6135,22 @@ const deserializeAws_restJson1GetLoggerDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetLoggerDefinitionVersionCommand = async (
@@ -6768,33 +6195,22 @@ const deserializeAws_restJson1GetLoggerDefinitionVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourceDefinitionCommand = async (
@@ -6851,33 +6267,22 @@ const deserializeAws_restJson1GetResourceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourceDefinitionVersionCommand = async (
@@ -6922,33 +6327,22 @@ const deserializeAws_restJson1GetResourceDefinitionVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetServiceRoleForAccountCommand = async (
@@ -6981,33 +6375,22 @@ const deserializeAws_restJson1GetServiceRoleForAccountCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetSubscriptionDefinitionCommand = async (
@@ -7064,33 +6447,22 @@ const deserializeAws_restJson1GetSubscriptionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand = async (
@@ -7139,33 +6511,22 @@ const deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetThingRuntimeConfigurationCommand = async (
@@ -7194,41 +6555,25 @@ const deserializeAws_restJson1GetThingRuntimeConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand = async (
@@ -7261,33 +6606,22 @@ const deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBulkDeploymentsCommand = async (
@@ -7320,33 +6654,22 @@ const deserializeAws_restJson1ListBulkDeploymentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListConnectorDefinitionsCommand = async (
@@ -7379,25 +6702,19 @@ const deserializeAws_restJson1ListConnectorDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListConnectorDefinitionVersionsCommand = async (
@@ -7430,33 +6747,22 @@ const deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListCoreDefinitionsCommand = async (
@@ -7489,25 +6795,19 @@ const deserializeAws_restJson1ListCoreDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListCoreDefinitionVersionsCommand = async (
@@ -7540,33 +6840,22 @@ const deserializeAws_restJson1ListCoreDefinitionVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListDeploymentsCommand = async (
@@ -7599,33 +6888,22 @@ const deserializeAws_restJson1ListDeploymentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListDeviceDefinitionsCommand = async (
@@ -7658,25 +6936,19 @@ const deserializeAws_restJson1ListDeviceDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListDeviceDefinitionVersionsCommand = async (
@@ -7709,33 +6981,22 @@ const deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListFunctionDefinitionsCommand = async (
@@ -7768,25 +7029,19 @@ const deserializeAws_restJson1ListFunctionDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListFunctionDefinitionVersionsCommand = async (
@@ -7819,33 +7074,22 @@ const deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand = async (
@@ -7877,41 +7121,25 @@ const deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListGroupsCommand = async (
@@ -7944,25 +7172,19 @@ const deserializeAws_restJson1ListGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListGroupVersionsCommand = async (
@@ -7995,33 +7217,22 @@ const deserializeAws_restJson1ListGroupVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListLoggerDefinitionsCommand = async (
@@ -8054,25 +7265,19 @@ const deserializeAws_restJson1ListLoggerDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListLoggerDefinitionVersionsCommand = async (
@@ -8105,33 +7310,22 @@ const deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListResourceDefinitionsCommand = async (
@@ -8164,25 +7358,19 @@ const deserializeAws_restJson1ListResourceDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListResourceDefinitionVersionsCommand = async (
@@ -8215,33 +7403,22 @@ const deserializeAws_restJson1ListResourceDefinitionVersionsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListSubscriptionDefinitionsCommand = async (
@@ -8274,25 +7451,19 @@ const deserializeAws_restJson1ListSubscriptionDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand = async (
@@ -8325,33 +7496,22 @@ const deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
@@ -8380,33 +7540,22 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ResetDeploymentsCommand = async (
@@ -8439,33 +7588,22 @@ const deserializeAws_restJson1ResetDeploymentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartBulkDeploymentCommand = async (
@@ -8498,33 +7636,22 @@ const deserializeAws_restJson1StartBulkDeploymentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StopBulkDeploymentCommand = async (
@@ -8549,33 +7676,22 @@ const deserializeAws_restJson1StopBulkDeploymentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1TagResourceCommand = async (
@@ -8600,33 +7716,22 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UntagResourceCommand = async (
@@ -8651,33 +7756,22 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateConnectivityInfoCommand = async (
@@ -8710,41 +7804,25 @@ const deserializeAws_restJson1UpdateConnectivityInfoCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateConnectorDefinitionCommand = async (
@@ -8769,33 +7847,22 @@ const deserializeAws_restJson1UpdateConnectorDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateCoreDefinitionCommand = async (
@@ -8820,33 +7887,22 @@ const deserializeAws_restJson1UpdateCoreDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateDeviceDefinitionCommand = async (
@@ -8871,33 +7927,22 @@ const deserializeAws_restJson1UpdateDeviceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateFunctionDefinitionCommand = async (
@@ -8922,33 +7967,22 @@ const deserializeAws_restJson1UpdateFunctionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateGroupCommand = async (
@@ -8973,33 +8007,22 @@ const deserializeAws_restJson1UpdateGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommand = async (
@@ -9039,41 +8062,25 @@ const deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateLoggerDefinitionCommand = async (
@@ -9098,33 +8105,22 @@ const deserializeAws_restJson1UpdateLoggerDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateResourceDefinitionCommand = async (
@@ -9149,33 +8145,22 @@ const deserializeAws_restJson1UpdateResourceDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateSubscriptionDefinitionCommand = async (
@@ -9200,33 +8185,22 @@ const deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand = async (
@@ -9251,54 +8225,32 @@ const deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.greengrass#BadRequestException":
-      response = {
-        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.greengrass#InternalServerErrorException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1BadRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
-  const contents: BadRequestException = {
-    name: "BadRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    ErrorDetails: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.ErrorDetails !== undefined && data.ErrorDetails !== null) {
     contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
@@ -9306,20 +8258,18 @@ const deserializeAws_restJson1BadRequestExceptionResponse = async (
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new BadRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerErrorException> => {
-  const contents: InternalServerErrorException = {
-    name: "InternalServerErrorException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    ErrorDetails: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.ErrorDetails !== undefined && data.ErrorDetails !== null) {
     contents.ErrorDetails = deserializeAws_restJson1ErrorDetails(data.ErrorDetails, context);
@@ -9327,7 +8277,11 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InternalServerErrorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const serializeAws_restJson1__listOf__string = (input: string[], context: __SerdeContext): any => {

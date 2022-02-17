@@ -5,6 +5,7 @@ import {
 } from "@aws-sdk/protocol-http";
 import {
   dateToUtcString as __dateToUtcString,
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -24,10 +25,8 @@ import {
   DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -61,6 +60,7 @@ import {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
 } from "../commands/SimpleScalarPropertiesCommand";
+import { JsonProtocolServiceException as __BaseException } from "../models/JsonProtocolServiceException";
 import {
   ComplexError,
   ComplexNestedErrorData,
@@ -278,25 +278,19 @@ const deserializeAws_json1_1EmptyOperationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EndpointOperationCommand = async (
@@ -321,25 +315,19 @@ const deserializeAws_json1_1EndpointOperationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1EndpointWithHostLabelOperationCommand = async (
@@ -364,25 +352,19 @@ const deserializeAws_json1_1EndpointWithHostLabelOperationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GreetingWithErrorsCommand = async (
@@ -410,49 +392,28 @@ const deserializeAws_json1_1GreetingWithErrorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ComplexError":
     case "aws.protocoltests.json#ComplexError":
-      response = {
-        ...(await deserializeAws_json1_1ComplexErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ComplexErrorResponse(parsedOutput, context);
     case "FooError":
     case "aws.protocoltests.json#FooError":
-      response = {
-        ...(await deserializeAws_json1_1FooErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1FooErrorResponse(parsedOutput, context);
     case "InvalidGreeting":
     case "aws.protocoltests.json#InvalidGreeting":
-      response = {
-        ...(await deserializeAws_json1_1InvalidGreetingResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidGreetingResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1HostWithPathOperationCommand = async (
@@ -477,25 +438,19 @@ const deserializeAws_json1_1HostWithPathOperationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1JsonEnumsCommand = async (
@@ -523,25 +478,19 @@ const deserializeAws_json1_1JsonEnumsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1JsonUnionsCommand = async (
@@ -569,25 +518,19 @@ const deserializeAws_json1_1JsonUnionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1KitchenSinkOperationCommand = async (
@@ -615,41 +558,25 @@ const deserializeAws_json1_1KitchenSinkOperationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ErrorWithMembers":
     case "aws.protocoltests.json#ErrorWithMembers":
-      response = {
-        ...(await deserializeAws_json1_1ErrorWithMembersResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ErrorWithMembersResponse(parsedOutput, context);
     case "ErrorWithoutMembers":
     case "aws.protocoltests.json#ErrorWithoutMembers":
-      response = {
-        ...(await deserializeAws_json1_1ErrorWithoutMembersResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ErrorWithoutMembersResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1NullOperationCommand = async (
@@ -677,25 +604,19 @@ const deserializeAws_json1_1NullOperationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1OperationWithOptionalInputOutputCommand = async (
@@ -723,25 +644,19 @@ const deserializeAws_json1_1OperationWithOptionalInputOutputCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutAndGetInlineDocumentsCommand = async (
@@ -769,25 +684,19 @@ const deserializeAws_json1_1PutAndGetInlineDocumentsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1SimpleScalarPropertiesCommand = async (
@@ -815,25 +724,19 @@ const deserializeAws_json1_1SimpleScalarPropertiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1ComplexErrorResponse = async (
@@ -842,13 +745,11 @@ const deserializeAws_json1_1ComplexErrorResponse = async (
 ): Promise<ComplexError> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ComplexError(body, context);
-  const contents: ComplexError = {
-    name: "ComplexError",
-    $fault: "client",
+  const exception = new ComplexError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ErrorWithMembersResponse = async (
@@ -857,13 +758,11 @@ const deserializeAws_json1_1ErrorWithMembersResponse = async (
 ): Promise<ErrorWithMembers> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ErrorWithMembers(body, context);
-  const contents: ErrorWithMembers = {
-    name: "ErrorWithMembers",
-    $fault: "client",
+  const exception = new ErrorWithMembers({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ErrorWithoutMembersResponse = async (
@@ -872,13 +771,11 @@ const deserializeAws_json1_1ErrorWithoutMembersResponse = async (
 ): Promise<ErrorWithoutMembers> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ErrorWithoutMembers(body, context);
-  const contents: ErrorWithoutMembers = {
-    name: "ErrorWithoutMembers",
-    $fault: "server",
+  const exception = new ErrorWithoutMembers({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1FooErrorResponse = async (
@@ -887,13 +784,11 @@ const deserializeAws_json1_1FooErrorResponse = async (
 ): Promise<FooError> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1FooError(body, context);
-  const contents: FooError = {
-    name: "FooError",
-    $fault: "server",
+  const exception = new FooError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidGreetingResponse = async (
@@ -902,13 +797,11 @@ const deserializeAws_json1_1InvalidGreetingResponse = async (
 ): Promise<InvalidGreeting> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidGreeting(body, context);
-  const contents: InvalidGreeting = {
-    name: "InvalidGreeting",
-    $fault: "client",
+  const exception = new InvalidGreeting({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1Document = (input: __DocumentType, context: __SerdeContext): any => {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudWatchEventsServiceException as __BaseException } from "./CloudWatchEventsServiceException";
 
 export interface ActivateEventSourceRequest {
   /**
@@ -19,46 +22,96 @@ export namespace ActivateEventSourceRequest {
 /**
  * <p>There is concurrent modification on a rule, target, archive, or replay.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
  * <p>This exception occurs due to unexpected causes.</p>
  */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
-  message?: string;
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+  }
 }
 
 /**
  * <p>The specified state is not a valid state for an event source.</p>
  */
-export interface InvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateException";
-  $fault: "client";
-  message?: string;
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+  }
 }
 
 /**
  * <p>The operation you are attempting is not available in this region.</p>
  */
-export interface OperationDisabledException extends __SmithyException, $MetadataBearer {
-  name: "OperationDisabledException";
-  $fault: "client";
-  message?: string;
+export class OperationDisabledException extends __BaseException {
+  readonly name: "OperationDisabledException" = "OperationDisabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationDisabledException, __BaseException>) {
+    super({
+      name: "OperationDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationDisabledException.prototype);
+  }
 }
 
 /**
  * <p>An entity that you specified does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export enum ApiDestinationState {
@@ -259,10 +312,20 @@ export namespace CancelReplayResponse {
  * <p>An error occurred because a replay can be canceled only when the state is Running or
  *       Starting.</p>
  */
-export interface IllegalStatusException extends __SmithyException, $MetadataBearer {
-  name: "IllegalStatusException";
-  $fault: "client";
-  message?: string;
+export class IllegalStatusException extends __BaseException {
+  readonly name: "IllegalStatusException" = "IllegalStatusException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalStatusException, __BaseException>) {
+    super({
+      name: "IllegalStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalStatusException.prototype);
+  }
 }
 
 export interface CreateApiDestinationRequest {
@@ -342,19 +405,39 @@ export namespace CreateApiDestinationResponse {
  * <p>The request failed because it attempted to create resource beyond the allowed service
  *       quota.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The resource you are trying to create already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
 }
 
 export interface CreateArchiveRequest {
@@ -428,10 +511,20 @@ export namespace CreateArchiveResponse {
 /**
  * <p>The event pattern is not valid.</p>
  */
-export interface InvalidEventPatternException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEventPatternException";
-  $fault: "client";
-  message?: string;
+export class InvalidEventPatternException extends __BaseException {
+  readonly name: "InvalidEventPatternException" = "InvalidEventPatternException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventPatternException, __BaseException>) {
+    super({
+      name: "InvalidEventPatternException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventPatternException.prototype);
+  }
 }
 
 export enum ConnectionAuthorizationType {
@@ -1158,10 +1251,20 @@ export namespace DeleteRuleRequest {
  *       using <code>DisableRule</code>, <code>EnableRule</code>, <code>PutTargets</code>,
  *         <code>PutRule</code>, <code>TagResource</code>, or <code>UntagResource</code>. </p>
  */
-export interface ManagedRuleException extends __SmithyException, $MetadataBearer {
-  name: "ManagedRuleException";
-  $fault: "client";
-  message?: string;
+export class ManagedRuleException extends __BaseException {
+  readonly name: "ManagedRuleException" = "ManagedRuleException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ManagedRuleException, __BaseException>) {
+    super({
+      name: "ManagedRuleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ManagedRuleException.prototype);
+  }
 }
 
 export interface DescribeApiDestinationRequest {
@@ -3996,10 +4099,20 @@ export namespace PutPartnerEventsResponse {
 /**
  * <p>The event bus policy is too long. For more information, see the limits.</p>
  */
-export interface PolicyLengthExceededException extends __SmithyException, $MetadataBearer {
-  name: "PolicyLengthExceededException";
-  $fault: "client";
-  message?: string;
+export class PolicyLengthExceededException extends __BaseException {
+  readonly name: "PolicyLengthExceededException" = "PolicyLengthExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyLengthExceededException, __BaseException>) {
+    super({
+      name: "PolicyLengthExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyLengthExceededException.prototype);
+  }
 }
 
 /**

@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 
 export enum ResponseHeadersPolicyAccessControlAllowMethodsValues {
   ALL = "ALL",
@@ -15,10 +17,22 @@ export enum ResponseHeadersPolicyAccessControlAllowMethodsValues {
 /**
  * <p>Access denied.</p>
  */
-export interface AccessDenied extends __SmithyException, $MetadataBearer {
-  name: "AccessDenied";
-  $fault: "client";
+export class AccessDenied extends __BaseException {
+  readonly name: "AccessDenied" = "AccessDenied";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDenied, __BaseException>) {
+    super({
+      name: "AccessDenied",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDenied.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -374,46 +388,106 @@ export namespace AssociateAliasRequest {
 /**
  * <p>The update contains modifications that are not allowed.</p>
  */
-export interface IllegalUpdate extends __SmithyException, $MetadataBearer {
-  name: "IllegalUpdate";
-  $fault: "client";
+export class IllegalUpdate extends __BaseException {
+  readonly name: "IllegalUpdate" = "IllegalUpdate";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalUpdate, __BaseException>) {
+    super({
+      name: "IllegalUpdate",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalUpdate.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An argument is invalid.</p>
  */
-export interface InvalidArgument extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgument";
-  $fault: "client";
+export class InvalidArgument extends __BaseException {
+  readonly name: "InvalidArgument" = "InvalidArgument";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgument, __BaseException>) {
+    super({
+      name: "InvalidArgument",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgument.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified distribution does not exist.</p>
  */
-export interface NoSuchDistribution extends __SmithyException, $MetadataBearer {
-  name: "NoSuchDistribution";
-  $fault: "client";
+export class NoSuchDistribution extends __BaseException {
+  readonly name: "NoSuchDistribution" = "NoSuchDistribution";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchDistribution, __BaseException>) {
+    super({
+      name: "NoSuchDistribution",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchDistribution.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
-export interface TooManyDistributionCNAMEs extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionCNAMEs";
-  $fault: "client";
+export class TooManyDistributionCNAMEs extends __BaseException {
+  readonly name: "TooManyDistributionCNAMEs" = "TooManyDistributionCNAMEs";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionCNAMEs, __BaseException>) {
+    super({
+      name: "TooManyDistributionCNAMEs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionCNAMEs.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Invalidation batch specified is too large.</p>
  */
-export interface BatchTooLarge extends __SmithyException, $MetadataBearer {
-  name: "BatchTooLarge";
-  $fault: "client";
+export class BatchTooLarge extends __BaseException {
+  readonly name: "BatchTooLarge" = "BatchTooLarge";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchTooLarge, __BaseException>) {
+    super({
+      name: "BatchTooLarge",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchTooLarge.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export type ItemSelection = "all" | "none" | "whitelist";
@@ -1612,20 +1686,44 @@ export namespace CachePolicy {
  * <p>A cache policy with this name already exists. You must provide a unique name. To
  * 			modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
  */
-export interface CachePolicyAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "CachePolicyAlreadyExists";
-  $fault: "client";
+export class CachePolicyAlreadyExists extends __BaseException {
+  readonly name: "CachePolicyAlreadyExists" = "CachePolicyAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CachePolicyAlreadyExists, __BaseException>) {
+    super({
+      name: "CachePolicyAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CachePolicyAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Cannot delete the cache policy because it is attached to one or more cache
  * 			behaviors.</p>
  */
-export interface CachePolicyInUse extends __SmithyException, $MetadataBearer {
-  name: "CachePolicyInUse";
-  $fault: "client";
+export class CachePolicyInUse extends __BaseException {
+  readonly name: "CachePolicyInUse" = "CachePolicyInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CachePolicyInUse, __BaseException>) {
+    super({
+      name: "CachePolicyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CachePolicyInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export type CachePolicyType = "custom" | "managed";
@@ -1694,10 +1792,22 @@ export namespace CachePolicyList {
 /**
  * <p>You can't change the value of a public key.</p>
  */
-export interface CannotChangeImmutablePublicKeyFields extends __SmithyException, $MetadataBearer {
-  name: "CannotChangeImmutablePublicKeyFields";
-  $fault: "client";
+export class CannotChangeImmutablePublicKeyFields extends __BaseException {
+  readonly name: "CannotChangeImmutablePublicKeyFields" = "CannotChangeImmutablePublicKeyFields";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotChangeImmutablePublicKeyFields, __BaseException>) {
+    super({
+      name: "CannotChangeImmutablePublicKeyFields",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotChangeImmutablePublicKeyFields.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export type CertificateSource = "acm" | "cloudfront" | "iam";
@@ -1747,10 +1857,22 @@ export namespace CreateCachePolicyResult {
 /**
  * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  */
-export interface InconsistentQuantities extends __SmithyException, $MetadataBearer {
-  name: "InconsistentQuantities";
-  $fault: "client";
+export class InconsistentQuantities extends __BaseException {
+  readonly name: "InconsistentQuantities" = "InconsistentQuantities";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InconsistentQuantities, __BaseException>) {
+    super({
+      name: "InconsistentQuantities",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InconsistentQuantities.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1758,10 +1880,22 @@ export interface InconsistentQuantities extends __SmithyException, $MetadataBear
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyCachePolicies extends __SmithyException, $MetadataBearer {
-  name: "TooManyCachePolicies";
-  $fault: "client";
+export class TooManyCachePolicies extends __BaseException {
+  readonly name: "TooManyCachePolicies" = "TooManyCachePolicies";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCachePolicies, __BaseException>) {
+    super({
+      name: "TooManyCachePolicies",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCachePolicies.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1769,10 +1903,22 @@ export interface TooManyCachePolicies extends __SmithyException, $MetadataBearer
  * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyCookiesInCachePolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyCookiesInCachePolicy";
-  $fault: "client";
+export class TooManyCookiesInCachePolicy extends __BaseException {
+  readonly name: "TooManyCookiesInCachePolicy" = "TooManyCookiesInCachePolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCookiesInCachePolicy, __BaseException>) {
+    super({
+      name: "TooManyCookiesInCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCookiesInCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1780,10 +1926,22 @@ export interface TooManyCookiesInCachePolicy extends __SmithyException, $Metadat
  * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyHeadersInCachePolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyHeadersInCachePolicy";
-  $fault: "client";
+export class TooManyHeadersInCachePolicy extends __BaseException {
+  readonly name: "TooManyHeadersInCachePolicy" = "TooManyHeadersInCachePolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyHeadersInCachePolicy, __BaseException>) {
+    super({
+      name: "TooManyHeadersInCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyHeadersInCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1791,10 +1949,22 @@ export interface TooManyHeadersInCachePolicy extends __SmithyException, $Metadat
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyQueryStringsInCachePolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyQueryStringsInCachePolicy";
-  $fault: "client";
+export class TooManyQueryStringsInCachePolicy extends __BaseException {
+  readonly name: "TooManyQueryStringsInCachePolicy" = "TooManyQueryStringsInCachePolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyQueryStringsInCachePolicy, __BaseException>) {
+    super({
+      name: "TooManyQueryStringsInCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyQueryStringsInCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1802,10 +1972,22 @@ export interface TooManyQueryStringsInCachePolicy extends __SmithyException, $Me
  * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
  * 			<code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
  */
-export interface CloudFrontOriginAccessIdentityAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "CloudFrontOriginAccessIdentityAlreadyExists";
-  $fault: "client";
+export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException {
+  readonly name: "CloudFrontOriginAccessIdentityAlreadyExists" = "CloudFrontOriginAccessIdentityAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudFrontOriginAccessIdentityAlreadyExists, __BaseException>) {
+    super({
+      name: "CloudFrontOriginAccessIdentityAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudFrontOriginAccessIdentityAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1932,28 +2114,64 @@ export namespace CreateCloudFrontOriginAccessIdentityResult {
 /**
  * <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  */
-export interface MissingBody extends __SmithyException, $MetadataBearer {
-  name: "MissingBody";
-  $fault: "client";
+export class MissingBody extends __BaseException {
+  readonly name: "MissingBody" = "MissingBody";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingBody, __BaseException>) {
+    super({
+      name: "MissingBody",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingBody.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
  */
-export interface TooManyCloudFrontOriginAccessIdentities extends __SmithyException, $MetadataBearer {
-  name: "TooManyCloudFrontOriginAccessIdentities";
-  $fault: "client";
+export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
+  readonly name: "TooManyCloudFrontOriginAccessIdentities" = "TooManyCloudFrontOriginAccessIdentities";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCloudFrontOriginAccessIdentities, __BaseException>) {
+    super({
+      name: "TooManyCloudFrontOriginAccessIdentities",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCloudFrontOriginAccessIdentities.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The CNAME specified is already defined for CloudFront.</p>
  */
-export interface CNAMEAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "CNAMEAlreadyExists";
-  $fault: "client";
+export class CNAMEAlreadyExists extends __BaseException {
+  readonly name: "CNAMEAlreadyExists" = "CNAMEAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CNAMEAlreadyExists, __BaseException>) {
+    super({
+      name: "CNAMEAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CNAMEAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3575,204 +3793,469 @@ export namespace CreateDistributionResult {
 /**
  * <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
  */
-export interface DistributionAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "DistributionAlreadyExists";
-  $fault: "client";
+export class DistributionAlreadyExists extends __BaseException {
+  readonly name: "DistributionAlreadyExists" = "DistributionAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DistributionAlreadyExists, __BaseException>) {
+    super({
+      name: "DistributionAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DistributionAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
  */
-export interface IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-  extends __SmithyException,
-    $MetadataBearer {
-  name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
-  $fault: "client";
+export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior extends __BaseException {
+  readonly name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior" =
+    "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(
+    opts: __ExceptionOptionType<IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, __BaseException>
+  ) {
+    super({
+      name: "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The default root object file name is too big or contains an invalid character.</p>
  */
-export interface InvalidDefaultRootObject extends __SmithyException, $MetadataBearer {
-  name: "InvalidDefaultRootObject";
-  $fault: "client";
+export class InvalidDefaultRootObject extends __BaseException {
+  readonly name: "InvalidDefaultRootObject" = "InvalidDefaultRootObject";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDefaultRootObject, __BaseException>) {
+    super({
+      name: "InvalidDefaultRootObject",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDefaultRootObject.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An invalid error code was specified.</p>
  */
-export interface InvalidErrorCode extends __SmithyException, $MetadataBearer {
-  name: "InvalidErrorCode";
-  $fault: "client";
+export class InvalidErrorCode extends __BaseException {
+  readonly name: "InvalidErrorCode" = "InvalidErrorCode";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidErrorCode, __BaseException>) {
+    super({
+      name: "InvalidErrorCode",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidErrorCode.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code>
  * 			list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
  */
-export interface InvalidForwardCookies extends __SmithyException, $MetadataBearer {
-  name: "InvalidForwardCookies";
-  $fault: "client";
+export class InvalidForwardCookies extends __BaseException {
+  readonly name: "InvalidForwardCookies" = "InvalidForwardCookies";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidForwardCookies, __BaseException>) {
+    super({
+      name: "InvalidForwardCookies",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidForwardCookies.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A CloudFront function association is invalid.</p>
  */
-export interface InvalidFunctionAssociation extends __SmithyException, $MetadataBearer {
-  name: "InvalidFunctionAssociation";
-  $fault: "client";
+export class InvalidFunctionAssociation extends __BaseException {
+  readonly name: "InvalidFunctionAssociation" = "InvalidFunctionAssociation";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidFunctionAssociation, __BaseException>) {
+    super({
+      name: "InvalidFunctionAssociation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFunctionAssociation.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified geo restriction parameter is not valid.</p>
  */
-export interface InvalidGeoRestrictionParameter extends __SmithyException, $MetadataBearer {
-  name: "InvalidGeoRestrictionParameter";
-  $fault: "client";
+export class InvalidGeoRestrictionParameter extends __BaseException {
+  readonly name: "InvalidGeoRestrictionParameter" = "InvalidGeoRestrictionParameter";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGeoRestrictionParameter, __BaseException>) {
+    super({
+      name: "InvalidGeoRestrictionParameter",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGeoRestrictionParameter.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The headers specified are not valid for an Amazon S3 origin.</p>
  */
-export interface InvalidHeadersForS3Origin extends __SmithyException, $MetadataBearer {
-  name: "InvalidHeadersForS3Origin";
-  $fault: "client";
+export class InvalidHeadersForS3Origin extends __BaseException {
+  readonly name: "InvalidHeadersForS3Origin" = "InvalidHeadersForS3Origin";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidHeadersForS3Origin, __BaseException>) {
+    super({
+      name: "InvalidHeadersForS3Origin",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidHeadersForS3Origin.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified Lambda@Edge function association is invalid.</p>
  */
-export interface InvalidLambdaFunctionAssociation extends __SmithyException, $MetadataBearer {
-  name: "InvalidLambdaFunctionAssociation";
-  $fault: "client";
+export class InvalidLambdaFunctionAssociation extends __BaseException {
+  readonly name: "InvalidLambdaFunctionAssociation" = "InvalidLambdaFunctionAssociation";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLambdaFunctionAssociation, __BaseException>) {
+    super({
+      name: "InvalidLambdaFunctionAssociation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLambdaFunctionAssociation.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The location code specified is not valid.</p>
  */
-export interface InvalidLocationCode extends __SmithyException, $MetadataBearer {
-  name: "InvalidLocationCode";
-  $fault: "client";
+export class InvalidLocationCode extends __BaseException {
+  readonly name: "InvalidLocationCode" = "InvalidLocationCode";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLocationCode, __BaseException>) {
+    super({
+      name: "InvalidLocationCode",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLocationCode.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The minimum protocol version specified is not valid.</p>
  */
-export interface InvalidMinimumProtocolVersion extends __SmithyException, $MetadataBearer {
-  name: "InvalidMinimumProtocolVersion";
-  $fault: "client";
+export class InvalidMinimumProtocolVersion extends __BaseException {
+  readonly name: "InvalidMinimumProtocolVersion" = "InvalidMinimumProtocolVersion";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMinimumProtocolVersion, __BaseException>) {
+    super({
+      name: "InvalidMinimumProtocolVersion",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMinimumProtocolVersion.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
  */
-export interface InvalidOrigin extends __SmithyException, $MetadataBearer {
-  name: "InvalidOrigin";
-  $fault: "client";
+export class InvalidOrigin extends __BaseException {
+  readonly name: "InvalidOrigin" = "InvalidOrigin";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOrigin, __BaseException>) {
+    super({
+      name: "InvalidOrigin",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOrigin.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The origin access identity is not valid or doesn't exist.</p>
  */
-export interface InvalidOriginAccessIdentity extends __SmithyException, $MetadataBearer {
-  name: "InvalidOriginAccessIdentity";
-  $fault: "client";
+export class InvalidOriginAccessIdentity extends __BaseException {
+  readonly name: "InvalidOriginAccessIdentity" = "InvalidOriginAccessIdentity";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOriginAccessIdentity, __BaseException>) {
+    super({
+      name: "InvalidOriginAccessIdentity",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOriginAccessIdentity.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The keep alive timeout specified for the origin is not valid.</p>
  */
-export interface InvalidOriginKeepaliveTimeout extends __SmithyException, $MetadataBearer {
-  name: "InvalidOriginKeepaliveTimeout";
-  $fault: "client";
+export class InvalidOriginKeepaliveTimeout extends __BaseException {
+  readonly name: "InvalidOriginKeepaliveTimeout" = "InvalidOriginKeepaliveTimeout";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOriginKeepaliveTimeout, __BaseException>) {
+    super({
+      name: "InvalidOriginKeepaliveTimeout",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOriginKeepaliveTimeout.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The read timeout specified for the origin is not valid.</p>
  */
-export interface InvalidOriginReadTimeout extends __SmithyException, $MetadataBearer {
-  name: "InvalidOriginReadTimeout";
-  $fault: "client";
+export class InvalidOriginReadTimeout extends __BaseException {
+  readonly name: "InvalidOriginReadTimeout" = "InvalidOriginReadTimeout";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOriginReadTimeout, __BaseException>) {
+    super({
+      name: "InvalidOriginReadTimeout",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOriginReadTimeout.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support
  * 			Server Name Indication (SNI).</p>
  */
-export interface InvalidProtocolSettings extends __SmithyException, $MetadataBearer {
-  name: "InvalidProtocolSettings";
-  $fault: "client";
+export class InvalidProtocolSettings extends __BaseException {
+  readonly name: "InvalidProtocolSettings" = "InvalidProtocolSettings";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidProtocolSettings, __BaseException>) {
+    super({
+      name: "InvalidProtocolSettings",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidProtocolSettings.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The query string parameters specified are not valid.</p>
  */
-export interface InvalidQueryStringParameters extends __SmithyException, $MetadataBearer {
-  name: "InvalidQueryStringParameters";
-  $fault: "client";
+export class InvalidQueryStringParameters extends __BaseException {
+  readonly name: "InvalidQueryStringParameters" = "InvalidQueryStringParameters";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidQueryStringParameters, __BaseException>) {
+    super({
+      name: "InvalidQueryStringParameters",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidQueryStringParameters.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
  */
-export interface InvalidRelativePath extends __SmithyException, $MetadataBearer {
-  name: "InvalidRelativePath";
-  $fault: "client";
+export class InvalidRelativePath extends __BaseException {
+  readonly name: "InvalidRelativePath" = "InvalidRelativePath";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRelativePath, __BaseException>) {
+    super({
+      name: "InvalidRelativePath",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRelativePath.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the
  * 			<code>RequiredProtocols</code> element from your distribution configuration.</p>
  */
-export interface InvalidRequiredProtocol extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequiredProtocol";
-  $fault: "client";
+export class InvalidRequiredProtocol extends __BaseException {
+  readonly name: "InvalidRequiredProtocol" = "InvalidRequiredProtocol";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequiredProtocol, __BaseException>) {
+    super({
+      name: "InvalidRequiredProtocol",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequiredProtocol.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A response code is not valid.</p>
  */
-export interface InvalidResponseCode extends __SmithyException, $MetadataBearer {
-  name: "InvalidResponseCode";
-  $fault: "client";
+export class InvalidResponseCode extends __BaseException {
+  readonly name: "InvalidResponseCode" = "InvalidResponseCode";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResponseCode, __BaseException>) {
+    super({
+      name: "InvalidResponseCode",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResponseCode.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The TTL order specified is not valid.</p>
  */
-export interface InvalidTTLOrder extends __SmithyException, $MetadataBearer {
-  name: "InvalidTTLOrder";
-  $fault: "client";
+export class InvalidTTLOrder extends __BaseException {
+  readonly name: "InvalidTTLOrder" = "InvalidTTLOrder";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTTLOrder, __BaseException>) {
+    super({
+      name: "InvalidTTLOrder",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTTLOrder.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A viewer certificate specified is not valid.</p>
  */
-export interface InvalidViewerCertificate extends __SmithyException, $MetadataBearer {
-  name: "InvalidViewerCertificate";
-  $fault: "client";
+export class InvalidViewerCertificate extends __BaseException {
+  readonly name: "InvalidViewerCertificate" = "InvalidViewerCertificate";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidViewerCertificate, __BaseException>) {
+    super({
+      name: "InvalidViewerCertificate",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidViewerCertificate.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3782,109 +4265,253 @@ export interface InvalidViewerCertificate extends __SmithyException, $MetadataBe
  * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
  * 			<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
  */
-export interface InvalidWebACLId extends __SmithyException, $MetadataBearer {
-  name: "InvalidWebACLId";
-  $fault: "client";
+export class InvalidWebACLId extends __BaseException {
+  readonly name: "InvalidWebACLId" = "InvalidWebACLId";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidWebACLId, __BaseException>) {
+    super({
+      name: "InvalidWebACLId",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidWebACLId.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The cache policy does not exist.</p>
  */
-export interface NoSuchCachePolicy extends __SmithyException, $MetadataBearer {
-  name: "NoSuchCachePolicy";
-  $fault: "client";
+export class NoSuchCachePolicy extends __BaseException {
+  readonly name: "NoSuchCachePolicy" = "NoSuchCachePolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchCachePolicy, __BaseException>) {
+    super({
+      name: "NoSuchCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified configuration for field-level encryption doesn't exist.</p>
  */
-export interface NoSuchFieldLevelEncryptionConfig extends __SmithyException, $MetadataBearer {
-  name: "NoSuchFieldLevelEncryptionConfig";
-  $fault: "client";
+export class NoSuchFieldLevelEncryptionConfig extends __BaseException {
+  readonly name: "NoSuchFieldLevelEncryptionConfig" = "NoSuchFieldLevelEncryptionConfig";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchFieldLevelEncryptionConfig, __BaseException>) {
+    super({
+      name: "NoSuchFieldLevelEncryptionConfig",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchFieldLevelEncryptionConfig.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>No origin exists with the specified <code>Origin Id</code>. </p>
  */
-export interface NoSuchOrigin extends __SmithyException, $MetadataBearer {
-  name: "NoSuchOrigin";
-  $fault: "client";
+export class NoSuchOrigin extends __BaseException {
+  readonly name: "NoSuchOrigin" = "NoSuchOrigin";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchOrigin, __BaseException>) {
+    super({
+      name: "NoSuchOrigin",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchOrigin.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The origin request policy does not exist.</p>
  */
-export interface NoSuchOriginRequestPolicy extends __SmithyException, $MetadataBearer {
-  name: "NoSuchOriginRequestPolicy";
-  $fault: "client";
+export class NoSuchOriginRequestPolicy extends __BaseException {
+  readonly name: "NoSuchOriginRequestPolicy" = "NoSuchOriginRequestPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchOriginRequestPolicy, __BaseException>) {
+    super({
+      name: "NoSuchOriginRequestPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchOriginRequestPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The real-time log configuration does not exist.</p>
  */
-export interface NoSuchRealtimeLogConfig extends __SmithyException, $MetadataBearer {
-  name: "NoSuchRealtimeLogConfig";
-  $fault: "client";
+export class NoSuchRealtimeLogConfig extends __BaseException {
+  readonly name: "NoSuchRealtimeLogConfig" = "NoSuchRealtimeLogConfig";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchRealtimeLogConfig, __BaseException>) {
+    super({
+      name: "NoSuchRealtimeLogConfig",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchRealtimeLogConfig.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The response headers policy does not exist.</p>
  */
-export interface NoSuchResponseHeadersPolicy extends __SmithyException, $MetadataBearer {
-  name: "NoSuchResponseHeadersPolicy";
-  $fault: "client";
+export class NoSuchResponseHeadersPolicy extends __BaseException {
+  readonly name: "NoSuchResponseHeadersPolicy" = "NoSuchResponseHeadersPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchResponseHeadersPolicy, __BaseException>) {
+    super({
+      name: "NoSuchResponseHeadersPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchResponseHeadersPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
  */
-export interface RealtimeLogConfigOwnerMismatch extends __SmithyException, $MetadataBearer {
-  name: "RealtimeLogConfigOwnerMismatch";
-  $fault: "client";
+export class RealtimeLogConfigOwnerMismatch extends __BaseException {
+  readonly name: "RealtimeLogConfigOwnerMismatch" = "RealtimeLogConfigOwnerMismatch";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RealtimeLogConfigOwnerMismatch, __BaseException>) {
+    super({
+      name: "RealtimeLogConfigOwnerMismatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RealtimeLogConfigOwnerMismatch.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You cannot create more cache behaviors for the distribution.</p>
  */
-export interface TooManyCacheBehaviors extends __SmithyException, $MetadataBearer {
-  name: "TooManyCacheBehaviors";
-  $fault: "client";
+export class TooManyCacheBehaviors extends __BaseException {
+  readonly name: "TooManyCacheBehaviors" = "TooManyCacheBehaviors";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCacheBehaviors, __BaseException>) {
+    super({
+      name: "TooManyCacheBehaviors",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCacheBehaviors.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You cannot create anymore custom SSL/TLS certificates.</p>
  */
-export interface TooManyCertificates extends __SmithyException, $MetadataBearer {
-  name: "TooManyCertificates";
-  $fault: "client";
+export class TooManyCertificates extends __BaseException {
+  readonly name: "TooManyCertificates" = "TooManyCertificates";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCertificates, __BaseException>) {
+    super({
+      name: "TooManyCertificates",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCertificates.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
  */
-export interface TooManyCookieNamesInWhiteList extends __SmithyException, $MetadataBearer {
-  name: "TooManyCookieNamesInWhiteList";
-  $fault: "client";
+export class TooManyCookieNamesInWhiteList extends __BaseException {
+  readonly name: "TooManyCookieNamesInWhiteList" = "TooManyCookieNamesInWhiteList";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCookieNamesInWhiteList, __BaseException>) {
+    super({
+      name: "TooManyCookieNamesInWhiteList",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCookieNamesInWhiteList.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
  */
-export interface TooManyDistributions extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributions";
-  $fault: "client";
+export class TooManyDistributions extends __BaseException {
+  readonly name: "TooManyDistributions" = "TooManyDistributions";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributions, __BaseException>) {
+    super({
+      name: "TooManyDistributions",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributions.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3892,19 +4519,46 @@ export interface TooManyDistributions extends __SmithyException, $MetadataBearer
  * 			policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyDistributionsAssociatedToCachePolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsAssociatedToCachePolicy";
-  $fault: "client";
+export class TooManyDistributionsAssociatedToCachePolicy extends __BaseException {
+  readonly name: "TooManyDistributionsAssociatedToCachePolicy" = "TooManyDistributionsAssociatedToCachePolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToCachePolicy, __BaseException>) {
+    super({
+      name: "TooManyDistributionsAssociatedToCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
  */
-export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
-  $fault: "client";
+export class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig extends __BaseException {
+  readonly name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig" =
+    "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(
+    opts: __ExceptionOptionType<TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, __BaseException>
+  ) {
+    super({
+      name: "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToFieldLevelEncryptionConfig.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3912,10 +4566,22 @@ export interface TooManyDistributionsAssociatedToFieldLevelEncryptionConfig exte
  * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyDistributionsAssociatedToKeyGroup extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsAssociatedToKeyGroup";
-  $fault: "client";
+export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
+  readonly name: "TooManyDistributionsAssociatedToKeyGroup" = "TooManyDistributionsAssociatedToKeyGroup";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToKeyGroup, __BaseException>) {
+    super({
+      name: "TooManyDistributionsAssociatedToKeyGroup",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToKeyGroup.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3923,10 +4589,23 @@ export interface TooManyDistributionsAssociatedToKeyGroup extends __SmithyExcept
  * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyDistributionsAssociatedToOriginRequestPolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsAssociatedToOriginRequestPolicy";
-  $fault: "client";
+export class TooManyDistributionsAssociatedToOriginRequestPolicy extends __BaseException {
+  readonly name: "TooManyDistributionsAssociatedToOriginRequestPolicy" =
+    "TooManyDistributionsAssociatedToOriginRequestPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToOriginRequestPolicy, __BaseException>) {
+    super({
+      name: "TooManyDistributionsAssociatedToOriginRequestPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToOriginRequestPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3935,10 +4614,23 @@ export interface TooManyDistributionsAssociatedToOriginRequestPolicy extends __S
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyDistributionsAssociatedToResponseHeadersPolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsAssociatedToResponseHeadersPolicy";
-  $fault: "client";
+export class TooManyDistributionsAssociatedToResponseHeadersPolicy extends __BaseException {
+  readonly name: "TooManyDistributionsAssociatedToResponseHeadersPolicy" =
+    "TooManyDistributionsAssociatedToResponseHeadersPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToResponseHeadersPolicy, __BaseException>) {
+    super({
+      name: "TooManyDistributionsAssociatedToResponseHeadersPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToResponseHeadersPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3946,30 +4638,66 @@ export interface TooManyDistributionsAssociatedToResponseHeadersPolicy extends _
  * 			function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyDistributionsWithFunctionAssociations extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsWithFunctionAssociations";
-  $fault: "client";
+export class TooManyDistributionsWithFunctionAssociations extends __BaseException {
+  readonly name: "TooManyDistributionsWithFunctionAssociations" = "TooManyDistributionsWithFunctionAssociations";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsWithFunctionAssociations, __BaseException>) {
+    super({
+      name: "TooManyDistributionsWithFunctionAssociations",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsWithFunctionAssociations.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner
  * 			to be exceeded.</p>
  */
-export interface TooManyDistributionsWithLambdaAssociations extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsWithLambdaAssociations";
-  $fault: "client";
+export class TooManyDistributionsWithLambdaAssociations extends __BaseException {
+  readonly name: "TooManyDistributionsWithLambdaAssociations" = "TooManyDistributionsWithLambdaAssociations";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsWithLambdaAssociations, __BaseException>) {
+    super({
+      name: "TooManyDistributionsWithLambdaAssociations",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsWithLambdaAssociations.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of distributions have been associated with the specified Lambda@Edge
  * 			function.</p>
  */
-export interface TooManyDistributionsWithSingleFunctionARN extends __SmithyException, $MetadataBearer {
-  name: "TooManyDistributionsWithSingleFunctionARN";
-  $fault: "client";
+export class TooManyDistributionsWithSingleFunctionARN extends __BaseException {
+  readonly name: "TooManyDistributionsWithSingleFunctionARN" = "TooManyDistributionsWithSingleFunctionARN";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsWithSingleFunctionARN, __BaseException>) {
+    super({
+      name: "TooManyDistributionsWithSingleFunctionARN",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsWithSingleFunctionARN.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3977,19 +4705,43 @@ export interface TooManyDistributionsWithSingleFunctionARN extends __SmithyExcep
  * 			distribution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyFunctionAssociations extends __SmithyException, $MetadataBearer {
-  name: "TooManyFunctionAssociations";
-  $fault: "client";
+export class TooManyFunctionAssociations extends __BaseException {
+  readonly name: "TooManyFunctionAssociations" = "TooManyFunctionAssociations";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFunctionAssociations, __BaseException>) {
+    super({
+      name: "TooManyFunctionAssociations",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFunctionAssociations.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains too many headers in forwarded values.</p>
  */
-export interface TooManyHeadersInForwardedValues extends __SmithyException, $MetadataBearer {
-  name: "TooManyHeadersInForwardedValues";
-  $fault: "client";
+export class TooManyHeadersInForwardedValues extends __BaseException {
+  readonly name: "TooManyHeadersInForwardedValues" = "TooManyHeadersInForwardedValues";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyHeadersInForwardedValues, __BaseException>) {
+    super({
+      name: "TooManyHeadersInForwardedValues",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyHeadersInForwardedValues.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3997,82 +4749,190 @@ export interface TooManyHeadersInForwardedValues extends __SmithyException, $Met
  * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyKeyGroupsAssociatedToDistribution extends __SmithyException, $MetadataBearer {
-  name: "TooManyKeyGroupsAssociatedToDistribution";
-  $fault: "client";
+export class TooManyKeyGroupsAssociatedToDistribution extends __BaseException {
+  readonly name: "TooManyKeyGroupsAssociatedToDistribution" = "TooManyKeyGroupsAssociatedToDistribution";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyKeyGroupsAssociatedToDistribution, __BaseException>) {
+    super({
+      name: "TooManyKeyGroupsAssociatedToDistribution",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyKeyGroupsAssociatedToDistribution.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
  */
-export interface TooManyLambdaFunctionAssociations extends __SmithyException, $MetadataBearer {
-  name: "TooManyLambdaFunctionAssociations";
-  $fault: "client";
+export class TooManyLambdaFunctionAssociations extends __BaseException {
+  readonly name: "TooManyLambdaFunctionAssociations" = "TooManyLambdaFunctionAssociations";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyLambdaFunctionAssociations, __BaseException>) {
+    super({
+      name: "TooManyLambdaFunctionAssociations",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyLambdaFunctionAssociations.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains too many origin custom headers.</p>
  */
-export interface TooManyOriginCustomHeaders extends __SmithyException, $MetadataBearer {
-  name: "TooManyOriginCustomHeaders";
-  $fault: "client";
+export class TooManyOriginCustomHeaders extends __BaseException {
+  readonly name: "TooManyOriginCustomHeaders" = "TooManyOriginCustomHeaders";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyOriginCustomHeaders, __BaseException>) {
+    super({
+      name: "TooManyOriginCustomHeaders",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyOriginCustomHeaders.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
  */
-export interface TooManyOriginGroupsPerDistribution extends __SmithyException, $MetadataBearer {
-  name: "TooManyOriginGroupsPerDistribution";
-  $fault: "client";
+export class TooManyOriginGroupsPerDistribution extends __BaseException {
+  readonly name: "TooManyOriginGroupsPerDistribution" = "TooManyOriginGroupsPerDistribution";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyOriginGroupsPerDistribution, __BaseException>) {
+    super({
+      name: "TooManyOriginGroupsPerDistribution",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyOriginGroupsPerDistribution.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You cannot create more origins for the distribution.</p>
  */
-export interface TooManyOrigins extends __SmithyException, $MetadataBearer {
-  name: "TooManyOrigins";
-  $fault: "client";
+export class TooManyOrigins extends __BaseException {
+  readonly name: "TooManyOrigins" = "TooManyOrigins";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyOrigins, __BaseException>) {
+    super({
+      name: "TooManyOrigins",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyOrigins.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains too many query string parameters.</p>
  */
-export interface TooManyQueryStringParameters extends __SmithyException, $MetadataBearer {
-  name: "TooManyQueryStringParameters";
-  $fault: "client";
+export class TooManyQueryStringParameters extends __BaseException {
+  readonly name: "TooManyQueryStringParameters" = "TooManyQueryStringParameters";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyQueryStringParameters, __BaseException>) {
+    super({
+      name: "TooManyQueryStringParameters",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyQueryStringParameters.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains more trusted signers than are allowed per distribution.</p>
  */
-export interface TooManyTrustedSigners extends __SmithyException, $MetadataBearer {
-  name: "TooManyTrustedSigners";
-  $fault: "client";
+export class TooManyTrustedSigners extends __BaseException {
+  readonly name: "TooManyTrustedSigners" = "TooManyTrustedSigners";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTrustedSigners, __BaseException>) {
+    super({
+      name: "TooManyTrustedSigners",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrustedSigners.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified key group does not exist.</p>
  */
-export interface TrustedKeyGroupDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "TrustedKeyGroupDoesNotExist";
-  $fault: "client";
+export class TrustedKeyGroupDoesNotExist extends __BaseException {
+  readonly name: "TrustedKeyGroupDoesNotExist" = "TrustedKeyGroupDoesNotExist";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustedKeyGroupDoesNotExist, __BaseException>) {
+    super({
+      name: "TrustedKeyGroupDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustedKeyGroupDoesNotExist.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more of your trusted signers don't exist.</p>
  */
-export interface TrustedSignerDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "TrustedSignerDoesNotExist";
-  $fault: "client";
+export class TrustedSignerDoesNotExist extends __BaseException {
+  readonly name: "TrustedSignerDoesNotExist" = "TrustedSignerDoesNotExist";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustedSignerDoesNotExist, __BaseException>) {
+    super({
+      name: "TrustedSignerDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustedSignerDoesNotExist.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -4207,10 +5067,22 @@ export namespace CreateDistributionWithTagsResult {
 /**
  * <p>The tagging specified is not valid.</p>
  */
-export interface InvalidTagging extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagging";
-  $fault: "client";
+export class InvalidTagging extends __BaseException {
+  readonly name: "InvalidTagging" = "InvalidTagging";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagging, __BaseException>) {
+    super({
+      name: "InvalidTagging",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagging.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export type Format = "URLEncoded";
@@ -4480,55 +5352,127 @@ export namespace CreateFieldLevelEncryptionConfigResult {
 /**
  * <p>The specified configuration for field-level encryption already exists.</p>
  */
-export interface FieldLevelEncryptionConfigAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "FieldLevelEncryptionConfigAlreadyExists";
-  $fault: "client";
+export class FieldLevelEncryptionConfigAlreadyExists extends __BaseException {
+  readonly name: "FieldLevelEncryptionConfigAlreadyExists" = "FieldLevelEncryptionConfigAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FieldLevelEncryptionConfigAlreadyExists, __BaseException>) {
+    super({
+      name: "FieldLevelEncryptionConfigAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FieldLevelEncryptionConfigAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified profile for field-level encryption doesn't exist.</p>
  */
-export interface NoSuchFieldLevelEncryptionProfile extends __SmithyException, $MetadataBearer {
-  name: "NoSuchFieldLevelEncryptionProfile";
-  $fault: "client";
+export class NoSuchFieldLevelEncryptionProfile extends __BaseException {
+  readonly name: "NoSuchFieldLevelEncryptionProfile" = "NoSuchFieldLevelEncryptionProfile";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchFieldLevelEncryptionProfile, __BaseException>) {
+    super({
+      name: "NoSuchFieldLevelEncryptionProfile",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchFieldLevelEncryptionProfile.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>No profile specified for the field-level encryption query argument.</p>
  */
-export interface QueryArgProfileEmpty extends __SmithyException, $MetadataBearer {
-  name: "QueryArgProfileEmpty";
-  $fault: "client";
+export class QueryArgProfileEmpty extends __BaseException {
+  readonly name: "QueryArgProfileEmpty" = "QueryArgProfileEmpty";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueryArgProfileEmpty, __BaseException>) {
+    super({
+      name: "QueryArgProfileEmpty",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueryArgProfileEmpty.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of configurations for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionConfigs extends __SmithyException, $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionConfigs";
-  $fault: "client";
+export class TooManyFieldLevelEncryptionConfigs extends __BaseException {
+  readonly name: "TooManyFieldLevelEncryptionConfigs" = "TooManyFieldLevelEncryptionConfigs";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFieldLevelEncryptionConfigs, __BaseException>) {
+    super({
+      name: "TooManyFieldLevelEncryptionConfigs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFieldLevelEncryptionConfigs.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of content type profiles for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionContentTypeProfiles extends __SmithyException, $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionContentTypeProfiles";
-  $fault: "client";
+export class TooManyFieldLevelEncryptionContentTypeProfiles extends __BaseException {
+  readonly name: "TooManyFieldLevelEncryptionContentTypeProfiles" = "TooManyFieldLevelEncryptionContentTypeProfiles";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFieldLevelEncryptionContentTypeProfiles, __BaseException>) {
+    super({
+      name: "TooManyFieldLevelEncryptionContentTypeProfiles",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFieldLevelEncryptionContentTypeProfiles.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionQueryArgProfiles extends __SmithyException, $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionQueryArgProfiles";
-  $fault: "client";
+export class TooManyFieldLevelEncryptionQueryArgProfiles extends __BaseException {
+  readonly name: "TooManyFieldLevelEncryptionQueryArgProfiles" = "TooManyFieldLevelEncryptionQueryArgProfiles";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFieldLevelEncryptionQueryArgProfiles, __BaseException>) {
+    super({
+      name: "TooManyFieldLevelEncryptionQueryArgProfiles",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFieldLevelEncryptionQueryArgProfiles.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -4723,55 +5667,127 @@ export namespace CreateFieldLevelEncryptionProfileResult {
 /**
  * <p>The specified profile for field-level encryption already exists.</p>
  */
-export interface FieldLevelEncryptionProfileAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "FieldLevelEncryptionProfileAlreadyExists";
-  $fault: "client";
+export class FieldLevelEncryptionProfileAlreadyExists extends __BaseException {
+  readonly name: "FieldLevelEncryptionProfileAlreadyExists" = "FieldLevelEncryptionProfileAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FieldLevelEncryptionProfileAlreadyExists, __BaseException>) {
+    super({
+      name: "FieldLevelEncryptionProfileAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FieldLevelEncryptionProfileAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum size of a profile for field-level encryption was exceeded.</p>
  */
-export interface FieldLevelEncryptionProfileSizeExceeded extends __SmithyException, $MetadataBearer {
-  name: "FieldLevelEncryptionProfileSizeExceeded";
-  $fault: "client";
+export class FieldLevelEncryptionProfileSizeExceeded extends __BaseException {
+  readonly name: "FieldLevelEncryptionProfileSizeExceeded" = "FieldLevelEncryptionProfileSizeExceeded";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FieldLevelEncryptionProfileSizeExceeded, __BaseException>) {
+    super({
+      name: "FieldLevelEncryptionProfileSizeExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FieldLevelEncryptionProfileSizeExceeded.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified public key doesn't exist.</p>
  */
-export interface NoSuchPublicKey extends __SmithyException, $MetadataBearer {
-  name: "NoSuchPublicKey";
-  $fault: "client";
+export class NoSuchPublicKey extends __BaseException {
+  readonly name: "NoSuchPublicKey" = "NoSuchPublicKey";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchPublicKey, __BaseException>) {
+    super({
+      name: "NoSuchPublicKey",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchPublicKey.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of encryption entities for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionEncryptionEntities extends __SmithyException, $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionEncryptionEntities";
-  $fault: "client";
+export class TooManyFieldLevelEncryptionEncryptionEntities extends __BaseException {
+  readonly name: "TooManyFieldLevelEncryptionEncryptionEntities" = "TooManyFieldLevelEncryptionEncryptionEntities";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFieldLevelEncryptionEncryptionEntities, __BaseException>) {
+    super({
+      name: "TooManyFieldLevelEncryptionEncryptionEntities",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFieldLevelEncryptionEncryptionEntities.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of field patterns for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionFieldPatterns extends __SmithyException, $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionFieldPatterns";
-  $fault: "client";
+export class TooManyFieldLevelEncryptionFieldPatterns extends __BaseException {
+  readonly name: "TooManyFieldLevelEncryptionFieldPatterns" = "TooManyFieldLevelEncryptionFieldPatterns";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFieldLevelEncryptionFieldPatterns, __BaseException>) {
+    super({
+      name: "TooManyFieldLevelEncryptionFieldPatterns",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFieldLevelEncryptionFieldPatterns.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of profiles for field-level encryption have been created.</p>
  */
-export interface TooManyFieldLevelEncryptionProfiles extends __SmithyException, $MetadataBearer {
-  name: "TooManyFieldLevelEncryptionProfiles";
-  $fault: "client";
+export class TooManyFieldLevelEncryptionProfiles extends __BaseException {
+  readonly name: "TooManyFieldLevelEncryptionProfiles" = "TooManyFieldLevelEncryptionProfiles";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFieldLevelEncryptionProfiles, __BaseException>) {
+    super({
+      name: "TooManyFieldLevelEncryptionProfiles",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFieldLevelEncryptionProfiles.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum FunctionRuntime {
@@ -4943,20 +5959,44 @@ export namespace CreateFunctionResult {
  * 			function, you must provide a unique name. To update an existing function, use
  * 			<code>UpdateFunction</code>.</p>
  */
-export interface FunctionAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "FunctionAlreadyExists";
-  $fault: "client";
+export class FunctionAlreadyExists extends __BaseException {
+  readonly name: "FunctionAlreadyExists" = "FunctionAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FunctionAlreadyExists, __BaseException>) {
+    super({
+      name: "FunctionAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FunctionAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface FunctionSizeLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "FunctionSizeLimitExceeded";
-  $fault: "client";
+export class FunctionSizeLimitExceeded extends __BaseException {
+  readonly name: "FunctionSizeLimitExceeded" = "FunctionSizeLimitExceeded";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FunctionSizeLimitExceeded, __BaseException>) {
+    super({
+      name: "FunctionSizeLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FunctionSizeLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -4964,19 +6004,43 @@ export interface FunctionSizeLimitExceeded extends __SmithyException, $MetadataB
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyFunctions extends __SmithyException, $MetadataBearer {
-  name: "TooManyFunctions";
-  $fault: "client";
+export class TooManyFunctions extends __BaseException {
+  readonly name: "TooManyFunctions" = "TooManyFunctions";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyFunctions, __BaseException>) {
+    super({
+      name: "TooManyFunctions",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFunctions.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This operation is not supported in this region.</p>
  */
-export interface UnsupportedOperation extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperation";
-  $fault: "client";
+export class UnsupportedOperation extends __BaseException {
+  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
+    super({
+      name: "UnsupportedOperation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5131,10 +6195,22 @@ export namespace CreateInvalidationResult {
 /**
  * <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
  */
-export interface TooManyInvalidationsInProgress extends __SmithyException, $MetadataBearer {
-  name: "TooManyInvalidationsInProgress";
-  $fault: "client";
+export class TooManyInvalidationsInProgress extends __BaseException {
+  readonly name: "TooManyInvalidationsInProgress" = "TooManyInvalidationsInProgress";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyInvalidationsInProgress, __BaseException>) {
+    super({
+      name: "TooManyInvalidationsInProgress",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyInvalidationsInProgress.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5244,10 +6320,22 @@ export namespace CreateKeyGroupResult {
  * <p>A key group with this name already exists. You must provide a unique name. To modify an
  * 			existing key group, use <code>UpdateKeyGroup</code>.</p>
  */
-export interface KeyGroupAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "KeyGroupAlreadyExists";
-  $fault: "client";
+export class KeyGroupAlreadyExists extends __BaseException {
+  readonly name: "KeyGroupAlreadyExists" = "KeyGroupAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KeyGroupAlreadyExists, __BaseException>) {
+    super({
+      name: "KeyGroupAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KeyGroupAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5255,10 +6343,22 @@ export interface KeyGroupAlreadyExists extends __SmithyException, $MetadataBeare
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyKeyGroups extends __SmithyException, $MetadataBearer {
-  name: "TooManyKeyGroups";
-  $fault: "client";
+export class TooManyKeyGroups extends __BaseException {
+  readonly name: "TooManyKeyGroups" = "TooManyKeyGroups";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyKeyGroups, __BaseException>) {
+    super({
+      name: "TooManyKeyGroups",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyKeyGroups.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5266,10 +6366,22 @@ export interface TooManyKeyGroups extends __SmithyException, $MetadataBearer {
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyPublicKeysInKeyGroup extends __SmithyException, $MetadataBearer {
-  name: "TooManyPublicKeysInKeyGroup";
-  $fault: "client";
+export class TooManyPublicKeysInKeyGroup extends __BaseException {
+  readonly name: "TooManyPublicKeysInKeyGroup" = "TooManyPublicKeysInKeyGroup";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyPublicKeysInKeyGroup, __BaseException>) {
+    super({
+      name: "TooManyPublicKeysInKeyGroup",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyPublicKeysInKeyGroup.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RealtimeMetricsSubscriptionStatus {
@@ -5669,10 +6781,22 @@ export namespace CreateOriginRequestPolicyResult {
  * 			name. To modify an existing origin request policy, use
  * 			<code>UpdateOriginRequestPolicy</code>.</p>
  */
-export interface OriginRequestPolicyAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "OriginRequestPolicyAlreadyExists";
-  $fault: "client";
+export class OriginRequestPolicyAlreadyExists extends __BaseException {
+  readonly name: "OriginRequestPolicyAlreadyExists" = "OriginRequestPolicyAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OriginRequestPolicyAlreadyExists, __BaseException>) {
+    super({
+      name: "OriginRequestPolicyAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OriginRequestPolicyAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5680,10 +6804,22 @@ export interface OriginRequestPolicyAlreadyExists extends __SmithyException, $Me
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyCookiesInOriginRequestPolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyCookiesInOriginRequestPolicy";
-  $fault: "client";
+export class TooManyCookiesInOriginRequestPolicy extends __BaseException {
+  readonly name: "TooManyCookiesInOriginRequestPolicy" = "TooManyCookiesInOriginRequestPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCookiesInOriginRequestPolicy, __BaseException>) {
+    super({
+      name: "TooManyCookiesInOriginRequestPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCookiesInOriginRequestPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5691,10 +6827,22 @@ export interface TooManyCookiesInOriginRequestPolicy extends __SmithyException, 
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyHeadersInOriginRequestPolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyHeadersInOriginRequestPolicy";
-  $fault: "client";
+export class TooManyHeadersInOriginRequestPolicy extends __BaseException {
+  readonly name: "TooManyHeadersInOriginRequestPolicy" = "TooManyHeadersInOriginRequestPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyHeadersInOriginRequestPolicy, __BaseException>) {
+    super({
+      name: "TooManyHeadersInOriginRequestPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyHeadersInOriginRequestPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5702,10 +6850,22 @@ export interface TooManyHeadersInOriginRequestPolicy extends __SmithyException, 
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyOriginRequestPolicies extends __SmithyException, $MetadataBearer {
-  name: "TooManyOriginRequestPolicies";
-  $fault: "client";
+export class TooManyOriginRequestPolicies extends __BaseException {
+  readonly name: "TooManyOriginRequestPolicies" = "TooManyOriginRequestPolicies";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyOriginRequestPolicies, __BaseException>) {
+    super({
+      name: "TooManyOriginRequestPolicies",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyOriginRequestPolicies.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5713,10 +6873,22 @@ export interface TooManyOriginRequestPolicies extends __SmithyException, $Metada
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyQueryStringsInOriginRequestPolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyQueryStringsInOriginRequestPolicy";
-  $fault: "client";
+export class TooManyQueryStringsInOriginRequestPolicy extends __BaseException {
+  readonly name: "TooManyQueryStringsInOriginRequestPolicy" = "TooManyQueryStringsInOriginRequestPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyQueryStringsInOriginRequestPolicy, __BaseException>) {
+    super({
+      name: "TooManyQueryStringsInOriginRequestPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyQueryStringsInOriginRequestPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5829,19 +7001,43 @@ export namespace CreatePublicKeyResult {
 /**
  * <p>The specified public key already exists.</p>
  */
-export interface PublicKeyAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "PublicKeyAlreadyExists";
-  $fault: "client";
+export class PublicKeyAlreadyExists extends __BaseException {
+  readonly name: "PublicKeyAlreadyExists" = "PublicKeyAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PublicKeyAlreadyExists, __BaseException>) {
+    super({
+      name: "PublicKeyAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PublicKeyAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
  */
-export interface TooManyPublicKeys extends __SmithyException, $MetadataBearer {
-  name: "TooManyPublicKeys";
-  $fault: "client";
+export class TooManyPublicKeys extends __BaseException {
+  readonly name: "TooManyPublicKeys" = "TooManyPublicKeys";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyPublicKeys, __BaseException>) {
+    super({
+      name: "TooManyPublicKeys",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyPublicKeys.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6003,10 +7199,22 @@ export namespace CreateRealtimeLogConfigResult {
  * 			To modify an existing real-time log configuration, use
  * 			<code>UpdateRealtimeLogConfig</code>.</p>
  */
-export interface RealtimeLogConfigAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "RealtimeLogConfigAlreadyExists";
-  $fault: "client";
+export class RealtimeLogConfigAlreadyExists extends __BaseException {
+  readonly name: "RealtimeLogConfigAlreadyExists" = "RealtimeLogConfigAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RealtimeLogConfigAlreadyExists, __BaseException>) {
+    super({
+      name: "RealtimeLogConfigAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RealtimeLogConfigAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6014,10 +7222,22 @@ export interface RealtimeLogConfigAlreadyExists extends __SmithyException, $Meta
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyRealtimeLogConfigs extends __SmithyException, $MetadataBearer {
-  name: "TooManyRealtimeLogConfigs";
-  $fault: "client";
+export class TooManyRealtimeLogConfigs extends __BaseException {
+  readonly name: "TooManyRealtimeLogConfigs" = "TooManyRealtimeLogConfigs";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRealtimeLogConfigs, __BaseException>) {
+    super({
+      name: "TooManyRealtimeLogConfigs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRealtimeLogConfigs.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6769,10 +7989,22 @@ export namespace CreateResponseHeadersPolicyResult {
  * 			modify an existing response headers policy, use
  * 			<code>UpdateResponseHeadersPolicy</code>.</p>
  */
-export interface ResponseHeadersPolicyAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "ResponseHeadersPolicyAlreadyExists";
-  $fault: "client";
+export class ResponseHeadersPolicyAlreadyExists extends __BaseException {
+  readonly name: "ResponseHeadersPolicyAlreadyExists" = "ResponseHeadersPolicyAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResponseHeadersPolicyAlreadyExists, __BaseException>) {
+    super({
+      name: "ResponseHeadersPolicyAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResponseHeadersPolicyAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6780,10 +8012,22 @@ export interface ResponseHeadersPolicyAlreadyExists extends __SmithyException, $
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyCustomHeadersInResponseHeadersPolicy extends __SmithyException, $MetadataBearer {
-  name: "TooManyCustomHeadersInResponseHeadersPolicy";
-  $fault: "client";
+export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException {
+  readonly name: "TooManyCustomHeadersInResponseHeadersPolicy" = "TooManyCustomHeadersInResponseHeadersPolicy";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCustomHeadersInResponseHeadersPolicy, __BaseException>) {
+    super({
+      name: "TooManyCustomHeadersInResponseHeadersPolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCustomHeadersInResponseHeadersPolicy.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6792,10 +8036,22 @@ export interface TooManyCustomHeadersInResponseHeadersPolicy extends __SmithyExc
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
-export interface TooManyResponseHeadersPolicies extends __SmithyException, $MetadataBearer {
-  name: "TooManyResponseHeadersPolicies";
-  $fault: "client";
+export class TooManyResponseHeadersPolicies extends __BaseException {
+  readonly name: "TooManyResponseHeadersPolicies" = "TooManyResponseHeadersPolicies";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyResponseHeadersPolicies, __BaseException>) {
+    super({
+      name: "TooManyResponseHeadersPolicies",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyResponseHeadersPolicies.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -7055,28 +8311,64 @@ export namespace CreateStreamingDistributionResult {
  * <p>The caller reference you attempted to create the streaming distribution with
  * 			is associated with another distribution</p>
  */
-export interface StreamingDistributionAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "StreamingDistributionAlreadyExists";
-  $fault: "client";
+export class StreamingDistributionAlreadyExists extends __BaseException {
+  readonly name: "StreamingDistributionAlreadyExists" = "StreamingDistributionAlreadyExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StreamingDistributionAlreadyExists, __BaseException>) {
+    super({
+      name: "StreamingDistributionAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StreamingDistributionAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  */
-export interface TooManyStreamingDistributionCNAMEs extends __SmithyException, $MetadataBearer {
-  name: "TooManyStreamingDistributionCNAMEs";
-  $fault: "client";
+export class TooManyStreamingDistributionCNAMEs extends __BaseException {
+  readonly name: "TooManyStreamingDistributionCNAMEs" = "TooManyStreamingDistributionCNAMEs";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyStreamingDistributionCNAMEs, __BaseException>) {
+    super({
+      name: "TooManyStreamingDistributionCNAMEs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyStreamingDistributionCNAMEs.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
  */
-export interface TooManyStreamingDistributions extends __SmithyException, $MetadataBearer {
-  name: "TooManyStreamingDistributions";
-  $fault: "client";
+export class TooManyStreamingDistributions extends __BaseException {
+  readonly name: "TooManyStreamingDistributions" = "TooManyStreamingDistributions";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyStreamingDistributions, __BaseException>) {
+    super({
+      name: "TooManyStreamingDistributions",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyStreamingDistributions.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -7180,38 +8472,86 @@ export namespace DeleteCachePolicyRequest {
 /**
  * <p>You cannot delete a managed policy.</p>
  */
-export interface IllegalDelete extends __SmithyException, $MetadataBearer {
-  name: "IllegalDelete";
-  $fault: "client";
+export class IllegalDelete extends __BaseException {
+  readonly name: "IllegalDelete" = "IllegalDelete";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalDelete, __BaseException>) {
+    super({
+      name: "IllegalDelete",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalDelete.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The <code>If-Match</code> version is missing or not valid.</p>
  */
-export interface InvalidIfMatchVersion extends __SmithyException, $MetadataBearer {
-  name: "InvalidIfMatchVersion";
-  $fault: "client";
+export class InvalidIfMatchVersion extends __BaseException {
+  readonly name: "InvalidIfMatchVersion" = "InvalidIfMatchVersion";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIfMatchVersion, __BaseException>) {
+    super({
+      name: "InvalidIfMatchVersion",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIfMatchVersion.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The precondition in one or more of the request fields evaluated to
  * 			<code>false</code>.</p>
  */
-export interface PreconditionFailed extends __SmithyException, $MetadataBearer {
-  name: "PreconditionFailed";
-  $fault: "client";
+export class PreconditionFailed extends __BaseException {
+  readonly name: "PreconditionFailed" = "PreconditionFailed";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionFailed, __BaseException>) {
+    super({
+      name: "PreconditionFailed",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailed.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Origin Access Identity specified is already in use.</p>
  */
-export interface CloudFrontOriginAccessIdentityInUse extends __SmithyException, $MetadataBearer {
-  name: "CloudFrontOriginAccessIdentityInUse";
-  $fault: "client";
+export class CloudFrontOriginAccessIdentityInUse extends __BaseException {
+  readonly name: "CloudFrontOriginAccessIdentityInUse" = "CloudFrontOriginAccessIdentityInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudFrontOriginAccessIdentityInUse, __BaseException>) {
+    super({
+      name: "CloudFrontOriginAccessIdentityInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudFrontOriginAccessIdentityInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -7242,10 +8582,22 @@ export namespace DeleteCloudFrontOriginAccessIdentityRequest {
 /**
  * <p>The specified origin access identity does not exist.</p>
  */
-export interface NoSuchCloudFrontOriginAccessIdentity extends __SmithyException, $MetadataBearer {
-  name: "NoSuchCloudFrontOriginAccessIdentity";
-  $fault: "client";
+export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
+  readonly name: "NoSuchCloudFrontOriginAccessIdentity" = "NoSuchCloudFrontOriginAccessIdentity";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchCloudFrontOriginAccessIdentity, __BaseException>) {
+    super({
+      name: "NoSuchCloudFrontOriginAccessIdentity",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchCloudFrontOriginAccessIdentity.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -7323,10 +8675,22 @@ export namespace DeleteDistributionRequest {
  * <p>The specified CloudFront distribution is not disabled. You must disable
  * 			the distribution before you can delete it.</p>
  */
-export interface DistributionNotDisabled extends __SmithyException, $MetadataBearer {
-  name: "DistributionNotDisabled";
-  $fault: "client";
+export class DistributionNotDisabled extends __BaseException {
+  readonly name: "DistributionNotDisabled" = "DistributionNotDisabled";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DistributionNotDisabled, __BaseException>) {
+    super({
+      name: "DistributionNotDisabled",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DistributionNotDisabled.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteFieldLevelEncryptionConfigRequest {
@@ -7354,10 +8718,22 @@ export namespace DeleteFieldLevelEncryptionConfigRequest {
 /**
  * <p>The specified configuration for field-level encryption is in use.</p>
  */
-export interface FieldLevelEncryptionConfigInUse extends __SmithyException, $MetadataBearer {
-  name: "FieldLevelEncryptionConfigInUse";
-  $fault: "client";
+export class FieldLevelEncryptionConfigInUse extends __BaseException {
+  readonly name: "FieldLevelEncryptionConfigInUse" = "FieldLevelEncryptionConfigInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FieldLevelEncryptionConfigInUse, __BaseException>) {
+    super({
+      name: "FieldLevelEncryptionConfigInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FieldLevelEncryptionConfigInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteFieldLevelEncryptionProfileRequest {
@@ -7385,10 +8761,22 @@ export namespace DeleteFieldLevelEncryptionProfileRequest {
 /**
  * <p>The specified profile for field-level encryption is in use.</p>
  */
-export interface FieldLevelEncryptionProfileInUse extends __SmithyException, $MetadataBearer {
-  name: "FieldLevelEncryptionProfileInUse";
-  $fault: "client";
+export class FieldLevelEncryptionProfileInUse extends __BaseException {
+  readonly name: "FieldLevelEncryptionProfileInUse" = "FieldLevelEncryptionProfileInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FieldLevelEncryptionProfileInUse, __BaseException>) {
+    super({
+      name: "FieldLevelEncryptionProfileInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FieldLevelEncryptionProfileInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteFunctionRequest {
@@ -7417,19 +8805,43 @@ export namespace DeleteFunctionRequest {
  * <p>Cannot delete the function because it’s attached to one or more cache
  * 			behaviors.</p>
  */
-export interface FunctionInUse extends __SmithyException, $MetadataBearer {
-  name: "FunctionInUse";
-  $fault: "client";
+export class FunctionInUse extends __BaseException {
+  readonly name: "FunctionInUse" = "FunctionInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FunctionInUse, __BaseException>) {
+    super({
+      name: "FunctionInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FunctionInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The function does not exist.</p>
  */
-export interface NoSuchFunctionExists extends __SmithyException, $MetadataBearer {
-  name: "NoSuchFunctionExists";
-  $fault: "client";
+export class NoSuchFunctionExists extends __BaseException {
+  readonly name: "NoSuchFunctionExists" = "NoSuchFunctionExists";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchFunctionExists, __BaseException>) {
+    super({
+      name: "NoSuchFunctionExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchFunctionExists.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteKeyGroupRequest {
@@ -7459,19 +8871,43 @@ export namespace DeleteKeyGroupRequest {
 /**
  * <p>A resource that was specified is not valid.</p>
  */
-export interface NoSuchResource extends __SmithyException, $MetadataBearer {
-  name: "NoSuchResource";
-  $fault: "client";
+export class NoSuchResource extends __BaseException {
+  readonly name: "NoSuchResource" = "NoSuchResource";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchResource, __BaseException>) {
+    super({
+      name: "NoSuchResource",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchResource.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Cannot delete this resource because it is in use.</p>
  */
-export interface ResourceInUse extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUse";
-  $fault: "client";
+export class ResourceInUse extends __BaseException {
+  readonly name: "ResourceInUse" = "ResourceInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
+    super({
+      name: "ResourceInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteMonitoringSubscriptionRequest {

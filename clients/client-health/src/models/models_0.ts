@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { HealthServiceException as __BaseException } from "./HealthServiceException";
 
 export enum EntityStatusCode {
   IMPAIRED = "IMPAIRED",
@@ -165,10 +168,20 @@ export namespace DescribeAffectedAccountsForOrganizationResponse {
 /**
  * <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  */
-export interface InvalidPaginationToken extends __SmithyException, $MetadataBearer {
-  name: "InvalidPaginationToken";
-  $fault: "client";
-  message?: string;
+export class InvalidPaginationToken extends __BaseException {
+  readonly name: "InvalidPaginationToken" = "InvalidPaginationToken";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPaginationToken, __BaseException>) {
+    super({
+      name: "InvalidPaginationToken",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPaginationToken.prototype);
+  }
 }
 
 /**
@@ -311,10 +324,20 @@ export namespace DescribeAffectedEntitiesResponse {
 /**
  * <p>The specified locale is not supported.</p>
  */
-export interface UnsupportedLocale extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedLocale";
-  $fault: "client";
-  message?: string;
+export class UnsupportedLocale extends __BaseException {
+  readonly name: "UnsupportedLocale" = "UnsupportedLocale";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedLocale, __BaseException>) {
+    super({
+      name: "UnsupportedLocale",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedLocale.prototype);
+  }
 }
 
 /**
@@ -1570,8 +1593,18 @@ export namespace DescribeHealthServiceStatusForOrganizationResponse {
  *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> is already in progress. Wait for the
  *          action to complete before trying again. To get the current status, use the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html">DescribeHealthServiceStatusForOrganization</a> operation.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }

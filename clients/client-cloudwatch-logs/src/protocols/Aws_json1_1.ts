@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -10,10 +11,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "../commands/AssociateKmsKeyCommand";
@@ -94,6 +93,7 @@ import { StopQueryCommandInput, StopQueryCommandOutput } from "../commands/StopQ
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "../commands/TagLogGroupCommand";
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "../commands/TestMetricFilterCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "../commands/UntagLogGroupCommand";
+import { CloudWatchLogsServiceException as __BaseException } from "../models/CloudWatchLogsServiceException";
 import {
   AssociateKmsKeyRequest,
   CancelExportTaskRequest,
@@ -765,57 +765,31 @@ const deserializeAws_json1_1AssociateKmsKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CancelExportTaskCommand = async (
@@ -840,57 +814,31 @@ const deserializeAws_json1_1CancelExportTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOperationException":
     case "com.amazonaws.cloudwatchlogs#InvalidOperationException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateExportTaskCommand = async (
@@ -918,73 +866,37 @@ const deserializeAws_json1_1CreateExportTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateLogGroupCommand = async (
@@ -1009,65 +921,34 @@ const deserializeAws_json1_1CreateLogGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateLogStreamCommand = async (
@@ -1092,57 +973,31 @@ const deserializeAws_json1_1CreateLogStreamCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.cloudwatchlogs#ResourceAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteDestinationCommand = async (
@@ -1167,57 +1022,31 @@ const deserializeAws_json1_1DeleteDestinationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteLogGroupCommand = async (
@@ -1242,57 +1071,31 @@ const deserializeAws_json1_1DeleteLogGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteLogStreamCommand = async (
@@ -1317,57 +1120,31 @@ const deserializeAws_json1_1DeleteLogStreamCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteMetricFilterCommand = async (
@@ -1392,57 +1169,31 @@ const deserializeAws_json1_1DeleteMetricFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteQueryDefinitionCommand = async (
@@ -1470,49 +1221,28 @@ const deserializeAws_json1_1DeleteQueryDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
@@ -1537,49 +1267,28 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRetentionPolicyCommand = async (
@@ -1604,57 +1313,31 @@ const deserializeAws_json1_1DeleteRetentionPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteSubscriptionFilterCommand = async (
@@ -1679,57 +1362,31 @@ const deserializeAws_json1_1DeleteSubscriptionFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDestinationsCommand = async (
@@ -1757,41 +1414,25 @@ const deserializeAws_json1_1DescribeDestinationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeExportTasksCommand = async (
@@ -1819,41 +1460,25 @@ const deserializeAws_json1_1DescribeExportTasksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeLogGroupsCommand = async (
@@ -1881,41 +1506,25 @@ const deserializeAws_json1_1DescribeLogGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeLogStreamsCommand = async (
@@ -1943,49 +1552,28 @@ const deserializeAws_json1_1DescribeLogStreamsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeMetricFiltersCommand = async (
@@ -2013,49 +1601,28 @@ const deserializeAws_json1_1DescribeMetricFiltersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeQueriesCommand = async (
@@ -2083,49 +1650,28 @@ const deserializeAws_json1_1DescribeQueriesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeQueryDefinitionsCommand = async (
@@ -2153,41 +1699,25 @@ const deserializeAws_json1_1DescribeQueryDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeResourcePoliciesCommand = async (
@@ -2215,41 +1745,25 @@ const deserializeAws_json1_1DescribeResourcePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeSubscriptionFiltersCommand = async (
@@ -2277,49 +1791,28 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateKmsKeyCommand = async (
@@ -2344,57 +1837,31 @@ const deserializeAws_json1_1DisassociateKmsKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1FilterLogEventsCommand = async (
@@ -2422,49 +1889,28 @@ const deserializeAws_json1_1FilterLogEventsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetLogEventsCommand = async (
@@ -2492,49 +1938,28 @@ const deserializeAws_json1_1GetLogEventsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetLogGroupFieldsCommand = async (
@@ -2562,57 +1987,31 @@ const deserializeAws_json1_1GetLogGroupFieldsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetLogRecordCommand = async (
@@ -2640,57 +2039,31 @@ const deserializeAws_json1_1GetLogRecordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetQueryResultsCommand = async (
@@ -2718,49 +2091,28 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsLogGroupCommand = async (
@@ -2788,41 +2140,25 @@ const deserializeAws_json1_1ListTagsLogGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutDestinationCommand = async (
@@ -2850,49 +2186,28 @@ const deserializeAws_json1_1PutDestinationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutDestinationPolicyCommand = async (
@@ -2917,49 +2232,28 @@ const deserializeAws_json1_1PutDestinationPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutLogEventsCommand = async (
@@ -2987,73 +2281,37 @@ const deserializeAws_json1_1PutLogEventsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DataAlreadyAcceptedException":
     case "com.amazonaws.cloudwatchlogs#DataAlreadyAcceptedException":
-      response = {
-        ...(await deserializeAws_json1_1DataAlreadyAcceptedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DataAlreadyAcceptedExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidSequenceTokenException":
     case "com.amazonaws.cloudwatchlogs#InvalidSequenceTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidSequenceTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidSequenceTokenExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnrecognizedClientException":
     case "com.amazonaws.cloudwatchlogs#UnrecognizedClientException":
-      response = {
-        ...(await deserializeAws_json1_1UnrecognizedClientExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnrecognizedClientExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutMetricFilterCommand = async (
@@ -3078,65 +2336,34 @@ const deserializeAws_json1_1PutMetricFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutQueryDefinitionCommand = async (
@@ -3164,57 +2391,31 @@ const deserializeAws_json1_1PutQueryDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutResourcePolicyCommand = async (
@@ -3242,49 +2443,28 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutRetentionPolicyCommand = async (
@@ -3309,57 +2489,31 @@ const deserializeAws_json1_1PutRetentionPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutSubscriptionFilterCommand = async (
@@ -3384,65 +2538,34 @@ const deserializeAws_json1_1PutSubscriptionFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "OperationAbortedException":
     case "com.amazonaws.cloudwatchlogs#OperationAbortedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationAbortedExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartQueryCommand = async (
@@ -3470,65 +2593,34 @@ const deserializeAws_json1_1StartQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.cloudwatchlogs#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedQueryException":
     case "com.amazonaws.cloudwatchlogs#MalformedQueryException":
-      response = {
-        ...(await deserializeAws_json1_1MalformedQueryExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MalformedQueryExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopQueryCommand = async (
@@ -3556,49 +2648,28 @@ const deserializeAws_json1_1StopQueryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagLogGroupCommand = async (
@@ -3623,41 +2694,25 @@ const deserializeAws_json1_1TagLogGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TestMetricFilterCommand = async (
@@ -3685,41 +2740,25 @@ const deserializeAws_json1_1TestMetricFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.cloudwatchlogs#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.cloudwatchlogs#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagLogGroupCommand = async (
@@ -3744,33 +2783,22 @@ const deserializeAws_json1_1UntagLogGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatchlogs#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1DataAlreadyAcceptedExceptionResponse = async (
@@ -3779,13 +2807,11 @@ const deserializeAws_json1_1DataAlreadyAcceptedExceptionResponse = async (
 ): Promise<DataAlreadyAcceptedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DataAlreadyAcceptedException(body, context);
-  const contents: DataAlreadyAcceptedException = {
-    name: "DataAlreadyAcceptedException",
-    $fault: "client",
+  const exception = new DataAlreadyAcceptedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
@@ -3794,13 +2820,11 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
 ): Promise<InvalidOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidOperationException(body, context);
-  const contents: InvalidOperationException = {
-    name: "InvalidOperationException",
-    $fault: "client",
+  const exception = new InvalidOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
@@ -3809,13 +2833,11 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
-  const contents: InvalidParameterException = {
-    name: "InvalidParameterException",
-    $fault: "client",
+  const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidSequenceTokenExceptionResponse = async (
@@ -3824,13 +2846,11 @@ const deserializeAws_json1_1InvalidSequenceTokenExceptionResponse = async (
 ): Promise<InvalidSequenceTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidSequenceTokenException(body, context);
-  const contents: InvalidSequenceTokenException = {
-    name: "InvalidSequenceTokenException",
-    $fault: "client",
+  const exception = new InvalidSequenceTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LimitExceededExceptionResponse = async (
@@ -3839,13 +2859,11 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1MalformedQueryExceptionResponse = async (
@@ -3854,13 +2872,11 @@ const deserializeAws_json1_1MalformedQueryExceptionResponse = async (
 ): Promise<MalformedQueryException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MalformedQueryException(body, context);
-  const contents: MalformedQueryException = {
-    name: "MalformedQueryException",
-    $fault: "client",
+  const exception = new MalformedQueryException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OperationAbortedExceptionResponse = async (
@@ -3869,13 +2885,11 @@ const deserializeAws_json1_1OperationAbortedExceptionResponse = async (
 ): Promise<OperationAbortedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationAbortedException(body, context);
-  const contents: OperationAbortedException = {
-    name: "OperationAbortedException",
-    $fault: "client",
+  const exception = new OperationAbortedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
@@ -3884,13 +2898,11 @@ const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
 ): Promise<ResourceAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceAlreadyExistsException(body, context);
-  const contents: ResourceAlreadyExistsException = {
-    name: "ResourceAlreadyExistsException",
-    $fault: "client",
+  const exception = new ResourceAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
@@ -3899,13 +2911,11 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
@@ -3914,13 +2924,11 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
 ): Promise<ServiceUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(body, context);
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
+  const exception = new ServiceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
@@ -3929,13 +2937,11 @@ const deserializeAws_json1_1UnrecognizedClientExceptionResponse = async (
 ): Promise<UnrecognizedClientException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnrecognizedClientException(body, context);
-  const contents: UnrecognizedClientException = {
-    name: "UnrecognizedClientException",
-    $fault: "client",
+  const exception = new UnrecognizedClientException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AssociateKmsKeyRequest = (input: AssociateKmsKeyRequest, context: __SerdeContext): any => {

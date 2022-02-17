@@ -1,15 +1,18 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectString as __expectString, limitedParseDouble as __limitedParseDouble } from "@aws-sdk/smithy-client";
+import {
+  decorateServiceException as __decorateServiceException,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { QueryForecastCommandInput, QueryForecastCommandOutput } from "../commands/QueryForecastCommand";
+import { ForecastqueryServiceException as __BaseException } from "../models/ForecastqueryServiceException";
 import {
   DataPoint,
   Forecast,
@@ -60,65 +63,34 @@ const deserializeAws_json1_1QueryForecastCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.forecastquery#InvalidInputException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.forecastquery#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.forecastquery#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.forecastquery#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.forecastquery#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1InvalidInputExceptionResponse = async (
@@ -127,13 +99,11 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInputException(body, context);
-  const contents: InvalidInputException = {
-    name: "InvalidInputException",
-    $fault: "client",
+  const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
@@ -142,13 +112,11 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
-  const contents: InvalidNextTokenException = {
-    name: "InvalidNextTokenException",
-    $fault: "client",
+  const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LimitExceededExceptionResponse = async (
@@ -157,13 +125,11 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
@@ -172,13 +138,11 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
@@ -187,13 +151,11 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1Filters = (input: { [key: string]: string }, context: __SerdeContext): any => {

@@ -1,4 +1,5 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   AccountDetails,
@@ -60,6 +61,7 @@ import {
   AwsRdsDbSubnetGroup,
   AwsRdsPendingCloudWatchLogsExports,
 } from "./models_0";
+import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
 
 /**
  * <p>A processor feature.</p>
@@ -6898,11 +6900,24 @@ export namespace CreateActionTargetResponse {
 /**
  * <p>The resource specified in the request conflicts with an existing resource.</p>
  */
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 export interface CreateFindingAggregatorRequest {

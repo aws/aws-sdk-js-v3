@@ -1,12 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { WorkSpacesWebServiceException as __BaseException } from "./WorkSpacesWebServiceException";
 
 /**
  * <p>Access is denied.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export interface AssociateBrowserSettingsRequest {
@@ -54,10 +67,9 @@ export namespace AssociateBrowserSettingsResponse {
 /**
  * <p>There is a conflict.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Identifier of the resource affected.</p>
    */
@@ -67,28 +79,53 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>Type of the resource affected.</p>
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
  * <p>There is an internal server error.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message?: string;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   /**
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
  * <p>The resource cannot be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Hypothetical identifier of the resource affected.</p>
    */
@@ -98,15 +135,28 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Hypothetical type of the resource affected.</p>
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
  * <p>There is a throttling error.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The originating service.</p>
    */
@@ -121,6 +171,21 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>Advice to clients on when the call can be safely retried.</p>
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -157,10 +222,9 @@ export enum ValidationExceptionReason {
 /**
  * <p>There is a validation error.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Reason the request failed validation</p>
    */
@@ -170,6 +234,20 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The field that caused the error.</p>
    */
   fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
 }
 
 export interface AssociateNetworkSettingsRequest {
@@ -382,10 +460,9 @@ export namespace CreateBrowserSettingsResponse {
 /**
  * <p>The service quota has been exceeded.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message?: string;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Identifier of the resource affected.</p>
    */
@@ -405,6 +482,22 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The originating quota.</p>
    */
   quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
 }
 
 export enum IdentityProviderType {
@@ -2517,14 +2610,26 @@ export namespace TagResourceResponse {
 /**
  * <p>There are too many tags.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Name of the resource affected.</p>
    */
   resourceName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.resourceName = opts.resourceName;
+  }
 }
 
 export interface UntagResourceRequest {

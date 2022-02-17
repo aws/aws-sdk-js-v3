@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { IoT1ClickProjectsServiceException as __BaseException } from "./IoT1ClickProjectsServiceException";
 
 export interface AssociateDeviceWithPlacementRequest {
   /**
@@ -47,41 +50,85 @@ export namespace AssociateDeviceWithPlacementResponse {
 /**
  * <p></p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   code: string | undefined;
-  message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   code: string | undefined;
-  message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   code: string | undefined;
-  message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   code: string | undefined;
-  message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.code = opts.code;
+  }
 }
 
 export interface CreatePlacementRequest {
@@ -255,11 +302,22 @@ export namespace DeletePlacementResponse {
 /**
  * <p></p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   code: string | undefined;
-  message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.code = opts.code;
+  }
 }
 
 export interface DeleteProjectRequest {

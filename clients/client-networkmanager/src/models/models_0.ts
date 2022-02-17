@@ -1,5 +1,11 @@
-import { LazyJsonString as __LazyJsonString, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+  SENSITIVE_STRING,
+} from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { NetworkManagerServiceException as __BaseException } from "./NetworkManagerServiceException";
 
 export interface AcceptAttachmentRequest {
   /**
@@ -193,19 +199,31 @@ export namespace AcceptAttachmentResponse {
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>There was a conflict processing the request. Updating or deleting the resource can
  *             cause an inconsistent state.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
    * <p>The ID of the resource.</p>
@@ -216,27 +234,54 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The resource type.</p>
    */
   ResourceType: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>The request has failed due to an internal error.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message: string | undefined;
   /**
    * <p>Indicates when to retry the request.</p>
    */
   RetryAfterSeconds?: number;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
 }
 
 /**
  * <p>The specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
    * <p>The ID of the resource.</p>
@@ -252,19 +297,47 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The specified resource could not be found.</p>
    */
   Context?: { [key: string]: string };
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+    this.Context = opts.Context;
+  }
 }
 
 /**
  * <p>The request was denied due to request throttling.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
    * <p>Indicates when to retry the request.</p>
    */
   RetryAfterSeconds?: number;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
 }
 
 /**
@@ -301,9 +374,9 @@ export enum ValidationExceptionReason {
 /**
  * <p>The input fails to satisfy the constraints.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
    * <p>The reason for the error.</p>
@@ -314,6 +387,20 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The fields that caused the error, if applicable.</p>
    */
   Fields?: ValidationExceptionField[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+    this.Fields = opts.Fields;
+  }
 }
 
 export interface AssociateConnectPeerRequest {
@@ -412,9 +499,9 @@ export namespace AssociateConnectPeerResponse {
 /**
  * <p>A service limit was exceeded.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message.</p>
    */
@@ -439,6 +526,22 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>The service code.</p>
    */
   ServiceCode: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+    this.LimitCode = opts.LimitCode;
+    this.ServiceCode = opts.ServiceCode;
+  }
 }
 
 export interface AssociateCustomerGatewayRequest {
@@ -1454,14 +1557,27 @@ export namespace CoreNetworkPolicy {
 /**
  * <p>Describes a core network policy exception.</p>
  */
-export interface CoreNetworkPolicyException extends __SmithyException, $MetadataBearer {
-  name: "CoreNetworkPolicyException";
-  $fault: "client";
+export class CoreNetworkPolicyException extends __BaseException {
+  readonly name: "CoreNetworkPolicyException" = "CoreNetworkPolicyException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
    * <p>Describes a core network policy exception.</p>
    */
   Errors?: CoreNetworkPolicyError[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CoreNetworkPolicyException, __BaseException>) {
+    super({
+      name: "CoreNetworkPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CoreNetworkPolicyException.prototype);
+    this.Message = opts.Message;
+    this.Errors = opts.Errors;
+  }
 }
 
 /**

@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -8,10 +9,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput } from "../commands/GetRoleCredentialsCommand";
@@ -27,6 +26,7 @@ import {
   TooManyRequestsException,
   UnauthorizedException,
 } from "../models/models_0";
+import { SSOServiceException as __BaseException } from "../models/SSOServiceException";
 
 export const serializeAws_restJson1GetRoleCredentialsCommand = async (
   input: GetRoleCredentialsCommandInput,
@@ -155,57 +155,31 @@ const deserializeAws_restJson1GetRoleCredentialsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.sso#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sso#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sso#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.sso#UnauthorizedException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListAccountRolesCommand = async (
@@ -238,57 +212,31 @@ const deserializeAws_restJson1ListAccountRolesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.sso#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sso#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sso#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.sso#UnauthorizedException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListAccountsCommand = async (
@@ -321,57 +269,31 @@ const deserializeAws_restJson1ListAccountsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.sso#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.sso#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sso#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.sso#UnauthorizedException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1LogoutCommand = async (
@@ -396,117 +318,92 @@ const deserializeAws_restJson1LogoutCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.sso#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sso#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.sso#UnauthorizedException":
-      response = {
-        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const contents: InvalidRequestException = {
-    name: "InvalidRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TooManyRequestsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: TooManyRequestsException = {
-    name: "TooManyRequestsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new TooManyRequestsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1UnauthorizedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnauthorizedException> => {
-  const contents: UnauthorizedException = {
-    name: "UnauthorizedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new UnauthorizedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1AccountInfo = (output: any, context: __SerdeContext): AccountInfo => {

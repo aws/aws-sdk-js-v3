@@ -1,12 +1,27 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ServiceQuotasServiceException as __BaseException } from "./ServiceQuotasServiceException";
 
 /**
  * <p>You do not have sufficient permission to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateServiceQuotaTemplateRequest {}
@@ -35,65 +50,149 @@ export namespace AssociateServiceQuotaTemplateResponse {
  * <p>The action you attempted is not allowed unless Service Access with Service Quotas is
  *       enabled in your organization.</p>
  */
-export interface AWSServiceAccessNotEnabledException extends __SmithyException, $MetadataBearer {
-  name: "AWSServiceAccessNotEnabledException";
-  $fault: "client";
+export class AWSServiceAccessNotEnabledException extends __BaseException {
+  readonly name: "AWSServiceAccessNotEnabledException" = "AWSServiceAccessNotEnabledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AWSServiceAccessNotEnabledException, __BaseException>) {
+    super({
+      name: "AWSServiceAccessNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AWSServiceAccessNotEnabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You can't perform this action because a dependency does not have access.</p>
  */
-export interface DependencyAccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "DependencyAccessDeniedException";
-  $fault: "client";
+export class DependencyAccessDeniedException extends __BaseException {
+  readonly name: "DependencyAccessDeniedException" = "DependencyAccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyAccessDeniedException, __BaseException>) {
+    super({
+      name: "DependencyAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyAccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The account making this call is not a member of an organization.</p>
  */
-export interface NoAvailableOrganizationException extends __SmithyException, $MetadataBearer {
-  name: "NoAvailableOrganizationException";
-  $fault: "client";
+export class NoAvailableOrganizationException extends __BaseException {
+  readonly name: "NoAvailableOrganizationException" = "NoAvailableOrganizationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoAvailableOrganizationException, __BaseException>) {
+    super({
+      name: "NoAvailableOrganizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAvailableOrganizationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The organization that your account belongs to is not in All Features mode.</p>
  */
-export interface OrganizationNotInAllFeaturesModeException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationNotInAllFeaturesModeException";
-  $fault: "client";
+export class OrganizationNotInAllFeaturesModeException extends __BaseException {
+  readonly name: "OrganizationNotInAllFeaturesModeException" = "OrganizationNotInAllFeaturesModeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationNotInAllFeaturesModeException, __BaseException>) {
+    super({
+      name: "OrganizationNotInAllFeaturesModeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationNotInAllFeaturesModeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Something went wrong.</p>
  */
-export interface ServiceException extends __SmithyException, $MetadataBearer {
-  name: "ServiceException";
-  $fault: "server";
+export class ServiceException extends __BaseException {
+  readonly name: "ServiceException" = "ServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
+    super({
+      name: "ServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Service Quotas template is not available in this AWS Region.</p>
  */
-export interface TemplatesNotAvailableInRegionException extends __SmithyException, $MetadataBearer {
-  name: "TemplatesNotAvailableInRegionException";
-  $fault: "client";
+export class TemplatesNotAvailableInRegionException extends __BaseException {
+  readonly name: "TemplatesNotAvailableInRegionException" = "TemplatesNotAvailableInRegionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TemplatesNotAvailableInRegionException, __BaseException>) {
+    super({
+      name: "TemplatesNotAvailableInRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TemplatesNotAvailableInRegionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Due to throttling, the request was denied. Slow down the rate of request calls, or request
  *       an increase for this quota.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
@@ -136,19 +235,43 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
 /**
  * <p>Invalid input was provided.</p>
  */
-export interface IllegalArgumentException extends __SmithyException, $MetadataBearer {
-  name: "IllegalArgumentException";
-  $fault: "client";
+export class IllegalArgumentException extends __BaseException {
+  readonly name: "IllegalArgumentException" = "IllegalArgumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalArgumentException, __BaseException>) {
+    super({
+      name: "IllegalArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface NoSuchResourceException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchResourceException";
-  $fault: "client";
+export class NoSuchResourceException extends __BaseException {
+  readonly name: "NoSuchResourceException" = "NoSuchResourceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchResourceException, __BaseException>) {
+    super({
+      name: "NoSuchResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchResourceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DisassociateServiceQuotaTemplateRequest {}
@@ -176,10 +299,22 @@ export namespace DisassociateServiceQuotaTemplateResponse {
 /**
  * <p>The quota request template is not associated with your organization.</p>
  */
-export interface ServiceQuotaTemplateNotInUseException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaTemplateNotInUseException";
-  $fault: "client";
+export class ServiceQuotaTemplateNotInUseException extends __BaseException {
+  readonly name: "ServiceQuotaTemplateNotInUseException" = "ServiceQuotaTemplateNotInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaTemplateNotInUseException, __BaseException>) {
+    super({
+      name: "ServiceQuotaTemplateNotInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaTemplateNotInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ErrorCode {
@@ -738,19 +873,43 @@ export namespace Tag {
 /**
  * <p>Invalid input was provided.</p>
  */
-export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPaginationTokenException";
-  $fault: "client";
+export class InvalidPaginationTokenException extends __BaseException {
+  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
+    super({
+      name: "InvalidPaginationTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource is in an invalid state.</p>
  */
-export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceStateException";
-  $fault: "client";
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListAWSDefaultServiceQuotasRequest {
@@ -1171,10 +1330,22 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
  * <p>You have exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use Service Quotas to request a service quota increase.</p>
  */
-export interface QuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "QuotaExceededException";
-  $fault: "client";
+export class QuotaExceededException extends __BaseException {
+  readonly name: "QuotaExceededException" = "QuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QuotaExceededException, __BaseException>) {
+    super({
+      name: "QuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface RequestServiceQuotaIncreaseRequest {
@@ -1222,19 +1393,43 @@ export namespace RequestServiceQuotaIncreaseResponse {
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified tag is a reserved word and cannot be used.</p>
  */
-export interface TagPolicyViolationException extends __SmithyException, $MetadataBearer {
-  name: "TagPolicyViolationException";
-  $fault: "client";
+export class TagPolicyViolationException extends __BaseException {
+  readonly name: "TagPolicyViolationException" = "TagPolicyViolationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagPolicyViolationException, __BaseException>) {
+    super({
+      name: "TagPolicyViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagPolicyViolationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface TagResourceRequest {
@@ -1275,10 +1470,22 @@ export namespace TagResourceResponse {
  *         <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/sq-tagging.html#sq-tagging-restrictions">Tag
  *         restrictions</a> in the <i>Service Quotas User Guide</i>.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UntagResourceRequest {

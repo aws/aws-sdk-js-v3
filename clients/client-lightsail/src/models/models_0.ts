@@ -1,17 +1,32 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { LightsailServiceException as __BaseException } from "./LightsailServiceException";
 
 /**
  * <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid
  *       credentials to access a resource.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   code?: string;
   docs?: string;
-  message?: string;
   tip?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
 }
 
 export enum AccessDirection {
@@ -218,13 +233,26 @@ export namespace AccessRules {
  * <p>Lightsail throws this exception when an account is still in the setup in progress
  *       state.</p>
  */
-export interface AccountSetupInProgressException extends __SmithyException, $MetadataBearer {
-  name: "AccountSetupInProgressException";
-  $fault: "client";
+export class AccountSetupInProgressException extends __BaseException {
+  readonly name: "AccountSetupInProgressException" = "AccountSetupInProgressException";
+  readonly $fault: "client" = "client";
   code?: string;
   docs?: string;
-  message?: string;
   tip?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountSetupInProgressException, __BaseException>) {
+    super({
+      name: "AccountSetupInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountSetupInProgressException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
 }
 
 /**
@@ -955,61 +983,126 @@ export namespace AllocateStaticIpResult {
  *           <code>us-east-1</code> to create, view, or edit these resources.</p>
  *          </note>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
   code?: string;
   docs?: string;
-  message?: string;
   tip?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
 }
 
 /**
  * <p>Lightsail throws this exception when it cannot find a resource.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   code?: string;
   docs?: string;
-  message?: string;
   tip?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
 }
 
 /**
  * <p>Lightsail throws this exception when an operation fails to execute.</p>
  */
-export interface OperationFailureException extends __SmithyException, $MetadataBearer {
-  name: "OperationFailureException";
-  $fault: "client";
+export class OperationFailureException extends __BaseException {
+  readonly name: "OperationFailureException" = "OperationFailureException";
+  readonly $fault: "client" = "client";
   code?: string;
   docs?: string;
-  message?: string;
   tip?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationFailureException, __BaseException>) {
+    super({
+      name: "OperationFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationFailureException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
 }
 
 /**
  * <p>A general service exception.</p>
  */
-export interface ServiceException extends __SmithyException, $MetadataBearer {
-  name: "ServiceException";
-  $fault: "server";
+export class ServiceException extends __BaseException {
+  readonly name: "ServiceException" = "ServiceException";
+  readonly $fault: "server" = "server";
   code?: string;
   docs?: string;
-  message?: string;
   tip?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
+    super({
+      name: "ServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
 }
 
 /**
  * <p>Lightsail throws this exception when the user has not been authenticated.</p>
  */
-export interface UnauthenticatedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthenticatedException";
-  $fault: "client";
+export class UnauthenticatedException extends __BaseException {
+  readonly name: "UnauthenticatedException" = "UnauthenticatedException";
+  readonly $fault: "client" = "client";
   code?: string;
   docs?: string;
-  message?: string;
   tip?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthenticatedException, __BaseException>) {
+    super({
+      name: "UnauthenticatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthenticatedException.prototype);
+    this.code = opts.code;
+    this.docs = opts.docs;
+    this.tip = opts.tip;
+  }
 }
 
 export interface AttachCertificateToDistributionRequest {

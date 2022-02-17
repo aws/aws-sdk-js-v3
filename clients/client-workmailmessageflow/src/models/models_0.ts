@@ -1,5 +1,8 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { WorkMailMessageFlowServiceException as __BaseException } from "./WorkMailMessageFlowServiceException";
 
 export interface GetRawMessageContentRequest {
   /**
@@ -36,10 +39,20 @@ export namespace GetRawMessageContentResponse {
 /**
  * <p>The requested email message is not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
@@ -61,29 +74,59 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
  *             </li>
  *          </ul>
  */
-export interface InvalidContentLocation extends __SmithyException, $MetadataBearer {
-  name: "InvalidContentLocation";
-  $fault: "client";
-  message?: string;
+export class InvalidContentLocation extends __BaseException {
+  readonly name: "InvalidContentLocation" = "InvalidContentLocation";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidContentLocation, __BaseException>) {
+    super({
+      name: "InvalidContentLocation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidContentLocation.prototype);
+  }
 }
 
 /**
  * <p>The requested email is not eligible for update. This is usually the case for a redirected email.</p>
  */
-export interface MessageFrozen extends __SmithyException, $MetadataBearer {
-  name: "MessageFrozen";
-  $fault: "client";
-  message?: string;
+export class MessageFrozen extends __BaseException {
+  readonly name: "MessageFrozen" = "MessageFrozen";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MessageFrozen, __BaseException>) {
+    super({
+      name: "MessageFrozen",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MessageFrozen.prototype);
+  }
 }
 
 /**
  * <p>The requested email could not be updated due to an error in the MIME content. Check the error message for more information about
  *       what caused the error.</p>
  */
-export interface MessageRejected extends __SmithyException, $MetadataBearer {
-  name: "MessageRejected";
-  $fault: "client";
-  message?: string;
+export class MessageRejected extends __BaseException {
+  readonly name: "MessageRejected" = "MessageRejected";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
+    super({
+      name: "MessageRejected",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MessageRejected.prototype);
+  }
 }
 
 /**

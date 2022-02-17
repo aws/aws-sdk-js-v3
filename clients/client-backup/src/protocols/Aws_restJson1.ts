@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -12,10 +13,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -178,6 +177,7 @@ import {
   UpdateRegionSettingsCommandOutput,
 } from "../commands/UpdateRegionSettingsCommand";
 import { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "../commands/UpdateReportPlanCommand";
+import { BackupServiceException as __BaseException } from "../models/BackupServiceException";
 import {
   AdvancedBackupSetting,
   AlreadyExistsException,
@@ -2404,65 +2404,34 @@ const deserializeAws_restJson1CreateBackupPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateBackupSelectionCommand = async (
@@ -2499,65 +2468,34 @@ const deserializeAws_restJson1CreateBackupSelectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateBackupVaultCommand = async (
@@ -2594,65 +2532,34 @@ const deserializeAws_restJson1CreateBackupVaultCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateFrameworkCommand = async (
@@ -2685,65 +2592,34 @@ const deserializeAws_restJson1CreateFrameworkCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateReportPlanCommand = async (
@@ -2780,65 +2656,34 @@ const deserializeAws_restJson1CreateReportPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteBackupPlanCommand = async (
@@ -2879,65 +2724,34 @@ const deserializeAws_restJson1DeleteBackupPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteBackupSelectionCommand = async (
@@ -2962,57 +2776,31 @@ const deserializeAws_restJson1DeleteBackupSelectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteBackupVaultCommand = async (
@@ -3037,65 +2825,34 @@ const deserializeAws_restJson1DeleteBackupVaultCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand = async (
@@ -3120,57 +2877,31 @@ const deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommand = async (
@@ -3195,65 +2926,34 @@ const deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteBackupVaultNotificationsCommand = async (
@@ -3278,57 +2978,31 @@ const deserializeAws_restJson1DeleteBackupVaultNotificationsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteFrameworkCommand = async (
@@ -3353,65 +3027,34 @@ const deserializeAws_restJson1DeleteFrameworkCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteRecoveryPointCommand = async (
@@ -3436,73 +3079,37 @@ const deserializeAws_restJson1DeleteRecoveryPointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "InvalidResourceStateException":
     case "com.amazonaws.backup#InvalidResourceStateException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteReportPlanCommand = async (
@@ -3527,65 +3134,34 @@ const deserializeAws_restJson1DeleteReportPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeBackupJobCommand = async (
@@ -3692,65 +3268,34 @@ const deserializeAws_restJson1DescribeBackupJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.backup#DependencyFailureException":
-      response = {
-        ...(await deserializeAws_restJson1DependencyFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1DependencyFailureExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeBackupVaultCommand = async (
@@ -3815,57 +3360,31 @@ const deserializeAws_restJson1DescribeBackupVaultCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeCopyJobCommand = async (
@@ -3894,57 +3413,31 @@ const deserializeAws_restJson1DescribeCopyJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeFrameworkCommand = async (
@@ -4001,57 +3494,31 @@ const deserializeAws_restJson1DescribeFrameworkCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeGlobalSettingsCommand = async (
@@ -4084,41 +3551,25 @@ const deserializeAws_restJson1DescribeGlobalSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeProtectedResourceCommand = async (
@@ -4155,57 +3606,31 @@ const deserializeAws_restJson1DescribeProtectedResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
@@ -4306,57 +3731,31 @@ const deserializeAws_restJson1DescribeRecoveryPointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeRegionSettingsCommand = async (
@@ -4395,33 +3794,22 @@ const deserializeAws_restJson1DescribeRegionSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeReportJobCommand = async (
@@ -4450,49 +3838,28 @@ const deserializeAws_restJson1DescribeReportJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeReportPlanCommand = async (
@@ -4521,57 +3888,31 @@ const deserializeAws_restJson1DescribeReportPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
@@ -4648,65 +3989,34 @@ const deserializeAws_restJson1DescribeRestoreJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.backup#DependencyFailureException":
-      response = {
-        ...(await deserializeAws_restJson1DependencyFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1DependencyFailureExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DisassociateRecoveryPointCommand = async (
@@ -4731,73 +4041,37 @@ const deserializeAws_restJson1DisassociateRecoveryPointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "InvalidResourceStateException":
     case "com.amazonaws.backup#InvalidResourceStateException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ExportBackupPlanTemplateCommand = async (
@@ -4826,57 +4100,31 @@ const deserializeAws_restJson1ExportBackupPlanTemplateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetBackupPlanCommand = async (
@@ -4940,57 +4188,31 @@ const deserializeAws_restJson1GetBackupPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetBackupPlanFromJSONCommand = async (
@@ -5019,65 +4241,34 @@ const deserializeAws_restJson1GetBackupPlanFromJSONCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetBackupPlanFromTemplateCommand = async (
@@ -5106,57 +4297,31 @@ const deserializeAws_restJson1GetBackupPlanFromTemplateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetBackupSelectionCommand = async (
@@ -5201,57 +4366,31 @@ const deserializeAws_restJson1GetBackupSelectionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetBackupVaultAccessPolicyCommand = async (
@@ -5288,57 +4427,31 @@ const deserializeAws_restJson1GetBackupVaultAccessPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetBackupVaultNotificationsCommand = async (
@@ -5379,57 +4492,31 @@ const deserializeAws_restJson1GetBackupVaultNotificationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = async (
@@ -5466,57 +4553,31 @@ const deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetSupportedResourceTypesCommand = async (
@@ -5545,33 +4606,22 @@ const deserializeAws_restJson1GetSupportedResourceTypesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBackupJobsCommand = async (
@@ -5604,41 +4654,25 @@ const deserializeAws_restJson1ListBackupJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBackupPlansCommand = async (
@@ -5671,57 +4705,31 @@ const deserializeAws_restJson1ListBackupPlansCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBackupPlanTemplatesCommand = async (
@@ -5757,57 +4765,31 @@ const deserializeAws_restJson1ListBackupPlanTemplatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBackupPlanVersionsCommand = async (
@@ -5843,57 +4825,31 @@ const deserializeAws_restJson1ListBackupPlanVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBackupSelectionsCommand = async (
@@ -5926,57 +4882,31 @@ const deserializeAws_restJson1ListBackupSelectionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListBackupVaultsCommand = async (
@@ -6009,57 +4939,31 @@ const deserializeAws_restJson1ListBackupVaultsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListCopyJobsCommand = async (
@@ -6092,41 +4996,25 @@ const deserializeAws_restJson1ListCopyJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListFrameworksCommand = async (
@@ -6159,41 +5047,25 @@ const deserializeAws_restJson1ListFrameworksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListProtectedResourcesCommand = async (
@@ -6226,41 +5098,25 @@ const deserializeAws_restJson1ListProtectedResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = async (
@@ -6293,57 +5149,31 @@ const deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
@@ -6376,57 +5206,31 @@ const deserializeAws_restJson1ListRecoveryPointsByResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListReportJobsCommand = async (
@@ -6459,41 +5263,25 @@ const deserializeAws_restJson1ListReportJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListReportPlansCommand = async (
@@ -6526,41 +5314,25 @@ const deserializeAws_restJson1ListReportPlansCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListRestoreJobsCommand = async (
@@ -6593,57 +5365,31 @@ const deserializeAws_restJson1ListRestoreJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListTagsCommand = async (
@@ -6676,57 +5422,31 @@ const deserializeAws_restJson1ListTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1PutBackupVaultAccessPolicyCommand = async (
@@ -6751,57 +5471,31 @@ const deserializeAws_restJson1PutBackupVaultAccessPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1PutBackupVaultLockConfigurationCommand = async (
@@ -6826,65 +5520,34 @@ const deserializeAws_restJson1PutBackupVaultLockConfigurationCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1PutBackupVaultNotificationsCommand = async (
@@ -6909,57 +5572,31 @@ const deserializeAws_restJson1PutBackupVaultNotificationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartBackupJobCommand = async (
@@ -6996,73 +5633,37 @@ const deserializeAws_restJson1StartBackupJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartCopyJobCommand = async (
@@ -7095,73 +5696,37 @@ const deserializeAws_restJson1StartCopyJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartReportJobCommand = async (
@@ -7190,57 +5755,31 @@ const deserializeAws_restJson1StartReportJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartRestoreJobCommand = async (
@@ -7269,57 +5808,31 @@ const deserializeAws_restJson1StartRestoreJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StopBackupJobCommand = async (
@@ -7344,65 +5857,34 @@ const deserializeAws_restJson1StopBackupJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1TagResourceCommand = async (
@@ -7427,65 +5909,34 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UntagResourceCommand = async (
@@ -7510,57 +5961,31 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateBackupPlanCommand = async (
@@ -7608,57 +6033,31 @@ const deserializeAws_restJson1UpdateBackupPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateFrameworkCommand = async (
@@ -7695,81 +6094,40 @@ const deserializeAws_restJson1UpdateFrameworkCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.backup#LimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateGlobalSettingsCommand = async (
@@ -7794,57 +6152,31 @@ const deserializeAws_restJson1UpdateGlobalSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
@@ -7885,65 +6217,34 @@ const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.backup#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateRegionSettingsCommand = async (
@@ -7968,49 +6269,28 @@ const deserializeAws_restJson1UpdateRegionSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateReportPlanCommand = async (
@@ -8047,82 +6327,41 @@ const deserializeAws_restJson1UpdateReportPlanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.backup#ConflictException":
-      response = {
-        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
-      response = {
-        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
-  const contents: AlreadyExistsException = {
-    name: "AlreadyExistsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Arn: undefined,
-    Code: undefined,
-    Context: undefined,
-    CreatorRequestId: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Arn !== undefined && data.Arn !== null) {
     contents.Arn = __expectString(data.Arn);
@@ -8142,22 +6381,18 @@ const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new AlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConflictException> => {
-  const contents: ConflictException = {
-    name: "ConflictException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8171,22 +6406,18 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1DependencyFailureExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<DependencyFailureException> => {
-  const contents: DependencyFailureException = {
-    name: "DependencyFailureException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8200,22 +6431,18 @@ const deserializeAws_restJson1DependencyFailureExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new DependencyFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterValueException> => {
-  const contents: InvalidParameterValueException = {
-    name: "InvalidParameterValueException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8229,22 +6456,18 @@ const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new InvalidParameterValueException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const contents: InvalidRequestException = {
-    name: "InvalidRequestException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8258,22 +6481,18 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidResourceStateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceStateException> => {
-  const contents: InvalidResourceStateException = {
-    name: "InvalidResourceStateException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8287,22 +6506,18 @@ const deserializeAws_restJson1InvalidResourceStateExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new InvalidResourceStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8316,22 +6531,18 @@ const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1MissingParameterValueExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingParameterValueException> => {
-  const contents: MissingParameterValueException = {
-    name: "MissingParameterValueException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8345,22 +6556,18 @@ const deserializeAws_restJson1MissingParameterValueExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new MissingParameterValueException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8374,22 +6581,18 @@ const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Code: undefined,
-    Context: undefined,
-    Message: undefined,
-    Type: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Code !== undefined && data.Code !== null) {
     contents.Code = __expectString(data.Code);
@@ -8403,7 +6606,11 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   if (data.Type !== undefined && data.Type !== null) {
     contents.Type = __expectString(data.Type);
   }
-  return contents;
+  const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const serializeAws_restJson1AdvancedBackupSetting = (input: AdvancedBackupSetting, context: __SerdeContext): any => {

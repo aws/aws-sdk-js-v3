@@ -1,14 +1,29 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ApplicationInsightsServiceException as __BaseException } from "./ApplicationInsightsServiceException";
 
 /**
  * <p>
  *             User does not have permissions to perform this action.
  *          </p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export type Tier =
@@ -161,10 +176,22 @@ export namespace ApplicationInfo {
 /**
  * <p>The request is not understood by the server.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export type CloudWatchEventSource = "CODE_DEPLOY" | "EC2" | "HEALTH" | "RDS";
@@ -354,46 +381,106 @@ export namespace CreateApplicationResponse {
 /**
  * <p>The server encountered an internal error and is unable to complete the request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource is already created or in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource does not exist in the customer account.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Tags are already registered for the specified application ARN.</p>
  */
-export interface TagsAlreadyExistException extends __SmithyException, $MetadataBearer {
-  name: "TagsAlreadyExistException";
-  $fault: "client";
+export class TagsAlreadyExistException extends __BaseException {
+  readonly name: "TagsAlreadyExistException" = "TagsAlreadyExistException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagsAlreadyExistException, __BaseException>) {
+    super({
+      name: "TagsAlreadyExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagsAlreadyExistException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The parameter is not valid.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateComponentRequest {
@@ -1740,14 +1827,27 @@ export namespace TagResourceResponse {
  * <p>The number of the provided tags is beyond the limit, or
  *          the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The name of the resource with too many tags.</p>
    */
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export interface UntagResourceRequest {

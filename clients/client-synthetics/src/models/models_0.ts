@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SyntheticsServiceException as __BaseException } from "./SyntheticsServiceException";
 
 export enum EncryptionMode {
   SSE_KMS = "SSE_KMS",
@@ -728,10 +731,22 @@ export namespace CanaryScheduleInput {
 /**
  * <p>A conflicting operation is already in progress.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -916,28 +931,64 @@ export namespace CreateCanaryResponse {
 /**
  * <p>An unknown internal error occurred.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One of the input resources is larger than is allowed.</p>
  */
-export interface RequestEntityTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "RequestEntityTooLargeException";
-  $fault: "client";
+export class RequestEntityTooLargeException extends __BaseException {
+  readonly name: "RequestEntityTooLargeException" = "RequestEntityTooLargeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestEntityTooLargeException, __BaseException>) {
+    super({
+      name: "RequestEntityTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestEntityTooLargeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A parameter could not be validated.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteCanaryRequest {
@@ -970,10 +1021,22 @@ export namespace DeleteCanaryResponse {
 /**
  * <p>One of the specified resources was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeCanariesRequest {

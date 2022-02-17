@@ -1,5 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
 import { FieldInfo, ResourceKey, RetentionConfiguration, StoredQuery, Tag } from "./models_0";
 
 export interface PutResourceConfigRequest {
@@ -132,22 +134,39 @@ export namespace PutStoredQueryResponse {
 /**
  * <p>Two users are trying to modify the same query at the same time. Wait for a moment and try again.</p>
  */
-export interface ResourceConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConcurrentModificationException";
-  $fault: "client";
-  message?: string;
+export class ResourceConcurrentModificationException extends __BaseException {
+  readonly name: "ResourceConcurrentModificationException" = "ResourceConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ResourceConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConcurrentModificationException.prototype);
+  }
 }
 
 /**
  * <p>You have reached the limit of the number of tags you can use. You have more than 50 tags.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 /**

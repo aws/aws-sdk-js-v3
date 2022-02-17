@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudWatchServiceException as __BaseException } from "./CloudWatchServiceException";
 
 export type AlarmType = "CompositeAlarm" | "MetricAlarm";
 
@@ -618,10 +621,22 @@ export namespace CompositeAlarm {
 /**
  * <p>More than one process tried to modify a resource at the same time.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -686,20 +701,41 @@ export namespace DashboardValidationMessage {
 /**
  * <p>Some part of the dashboard data is invalid.</p>
  */
-export interface DashboardInvalidInputError extends __SmithyException, $MetadataBearer {
-  name: "DashboardInvalidInputError";
-  $fault: "client";
-  message?: string;
+export class DashboardInvalidInputError extends __BaseException {
+  readonly name: "DashboardInvalidInputError" = "DashboardInvalidInputError";
+  readonly $fault: "client" = "client";
   dashboardValidationMessages?: DashboardValidationMessage[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DashboardInvalidInputError, __BaseException>) {
+    super({
+      name: "DashboardInvalidInputError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DashboardInvalidInputError.prototype);
+    this.dashboardValidationMessages = opts.dashboardValidationMessages;
+  }
 }
 
 /**
  * <p>The specified dashboard does not exist.</p>
  */
-export interface DashboardNotFoundError extends __SmithyException, $MetadataBearer {
-  name: "DashboardNotFoundError";
-  $fault: "client";
-  message?: string;
+export class DashboardNotFoundError extends __BaseException {
+  readonly name: "DashboardNotFoundError" = "DashboardNotFoundError";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DashboardNotFoundError, __BaseException>) {
+    super({
+      name: "DashboardNotFoundError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DashboardNotFoundError.prototype);
+  }
 }
 
 /**
@@ -776,13 +812,20 @@ export namespace DeleteAlarmsInput {
 /**
  * <p>The named resource does not exist.</p>
  */
-export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFound";
-  $fault: "client";
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+  }
 }
 
 export interface DeleteAnomalyDetectorInput {
@@ -909,60 +952,107 @@ export namespace DeleteAnomalyDetectorOutput {
 /**
  * <p>Request processing has failed due to some unknown error, exception, or failure.</p>
  */
-export interface InternalServiceFault extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceFault";
-  $fault: "server";
+export class InternalServiceFault extends __BaseException {
+  readonly name: "InternalServiceFault" = "InternalServiceFault";
+  readonly $fault: "server" = "server";
   /**
    * <p></p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceFault, __BaseException>) {
+    super({
+      name: "InternalServiceFault",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceFault.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Parameters were used together that cannot be used together.</p>
  */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
+export class InvalidParameterCombinationException extends __BaseException {
+  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
+    super({
+      name: "InvalidParameterCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
+  }
 }
 
 /**
  * <p>The value of an input parameter is bad or out-of-range.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+  }
 }
 
 /**
  * <p>An input parameter that is required is missing.</p>
  */
-export interface MissingRequiredParameterException extends __SmithyException, $MetadataBearer {
-  name: "MissingRequiredParameterException";
-  $fault: "client";
+export class MissingRequiredParameterException extends __BaseException {
+  readonly name: "MissingRequiredParameterException" = "MissingRequiredParameterException";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MissingRequiredParameterException, __BaseException>) {
+    super({
+      name: "MissingRequiredParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingRequiredParameterException.prototype);
+  }
 }
 
 /**
  * <p>The named resource does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   ResourceType?: string;
   ResourceId?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ResourceType = opts.ResourceType;
+    this.ResourceId = opts.ResourceId;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteDashboardsInput {
@@ -1134,13 +1224,20 @@ export namespace DescribeAlarmHistoryOutput {
 /**
  * <p>The next token specified is invalid.</p>
  */
-export interface InvalidNextToken extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextToken";
-  $fault: "client";
+export class InvalidNextToken extends __BaseException {
+  readonly name: "InvalidNextToken" = "InvalidNextToken";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidNextToken, __BaseException>) {
+    super({
+      name: "InvalidNextToken",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextToken.prototype);
+  }
 }
 
 export interface DescribeAlarmsInput {
@@ -1777,10 +1874,22 @@ export namespace EnableInsightRulesOutput {
 /**
  * <p>The operation exceeded one or more limits.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetDashboardInput {
@@ -3056,13 +3165,20 @@ export namespace PutAnomalyDetectorOutput {
 /**
  * <p>The quota for alarms for this customer has already been reached.</p>
  */
-export interface LimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededFault";
-  $fault: "client";
+export class LimitExceededFault extends __BaseException {
+  readonly name: "LimitExceededFault" = "LimitExceededFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededFault, __BaseException>) {
+    super({
+      name: "LimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededFault.prototype);
+  }
 }
 
 export interface PutCompositeAlarmInput {
@@ -3799,13 +3915,20 @@ export namespace PutMetricStreamOutput {
 /**
  * <p>Data was not syntactically valid JSON.</p>
  */
-export interface InvalidFormatFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidFormatFault";
-  $fault: "client";
+export class InvalidFormatFault extends __BaseException {
+  readonly name: "InvalidFormatFault" = "InvalidFormatFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidFormatFault, __BaseException>) {
+    super({
+      name: "InvalidFormatFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFormatFault.prototype);
+  }
 }
 
 export interface SetAlarmStateInput {

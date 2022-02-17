@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -8,10 +9,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -62,6 +61,7 @@ import {
   UntagResourcesInput,
   UntagResourcesOutput,
 } from "../models/models_0";
+import { ResourceGroupsTaggingAPIServiceException as __BaseException } from "../models/ResourceGroupsTaggingAPIServiceException";
 
 export const serializeAws_json1_1DescribeReportCreationCommand = async (
   input: DescribeReportCreationCommandInput,
@@ -192,57 +192,31 @@ const deserializeAws_json1_1DescribeReportCreationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetComplianceSummaryCommand = async (
@@ -270,57 +244,31 @@ const deserializeAws_json1_1GetComplianceSummaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetResourcesCommand = async (
@@ -348,57 +296,31 @@ const deserializeAws_json1_1GetResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "PaginationTokenExpiredException":
     case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      response = {
-        ...(await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetTagKeysCommand = async (
@@ -426,57 +348,31 @@ const deserializeAws_json1_1GetTagKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "PaginationTokenExpiredException":
     case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      response = {
-        ...(await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetTagValuesCommand = async (
@@ -504,57 +400,31 @@ const deserializeAws_json1_1GetTagValuesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "PaginationTokenExpiredException":
     case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      response = {
-        ...(await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PaginationTokenExpiredExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartReportCreationCommand = async (
@@ -582,65 +452,34 @@ const deserializeAws_json1_1StartReportCreationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConstraintViolationException":
     case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      response = {
-        ...(await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConstraintViolationExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourcesCommand = async (
@@ -668,49 +507,28 @@ const deserializeAws_json1_1TagResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourcesCommand = async (
@@ -738,49 +556,28 @@ const deserializeAws_json1_1UntagResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
@@ -789,13 +586,11 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "client",
+  const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
@@ -804,13 +599,11 @@ const deserializeAws_json1_1ConstraintViolationExceptionResponse = async (
 ): Promise<ConstraintViolationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConstraintViolationException(body, context);
-  const contents: ConstraintViolationException = {
-    name: "ConstraintViolationException",
-    $fault: "client",
+  const exception = new ConstraintViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InternalServiceExceptionResponse = async (
@@ -819,13 +612,11 @@ const deserializeAws_json1_1InternalServiceExceptionResponse = async (
 ): Promise<InternalServiceException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalServiceException(body, context);
-  const contents: InternalServiceException = {
-    name: "InternalServiceException",
-    $fault: "server",
+  const exception = new InternalServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
@@ -834,13 +625,11 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
-  const contents: InvalidParameterException = {
-    name: "InvalidParameterException",
-    $fault: "client",
+  const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PaginationTokenExpiredExceptionResponse = async (
@@ -849,13 +638,11 @@ const deserializeAws_json1_1PaginationTokenExpiredExceptionResponse = async (
 ): Promise<PaginationTokenExpiredException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PaginationTokenExpiredException(body, context);
-  const contents: PaginationTokenExpiredException = {
-    name: "PaginationTokenExpiredException",
-    $fault: "client",
+  const exception = new PaginationTokenExpiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ThrottledExceptionResponse = async (
@@ -864,13 +651,11 @@ const deserializeAws_json1_1ThrottledExceptionResponse = async (
 ): Promise<ThrottledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ThrottledException(body, context);
-  const contents: ThrottledException = {
-    name: "ThrottledException",
-    $fault: "client",
+  const exception = new ThrottledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1DescribeReportCreationInput = (

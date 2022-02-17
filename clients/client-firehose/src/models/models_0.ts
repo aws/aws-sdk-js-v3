@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { FirehoseServiceException as __BaseException } from "./FirehoseServiceException";
 
 export interface AmazonopensearchserviceBufferingHints {
   IntervalInSeconds?: number;
@@ -768,13 +770,20 @@ export namespace AmazonopensearchserviceDestinationUpdate {
  * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
  *          it to update the destination.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 export enum ContentEncoding {
@@ -2256,13 +2265,20 @@ export namespace CreateDeliveryStreamOutput {
 /**
  * <p>The specified input parameter has a value that is not valid.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+  }
 }
 
 /**
@@ -2272,35 +2288,60 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
  *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
  *             <code>NotFoundException</code>.</p>
  */
-export interface InvalidKMSResourceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidKMSResourceException";
-  $fault: "client";
+export class InvalidKMSResourceException extends __BaseException {
+  readonly name: "InvalidKMSResourceException" = "InvalidKMSResourceException";
+  readonly $fault: "client" = "client";
   code?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKMSResourceException, __BaseException>) {
+    super({
+      name: "InvalidKMSResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKMSResourceException.prototype);
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p>You have already reached the limit for a requested resource.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The resource is already in use and not available for this operation.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 export interface DeleteDeliveryStreamInput {
@@ -2345,13 +2386,20 @@ export namespace DeleteDeliveryStreamOutput {
 /**
  * <p>The specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export enum DeliveryStreamFailureType {
@@ -3517,13 +3565,20 @@ export namespace PutRecordOutput {
  *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
  *          Limits</a>.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 export interface PutRecordBatchInput {

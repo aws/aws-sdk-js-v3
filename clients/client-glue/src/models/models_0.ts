@@ -1,15 +1,30 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { GlueServiceException as __BaseException } from "./GlueServiceException";
 
 /**
  * <p>Access to a resource was denied.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -86,13 +101,25 @@ export namespace Action {
 /**
  * <p>A resource to be created or added already exists.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AuditContext {
@@ -521,73 +548,145 @@ export namespace BatchCreatePartitionResponse {
 /**
  * <p>A specified entity does not exist</p>
  */
-export interface EntityNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EntityNotFoundException";
-  $fault: "client";
+export class EntityNotFoundException extends __BaseException {
+  readonly name: "EntityNotFoundException" = "EntityNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityNotFoundException, __BaseException>) {
+    super({
+      name: "EntityNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An encryption operation failed.</p>
  */
-export interface GlueEncryptionException extends __SmithyException, $MetadataBearer {
-  name: "GlueEncryptionException";
-  $fault: "client";
+export class GlueEncryptionException extends __BaseException {
+  readonly name: "GlueEncryptionException" = "GlueEncryptionException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GlueEncryptionException, __BaseException>) {
+    super({
+      name: "GlueEncryptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GlueEncryptionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An internal service error occurred.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The input provided was not valid.</p>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The operation timed out.</p>
  */
-export interface OperationTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "OperationTimeoutException";
-  $fault: "client";
+export class OperationTimeoutException extends __BaseException {
+  readonly name: "OperationTimeoutException" = "OperationTimeoutException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationTimeoutException, __BaseException>) {
+    super({
+      name: "OperationTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationTimeoutException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A resource numerical limit was exceeded.</p>
  */
-export interface ResourceNumberLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNumberLimitExceededException";
-  $fault: "client";
+export class ResourceNumberLimitExceededException extends __BaseException {
+  readonly name: "ResourceNumberLimitExceededException" = "ResourceNumberLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNumberLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceNumberLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNumberLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface BatchDeleteConnectionRequest {
@@ -780,13 +879,25 @@ export namespace BatchDeleteTableResponse {
 /**
  * <p>A resource was not ready for a transaction.</p>
  */
-export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotReadyException";
-  $fault: "client";
+export class ResourceNotReadyException extends __BaseException {
+  readonly name: "ResourceNotReadyException" = "ResourceNotReadyException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotReadyException, __BaseException>) {
+    super({
+      name: "ResourceNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface BatchDeleteTableVersionRequest {
@@ -2279,13 +2390,25 @@ export namespace BatchGetPartitionResponse {
 /**
  * <p>An error that indicates your data is in an invalid state.</p>
  */
-export interface InvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateException";
-  $fault: "client";
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface BatchGetTriggersRequest {
@@ -4046,13 +4169,25 @@ export namespace CreateCrawlerResponse {
 /**
  * <p>Two processes are trying to modify a resource simultaneously.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum Permission {
@@ -4469,25 +4604,49 @@ export namespace CreateDevEndpointResponse {
 /**
  * <p>The same unique identifier was associated with two different records.</p>
  */
-export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
-  name: "IdempotentParameterMismatchException";
-  $fault: "client";
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A value could not be validated.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateJobRequest {
@@ -6289,13 +6448,25 @@ export namespace DeleteConnectionResponse {
 /**
  * <p>The operation cannot be performed because the crawler is already running.</p>
  */
-export interface CrawlerRunningException extends __SmithyException, $MetadataBearer {
-  name: "CrawlerRunningException";
-  $fault: "client";
+export class CrawlerRunningException extends __BaseException {
+  readonly name: "CrawlerRunningException" = "CrawlerRunningException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CrawlerRunningException, __BaseException>) {
+    super({
+      name: "CrawlerRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CrawlerRunningException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteCrawlerRequest {
@@ -6328,13 +6499,25 @@ export namespace DeleteCrawlerResponse {
 /**
  * <p>The specified scheduler is transitioning.</p>
  */
-export interface SchedulerTransitioningException extends __SmithyException, $MetadataBearer {
-  name: "SchedulerTransitioningException";
-  $fault: "client";
+export class SchedulerTransitioningException extends __BaseException {
+  readonly name: "SchedulerTransitioningException" = "SchedulerTransitioningException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SchedulerTransitioningException, __BaseException>) {
+    super({
+      name: "SchedulerTransitioningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SchedulerTransitioningException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteDatabaseRequest {
@@ -6509,13 +6692,25 @@ export namespace DeletePartitionResponse {
 /**
  * <p>The <code>CreatePartitions</code> API was called on a table that has indexes enabled.	</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeletePartitionIndexRequest {
@@ -6610,13 +6805,25 @@ export namespace DeleteRegistryResponse {
 /**
  * <p>A specified condition was not satisfied.</p>
  */
-export interface ConditionCheckFailureException extends __SmithyException, $MetadataBearer {
-  name: "ConditionCheckFailureException";
-  $fault: "client";
+export class ConditionCheckFailureException extends __BaseException {
+  readonly name: "ConditionCheckFailureException" = "ConditionCheckFailureException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConditionCheckFailureException, __BaseException>) {
+    super({
+      name: "ConditionCheckFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConditionCheckFailureException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteResourcePolicyRequest {

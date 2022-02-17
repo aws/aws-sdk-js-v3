@@ -1,6 +1,8 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { PollyServiceException as __BaseException } from "./PollyServiceException";
 
 export interface DeleteLexiconInput {
   /**
@@ -37,19 +39,39 @@ export namespace DeleteLexiconOutput {
  *          <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled
  *       correctly. Then try again.</p>
  */
-export interface LexiconNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "LexiconNotFoundException";
-  $fault: "client";
-  message?: string;
+export class LexiconNotFoundException extends __BaseException {
+  readonly name: "LexiconNotFoundException" = "LexiconNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LexiconNotFoundException, __BaseException>) {
+    super({
+      name: "LexiconNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LexiconNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>An unknown condition has caused a service failure.</p>
  */
-export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
-  name: "ServiceFailureException";
-  $fault: "server";
-  message?: string;
+export class ServiceFailureException extends __BaseException {
+  readonly name: "ServiceFailureException" = "ServiceFailureException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
+    super({
+      name: "ServiceFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceFailureException.prototype);
+  }
 }
 
 export enum Engine {
@@ -286,10 +308,20 @@ export namespace DescribeVoicesOutput {
  * <p>The NextToken is invalid. Verify that it's spelled correctly, and
  *       then try again.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+  }
 }
 
 /**
@@ -297,10 +329,20 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
  *       Choose a new voice that is compatible with the engine or change the engine
  *       and restart the operation.</p>
  */
-export interface EngineNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "EngineNotSupportedException";
-  $fault: "client";
-  message?: string;
+export class EngineNotSupportedException extends __BaseException {
+  readonly name: "EngineNotSupportedException" = "EngineNotSupportedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EngineNotSupportedException, __BaseException>) {
+    super({
+      name: "EngineNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EngineNotSupportedException.prototype);
+  }
 }
 
 export interface GetLexiconInput {
@@ -596,89 +638,179 @@ export namespace GetSpeechSynthesisTaskOutput {
  * <p>The provided Task ID is not valid. Please provide a valid Task ID and
  *       try again.</p>
  */
-export interface InvalidTaskIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTaskIdException";
-  $fault: "client";
-  message?: string;
+export class InvalidTaskIdException extends __BaseException {
+  readonly name: "InvalidTaskIdException" = "InvalidTaskIdException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTaskIdException, __BaseException>) {
+    super({
+      name: "InvalidTaskIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTaskIdException.prototype);
+  }
 }
 
 /**
  * <p>The Speech Synthesis task with requested Task ID cannot be
  *       found.</p>
  */
-export interface SynthesisTaskNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "SynthesisTaskNotFoundException";
-  $fault: "client";
-  message?: string;
+export class SynthesisTaskNotFoundException extends __BaseException {
+  readonly name: "SynthesisTaskNotFoundException" = "SynthesisTaskNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SynthesisTaskNotFoundException, __BaseException>) {
+    super({
+      name: "SynthesisTaskNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SynthesisTaskNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>Amazon Polly can't find the specified lexicon. Verify that the lexicon's
  *       name is spelled correctly, and then try again.</p>
  */
-export interface InvalidLexiconException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLexiconException";
-  $fault: "client";
-  message?: string;
+export class InvalidLexiconException extends __BaseException {
+  readonly name: "InvalidLexiconException" = "InvalidLexiconException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLexiconException, __BaseException>) {
+    super({
+      name: "InvalidLexiconException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLexiconException.prototype);
+  }
 }
 
 /**
  * <p>The provided Amazon S3 bucket name is invalid. Please check your input
  *       with S3 bucket naming requirements and try again.</p>
  */
-export interface InvalidS3BucketException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3BucketException";
-  $fault: "client";
-  message?: string;
+export class InvalidS3BucketException extends __BaseException {
+  readonly name: "InvalidS3BucketException" = "InvalidS3BucketException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3BucketException, __BaseException>) {
+    super({
+      name: "InvalidS3BucketException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3BucketException.prototype);
+  }
 }
 
 /**
  * <p>The provided Amazon S3 key prefix is invalid. Please provide a valid
  *       S3 object key name.</p>
  */
-export interface InvalidS3KeyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3KeyException";
-  $fault: "client";
-  message?: string;
+export class InvalidS3KeyException extends __BaseException {
+  readonly name: "InvalidS3KeyException" = "InvalidS3KeyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3KeyException, __BaseException>) {
+    super({
+      name: "InvalidS3KeyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3KeyException.prototype);
+  }
 }
 
 /**
  * <p>The specified sample rate is not valid.</p>
  */
-export interface InvalidSampleRateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSampleRateException";
-  $fault: "client";
-  message?: string;
+export class InvalidSampleRateException extends __BaseException {
+  readonly name: "InvalidSampleRateException" = "InvalidSampleRateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSampleRateException, __BaseException>) {
+    super({
+      name: "InvalidSampleRateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSampleRateException.prototype);
+  }
 }
 
 /**
  * <p>The provided SNS topic ARN is invalid. Please provide a valid SNS
  *       topic ARN and try again.</p>
  */
-export interface InvalidSnsTopicArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSnsTopicArnException";
-  $fault: "client";
-  message?: string;
+export class InvalidSnsTopicArnException extends __BaseException {
+  readonly name: "InvalidSnsTopicArnException" = "InvalidSnsTopicArnException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSnsTopicArnException, __BaseException>) {
+    super({
+      name: "InvalidSnsTopicArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSnsTopicArnException.prototype);
+  }
 }
 
 /**
  * <p>The SSML you provided is invalid. Verify the SSML syntax, spelling
  *       of tags and values, and then try again.</p>
  */
-export interface InvalidSsmlException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSsmlException";
-  $fault: "client";
-  message?: string;
+export class InvalidSsmlException extends __BaseException {
+  readonly name: "InvalidSsmlException" = "InvalidSsmlException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSsmlException, __BaseException>) {
+    super({
+      name: "InvalidSsmlException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSsmlException.prototype);
+  }
 }
 
 /**
  * <p>The language specified is not currently supported by Amazon Polly in this
  *       capacity.</p>
  */
-export interface LanguageNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "LanguageNotSupportedException";
-  $fault: "client";
-  message?: string;
+export class LanguageNotSupportedException extends __BaseException {
+  readonly name: "LanguageNotSupportedException" = "LanguageNotSupportedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LanguageNotSupportedException, __BaseException>) {
+    super({
+      name: "LanguageNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LanguageNotSupportedException.prototype);
+  }
 }
 
 /**
@@ -709,10 +841,20 @@ export namespace LexiconDescription {
  * <p>The maximum size of the specified lexicon would be exceeded by this
  *       operation.</p>
  */
-export interface LexiconSizeExceededException extends __SmithyException, $MetadataBearer {
-  name: "LexiconSizeExceededException";
-  $fault: "client";
-  message?: string;
+export class LexiconSizeExceededException extends __BaseException {
+  readonly name: "LexiconSizeExceededException" = "LexiconSizeExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LexiconSizeExceededException, __BaseException>) {
+    super({
+      name: "LexiconSizeExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LexiconSizeExceededException.prototype);
+  }
 }
 
 export interface ListLexiconsInput {
@@ -815,30 +957,60 @@ export namespace ListSpeechSynthesisTasksOutput {
  *       selected. Speech marks are only available for content in <code>json</code>
  *       format.</p>
  */
-export interface MarksNotSupportedForFormatException extends __SmithyException, $MetadataBearer {
-  name: "MarksNotSupportedForFormatException";
-  $fault: "client";
-  message?: string;
+export class MarksNotSupportedForFormatException extends __BaseException {
+  readonly name: "MarksNotSupportedForFormatException" = "MarksNotSupportedForFormatException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MarksNotSupportedForFormatException, __BaseException>) {
+    super({
+      name: "MarksNotSupportedForFormatException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MarksNotSupportedForFormatException.prototype);
+  }
 }
 
 /**
  * <p>The maximum size of the lexeme would be exceeded by this
  *       operation.</p>
  */
-export interface MaxLexemeLengthExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxLexemeLengthExceededException";
-  $fault: "client";
-  message?: string;
+export class MaxLexemeLengthExceededException extends __BaseException {
+  readonly name: "MaxLexemeLengthExceededException" = "MaxLexemeLengthExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxLexemeLengthExceededException, __BaseException>) {
+    super({
+      name: "MaxLexemeLengthExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxLexemeLengthExceededException.prototype);
+  }
 }
 
 /**
  * <p>The maximum number of lexicons would be exceeded by this
  *       operation.</p>
  */
-export interface MaxLexiconsNumberExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxLexiconsNumberExceededException";
-  $fault: "client";
-  message?: string;
+export class MaxLexiconsNumberExceededException extends __BaseException {
+  readonly name: "MaxLexiconsNumberExceededException" = "MaxLexiconsNumberExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxLexiconsNumberExceededException, __BaseException>) {
+    super({
+      name: "MaxLexiconsNumberExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxLexiconsNumberExceededException.prototype);
+  }
 }
 
 export interface PutLexiconInput {
@@ -880,30 +1052,60 @@ export namespace PutLexiconOutput {
  * <p>The alphabet specified by the lexicon is not a supported alphabet.
  *       Valid values are <code>x-sampa</code> and <code>ipa</code>.</p>
  */
-export interface UnsupportedPlsAlphabetException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedPlsAlphabetException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedPlsAlphabetException extends __BaseException {
+  readonly name: "UnsupportedPlsAlphabetException" = "UnsupportedPlsAlphabetException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedPlsAlphabetException, __BaseException>) {
+    super({
+      name: "UnsupportedPlsAlphabetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedPlsAlphabetException.prototype);
+  }
 }
 
 /**
  * <p>The language specified in the lexicon is unsupported. For a list of
  *       supported languages, see <a href="https://docs.aws.amazon.com/polly/latest/dg/API_LexiconAttributes.html">Lexicon Attributes</a>.</p>
  */
-export interface UnsupportedPlsLanguageException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedPlsLanguageException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedPlsLanguageException extends __BaseException {
+  readonly name: "UnsupportedPlsLanguageException" = "UnsupportedPlsLanguageException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedPlsLanguageException, __BaseException>) {
+    super({
+      name: "UnsupportedPlsLanguageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedPlsLanguageException.prototype);
+  }
 }
 
 /**
  * <p>SSML speech marks are not supported for plain text-type
  *       input.</p>
  */
-export interface SsmlMarksNotSupportedForTextTypeException extends __SmithyException, $MetadataBearer {
-  name: "SsmlMarksNotSupportedForTextTypeException";
-  $fault: "client";
-  message?: string;
+export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
+  readonly name: "SsmlMarksNotSupportedForTextTypeException" = "SsmlMarksNotSupportedForTextTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SsmlMarksNotSupportedForTextTypeException, __BaseException>) {
+    super({
+      name: "SsmlMarksNotSupportedForTextTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SsmlMarksNotSupportedForTextTypeException.prototype);
+  }
 }
 
 export interface StartSpeechSynthesisTaskInput {
@@ -1025,10 +1227,20 @@ export namespace StartSpeechSynthesisTaskOutput {
  *       billed characters. SSML tags are not counted as billed
  *       characters.</p>
  */
-export interface TextLengthExceededException extends __SmithyException, $MetadataBearer {
-  name: "TextLengthExceededException";
-  $fault: "client";
-  message?: string;
+export class TextLengthExceededException extends __BaseException {
+  readonly name: "TextLengthExceededException" = "TextLengthExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TextLengthExceededException, __BaseException>) {
+    super({
+      name: "TextLengthExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TextLengthExceededException.prototype);
+  }
 }
 
 export interface SynthesizeSpeechInput {

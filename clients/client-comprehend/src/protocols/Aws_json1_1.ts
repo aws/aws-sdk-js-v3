@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -11,10 +12,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -238,6 +237,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "../commands/UpdateEndpointCommand";
+import { ComprehendServiceException as __BaseException } from "../models/ComprehendServiceException";
 import {
   AugmentedManifestsListItem,
   BatchDetectDominantLanguageItemResult,
@@ -1350,57 +1350,31 @@ const deserializeAws_json1_1BatchDetectDominantLanguageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchDetectEntitiesCommand = async (
@@ -1428,65 +1402,34 @@ const deserializeAws_json1_1BatchDetectEntitiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchDetectKeyPhrasesCommand = async (
@@ -1514,65 +1457,34 @@ const deserializeAws_json1_1BatchDetectKeyPhrasesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchDetectSentimentCommand = async (
@@ -1600,65 +1512,34 @@ const deserializeAws_json1_1BatchDetectSentimentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchDetectSyntaxCommand = async (
@@ -1686,65 +1567,34 @@ const deserializeAws_json1_1BatchDetectSyntaxCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BatchSizeLimitExceededException":
     case "com.amazonaws.comprehend#BatchSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ClassifyDocumentCommand = async (
@@ -1772,57 +1622,31 @@ const deserializeAws_json1_1ClassifyDocumentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ContainsPiiEntitiesCommand = async (
@@ -1850,57 +1674,31 @@ const deserializeAws_json1_1ContainsPiiEntitiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateDocumentClassifierCommand = async (
@@ -1928,89 +1726,43 @@ const deserializeAws_json1_1CreateDocumentClassifierCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateEndpointCommand = async (
@@ -2038,89 +1790,43 @@ const deserializeAws_json1_1CreateEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateEntityRecognizerCommand = async (
@@ -2148,89 +1854,43 @@ const deserializeAws_json1_1CreateEntityRecognizerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteDocumentClassifierCommand = async (
@@ -2258,73 +1918,37 @@ const deserializeAws_json1_1DeleteDocumentClassifierCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteEndpointCommand = async (
@@ -2352,65 +1976,34 @@ const deserializeAws_json1_1DeleteEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteEntityRecognizerCommand = async (
@@ -2438,73 +2031,37 @@ const deserializeAws_json1_1DeleteEntityRecognizerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
@@ -2532,49 +2089,28 @@ const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDocumentClassificationJobCommand = async (
@@ -2602,57 +2138,31 @@ const deserializeAws_json1_1DescribeDocumentClassificationJobCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDocumentClassifierCommand = async (
@@ -2680,57 +2190,31 @@ const deserializeAws_json1_1DescribeDocumentClassifierCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand = async (
@@ -2758,57 +2242,31 @@ const deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeEndpointCommand = async (
@@ -2836,57 +2294,31 @@ const deserializeAws_json1_1DescribeEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeEntitiesDetectionJobCommand = async (
@@ -2914,57 +2346,31 @@ const deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeEntityRecognizerCommand = async (
@@ -2992,57 +2398,31 @@ const deserializeAws_json1_1DescribeEntityRecognizerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeEventsDetectionJobCommand = async (
@@ -3070,57 +2450,31 @@ const deserializeAws_json1_1DescribeEventsDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand = async (
@@ -3148,57 +2502,31 @@ const deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommand = async (
@@ -3226,57 +2554,31 @@ const deserializeAws_json1_1DescribePiiEntitiesDetectionJobCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeResourcePolicyCommand = async (
@@ -3304,49 +2606,28 @@ const deserializeAws_json1_1DescribeResourcePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeSentimentDetectionJobCommand = async (
@@ -3374,57 +2655,31 @@ const deserializeAws_json1_1DescribeSentimentDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeTopicsDetectionJobCommand = async (
@@ -3452,57 +2707,31 @@ const deserializeAws_json1_1DescribeTopicsDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetectDominantLanguageCommand = async (
@@ -3530,49 +2759,28 @@ const deserializeAws_json1_1DetectDominantLanguageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetectEntitiesCommand = async (
@@ -3600,65 +2808,34 @@ const deserializeAws_json1_1DetectEntitiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetectKeyPhrasesCommand = async (
@@ -3686,57 +2863,31 @@ const deserializeAws_json1_1DetectKeyPhrasesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetectPiiEntitiesCommand = async (
@@ -3764,57 +2915,31 @@ const deserializeAws_json1_1DetectPiiEntitiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetectSentimentCommand = async (
@@ -3842,57 +2967,31 @@ const deserializeAws_json1_1DetectSentimentCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DetectSyntaxCommand = async (
@@ -3920,57 +3019,31 @@ const deserializeAws_json1_1DetectSyntaxCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TextSizeLimitExceededException":
     case "com.amazonaws.comprehend#TextSizeLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TextSizeLimitExceededExceptionResponse(parsedOutput, context);
     case "UnsupportedLanguageException":
     case "com.amazonaws.comprehend#UnsupportedLanguageException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ImportModelCommand = async (
@@ -3998,97 +3071,46 @@ const deserializeAws_json1_1ImportModelCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListDocumentClassificationJobsCommand = async (
@@ -4116,57 +3138,31 @@ const deserializeAws_json1_1ListDocumentClassificationJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListDocumentClassifiersCommand = async (
@@ -4194,57 +3190,31 @@ const deserializeAws_json1_1ListDocumentClassifiersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListDocumentClassifierSummariesCommand = async (
@@ -4272,49 +3242,28 @@ const deserializeAws_json1_1ListDocumentClassifierSummariesCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListDominantLanguageDetectionJobsCommand = async (
@@ -4342,57 +3291,31 @@ const deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListEndpointsCommand = async (
@@ -4420,49 +3343,28 @@ const deserializeAws_json1_1ListEndpointsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListEntitiesDetectionJobsCommand = async (
@@ -4490,57 +3392,31 @@ const deserializeAws_json1_1ListEntitiesDetectionJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListEntityRecognizersCommand = async (
@@ -4568,57 +3444,31 @@ const deserializeAws_json1_1ListEntityRecognizersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListEntityRecognizerSummariesCommand = async (
@@ -4646,49 +3496,28 @@ const deserializeAws_json1_1ListEntityRecognizerSummariesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListEventsDetectionJobsCommand = async (
@@ -4716,57 +3545,31 @@ const deserializeAws_json1_1ListEventsDetectionJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand = async (
@@ -4794,57 +3597,31 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommand = async (
@@ -4872,57 +3649,31 @@ const deserializeAws_json1_1ListPiiEntitiesDetectionJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListSentimentDetectionJobsCommand = async (
@@ -4950,57 +3701,31 @@ const deserializeAws_json1_1ListSentimentDetectionJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForResourceCommand = async (
@@ -5028,49 +3753,28 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTopicsDetectionJobsCommand = async (
@@ -5098,57 +3802,31 @@ const deserializeAws_json1_1ListTopicsDetectionJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidFilterException":
     case "com.amazonaws.comprehend#InvalidFilterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidFilterExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutResourcePolicyCommand = async (
@@ -5176,49 +3854,28 @@ const deserializeAws_json1_1PutResourcePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartDocumentClassificationJobCommand = async (
@@ -5246,81 +3903,40 @@ const deserializeAws_json1_1StartDocumentClassificationJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartDominantLanguageDetectionJobCommand = async (
@@ -5348,65 +3964,34 @@ const deserializeAws_json1_1StartDominantLanguageDetectionJobCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartEntitiesDetectionJobCommand = async (
@@ -5434,81 +4019,40 @@ const deserializeAws_json1_1StartEntitiesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartEventsDetectionJobCommand = async (
@@ -5536,65 +4080,34 @@ const deserializeAws_json1_1StartEventsDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand = async (
@@ -5622,65 +4135,34 @@ const deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartPiiEntitiesDetectionJobCommand = async (
@@ -5708,65 +4190,34 @@ const deserializeAws_json1_1StartPiiEntitiesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartSentimentDetectionJobCommand = async (
@@ -5794,65 +4245,34 @@ const deserializeAws_json1_1StartSentimentDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartTopicsDetectionJobCommand = async (
@@ -5880,65 +4300,34 @@ const deserializeAws_json1_1StartTopicsDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "KmsKeyValidationException":
     case "com.amazonaws.comprehend#KmsKeyValidationException":
-      response = {
-        ...(await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsKeyValidationExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopDominantLanguageDetectionJobCommand = async (
@@ -5966,49 +4355,28 @@ const deserializeAws_json1_1StopDominantLanguageDetectionJobCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopEntitiesDetectionJobCommand = async (
@@ -6036,49 +4404,28 @@ const deserializeAws_json1_1StopEntitiesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopEventsDetectionJobCommand = async (
@@ -6106,49 +4453,28 @@ const deserializeAws_json1_1StopEventsDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand = async (
@@ -6176,49 +4502,28 @@ const deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopPiiEntitiesDetectionJobCommand = async (
@@ -6246,49 +4551,28 @@ const deserializeAws_json1_1StopPiiEntitiesDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopSentimentDetectionJobCommand = async (
@@ -6316,49 +4600,28 @@ const deserializeAws_json1_1StopSentimentDetectionJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "JobNotFoundException":
     case "com.amazonaws.comprehend#JobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopTrainingDocumentClassifierCommand = async (
@@ -6386,57 +4649,31 @@ const deserializeAws_json1_1StopTrainingDocumentClassifierCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopTrainingEntityRecognizerCommand = async (
@@ -6464,57 +4701,31 @@ const deserializeAws_json1_1StopTrainingEntityRecognizerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourceCommand = async (
@@ -6542,65 +4753,34 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.comprehend#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.comprehend#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourceCommand = async (
@@ -6628,65 +4808,34 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.comprehend#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyTagKeysException":
     case "com.amazonaws.comprehend#TooManyTagKeysException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagKeysExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateEndpointCommand = async (
@@ -6714,81 +4863,40 @@ const deserializeAws_json1_1UpdateEndpointCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.comprehend#InternalServerException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.comprehend#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.comprehend#ResourceInUseException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.comprehend#ResourceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.comprehend#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceUnavailableException":
     case "com.amazonaws.comprehend#ResourceUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceUnavailableExceptionResponse(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.comprehend#TooManyRequestsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse = async (
@@ -6797,13 +4905,11 @@ const deserializeAws_json1_1BatchSizeLimitExceededExceptionResponse = async (
 ): Promise<BatchSizeLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1BatchSizeLimitExceededException(body, context);
-  const contents: BatchSizeLimitExceededException = {
-    name: "BatchSizeLimitExceededException",
-    $fault: "client",
+  const exception = new BatchSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
@@ -6812,13 +4918,11 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "client",
+  const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InternalServerExceptionResponse = async (
@@ -6827,13 +4931,11 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
 ): Promise<InternalServerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalServerException(body, context);
-  const contents: InternalServerException = {
-    name: "InternalServerException",
-    $fault: "server",
+  const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidFilterExceptionResponse = async (
@@ -6842,13 +4944,11 @@ const deserializeAws_json1_1InvalidFilterExceptionResponse = async (
 ): Promise<InvalidFilterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidFilterException(body, context);
-  const contents: InvalidFilterException = {
-    name: "InvalidFilterException",
-    $fault: "client",
+  const exception = new InvalidFilterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
@@ -6857,13 +4957,11 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidRequestException(body, context);
-  const contents: InvalidRequestException = {
-    name: "InvalidRequestException",
-    $fault: "client",
+  const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
@@ -6872,13 +4970,11 @@ const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
 ): Promise<JobNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1JobNotFoundException(body, context);
-  const contents: JobNotFoundException = {
-    name: "JobNotFoundException",
-    $fault: "client",
+  const exception = new JobNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KmsKeyValidationExceptionResponse = async (
@@ -6887,13 +4983,11 @@ const deserializeAws_json1_1KmsKeyValidationExceptionResponse = async (
 ): Promise<KmsKeyValidationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KmsKeyValidationException(body, context);
-  const contents: KmsKeyValidationException = {
-    name: "KmsKeyValidationException",
-    $fault: "client",
+  const exception = new KmsKeyValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
@@ -6902,13 +4996,11 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
 ): Promise<ResourceInUseException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceInUseException(body, context);
-  const contents: ResourceInUseException = {
-    name: "ResourceInUseException",
-    $fault: "client",
+  const exception = new ResourceInUseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
@@ -6917,13 +5009,11 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
 ): Promise<ResourceLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceLimitExceededException(body, context);
-  const contents: ResourceLimitExceededException = {
-    name: "ResourceLimitExceededException",
-    $fault: "client",
+  const exception = new ResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
@@ -6932,13 +5022,11 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
@@ -6947,13 +5035,11 @@ const deserializeAws_json1_1ResourceUnavailableExceptionResponse = async (
 ): Promise<ResourceUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceUnavailableException(body, context);
-  const contents: ResourceUnavailableException = {
-    name: "ResourceUnavailableException",
-    $fault: "client",
+  const exception = new ResourceUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
@@ -6962,13 +5048,11 @@ const deserializeAws_json1_1TextSizeLimitExceededExceptionResponse = async (
 ): Promise<TextSizeLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TextSizeLimitExceededException(body, context);
-  const contents: TextSizeLimitExceededException = {
-    name: "TextSizeLimitExceededException",
-    $fault: "client",
+  const exception = new TextSizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
@@ -6977,13 +5061,11 @@ const deserializeAws_json1_1TooManyRequestsExceptionResponse = async (
 ): Promise<TooManyRequestsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyRequestsException(body, context);
-  const contents: TooManyRequestsException = {
-    name: "TooManyRequestsException",
-    $fault: "client",
+  const exception = new TooManyRequestsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TooManyTagKeysExceptionResponse = async (
@@ -6992,13 +5074,11 @@ const deserializeAws_json1_1TooManyTagKeysExceptionResponse = async (
 ): Promise<TooManyTagKeysException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyTagKeysException(body, context);
-  const contents: TooManyTagKeysException = {
-    name: "TooManyTagKeysException",
-    $fault: "client",
+  const exception = new TooManyTagKeysException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
@@ -7007,13 +5087,11 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
-  const contents: TooManyTagsException = {
-    name: "TooManyTagsException",
-    $fault: "client",
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnsupportedLanguageExceptionResponse = async (
@@ -7022,13 +5100,11 @@ const deserializeAws_json1_1UnsupportedLanguageExceptionResponse = async (
 ): Promise<UnsupportedLanguageException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedLanguageException(body, context);
-  const contents: UnsupportedLanguageException = {
-    name: "UnsupportedLanguageException",
-    $fault: "client",
+  const exception = new UnsupportedLanguageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AttributeNamesList = (input: string[], context: __SerdeContext): any => {

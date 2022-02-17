@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -10,10 +11,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -126,6 +125,7 @@ import {
   ThrottlingException,
   UnknownResourceException,
 } from "../models/models_0";
+import { RAMServiceException as __BaseException } from "../models/RAMServiceException";
 
 export const serializeAws_restJson1AcceptResourceShareInvitationCommand = async (
   input: AcceptResourceShareInvitationCommandInput,
@@ -915,111 +915,55 @@ const deserializeAws_restJson1AcceptResourceShareInvitationCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceShareInvitationAlreadyAcceptedException":
     case "com.amazonaws.ram#ResourceShareInvitationAlreadyAcceptedException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationAlreadyAcceptedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationAlreadyAcceptedExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "ResourceShareInvitationAlreadyRejectedException":
     case "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceShareInvitationExpiredException":
     case "com.amazonaws.ram#ResourceShareInvitationExpiredException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1AssociateResourceShareCommand = async (
@@ -1055,113 +999,52 @@ const deserializeAws_restJson1AssociateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.ram#InvalidStateTransitionException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceShareLimitExceededException":
     case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ram#ThrottlingException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1AssociateResourceSharePermissionCommand = async (
@@ -1194,81 +1077,40 @@ const deserializeAws_restJson1AssociateResourceSharePermissionCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateResourceShareCommand = async (
@@ -1301,113 +1143,52 @@ const deserializeAws_restJson1CreateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.ram#InvalidStateTransitionException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceShareLimitExceededException":
     case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "TagPolicyViolationException":
     case "com.amazonaws.ram#TagPolicyViolationException":
-      response = {
-        ...(await deserializeAws_restJson1TagPolicyViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TagPolicyViolationExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteResourceShareCommand = async (
@@ -1440,97 +1221,46 @@ const deserializeAws_restJson1DeleteResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.ram#InvalidStateTransitionException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DisassociateResourceShareCommand = async (
@@ -1566,105 +1296,49 @@ const deserializeAws_restJson1DisassociateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.ram#InvalidStateTransitionException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceShareLimitExceededException":
     case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DisassociateResourceSharePermissionCommand = async (
@@ -1697,89 +1371,43 @@ const deserializeAws_restJson1DisassociateResourceSharePermissionCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.ram#InvalidStateTransitionException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidStateTransitionExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand = async (
@@ -1808,49 +1436,28 @@ const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetPermissionCommand = async (
@@ -1879,73 +1486,37 @@ const deserializeAws_restJson1GetPermissionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourcePoliciesCommand = async (
@@ -1978,73 +1549,37 @@ const deserializeAws_restJson1GetResourcePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "ResourceArnNotFoundException":
     case "com.amazonaws.ram#ResourceArnNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceArnNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceArnNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourceShareAssociationsCommand = async (
@@ -2080,81 +1615,40 @@ const deserializeAws_restJson1GetResourceShareAssociationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourceShareInvitationsCommand = async (
@@ -2190,89 +1684,43 @@ const deserializeAws_restJson1GetResourceShareInvitationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidMaxResultsException":
     case "com.amazonaws.ram#InvalidMaxResultsException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidMaxResultsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidMaxResultsExceptionResponse(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourceSharesCommand = async (
@@ -2305,73 +1753,37 @@ const deserializeAws_restJson1GetResourceSharesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListPendingInvitationResourcesCommand = async (
@@ -2404,100 +1816,49 @@ const deserializeAws_restJson1ListPendingInvitationResourcesCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.ram#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "ResourceShareInvitationAlreadyRejectedException":
     case "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceShareInvitationExpiredException":
     case "com.amazonaws.ram#ResourceShareInvitationExpiredException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListPermissionsCommand = async (
@@ -2530,65 +1891,34 @@ const deserializeAws_restJson1ListPermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListPermissionVersionsCommand = async (
@@ -2621,81 +1951,40 @@ const deserializeAws_restJson1ListPermissionVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListPrincipalsCommand = async (
@@ -2728,73 +2017,37 @@ const deserializeAws_restJson1ListPrincipalsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListResourcesCommand = async (
@@ -2827,81 +2080,40 @@ const deserializeAws_restJson1ListResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidResourceTypeException":
     case "com.amazonaws.ram#InvalidResourceTypeException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidResourceTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidResourceTypeExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListResourceSharePermissionsCommand = async (
@@ -2934,81 +2146,40 @@ const deserializeAws_restJson1ListResourceSharePermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListResourceTypesCommand = async (
@@ -3041,57 +2212,31 @@ const deserializeAws_restJson1ListResourceTypesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.ram#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand = async (
@@ -3120,89 +2265,43 @@ const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.ram#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceShareLimitExceededException":
     case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1RejectResourceShareInvitationCommand = async (
@@ -3238,111 +2337,55 @@ const deserializeAws_restJson1RejectResourceShareInvitationCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ResourceShareInvitationAlreadyAcceptedException":
     case "com.amazonaws.ram#ResourceShareInvitationAlreadyAcceptedException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationAlreadyAcceptedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationAlreadyAcceptedExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "ResourceShareInvitationAlreadyRejectedException":
     case "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionResponse(
-          parsedOutput,
-          context
-        )),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionResponse(
+        parsedOutput,
+        context
+      );
     case "ResourceShareInvitationArnNotFoundException":
     case "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse(parsedOutput, context);
     case "ResourceShareInvitationExpiredException":
     case "com.amazonaws.ram#ResourceShareInvitationExpiredException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1TagResourceCommand = async (
@@ -3367,89 +2410,43 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "ResourceArnNotFoundException":
     case "com.amazonaws.ram#ResourceArnNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceArnNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceArnNotFoundExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "TagLimitExceededException":
     case "com.amazonaws.ram#TagLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1TagLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TagLimitExceededExceptionResponse(parsedOutput, context);
     case "TagPolicyViolationException":
     case "com.amazonaws.ram#TagPolicyViolationException":
-      response = {
-        ...(await deserializeAws_restJson1TagPolicyViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TagPolicyViolationExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UntagResourceCommand = async (
@@ -3474,49 +2471,28 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateResourceShareCommand = async (
@@ -3549,471 +2525,398 @@ const deserializeAws_restJson1UpdateResourceShareCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
     case "InvalidClientTokenException":
     case "com.amazonaws.ram#InvalidClientTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidClientTokenExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MalformedArnException":
     case "com.amazonaws.ram#MalformedArnException":
-      response = {
-        ...(await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MalformedArnExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.ram#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.ram#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ServerInternalException":
     case "com.amazonaws.ram#ServerInternalException":
-      response = {
-        ...(await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServerInternalExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
-      response = {
-        ...(await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnknownResourceExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1IdempotentParameterMismatchExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<IdempotentParameterMismatchException> => {
-  const contents: IdempotentParameterMismatchException = {
-    name: "IdempotentParameterMismatchException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new IdempotentParameterMismatchException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidClientTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidClientTokenException> => {
-  const contents: InvalidClientTokenException = {
-    name: "InvalidClientTokenException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidClientTokenException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidMaxResultsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidMaxResultsException> => {
-  const contents: InvalidMaxResultsException = {
-    name: "InvalidMaxResultsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidMaxResultsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
-  const contents: InvalidNextTokenException = {
-    name: "InvalidNextTokenException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidNextTokenException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidParameterExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidParameterException> => {
-  const contents: InvalidParameterException = {
-    name: "InvalidParameterException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidParameterException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidResourceTypeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidResourceTypeException> => {
-  const contents: InvalidResourceTypeException = {
-    name: "InvalidResourceTypeException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidResourceTypeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidStateTransitionExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidStateTransitionException> => {
-  const contents: InvalidStateTransitionException = {
-    name: "InvalidStateTransitionException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidStateTransitionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1MalformedArnExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MalformedArnException> => {
-  const contents: MalformedArnException = {
-    name: "MalformedArnException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new MalformedArnException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1MissingRequiredParameterExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MissingRequiredParameterException> => {
-  const contents: MissingRequiredParameterException = {
-    name: "MissingRequiredParameterException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new MissingRequiredParameterException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1OperationNotPermittedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationNotPermittedException> => {
-  const contents: OperationNotPermittedException = {
-    name: "OperationNotPermittedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new OperationNotPermittedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceArnNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceArnNotFoundException> => {
-  const contents: ResourceArnNotFoundException = {
-    name: "ResourceArnNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ResourceArnNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceShareInvitationAlreadyAcceptedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationAlreadyAcceptedException> => {
-  const contents: ResourceShareInvitationAlreadyAcceptedException = {
-    name: "ResourceShareInvitationAlreadyAcceptedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ResourceShareInvitationAlreadyAcceptedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceShareInvitationAlreadyRejectedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationAlreadyRejectedException> => {
-  const contents: ResourceShareInvitationAlreadyRejectedException = {
-    name: "ResourceShareInvitationAlreadyRejectedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ResourceShareInvitationAlreadyRejectedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceShareInvitationArnNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationArnNotFoundException> => {
-  const contents: ResourceShareInvitationArnNotFoundException = {
-    name: "ResourceShareInvitationArnNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ResourceShareInvitationArnNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceShareInvitationExpiredExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareInvitationExpiredException> => {
-  const contents: ResourceShareInvitationExpiredException = {
-    name: "ResourceShareInvitationExpiredException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ResourceShareInvitationExpiredException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceShareLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceShareLimitExceededException> => {
-  const contents: ResourceShareLimitExceededException = {
-    name: "ResourceShareLimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ResourceShareLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ServerInternalExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServerInternalException> => {
-  const contents: ServerInternalException = {
-    name: "ServerInternalException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ServerInternalException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const contents: ServiceUnavailableException = {
-    name: "ServiceUnavailableException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ServiceUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TagLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagLimitExceededException> => {
-  const contents: TagLimitExceededException = {
-    name: "TagLimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new TagLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TagPolicyViolationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TagPolicyViolationException> => {
-  const contents: TagPolicyViolationException = {
-    name: "TagPolicyViolationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new TagPolicyViolationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1UnknownResourceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnknownResourceException> => {
-  const contents: UnknownResourceException = {
-    name: "UnknownResourceException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new UnknownResourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const serializeAws_restJson1PermissionArnList = (input: string[], context: __SerdeContext): any => {

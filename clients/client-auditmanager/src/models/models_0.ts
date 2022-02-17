@@ -1,13 +1,26 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AuditManagerServiceException as __BaseException } from "./AuditManagerServiceException";
 
 /**
  * <p> Your account isn't registered with Audit Manager. Check the delegated
  *          administrator setup on the Audit Manager settings page, and try again. </p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message: string | undefined;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export enum AccountStatus {
@@ -1136,19 +1149,28 @@ export namespace AssociateAssessmentReportEvidenceFolderResponse {
  * <p> An internal service error occurred during the processing of your request. Try again
  *          later. </p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
 }
 
 /**
  * <p> The resource that's specified in the request can't be found. </p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p> The unique identifier for the resource. </p>
    */
@@ -1158,6 +1180,20 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p> The type of resource that's affected by the error. </p>
    */
   resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
@@ -1194,10 +1230,9 @@ export enum ValidationExceptionReason {
 /**
  * <p> The request has invalid or missing parameters. </p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p> The reason the request failed validation. </p>
    */
@@ -1207,6 +1242,20 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p> The fields that caused the error, if applicable. </p>
    */
   fields?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fields = opts.fields;
+  }
 }
 
 export interface BatchAssociateAssessmentReportEvidenceRequest {

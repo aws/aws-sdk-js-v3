@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { QLDBSessionServiceException as __BaseException } from "./QLDBSessionServiceException";
 
 /**
  * <p>Contains the details of the transaction to abort.</p>
@@ -59,20 +62,45 @@ export namespace AbortTransactionResult {
  * <p>Returned if the request is malformed or contains an error such as an invalid parameter
  *          value or a missing required parameter.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
  * <p>Returned when the request exceeds the processing capacity of the ledger.</p>
  */
-export interface CapacityExceededException extends __SmithyException, $MetadataBearer {
-  name: "CapacityExceededException";
-  $fault: "server";
+export class CapacityExceededException extends __BaseException {
+  readonly name: "CapacityExceededException" = "CapacityExceededException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CapacityExceededException, __BaseException>) {
+    super({
+      name: "CapacityExceededException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CapacityExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -358,39 +386,88 @@ export namespace FetchPageResult {
 /**
  * <p>Returned if the session doesn't exist anymore because it timed out or expired.</p>
  */
-export interface InvalidSessionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSessionException";
-  $fault: "client";
+export class InvalidSessionException extends __BaseException {
+  readonly name: "InvalidSessionException" = "InvalidSessionException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSessionException, __BaseException>) {
+    super({
+      name: "InvalidSessionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSessionException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
  * <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned when a transaction cannot be written to the journal due to a failure in the
  *          verification phase of <i>optimistic concurrency control</i> (OCC).</p>
  */
-export interface OccConflictException extends __SmithyException, $MetadataBearer {
-  name: "OccConflictException";
-  $fault: "client";
+export class OccConflictException extends __BaseException {
+  readonly name: "OccConflictException" = "OccConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OccConflictException, __BaseException>) {
+    super({
+      name: "OccConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OccConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  */
-export interface RateExceededException extends __SmithyException, $MetadataBearer {
-  name: "RateExceededException";
-  $fault: "client";
+export class RateExceededException extends __BaseException {
+  readonly name: "RateExceededException" = "RateExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RateExceededException, __BaseException>) {
+    super({
+      name: "RateExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RateExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**

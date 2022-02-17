@@ -1,5 +1,10 @@
-import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SageMakerServiceException as __BaseException } from "./SageMakerServiceException";
 
 /**
  * <p>A structure describing the source of an action.</p>
@@ -168,19 +173,43 @@ export namespace AddAssociationResponse {
  * <p> You have exceeded an Amazon SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
  */
-export interface ResourceLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ResourceLimitExceeded";
-  $fault: "client";
+export class ResourceLimitExceeded extends __BaseException {
+  readonly name: "ResourceLimitExceeded" = "ResourceLimitExceeded";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceeded, __BaseException>) {
+    super({
+      name: "ResourceLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Resource being access is not found.</p>
  */
-export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFound";
-  $fault: "client";
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -5983,10 +6012,22 @@ export namespace ConditionStepMetadata {
  * <p>There was a conflict when you attempted to modify a SageMaker entity such as an
  *       <code>Experiment</code> or <code>Artifact</code>.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RepositoryAccessMode {
@@ -6897,10 +6938,22 @@ export namespace CreateAppResponse {
 /**
  * <p>Resource being accessed is in use.</p>
  */
-export interface ResourceInUse extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUse";
-  $fault: "client";
+export class ResourceInUse extends __BaseException {
+  readonly name: "ResourceInUse" = "ResourceInUse";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUse, __BaseException>) {
+    super({
+      name: "ResourceInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUse.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateAppImageConfigRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { RAMServiceException as __BaseException } from "./RAMServiceException";
 
 export interface AcceptResourceShareInvitationRequest {
   /**
@@ -214,91 +217,191 @@ export namespace AcceptResourceShareInvitationResponse {
  *             operation, but at least one of the other input parameters is different from the previous
  *             call.</p>
  */
-export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
-  name: "IdempotentParameterMismatchException";
-  $fault: "client";
-  message: string | undefined;
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+  }
 }
 
 /**
  * <p>The client token is not valid.</p>
  */
-export interface InvalidClientTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientTokenException";
-  $fault: "client";
-  message: string | undefined;
+export class InvalidClientTokenException extends __BaseException {
+  readonly name: "InvalidClientTokenException" = "InvalidClientTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClientTokenException, __BaseException>) {
+    super({
+      name: "InvalidClientTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientTokenException.prototype);
+  }
 }
 
 /**
  * <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
  */
-export interface MalformedArnException extends __SmithyException, $MetadataBearer {
-  name: "MalformedArnException";
-  $fault: "client";
-  message: string | undefined;
+export class MalformedArnException extends __BaseException {
+  readonly name: "MalformedArnException" = "MalformedArnException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedArnException, __BaseException>) {
+    super({
+      name: "MalformedArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedArnException.prototype);
+  }
 }
 
 /**
  * <p>The requested operation is not permitted.</p>
  */
-export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedException";
-  $fault: "client";
-  message: string | undefined;
+export class OperationNotPermittedException extends __BaseException {
+  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
+    super({
+      name: "OperationNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
+  }
 }
 
 /**
  * <p>The specified invitation was already accepted.</p>
  */
-export interface ResourceShareInvitationAlreadyAcceptedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceShareInvitationAlreadyAcceptedException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceShareInvitationAlreadyAcceptedException extends __BaseException {
+  readonly name: "ResourceShareInvitationAlreadyAcceptedException" = "ResourceShareInvitationAlreadyAcceptedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceShareInvitationAlreadyAcceptedException, __BaseException>) {
+    super({
+      name: "ResourceShareInvitationAlreadyAcceptedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceShareInvitationAlreadyAcceptedException.prototype);
+  }
 }
 
 /**
  * <p>The specified invitation was already rejected.</p>
  */
-export interface ResourceShareInvitationAlreadyRejectedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceShareInvitationAlreadyRejectedException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceShareInvitationAlreadyRejectedException extends __BaseException {
+  readonly name: "ResourceShareInvitationAlreadyRejectedException" = "ResourceShareInvitationAlreadyRejectedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceShareInvitationAlreadyRejectedException, __BaseException>) {
+    super({
+      name: "ResourceShareInvitationAlreadyRejectedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceShareInvitationAlreadyRejectedException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon Resource Name (ARN) for an invitation was not found.</p>
  */
-export interface ResourceShareInvitationArnNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceShareInvitationArnNotFoundException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceShareInvitationArnNotFoundException extends __BaseException {
+  readonly name: "ResourceShareInvitationArnNotFoundException" = "ResourceShareInvitationArnNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceShareInvitationArnNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceShareInvitationArnNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceShareInvitationArnNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The specified invitation is expired.</p>
  */
-export interface ResourceShareInvitationExpiredException extends __SmithyException, $MetadataBearer {
-  name: "ResourceShareInvitationExpiredException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceShareInvitationExpiredException extends __BaseException {
+  readonly name: "ResourceShareInvitationExpiredException" = "ResourceShareInvitationExpiredException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceShareInvitationExpiredException, __BaseException>) {
+    super({
+      name: "ResourceShareInvitationExpiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceShareInvitationExpiredException.prototype);
+  }
 }
 
 /**
  * <p>The service could not respond to the request due to an internal problem.</p>
  */
-export interface ServerInternalException extends __SmithyException, $MetadataBearer {
-  name: "ServerInternalException";
-  $fault: "server";
-  message: string | undefined;
+export class ServerInternalException extends __BaseException {
+  readonly name: "ServerInternalException" = "ServerInternalException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerInternalException, __BaseException>) {
+    super({
+      name: "ServerInternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerInternalException.prototype);
+  }
 }
 
 /**
  * <p>The service is not available.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  message: string | undefined;
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 export interface AssociateResourceShareRequest {
@@ -403,47 +506,97 @@ export namespace AssociateResourceShareResponse {
 /**
  * <p>A parameter is not valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message: string | undefined;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>The requested state transition is not valid.</p>
  */
-export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateTransitionException";
-  $fault: "client";
-  message: string | undefined;
+export class InvalidStateTransitionException extends __BaseException {
+  readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateTransitionException, __BaseException>) {
+    super({
+      name: "InvalidStateTransitionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
+  }
 }
 
 /**
  * <p>This request would exceed the limit for resource shares for your account.</p>
  */
-export interface ResourceShareLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceShareLimitExceededException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceShareLimitExceededException extends __BaseException {
+  readonly name: "ResourceShareLimitExceededException" = "ResourceShareLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceShareLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceShareLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceShareLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>You exceeded the rate at which you are allowed to perform this operation. Please try
  *             again later.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
  * <p>A specified resource was not found.</p>
  */
-export interface UnknownResourceException extends __SmithyException, $MetadataBearer {
-  name: "UnknownResourceException";
-  $fault: "client";
-  message: string | undefined;
+export class UnknownResourceException extends __BaseException {
+  readonly name: "UnknownResourceException" = "UnknownResourceException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnknownResourceException, __BaseException>) {
+    super({
+      name: "UnknownResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnknownResourceException.prototype);
+  }
 }
 
 export interface AssociateResourceSharePermissionRequest {
@@ -770,10 +923,20 @@ export namespace CreateResourceShareResponse {
 /**
  * <p>The specified tag key is a reserved word and can't be used.</p>
  */
-export interface TagPolicyViolationException extends __SmithyException, $MetadataBearer {
-  name: "TagPolicyViolationException";
-  $fault: "client";
-  message: string | undefined;
+export class TagPolicyViolationException extends __BaseException {
+  readonly name: "TagPolicyViolationException" = "TagPolicyViolationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagPolicyViolationException, __BaseException>) {
+    super({
+      name: "TagPolicyViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagPolicyViolationException.prototype);
+  }
 }
 
 export interface DeleteResourceShareRequest {
@@ -1188,19 +1351,39 @@ export namespace GetResourcePoliciesResponse {
 /**
  * <p>The specified value for <code>NextToken</code> is not valid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  message: string | undefined;
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon Resource Name (ARN) was not found.</p>
  */
-export interface ResourceArnNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceArnNotFoundException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceArnNotFoundException extends __BaseException {
+  readonly name: "ResourceArnNotFoundException" = "ResourceArnNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceArnNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceArnNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceArnNotFoundException.prototype);
+  }
 }
 
 export interface GetResourceShareAssociationsRequest {
@@ -1379,10 +1562,20 @@ export namespace GetResourceShareInvitationsResponse {
 /**
  * <p>The specified value for <code>MaxResults</code> is not valid.</p>
  */
-export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMaxResultsException";
-  $fault: "client";
-  message: string | undefined;
+export class InvalidMaxResultsException extends __BaseException {
+  readonly name: "InvalidMaxResultsException" = "InvalidMaxResultsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidMaxResultsException, __BaseException>) {
+    super({
+      name: "InvalidMaxResultsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMaxResultsException.prototype);
+  }
 }
 
 export enum ResourceOwner {
@@ -1704,10 +1897,20 @@ export namespace ListPendingInvitationResourcesResponse {
 /**
  * <p>A required input parameter is missing.</p>
  */
-export interface MissingRequiredParameterException extends __SmithyException, $MetadataBearer {
-  name: "MissingRequiredParameterException";
-  $fault: "client";
-  message: string | undefined;
+export class MissingRequiredParameterException extends __BaseException {
+  readonly name: "MissingRequiredParameterException" = "MissingRequiredParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingRequiredParameterException, __BaseException>) {
+    super({
+      name: "MissingRequiredParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingRequiredParameterException.prototype);
+  }
 }
 
 export interface ListPermissionsRequest {
@@ -2082,10 +2285,20 @@ export namespace ListPrincipalsResponse {
 /**
  * <p>The specified resource type is not valid.</p>
  */
-export interface InvalidResourceTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceTypeException";
-  $fault: "client";
-  message: string | undefined;
+export class InvalidResourceTypeException extends __BaseException {
+  readonly name: "InvalidResourceTypeException" = "InvalidResourceTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceTypeException, __BaseException>) {
+    super({
+      name: "InvalidResourceTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceTypeException.prototype);
+  }
 }
 
 export interface ListResourcesRequest {
@@ -2494,10 +2707,20 @@ export namespace RejectResourceShareInvitationResponse {
 /**
  * <p>This request would exceed the limit for tags for your account.</p>
  */
-export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TagLimitExceededException";
-  $fault: "client";
-  message: string | undefined;
+export class TagLimitExceededException extends __BaseException {
+  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
+    super({
+      name: "TagLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
+  }
 }
 
 export interface TagResourceRequest {

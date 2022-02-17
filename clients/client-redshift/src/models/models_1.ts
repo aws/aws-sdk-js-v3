@@ -1,4 +1,5 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   ActionType,
@@ -25,6 +26,7 @@ import {
   UsageLimitBreachAction,
   UsageLimitFeatureType,
 } from "./models_0";
+import { RedshiftServiceException as __BaseException } from "./RedshiftServiceException";
 
 /**
  * <p></p>
@@ -574,10 +576,20 @@ export namespace DescribeReservedNodeExchangeStatusOutputMessage {
 /**
  * <p>The reserved-node exchange status wasn't found.</p>
  */
-export interface ReservedNodeExchangeNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedNodeExchangeNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ReservedNodeExchangeNotFoundFault extends __BaseException {
+  readonly name: "ReservedNodeExchangeNotFoundFault" = "ReservedNodeExchangeNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeExchangeNotFoundFault, __BaseException>) {
+    super({
+      name: "ReservedNodeExchangeNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeExchangeNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -1137,10 +1149,20 @@ export namespace DescribeTableRestoreStatusMessage {
 /**
  * <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
  */
-export interface TableRestoreNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "TableRestoreNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class TableRestoreNotFoundFault extends __BaseException {
+  readonly name: "TableRestoreNotFoundFault" = "TableRestoreNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TableRestoreNotFoundFault, __BaseException>) {
+    super({
+      name: "TableRestoreNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TableRestoreNotFoundFault.prototype);
+  }
 }
 
 export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "SUCCEEDED";
@@ -1602,10 +1624,20 @@ export namespace DisableSnapshotCopyResult {
 /**
  * <p>The cluster already has cross-region snapshot copy disabled.</p>
  */
-export interface SnapshotCopyAlreadyDisabledFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotCopyAlreadyDisabledFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
+  readonly name: "SnapshotCopyAlreadyDisabledFault" = "SnapshotCopyAlreadyDisabledFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotCopyAlreadyDisabledFault, __BaseException>) {
+    super({
+      name: "SnapshotCopyAlreadyDisabledFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotCopyAlreadyDisabledFault.prototype);
+  }
 }
 
 export interface DisassociateDataShareConsumerMessage {
@@ -1712,10 +1744,20 @@ export namespace EnableLoggingMessage {
  * <p>The cluster does not have read bucket or put object permissions on the S3 bucket
  *             specified when enabling logging.</p>
  */
-export interface InsufficientS3BucketPolicyFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientS3BucketPolicyFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientS3BucketPolicyFault extends __BaseException {
+  readonly name: "InsufficientS3BucketPolicyFault" = "InsufficientS3BucketPolicyFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientS3BucketPolicyFault, __BaseException>) {
+    super({
+      name: "InsufficientS3BucketPolicyFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientS3BucketPolicyFault.prototype);
+  }
 }
 
 /**
@@ -1724,20 +1766,40 @@ export interface InsufficientS3BucketPolicyFault extends __SmithyException, $Met
  *                 Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)
  *             Developer Guide.</p>
  */
-export interface InvalidS3BucketNameFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3BucketNameFault";
-  $fault: "client";
-  message?: string;
+export class InvalidS3BucketNameFault extends __BaseException {
+  readonly name: "InvalidS3BucketNameFault" = "InvalidS3BucketNameFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3BucketNameFault, __BaseException>) {
+    super({
+      name: "InvalidS3BucketNameFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3BucketNameFault.prototype);
+  }
 }
 
 /**
  * <p>The string specified for the logging S3 key prefix does not comply with the
  *             documented constraints.</p>
  */
-export interface InvalidS3KeyPrefixFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3KeyPrefixFault";
-  $fault: "client";
-  message?: string;
+export class InvalidS3KeyPrefixFault extends __BaseException {
+  readonly name: "InvalidS3KeyPrefixFault" = "InvalidS3KeyPrefixFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3KeyPrefixFault, __BaseException>) {
+    super({
+      name: "InvalidS3KeyPrefixFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3KeyPrefixFault.prototype);
+  }
 }
 
 /**
@@ -1810,37 +1872,77 @@ export namespace EnableSnapshotCopyResult {
 /**
  * <p>The specified options are incompatible.</p>
  */
-export interface IncompatibleOrderableOptions extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleOrderableOptions";
-  $fault: "client";
-  message?: string;
+export class IncompatibleOrderableOptions extends __BaseException {
+  readonly name: "IncompatibleOrderableOptions" = "IncompatibleOrderableOptions";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleOrderableOptions, __BaseException>) {
+    super({
+      name: "IncompatibleOrderableOptions",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleOrderableOptions.prototype);
+  }
 }
 
 /**
  * <p>The cluster already has cross-region snapshot copy enabled.</p>
  */
-export interface SnapshotCopyAlreadyEnabledFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotCopyAlreadyEnabledFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotCopyAlreadyEnabledFault extends __BaseException {
+  readonly name: "SnapshotCopyAlreadyEnabledFault" = "SnapshotCopyAlreadyEnabledFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotCopyAlreadyEnabledFault, __BaseException>) {
+    super({
+      name: "SnapshotCopyAlreadyEnabledFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotCopyAlreadyEnabledFault.prototype);
+  }
 }
 
 /**
  * <p>The specified region is incorrect or does not exist.</p>
  */
-export interface UnknownSnapshotCopyRegionFault extends __SmithyException, $MetadataBearer {
-  name: "UnknownSnapshotCopyRegionFault";
-  $fault: "client";
-  message?: string;
+export class UnknownSnapshotCopyRegionFault extends __BaseException {
+  readonly name: "UnknownSnapshotCopyRegionFault" = "UnknownSnapshotCopyRegionFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnknownSnapshotCopyRegionFault, __BaseException>) {
+    super({
+      name: "UnknownSnapshotCopyRegionFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnknownSnapshotCopyRegionFault.prototype);
+  }
 }
 
 /**
  * <p>The authorization for this endpoint can't be found.</p>
  */
-export interface EndpointAuthorizationNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "EndpointAuthorizationNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class EndpointAuthorizationNotFoundFault extends __BaseException {
+  readonly name: "EndpointAuthorizationNotFoundFault" = "EndpointAuthorizationNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointAuthorizationNotFoundFault, __BaseException>) {
+    super({
+      name: "EndpointAuthorizationNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointAuthorizationNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -2131,19 +2233,39 @@ export namespace GetReservedNodeExchangeOfferingsOutputMessage {
  * <p>You have exceeded the allowed number of table restore requests. Wait for your
  *             current table restore requests to complete before making a new request.</p>
  */
-export interface InProgressTableRestoreQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "InProgressTableRestoreQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class InProgressTableRestoreQuotaExceededFault extends __BaseException {
+  readonly name: "InProgressTableRestoreQuotaExceededFault" = "InProgressTableRestoreQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InProgressTableRestoreQuotaExceededFault, __BaseException>) {
+    super({
+      name: "InProgressTableRestoreQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InProgressTableRestoreQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>The restore is invalid.</p>
  */
-export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidRestoreFault";
-  $fault: "client";
-  message?: string;
+export class InvalidRestoreFault extends __BaseException {
+  readonly name: "InvalidRestoreFault" = "InvalidRestoreFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRestoreFault, __BaseException>) {
+    super({
+      name: "InvalidRestoreFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRestoreFault.prototype);
+  }
 }
 
 /**
@@ -2151,10 +2273,20 @@ export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer 
  *                 <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a
  *             combination of these, doesn't exist in the snapshot.</p>
  */
-export interface InvalidTableRestoreArgumentFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidTableRestoreArgumentFault";
-  $fault: "client";
-  message?: string;
+export class InvalidTableRestoreArgumentFault extends __BaseException {
+  readonly name: "InvalidTableRestoreArgumentFault" = "InvalidTableRestoreArgumentFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTableRestoreArgumentFault, __BaseException>) {
+    super({
+      name: "InvalidTableRestoreArgumentFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTableRestoreArgumentFault.prototype);
+  }
 }
 
 export interface ModifyAquaInputMessage {
@@ -2559,19 +2691,39 @@ export namespace ModifyClusterResult {
  * <p>The number of tables in the cluster exceeds the limit for the requested new cluster
  *             node type. </p>
  */
-export interface TableLimitExceededFault extends __SmithyException, $MetadataBearer {
-  name: "TableLimitExceededFault";
-  $fault: "client";
-  message?: string;
+export class TableLimitExceededFault extends __BaseException {
+  readonly name: "TableLimitExceededFault" = "TableLimitExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TableLimitExceededFault, __BaseException>) {
+    super({
+      name: "TableLimitExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TableLimitExceededFault.prototype);
+  }
 }
 
 /**
  * <p>A request option was specified that is not supported.</p>
  */
-export interface UnsupportedOptionFault extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOptionFault";
-  $fault: "client";
-  message?: string;
+export class UnsupportedOptionFault extends __BaseException {
+  readonly name: "UnsupportedOptionFault" = "UnsupportedOptionFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOptionFault, __BaseException>) {
+    super({
+      name: "UnsupportedOptionFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOptionFault.prototype);
+  }
 }
 
 export interface ModifyClusterDbRevisionMessage {
@@ -2879,10 +3031,20 @@ export namespace ModifyClusterSubnetGroupResult {
 /**
  * <p>A specified subnet is already in use by another cluster.</p>
  */
-export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
-  message?: string;
+export class SubnetAlreadyInUse extends __BaseException {
+  readonly name: "SubnetAlreadyInUse" = "SubnetAlreadyInUse";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetAlreadyInUse, __BaseException>) {
+    super({
+      name: "SubnetAlreadyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetAlreadyInUse.prototype);
+  }
 }
 
 export interface ModifyEndpointAccessMessage {
@@ -3109,10 +3271,20 @@ export namespace ModifySnapshotCopyRetentionPeriodResult {
  * <p>Cross-region snapshot copy was temporarily disabled. Try your request
  *             again.</p>
  */
-export interface SnapshotCopyDisabledFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotCopyDisabledFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotCopyDisabledFault extends __BaseException {
+  readonly name: "SnapshotCopyDisabledFault" = "SnapshotCopyDisabledFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotCopyDisabledFault, __BaseException>) {
+    super({
+      name: "SnapshotCopyDisabledFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotCopyDisabledFault.prototype);
+  }
 }
 
 export interface ModifySnapshotScheduleMessage {
@@ -3140,10 +3312,20 @@ export namespace ModifySnapshotScheduleMessage {
 /**
  * <p>The specified snapshot schedule is already being updated.</p>
  */
-export interface SnapshotScheduleUpdateInProgressFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotScheduleUpdateInProgressFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotScheduleUpdateInProgressFault extends __BaseException {
+  readonly name: "SnapshotScheduleUpdateInProgressFault" = "SnapshotScheduleUpdateInProgressFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotScheduleUpdateInProgressFault, __BaseException>) {
+    super({
+      name: "SnapshotScheduleUpdateInProgressFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotScheduleUpdateInProgressFault.prototype);
+  }
 }
 
 export interface ModifyUsageLimitMessage {
@@ -3239,10 +3421,20 @@ export namespace PurchaseReservedNodeOfferingResult {
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  */
-export interface ReservedNodeQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ReservedNodeQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ReservedNodeQuotaExceededFault extends __BaseException {
+  readonly name: "ReservedNodeQuotaExceededFault" = "ReservedNodeQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReservedNodeQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ReservedNodeQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReservedNodeQuotaExceededFault.prototype);
+  }
 }
 
 /**

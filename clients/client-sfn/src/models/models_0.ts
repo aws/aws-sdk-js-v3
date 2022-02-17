@@ -1,13 +1,25 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SFNServiceException as __BaseException } from "./SFNServiceException";
 
 /**
  * <p>The specified activity does not exist.</p>
  */
-export interface ActivityDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "ActivityDoesNotExist";
-  $fault: "client";
-  message?: string;
+export class ActivityDoesNotExist extends __BaseException {
+  readonly name: "ActivityDoesNotExist" = "ActivityDoesNotExist";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActivityDoesNotExist, __BaseException>) {
+    super({
+      name: "ActivityDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActivityDoesNotExist.prototype);
+  }
 }
 
 /**
@@ -40,10 +52,20 @@ export namespace ActivityFailedEventDetails {
  * <p>The maximum number of activities has been reached. Existing activities must be deleted
  *       before a new activity can be created.</p>
  */
-export interface ActivityLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ActivityLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class ActivityLimitExceeded extends __BaseException {
+  readonly name: "ActivityLimitExceeded" = "ActivityLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActivityLimitExceeded, __BaseException>) {
+    super({
+      name: "ActivityLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActivityLimitExceeded.prototype);
+  }
 }
 
 /**
@@ -260,10 +282,20 @@ export namespace ActivityTimedOutEventDetails {
  * <p>The maximum number of workers concurrently polling for activity tasks has been
  *       reached.</p>
  */
-export interface ActivityWorkerLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ActivityWorkerLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class ActivityWorkerLimitExceeded extends __BaseException {
+  readonly name: "ActivityWorkerLimitExceeded" = "ActivityWorkerLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActivityWorkerLimitExceeded, __BaseException>) {
+    super({
+      name: "ActivityWorkerLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActivityWorkerLimitExceeded.prototype);
+  }
 }
 
 /**
@@ -370,21 +402,42 @@ export namespace CreateActivityOutput {
 /**
  * <p>The provided name is invalid.</p>
  */
-export interface InvalidName extends __SmithyException, $MetadataBearer {
-  name: "InvalidName";
-  $fault: "client";
-  message?: string;
+export class InvalidName extends __BaseException {
+  readonly name: "InvalidName" = "InvalidName";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidName, __BaseException>) {
+    super({
+      name: "InvalidName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidName.prototype);
+  }
 }
 
 /**
  * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       AWS Step Functions Developer Guide.</p>
  */
-export interface TooManyTags extends __SmithyException, $MetadataBearer {
-  name: "TooManyTags";
-  $fault: "client";
-  message?: string;
+export class TooManyTags extends __BaseException {
+  readonly name: "TooManyTags" = "TooManyTags";
+  readonly $fault: "client" = "client";
   resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTags, __BaseException>) {
+    super({
+      name: "TooManyTags",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTags.prototype);
+    this.resourceName = opts.resourceName;
+  }
 }
 
 /**
@@ -588,75 +641,155 @@ export namespace CreateStateMachineOutput {
 /**
  * <p>The provided Amazon Resource Name (ARN) is invalid.</p>
  */
-export interface InvalidArn extends __SmithyException, $MetadataBearer {
-  name: "InvalidArn";
-  $fault: "client";
-  message?: string;
+export class InvalidArn extends __BaseException {
+  readonly name: "InvalidArn" = "InvalidArn";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArn, __BaseException>) {
+    super({
+      name: "InvalidArn",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArn.prototype);
+  }
 }
 
 /**
  * <p>The provided Amazon States Language definition is invalid.</p>
  */
-export interface InvalidDefinition extends __SmithyException, $MetadataBearer {
-  name: "InvalidDefinition";
-  $fault: "client";
-  message?: string;
+export class InvalidDefinition extends __BaseException {
+  readonly name: "InvalidDefinition" = "InvalidDefinition";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDefinition, __BaseException>) {
+    super({
+      name: "InvalidDefinition",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDefinition.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InvalidLoggingConfiguration extends __SmithyException, $MetadataBearer {
-  name: "InvalidLoggingConfiguration";
-  $fault: "client";
-  message?: string;
+export class InvalidLoggingConfiguration extends __BaseException {
+  readonly name: "InvalidLoggingConfiguration" = "InvalidLoggingConfiguration";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLoggingConfiguration, __BaseException>) {
+    super({
+      name: "InvalidLoggingConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLoggingConfiguration.prototype);
+  }
 }
 
 /**
  * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not been set to <code>true</code> or <code>false</code>.</p>
  */
-export interface InvalidTracingConfiguration extends __SmithyException, $MetadataBearer {
-  name: "InvalidTracingConfiguration";
-  $fault: "client";
-  message?: string;
+export class InvalidTracingConfiguration extends __BaseException {
+  readonly name: "InvalidTracingConfiguration" = "InvalidTracingConfiguration";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTracingConfiguration, __BaseException>) {
+    super({
+      name: "InvalidTracingConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTracingConfiguration.prototype);
+  }
 }
 
 /**
  * <p>A state machine with the same name but a different definition or role ARN already
  *       exists.</p>
  */
-export interface StateMachineAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "StateMachineAlreadyExists";
-  $fault: "client";
-  message?: string;
+export class StateMachineAlreadyExists extends __BaseException {
+  readonly name: "StateMachineAlreadyExists" = "StateMachineAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StateMachineAlreadyExists, __BaseException>) {
+    super({
+      name: "StateMachineAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StateMachineAlreadyExists.prototype);
+  }
 }
 
 /**
  * <p>The specified state machine is being deleted.</p>
  */
-export interface StateMachineDeleting extends __SmithyException, $MetadataBearer {
-  name: "StateMachineDeleting";
-  $fault: "client";
-  message?: string;
+export class StateMachineDeleting extends __BaseException {
+  readonly name: "StateMachineDeleting" = "StateMachineDeleting";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StateMachineDeleting, __BaseException>) {
+    super({
+      name: "StateMachineDeleting",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StateMachineDeleting.prototype);
+  }
 }
 
 /**
  * <p>The maximum number of state machines has been reached. Existing state machines must be
  *       deleted before a new state machine can be created.</p>
  */
-export interface StateMachineLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "StateMachineLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class StateMachineLimitExceeded extends __BaseException {
+  readonly name: "StateMachineLimitExceeded" = "StateMachineLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StateMachineLimitExceeded, __BaseException>) {
+    super({
+      name: "StateMachineLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StateMachineLimitExceeded.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface StateMachineTypeNotSupported extends __SmithyException, $MetadataBearer {
-  name: "StateMachineTypeNotSupported";
-  $fault: "client";
-  message?: string;
+export class StateMachineTypeNotSupported extends __BaseException {
+  readonly name: "StateMachineTypeNotSupported" = "StateMachineTypeNotSupported";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StateMachineTypeNotSupported, __BaseException>) {
+    super({
+      name: "StateMachineTypeNotSupported",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StateMachineTypeNotSupported.prototype);
+  }
 }
 
 export interface DeleteActivityInput {
@@ -912,10 +1045,20 @@ export namespace DescribeExecutionOutput {
 /**
  * <p>The specified execution does not exist.</p>
  */
-export interface ExecutionDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "ExecutionDoesNotExist";
-  $fault: "client";
-  message?: string;
+export class ExecutionDoesNotExist extends __BaseException {
+  readonly name: "ExecutionDoesNotExist" = "ExecutionDoesNotExist";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecutionDoesNotExist, __BaseException>) {
+    super({
+      name: "ExecutionDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecutionDoesNotExist.prototype);
+  }
 }
 
 export interface DescribeStateMachineInput {
@@ -1021,10 +1164,20 @@ export namespace DescribeStateMachineOutput {
 /**
  * <p>The specified state machine does not exist.</p>
  */
-export interface StateMachineDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "StateMachineDoesNotExist";
-  $fault: "client";
-  message?: string;
+export class StateMachineDoesNotExist extends __BaseException {
+  readonly name: "StateMachineDoesNotExist" = "StateMachineDoesNotExist";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StateMachineDoesNotExist, __BaseException>) {
+    super({
+      name: "StateMachineDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StateMachineDoesNotExist.prototype);
+  }
 }
 
 export interface DescribeStateMachineForExecutionInput {
@@ -2266,10 +2419,20 @@ export namespace GetExecutionHistoryOutput {
 /**
  * <p>The provided token is invalid.</p>
  */
-export interface InvalidToken extends __SmithyException, $MetadataBearer {
-  name: "InvalidToken";
-  $fault: "client";
-  message?: string;
+export class InvalidToken extends __BaseException {
+  readonly name: "InvalidToken" = "InvalidToken";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidToken, __BaseException>) {
+    super({
+      name: "InvalidToken",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidToken.prototype);
+  }
 }
 
 export interface ListActivitiesInput {
@@ -2575,11 +2738,22 @@ export namespace ListTagsForResourceOutput {
  * <p>Could not find the referenced resource. Only state machine and activity ARNs are
  *       supported.</p>
  */
-export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFound";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
   resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.resourceName = opts.resourceName;
+  }
 }
 
 export interface SendTaskFailureInput {
@@ -2623,16 +2797,36 @@ export namespace SendTaskFailureOutput {
   });
 }
 
-export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "TaskDoesNotExist";
-  $fault: "client";
-  message?: string;
+export class TaskDoesNotExist extends __BaseException {
+  readonly name: "TaskDoesNotExist" = "TaskDoesNotExist";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaskDoesNotExist, __BaseException>) {
+    super({
+      name: "TaskDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskDoesNotExist.prototype);
+  }
 }
 
-export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
-  name: "TaskTimedOut";
-  $fault: "client";
-  message?: string;
+export class TaskTimedOut extends __BaseException {
+  readonly name: "TaskTimedOut" = "TaskTimedOut";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaskTimedOut, __BaseException>) {
+    super({
+      name: "TaskTimedOut",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskTimedOut.prototype);
+  }
 }
 
 export interface SendTaskHeartbeatInput {
@@ -2667,10 +2861,20 @@ export namespace SendTaskHeartbeatOutput {
 /**
  * <p>The provided JSON output data is invalid.</p>
  */
-export interface InvalidOutput extends __SmithyException, $MetadataBearer {
-  name: "InvalidOutput";
-  $fault: "client";
-  message?: string;
+export class InvalidOutput extends __BaseException {
+  readonly name: "InvalidOutput" = "InvalidOutput";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOutput, __BaseException>) {
+    super({
+      name: "InvalidOutput",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOutput.prototype);
+  }
 }
 
 export interface SendTaskSuccessInput {
@@ -2716,29 +2920,59 @@ export namespace SendTaskSuccessOutput {
  *         idempotent.</p>
  *          </note>
  */
-export interface ExecutionAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "ExecutionAlreadyExists";
-  $fault: "client";
-  message?: string;
+export class ExecutionAlreadyExists extends __BaseException {
+  readonly name: "ExecutionAlreadyExists" = "ExecutionAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecutionAlreadyExists, __BaseException>) {
+    super({
+      name: "ExecutionAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecutionAlreadyExists.prototype);
+  }
 }
 
 /**
  * <p>The maximum number of running executions has been reached. Running executions must end or
  *       be stopped before a new execution can be started.</p>
  */
-export interface ExecutionLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ExecutionLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class ExecutionLimitExceeded extends __BaseException {
+  readonly name: "ExecutionLimitExceeded" = "ExecutionLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecutionLimitExceeded, __BaseException>) {
+    super({
+      name: "ExecutionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecutionLimitExceeded.prototype);
+  }
 }
 
 /**
  * <p>The provided JSON input data is invalid.</p>
  */
-export interface InvalidExecutionInput extends __SmithyException, $MetadataBearer {
-  name: "InvalidExecutionInput";
-  $fault: "client";
-  message?: string;
+export class InvalidExecutionInput extends __BaseException {
+  readonly name: "InvalidExecutionInput" = "InvalidExecutionInput";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidExecutionInput, __BaseException>) {
+    super({
+      name: "InvalidExecutionInput",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidExecutionInput.prototype);
+  }
 }
 
 export interface StartExecutionInput {
@@ -3097,10 +3331,20 @@ export namespace UntagResourceOutput {
  * <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
  *       and <code>roleArn</code> are not specified.</p>
  */
-export interface MissingRequiredParameter extends __SmithyException, $MetadataBearer {
-  name: "MissingRequiredParameter";
-  $fault: "client";
-  message?: string;
+export class MissingRequiredParameter extends __BaseException {
+  readonly name: "MissingRequiredParameter" = "MissingRequiredParameter";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingRequiredParameter, __BaseException>) {
+    super({
+      name: "MissingRequiredParameter",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingRequiredParameter.prototype);
+  }
 }
 
 export interface UpdateStateMachineInput {

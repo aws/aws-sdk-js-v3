@@ -1,16 +1,30 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { BudgetsServiceException as __BaseException } from "./BudgetsServiceException";
 
 /**
  * <p>You are not authorized to use this operation with the given parameters.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ThresholdType {
@@ -924,49 +938,97 @@ export namespace CreateBudgetResponse {
 /**
  * <p>You've exceeded the notification or subscriber limit.</p>
  */
-export interface CreationLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "CreationLimitExceededException";
-  $fault: "client";
+export class CreationLimitExceededException extends __BaseException {
+  readonly name: "CreationLimitExceededException" = "CreationLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreationLimitExceededException, __BaseException>) {
+    super({
+      name: "CreationLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreationLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The budget name already exists. Budget names must be unique within an account.</p>
  */
-export interface DuplicateRecordException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateRecordException";
-  $fault: "client";
+export class DuplicateRecordException extends __BaseException {
+  readonly name: "DuplicateRecordException" = "DuplicateRecordException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateRecordException, __BaseException>) {
+    super({
+      name: "DuplicateRecordException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateRecordException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An error on the server occurred during the processing of your request. Try again later.</p>
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "server";
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateBudgetActionRequest {
@@ -1063,13 +1125,25 @@ export namespace CreateBudgetActionResponse {
 /**
  * <p>We can’t locate the resource that you specified.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1267,13 +1341,25 @@ export namespace DeleteBudgetActionResponse {
  * <p> The request was received and recognized by the server, but the server rejected that
  *       particular method for the requested resource. </p>
  */
-export interface ResourceLockedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceLockedException";
-  $fault: "client";
+export class ResourceLockedException extends __BaseException {
+  readonly name: "ResourceLockedException" = "ResourceLockedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLockedException, __BaseException>) {
+    super({
+      name: "ResourceLockedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLockedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1538,13 +1624,25 @@ export namespace DescribeBudgetActionHistoriesResponse {
 /**
  * <p>The pagination token is invalid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeBudgetActionsForAccountRequest {
@@ -1730,13 +1828,25 @@ export namespace DescribeBudgetNotificationsForAccountResponse {
 /**
  * <p>The pagination token expired.</p>
  */
-export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredNextTokenException";
-  $fault: "client";
+export class ExpiredNextTokenException extends __BaseException {
+  readonly name: "ExpiredNextTokenException" = "ExpiredNextTokenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error message the exception carries.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredNextTokenException, __BaseException>) {
+    super({
+      name: "ExpiredNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeBudgetPerformanceHistoryRequest {

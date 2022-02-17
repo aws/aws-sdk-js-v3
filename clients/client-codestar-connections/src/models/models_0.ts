@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CodeStarConnectionsServiceException as __BaseException } from "./CodeStarConnectionsServiceException";
 
 export enum ProviderType {
   BITBUCKET = "Bitbucket",
@@ -92,28 +95,64 @@ export namespace CreateConnectionOutput {
 /**
  * <p>Exceeded the maximum limit for connections.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Resource not found. Verify the connection resource ARN and try again.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Resource not found. Verify the ARN for the host resource and try again.</p>
  */
-export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ResourceUnavailableException";
-  $fault: "client";
+export class ResourceUnavailableException extends __BaseException {
+  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
+    super({
+      name: "ResourceUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -669,19 +708,43 @@ export namespace UntagResourceOutput {
 /**
  * <p>Two conflicting operations have been made on the same resource.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The operation is not supported. Check the connection status and try again.</p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateHostInput {

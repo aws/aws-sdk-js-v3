@@ -1,12 +1,14 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -25,6 +27,7 @@ import {
   PutReportDefinitionCommandInput,
   PutReportDefinitionCommandOutput,
 } from "../commands/PutReportDefinitionCommand";
+import { CostAndUsageReportServiceServiceException as __BaseException } from "../models/CostAndUsageReportServiceServiceException";
 import {
   AdditionalArtifact,
   DeleteReportDefinitionRequest,
@@ -120,41 +123,25 @@ const deserializeAws_json1_1DeleteReportDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.costandusagereportservice#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeReportDefinitionsCommand = async (
@@ -182,33 +169,22 @@ const deserializeAws_json1_1DescribeReportDefinitionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ModifyReportDefinitionCommand = async (
@@ -236,41 +212,25 @@ const deserializeAws_json1_1ModifyReportDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.costandusagereportservice#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutReportDefinitionCommand = async (
@@ -298,57 +258,31 @@ const deserializeAws_json1_1PutReportDefinitionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateReportNameException":
     case "com.amazonaws.costandusagereportservice#DuplicateReportNameException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateReportNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateReportNameExceptionResponse(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.costandusagereportservice#InternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
     case "ReportLimitReachedException":
     case "com.amazonaws.costandusagereportservice#ReportLimitReachedException":
-      response = {
-        ...(await deserializeAws_json1_1ReportLimitReachedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ReportLimitReachedExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.costandusagereportservice#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
@@ -357,13 +291,11 @@ const deserializeAws_json1_1DuplicateReportNameExceptionResponse = async (
 ): Promise<DuplicateReportNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateReportNameException(body, context);
-  const contents: DuplicateReportNameException = {
-    name: "DuplicateReportNameException",
-    $fault: "client",
+  const exception = new DuplicateReportNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InternalErrorExceptionResponse = async (
@@ -372,13 +304,11 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
 ): Promise<InternalErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalErrorException(body, context);
-  const contents: InternalErrorException = {
-    name: "InternalErrorException",
-    $fault: "server",
+  const exception = new InternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ReportLimitReachedExceptionResponse = async (
@@ -387,13 +317,11 @@ const deserializeAws_json1_1ReportLimitReachedExceptionResponse = async (
 ): Promise<ReportLimitReachedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ReportLimitReachedException(body, context);
-  const contents: ReportLimitReachedException = {
-    name: "ReportLimitReachedException",
-    $fault: "client",
+  const exception = new ReportLimitReachedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ValidationExceptionResponse = async (
@@ -402,13 +330,11 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
-  const contents: ValidationException = {
-    name: "ValidationException",
-    $fault: "client",
+  const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AdditionalArtifactList = (

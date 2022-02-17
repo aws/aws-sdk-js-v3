@@ -1,15 +1,28 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { CodeartifactServiceException as __BaseException } from "./CodeartifactServiceException";
 
 /**
  * <p>
  *         The operation did not succeed because of an unauthorized access attempt.
  *       </p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message: string | undefined;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export enum HashAlgorithm {
@@ -313,10 +326,9 @@ export enum ResourceType {
  *         The operation did not succeed because prerequisites are not met.
  *       </p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message: string | undefined;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>
    *       The ID of the resource.
@@ -330,15 +342,39 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    *     </p>
    */
   resourceType?: ResourceType | string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
  * <p> The operation did not succeed because of an error that occurred inside AWS CodeArtifact. </p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
 }
 
 /**
@@ -346,10 +382,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
  *       The operation did not succeed because the resource requested is not found in the service.
  *     </p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>
    *       The ID of the resource.
@@ -363,6 +398,20 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    *     </p>
    */
   resourceType?: ResourceType | string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
@@ -370,10 +419,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
  *         The operation did not succeed because it would have exceeded a service limit for your account.
  *       </p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message: string | undefined;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>
    *       The ID of the resource.
@@ -387,6 +435,20 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    *     </p>
    */
   resourceType?: ResourceType | string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
@@ -394,16 +456,28 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
  *       The operation did not succeed because too many requests are sent to the service.
  *     </p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * <p>
    *       The time period, in seconds, to wait before retrying the request.
    *     </p>
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 export enum ValidationExceptionReason {
@@ -419,16 +493,28 @@ export enum ValidationExceptionReason {
  *       The operation did not succeed because a parameter in the request was sent with an invalid value.
  *     </p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>
    *
    *     </p>
    */
   reason?: ValidationExceptionReason | string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+  }
 }
 
 export interface CopyPackageVersionsRequest {

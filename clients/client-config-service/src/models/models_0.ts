@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
 
 /**
  * <p>A collection of accounts and regions.</p>
@@ -953,13 +956,20 @@ export namespace BatchGetAggregateResourceConfigResponse {
 /**
  * <p>You have specified a configuration aggregator that does not exist.</p>
  */
-export interface NoSuchConfigurationAggregatorException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchConfigurationAggregatorException";
-  $fault: "client";
+export class NoSuchConfigurationAggregatorException extends __BaseException {
+  readonly name: "NoSuchConfigurationAggregatorException" = "NoSuchConfigurationAggregatorException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchConfigurationAggregatorException, __BaseException>) {
+    super({
+      name: "NoSuchConfigurationAggregatorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchConfigurationAggregatorException.prototype);
+  }
 }
 
 /**
@@ -967,13 +977,20 @@ export interface NoSuchConfigurationAggregatorException extends __SmithyExceptio
  * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
  * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**
@@ -1052,13 +1069,20 @@ export namespace BatchGetResourceConfigResponse {
  * 			role needed to describe your resources. Create a configuration
  * 			recorder.</p>
  */
-export interface NoAvailableConfigurationRecorderException extends __SmithyException, $MetadataBearer {
-  name: "NoAvailableConfigurationRecorderException";
-  $fault: "client";
+export class NoAvailableConfigurationRecorderException extends __BaseException {
+  readonly name: "NoAvailableConfigurationRecorderException" = "NoAvailableConfigurationRecorderException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoAvailableConfigurationRecorderException, __BaseException>) {
+    super({
+      name: "NoAvailableConfigurationRecorderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAvailableConfigurationRecorderException.prototype);
+  }
 }
 
 export enum ChronologicalOrder {
@@ -2619,13 +2643,20 @@ export namespace ConformancePackStatusDetail {
 /**
  * <p>You have specified a template that is not valid or supported.</p>
  */
-export interface ConformancePackTemplateValidationException extends __SmithyException, $MetadataBearer {
-  name: "ConformancePackTemplateValidationException";
-  $fault: "client";
+export class ConformancePackTemplateValidationException extends __BaseException {
+  readonly name: "ConformancePackTemplateValidationException" = "ConformancePackTemplateValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConformancePackTemplateValidationException, __BaseException>) {
+    super({
+      name: "ConformancePackTemplateValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConformancePackTemplateValidationException.prototype);
+  }
 }
 
 export interface DeleteAggregationAuthorizationRequest {
@@ -2654,13 +2685,20 @@ export namespace DeleteAggregationAuthorizationRequest {
  * <p>One or more of the specified parameters are invalid. Verify
  * 			that your parameters are valid and try again.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+  }
 }
 
 /**
@@ -2687,13 +2725,20 @@ export namespace DeleteConfigRuleRequest {
  * <p>One or more Config rules in the request are invalid. Verify
  * 			that the rule names are correct and try again.</p>
  */
-export interface NoSuchConfigRuleException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchConfigRuleException";
-  $fault: "client";
+export class NoSuchConfigRuleException extends __BaseException {
+  readonly name: "NoSuchConfigRuleException" = "NoSuchConfigRuleException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchConfigRuleException, __BaseException>) {
+    super({
+      name: "NoSuchConfigRuleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchConfigRuleException.prototype);
+  }
 }
 
 /**
@@ -2722,13 +2767,20 @@ export interface NoSuchConfigRuleException extends __SmithyException, $MetadataB
  *             </li>
  *          </ul>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 export interface DeleteConfigurationAggregatorRequest {
@@ -2773,13 +2825,20 @@ export namespace DeleteConfigurationRecorderRequest {
  * <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  */
-export interface NoSuchConfigurationRecorderException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchConfigurationRecorderException";
-  $fault: "client";
+export class NoSuchConfigurationRecorderException extends __BaseException {
+  readonly name: "NoSuchConfigurationRecorderException" = "NoSuchConfigurationRecorderException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchConfigurationRecorderException, __BaseException>) {
+    super({
+      name: "NoSuchConfigurationRecorderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchConfigurationRecorderException.prototype);
+  }
 }
 
 export interface DeleteConformancePackRequest {
@@ -2801,13 +2860,20 @@ export namespace DeleteConformancePackRequest {
 /**
  * <p>You specified one or more conformance packs that do not exist.</p>
  */
-export interface NoSuchConformancePackException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchConformancePackException";
-  $fault: "client";
+export class NoSuchConformancePackException extends __BaseException {
+  readonly name: "NoSuchConformancePackException" = "NoSuchConformancePackException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchConformancePackException, __BaseException>) {
+    super({
+      name: "NoSuchConformancePackException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchConformancePackException.prototype);
+  }
 }
 
 /**
@@ -2835,26 +2901,40 @@ export namespace DeleteDeliveryChannelRequest {
  * <p>You cannot delete the delivery channel you specified because
  * 			the configuration recorder is running.</p>
  */
-export interface LastDeliveryChannelDeleteFailedException extends __SmithyException, $MetadataBearer {
-  name: "LastDeliveryChannelDeleteFailedException";
-  $fault: "client";
+export class LastDeliveryChannelDeleteFailedException extends __BaseException {
+  readonly name: "LastDeliveryChannelDeleteFailedException" = "LastDeliveryChannelDeleteFailedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LastDeliveryChannelDeleteFailedException, __BaseException>) {
+    super({
+      name: "LastDeliveryChannelDeleteFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LastDeliveryChannelDeleteFailedException.prototype);
+  }
 }
 
 /**
  * <p>You have specified a delivery channel that does not
  * 			exist.</p>
  */
-export interface NoSuchDeliveryChannelException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchDeliveryChannelException";
-  $fault: "client";
+export class NoSuchDeliveryChannelException extends __BaseException {
+  readonly name: "NoSuchDeliveryChannelException" = "NoSuchDeliveryChannelException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchDeliveryChannelException, __BaseException>) {
+    super({
+      name: "NoSuchDeliveryChannelException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchDeliveryChannelException.prototype);
+  }
 }
 
 /**
@@ -2911,13 +2991,20 @@ export namespace DeleteOrganizationConfigRuleRequest {
 /**
  * <p>You specified one or more organization config rules that do not exist.</p>
  */
-export interface NoSuchOrganizationConfigRuleException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchOrganizationConfigRuleException";
-  $fault: "client";
+export class NoSuchOrganizationConfigRuleException extends __BaseException {
+  readonly name: "NoSuchOrganizationConfigRuleException" = "NoSuchOrganizationConfigRuleException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchOrganizationConfigRuleException, __BaseException>) {
+    super({
+      name: "NoSuchOrganizationConfigRuleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchOrganizationConfigRuleException.prototype);
+  }
 }
 
 /**
@@ -2941,13 +3028,20 @@ export interface NoSuchOrganizationConfigRuleException extends __SmithyException
  *          </ul>
  * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization master account.</p>
  */
-export interface OrganizationAccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationAccessDeniedException";
-  $fault: "client";
+export class OrganizationAccessDeniedException extends __BaseException {
+  readonly name: "OrganizationAccessDeniedException" = "OrganizationAccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<OrganizationAccessDeniedException, __BaseException>) {
+    super({
+      name: "OrganizationAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationAccessDeniedException.prototype);
+  }
 }
 
 export interface DeleteOrganizationConformancePackRequest {
@@ -2970,13 +3064,20 @@ export namespace DeleteOrganizationConformancePackRequest {
  * <p>Config organization conformance pack that you passed in the filter does not exist.</p>
  * 		       <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
  */
-export interface NoSuchOrganizationConformancePackException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchOrganizationConformancePackException";
-  $fault: "client";
+export class NoSuchOrganizationConformancePackException extends __BaseException {
+  readonly name: "NoSuchOrganizationConformancePackException" = "NoSuchOrganizationConformancePackException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchOrganizationConformancePackException, __BaseException>) {
+    super({
+      name: "NoSuchOrganizationConformancePackException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchOrganizationConformancePackException.prototype);
+  }
 }
 
 export interface DeletePendingAggregationRequestRequest {
@@ -3058,37 +3159,58 @@ export namespace DeleteRemediationConfigurationResponse {
  * 			         </li>
  *          </ul>
  */
-export interface InsufficientPermissionsException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientPermissionsException";
-  $fault: "client";
+export class InsufficientPermissionsException extends __BaseException {
+  readonly name: "InsufficientPermissionsException" = "InsufficientPermissionsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InsufficientPermissionsException, __BaseException>) {
+    super({
+      name: "InsufficientPermissionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientPermissionsException.prototype);
+  }
 }
 
 /**
  * <p>You specified an Config rule without a remediation configuration.</p>
  */
-export interface NoSuchRemediationConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchRemediationConfigurationException";
-  $fault: "client";
+export class NoSuchRemediationConfigurationException extends __BaseException {
+  readonly name: "NoSuchRemediationConfigurationException" = "NoSuchRemediationConfigurationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchRemediationConfigurationException, __BaseException>) {
+    super({
+      name: "NoSuchRemediationConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchRemediationConfigurationException.prototype);
+  }
 }
 
 /**
  * <p>Remediation action is in progress. You can either cancel execution in Amazon Web Services Systems Manager or wait and try again later. </p>
  */
-export interface RemediationInProgressException extends __SmithyException, $MetadataBearer {
-  name: "RemediationInProgressException";
-  $fault: "client";
+export class RemediationInProgressException extends __BaseException {
+  readonly name: "RemediationInProgressException" = "RemediationInProgressException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RemediationInProgressException, __BaseException>) {
+    super({
+      name: "RemediationInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RemediationInProgressException.prototype);
+  }
 }
 
 /**
@@ -3179,13 +3301,20 @@ export namespace DeleteRemediationExceptionsResponse {
 /**
  * <p>You tried to delete a remediation exception that does not exist.</p>
  */
-export interface NoSuchRemediationExceptionException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchRemediationExceptionException";
-  $fault: "client";
+export class NoSuchRemediationExceptionException extends __BaseException {
+  readonly name: "NoSuchRemediationExceptionException" = "NoSuchRemediationExceptionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchRemediationExceptionException, __BaseException>) {
+    super({
+      name: "NoSuchRemediationExceptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchRemediationExceptionException.prototype);
+  }
 }
 
 export interface DeleteResourceConfigRequest {
@@ -3212,13 +3341,20 @@ export namespace DeleteResourceConfigRequest {
 /**
  * <p>There is no configuration recorder running.</p>
  */
-export interface NoRunningConfigurationRecorderException extends __SmithyException, $MetadataBearer {
-  name: "NoRunningConfigurationRecorderException";
-  $fault: "client";
+export class NoRunningConfigurationRecorderException extends __BaseException {
+  readonly name: "NoRunningConfigurationRecorderException" = "NoRunningConfigurationRecorderException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoRunningConfigurationRecorderException, __BaseException>) {
+    super({
+      name: "NoRunningConfigurationRecorderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoRunningConfigurationRecorderException.prototype);
+  }
 }
 
 export interface DeleteRetentionConfigurationRequest {
@@ -3240,13 +3376,20 @@ export namespace DeleteRetentionConfigurationRequest {
 /**
  * <p>You have specified a retention configuration that does not exist.</p>
  */
-export interface NoSuchRetentionConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchRetentionConfigurationException";
-  $fault: "client";
+export class NoSuchRetentionConfigurationException extends __BaseException {
+  readonly name: "NoSuchRetentionConfigurationException" = "NoSuchRetentionConfigurationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchRetentionConfigurationException, __BaseException>) {
+    super({
+      name: "NoSuchRetentionConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchRetentionConfigurationException.prototype);
+  }
 }
 
 export interface DeleteStoredQueryRequest {
@@ -3279,13 +3422,20 @@ export namespace DeleteStoredQueryResponse {
 /**
  * <p>You have specified a resource that does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
@@ -3493,13 +3643,20 @@ export namespace DescribeAggregateComplianceByConfigRulesResponse {
 /**
  * <p>The specified limit is outside the allowable range.</p>
  */
-export interface InvalidLimitException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLimitException";
-  $fault: "client";
+export class InvalidLimitException extends __BaseException {
+  readonly name: "InvalidLimitException" = "InvalidLimitException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidLimitException, __BaseException>) {
+    super({
+      name: "InvalidLimitException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLimitException.prototype);
+  }
 }
 
 /**
@@ -3507,13 +3664,20 @@ export interface InvalidLimitException extends __SmithyException, $MetadataBeare
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+  }
 }
 
 export interface DescribeAggregateComplianceByConformancePacksRequest {
@@ -4133,13 +4297,20 @@ export namespace DescribeConformancePackComplianceResponse {
 /**
  * <p>Config rule that you passed in the filter does not exist.</p>
  */
-export interface NoSuchConfigRuleInConformancePackException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchConfigRuleInConformancePackException";
-  $fault: "client";
+export class NoSuchConfigRuleInConformancePackException extends __BaseException {
+  readonly name: "NoSuchConfigRuleInConformancePackException" = "NoSuchConfigRuleInConformancePackException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchConfigRuleInConformancePackException, __BaseException>) {
+    super({
+      name: "NoSuchConfigRuleInConformancePackException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchConfigRuleInConformancePackException.prototype);
+  }
 }
 
 export interface DescribeConformancePacksRequest {
@@ -6164,26 +6335,40 @@ export namespace GetAggregateResourceConfigResponse {
 /**
  * <p>The configuration item size is outside the allowable range.</p>
  */
-export interface OversizedConfigurationItemException extends __SmithyException, $MetadataBearer {
-  name: "OversizedConfigurationItemException";
-  $fault: "client";
+export class OversizedConfigurationItemException extends __BaseException {
+  readonly name: "OversizedConfigurationItemException" = "OversizedConfigurationItemException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<OversizedConfigurationItemException, __BaseException>) {
+    super({
+      name: "OversizedConfigurationItemException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OversizedConfigurationItemException.prototype);
+  }
 }
 
 /**
  * <p>You have specified a resource that is either unknown or has not
  * 			been discovered.</p>
  */
-export interface ResourceNotDiscoveredException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotDiscoveredException";
-  $fault: "client";
+export class ResourceNotDiscoveredException extends __BaseException {
+  readonly name: "ResourceNotDiscoveredException" = "ResourceNotDiscoveredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotDiscoveredException, __BaseException>) {
+    super({
+      name: "ResourceNotDiscoveredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotDiscoveredException.prototype);
+  }
 }
 
 /**
@@ -7150,13 +7335,20 @@ export namespace GetResourceConfigHistoryResponse {
  * <p>The specified time range is not valid. The earlier time is not
  * 			chronologically before the later time.</p>
  */
-export interface InvalidTimeRangeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTimeRangeException";
-  $fault: "client";
+export class InvalidTimeRangeException extends __BaseException {
+  readonly name: "InvalidTimeRangeException" = "InvalidTimeRangeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidTimeRangeException, __BaseException>) {
+    super({
+      name: "InvalidTimeRangeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTimeRangeException.prototype);
+  }
 }
 
 export interface GetStoredQueryRequest {
@@ -7241,122 +7433,192 @@ export namespace GetStoredQueryResponse {
  * <p>Your Amazon S3 bucket policy does not permit Config to
  * 			write to it.</p>
  */
-export interface InsufficientDeliveryPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientDeliveryPolicyException";
-  $fault: "client";
+export class InsufficientDeliveryPolicyException extends __BaseException {
+  readonly name: "InsufficientDeliveryPolicyException" = "InsufficientDeliveryPolicyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InsufficientDeliveryPolicyException, __BaseException>) {
+    super({
+      name: "InsufficientDeliveryPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientDeliveryPolicyException.prototype);
+  }
 }
 
 /**
  * <p>You have provided a configuration recorder name that is not
  * 			valid.</p>
  */
-export interface InvalidConfigurationRecorderNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConfigurationRecorderNameException";
-  $fault: "client";
+export class InvalidConfigurationRecorderNameException extends __BaseException {
+  readonly name: "InvalidConfigurationRecorderNameException" = "InvalidConfigurationRecorderNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidConfigurationRecorderNameException, __BaseException>) {
+    super({
+      name: "InvalidConfigurationRecorderNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConfigurationRecorderNameException.prototype);
+  }
 }
 
 /**
  * <p>The specified delivery channel name is not valid.</p>
  */
-export interface InvalidDeliveryChannelNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDeliveryChannelNameException";
-  $fault: "client";
+export class InvalidDeliveryChannelNameException extends __BaseException {
+  readonly name: "InvalidDeliveryChannelNameException" = "InvalidDeliveryChannelNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidDeliveryChannelNameException, __BaseException>) {
+    super({
+      name: "InvalidDeliveryChannelNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDeliveryChannelNameException.prototype);
+  }
 }
 
 /**
  * <p>The syntax of the query is incorrect.</p>
  */
-export interface InvalidExpressionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidExpressionException";
-  $fault: "client";
+export class InvalidExpressionException extends __BaseException {
+  readonly name: "InvalidExpressionException" = "InvalidExpressionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidExpressionException, __BaseException>) {
+    super({
+      name: "InvalidExpressionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidExpressionException.prototype);
+  }
 }
 
 /**
  * <p>Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.</p>
  */
-export interface InvalidRecordingGroupException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRecordingGroupException";
-  $fault: "client";
+export class InvalidRecordingGroupException extends __BaseException {
+  readonly name: "InvalidRecordingGroupException" = "InvalidRecordingGroupException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRecordingGroupException, __BaseException>) {
+    super({
+      name: "InvalidRecordingGroupException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRecordingGroupException.prototype);
+  }
 }
 
 /**
  * <p>The specified <code>ResultToken</code> is invalid.</p>
  */
-export interface InvalidResultTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResultTokenException";
-  $fault: "client";
+export class InvalidResultTokenException extends __BaseException {
+  readonly name: "InvalidResultTokenException" = "InvalidResultTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidResultTokenException, __BaseException>) {
+    super({
+      name: "InvalidResultTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResultTokenException.prototype);
+  }
 }
 
 /**
  * <p>You have provided a null or empty role ARN.</p>
  */
-export interface InvalidRoleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRoleException";
-  $fault: "client";
+export class InvalidRoleException extends __BaseException {
+  readonly name: "InvalidRoleException" = "InvalidRoleException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRoleException, __BaseException>) {
+    super({
+      name: "InvalidRoleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRoleException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon S3 key prefix is not valid.</p>
  */
-export interface InvalidS3KeyPrefixException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3KeyPrefixException";
-  $fault: "client";
+export class InvalidS3KeyPrefixException extends __BaseException {
+  readonly name: "InvalidS3KeyPrefixException" = "InvalidS3KeyPrefixException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidS3KeyPrefixException, __BaseException>) {
+    super({
+      name: "InvalidS3KeyPrefixException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3KeyPrefixException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon KMS Key ARN is not valid.</p>
  */
-export interface InvalidS3KmsKeyArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3KmsKeyArnException";
-  $fault: "client";
+export class InvalidS3KmsKeyArnException extends __BaseException {
+  readonly name: "InvalidS3KmsKeyArnException" = "InvalidS3KmsKeyArnException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidS3KmsKeyArnException, __BaseException>) {
+    super({
+      name: "InvalidS3KmsKeyArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3KmsKeyArnException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon SNS topic does not exist.</p>
  */
-export interface InvalidSNSTopicARNException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSNSTopicARNException";
-  $fault: "client";
+export class InvalidSNSTopicARNException extends __BaseException {
+  readonly name: "InvalidSNSTopicARNException" = "InvalidSNSTopicARNException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidSNSTopicARNException, __BaseException>) {
+    super({
+      name: "InvalidSNSTopicARNException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSNSTopicARNException.prototype);
+  }
 }
 
 /**
@@ -7367,13 +7629,20 @@ export interface InvalidSNSTopicARNException extends __SmithyException, $Metadat
  * 			is thrown if the number of accounts and aggregators exceeds the
  * 			limit.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
@@ -7738,13 +8007,20 @@ export namespace ListTagsForResourceResponse {
  * <p>You have reached the limit (100,000) of active custom resource types in your account.
  * 			Delete unused resources using <code>DeleteResourceConfig</code>.</p>
  */
-export interface MaxActiveResourcesExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxActiveResourcesExceededException";
-  $fault: "client";
+export class MaxActiveResourcesExceededException extends __BaseException {
+  readonly name: "MaxActiveResourcesExceededException" = "MaxActiveResourcesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxActiveResourcesExceededException, __BaseException>) {
+    super({
+      name: "MaxActiveResourcesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxActiveResourcesExceededException.prototype);
+  }
 }
 
 /**
@@ -7752,148 +8028,237 @@ export interface MaxActiveResourcesExceededException extends __SmithyException, 
  * 			contains the maximum number of 150 rules. Consider deleting any
  * 			deactivated rules before you add new rules.</p>
  */
-export interface MaxNumberOfConfigRulesExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxNumberOfConfigRulesExceededException";
-  $fault: "client";
+export class MaxNumberOfConfigRulesExceededException extends __BaseException {
+  readonly name: "MaxNumberOfConfigRulesExceededException" = "MaxNumberOfConfigRulesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxNumberOfConfigRulesExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfConfigRulesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfConfigRulesExceededException.prototype);
+  }
 }
 
 /**
  * <p>You have reached the limit of the number of recorders you can
  * 			create.</p>
  */
-export interface MaxNumberOfConfigurationRecordersExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxNumberOfConfigurationRecordersExceededException";
-  $fault: "client";
+export class MaxNumberOfConfigurationRecordersExceededException extends __BaseException {
+  readonly name: "MaxNumberOfConfigurationRecordersExceededException" =
+    "MaxNumberOfConfigurationRecordersExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxNumberOfConfigurationRecordersExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfConfigurationRecordersExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfConfigurationRecordersExceededException.prototype);
+  }
 }
 
 /**
  * <p>You have reached the limit (6) of the number of conformance packs in an account (6 conformance pack with 25 Config rules per pack).</p>
  */
-export interface MaxNumberOfConformancePacksExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxNumberOfConformancePacksExceededException";
-  $fault: "client";
+export class MaxNumberOfConformancePacksExceededException extends __BaseException {
+  readonly name: "MaxNumberOfConformancePacksExceededException" = "MaxNumberOfConformancePacksExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxNumberOfConformancePacksExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfConformancePacksExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfConformancePacksExceededException.prototype);
+  }
 }
 
 /**
  * <p>You have reached the limit of the number of delivery channels
  * 			you can create.</p>
  */
-export interface MaxNumberOfDeliveryChannelsExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxNumberOfDeliveryChannelsExceededException";
-  $fault: "client";
+export class MaxNumberOfDeliveryChannelsExceededException extends __BaseException {
+  readonly name: "MaxNumberOfDeliveryChannelsExceededException" = "MaxNumberOfDeliveryChannelsExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxNumberOfDeliveryChannelsExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfDeliveryChannelsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfDeliveryChannelsExceededException.prototype);
+  }
 }
 
 /**
  * <p>You have reached the limit of the number of organization config rules you can create.</p>
  */
-export interface MaxNumberOfOrganizationConfigRulesExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxNumberOfOrganizationConfigRulesExceededException";
-  $fault: "client";
+export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
+  readonly name: "MaxNumberOfOrganizationConfigRulesExceededException" =
+    "MaxNumberOfOrganizationConfigRulesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxNumberOfOrganizationConfigRulesExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfOrganizationConfigRulesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfOrganizationConfigRulesExceededException.prototype);
+  }
 }
 
 /**
  * <p>You have reached the limit (6) of the number of organization conformance packs in an account (6 conformance pack with 25 Config rules per pack per account).</p>
  */
-export interface MaxNumberOfOrganizationConformancePacksExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxNumberOfOrganizationConformancePacksExceededException";
-  $fault: "client";
+export class MaxNumberOfOrganizationConformancePacksExceededException extends __BaseException {
+  readonly name: "MaxNumberOfOrganizationConformancePacksExceededException" =
+    "MaxNumberOfOrganizationConformancePacksExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxNumberOfOrganizationConformancePacksExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfOrganizationConformancePacksExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfOrganizationConformancePacksExceededException.prototype);
+  }
 }
 
 /**
  * <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
  */
-export interface MaxNumberOfRetentionConfigurationsExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaxNumberOfRetentionConfigurationsExceededException";
-  $fault: "client";
+export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseException {
+  readonly name: "MaxNumberOfRetentionConfigurationsExceededException" =
+    "MaxNumberOfRetentionConfigurationsExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaxNumberOfRetentionConfigurationsExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfRetentionConfigurationsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfRetentionConfigurationsExceededException.prototype);
+  }
 }
 
 /**
  * <p>There is no delivery channel available to record
  * 			configurations.</p>
  */
-export interface NoAvailableDeliveryChannelException extends __SmithyException, $MetadataBearer {
-  name: "NoAvailableDeliveryChannelException";
-  $fault: "client";
+export class NoAvailableDeliveryChannelException extends __BaseException {
+  readonly name: "NoAvailableDeliveryChannelException" = "NoAvailableDeliveryChannelException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoAvailableDeliveryChannelException, __BaseException>) {
+    super({
+      name: "NoAvailableDeliveryChannelException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAvailableDeliveryChannelException.prototype);
+  }
 }
 
 /**
  * <p>Organization is no longer available.</p>
  */
-export interface NoAvailableOrganizationException extends __SmithyException, $MetadataBearer {
-  name: "NoAvailableOrganizationException";
-  $fault: "client";
+export class NoAvailableOrganizationException extends __BaseException {
+  readonly name: "NoAvailableOrganizationException" = "NoAvailableOrganizationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoAvailableOrganizationException, __BaseException>) {
+    super({
+      name: "NoAvailableOrganizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAvailableOrganizationException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon S3 bucket does not exist.</p>
  */
-export interface NoSuchBucketException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchBucketException";
-  $fault: "client";
+export class NoSuchBucketException extends __BaseException {
+  readonly name: "NoSuchBucketException" = "NoSuchBucketException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoSuchBucketException, __BaseException>) {
+    super({
+      name: "NoSuchBucketException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchBucketException.prototype);
+  }
 }
 
 /**
  * <p>Config resource cannot be created because your organization does not have all features enabled.</p>
  */
-export interface OrganizationAllFeaturesNotEnabledException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationAllFeaturesNotEnabledException";
-  $fault: "client";
+export class OrganizationAllFeaturesNotEnabledException extends __BaseException {
+  readonly name: "OrganizationAllFeaturesNotEnabledException" = "OrganizationAllFeaturesNotEnabledException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<OrganizationAllFeaturesNotEnabledException, __BaseException>) {
+    super({
+      name: "OrganizationAllFeaturesNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationAllFeaturesNotEnabledException.prototype);
+  }
 }
 
 /**
  * <p>You have specified a template that is not valid or supported.</p>
  */
-export interface OrganizationConformancePackTemplateValidationException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationConformancePackTemplateValidationException";
-  $fault: "client";
+export class OrganizationConformancePackTemplateValidationException extends __BaseException {
+  readonly name: "OrganizationConformancePackTemplateValidationException" =
+    "OrganizationConformancePackTemplateValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Error executing the command</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<OrganizationConformancePackTemplateValidationException, __BaseException>) {
+    super({
+      name: "OrganizationConformancePackTemplateValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationConformancePackTemplateValidationException.prototype);
+  }
 }
 
 export interface PutAggregationAuthorizationRequest {

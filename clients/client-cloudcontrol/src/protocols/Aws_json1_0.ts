@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
@@ -8,10 +9,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -32,6 +31,7 @@ import {
 } from "../commands/ListResourceRequestsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "../commands/UpdateResourceCommand";
+import { CloudControlServiceException as __BaseException } from "../models/CloudControlServiceException";
 import {
   AlreadyExistsException,
   CancelResourceRequestInput,
@@ -206,41 +206,25 @@ const deserializeAws_json1_0CancelResourceRequestCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cloudcontrol#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_0ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "RequestTokenNotFoundException":
     case "com.amazonaws.cloudcontrol#RequestTokenNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0RequestTokenNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestTokenNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CreateResourceCommand = async (
@@ -268,177 +252,76 @@ const deserializeAws_json1_0CreateResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context);
     case "ClientTokenConflictException":
     case "com.amazonaws.cloudcontrol#ClientTokenConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ClientTokenConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ClientTokenConflictExceptionResponse(parsedOutput, context);
     case "ConcurrentOperationException":
     case "com.amazonaws.cloudcontrol#ConcurrentOperationException":
-      response = {
-        ...(await deserializeAws_json1_0ConcurrentOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConcurrentOperationExceptionResponse(parsedOutput, context);
     case "GeneralServiceException":
     case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      response = {
-        ...(await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context);
     case "HandlerFailureException":
     case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context);
     case "HandlerInternalFailureException":
     case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context);
     case "InvalidCredentialsException":
     case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
     case "NetworkFailureException":
     case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      response = {
-        ...(await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context);
     case "NotStabilizedException":
     case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      response = {
-        ...(await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context);
     case "NotUpdatableException":
     case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      response = {
-        ...(await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context);
     case "PrivateTypeException":
     case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      response = {
-        ...(await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceInternalErrorException":
     case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context);
     case "ServiceLimitExceededException":
     case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cloudcontrol#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "TypeNotFoundException":
     case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedActionException":
     case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      response = {
-        ...(await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeleteResourceCommand = async (
@@ -466,177 +349,76 @@ const deserializeAws_json1_0DeleteResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context);
     case "ClientTokenConflictException":
     case "com.amazonaws.cloudcontrol#ClientTokenConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ClientTokenConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ClientTokenConflictExceptionResponse(parsedOutput, context);
     case "ConcurrentOperationException":
     case "com.amazonaws.cloudcontrol#ConcurrentOperationException":
-      response = {
-        ...(await deserializeAws_json1_0ConcurrentOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConcurrentOperationExceptionResponse(parsedOutput, context);
     case "GeneralServiceException":
     case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      response = {
-        ...(await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context);
     case "HandlerFailureException":
     case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context);
     case "HandlerInternalFailureException":
     case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context);
     case "InvalidCredentialsException":
     case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
     case "NetworkFailureException":
     case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      response = {
-        ...(await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context);
     case "NotStabilizedException":
     case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      response = {
-        ...(await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context);
     case "NotUpdatableException":
     case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      response = {
-        ...(await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context);
     case "PrivateTypeException":
     case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      response = {
-        ...(await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceInternalErrorException":
     case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context);
     case "ServiceLimitExceededException":
     case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cloudcontrol#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "TypeNotFoundException":
     case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedActionException":
     case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      response = {
-        ...(await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0GetResourceCommand = async (
@@ -664,161 +446,70 @@ const deserializeAws_json1_0GetResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context);
     case "GeneralServiceException":
     case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      response = {
-        ...(await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context);
     case "HandlerFailureException":
     case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context);
     case "HandlerInternalFailureException":
     case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context);
     case "InvalidCredentialsException":
     case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
     case "NetworkFailureException":
     case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      response = {
-        ...(await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context);
     case "NotStabilizedException":
     case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      response = {
-        ...(await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context);
     case "NotUpdatableException":
     case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      response = {
-        ...(await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context);
     case "PrivateTypeException":
     case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      response = {
-        ...(await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceInternalErrorException":
     case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context);
     case "ServiceLimitExceededException":
     case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cloudcontrol#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "TypeNotFoundException":
     case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedActionException":
     case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      response = {
-        ...(await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0GetResourceRequestStatusCommand = async (
@@ -846,33 +537,22 @@ const deserializeAws_json1_0GetResourceRequestStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RequestTokenNotFoundException":
     case "com.amazonaws.cloudcontrol#RequestTokenNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0RequestTokenNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0RequestTokenNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListResourceRequestsCommand = async (
@@ -900,25 +580,19 @@ const deserializeAws_json1_0ListResourceRequestsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListResourcesCommand = async (
@@ -946,161 +620,70 @@ const deserializeAws_json1_0ListResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context);
     case "GeneralServiceException":
     case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      response = {
-        ...(await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context);
     case "HandlerFailureException":
     case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context);
     case "HandlerInternalFailureException":
     case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context);
     case "InvalidCredentialsException":
     case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
     case "NetworkFailureException":
     case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      response = {
-        ...(await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context);
     case "NotStabilizedException":
     case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      response = {
-        ...(await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context);
     case "NotUpdatableException":
     case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      response = {
-        ...(await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context);
     case "PrivateTypeException":
     case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      response = {
-        ...(await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceInternalErrorException":
     case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context);
     case "ServiceLimitExceededException":
     case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cloudcontrol#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "TypeNotFoundException":
     case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedActionException":
     case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      response = {
-        ...(await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateResourceCommand = async (
@@ -1128,177 +711,76 @@ const deserializeAws_json1_0UpdateResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.cloudcontrol#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0AlreadyExistsExceptionResponse(parsedOutput, context);
     case "ClientTokenConflictException":
     case "com.amazonaws.cloudcontrol#ClientTokenConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ClientTokenConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ClientTokenConflictExceptionResponse(parsedOutput, context);
     case "ConcurrentOperationException":
     case "com.amazonaws.cloudcontrol#ConcurrentOperationException":
-      response = {
-        ...(await deserializeAws_json1_0ConcurrentOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ConcurrentOperationExceptionResponse(parsedOutput, context);
     case "GeneralServiceException":
     case "com.amazonaws.cloudcontrol#GeneralServiceException":
-      response = {
-        ...(await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0GeneralServiceExceptionResponse(parsedOutput, context);
     case "HandlerFailureException":
     case "com.amazonaws.cloudcontrol#HandlerFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerFailureExceptionResponse(parsedOutput, context);
     case "HandlerInternalFailureException":
     case "com.amazonaws.cloudcontrol#HandlerInternalFailureException":
-      response = {
-        ...(await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0HandlerInternalFailureExceptionResponse(parsedOutput, context);
     case "InvalidCredentialsException":
     case "com.amazonaws.cloudcontrol#InvalidCredentialsException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidCredentialsExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.cloudcontrol#InvalidRequestException":
-      response = {
-        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context);
     case "NetworkFailureException":
     case "com.amazonaws.cloudcontrol#NetworkFailureException":
-      response = {
-        ...(await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NetworkFailureExceptionResponse(parsedOutput, context);
     case "NotStabilizedException":
     case "com.amazonaws.cloudcontrol#NotStabilizedException":
-      response = {
-        ...(await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotStabilizedExceptionResponse(parsedOutput, context);
     case "NotUpdatableException":
     case "com.amazonaws.cloudcontrol#NotUpdatableException":
-      response = {
-        ...(await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0NotUpdatableExceptionResponse(parsedOutput, context);
     case "PrivateTypeException":
     case "com.amazonaws.cloudcontrol#PrivateTypeException":
-      response = {
-        ...(await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0PrivateTypeExceptionResponse(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.cloudcontrol#ResourceConflictException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceConflictExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudcontrol#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceInternalErrorException":
     case "com.amazonaws.cloudcontrol#ServiceInternalErrorException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceInternalErrorExceptionResponse(parsedOutput, context);
     case "ServiceLimitExceededException":
     case "com.amazonaws.cloudcontrol#ServiceLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ServiceLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cloudcontrol#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
     case "TypeNotFoundException":
     case "com.amazonaws.cloudcontrol#TypeNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedActionException":
     case "com.amazonaws.cloudcontrol#UnsupportedActionException":
-      response = {
-        ...(await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnsupportedActionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_0AlreadyExistsExceptionResponse = async (
@@ -1307,13 +789,11 @@ const deserializeAws_json1_0AlreadyExistsExceptionResponse = async (
 ): Promise<AlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0AlreadyExistsException(body, context);
-  const contents: AlreadyExistsException = {
-    name: "AlreadyExistsException",
-    $fault: "client",
+  const exception = new AlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ClientTokenConflictExceptionResponse = async (
@@ -1322,13 +802,11 @@ const deserializeAws_json1_0ClientTokenConflictExceptionResponse = async (
 ): Promise<ClientTokenConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ClientTokenConflictException(body, context);
-  const contents: ClientTokenConflictException = {
-    name: "ClientTokenConflictException",
-    $fault: "client",
+  const exception = new ClientTokenConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ConcurrentModificationExceptionResponse = async (
@@ -1337,13 +815,11 @@ const deserializeAws_json1_0ConcurrentModificationExceptionResponse = async (
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ConcurrentModificationException(body, context);
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "server",
+  const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ConcurrentOperationExceptionResponse = async (
@@ -1352,13 +828,11 @@ const deserializeAws_json1_0ConcurrentOperationExceptionResponse = async (
 ): Promise<ConcurrentOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ConcurrentOperationException(body, context);
-  const contents: ConcurrentOperationException = {
-    name: "ConcurrentOperationException",
-    $fault: "client",
+  const exception = new ConcurrentOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0GeneralServiceExceptionResponse = async (
@@ -1367,13 +841,11 @@ const deserializeAws_json1_0GeneralServiceExceptionResponse = async (
 ): Promise<GeneralServiceException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0GeneralServiceException(body, context);
-  const contents: GeneralServiceException = {
-    name: "GeneralServiceException",
-    $fault: "client",
+  const exception = new GeneralServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0HandlerFailureExceptionResponse = async (
@@ -1382,13 +854,11 @@ const deserializeAws_json1_0HandlerFailureExceptionResponse = async (
 ): Promise<HandlerFailureException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0HandlerFailureException(body, context);
-  const contents: HandlerFailureException = {
-    name: "HandlerFailureException",
-    $fault: "server",
+  const exception = new HandlerFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0HandlerInternalFailureExceptionResponse = async (
@@ -1397,13 +867,11 @@ const deserializeAws_json1_0HandlerInternalFailureExceptionResponse = async (
 ): Promise<HandlerInternalFailureException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0HandlerInternalFailureException(body, context);
-  const contents: HandlerInternalFailureException = {
-    name: "HandlerInternalFailureException",
-    $fault: "server",
+  const exception = new HandlerInternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidCredentialsExceptionResponse = async (
@@ -1412,13 +880,11 @@ const deserializeAws_json1_0InvalidCredentialsExceptionResponse = async (
 ): Promise<InvalidCredentialsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidCredentialsException(body, context);
-  const contents: InvalidCredentialsException = {
-    name: "InvalidCredentialsException",
-    $fault: "client",
+  const exception = new InvalidCredentialsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidRequestExceptionResponse = async (
@@ -1427,13 +893,11 @@ const deserializeAws_json1_0InvalidRequestExceptionResponse = async (
 ): Promise<InvalidRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidRequestException(body, context);
-  const contents: InvalidRequestException = {
-    name: "InvalidRequestException",
-    $fault: "client",
+  const exception = new InvalidRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0NetworkFailureExceptionResponse = async (
@@ -1442,13 +906,11 @@ const deserializeAws_json1_0NetworkFailureExceptionResponse = async (
 ): Promise<NetworkFailureException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0NetworkFailureException(body, context);
-  const contents: NetworkFailureException = {
-    name: "NetworkFailureException",
-    $fault: "server",
+  const exception = new NetworkFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0NotStabilizedExceptionResponse = async (
@@ -1457,13 +919,11 @@ const deserializeAws_json1_0NotStabilizedExceptionResponse = async (
 ): Promise<NotStabilizedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0NotStabilizedException(body, context);
-  const contents: NotStabilizedException = {
-    name: "NotStabilizedException",
-    $fault: "client",
+  const exception = new NotStabilizedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0NotUpdatableExceptionResponse = async (
@@ -1472,13 +932,11 @@ const deserializeAws_json1_0NotUpdatableExceptionResponse = async (
 ): Promise<NotUpdatableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0NotUpdatableException(body, context);
-  const contents: NotUpdatableException = {
-    name: "NotUpdatableException",
-    $fault: "client",
+  const exception = new NotUpdatableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0PrivateTypeExceptionResponse = async (
@@ -1487,13 +945,11 @@ const deserializeAws_json1_0PrivateTypeExceptionResponse = async (
 ): Promise<PrivateTypeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0PrivateTypeException(body, context);
-  const contents: PrivateTypeException = {
-    name: "PrivateTypeException",
-    $fault: "client",
+  const exception = new PrivateTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0RequestTokenNotFoundExceptionResponse = async (
@@ -1502,13 +958,11 @@ const deserializeAws_json1_0RequestTokenNotFoundExceptionResponse = async (
 ): Promise<RequestTokenNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0RequestTokenNotFoundException(body, context);
-  const contents: RequestTokenNotFoundException = {
-    name: "RequestTokenNotFoundException",
-    $fault: "client",
+  const exception = new RequestTokenNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ResourceConflictExceptionResponse = async (
@@ -1517,13 +971,11 @@ const deserializeAws_json1_0ResourceConflictExceptionResponse = async (
 ): Promise<ResourceConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceConflictException(body, context);
-  const contents: ResourceConflictException = {
-    name: "ResourceConflictException",
-    $fault: "client",
+  const exception = new ResourceConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
@@ -1532,13 +984,11 @@ const deserializeAws_json1_0ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ServiceInternalErrorExceptionResponse = async (
@@ -1547,13 +997,11 @@ const deserializeAws_json1_0ServiceInternalErrorExceptionResponse = async (
 ): Promise<ServiceInternalErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ServiceInternalErrorException(body, context);
-  const contents: ServiceInternalErrorException = {
-    name: "ServiceInternalErrorException",
-    $fault: "server",
+  const exception = new ServiceInternalErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ServiceLimitExceededExceptionResponse = async (
@@ -1562,13 +1010,11 @@ const deserializeAws_json1_0ServiceLimitExceededExceptionResponse = async (
 ): Promise<ServiceLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ServiceLimitExceededException(body, context);
-  const contents: ServiceLimitExceededException = {
-    name: "ServiceLimitExceededException",
-    $fault: "client",
+  const exception = new ServiceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ThrottlingExceptionResponse = async (
@@ -1577,13 +1023,11 @@ const deserializeAws_json1_0ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ThrottlingException(body, context);
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TypeNotFoundExceptionResponse = async (
@@ -1592,13 +1036,11 @@ const deserializeAws_json1_0TypeNotFoundExceptionResponse = async (
 ): Promise<TypeNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TypeNotFoundException(body, context);
-  const contents: TypeNotFoundException = {
-    name: "TypeNotFoundException",
-    $fault: "client",
+  const exception = new TypeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0UnsupportedActionExceptionResponse = async (
@@ -1607,13 +1049,11 @@ const deserializeAws_json1_0UnsupportedActionExceptionResponse = async (
 ): Promise<UnsupportedActionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0UnsupportedActionException(body, context);
-  const contents: UnsupportedActionException = {
-    name: "UnsupportedActionException",
-    $fault: "client",
+  const exception = new UnsupportedActionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_0CancelResourceRequestInput = (

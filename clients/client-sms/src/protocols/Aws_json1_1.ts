@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
@@ -10,10 +11,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { CreateAppCommandInput, CreateAppCommandOutput } from "../commands/CreateAppCommand";
@@ -225,6 +224,7 @@ import {
   VmServer,
   VmServerAddress,
 } from "../models/models_0";
+import { SMSServiceException as __BaseException } from "../models/SMSServiceException";
 
 export const serializeAws_json1_1CreateAppCommand = async (
   input: CreateAppCommandInput,
@@ -706,65 +706,34 @@ const deserializeAws_json1_1CreateAppCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateReplicationJobCommand = async (
@@ -792,97 +761,46 @@ const deserializeAws_json1_1CreateReplicationJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "NoConnectorsAvailableException":
     case "com.amazonaws.sms#NoConnectorsAvailableException":
-      response = {
-        ...(await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ReplicationJobAlreadyExistsException":
     case "com.amazonaws.sms#ReplicationJobAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ServerCannotBeReplicatedException":
     case "com.amazonaws.sms#ServerCannotBeReplicatedException":
-      response = {
-        ...(await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(parsedOutput, context);
     case "TemporarilyUnavailableException":
     case "com.amazonaws.sms#TemporarilyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteAppCommand = async (
@@ -910,65 +828,34 @@ const deserializeAws_json1_1DeleteAppCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteAppLaunchConfigurationCommand = async (
@@ -996,65 +883,34 @@ const deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteAppReplicationConfigurationCommand = async (
@@ -1082,65 +938,34 @@ const deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteAppValidationConfigurationCommand = async (
@@ -1168,65 +993,34 @@ const deserializeAws_json1_1DeleteAppValidationConfigurationCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteReplicationJobCommand = async (
@@ -1254,65 +1048,34 @@ const deserializeAws_json1_1DeleteReplicationJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ReplicationJobNotFoundException":
     case "com.amazonaws.sms#ReplicationJobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteServerCatalogCommand = async (
@@ -1340,57 +1103,31 @@ const deserializeAws_json1_1DeleteServerCatalogCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateConnectorCommand = async (
@@ -1418,57 +1155,31 @@ const deserializeAws_json1_1DisassociateConnectorCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GenerateChangeSetCommand = async (
@@ -1496,65 +1207,34 @@ const deserializeAws_json1_1GenerateChangeSetCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GenerateTemplateCommand = async (
@@ -1582,65 +1262,34 @@ const deserializeAws_json1_1GenerateTemplateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetAppCommand = async (
@@ -1668,65 +1317,34 @@ const deserializeAws_json1_1GetAppCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetAppLaunchConfigurationCommand = async (
@@ -1754,65 +1372,34 @@ const deserializeAws_json1_1GetAppLaunchConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetAppReplicationConfigurationCommand = async (
@@ -1840,65 +1427,34 @@ const deserializeAws_json1_1GetAppReplicationConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetAppValidationConfigurationCommand = async (
@@ -1926,65 +1482,34 @@ const deserializeAws_json1_1GetAppValidationConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetAppValidationOutputCommand = async (
@@ -2012,65 +1537,34 @@ const deserializeAws_json1_1GetAppValidationOutputCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetConnectorsCommand = async (
@@ -2098,33 +1592,22 @@ const deserializeAws_json1_1GetConnectorsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetReplicationJobsCommand = async (
@@ -2152,49 +1635,28 @@ const deserializeAws_json1_1GetReplicationJobsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetReplicationRunsCommand = async (
@@ -2222,49 +1684,28 @@ const deserializeAws_json1_1GetReplicationRunsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetServersCommand = async (
@@ -2292,57 +1733,31 @@ const deserializeAws_json1_1GetServersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ImportAppCatalogCommand = async (
@@ -2370,65 +1785,34 @@ const deserializeAws_json1_1ImportAppCatalogCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ImportServerCatalogCommand = async (
@@ -2456,65 +1840,34 @@ const deserializeAws_json1_1ImportServerCatalogCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "NoConnectorsAvailableException":
     case "com.amazonaws.sms#NoConnectorsAvailableException":
-      response = {
-        ...(await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NoConnectorsAvailableExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1LaunchAppCommand = async (
@@ -2542,65 +1895,34 @@ const deserializeAws_json1_1LaunchAppCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListAppsCommand = async (
@@ -2628,65 +1950,34 @@ const deserializeAws_json1_1ListAppsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1NotifyAppValidationOutputCommand = async (
@@ -2714,65 +2005,34 @@ const deserializeAws_json1_1NotifyAppValidationOutputCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutAppLaunchConfigurationCommand = async (
@@ -2800,65 +2060,34 @@ const deserializeAws_json1_1PutAppLaunchConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutAppReplicationConfigurationCommand = async (
@@ -2886,65 +2115,34 @@ const deserializeAws_json1_1PutAppReplicationConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutAppValidationConfigurationCommand = async (
@@ -2972,65 +2170,34 @@ const deserializeAws_json1_1PutAppValidationConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartAppReplicationCommand = async (
@@ -3058,65 +2225,34 @@ const deserializeAws_json1_1StartAppReplicationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartOnDemandAppReplicationCommand = async (
@@ -3144,65 +2280,34 @@ const deserializeAws_json1_1StartOnDemandAppReplicationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartOnDemandReplicationRunCommand = async (
@@ -3230,73 +2335,37 @@ const deserializeAws_json1_1StartOnDemandReplicationRunCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DryRunOperationException":
     case "com.amazonaws.sms#DryRunOperationException":
-      response = {
-        ...(await deserializeAws_json1_1DryRunOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DryRunOperationExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ReplicationRunLimitExceededException":
     case "com.amazonaws.sms#ReplicationRunLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StopAppReplicationCommand = async (
@@ -3324,65 +2393,34 @@ const deserializeAws_json1_1StopAppReplicationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TerminateAppCommand = async (
@@ -3410,65 +2448,34 @@ const deserializeAws_json1_1TerminateAppCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateAppCommand = async (
@@ -3496,65 +2503,34 @@ const deserializeAws_json1_1UpdateAppCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateReplicationJobCommand = async (
@@ -3582,89 +2558,43 @@ const deserializeAws_json1_1UpdateReplicationJobCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalError":
     case "com.amazonaws.sms#InternalError":
-      response = {
-        ...(await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalErrorResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.sms#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.sms#MissingRequiredParameterException":
-      response = {
-        ...(await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1MissingRequiredParameterExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context);
     case "ReplicationJobNotFoundException":
     case "com.amazonaws.sms#ReplicationJobNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse(parsedOutput, context);
     case "ServerCannotBeReplicatedException":
     case "com.amazonaws.sms#ServerCannotBeReplicatedException":
-      response = {
-        ...(await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse(parsedOutput, context);
     case "TemporarilyUnavailableException":
     case "com.amazonaws.sms#TemporarilyUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TemporarilyUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.sms#UnauthorizedOperationException":
-      response = {
-        ...(await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1DryRunOperationExceptionResponse = async (
@@ -3673,13 +2603,11 @@ const deserializeAws_json1_1DryRunOperationExceptionResponse = async (
 ): Promise<DryRunOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DryRunOperationException(body, context);
-  const contents: DryRunOperationException = {
-    name: "DryRunOperationException",
-    $fault: "client",
+  const exception = new DryRunOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InternalErrorResponse = async (
@@ -3688,13 +2616,11 @@ const deserializeAws_json1_1InternalErrorResponse = async (
 ): Promise<InternalError> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalError(body, context);
-  const contents: InternalError = {
-    name: "InternalError",
-    $fault: "server",
+  const exception = new InternalError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
@@ -3703,13 +2629,11 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
-  const contents: InvalidParameterException = {
-    name: "InvalidParameterException",
-    $fault: "client",
+  const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1MissingRequiredParameterExceptionResponse = async (
@@ -3718,13 +2642,11 @@ const deserializeAws_json1_1MissingRequiredParameterExceptionResponse = async (
 ): Promise<MissingRequiredParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1MissingRequiredParameterException(body, context);
-  const contents: MissingRequiredParameterException = {
-    name: "MissingRequiredParameterException",
-    $fault: "client",
+  const exception = new MissingRequiredParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1NoConnectorsAvailableExceptionResponse = async (
@@ -3733,13 +2655,11 @@ const deserializeAws_json1_1NoConnectorsAvailableExceptionResponse = async (
 ): Promise<NoConnectorsAvailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NoConnectorsAvailableException(body, context);
-  const contents: NoConnectorsAvailableException = {
-    name: "NoConnectorsAvailableException",
-    $fault: "client",
+  const exception = new NoConnectorsAvailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
@@ -3748,13 +2668,11 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationNotPermittedException(body, context);
-  const contents: OperationNotPermittedException = {
-    name: "OperationNotPermittedException",
-    $fault: "client",
+  const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse = async (
@@ -3763,13 +2681,11 @@ const deserializeAws_json1_1ReplicationJobAlreadyExistsExceptionResponse = async
 ): Promise<ReplicationJobAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ReplicationJobAlreadyExistsException(body, context);
-  const contents: ReplicationJobAlreadyExistsException = {
-    name: "ReplicationJobAlreadyExistsException",
-    $fault: "client",
+  const exception = new ReplicationJobAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse = async (
@@ -3778,13 +2694,11 @@ const deserializeAws_json1_1ReplicationJobNotFoundExceptionResponse = async (
 ): Promise<ReplicationJobNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ReplicationJobNotFoundException(body, context);
-  const contents: ReplicationJobNotFoundException = {
-    name: "ReplicationJobNotFoundException",
-    $fault: "client",
+  const exception = new ReplicationJobNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse = async (
@@ -3793,13 +2707,11 @@ const deserializeAws_json1_1ReplicationRunLimitExceededExceptionResponse = async
 ): Promise<ReplicationRunLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ReplicationRunLimitExceededException(body, context);
-  const contents: ReplicationRunLimitExceededException = {
-    name: "ReplicationRunLimitExceededException",
-    $fault: "client",
+  const exception = new ReplicationRunLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse = async (
@@ -3808,13 +2720,11 @@ const deserializeAws_json1_1ServerCannotBeReplicatedExceptionResponse = async (
 ): Promise<ServerCannotBeReplicatedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServerCannotBeReplicatedException(body, context);
-  const contents: ServerCannotBeReplicatedException = {
-    name: "ServerCannotBeReplicatedException",
-    $fault: "client",
+  const exception = new ServerCannotBeReplicatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TemporarilyUnavailableExceptionResponse = async (
@@ -3823,13 +2733,11 @@ const deserializeAws_json1_1TemporarilyUnavailableExceptionResponse = async (
 ): Promise<TemporarilyUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TemporarilyUnavailableException(body, context);
-  const contents: TemporarilyUnavailableException = {
-    name: "TemporarilyUnavailableException",
-    $fault: "server",
+  const exception = new TemporarilyUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnauthorizedOperationExceptionResponse = async (
@@ -3838,13 +2746,11 @@ const deserializeAws_json1_1UnauthorizedOperationExceptionResponse = async (
 ): Promise<UnauthorizedOperationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnauthorizedOperationException(body, context);
-  const contents: UnauthorizedOperationException = {
-    name: "UnauthorizedOperationException",
-    $fault: "client",
+  const exception = new UnauthorizedOperationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AppIds = (input: string[], context: __SerdeContext): any => {

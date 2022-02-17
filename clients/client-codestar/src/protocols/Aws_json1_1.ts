@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -9,10 +10,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -42,6 +41,7 @@ import { UntagProjectCommandInput, UntagProjectCommandOutput } from "../commands
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import { UpdateTeamMemberCommandInput, UpdateTeamMemberCommandOutput } from "../commands/UpdateTeamMemberCommand";
 import { UpdateUserProfileCommandInput, UpdateUserProfileCommandOutput } from "../commands/UpdateUserProfileCommand";
+import { CodeStarServiceException as __BaseException } from "../models/CodeStarServiceException";
 import {
   AssociateTeamMemberRequest,
   AssociateTeamMemberResult,
@@ -366,81 +366,40 @@ const deserializeAws_json1_1AssociateTeamMemberCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "TeamMemberAlreadyAssociatedException":
     case "com.amazonaws.codestar#TeamMemberAlreadyAssociatedException":
-      response = {
-        ...(await deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateProjectCommand = async (
@@ -468,81 +427,40 @@ const deserializeAws_json1_1CreateProjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProjectAlreadyExistsException":
     case "com.amazonaws.codestar#ProjectAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
     case "ProjectCreationFailedException":
     case "com.amazonaws.codestar#ProjectCreationFailedException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectCreationFailedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectCreationFailedExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateUserProfileCommand = async (
@@ -570,41 +488,25 @@ const deserializeAws_json1_1CreateUserProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UserProfileAlreadyExistsException":
     case "com.amazonaws.codestar#UserProfileAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteProjectCommand = async (
@@ -632,49 +534,28 @@ const deserializeAws_json1_1DeleteProjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteUserProfileCommand = async (
@@ -702,33 +583,22 @@ const deserializeAws_json1_1DeleteUserProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeProjectCommand = async (
@@ -756,65 +626,34 @@ const deserializeAws_json1_1DescribeProjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeUserProfileCommand = async (
@@ -842,41 +681,25 @@ const deserializeAws_json1_1DescribeUserProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UserProfileNotFoundException":
     case "com.amazonaws.codestar#UserProfileNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1UserProfileNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UserProfileNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DisassociateTeamMemberCommand = async (
@@ -904,57 +727,31 @@ const deserializeAws_json1_1DisassociateTeamMemberCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListProjectsCommand = async (
@@ -982,41 +779,25 @@ const deserializeAws_json1_1ListProjectsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListResourcesCommand = async (
@@ -1044,49 +825,28 @@ const deserializeAws_json1_1ListResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForProjectCommand = async (
@@ -1114,49 +874,28 @@ const deserializeAws_json1_1ListTagsForProjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTeamMembersCommand = async (
@@ -1184,49 +923,28 @@ const deserializeAws_json1_1ListTeamMembersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListUserProfilesCommand = async (
@@ -1254,41 +972,25 @@ const deserializeAws_json1_1ListUserProfilesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagProjectCommand = async (
@@ -1316,57 +1018,31 @@ const deserializeAws_json1_1TagProjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagProjectCommand = async (
@@ -1394,57 +1070,31 @@ const deserializeAws_json1_1UntagProjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateProjectCommand = async (
@@ -1472,41 +1122,25 @@ const deserializeAws_json1_1UpdateProjectCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateTeamMemberCommand = async (
@@ -1534,81 +1168,40 @@ const deserializeAws_json1_1UpdateTeamMemberCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestar#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidServiceRoleException":
     case "com.amazonaws.codestar#InvalidServiceRoleException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidServiceRoleExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.codestar#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProjectConfigurationException":
     case "com.amazonaws.codestar#ProjectConfigurationException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectConfigurationExceptionResponse(parsedOutput, context);
     case "ProjectNotFoundException":
     case "com.amazonaws.codestar#ProjectNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ProjectNotFoundExceptionResponse(parsedOutput, context);
     case "TeamMemberNotFoundException":
     case "com.amazonaws.codestar#TeamMemberNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1TeamMemberNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TeamMemberNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateUserProfileCommand = async (
@@ -1636,41 +1229,25 @@ const deserializeAws_json1_1UpdateUserProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "UserProfileNotFoundException":
     case "com.amazonaws.codestar#UserProfileNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1UserProfileNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UserProfileNotFoundExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
@@ -1679,13 +1256,11 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "server",
+  const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
@@ -1694,13 +1269,11 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
 ): Promise<InvalidNextTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(body, context);
-  const contents: InvalidNextTokenException = {
-    name: "InvalidNextTokenException",
-    $fault: "client",
+  const exception = new InvalidNextTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidServiceRoleExceptionResponse = async (
@@ -1709,13 +1282,11 @@ const deserializeAws_json1_1InvalidServiceRoleExceptionResponse = async (
 ): Promise<InvalidServiceRoleException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidServiceRoleException(body, context);
-  const contents: InvalidServiceRoleException = {
-    name: "InvalidServiceRoleException",
-    $fault: "client",
+  const exception = new InvalidServiceRoleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LimitExceededExceptionResponse = async (
@@ -1724,13 +1295,11 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse = async (
@@ -1739,13 +1308,11 @@ const deserializeAws_json1_1ProjectAlreadyExistsExceptionResponse = async (
 ): Promise<ProjectAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ProjectAlreadyExistsException(body, context);
-  const contents: ProjectAlreadyExistsException = {
-    name: "ProjectAlreadyExistsException",
-    $fault: "client",
+  const exception = new ProjectAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ProjectConfigurationExceptionResponse = async (
@@ -1754,13 +1321,11 @@ const deserializeAws_json1_1ProjectConfigurationExceptionResponse = async (
 ): Promise<ProjectConfigurationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ProjectConfigurationException(body, context);
-  const contents: ProjectConfigurationException = {
-    name: "ProjectConfigurationException",
-    $fault: "client",
+  const exception = new ProjectConfigurationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ProjectCreationFailedExceptionResponse = async (
@@ -1769,13 +1334,11 @@ const deserializeAws_json1_1ProjectCreationFailedExceptionResponse = async (
 ): Promise<ProjectCreationFailedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ProjectCreationFailedException(body, context);
-  const contents: ProjectCreationFailedException = {
-    name: "ProjectCreationFailedException",
-    $fault: "client",
+  const exception = new ProjectCreationFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ProjectNotFoundExceptionResponse = async (
@@ -1784,13 +1347,11 @@ const deserializeAws_json1_1ProjectNotFoundExceptionResponse = async (
 ): Promise<ProjectNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ProjectNotFoundException(body, context);
-  const contents: ProjectNotFoundException = {
-    name: "ProjectNotFoundException",
-    $fault: "client",
+  const exception = new ProjectNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse = async (
@@ -1799,13 +1360,11 @@ const deserializeAws_json1_1TeamMemberAlreadyAssociatedExceptionResponse = async
 ): Promise<TeamMemberAlreadyAssociatedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TeamMemberAlreadyAssociatedException(body, context);
-  const contents: TeamMemberAlreadyAssociatedException = {
-    name: "TeamMemberAlreadyAssociatedException",
-    $fault: "client",
+  const exception = new TeamMemberAlreadyAssociatedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TeamMemberNotFoundExceptionResponse = async (
@@ -1814,13 +1373,11 @@ const deserializeAws_json1_1TeamMemberNotFoundExceptionResponse = async (
 ): Promise<TeamMemberNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TeamMemberNotFoundException(body, context);
-  const contents: TeamMemberNotFoundException = {
-    name: "TeamMemberNotFoundException",
-    $fault: "client",
+  const exception = new TeamMemberNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse = async (
@@ -1829,13 +1386,11 @@ const deserializeAws_json1_1UserProfileAlreadyExistsExceptionResponse = async (
 ): Promise<UserProfileAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UserProfileAlreadyExistsException(body, context);
-  const contents: UserProfileAlreadyExistsException = {
-    name: "UserProfileAlreadyExistsException",
-    $fault: "client",
+  const exception = new UserProfileAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UserProfileNotFoundExceptionResponse = async (
@@ -1844,13 +1399,11 @@ const deserializeAws_json1_1UserProfileNotFoundExceptionResponse = async (
 ): Promise<UserProfileNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UserProfileNotFoundException(body, context);
-  const contents: UserProfileNotFoundException = {
-    name: "UserProfileNotFoundException",
-    $fault: "client",
+  const exception = new UserProfileNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ValidationExceptionResponse = async (
@@ -1859,13 +1412,11 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
-  const contents: ValidationException = {
-    name: "ValidationException",
-    $fault: "client",
+  const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1AssociateTeamMemberRequest = (

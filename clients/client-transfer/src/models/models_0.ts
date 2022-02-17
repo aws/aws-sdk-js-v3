@@ -1,13 +1,27 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { TransferServiceException as __BaseException } from "./TransferServiceException";
 
 /**
  * <p>You do not have sufficient access to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -15,10 +29,22 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
  *       protocol-enabled server that has VPC as the endpoint type and the server's
  *         <code>VpcEndpointID</code> is not in the available state.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -357,51 +383,115 @@ export namespace CreateAccessResponse {
 /**
  * <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
  */
-export interface InternalServiceError extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceError";
-  $fault: "server";
+export class InternalServiceError extends __BaseException {
+  readonly name: "InternalServiceError" = "InternalServiceError";
+  readonly $fault: "server" = "server";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
+    super({
+      name: "InternalServiceError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is thrown when the client submits a malformed request.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested resource does not exist.</p>
  */
-export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceExistsException";
-  $fault: "client";
+export class ResourceExistsException extends __BaseException {
+  readonly name: "ResourceExistsException" = "ResourceExistsException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   Resource: string | undefined;
   ResourceType: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
+    super({
+      name: "ResourceExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceExistsException.prototype);
+    this.Message = opts.Message;
+    this.Resource = opts.Resource;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
  *       service.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   Resource: string | undefined;
   ResourceType: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Resource = opts.Resource;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum Domain {
@@ -938,10 +1028,22 @@ export namespace CreateServerResponse {
  *
  *          <p> HTTP Status Code: 400</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   RetryAfterSeconds?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
 }
 
 export interface CreateUserRequest {
@@ -2559,10 +2661,22 @@ export namespace ImportSshPublicKeyResponse {
 /**
  * <p>The <code>NextToken</code> parameter that was passed is invalid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListAccessesRequest {

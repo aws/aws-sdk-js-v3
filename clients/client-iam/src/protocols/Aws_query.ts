@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -12,10 +13,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
@@ -403,6 +402,7 @@ import {
   UploadSigningCertificateCommandOutput,
 } from "../commands/UploadSigningCertificateCommand";
 import { UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput } from "../commands/UploadSSHPublicKeyCommand";
+import { IAMServiceException as __BaseException } from "../models/IAMServiceException";
 import {
   AccessDetail,
   AccessKey,
@@ -3264,57 +3264,31 @@ const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAddRoleToInstanceProfileCommand = async (
@@ -3339,65 +3313,34 @@ const deserializeAws_queryAddRoleToInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAddUserToGroupCommand = async (
@@ -3422,49 +3365,28 @@ const deserializeAws_queryAddUserToGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAttachGroupPolicyCommand = async (
@@ -3489,65 +3411,34 @@ const deserializeAws_queryAttachGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PolicyNotAttachableException":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAttachRolePolicyCommand = async (
@@ -3572,73 +3463,37 @@ const deserializeAws_queryAttachRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PolicyNotAttachableException":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAttachUserPolicyCommand = async (
@@ -3663,65 +3518,34 @@ const deserializeAws_queryAttachUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PolicyNotAttachableException":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryChangePasswordCommand = async (
@@ -3746,73 +3570,37 @@ const deserializeAws_queryChangePasswordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      response = {
-        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
     case "InvalidUserTypeException":
     case "com.amazonaws.iam#InvalidUserTypeException":
-      response = {
-        ...(await deserializeAws_queryInvalidUserTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidUserTypeExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PasswordPolicyViolationException":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
-      response = {
-        ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateAccessKeyCommand = async (
@@ -3840,49 +3628,28 @@ const deserializeAws_queryCreateAccessKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateAccountAliasCommand = async (
@@ -3907,49 +3674,28 @@ const deserializeAws_queryCreateAccountAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateGroupCommand = async (
@@ -3977,57 +3723,31 @@ const deserializeAws_queryCreateGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateInstanceProfileCommand = async (
@@ -4055,65 +3775,34 @@ const deserializeAws_queryCreateInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateLoginProfileCommand = async (
@@ -4141,65 +3830,34 @@ const deserializeAws_queryCreateLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PasswordPolicyViolationException":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
-      response = {
-        ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateOpenIDConnectProviderCommand = async (
@@ -4227,65 +3885,34 @@ const deserializeAws_queryCreateOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreatePolicyCommand = async (
@@ -4313,73 +3940,37 @@ const deserializeAws_queryCreatePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreatePolicyVersionCommand = async (
@@ -4407,65 +3998,34 @@ const deserializeAws_queryCreatePolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateRoleCommand = async (
@@ -4493,73 +4053,37 @@ const deserializeAws_queryCreateRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateSAMLProviderCommand = async (
@@ -4587,65 +4111,34 @@ const deserializeAws_queryCreateSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateServiceLinkedRoleCommand = async (
@@ -4673,57 +4166,31 @@ const deserializeAws_queryCreateServiceLinkedRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateServiceSpecificCredentialCommand = async (
@@ -4754,49 +4221,28 @@ const deserializeAws_queryCreateServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceNotSupportedException":
     case "com.amazonaws.iam#ServiceNotSupportedException":
-      response = {
-        ...(await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateUserCommand = async (
@@ -4824,73 +4270,37 @@ const deserializeAws_queryCreateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateVirtualMFADeviceCommand = async (
@@ -4918,65 +4328,34 @@ const deserializeAws_queryCreateVirtualMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeactivateMFADeviceCommand = async (
@@ -5001,57 +4380,31 @@ const deserializeAws_queryDeactivateMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      response = {
-        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteAccessKeyCommand = async (
@@ -5076,49 +4429,28 @@ const deserializeAws_queryDeleteAccessKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteAccountAliasCommand = async (
@@ -5143,49 +4475,28 @@ const deserializeAws_queryDeleteAccountAliasCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteAccountPasswordPolicyCommand = async (
@@ -5210,49 +4521,28 @@ const deserializeAws_queryDeleteAccountPasswordPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteGroupCommand = async (
@@ -5277,57 +4567,31 @@ const deserializeAws_queryDeleteGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteGroupPolicyCommand = async (
@@ -5352,49 +4616,28 @@ const deserializeAws_queryDeleteGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteInstanceProfileCommand = async (
@@ -5419,57 +4662,31 @@ const deserializeAws_queryDeleteInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteLoginProfileCommand = async (
@@ -5494,57 +4711,31 @@ const deserializeAws_queryDeleteLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      response = {
-        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteOpenIDConnectProviderCommand = async (
@@ -5569,49 +4760,28 @@ const deserializeAws_queryDeleteOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeletePolicyCommand = async (
@@ -5636,65 +4806,34 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeletePolicyVersionCommand = async (
@@ -5719,65 +4858,34 @@ const deserializeAws_queryDeletePolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteRoleCommand = async (
@@ -5802,73 +4910,37 @@ const deserializeAws_queryDeleteRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteRolePermissionsBoundaryCommand = async (
@@ -5893,49 +4965,28 @@ const deserializeAws_queryDeleteRolePermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteRolePolicyCommand = async (
@@ -5960,57 +5011,31 @@ const deserializeAws_queryDeleteRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteSAMLProviderCommand = async (
@@ -6035,57 +5060,31 @@ const deserializeAws_queryDeleteSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteServerCertificateCommand = async (
@@ -6110,57 +5109,31 @@ const deserializeAws_queryDeleteServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteServiceLinkedRoleCommand = async (
@@ -6188,49 +5161,28 @@ const deserializeAws_queryDeleteServiceLinkedRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteServiceSpecificCredentialCommand = async (
@@ -6255,33 +5207,22 @@ const deserializeAws_queryDeleteServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteSigningCertificateCommand = async (
@@ -6306,49 +5247,28 @@ const deserializeAws_queryDeleteSigningCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteSSHPublicKeyCommand = async (
@@ -6373,33 +5293,22 @@ const deserializeAws_queryDeleteSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteUserCommand = async (
@@ -6424,65 +5333,34 @@ const deserializeAws_queryDeleteUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteUserPermissionsBoundaryCommand = async (
@@ -6507,41 +5385,25 @@ const deserializeAws_queryDeleteUserPermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteUserPolicyCommand = async (
@@ -6566,49 +5428,28 @@ const deserializeAws_queryDeleteUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteVirtualMFADeviceCommand = async (
@@ -6633,57 +5474,31 @@ const deserializeAws_queryDeleteVirtualMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DeleteConflictException":
     case "com.amazonaws.iam#DeleteConflictException":
-      response = {
-        ...(await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDeleteConflictExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDetachGroupPolicyCommand = async (
@@ -6708,57 +5523,31 @@ const deserializeAws_queryDetachGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDetachRolePolicyCommand = async (
@@ -6783,65 +5572,34 @@ const deserializeAws_queryDetachRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDetachUserPolicyCommand = async (
@@ -6866,57 +5624,31 @@ const deserializeAws_queryDetachUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryEnableMFADeviceCommand = async (
@@ -6941,73 +5673,37 @@ const deserializeAws_queryEnableMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      response = {
-        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
     case "InvalidAuthenticationCodeException":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
-      response = {
-        ...(await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGenerateCredentialReportCommand = async (
@@ -7035,41 +5731,25 @@ const deserializeAws_queryGenerateCredentialReportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGenerateOrganizationsAccessReportCommand = async (
@@ -7100,33 +5780,22 @@ const deserializeAws_queryGenerateOrganizationsAccessReportCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ReportGenerationLimitExceededException":
     case "com.amazonaws.iam#ReportGenerationLimitExceededException":
-      response = {
-        ...(await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryReportGenerationLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGenerateServiceLastAccessedDetailsCommand = async (
@@ -7157,41 +5826,25 @@ const deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetAccessKeyLastUsedCommand = async (
@@ -7219,33 +5872,22 @@ const deserializeAws_queryGetAccessKeyLastUsedCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetAccountAuthorizationDetailsCommand = async (
@@ -7276,33 +5918,22 @@ const deserializeAws_queryGetAccountAuthorizationDetailsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetAccountPasswordPolicyCommand = async (
@@ -7330,41 +5961,25 @@ const deserializeAws_queryGetAccountPasswordPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetAccountSummaryCommand = async (
@@ -7392,33 +6007,22 @@ const deserializeAws_queryGetAccountSummaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetContextKeysForCustomPolicyCommand = async (
@@ -7446,33 +6050,22 @@ const deserializeAws_queryGetContextKeysForCustomPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetContextKeysForPrincipalPolicyCommand = async (
@@ -7500,41 +6093,25 @@ const deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetCredentialReportCommand = async (
@@ -7562,57 +6139,31 @@ const deserializeAws_queryGetCredentialReportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CredentialReportExpiredException":
     case "com.amazonaws.iam#CredentialReportExpiredException":
-      response = {
-        ...(await deserializeAws_queryCredentialReportExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCredentialReportExpiredExceptionResponse(parsedOutput, context);
     case "CredentialReportNotPresentException":
     case "com.amazonaws.iam#CredentialReportNotPresentException":
-      response = {
-        ...(await deserializeAws_queryCredentialReportNotPresentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCredentialReportNotPresentExceptionResponse(parsedOutput, context);
     case "CredentialReportNotReadyException":
     case "com.amazonaws.iam#CredentialReportNotReadyException":
-      response = {
-        ...(await deserializeAws_queryCredentialReportNotReadyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCredentialReportNotReadyExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetGroupCommand = async (
@@ -7640,41 +6191,25 @@ const deserializeAws_queryGetGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetGroupPolicyCommand = async (
@@ -7702,41 +6237,25 @@ const deserializeAws_queryGetGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetInstanceProfileCommand = async (
@@ -7764,41 +6283,25 @@ const deserializeAws_queryGetInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetLoginProfileCommand = async (
@@ -7826,41 +6329,25 @@ const deserializeAws_queryGetLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetOpenIDConnectProviderCommand = async (
@@ -7888,49 +6375,28 @@ const deserializeAws_queryGetOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetOrganizationsAccessReportCommand = async (
@@ -7958,33 +6424,22 @@ const deserializeAws_queryGetOrganizationsAccessReportCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetPolicyCommand = async (
@@ -8012,49 +6467,28 @@ const deserializeAws_queryGetPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetPolicyVersionCommand = async (
@@ -8082,49 +6516,28 @@ const deserializeAws_queryGetPolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetRoleCommand = async (
@@ -8152,41 +6565,25 @@ const deserializeAws_queryGetRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetRolePolicyCommand = async (
@@ -8214,41 +6611,25 @@ const deserializeAws_queryGetRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetSAMLProviderCommand = async (
@@ -8276,49 +6657,28 @@ const deserializeAws_queryGetSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetServerCertificateCommand = async (
@@ -8346,41 +6706,25 @@ const deserializeAws_queryGetServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetServiceLastAccessedDetailsCommand = async (
@@ -8411,41 +6755,25 @@ const deserializeAws_queryGetServiceLastAccessedDetailsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand = async (
@@ -8476,41 +6804,25 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = async (
@@ -8541,49 +6853,28 @@ const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetSSHPublicKeyCommand = async (
@@ -8611,41 +6902,25 @@ const deserializeAws_queryGetSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "UnrecognizedPublicKeyEncodingException":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
-      response = {
-        ...(await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetUserCommand = async (
@@ -8673,41 +6948,25 @@ const deserializeAws_queryGetUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetUserPolicyCommand = async (
@@ -8735,41 +6994,25 @@ const deserializeAws_queryGetUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListAccessKeysCommand = async (
@@ -8797,41 +7040,25 @@ const deserializeAws_queryListAccessKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListAccountAliasesCommand = async (
@@ -8859,33 +7086,22 @@ const deserializeAws_queryListAccountAliasesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListAttachedGroupPoliciesCommand = async (
@@ -8913,49 +7129,28 @@ const deserializeAws_queryListAttachedGroupPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListAttachedRolePoliciesCommand = async (
@@ -8983,49 +7178,28 @@ const deserializeAws_queryListAttachedRolePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListAttachedUserPoliciesCommand = async (
@@ -9053,49 +7227,28 @@ const deserializeAws_queryListAttachedUserPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListEntitiesForPolicyCommand = async (
@@ -9123,49 +7276,28 @@ const deserializeAws_queryListEntitiesForPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListGroupPoliciesCommand = async (
@@ -9193,41 +7325,25 @@ const deserializeAws_queryListGroupPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListGroupsCommand = async (
@@ -9255,33 +7371,22 @@ const deserializeAws_queryListGroupsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListGroupsForUserCommand = async (
@@ -9309,41 +7414,25 @@ const deserializeAws_queryListGroupsForUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListInstanceProfilesCommand = async (
@@ -9371,33 +7460,22 @@ const deserializeAws_queryListInstanceProfilesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListInstanceProfilesForRoleCommand = async (
@@ -9425,41 +7503,25 @@ const deserializeAws_queryListInstanceProfilesForRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListInstanceProfileTagsCommand = async (
@@ -9487,41 +7549,25 @@ const deserializeAws_queryListInstanceProfileTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListMFADevicesCommand = async (
@@ -9549,41 +7595,25 @@ const deserializeAws_queryListMFADevicesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListMFADeviceTagsCommand = async (
@@ -9611,49 +7641,28 @@ const deserializeAws_queryListMFADeviceTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListOpenIDConnectProvidersCommand = async (
@@ -9681,33 +7690,22 @@ const deserializeAws_queryListOpenIDConnectProvidersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListOpenIDConnectProviderTagsCommand = async (
@@ -9738,49 +7736,28 @@ const deserializeAws_queryListOpenIDConnectProviderTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListPoliciesCommand = async (
@@ -9808,33 +7785,22 @@ const deserializeAws_queryListPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListPoliciesGrantingServiceAccessCommand = async (
@@ -9865,41 +7831,25 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListPolicyTagsCommand = async (
@@ -9927,49 +7877,28 @@ const deserializeAws_queryListPolicyTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListPolicyVersionsCommand = async (
@@ -9997,49 +7926,28 @@ const deserializeAws_queryListPolicyVersionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListRolePoliciesCommand = async (
@@ -10067,41 +7975,25 @@ const deserializeAws_queryListRolePoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListRolesCommand = async (
@@ -10129,33 +8021,22 @@ const deserializeAws_queryListRolesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListRoleTagsCommand = async (
@@ -10183,41 +8064,25 @@ const deserializeAws_queryListRoleTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListSAMLProvidersCommand = async (
@@ -10245,33 +8110,22 @@ const deserializeAws_queryListSAMLProvidersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListSAMLProviderTagsCommand = async (
@@ -10299,49 +8153,28 @@ const deserializeAws_queryListSAMLProviderTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListServerCertificatesCommand = async (
@@ -10369,33 +8202,22 @@ const deserializeAws_queryListServerCertificatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListServerCertificateTagsCommand = async (
@@ -10423,41 +8245,25 @@ const deserializeAws_queryListServerCertificateTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListServiceSpecificCredentialsCommand = async (
@@ -10488,41 +8294,25 @@ const deserializeAws_queryListServiceSpecificCredentialsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceNotSupportedException":
     case "com.amazonaws.iam#ServiceNotSupportedException":
-      response = {
-        ...(await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceNotSupportedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListSigningCertificatesCommand = async (
@@ -10550,41 +8340,25 @@ const deserializeAws_queryListSigningCertificatesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListSSHPublicKeysCommand = async (
@@ -10612,33 +8386,22 @@ const deserializeAws_queryListSSHPublicKeysCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListUserPoliciesCommand = async (
@@ -10666,41 +8429,25 @@ const deserializeAws_queryListUserPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListUsersCommand = async (
@@ -10728,33 +8475,22 @@ const deserializeAws_queryListUsersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListUserTagsCommand = async (
@@ -10782,41 +8518,25 @@ const deserializeAws_queryListUserTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryListVirtualMFADevicesCommand = async (
@@ -10844,25 +8564,19 @@ const deserializeAws_queryListVirtualMFADevicesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPutGroupPolicyCommand = async (
@@ -10887,57 +8601,31 @@ const deserializeAws_queryPutGroupPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPutRolePermissionsBoundaryCommand = async (
@@ -10962,65 +8650,34 @@ const deserializeAws_queryPutRolePermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PolicyNotAttachableException":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPutRolePolicyCommand = async (
@@ -11045,65 +8702,34 @@ const deserializeAws_queryPutRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPutUserPermissionsBoundaryCommand = async (
@@ -11128,57 +8754,31 @@ const deserializeAws_queryPutUserPermissionsBoundaryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PolicyNotAttachableException":
     case "com.amazonaws.iam#PolicyNotAttachableException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotAttachableExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryPutUserPolicyCommand = async (
@@ -11203,57 +8803,31 @@ const deserializeAws_queryPutUserPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand = async (
@@ -11278,49 +8852,28 @@ const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveRoleFromInstanceProfileCommand = async (
@@ -11345,57 +8898,31 @@ const deserializeAws_queryRemoveRoleFromInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveUserFromGroupCommand = async (
@@ -11420,49 +8947,28 @@ const deserializeAws_queryRemoveUserFromGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryResetServiceSpecificCredentialCommand = async (
@@ -11493,33 +8999,22 @@ const deserializeAws_queryResetServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryResyncMFADeviceCommand = async (
@@ -11544,57 +9039,31 @@ const deserializeAws_queryResyncMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAuthenticationCodeException":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
-      response = {
-        ...(await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidAuthenticationCodeExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySetDefaultPolicyVersionCommand = async (
@@ -11619,57 +9088,31 @@ const deserializeAws_querySetDefaultPolicyVersionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySetSecurityTokenServicePreferencesCommand = async (
@@ -11694,33 +9137,22 @@ const deserializeAws_querySetSecurityTokenServicePreferencesCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySimulateCustomPolicyCommand = async (
@@ -11748,41 +9180,25 @@ const deserializeAws_querySimulateCustomPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "PolicyEvaluationException":
     case "com.amazonaws.iam#PolicyEvaluationException":
-      response = {
-        ...(await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySimulatePrincipalPolicyCommand = async (
@@ -11810,49 +9226,28 @@ const deserializeAws_querySimulatePrincipalPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PolicyEvaluationException":
     case "com.amazonaws.iam#PolicyEvaluationException":
-      response = {
-        ...(await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyEvaluationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagInstanceProfileCommand = async (
@@ -11877,65 +9272,34 @@ const deserializeAws_queryTagInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagMFADeviceCommand = async (
@@ -11960,65 +9324,34 @@ const deserializeAws_queryTagMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagOpenIDConnectProviderCommand = async (
@@ -12043,65 +9376,34 @@ const deserializeAws_queryTagOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagPolicyCommand = async (
@@ -12126,65 +9428,34 @@ const deserializeAws_queryTagPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagRoleCommand = async (
@@ -12209,65 +9480,34 @@ const deserializeAws_queryTagRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagSAMLProviderCommand = async (
@@ -12292,65 +9532,34 @@ const deserializeAws_queryTagSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagServerCertificateCommand = async (
@@ -12375,65 +9584,34 @@ const deserializeAws_queryTagServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryTagUserCommand = async (
@@ -12458,65 +9636,34 @@ const deserializeAws_queryTagUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagInstanceProfileCommand = async (
@@ -12541,57 +9688,31 @@ const deserializeAws_queryUntagInstanceProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagMFADeviceCommand = async (
@@ -12616,57 +9737,31 @@ const deserializeAws_queryUntagMFADeviceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagOpenIDConnectProviderCommand = async (
@@ -12691,57 +9786,31 @@ const deserializeAws_queryUntagOpenIDConnectProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagPolicyCommand = async (
@@ -12766,57 +9835,31 @@ const deserializeAws_queryUntagPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagRoleCommand = async (
@@ -12841,49 +9884,28 @@ const deserializeAws_queryUntagRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagSAMLProviderCommand = async (
@@ -12908,57 +9930,31 @@ const deserializeAws_queryUntagSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagServerCertificateCommand = async (
@@ -12983,57 +9979,31 @@ const deserializeAws_queryUntagServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUntagUserCommand = async (
@@ -13058,49 +10028,28 @@ const deserializeAws_queryUntagUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateAccessKeyCommand = async (
@@ -13125,49 +10074,28 @@ const deserializeAws_queryUpdateAccessKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateAccountPasswordPolicyCommand = async (
@@ -13192,57 +10120,31 @@ const deserializeAws_queryUpdateAccountPasswordPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateAssumeRolePolicyCommand = async (
@@ -13267,65 +10169,34 @@ const deserializeAws_queryUpdateAssumeRolePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateGroupCommand = async (
@@ -13350,57 +10221,31 @@ const deserializeAws_queryUpdateGroupCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateLoginProfileCommand = async (
@@ -13425,65 +10270,34 @@ const deserializeAws_queryUpdateLoginProfileCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      response = {
-        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "PasswordPolicyViolationException":
     case "com.amazonaws.iam#PasswordPolicyViolationException":
-      response = {
-        ...(await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPasswordPolicyViolationExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand = async (
@@ -13508,49 +10322,28 @@ const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateRoleCommand = async (
@@ -13578,49 +10371,28 @@ const deserializeAws_queryUpdateRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateRoleDescriptionCommand = async (
@@ -13648,49 +10420,28 @@ const deserializeAws_queryUpdateRoleDescriptionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     case "UnmodifiableEntityException":
     case "com.amazonaws.iam#UnmodifiableEntityException":
-      response = {
-        ...(await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnmodifiableEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateSAMLProviderCommand = async (
@@ -13718,57 +10469,31 @@ const deserializeAws_queryUpdateSAMLProviderCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateServerCertificateCommand = async (
@@ -13793,57 +10518,31 @@ const deserializeAws_queryUpdateServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateServiceSpecificCredentialCommand = async (
@@ -13868,33 +10567,22 @@ const deserializeAws_queryUpdateServiceSpecificCredentialCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateSigningCertificateCommand = async (
@@ -13919,49 +10607,28 @@ const deserializeAws_queryUpdateSigningCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateSSHPublicKeyCommand = async (
@@ -13986,33 +10653,22 @@ const deserializeAws_queryUpdateSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUpdateUserCommand = async (
@@ -14037,73 +10693,37 @@ const deserializeAws_queryUpdateUserCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityTemporarilyUnmodifiableException":
     case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      response = {
-        ...(await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUploadServerCertificateCommand = async (
@@ -14131,81 +10751,40 @@ const deserializeAws_queryUploadServerCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.iam#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.iam#InvalidInputException":
-      response = {
-        ...(await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidInputExceptionResponse(parsedOutput, context);
     case "KeyPairMismatchException":
     case "com.amazonaws.iam#KeyPairMismatchException":
-      response = {
-        ...(await deserializeAws_queryKeyPairMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryKeyPairMismatchExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedCertificateException":
     case "com.amazonaws.iam#MalformedCertificateException":
-      response = {
-        ...(await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUploadSigningCertificateCommand = async (
@@ -14233,81 +10812,40 @@ const deserializeAws_queryUploadSigningCertificateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateCertificateException":
     case "com.amazonaws.iam#DuplicateCertificateException":
-      response = {
-        ...(await deserializeAws_queryDuplicateCertificateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateCertificateExceptionResponse(parsedOutput, context);
     case "EntityAlreadyExistsException":
     case "com.amazonaws.iam#EntityAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryEntityAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidCertificateException":
     case "com.amazonaws.iam#InvalidCertificateException":
-      response = {
-        ...(await deserializeAws_queryInvalidCertificateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidCertificateExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "MalformedCertificateException":
     case "com.amazonaws.iam#MalformedCertificateException":
-      response = {
-        ...(await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedCertificateExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.iam#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryUploadSSHPublicKeyCommand = async (
@@ -14335,65 +10873,34 @@ const deserializeAws_queryUploadSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateSSHPublicKeyException":
     case "com.amazonaws.iam#DuplicateSSHPublicKeyException":
-      response = {
-        ...(await deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse(parsedOutput, context);
     case "InvalidPublicKeyException":
     case "com.amazonaws.iam#InvalidPublicKeyException":
-      response = {
-        ...(await deserializeAws_queryInvalidPublicKeyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidPublicKeyExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.iam#LimitExceededException":
-      response = {
-        ...(await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLimitExceededExceptionResponse(parsedOutput, context);
     case "NoSuchEntityException":
     case "com.amazonaws.iam#NoSuchEntityException":
-      response = {
-        ...(await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryNoSuchEntityExceptionResponse(parsedOutput, context);
     case "UnrecognizedPublicKeyEncodingException":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
-      response = {
-        ...(await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_queryConcurrentModificationExceptionResponse = async (
@@ -14402,13 +10909,11 @@ const deserializeAws_queryConcurrentModificationExceptionResponse = async (
 ): Promise<ConcurrentModificationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryConcurrentModificationException(body.Error, context);
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "client",
+  const exception = new ConcurrentModificationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCredentialReportExpiredExceptionResponse = async (
@@ -14417,13 +10922,11 @@ const deserializeAws_queryCredentialReportExpiredExceptionResponse = async (
 ): Promise<CredentialReportExpiredException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCredentialReportExpiredException(body.Error, context);
-  const contents: CredentialReportExpiredException = {
-    name: "CredentialReportExpiredException",
-    $fault: "client",
+  const exception = new CredentialReportExpiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCredentialReportNotPresentExceptionResponse = async (
@@ -14432,13 +10935,11 @@ const deserializeAws_queryCredentialReportNotPresentExceptionResponse = async (
 ): Promise<CredentialReportNotPresentException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCredentialReportNotPresentException(body.Error, context);
-  const contents: CredentialReportNotPresentException = {
-    name: "CredentialReportNotPresentException",
-    $fault: "client",
+  const exception = new CredentialReportNotPresentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCredentialReportNotReadyExceptionResponse = async (
@@ -14447,13 +10948,11 @@ const deserializeAws_queryCredentialReportNotReadyExceptionResponse = async (
 ): Promise<CredentialReportNotReadyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCredentialReportNotReadyException(body.Error, context);
-  const contents: CredentialReportNotReadyException = {
-    name: "CredentialReportNotReadyException",
-    $fault: "client",
+  const exception = new CredentialReportNotReadyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDeleteConflictExceptionResponse = async (
@@ -14462,13 +10961,11 @@ const deserializeAws_queryDeleteConflictExceptionResponse = async (
 ): Promise<DeleteConflictException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDeleteConflictException(body.Error, context);
-  const contents: DeleteConflictException = {
-    name: "DeleteConflictException",
-    $fault: "client",
+  const exception = new DeleteConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDuplicateCertificateExceptionResponse = async (
@@ -14477,13 +10974,11 @@ const deserializeAws_queryDuplicateCertificateExceptionResponse = async (
 ): Promise<DuplicateCertificateException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateCertificateException(body.Error, context);
-  const contents: DuplicateCertificateException = {
-    name: "DuplicateCertificateException",
-    $fault: "client",
+  const exception = new DuplicateCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse = async (
@@ -14492,13 +10987,11 @@ const deserializeAws_queryDuplicateSSHPublicKeyExceptionResponse = async (
 ): Promise<DuplicateSSHPublicKeyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateSSHPublicKeyException(body.Error, context);
-  const contents: DuplicateSSHPublicKeyException = {
-    name: "DuplicateSSHPublicKeyException",
-    $fault: "client",
+  const exception = new DuplicateSSHPublicKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryEntityAlreadyExistsExceptionResponse = async (
@@ -14507,13 +11000,11 @@ const deserializeAws_queryEntityAlreadyExistsExceptionResponse = async (
 ): Promise<EntityAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryEntityAlreadyExistsException(body.Error, context);
-  const contents: EntityAlreadyExistsException = {
-    name: "EntityAlreadyExistsException",
-    $fault: "client",
+  const exception = new EntityAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse = async (
@@ -14522,13 +11013,11 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableExceptionResponse = async
 ): Promise<EntityTemporarilyUnmodifiableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryEntityTemporarilyUnmodifiableException(body.Error, context);
-  const contents: EntityTemporarilyUnmodifiableException = {
-    name: "EntityTemporarilyUnmodifiableException",
-    $fault: "client",
+  const exception = new EntityTemporarilyUnmodifiableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidAuthenticationCodeExceptionResponse = async (
@@ -14537,13 +11026,11 @@ const deserializeAws_queryInvalidAuthenticationCodeExceptionResponse = async (
 ): Promise<InvalidAuthenticationCodeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidAuthenticationCodeException(body.Error, context);
-  const contents: InvalidAuthenticationCodeException = {
-    name: "InvalidAuthenticationCodeException",
-    $fault: "client",
+  const exception = new InvalidAuthenticationCodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidCertificateExceptionResponse = async (
@@ -14552,13 +11039,11 @@ const deserializeAws_queryInvalidCertificateExceptionResponse = async (
 ): Promise<InvalidCertificateException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidCertificateException(body.Error, context);
-  const contents: InvalidCertificateException = {
-    name: "InvalidCertificateException",
-    $fault: "client",
+  const exception = new InvalidCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidInputExceptionResponse = async (
@@ -14567,13 +11052,11 @@ const deserializeAws_queryInvalidInputExceptionResponse = async (
 ): Promise<InvalidInputException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidInputException(body.Error, context);
-  const contents: InvalidInputException = {
-    name: "InvalidInputException",
-    $fault: "client",
+  const exception = new InvalidInputException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidPublicKeyExceptionResponse = async (
@@ -14582,13 +11065,11 @@ const deserializeAws_queryInvalidPublicKeyExceptionResponse = async (
 ): Promise<InvalidPublicKeyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidPublicKeyException(body.Error, context);
-  const contents: InvalidPublicKeyException = {
-    name: "InvalidPublicKeyException",
-    $fault: "client",
+  const exception = new InvalidPublicKeyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidUserTypeExceptionResponse = async (
@@ -14597,13 +11078,11 @@ const deserializeAws_queryInvalidUserTypeExceptionResponse = async (
 ): Promise<InvalidUserTypeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidUserTypeException(body.Error, context);
-  const contents: InvalidUserTypeException = {
-    name: "InvalidUserTypeException",
-    $fault: "client",
+  const exception = new InvalidUserTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryKeyPairMismatchExceptionResponse = async (
@@ -14612,13 +11091,11 @@ const deserializeAws_queryKeyPairMismatchExceptionResponse = async (
 ): Promise<KeyPairMismatchException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryKeyPairMismatchException(body.Error, context);
-  const contents: KeyPairMismatchException = {
-    name: "KeyPairMismatchException",
-    $fault: "client",
+  const exception = new KeyPairMismatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryLimitExceededExceptionResponse = async (
@@ -14627,13 +11104,11 @@ const deserializeAws_queryLimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryLimitExceededException(body.Error, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryMalformedCertificateExceptionResponse = async (
@@ -14642,13 +11117,11 @@ const deserializeAws_queryMalformedCertificateExceptionResponse = async (
 ): Promise<MalformedCertificateException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryMalformedCertificateException(body.Error, context);
-  const contents: MalformedCertificateException = {
-    name: "MalformedCertificateException",
-    $fault: "client",
+  const exception = new MalformedCertificateException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
@@ -14657,13 +11130,11 @@ const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryMalformedPolicyDocumentException(body.Error, context);
-  const contents: MalformedPolicyDocumentException = {
-    name: "MalformedPolicyDocumentException",
-    $fault: "client",
+  const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryNoSuchEntityExceptionResponse = async (
@@ -14672,13 +11143,11 @@ const deserializeAws_queryNoSuchEntityExceptionResponse = async (
 ): Promise<NoSuchEntityException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryNoSuchEntityException(body.Error, context);
-  const contents: NoSuchEntityException = {
-    name: "NoSuchEntityException",
-    $fault: "client",
+  const exception = new NoSuchEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPasswordPolicyViolationExceptionResponse = async (
@@ -14687,13 +11156,11 @@ const deserializeAws_queryPasswordPolicyViolationExceptionResponse = async (
 ): Promise<PasswordPolicyViolationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPasswordPolicyViolationException(body.Error, context);
-  const contents: PasswordPolicyViolationException = {
-    name: "PasswordPolicyViolationException",
-    $fault: "client",
+  const exception = new PasswordPolicyViolationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPolicyEvaluationExceptionResponse = async (
@@ -14702,13 +11169,11 @@ const deserializeAws_queryPolicyEvaluationExceptionResponse = async (
 ): Promise<PolicyEvaluationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPolicyEvaluationException(body.Error, context);
-  const contents: PolicyEvaluationException = {
-    name: "PolicyEvaluationException",
-    $fault: "server",
+  const exception = new PolicyEvaluationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPolicyNotAttachableExceptionResponse = async (
@@ -14717,13 +11182,11 @@ const deserializeAws_queryPolicyNotAttachableExceptionResponse = async (
 ): Promise<PolicyNotAttachableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPolicyNotAttachableException(body.Error, context);
-  const contents: PolicyNotAttachableException = {
-    name: "PolicyNotAttachableException",
-    $fault: "client",
+  const exception = new PolicyNotAttachableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryReportGenerationLimitExceededExceptionResponse = async (
@@ -14732,13 +11195,11 @@ const deserializeAws_queryReportGenerationLimitExceededExceptionResponse = async
 ): Promise<ReportGenerationLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryReportGenerationLimitExceededException(body.Error, context);
-  const contents: ReportGenerationLimitExceededException = {
-    name: "ReportGenerationLimitExceededException",
-    $fault: "client",
+  const exception = new ReportGenerationLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryServiceFailureExceptionResponse = async (
@@ -14747,13 +11208,11 @@ const deserializeAws_queryServiceFailureExceptionResponse = async (
 ): Promise<ServiceFailureException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryServiceFailureException(body.Error, context);
-  const contents: ServiceFailureException = {
-    name: "ServiceFailureException",
-    $fault: "server",
+  const exception = new ServiceFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryServiceNotSupportedExceptionResponse = async (
@@ -14762,13 +11221,11 @@ const deserializeAws_queryServiceNotSupportedExceptionResponse = async (
 ): Promise<ServiceNotSupportedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryServiceNotSupportedException(body.Error, context);
-  const contents: ServiceNotSupportedException = {
-    name: "ServiceNotSupportedException",
-    $fault: "client",
+  const exception = new ServiceNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUnmodifiableEntityExceptionResponse = async (
@@ -14777,13 +11234,11 @@ const deserializeAws_queryUnmodifiableEntityExceptionResponse = async (
 ): Promise<UnmodifiableEntityException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUnmodifiableEntityException(body.Error, context);
-  const contents: UnmodifiableEntityException = {
-    name: "UnmodifiableEntityException",
-    $fault: "client",
+  const exception = new UnmodifiableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse = async (
@@ -14792,13 +11247,11 @@ const deserializeAws_queryUnrecognizedPublicKeyEncodingExceptionResponse = async
 ): Promise<UnrecognizedPublicKeyEncodingException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUnrecognizedPublicKeyEncodingException(body.Error, context);
-  const contents: UnrecognizedPublicKeyEncodingException = {
-    name: "UnrecognizedPublicKeyEncodingException",
-    $fault: "client",
+  const exception = new UnrecognizedPublicKeyEncodingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_queryActionNameListType = (input: string[], context: __SerdeContext): any => {

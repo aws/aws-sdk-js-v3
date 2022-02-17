@@ -1,25 +1,33 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { Route53RecoveryClusterServiceException as __BaseException } from "./Route53RecoveryClusterServiceException";
 
 /**
  * <p>You don't have sufficient permissions to query the routing control state.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message: string | undefined;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 /**
  * <p>There was a conflict with this request. Try again.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  /**
-   * Description of the ConflictException error
-   */
-  message: string | undefined;
-
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * Identifier of the resource in use
    */
@@ -29,15 +37,39 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * Type of the resource in use
    */
   resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
  * <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
  */
-export interface EndpointTemporarilyUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "EndpointTemporarilyUnavailableException";
-  $fault: "server";
-  message: string | undefined;
+export class EndpointTemporarilyUnavailableException extends __BaseException {
+  readonly name: "EndpointTemporarilyUnavailableException" = "EndpointTemporarilyUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EndpointTemporarilyUnavailableException, __BaseException>) {
+    super({
+      name: "EndpointTemporarilyUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EndpointTemporarilyUnavailableException.prototype);
+  }
 }
 
 export interface GetRoutingControlStateRequest {
@@ -85,23 +117,34 @@ export namespace GetRoutingControlStateResponse {
 /**
  * <p>There was an unexpected error during processing of the request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   /**
    * Advice to clients on when the call can be safely retried
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
  * <p>The request references a routing control that was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * Hypothetical resource identifier that was not found
    */
@@ -111,19 +154,45 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * Hypothetical resource type that was not found
    */
   resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
  * <p>The request was denied because of request throttling.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * Advice to clients on when the call can be safely retried
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
@@ -160,10 +229,9 @@ export enum ValidationExceptionReason {
 /**
  * <p>There was a validation error on the request.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * Reason the request failed validation
    */
@@ -173,6 +241,20 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * The fields that caused the error, if applicable
    */
   fields?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+    this.fields = opts.fields;
+  }
 }
 
 export interface UpdateRoutingControlStateRequest {

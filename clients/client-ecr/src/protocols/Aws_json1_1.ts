@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -12,10 +13,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -134,6 +133,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "../commands/UploadLayerPartCommand";
+import { ECRServiceException as __BaseException } from "../models/ECRServiceException";
 import {
   Attribute,
   AuthorizationData,
@@ -856,49 +856,28 @@ const deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchDeleteImageCommand = async (
@@ -926,49 +905,28 @@ const deserializeAws_json1_1BatchDeleteImageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchGetImageCommand = async (
@@ -996,49 +954,28 @@ const deserializeAws_json1_1BatchGetImageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommand = async (
@@ -1066,57 +1003,31 @@ const deserializeAws_json1_1BatchGetRepositoryScanningConfigurationCommandError 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CompleteLayerUploadCommand = async (
@@ -1144,97 +1055,46 @@ const deserializeAws_json1_1CompleteLayerUploadCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EmptyUploadException":
     case "com.amazonaws.ecr#EmptyUploadException":
-      response = {
-        ...(await deserializeAws_json1_1EmptyUploadExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EmptyUploadExceptionResponse(parsedOutput, context);
     case "InvalidLayerException":
     case "com.amazonaws.ecr#InvalidLayerException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidLayerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidLayerExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "LayerAlreadyExistsException":
     case "com.amazonaws.ecr#LayerAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1LayerAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LayerAlreadyExistsExceptionResponse(parsedOutput, context);
     case "LayerPartTooSmallException":
     case "com.amazonaws.ecr#LayerPartTooSmallException":
-      response = {
-        ...(await deserializeAws_json1_1LayerPartTooSmallExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LayerPartTooSmallExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "UploadNotFoundException":
     case "com.amazonaws.ecr#UploadNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1UploadNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UploadNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreatePullThroughCacheRuleCommand = async (
@@ -1262,73 +1122,37 @@ const deserializeAws_json1_1CreatePullThroughCacheRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "PullThroughCacheRuleAlreadyExistsException":
     case "com.amazonaws.ecr#PullThroughCacheRuleAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "UnsupportedUpstreamRegistryException":
     case "com.amazonaws.ecr#UnsupportedUpstreamRegistryException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateRepositoryCommand = async (
@@ -1356,81 +1180,40 @@ const deserializeAws_json1_1CreateRepositoryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.ecr#InvalidTagParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "RepositoryAlreadyExistsException":
     case "com.amazonaws.ecr#RepositoryAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.ecr#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteLifecyclePolicyCommand = async (
@@ -1458,57 +1241,31 @@ const deserializeAws_json1_1DeleteLifecyclePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeletePullThroughCacheRuleCommand = async (
@@ -1536,57 +1293,31 @@ const deserializeAws_json1_1DeletePullThroughCacheRuleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "PullThroughCacheRuleNotFoundException":
     case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRegistryPolicyCommand = async (
@@ -1614,57 +1345,31 @@ const deserializeAws_json1_1DeleteRegistryPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RegistryPolicyNotFoundException":
     case "com.amazonaws.ecr#RegistryPolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRepositoryCommand = async (
@@ -1692,65 +1397,34 @@ const deserializeAws_json1_1DeleteRepositoryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "RepositoryNotEmptyException":
     case "com.amazonaws.ecr#RepositoryNotEmptyException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotEmptyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotEmptyExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteRepositoryPolicyCommand = async (
@@ -1778,57 +1452,31 @@ const deserializeAws_json1_1DeleteRepositoryPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryPolicyNotFoundException":
     case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeImageReplicationStatusCommand = async (
@@ -1856,65 +1504,34 @@ const deserializeAws_json1_1DescribeImageReplicationStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeImagesCommand = async (
@@ -1942,57 +1559,31 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeImageScanFindingsCommand = async (
@@ -2020,73 +1611,37 @@ const deserializeAws_json1_1DescribeImageScanFindingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ScanNotFoundException":
     case "com.amazonaws.ecr#ScanNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ScanNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ScanNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribePullThroughCacheRulesCommand = async (
@@ -2114,57 +1669,31 @@ const deserializeAws_json1_1DescribePullThroughCacheRulesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "PullThroughCacheRuleNotFoundException":
     case "com.amazonaws.ecr#PullThroughCacheRuleNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeRegistryCommand = async (
@@ -2192,49 +1721,28 @@ const deserializeAws_json1_1DescribeRegistryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DescribeRepositoriesCommand = async (
@@ -2262,49 +1770,28 @@ const deserializeAws_json1_1DescribeRepositoriesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetAuthorizationTokenCommand = async (
@@ -2332,41 +1819,25 @@ const deserializeAws_json1_1GetAuthorizationTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetDownloadUrlForLayerCommand = async (
@@ -2394,65 +1865,34 @@ const deserializeAws_json1_1GetDownloadUrlForLayerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LayerInaccessibleException":
     case "com.amazonaws.ecr#LayerInaccessibleException":
-      response = {
-        ...(await deserializeAws_json1_1LayerInaccessibleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LayerInaccessibleExceptionResponse(parsedOutput, context);
     case "LayersNotFoundException":
     case "com.amazonaws.ecr#LayersNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1LayersNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LayersNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetLifecyclePolicyCommand = async (
@@ -2480,57 +1920,31 @@ const deserializeAws_json1_1GetLifecyclePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetLifecyclePolicyPreviewCommand = async (
@@ -2558,57 +1972,31 @@ const deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LifecyclePolicyPreviewNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyPreviewNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRegistryPolicyCommand = async (
@@ -2636,57 +2024,31 @@ const deserializeAws_json1_1GetRegistryPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RegistryPolicyNotFoundException":
     case "com.amazonaws.ecr#RegistryPolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRegistryScanningConfigurationCommand = async (
@@ -2714,49 +2076,28 @@ const deserializeAws_json1_1GetRegistryScanningConfigurationCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetRepositoryPolicyCommand = async (
@@ -2784,57 +2125,31 @@ const deserializeAws_json1_1GetRepositoryPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryPolicyNotFoundException":
     case "com.amazonaws.ecr#RepositoryPolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1InitiateLayerUploadCommand = async (
@@ -2862,57 +2177,31 @@ const deserializeAws_json1_1InitiateLayerUploadCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListImagesCommand = async (
@@ -2940,49 +2229,28 @@ const deserializeAws_json1_1ListImagesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForResourceCommand = async (
@@ -3010,49 +2278,28 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutImageCommand = async (
@@ -3080,105 +2327,49 @@ const deserializeAws_json1_1PutImageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ImageAlreadyExistsException":
     case "com.amazonaws.ecr#ImageAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ImageAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ImageAlreadyExistsExceptionResponse(parsedOutput, context);
     case "ImageDigestDoesNotMatchException":
     case "com.amazonaws.ecr#ImageDigestDoesNotMatchException":
-      response = {
-        ...(await deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse(parsedOutput, context);
     case "ImageTagAlreadyExistsException":
     case "com.amazonaws.ecr#ImageTagAlreadyExistsException":
-      response = {
-        ...(await deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "LayersNotFoundException":
     case "com.amazonaws.ecr#LayersNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1LayersNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LayersNotFoundExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "ReferencedImagesNotFoundException":
     case "com.amazonaws.ecr#ReferencedImagesNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutImageScanningConfigurationCommand = async (
@@ -3206,57 +2397,31 @@ const deserializeAws_json1_1PutImageScanningConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutImageTagMutabilityCommand = async (
@@ -3284,49 +2449,28 @@ const deserializeAws_json1_1PutImageTagMutabilityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutLifecyclePolicyCommand = async (
@@ -3354,49 +2498,28 @@ const deserializeAws_json1_1PutLifecyclePolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutRegistryPolicyCommand = async (
@@ -3424,49 +2547,28 @@ const deserializeAws_json1_1PutRegistryPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutRegistryScanningConfigurationCommand = async (
@@ -3494,49 +2596,28 @@ const deserializeAws_json1_1PutRegistryScanningConfigurationCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1PutReplicationConfigurationCommand = async (
@@ -3564,49 +2645,28 @@ const deserializeAws_json1_1PutReplicationConfigurationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1SetRepositoryPolicyCommand = async (
@@ -3634,49 +2694,28 @@ const deserializeAws_json1_1SetRepositoryPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartImageScanCommand = async (
@@ -3704,81 +2743,40 @@ const deserializeAws_json1_1StartImageScanCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ImageNotFoundException":
     case "com.amazonaws.ecr#ImageNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ImageNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "UnsupportedImageTypeException":
     case "com.amazonaws.ecr#UnsupportedImageTypeException":
-      response = {
-        ...(await deserializeAws_json1_1UnsupportedImageTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UnsupportedImageTypeExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ecr#ValidationException":
-      response = {
-        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1StartLifecyclePolicyPreviewCommand = async (
@@ -3806,65 +2804,34 @@ const deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "LifecyclePolicyNotFoundException":
     case "com.amazonaws.ecr#LifecyclePolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse(parsedOutput, context);
     case "LifecyclePolicyPreviewInProgressException":
     case "com.amazonaws.ecr#LifecyclePolicyPreviewInProgressException":
-      response = {
-        ...(await deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourceCommand = async (
@@ -3892,65 +2859,34 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.ecr#InvalidTagParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.ecr#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourceCommand = async (
@@ -3978,65 +2914,34 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "InvalidTagParameterException":
     case "com.amazonaws.ecr#InvalidTagParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagParameterExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.ecr#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UploadLayerPartCommand = async (
@@ -4064,81 +2969,40 @@ const deserializeAws_json1_1UploadLayerPartCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLayerPartException":
     case "com.amazonaws.ecr#InvalidLayerPartException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidLayerPartExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidLayerPartExceptionResponse(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecr#InvalidParameterException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.ecr#KmsException":
-      response = {
-        ...(await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1KmsExceptionResponse(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.ecr#LimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "RepositoryNotFoundException":
     case "com.amazonaws.ecr#RepositoryNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RepositoryNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecr#ServerException":
-      response = {
-        ...(await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
     case "UploadNotFoundException":
     case "com.amazonaws.ecr#UploadNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1UploadNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1UploadNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1EmptyUploadExceptionResponse = async (
@@ -4147,13 +3011,11 @@ const deserializeAws_json1_1EmptyUploadExceptionResponse = async (
 ): Promise<EmptyUploadException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EmptyUploadException(body, context);
-  const contents: EmptyUploadException = {
-    name: "EmptyUploadException",
-    $fault: "client",
+  const exception = new EmptyUploadException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ImageAlreadyExistsExceptionResponse = async (
@@ -4162,13 +3024,11 @@ const deserializeAws_json1_1ImageAlreadyExistsExceptionResponse = async (
 ): Promise<ImageAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ImageAlreadyExistsException(body, context);
-  const contents: ImageAlreadyExistsException = {
-    name: "ImageAlreadyExistsException",
-    $fault: "client",
+  const exception = new ImageAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse = async (
@@ -4177,13 +3037,11 @@ const deserializeAws_json1_1ImageDigestDoesNotMatchExceptionResponse = async (
 ): Promise<ImageDigestDoesNotMatchException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ImageDigestDoesNotMatchException(body, context);
-  const contents: ImageDigestDoesNotMatchException = {
-    name: "ImageDigestDoesNotMatchException",
-    $fault: "client",
+  const exception = new ImageDigestDoesNotMatchException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ImageNotFoundExceptionResponse = async (
@@ -4192,13 +3050,11 @@ const deserializeAws_json1_1ImageNotFoundExceptionResponse = async (
 ): Promise<ImageNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ImageNotFoundException(body, context);
-  const contents: ImageNotFoundException = {
-    name: "ImageNotFoundException",
-    $fault: "client",
+  const exception = new ImageNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse = async (
@@ -4207,13 +3063,11 @@ const deserializeAws_json1_1ImageTagAlreadyExistsExceptionResponse = async (
 ): Promise<ImageTagAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ImageTagAlreadyExistsException(body, context);
-  const contents: ImageTagAlreadyExistsException = {
-    name: "ImageTagAlreadyExistsException",
-    $fault: "client",
+  const exception = new ImageTagAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidLayerExceptionResponse = async (
@@ -4222,13 +3076,11 @@ const deserializeAws_json1_1InvalidLayerExceptionResponse = async (
 ): Promise<InvalidLayerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidLayerException(body, context);
-  const contents: InvalidLayerException = {
-    name: "InvalidLayerException",
-    $fault: "client",
+  const exception = new InvalidLayerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidLayerPartExceptionResponse = async (
@@ -4237,13 +3089,11 @@ const deserializeAws_json1_1InvalidLayerPartExceptionResponse = async (
 ): Promise<InvalidLayerPartException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidLayerPartException(body, context);
-  const contents: InvalidLayerPartException = {
-    name: "InvalidLayerPartException",
-    $fault: "client",
+  const exception = new InvalidLayerPartException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
@@ -4252,13 +3102,11 @@ const deserializeAws_json1_1InvalidParameterExceptionResponse = async (
 ): Promise<InvalidParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidParameterException(body, context);
-  const contents: InvalidParameterException = {
-    name: "InvalidParameterException",
-    $fault: "client",
+  const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
@@ -4267,13 +3115,11 @@ const deserializeAws_json1_1InvalidTagParameterExceptionResponse = async (
 ): Promise<InvalidTagParameterException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTagParameterException(body, context);
-  const contents: InvalidTagParameterException = {
-    name: "InvalidTagParameterException",
-    $fault: "client",
+  const exception = new InvalidTagParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1KmsExceptionResponse = async (
@@ -4282,13 +3128,11 @@ const deserializeAws_json1_1KmsExceptionResponse = async (
 ): Promise<KmsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1KmsException(body, context);
-  const contents: KmsException = {
-    name: "KmsException",
-    $fault: "client",
+  const exception = new KmsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LayerAlreadyExistsExceptionResponse = async (
@@ -4297,13 +3141,11 @@ const deserializeAws_json1_1LayerAlreadyExistsExceptionResponse = async (
 ): Promise<LayerAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LayerAlreadyExistsException(body, context);
-  const contents: LayerAlreadyExistsException = {
-    name: "LayerAlreadyExistsException",
-    $fault: "client",
+  const exception = new LayerAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LayerInaccessibleExceptionResponse = async (
@@ -4312,13 +3154,11 @@ const deserializeAws_json1_1LayerInaccessibleExceptionResponse = async (
 ): Promise<LayerInaccessibleException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LayerInaccessibleException(body, context);
-  const contents: LayerInaccessibleException = {
-    name: "LayerInaccessibleException",
-    $fault: "client",
+  const exception = new LayerInaccessibleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LayerPartTooSmallExceptionResponse = async (
@@ -4327,13 +3167,11 @@ const deserializeAws_json1_1LayerPartTooSmallExceptionResponse = async (
 ): Promise<LayerPartTooSmallException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LayerPartTooSmallException(body, context);
-  const contents: LayerPartTooSmallException = {
-    name: "LayerPartTooSmallException",
-    $fault: "client",
+  const exception = new LayerPartTooSmallException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LayersNotFoundExceptionResponse = async (
@@ -4342,13 +3180,11 @@ const deserializeAws_json1_1LayersNotFoundExceptionResponse = async (
 ): Promise<LayersNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LayersNotFoundException(body, context);
-  const contents: LayersNotFoundException = {
-    name: "LayersNotFoundException",
-    $fault: "client",
+  const exception = new LayersNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse = async (
@@ -4357,13 +3193,11 @@ const deserializeAws_json1_1LifecyclePolicyNotFoundExceptionResponse = async (
 ): Promise<LifecyclePolicyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LifecyclePolicyNotFoundException(body, context);
-  const contents: LifecyclePolicyNotFoundException = {
-    name: "LifecyclePolicyNotFoundException",
-    $fault: "client",
+  const exception = new LifecyclePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse = async (
@@ -4372,13 +3206,11 @@ const deserializeAws_json1_1LifecyclePolicyPreviewInProgressExceptionResponse = 
 ): Promise<LifecyclePolicyPreviewInProgressException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LifecyclePolicyPreviewInProgressException(body, context);
-  const contents: LifecyclePolicyPreviewInProgressException = {
-    name: "LifecyclePolicyPreviewInProgressException",
-    $fault: "client",
+  const exception = new LifecyclePolicyPreviewInProgressException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse = async (
@@ -4387,13 +3219,11 @@ const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundExceptionResponse = as
 ): Promise<LifecyclePolicyPreviewNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LifecyclePolicyPreviewNotFoundException(body, context);
-  const contents: LifecyclePolicyPreviewNotFoundException = {
-    name: "LifecyclePolicyPreviewNotFoundException",
-    $fault: "client",
+  const exception = new LifecyclePolicyPreviewNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1LimitExceededExceptionResponse = async (
@@ -4402,13 +3232,11 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
 ): Promise<LimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1LimitExceededException(body, context);
-  const contents: LimitExceededException = {
-    name: "LimitExceededException",
-    $fault: "client",
+  const exception = new LimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionResponse = async (
@@ -4417,13 +3245,11 @@ const deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsExceptionResponse =
 ): Promise<PullThroughCacheRuleAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PullThroughCacheRuleAlreadyExistsException(body, context);
-  const contents: PullThroughCacheRuleAlreadyExistsException = {
-    name: "PullThroughCacheRuleAlreadyExistsException",
-    $fault: "client",
+  const exception = new PullThroughCacheRuleAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse = async (
@@ -4432,13 +3258,11 @@ const deserializeAws_json1_1PullThroughCacheRuleNotFoundExceptionResponse = asyn
 ): Promise<PullThroughCacheRuleNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PullThroughCacheRuleNotFoundException(body, context);
-  const contents: PullThroughCacheRuleNotFoundException = {
-    name: "PullThroughCacheRuleNotFoundException",
-    $fault: "client",
+  const exception = new PullThroughCacheRuleNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse = async (
@@ -4447,13 +3271,11 @@ const deserializeAws_json1_1ReferencedImagesNotFoundExceptionResponse = async (
 ): Promise<ReferencedImagesNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ReferencedImagesNotFoundException(body, context);
-  const contents: ReferencedImagesNotFoundException = {
-    name: "ReferencedImagesNotFoundException",
-    $fault: "client",
+  const exception = new ReferencedImagesNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse = async (
@@ -4462,13 +3284,11 @@ const deserializeAws_json1_1RegistryPolicyNotFoundExceptionResponse = async (
 ): Promise<RegistryPolicyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RegistryPolicyNotFoundException(body, context);
-  const contents: RegistryPolicyNotFoundException = {
-    name: "RegistryPolicyNotFoundException",
-    $fault: "client",
+  const exception = new RegistryPolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
@@ -4477,13 +3297,11 @@ const deserializeAws_json1_1RepositoryAlreadyExistsExceptionResponse = async (
 ): Promise<RepositoryAlreadyExistsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RepositoryAlreadyExistsException(body, context);
-  const contents: RepositoryAlreadyExistsException = {
-    name: "RepositoryAlreadyExistsException",
-    $fault: "client",
+  const exception = new RepositoryAlreadyExistsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1RepositoryNotEmptyExceptionResponse = async (
@@ -4492,13 +3310,11 @@ const deserializeAws_json1_1RepositoryNotEmptyExceptionResponse = async (
 ): Promise<RepositoryNotEmptyException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RepositoryNotEmptyException(body, context);
-  const contents: RepositoryNotEmptyException = {
-    name: "RepositoryNotEmptyException",
-    $fault: "client",
+  const exception = new RepositoryNotEmptyException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1RepositoryNotFoundExceptionResponse = async (
@@ -4507,13 +3323,11 @@ const deserializeAws_json1_1RepositoryNotFoundExceptionResponse = async (
 ): Promise<RepositoryNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RepositoryNotFoundException(body, context);
-  const contents: RepositoryNotFoundException = {
-    name: "RepositoryNotFoundException",
-    $fault: "client",
+  const exception = new RepositoryNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse = async (
@@ -4522,13 +3336,11 @@ const deserializeAws_json1_1RepositoryPolicyNotFoundExceptionResponse = async (
 ): Promise<RepositoryPolicyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RepositoryPolicyNotFoundException(body, context);
-  const contents: RepositoryPolicyNotFoundException = {
-    name: "RepositoryPolicyNotFoundException",
-    $fault: "client",
+  const exception = new RepositoryPolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ScanNotFoundExceptionResponse = async (
@@ -4537,13 +3349,11 @@ const deserializeAws_json1_1ScanNotFoundExceptionResponse = async (
 ): Promise<ScanNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ScanNotFoundException(body, context);
-  const contents: ScanNotFoundException = {
-    name: "ScanNotFoundException",
-    $fault: "client",
+  const exception = new ScanNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServerExceptionResponse = async (
@@ -4552,13 +3362,11 @@ const deserializeAws_json1_1ServerExceptionResponse = async (
 ): Promise<ServerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServerException(body, context);
-  const contents: ServerException = {
-    name: "ServerException",
-    $fault: "server",
+  const exception = new ServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
@@ -4567,13 +3375,11 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
-  const contents: TooManyTagsException = {
-    name: "TooManyTagsException",
-    $fault: "client",
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnsupportedImageTypeExceptionResponse = async (
@@ -4582,13 +3388,11 @@ const deserializeAws_json1_1UnsupportedImageTypeExceptionResponse = async (
 ): Promise<UnsupportedImageTypeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedImageTypeException(body, context);
-  const contents: UnsupportedImageTypeException = {
-    name: "UnsupportedImageTypeException",
-    $fault: "client",
+  const exception = new UnsupportedImageTypeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionResponse = async (
@@ -4597,13 +3401,11 @@ const deserializeAws_json1_1UnsupportedUpstreamRegistryExceptionResponse = async
 ): Promise<UnsupportedUpstreamRegistryException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UnsupportedUpstreamRegistryException(body, context);
-  const contents: UnsupportedUpstreamRegistryException = {
-    name: "UnsupportedUpstreamRegistryException",
-    $fault: "client",
+  const exception = new UnsupportedUpstreamRegistryException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1UploadNotFoundExceptionResponse = async (
@@ -4612,13 +3414,11 @@ const deserializeAws_json1_1UploadNotFoundExceptionResponse = async (
 ): Promise<UploadNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1UploadNotFoundException(body, context);
-  const contents: UploadNotFoundException = {
-    name: "UploadNotFoundException",
-    $fault: "client",
+  const exception = new UploadNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ValidationExceptionResponse = async (
@@ -4627,13 +3427,11 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
 ): Promise<ValidationException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ValidationException(body, context);
-  const contents: ValidationException = {
-    name: "ValidationException",
-    $fault: "client",
+  const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1BatchCheckLayerAvailabilityRequest = (

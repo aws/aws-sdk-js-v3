@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ServerlessApplicationRepositoryServiceException as __BaseException } from "./ServerlessApplicationRepositoryServiceException";
 
 /**
  * <p>A nested application summary.</p>
@@ -336,9 +339,9 @@ export namespace VersionSummary {
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>400</p>
    */
@@ -348,14 +351,27 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    * <p>One of the parameters in the request is invalid.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource already exists.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>409</p>
    */
@@ -365,6 +381,19 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>The resource already exists.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateApplicationRequest {
@@ -621,9 +650,9 @@ export namespace CreateApplicationResponse {
 /**
  * <p>The client is not authenticated.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>403</p>
    */
@@ -633,14 +662,27 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
    * <p>The client is not authenticated.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * <p>500</p>
    */
@@ -650,14 +692,27 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
    * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>429</p>
    */
@@ -667,6 +722,19 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>The client is sending more than the allowed number of requests per unit of time.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateApplicationVersionRequest {
@@ -1042,9 +1110,9 @@ export namespace CreateCloudFormationTemplateResponse {
 /**
  * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>404</p>
    */
@@ -1054,6 +1122,19 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteApplicationRequest {

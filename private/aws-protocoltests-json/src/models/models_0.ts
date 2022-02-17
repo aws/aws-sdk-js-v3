@@ -1,9 +1,10 @@
-import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
 import {
-  DocumentType as __DocumentType,
-  MetadataBearer as $MetadataBearer,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@aws-sdk/smithy-client";
+import { DocumentType as __DocumentType, MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolServiceException";
 
 export interface ComplexNestedErrorData {
   Foo?: string;
@@ -21,11 +22,24 @@ export namespace ComplexNestedErrorData {
 /**
  * This error is thrown when a request is invalid.
  */
-export interface ComplexError extends __SmithyException, $MetadataBearer {
-  name: "ComplexError";
-  $fault: "client";
+export class ComplexError extends __BaseException {
+  readonly name: "ComplexError" = "ComplexError";
+  readonly $fault: "client" = "client";
   TopLevel?: string;
   Nested?: ComplexNestedErrorData;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ComplexError, __BaseException>) {
+    super({
+      name: "ComplexError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ComplexError.prototype);
+    this.TopLevel = opts.TopLevel;
+    this.Nested = opts.Nested;
+  }
 }
 
 export interface EmptyStruct {}
@@ -78,18 +92,40 @@ export namespace StructWithJsonName {
   });
 }
 
-export interface ErrorWithoutMembers extends __SmithyException, $MetadataBearer {
-  name: "ErrorWithoutMembers";
-  $fault: "server";
+export class ErrorWithoutMembers extends __BaseException {
+  readonly name: "ErrorWithoutMembers" = "ErrorWithoutMembers";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ErrorWithoutMembers, __BaseException>) {
+    super({
+      name: "ErrorWithoutMembers",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ErrorWithoutMembers.prototype);
+  }
 }
 
 /**
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
  */
-export interface FooError extends __SmithyException, $MetadataBearer {
-  name: "FooError";
-  $fault: "server";
+export class FooError extends __BaseException {
+  readonly name: "FooError" = "FooError";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FooError, __BaseException>) {
+    super({
+      name: "FooError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FooError.prototype);
+  }
 }
 
 export interface GreetingWithErrorsOutput {
@@ -108,10 +144,22 @@ export namespace GreetingWithErrorsOutput {
 /**
  * This error is thrown when an invalid greeting value is provided.
  */
-export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
-  name: "InvalidGreeting";
-  $fault: "client";
+export class InvalidGreeting extends __BaseException {
+  readonly name: "InvalidGreeting" = "InvalidGreeting";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidGreeting, __BaseException>) {
+    super({
+      name: "InvalidGreeting",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidGreeting.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum FooEnum {
@@ -469,9 +517,9 @@ export namespace KitchenSink {
   });
 }
 
-export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
-  name: "ErrorWithMembers";
-  $fault: "client";
+export class ErrorWithMembers extends __BaseException {
+  readonly name: "ErrorWithMembers" = "ErrorWithMembers";
+  readonly $fault: "client" = "client";
   Code?: string;
   ComplexData?: KitchenSink;
   IntegerField?: number;
@@ -482,4 +530,22 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
    * abc
    */
   StringField?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ErrorWithMembers, __BaseException>) {
+    super({
+      name: "ErrorWithMembers",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ErrorWithMembers.prototype);
+    this.Code = opts.Code;
+    this.ComplexData = opts.ComplexData;
+    this.IntegerField = opts.IntegerField;
+    this.ListField = opts.ListField;
+    this.MapField = opts.MapField;
+    this.Message = opts.Message;
+    this.StringField = opts.StringField;
+  }
 }

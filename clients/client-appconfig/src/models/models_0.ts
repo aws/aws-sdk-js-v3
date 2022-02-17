@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AppConfigServiceException as __BaseException } from "./AppConfigServiceException";
 
 export interface Application {
   /**
@@ -116,9 +118,9 @@ export enum BadRequestReason {
 /**
  * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Reason?: BadRequestReason | string;
   /**
@@ -126,6 +128,20 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
    *          a call.</p>
    */
   Details?: BadRequestDetails;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+    this.Details = opts.Details;
+  }
 }
 
 export interface CreateApplicationRequest {
@@ -159,10 +175,22 @@ export namespace CreateApplicationRequest {
 /**
  * <p>There was an internal failure in the AppConfig service.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ValidatorType {
@@ -348,11 +376,24 @@ export namespace CreateConfigurationProfileRequest {
 /**
  * <p>The requested resource could not be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
 }
 
 export enum GrowthType {
@@ -619,10 +660,22 @@ export namespace Environment {
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateHostedConfigurationVersionRequest {
@@ -721,23 +774,50 @@ export enum BytesMeasure {
 /**
  * <p>The configuration size is too large.</p>
  */
-export interface PayloadTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "PayloadTooLargeException";
-  $fault: "client";
+export class PayloadTooLargeException extends __BaseException {
+  readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Measure?: BytesMeasure | string;
   Limit?: number;
   Size?: number;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PayloadTooLargeException, __BaseException>) {
+    super({
+      name: "PayloadTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PayloadTooLargeException.prototype);
+    this.Message = opts.Message;
+    this.Measure = opts.Measure;
+    this.Limit = opts.Limit;
+    this.Size = opts.Size;
+  }
 }
 
 /**
  * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted
  *          configuration store. Delete one or more versions and try again.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteApplicationRequest {

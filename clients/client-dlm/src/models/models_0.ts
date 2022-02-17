@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DLMServiceException as __BaseException } from "./DLMServiceException";
 
 /**
  * <p>Specifies the encryption settings for shared snapshots that are copied across Regions.</p>
@@ -734,20 +737,33 @@ export namespace CreateLifecyclePolicyResponse {
 /**
  * <p>The service failed in an unexpected way.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
   Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
 }
 
 /**
  * <p>Bad request. The request is missing required parameters or has invalid
  * 			parameters.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
@@ -759,20 +775,49 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>The request included parameters that cannot be provided together.</p>
    */
   MutuallyExclusiveParameters?: string[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.RequiredParameters = opts.RequiredParameters;
+    this.MutuallyExclusiveParameters = opts.MutuallyExclusiveParameters;
+  }
 }
 
 /**
  * <p>The request failed because a limit was exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
    * <p>Value is the type of resource for which a limit was exceeded.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 export interface DeleteLifecyclePolicyRequest {
@@ -805,9 +850,9 @@ export namespace DeleteLifecyclePolicyResponse {
 /**
  * <p>A requested resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   Code?: string;
   /**
@@ -819,6 +864,21 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Value is a list of resource IDs that were not found.</p>
    */
   ResourceIds?: string[];
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+    this.ResourceType = opts.ResourceType;
+    this.ResourceIds = opts.ResourceIds;
+  }
 }
 
 export enum GettablePolicyStateValues {

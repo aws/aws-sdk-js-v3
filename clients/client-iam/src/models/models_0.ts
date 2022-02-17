@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { IAMServiceException as __BaseException } from "./IAMServiceException";
 
 export enum AccessAdvisorUsageGranularityType {
   ACTION_LEVEL = "ACTION_LEVEL",
@@ -257,40 +259,80 @@ export namespace AddClientIDToOpenIDConnectProviderRequest {
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  */
-export interface InvalidInputException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInputException";
-  $fault: "client";
-  message?: string;
+export class InvalidInputException extends __BaseException {
+  readonly name: "InvalidInputException" = "InvalidInputException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
  *       account limits. The error message describes the limit exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because it referenced a resource entity that does not exist. The
  *       error message describes the resource.</p>
  */
-export interface NoSuchEntityException extends __SmithyException, $MetadataBearer {
-  name: "NoSuchEntityException";
-  $fault: "client";
-  message?: string;
+export class NoSuchEntityException extends __BaseException {
+  readonly name: "NoSuchEntityException" = "NoSuchEntityException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchEntityException, __BaseException>) {
+    super({
+      name: "NoSuchEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchEntityException.prototype);
+  }
 }
 
 /**
  * <p>The request processing has failed because of an unknown error, exception or
  *       failure.</p>
  */
-export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
-  name: "ServiceFailureException";
-  $fault: "server";
-  message?: string;
+export class ServiceFailureException extends __BaseException {
+  readonly name: "ServiceFailureException" = "ServiceFailureException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceFailureException, __BaseException>) {
+    super({
+      name: "ServiceFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceFailureException.prototype);
+  }
 }
 
 export interface AddRoleToInstanceProfileRequest {
@@ -322,10 +364,20 @@ export namespace AddRoleToInstanceProfileRequest {
  * <p>The request was rejected because it attempted to create a resource that already
  *       exists.</p>
  */
-export interface EntityAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EntityAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class EntityAlreadyExistsException extends __BaseException {
+  readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EntityAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
+  }
 }
 
 /**
@@ -334,10 +386,20 @@ export interface EntityAlreadyExistsException extends __SmithyException, $Metada
  *       service that depends on this service-linked role. You must request the change through that
  *       service.</p>
  */
-export interface UnmodifiableEntityException extends __SmithyException, $MetadataBearer {
-  name: "UnmodifiableEntityException";
-  $fault: "client";
-  message?: string;
+export class UnmodifiableEntityException extends __BaseException {
+  readonly name: "UnmodifiableEntityException" = "UnmodifiableEntityException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnmodifiableEntityException, __BaseException>) {
+    super({
+      name: "UnmodifiableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnmodifiableEntityException.prototype);
+  }
 }
 
 export interface AddUserToGroupRequest {
@@ -459,10 +521,20 @@ export namespace AttachGroupPolicyRequest {
  * <p>The request failed because Amazon Web Services service role policies can only be attached to the
  *       service-linked role for that service.</p>
  */
-export interface PolicyNotAttachableException extends __SmithyException, $MetadataBearer {
-  name: "PolicyNotAttachableException";
-  $fault: "client";
-  message?: string;
+export class PolicyNotAttachableException extends __BaseException {
+  readonly name: "PolicyNotAttachableException" = "PolicyNotAttachableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyNotAttachableException, __BaseException>) {
+    super({
+      name: "PolicyNotAttachableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyNotAttachableException.prototype);
+  }
 }
 
 export interface AttachRolePolicyRequest {
@@ -550,30 +622,60 @@ export namespace ChangePasswordRequest {
  *       is likely to succeed if you try again after waiting several minutes. The error message
  *       describes the entity.</p>
  */
-export interface EntityTemporarilyUnmodifiableException extends __SmithyException, $MetadataBearer {
-  name: "EntityTemporarilyUnmodifiableException";
-  $fault: "client";
-  message?: string;
+export class EntityTemporarilyUnmodifiableException extends __BaseException {
+  readonly name: "EntityTemporarilyUnmodifiableException" = "EntityTemporarilyUnmodifiableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityTemporarilyUnmodifiableException, __BaseException>) {
+    super({
+      name: "EntityTemporarilyUnmodifiableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityTemporarilyUnmodifiableException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the type of user for the transaction was
  *       incorrect.</p>
  */
-export interface InvalidUserTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidUserTypeException";
-  $fault: "client";
-  message?: string;
+export class InvalidUserTypeException extends __BaseException {
+  readonly name: "InvalidUserTypeException" = "InvalidUserTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUserTypeException, __BaseException>) {
+    super({
+      name: "InvalidUserTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUserTypeException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the provided password did not meet the requirements
  *       imposed by the account password policy.</p>
  */
-export interface PasswordPolicyViolationException extends __SmithyException, $MetadataBearer {
-  name: "PasswordPolicyViolationException";
-  $fault: "client";
-  message?: string;
+export class PasswordPolicyViolationException extends __BaseException {
+  readonly name: "PasswordPolicyViolationException" = "PasswordPolicyViolationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PasswordPolicyViolationException, __BaseException>) {
+    super({
+      name: "PasswordPolicyViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PasswordPolicyViolationException.prototype);
+  }
 }
 
 export interface CreateAccessKeyRequest {
@@ -750,10 +852,20 @@ export namespace CreateGroupResponse {
  * <p>The request was rejected because multiple requests to change this object were submitted
  *       simultaneously. Wait a few minutes and submit your request again.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
@@ -1439,10 +1551,20 @@ export namespace CreatePolicyResponse {
  * <p>The request was rejected because the policy document was malformed. The error message
  *       describes the specific error.</p>
  */
-export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
-  name: "MalformedPolicyDocumentException";
-  $fault: "client";
-  message?: string;
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+  }
 }
 
 export interface CreatePolicyVersionRequest {
@@ -1915,10 +2037,20 @@ export namespace CreateServiceSpecificCredentialResponse {
 /**
  * <p>The specified service does not support service-specific credentials.</p>
  */
-export interface ServiceNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "ServiceNotSupportedException";
-  $fault: "client";
-  message?: string;
+export class ServiceNotSupportedException extends __BaseException {
+  readonly name: "ServiceNotSupportedException" = "ServiceNotSupportedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceNotSupportedException, __BaseException>) {
+    super({
+      name: "ServiceNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceNotSupportedException.prototype);
+  }
 }
 
 export interface CreateUserRequest {
@@ -2277,10 +2409,20 @@ export namespace DeleteAccountAliasRequest {
  * <p>The request was rejected because it attempted to delete a resource that has attached
  *       subordinate entities. The error message describes these entities.</p>
  */
-export interface DeleteConflictException extends __SmithyException, $MetadataBearer {
-  name: "DeleteConflictException";
-  $fault: "client";
-  message?: string;
+export class DeleteConflictException extends __BaseException {
+  readonly name: "DeleteConflictException" = "DeleteConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeleteConflictException, __BaseException>) {
+    super({
+      name: "DeleteConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeleteConflictException.prototype);
+  }
 }
 
 export interface DeleteGroupRequest {
@@ -2844,10 +2986,20 @@ export namespace EnableMFADeviceRequest {
  * <p>The request was rejected because the authentication code was not recognized. The error
  *       message describes the specific error.</p>
  */
-export interface InvalidAuthenticationCodeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAuthenticationCodeException";
-  $fault: "client";
-  message?: string;
+export class InvalidAuthenticationCodeException extends __BaseException {
+  readonly name: "InvalidAuthenticationCodeException" = "InvalidAuthenticationCodeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAuthenticationCodeException, __BaseException>) {
+    super({
+      name: "InvalidAuthenticationCodeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAuthenticationCodeException.prototype);
+  }
 }
 
 export enum ReportStateType {
@@ -2930,10 +3082,20 @@ export namespace GenerateOrganizationsAccessReportResponse {
  * <p>The request failed because the maximum number of concurrent requests for this account are
  *       already running.</p>
  */
-export interface ReportGenerationLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ReportGenerationLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class ReportGenerationLimitExceededException extends __BaseException {
+  readonly name: "ReportGenerationLimitExceededException" = "ReportGenerationLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReportGenerationLimitExceededException, __BaseException>) {
+    super({
+      name: "ReportGenerationLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReportGenerationLimitExceededException.prototype);
+  }
 }
 
 export interface GenerateServiceLastAccessedDetailsRequest {
@@ -3725,29 +3887,59 @@ export namespace GetContextKeysForPrincipalPolicyRequest {
  *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the
  *         <i>IAM User Guide</i>.</p>
  */
-export interface CredentialReportExpiredException extends __SmithyException, $MetadataBearer {
-  name: "CredentialReportExpiredException";
-  $fault: "client";
-  message?: string;
+export class CredentialReportExpiredException extends __BaseException {
+  readonly name: "CredentialReportExpiredException" = "CredentialReportExpiredException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CredentialReportExpiredException, __BaseException>) {
+    super({
+      name: "CredentialReportExpiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CredentialReportExpiredException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the credential report does not exist. To generate a
  *       credential report, use <a>GenerateCredentialReport</a>.</p>
  */
-export interface CredentialReportNotPresentException extends __SmithyException, $MetadataBearer {
-  name: "CredentialReportNotPresentException";
-  $fault: "client";
-  message?: string;
+export class CredentialReportNotPresentException extends __BaseException {
+  readonly name: "CredentialReportNotPresentException" = "CredentialReportNotPresentException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CredentialReportNotPresentException, __BaseException>) {
+    super({
+      name: "CredentialReportNotPresentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CredentialReportNotPresentException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the credential report is still being generated.</p>
  */
-export interface CredentialReportNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "CredentialReportNotReadyException";
-  $fault: "client";
-  message?: string;
+export class CredentialReportNotReadyException extends __BaseException {
+  readonly name: "CredentialReportNotReadyException" = "CredentialReportNotReadyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CredentialReportNotReadyException, __BaseException>) {
+    super({
+      name: "CredentialReportNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CredentialReportNotReadyException.prototype);
+  }
 }
 
 export type ReportFormatType = "text/csv";
@@ -5187,10 +5379,20 @@ export namespace GetSSHPublicKeyResponse {
  * <p>The request was rejected because the public key encoding format is unsupported or
  *       unrecognized.</p>
  */
-export interface UnrecognizedPublicKeyEncodingException extends __SmithyException, $MetadataBearer {
-  name: "UnrecognizedPublicKeyEncodingException";
-  $fault: "client";
-  message?: string;
+export class UnrecognizedPublicKeyEncodingException extends __BaseException {
+  readonly name: "UnrecognizedPublicKeyEncodingException" = "UnrecognizedPublicKeyEncodingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnrecognizedPublicKeyEncodingException, __BaseException>) {
+    super({
+      name: "UnrecognizedPublicKeyEncodingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnrecognizedPublicKeyEncodingException.prototype);
+  }
 }
 
 export interface GetUserRequest {
@@ -8641,10 +8843,20 @@ export namespace SetSecurityTokenServicePreferencesRequest {
  * <p>The request failed because a provided policy could not be successfully evaluated. An
  *       additional detailed message indicates the source of the failure.</p>
  */
-export interface PolicyEvaluationException extends __SmithyException, $MetadataBearer {
-  name: "PolicyEvaluationException";
-  $fault: "server";
-  message?: string;
+export class PolicyEvaluationException extends __BaseException {
+  readonly name: "PolicyEvaluationException" = "PolicyEvaluationException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyEvaluationException, __BaseException>) {
+    super({
+      name: "PolicyEvaluationException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyEvaluationException.prototype);
+  }
 }
 
 export enum ContextKeyTypeEnum {

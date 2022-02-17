@@ -1,15 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { IoTJobsDataPlaneServiceException as __BaseException } from "./IoTJobsDataPlaneServiceException";
 
 /**
  * <p>The certificate is invalid.</p>
  */
-export interface CertificateValidationException extends __SmithyException, $MetadataBearer {
-  name: "CertificateValidationException";
-  $fault: "client";
+export class CertificateValidationException extends __BaseException {
+  readonly name: "CertificateValidationException" = "CertificateValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Additional information about the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CertificateValidationException, __BaseException>) {
+    super({
+      name: "CertificateValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateValidationException.prototype);
+  }
 }
 
 export interface DescribeJobExecutionRequest {
@@ -147,63 +157,102 @@ export namespace DescribeJobExecutionResponse {
 /**
  * <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
  * <p>The specified resource does not exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 /**
  * <p>The job is in a terminal state.</p>
  */
-export interface TerminalStateException extends __SmithyException, $MetadataBearer {
-  name: "TerminalStateException";
-  $fault: "client";
-  message?: string;
+export class TerminalStateException extends __BaseException {
+  readonly name: "TerminalStateException" = "TerminalStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TerminalStateException, __BaseException>) {
+    super({
+      name: "TerminalStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TerminalStateException.prototype);
+  }
 }
 
 /**
  * <p>The rate exceeds the limit.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  /**
-   * <p>The message associated with the exception.</p>
-   */
-  message?: string;
-
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The payload associated with the exception.</p>
    */
   payload?: Uint8Array;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.payload = opts.payload;
+  }
 }
 
 export interface GetPendingJobExecutionsRequest {
@@ -293,10 +342,20 @@ export namespace GetPendingJobExecutionsResponse {
  *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
  *          case, the body of the error message also contains the executionState field.</p>
  */
-export interface InvalidStateTransitionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateTransitionException";
-  $fault: "client";
-  message?: string;
+export class InvalidStateTransitionException extends __BaseException {
+  readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateTransitionException, __BaseException>) {
+    super({
+      name: "InvalidStateTransitionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateTransitionException.prototype);
+  }
 }
 
 export interface StartNextPendingJobExecutionRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { STSServiceException as __BaseException } from "./STSServiceException";
 
 /**
  * <p>The identifiers for the temporary security credentials that the operation
@@ -399,20 +402,40 @@ export namespace AssumeRoleResponse {
  * <p>The web identity token that was passed is expired or is not valid. Get a new identity
  *             token from the identity provider and then retry the request.</p>
  */
-export interface ExpiredTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredTokenException";
-  $fault: "client";
-  message?: string;
+export class ExpiredTokenException extends __BaseException {
+  readonly name: "ExpiredTokenException" = "ExpiredTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredTokenException, __BaseException>) {
+    super({
+      name: "ExpiredTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredTokenException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the policy document was malformed. The error message
  *             describes the specific error.</p>
  */
-export interface MalformedPolicyDocumentException extends __SmithyException, $MetadataBearer {
-  name: "MalformedPolicyDocumentException";
-  $fault: "client";
-  message?: string;
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedPolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+  }
 }
 
 /**
@@ -426,10 +449,20 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
  *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
  *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
  */
-export interface PackedPolicyTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "PackedPolicyTooLargeException";
-  $fault: "client";
-  message?: string;
+export class PackedPolicyTooLargeException extends __BaseException {
+  readonly name: "PackedPolicyTooLargeException" = "PackedPolicyTooLargeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PackedPolicyTooLargeException, __BaseException>) {
+    super({
+      name: "PackedPolicyTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PackedPolicyTooLargeException.prototype);
+  }
 }
 
 /**
@@ -439,10 +472,20 @@ export interface PackedPolicyTooLargeException extends __SmithyException, $Metad
  *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
  *                     Guide</i>.</p>
  */
-export interface RegionDisabledException extends __SmithyException, $MetadataBearer {
-  name: "RegionDisabledException";
-  $fault: "client";
-  message?: string;
+export class RegionDisabledException extends __BaseException {
+  readonly name: "RegionDisabledException" = "RegionDisabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RegionDisabledException, __BaseException>) {
+    super({
+      name: "RegionDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RegionDisabledException.prototype);
+  }
 }
 
 export interface AssumeRoleWithSAMLRequest {
@@ -669,20 +712,40 @@ export namespace AssumeRoleWithSAMLResponse {
  *         <p>If this error is returned for the <code>AssumeRoleWithWebIdentity</code> operation, it
  *             can also mean that the claim has expired or has been explicitly revoked. </p>
  */
-export interface IDPRejectedClaimException extends __SmithyException, $MetadataBearer {
-  name: "IDPRejectedClaimException";
-  $fault: "client";
-  message?: string;
+export class IDPRejectedClaimException extends __BaseException {
+  readonly name: "IDPRejectedClaimException" = "IDPRejectedClaimException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IDPRejectedClaimException, __BaseException>) {
+    super({
+      name: "IDPRejectedClaimException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IDPRejectedClaimException.prototype);
+  }
 }
 
 /**
  * <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new
  *             identity token from the identity provider and then retry the request.</p>
  */
-export interface InvalidIdentityTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidIdentityTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidIdentityTokenException extends __BaseException {
+  readonly name: "InvalidIdentityTokenException" = "InvalidIdentityTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIdentityTokenException, __BaseException>) {
+    super({
+      name: "InvalidIdentityTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIdentityTokenException.prototype);
+  }
 }
 
 export interface AssumeRoleWithWebIdentityRequest {
@@ -903,10 +966,20 @@ export namespace AssumeRoleWithWebIdentityResponse {
  *             times so that you don't exceed the request rate. If the error persists, the
  *             identity provider might be down or not responding.</p>
  */
-export interface IDPCommunicationErrorException extends __SmithyException, $MetadataBearer {
-  name: "IDPCommunicationErrorException";
-  $fault: "client";
-  message?: string;
+export class IDPCommunicationErrorException extends __BaseException {
+  readonly name: "IDPCommunicationErrorException" = "IDPCommunicationErrorException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IDPCommunicationErrorException, __BaseException>) {
+    super({
+      name: "IDPCommunicationErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IDPCommunicationErrorException.prototype);
+  }
 }
 
 export interface DecodeAuthorizationMessageRequest {
@@ -950,10 +1023,20 @@ export namespace DecodeAuthorizationMessageResponse {
  *             was invalid. This can happen if the token contains invalid characters, such as
  *             linebreaks. </p>
  */
-export interface InvalidAuthorizationMessageException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAuthorizationMessageException";
-  $fault: "client";
-  message?: string;
+export class InvalidAuthorizationMessageException extends __BaseException {
+  readonly name: "InvalidAuthorizationMessageException" = "InvalidAuthorizationMessageException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAuthorizationMessageException, __BaseException>) {
+    super({
+      name: "InvalidAuthorizationMessageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAuthorizationMessageException.prototype);
+  }
 }
 
 export interface GetAccessKeyInfoRequest {

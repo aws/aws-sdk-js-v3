@@ -4,3 +4,4 @@ export * from "./commands";
 export * from "./models";
 export * from "./pagination";
 export * from "./waiters";
+export { S3ServiceException } from "./models/S3ServiceException";

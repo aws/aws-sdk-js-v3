@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -10,10 +11,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
@@ -63,6 +62,7 @@ import {
   RegionDisabledException,
   Tag,
 } from "../models/models_0";
+import { STSServiceException as __BaseException } from "../models/STSServiceException";
 
 export const serializeAws_queryAssumeRoleCommand = async (
   input: AssumeRoleCommandInput,
@@ -217,57 +217,31 @@ const deserializeAws_queryAssumeRoleCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
-      response = {
-        ...(await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
-      response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAssumeRoleWithSAMLCommand = async (
@@ -295,73 +269,37 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
-      response = {
-        ...(await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
     case "IDPRejectedClaimException":
     case "com.amazonaws.sts#IDPRejectedClaimException":
-      response = {
-        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
     case "InvalidIdentityTokenException":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
-      response = {
-        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
-      response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAssumeRoleWithWebIdentityCommand = async (
@@ -389,81 +327,40 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
     case "com.amazonaws.sts#ExpiredTokenException":
-      response = {
-        ...(await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryExpiredTokenExceptionResponse(parsedOutput, context);
     case "IDPCommunicationErrorException":
     case "com.amazonaws.sts#IDPCommunicationErrorException":
-      response = {
-        ...(await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryIDPCommunicationErrorExceptionResponse(parsedOutput, context);
     case "IDPRejectedClaimException":
     case "com.amazonaws.sts#IDPRejectedClaimException":
-      response = {
-        ...(await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryIDPRejectedClaimExceptionResponse(parsedOutput, context);
     case "InvalidIdentityTokenException":
     case "com.amazonaws.sts#InvalidIdentityTokenException":
-      response = {
-        ...(await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidIdentityTokenExceptionResponse(parsedOutput, context);
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
-      response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDecodeAuthorizationMessageCommand = async (
@@ -491,33 +388,22 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAuthorizationMessageException":
     case "com.amazonaws.sts#InvalidAuthorizationMessageException":
-      response = {
-        ...(await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidAuthorizationMessageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetAccessKeyInfoCommand = async (
@@ -545,25 +431,19 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetCallerIdentityCommand = async (
@@ -591,25 +471,19 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetFederationTokenCommand = async (
@@ -637,49 +511,28 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MalformedPolicyDocumentException":
     case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      response = {
-        ...(await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryMalformedPolicyDocumentExceptionResponse(parsedOutput, context);
     case "PackedPolicyTooLargeException":
     case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      response = {
-        ...(await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPackedPolicyTooLargeExceptionResponse(parsedOutput, context);
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
-      response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryGetSessionTokenCommand = async (
@@ -707,33 +560,22 @@ const deserializeAws_queryGetSessionTokenCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
-      response = {
-        ...(await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryRegionDisabledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_queryExpiredTokenExceptionResponse = async (
@@ -742,13 +584,11 @@ const deserializeAws_queryExpiredTokenExceptionResponse = async (
 ): Promise<ExpiredTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryExpiredTokenException(body.Error, context);
-  const contents: ExpiredTokenException = {
-    name: "ExpiredTokenException",
-    $fault: "client",
+  const exception = new ExpiredTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryIDPCommunicationErrorExceptionResponse = async (
@@ -757,13 +597,11 @@ const deserializeAws_queryIDPCommunicationErrorExceptionResponse = async (
 ): Promise<IDPCommunicationErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryIDPCommunicationErrorException(body.Error, context);
-  const contents: IDPCommunicationErrorException = {
-    name: "IDPCommunicationErrorException",
-    $fault: "client",
+  const exception = new IDPCommunicationErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryIDPRejectedClaimExceptionResponse = async (
@@ -772,13 +610,11 @@ const deserializeAws_queryIDPRejectedClaimExceptionResponse = async (
 ): Promise<IDPRejectedClaimException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryIDPRejectedClaimException(body.Error, context);
-  const contents: IDPRejectedClaimException = {
-    name: "IDPRejectedClaimException",
-    $fault: "client",
+  const exception = new IDPRejectedClaimException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidAuthorizationMessageExceptionResponse = async (
@@ -787,13 +623,11 @@ const deserializeAws_queryInvalidAuthorizationMessageExceptionResponse = async (
 ): Promise<InvalidAuthorizationMessageException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidAuthorizationMessageException(body.Error, context);
-  const contents: InvalidAuthorizationMessageException = {
-    name: "InvalidAuthorizationMessageException",
-    $fault: "client",
+  const exception = new InvalidAuthorizationMessageException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidIdentityTokenExceptionResponse = async (
@@ -802,13 +636,11 @@ const deserializeAws_queryInvalidIdentityTokenExceptionResponse = async (
 ): Promise<InvalidIdentityTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidIdentityTokenException(body.Error, context);
-  const contents: InvalidIdentityTokenException = {
-    name: "InvalidIdentityTokenException",
-    $fault: "client",
+  const exception = new InvalidIdentityTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
@@ -817,13 +649,11 @@ const deserializeAws_queryMalformedPolicyDocumentExceptionResponse = async (
 ): Promise<MalformedPolicyDocumentException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryMalformedPolicyDocumentException(body.Error, context);
-  const contents: MalformedPolicyDocumentException = {
-    name: "MalformedPolicyDocumentException",
-    $fault: "client",
+  const exception = new MalformedPolicyDocumentException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPackedPolicyTooLargeExceptionResponse = async (
@@ -832,13 +662,11 @@ const deserializeAws_queryPackedPolicyTooLargeExceptionResponse = async (
 ): Promise<PackedPolicyTooLargeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPackedPolicyTooLargeException(body.Error, context);
-  const contents: PackedPolicyTooLargeException = {
-    name: "PackedPolicyTooLargeException",
-    $fault: "client",
+  const exception = new PackedPolicyTooLargeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryRegionDisabledExceptionResponse = async (
@@ -847,13 +675,11 @@ const deserializeAws_queryRegionDisabledExceptionResponse = async (
 ): Promise<RegionDisabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryRegionDisabledException(body.Error, context);
-  const contents: RegionDisabledException = {
-    name: "RegionDisabledException",
-    $fault: "client",
+  const exception = new RegionDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_queryAssumeRoleRequest = (input: AssumeRoleRequest, context: __SerdeContext): any => {

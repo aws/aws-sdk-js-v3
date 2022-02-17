@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ACMPCAServiceException as __BaseException } from "./ACMPCAServiceException";
 
 /**
  * <p>Contains information about the certificate subject. The <code>Subject</code> field in
@@ -796,40 +799,80 @@ export namespace CreateCertificateAuthorityResponse {
 /**
  * <p>One or more of the specified arguments was not valid.</p>
  */
-export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgsException";
-  $fault: "client";
-  message?: string;
+export class InvalidArgsException extends __BaseException {
+  readonly name: "InvalidArgsException" = "InvalidArgsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgsException, __BaseException>) {
+    super({
+      name: "InvalidArgsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgsException.prototype);
+  }
 }
 
 /**
  * <p>The resource policy is invalid or is missing a required statement. For general
  * 			information about IAM policy and statement structure, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json">Overview of JSON Policies</a>.</p>
  */
-export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPolicyException";
-  $fault: "client";
-  message?: string;
+export class InvalidPolicyException extends __BaseException {
+  readonly name: "InvalidPolicyException" = "InvalidPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyException, __BaseException>) {
+    super({
+      name: "InvalidPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyException.prototype);
+  }
 }
 
 /**
  * <p>The tag associated with the CA is not valid. The invalid argument is contained in the
  * 			message field.</p>
  */
-export interface InvalidTagException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagException";
-  $fault: "client";
-  message?: string;
+export class InvalidTagException extends __BaseException {
+  readonly name: "InvalidTagException" = "InvalidTagException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
+    super({
+      name: "InvalidTagException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagException.prototype);
+  }
 }
 
 /**
  * <p>An ACM Private CA quota has been exceeded. See the exception message returned to determine the
  * 			quota that was exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 export enum AuditReportResponseFormat {
@@ -892,47 +935,97 @@ export namespace CreateCertificateAuthorityAuditReportResponse {
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing
  * 			resource.</p>
  */
-export interface InvalidArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArnException";
-  $fault: "client";
-  message?: string;
+export class InvalidArnException extends __BaseException {
+  readonly name: "InvalidArnException" = "InvalidArnException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
+    super({
+      name: "InvalidArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArnException.prototype);
+  }
 }
 
 /**
  * <p>The state of the private CA does not allow this action to occur.</p>
  */
-export interface InvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateException";
-  $fault: "client";
-  message?: string;
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+  }
 }
 
 /**
  * <p>The request has failed for an unspecified reason.</p>
  */
-export interface RequestFailedException extends __SmithyException, $MetadataBearer {
-  name: "RequestFailedException";
-  $fault: "client";
-  message?: string;
+export class RequestFailedException extends __BaseException {
+  readonly name: "RequestFailedException" = "RequestFailedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestFailedException, __BaseException>) {
+    super({
+      name: "RequestFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestFailedException.prototype);
+  }
 }
 
 /**
  * <p>Your request is already in progress.</p>
  */
-export interface RequestInProgressException extends __SmithyException, $MetadataBearer {
-  name: "RequestInProgressException";
-  $fault: "client";
-  message?: string;
+export class RequestInProgressException extends __BaseException {
+  readonly name: "RequestInProgressException" = "RequestInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestInProgressException, __BaseException>) {
+    super({
+      name: "RequestInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestInProgressException.prototype);
+  }
 }
 
 /**
  * <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export enum ActionType {
@@ -983,19 +1076,39 @@ export namespace CreatePermissionRequest {
 /**
  * <p>The designated permission has already been given to the user.</p>
  */
-export interface PermissionAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "PermissionAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class PermissionAlreadyExistsException extends __BaseException {
+  readonly name: "PermissionAlreadyExistsException" = "PermissionAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PermissionAlreadyExistsException, __BaseException>) {
+    super({
+      name: "PermissionAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PermissionAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>A previous update to your private CA is still ongoing.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 export interface DeleteCertificateAuthorityRequest {
@@ -1081,10 +1194,20 @@ export namespace DeletePolicyRequest {
  * 			subsequent actions. Verify that the specified parameters would not result in the caller
  * 			being denied access to the resource. </p>
  */
-export interface LockoutPreventedException extends __SmithyException, $MetadataBearer {
-  name: "LockoutPreventedException";
-  $fault: "client";
-  message?: string;
+export class LockoutPreventedException extends __BaseException {
+  readonly name: "LockoutPreventedException" = "LockoutPreventedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LockoutPreventedException, __BaseException>) {
+    super({
+      name: "LockoutPreventedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LockoutPreventedException.prototype);
+  }
 }
 
 export interface DescribeCertificateAuthorityRequest {
@@ -1479,10 +1602,20 @@ export namespace GetPolicyResponse {
  * <p>The certificate authority certificate you are importing does not comply with
  * 			conditions specified in the certificate that signed it.</p>
  */
-export interface CertificateMismatchException extends __SmithyException, $MetadataBearer {
-  name: "CertificateMismatchException";
-  $fault: "client";
-  message?: string;
+export class CertificateMismatchException extends __BaseException {
+  readonly name: "CertificateMismatchException" = "CertificateMismatchException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateMismatchException, __BaseException>) {
+    super({
+      name: "CertificateMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateMismatchException.prototype);
+  }
 }
 
 export interface ImportCertificateAuthorityCertificateRequest {
@@ -1524,19 +1657,39 @@ export namespace ImportCertificateAuthorityCertificateRequest {
 /**
  * <p>The request action cannot be performed or is prohibited.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  message?: string;
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
  * <p>One or more fields in the certificate are invalid.</p>
  */
-export interface MalformedCertificateException extends __SmithyException, $MetadataBearer {
-  name: "MalformedCertificateException";
-  $fault: "client";
-  message?: string;
+export class MalformedCertificateException extends __BaseException {
+  readonly name: "MalformedCertificateException" = "MalformedCertificateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedCertificateException, __BaseException>) {
+    super({
+      name: "MalformedCertificateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedCertificateException.prototype);
+  }
 }
 
 export enum PolicyQualifierId {
@@ -1955,20 +2108,40 @@ export namespace IssueCertificateResponse {
 /**
  * <p>The certificate signing request is invalid.</p>
  */
-export interface MalformedCSRException extends __SmithyException, $MetadataBearer {
-  name: "MalformedCSRException";
-  $fault: "client";
-  message?: string;
+export class MalformedCSRException extends __BaseException {
+  readonly name: "MalformedCSRException" = "MalformedCSRException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedCSRException, __BaseException>) {
+    super({
+      name: "MalformedCSRException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedCSRException.prototype);
+  }
 }
 
 /**
  * <p>The token specified in the <code>NextToken</code> argument is not valid. Use the token
  * 			returned from your previous call to <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListCertificateAuthorities.html">ListCertificateAuthorities</a>.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+  }
 }
 
 export enum ResourceOwner {
@@ -2247,10 +2420,20 @@ export namespace RestoreCertificateAuthorityRequest {
 /**
  * <p>Your request has already been completed.</p>
  */
-export interface RequestAlreadyProcessedException extends __SmithyException, $MetadataBearer {
-  name: "RequestAlreadyProcessedException";
-  $fault: "client";
-  message?: string;
+export class RequestAlreadyProcessedException extends __BaseException {
+  readonly name: "RequestAlreadyProcessedException" = "RequestAlreadyProcessedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestAlreadyProcessedException, __BaseException>) {
+    super({
+      name: "RequestAlreadyProcessedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestAlreadyProcessedException.prototype);
+  }
 }
 
 export enum RevocationReason {
@@ -2334,10 +2517,20 @@ export namespace TagCertificateAuthorityRequest {
  * <p>You can associate up to 50 tags with a private CA. Exception information is contained
  * 			in the exception message field.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 export interface UntagCertificateAuthorityRequest {

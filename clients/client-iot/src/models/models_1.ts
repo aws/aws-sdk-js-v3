@@ -1,5 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { IoTServiceException as __BaseException } from "./IoTServiceException";
 import {
   AbortConfig,
   Action,
@@ -2566,10 +2568,20 @@ export namespace DescribeManagedJobTemplateResponse {
  * <p>Internal error from the service that indicates an unexpected error or that the service
  *             is unavailable.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message?: string;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
 }
 
 export interface DescribeMitigationActionRequest {
@@ -5002,13 +5014,20 @@ export namespace GetV2LoggingOptionsResponse {
 /**
  * <p>The resource is not configured.</p>
  */
-export interface NotConfiguredException extends __SmithyException, $MetadataBearer {
-  name: "NotConfiguredException";
-  $fault: "client";
+export class NotConfiguredException extends __BaseException {
+  readonly name: "NotConfiguredException" = "NotConfiguredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message for the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotConfiguredException, __BaseException>) {
+    super({
+      name: "NotConfiguredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotConfiguredException.prototype);
+  }
 }
 
 export enum BehaviorCriteriaType {

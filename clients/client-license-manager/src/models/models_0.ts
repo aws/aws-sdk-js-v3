@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { LicenseManagerServiceException as __BaseException } from "./LicenseManagerServiceException";
 
 export interface AcceptGrantRequest {
   /**
@@ -57,65 +60,149 @@ export namespace AcceptGrantResponse {
 /**
  * <p>Access to resource denied.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
  *          policy associated with this account.</p>
  */
-export interface AuthorizationException extends __SmithyException, $MetadataBearer {
-  name: "AuthorizationException";
-  $fault: "client";
+export class AuthorizationException extends __BaseException {
+  readonly name: "AuthorizationException" = "AuthorizationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthorizationException, __BaseException>) {
+    super({
+      name: "AuthorizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorizationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more parameter values are not valid.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Too many requests have been submitted. Try again after a brief wait.</p>
  */
-export interface RateLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "RateLimitExceededException";
-  $fault: "client";
+export class RateLimitExceededException extends __BaseException {
+  readonly name: "RateLimitExceededException" = "RateLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RateLimitExceededException, __BaseException>) {
+    super({
+      name: "RateLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RateLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Your resource limits have been exceeded.</p>
  */
-export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceLimitExceededException";
-  $fault: "client";
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The server experienced an internal error. Try again.</p>
  */
-export interface ServerInternalException extends __SmithyException, $MetadataBearer {
-  name: "ServerInternalException";
-  $fault: "server";
+export class ServerInternalException extends __BaseException {
+  readonly name: "ServerInternalException" = "ServerInternalException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerInternalException, __BaseException>) {
+    super({
+      name: "ServerInternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerInternalException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The provided input is not valid. Try your request again.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum AllowedOperation {
@@ -182,19 +269,43 @@ export namespace CheckInLicenseResponse {
 /**
  * <p>There was a conflict processing the request. Try your request again.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource cannot be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -380,38 +491,87 @@ export namespace CheckoutBorrowLicenseResponse {
 /**
  * <p>The entitlement is not allowed.</p>
  */
-export interface EntitlementNotAllowedException extends __SmithyException, $MetadataBearer {
-  name: "EntitlementNotAllowedException";
-  $fault: "client";
+export class EntitlementNotAllowedException extends __BaseException {
+  readonly name: "EntitlementNotAllowedException" = "EntitlementNotAllowedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntitlementNotAllowedException, __BaseException>) {
+    super({
+      name: "EntitlementNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntitlementNotAllowedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>There are no entitlements found for this license, or the entitlement maximum count is reached.</p>
  */
-export interface NoEntitlementsAllowedException extends __SmithyException, $MetadataBearer {
-  name: "NoEntitlementsAllowedException";
-  $fault: "client";
+export class NoEntitlementsAllowedException extends __BaseException {
+  readonly name: "NoEntitlementsAllowedException" = "NoEntitlementsAllowedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoEntitlementsAllowedException, __BaseException>) {
+    super({
+      name: "NoEntitlementsAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoEntitlementsAllowedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This is not the correct Region for the resource. Try again.</p>
  */
-export interface RedirectException extends __SmithyException, $MetadataBearer {
-  name: "RedirectException";
-  $fault: "client";
+export class RedirectException extends __BaseException {
+  readonly name: "RedirectException" = "RedirectException";
+  readonly $fault: "client" = "client";
   Location?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RedirectException, __BaseException>) {
+    super({
+      name: "RedirectException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RedirectException.prototype);
+    this.Location = opts.Location;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The digital signature method is unsupported. Try your request again.</p>
  */
-export interface UnsupportedDigitalSignatureMethodException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedDigitalSignatureMethodException";
-  $fault: "client";
+export class UnsupportedDigitalSignatureMethodException extends __BaseException {
+  readonly name: "UnsupportedDigitalSignatureMethodException" = "UnsupportedDigitalSignatureMethodException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedDigitalSignatureMethodException, __BaseException>) {
+    super({
+      name: "UnsupportedDigitalSignatureMethodException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedDigitalSignatureMethodException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum CheckoutType {
@@ -2628,10 +2788,22 @@ export namespace GetServiceSettingsResponse {
 /**
  * <p>The request uses too many filters or too many filter values.</p>
  */
-export interface FilterLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "FilterLimitExceededException";
-  $fault: "client";
+export class FilterLimitExceededException extends __BaseException {
+  readonly name: "FilterLimitExceededException" = "FilterLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FilterLimitExceededException, __BaseException>) {
+    super({
+      name: "FilterLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FilterLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListAssociationsForLicenseConfigurationRequest {
@@ -3740,11 +3912,24 @@ export namespace ListReceivedLicensesResponse {
 /**
  * <p>A dependency required to run the API is missing.</p>
  */
-export interface FailedDependencyException extends __SmithyException, $MetadataBearer {
-  name: "FailedDependencyException";
-  $fault: "client";
+export class FailedDependencyException extends __BaseException {
+  readonly name: "FailedDependencyException" = "FailedDependencyException";
+  readonly $fault: "client" = "client";
   Message?: string;
   ErrorCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FailedDependencyException, __BaseException>) {
+    super({
+      name: "FailedDependencyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FailedDependencyException.prototype);
+    this.Message = opts.Message;
+    this.ErrorCode = opts.ErrorCode;
+  }
 }
 
 export enum InventoryFilterCondition {
@@ -4415,19 +4600,43 @@ export namespace UpdateLicenseManagerReportGeneratorResponse {
  *          <p>For example, you cannot allocate a license to an instance in the process of shutting
  *          down.</p>
  */
-export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceStateException";
-  $fault: "client";
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You do not have enough licenses available to support a new resource launch.</p>
  */
-export interface LicenseUsageException extends __SmithyException, $MetadataBearer {
-  name: "LicenseUsageException";
-  $fault: "client";
+export class LicenseUsageException extends __BaseException {
+  readonly name: "LicenseUsageException" = "LicenseUsageException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LicenseUsageException, __BaseException>) {
+    super({
+      name: "LicenseUsageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LicenseUsageException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateLicenseSpecificationsForResourceRequest {

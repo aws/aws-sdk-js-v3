@@ -1,6 +1,12 @@
-import { LazyJsonString as __LazyJsonString, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+  SENSITIVE_STRING,
+} from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";
 
 /**
  * <p>The length of time or number of turns that a context remains
@@ -73,20 +79,40 @@ export namespace ActiveContext {
  *       or the bot build failed, is still in progress, or contains unbuilt
  *       changes. </p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
-  message?: string;
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 /**
  * <p> Two clients are using the same AWS account, Amazon Lex bot, and user
  *       ID. </p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 export interface DeleteSessionRequest {
@@ -149,30 +175,61 @@ export namespace DeleteSessionResponse {
 /**
  * <p>Internal service error. Retry the call.</p>
  */
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 /**
  * <p>Exceeded a limit.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   retryAfterSeconds?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 /**
  * <p>The resource (such as the Amazon Lex bot or an alias) that is referred
  *       to is not found.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 export interface GetSessionRequest {
@@ -546,10 +603,22 @@ export namespace GetSessionResponse {
  *       services (Amazon Polly, AWS Lambda) failed with an internal service
  *       error.</p>
  */
-export interface BadGatewayException extends __SmithyException, $MetadataBearer {
-  name: "BadGatewayException";
-  $fault: "server";
+export class BadGatewayException extends __BaseException {
+  readonly name: "BadGatewayException" = "BadGatewayException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadGatewayException, __BaseException>) {
+    super({
+      name: "BadGatewayException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadGatewayException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -570,28 +639,62 @@ export interface BadGatewayException extends __SmithyException, $MetadataBearer 
  *             </li>
  *          </ul>
  */
-export interface DependencyFailedException extends __SmithyException, $MetadataBearer {
-  name: "DependencyFailedException";
-  $fault: "client";
+export class DependencyFailedException extends __BaseException {
+  readonly name: "DependencyFailedException" = "DependencyFailedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyFailedException, __BaseException>) {
+    super({
+      name: "DependencyFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyFailedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>This exception is not used.</p>
  */
-export interface LoopDetectedException extends __SmithyException, $MetadataBearer {
-  name: "LoopDetectedException";
-  $fault: "server";
+export class LoopDetectedException extends __BaseException {
+  readonly name: "LoopDetectedException" = "LoopDetectedException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LoopDetectedException, __BaseException>) {
+    super({
+      name: "LoopDetectedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LoopDetectedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The accept header in the request does not have a valid value.</p>
  */
-export interface NotAcceptableException extends __SmithyException, $MetadataBearer {
-  name: "NotAcceptableException";
-  $fault: "client";
-  message?: string;
+export class NotAcceptableException extends __BaseException {
+  readonly name: "NotAcceptableException" = "NotAcceptableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotAcceptableException, __BaseException>) {
+    super({
+      name: "NotAcceptableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAcceptableException.prototype);
+  }
 }
 
 export interface PostContentRequest {
@@ -1074,20 +1177,40 @@ export namespace PostContentResponse {
 /**
  * <p>The input speech is too long.</p>
  */
-export interface RequestTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "RequestTimeoutException";
-  $fault: "client";
-  message?: string;
+export class RequestTimeoutException extends __BaseException {
+  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
+    super({
+      name: "RequestTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
+  }
 }
 
 /**
  * <p>The Content-Type header (<code>PostContent</code> API) has an invalid
  *       value. </p>
  */
-export interface UnsupportedMediaTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedMediaTypeException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedMediaTypeException extends __BaseException {
+  readonly name: "UnsupportedMediaTypeException" = "UnsupportedMediaTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedMediaTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedMediaTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedMediaTypeException.prototype);
+  }
 }
 
 export interface PostTextRequest {

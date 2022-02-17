@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { TranslateServiceException as __BaseException } from "./TranslateServiceException";
 
 /**
  * <p>The term being translated by the custom terminology.</p>
@@ -58,10 +60,22 @@ export namespace AppliedTerminology {
 /**
  * <p>There was a conflict processing the request. Try your request again.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum EncryptionKeyType {
@@ -194,60 +208,132 @@ export namespace CreateParallelDataResponse {
 /**
  * <p>An internal server error occurred. Retry your request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The value of the parameter is invalid. Review the value of the parameter you are using to
  *       correct it, and then retry your operation.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> The request that you made is invalid. Check your request to determine why it's invalid
  *       and then retry the request. </p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified limit has been exceeded. Review your request and retry it with a quantity
  *       below the stated limit.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> You have made too many requests within a short period of time. Wait for a short time and
  *       then try your request again.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Another modification is being made. That modification must complete before you can make
  *       your change.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteParallelDataRequest {
@@ -292,10 +378,22 @@ export namespace DeleteParallelDataResponse {
  *       for and see if a different resource will accomplish your needs before retrying the revised
  *       request.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteTerminologyRequest {
@@ -1232,10 +1330,22 @@ export namespace ListTerminologiesResponse {
 /**
  * <p>The filter specified for the operation is invalid. Specify a different filter.</p>
  */
-export interface InvalidFilterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFilterException";
-  $fault: "client";
+export class InvalidFilterException extends __BaseException {
+  readonly name: "InvalidFilterException" = "InvalidFilterException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidFilterException, __BaseException>) {
+    super({
+      name: "InvalidFilterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFilterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1467,9 +1577,9 @@ export namespace StartTextTranslationJobResponse {
  * <p>Amazon Translate does not support translation from the language of the source text into the requested
  *       target language. For more information, see <a>how-to-error-msg</a>. </p>
  */
-export interface UnsupportedLanguagePairException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedLanguagePairException";
-  $fault: "client";
+export class UnsupportedLanguagePairException extends __BaseException {
+  readonly name: "UnsupportedLanguagePairException" = "UnsupportedLanguagePairException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The language code for the language of the input text. </p>
@@ -1480,6 +1590,20 @@ export interface UnsupportedLanguagePairException extends __SmithyException, $Me
    * <p>The language code for the language of the translated text. </p>
    */
   TargetLanguageCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedLanguagePairException, __BaseException>) {
+    super({
+      name: "UnsupportedLanguagePairException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedLanguagePairException.prototype);
+    this.Message = opts.Message;
+    this.SourceLanguageCode = opts.SourceLanguageCode;
+    this.TargetLanguageCode = opts.TargetLanguageCode;
+  }
 }
 
 export interface StopTextTranslationJobRequest {
@@ -1526,34 +1650,71 @@ export namespace StopTextTranslationJobResponse {
  *       exception to call Amazon Translate again. For more information, see the <a href="https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html">DetectDominantLanguage</a> operation in the <i>Amazon Comprehend Developer
  *         Guide</i>. </p>
  */
-export interface DetectedLanguageLowConfidenceException extends __SmithyException, $MetadataBearer {
-  name: "DetectedLanguageLowConfidenceException";
-  $fault: "client";
+export class DetectedLanguageLowConfidenceException extends __BaseException {
+  readonly name: "DetectedLanguageLowConfidenceException" = "DetectedLanguageLowConfidenceException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The language code of the auto-detected language from Amazon Comprehend.</p>
    */
   DetectedLanguageCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DetectedLanguageLowConfidenceException, __BaseException>) {
+    super({
+      name: "DetectedLanguageLowConfidenceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DetectedLanguageLowConfidenceException.prototype);
+    this.Message = opts.Message;
+    this.DetectedLanguageCode = opts.DetectedLanguageCode;
+  }
 }
 
 /**
  * <p>The Amazon Translate service is temporarily unavailable. Please wait a bit and then retry your
  *       request.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
  *       use a smaller document and then retry your request. </p>
  */
-export interface TextSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TextSizeLimitExceededException";
-  $fault: "client";
+export class TextSizeLimitExceededException extends __BaseException {
+  readonly name: "TextSizeLimitExceededException" = "TextSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TextSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "TextSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TextSizeLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface TranslateTextRequest {

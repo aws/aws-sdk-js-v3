@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { NetworkFirewallServiceException as __BaseException } from "./NetworkFirewallServiceException";
 
 /**
  * <p>The value to use in an Amazon CloudWatch custom metric dimension. This is used in the
@@ -173,20 +176,44 @@ export namespace AssociateFirewallPolicyResponse {
  * <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
  *          system problem. Retry your request. </p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The operation failed because it's not valid. For example, you might have tried to delete
  *          a rule group or firewall policy that's in use.</p>
  */
-export interface InvalidOperationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOperationException";
-  $fault: "client";
+export class InvalidOperationException extends __BaseException {
+  readonly name: "InvalidOperationException" = "InvalidOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOperationException, __BaseException>) {
+    super({
+      name: "InvalidOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -205,37 +232,85 @@ export interface InvalidOperationException extends __SmithyException, $MetadataB
  *             </li>
  *          </ul>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The token you provided is stale or isn't valid for the operation. </p>
  */
-export interface InvalidTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTokenException";
-  $fault: "client";
+export class InvalidTokenException extends __BaseException {
+  readonly name: "InvalidTokenException" = "InvalidTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTokenException, __BaseException>) {
+    super({
+      name: "InvalidTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Unable to locate a resource using the parameters that you provided.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Unable to process the request due to throttling limitations.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -332,10 +407,22 @@ export namespace AssociateSubnetsResponse {
  * <p>AWS doesn't currently have enough available capacity to fulfill your request. Try your
  *          request later. </p>
  */
-export interface InsufficientCapacityException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientCapacityException";
-  $fault: "server";
+export class InsufficientCapacityException extends __BaseException {
+  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
+    super({
+      name: "InsufficientCapacityException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum AttachmentStatus {
@@ -719,10 +806,22 @@ export namespace CreateFirewallResponse {
 /**
  * <p>Unable to perform the operation because doing so would violate a limit setting. </p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RuleOrder {
@@ -2039,10 +2138,22 @@ export namespace DeleteFirewallResponse {
 /**
  * <p>The operation you requested isn't supported by Network Firewall. </p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteFirewallPolicyRequest {
@@ -2115,10 +2226,22 @@ export namespace DeleteResourcePolicyResponse {
 /**
  * <p>The policy statement failed validation.</p>
  */
-export interface InvalidResourcePolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourcePolicyException";
-  $fault: "client";
+export class InvalidResourcePolicyException extends __BaseException {
+  readonly name: "InvalidResourcePolicyException" = "InvalidResourcePolicyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourcePolicyException, __BaseException>) {
+    super({
+      name: "InvalidResourcePolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourcePolicyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteRuleGroupRequest {
@@ -2959,10 +3082,22 @@ export namespace ListTagsForResourceResponse {
 /**
  * <p>Unable to send logs to a configured logging destination. </p>
  */
-export interface LogDestinationPermissionException extends __SmithyException, $MetadataBearer {
-  name: "LogDestinationPermissionException";
-  $fault: "client";
+export class LogDestinationPermissionException extends __BaseException {
+  readonly name: "LogDestinationPermissionException" = "LogDestinationPermissionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LogDestinationPermissionException, __BaseException>) {
+    super({
+      name: "LogDestinationPermissionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LogDestinationPermissionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutResourcePolicyRequest {
@@ -3093,10 +3228,22 @@ export namespace UntagResourceResponse {
 /**
  * <p>Unable to change the resource because your account doesn't own it. </p>
  */
-export interface ResourceOwnerCheckException extends __SmithyException, $MetadataBearer {
-  name: "ResourceOwnerCheckException";
-  $fault: "client";
+export class ResourceOwnerCheckException extends __BaseException {
+  readonly name: "ResourceOwnerCheckException" = "ResourceOwnerCheckException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceOwnerCheckException, __BaseException>) {
+    super({
+      name: "ResourceOwnerCheckException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceOwnerCheckException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateFirewallDeleteProtectionRequest {

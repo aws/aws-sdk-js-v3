@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AlexaForBusinessServiceException as __BaseException } from "./AlexaForBusinessServiceException";
 
 /**
  * <p>An address book with attributes.</p>
@@ -89,28 +91,64 @@ export namespace ApproveSkillResponse {
 /**
  * <p>There is a concurrent modification of resources.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You are performing an action that would put you beyond your account's limits.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource is not found.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateContactWithAddressBookRequest {
@@ -180,10 +218,22 @@ export namespace AssociateDeviceWithNetworkProfileResponse {
 /**
  * <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
  */
-export interface DeviceNotRegisteredException extends __SmithyException, $MetadataBearer {
-  name: "DeviceNotRegisteredException";
-  $fault: "client";
+export class DeviceNotRegisteredException extends __BaseException {
+  readonly name: "DeviceNotRegisteredException" = "DeviceNotRegisteredException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeviceNotRegisteredException, __BaseException>) {
+    super({
+      name: "DeviceNotRegisteredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeviceNotRegisteredException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateDeviceWithRoomRequest {
@@ -285,10 +335,22 @@ export namespace AssociateSkillWithSkillGroupResponse {
 /**
  * <p>The skill must be linked to a third-party account.</p>
  */
-export interface SkillNotLinkedException extends __SmithyException, $MetadataBearer {
-  name: "SkillNotLinkedException";
-  $fault: "client";
+export class SkillNotLinkedException extends __BaseException {
+  readonly name: "SkillNotLinkedException" = "SkillNotLinkedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SkillNotLinkedException, __BaseException>) {
+    super({
+      name: "SkillNotLinkedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SkillNotLinkedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AssociateSkillWithUsersRequest {
@@ -321,10 +383,22 @@ export namespace AssociateSkillWithUsersResponse {
 /**
  * <p>The resource being created already exists.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -984,19 +1058,43 @@ export namespace CreateNetworkProfileResponse {
 /**
  * <p>The Certificate Authority can't issue or revoke a certificate.</p>
  */
-export interface InvalidCertificateAuthorityException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCertificateAuthorityException";
-  $fault: "client";
+export class InvalidCertificateAuthorityException extends __BaseException {
+  readonly name: "InvalidCertificateAuthorityException" = "InvalidCertificateAuthorityException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCertificateAuthorityException, __BaseException>) {
+    super({
+      name: "InvalidCertificateAuthorityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCertificateAuthorityException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The service linked role is locked for deletion. </p>
  */
-export interface InvalidServiceLinkedRoleStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidServiceLinkedRoleStateException";
-  $fault: "client";
+export class InvalidServiceLinkedRoleStateException extends __BaseException {
+  readonly name: "InvalidServiceLinkedRoleStateException" = "InvalidServiceLinkedRoleStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidServiceLinkedRoleStateException, __BaseException>) {
+    super({
+      name: "InvalidServiceLinkedRoleStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidServiceLinkedRoleStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum DistanceUnit {
@@ -1405,14 +1503,27 @@ export namespace CreateUserResponse {
 /**
  * <p>The resource in the request is already in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
    */
   ClientRequestToken?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.ClientRequestToken = opts.ClientRequestToken;
+  }
 }
 
 export interface DeleteAddressBookRequest {
@@ -1616,10 +1727,22 @@ export namespace DeleteGatewayGroupResponse {
 /**
  * <p>Another resource is associated with the resource in the request.</p>
  */
-export interface ResourceAssociatedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAssociatedException";
-  $fault: "client";
+export class ResourceAssociatedException extends __BaseException {
+  readonly name: "ResourceAssociatedException" = "ResourceAssociatedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAssociatedException, __BaseException>) {
+    super({
+      name: "ResourceAssociatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAssociatedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteNetworkProfileRequest {
@@ -2754,10 +2877,22 @@ export namespace GetNetworkProfileResponse {
 /**
  * <p>A password in SecretsManager is in an invalid state.</p>
  */
-export interface InvalidSecretsManagerResourceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSecretsManagerResourceException";
-  $fault: "client";
+export class InvalidSecretsManagerResourceException extends __BaseException {
+  readonly name: "InvalidSecretsManagerResourceException" = "InvalidSecretsManagerResourceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSecretsManagerResourceException, __BaseException>) {
+    super({
+      name: "InvalidSecretsManagerResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSecretsManagerResourceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetProfileRequest {
@@ -4332,19 +4467,43 @@ export namespace PutSkillAuthorizationResponse {
 /**
  * <p>The caller has no permissions to operate on the resource involved in the API call.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The device is in an invalid state.</p>
  */
-export interface InvalidDeviceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDeviceException";
-  $fault: "client";
+export class InvalidDeviceException extends __BaseException {
+  readonly name: "InvalidDeviceException" = "InvalidDeviceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDeviceException, __BaseException>) {
+    super({
+      name: "InvalidDeviceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDeviceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface RegisterAVSDeviceRequest {
@@ -5625,10 +5784,22 @@ export namespace SendAnnouncementResponse {
 /**
  * <p>The attempt to update a user is invalid due to the user's current status.</p>
  */
-export interface InvalidUserStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidUserStatusException";
-  $fault: "client";
+export class InvalidUserStatusException extends __BaseException {
+  readonly name: "InvalidUserStatusException" = "InvalidUserStatusException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUserStatusException, __BaseException>) {
+    super({
+      name: "InvalidUserStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUserStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface SendInvitationRequest {
@@ -5791,10 +5962,22 @@ export namespace UntagResourceResponse {
 /**
  * <p>The name sent in the request is already in use.</p>
  */
-export interface NameInUseException extends __SmithyException, $MetadataBearer {
-  name: "NameInUseException";
-  $fault: "client";
+export class NameInUseException extends __BaseException {
+  readonly name: "NameInUseException" = "NameInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NameInUseException, __BaseException>) {
+    super({
+      name: "NameInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NameInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateAddressBookRequest {

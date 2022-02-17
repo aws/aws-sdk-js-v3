@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
@@ -13,10 +14,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { decodeHTML } from "entities";
 import { parse as xmlParse } from "fast-xml-parser";
@@ -122,6 +121,7 @@ import {
   SetLoadBalancerPoliciesOfListenerCommandInput,
   SetLoadBalancerPoliciesOfListenerCommandOutput,
 } from "../commands/SetLoadBalancerPoliciesOfListenerCommand";
+import { ElasticLoadBalancingServiceException as __BaseException } from "../models/ElasticLoadBalancingServiceException";
 import {
   AccessLog,
   AccessPointNotFoundException,
@@ -720,49 +720,28 @@ const deserializeAws_queryAddTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async (
@@ -793,49 +772,28 @@ const deserializeAws_queryApplySecurityGroupsToLoadBalancerCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "InvalidSecurityGroupException":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
-      response = {
-        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
@@ -863,57 +821,31 @@ const deserializeAws_queryAttachLoadBalancerToSubnetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "InvalidSubnetException":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context);
     case "SubnetNotFoundException":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
-      response = {
-        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryConfigureHealthCheckCommand = async (
@@ -941,33 +873,22 @@ const deserializeAws_queryConfigureHealthCheckCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
@@ -998,57 +919,31 @@ const deserializeAws_queryCreateAppCookieStickinessPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "DuplicatePolicyNameException":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "TooManyPoliciesException":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      response = {
-        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
@@ -1079,57 +974,31 @@ const deserializeAws_queryCreateLBCookieStickinessPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "DuplicatePolicyNameException":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "TooManyPoliciesException":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      response = {
-        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateLoadBalancerCommand = async (
@@ -1157,121 +1026,55 @@ const deserializeAws_queryCreateLoadBalancerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundException":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
     case "DuplicateAccessPointNameException":
     case "com.amazonaws.elasticloadbalancing#DuplicateAccessPointNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateAccessPointNameExceptionResponse(parsedOutput, context);
     case "DuplicateTagKeysException":
     case "com.amazonaws.elasticloadbalancing#DuplicateTagKeysException":
-      response = {
-        ...(await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateTagKeysExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "InvalidSchemeException":
     case "com.amazonaws.elasticloadbalancing#InvalidSchemeException":
-      response = {
-        ...(await deserializeAws_queryInvalidSchemeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSchemeExceptionResponse(parsedOutput, context);
     case "InvalidSecurityGroupException":
     case "com.amazonaws.elasticloadbalancing#InvalidSecurityGroupException":
-      response = {
-        ...(await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSecurityGroupExceptionResponse(parsedOutput, context);
     case "InvalidSubnetException":
     case "com.amazonaws.elasticloadbalancing#InvalidSubnetException":
-      response = {
-        ...(await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidSubnetExceptionResponse(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.elasticloadbalancing#OperationNotPermittedException":
-      response = {
-        ...(await deserializeAws_queryOperationNotPermittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryOperationNotPermittedExceptionResponse(parsedOutput, context);
     case "SubnetNotFoundException":
     case "com.amazonaws.elasticloadbalancing#SubnetNotFoundException":
-      response = {
-        ...(await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_querySubnetNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyAccessPointsException":
     case "com.amazonaws.elasticloadbalancing#TooManyAccessPointsException":
-      response = {
-        ...(await deserializeAws_queryTooManyAccessPointsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyAccessPointsExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.elasticloadbalancing#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context);
     case "UnsupportedProtocolException":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      response = {
-        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateLoadBalancerListenersCommand = async (
@@ -1299,65 +1102,34 @@ const deserializeAws_queryCreateLoadBalancerListenersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "CertificateNotFoundException":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
     case "DuplicateListenerException":
     case "com.amazonaws.elasticloadbalancing#DuplicateListenerException":
-      response = {
-        ...(await deserializeAws_queryDuplicateListenerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicateListenerExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "UnsupportedProtocolException":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      response = {
-        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryCreateLoadBalancerPolicyCommand = async (
@@ -1385,65 +1157,34 @@ const deserializeAws_queryCreateLoadBalancerPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "DuplicatePolicyNameException":
     case "com.amazonaws.elasticloadbalancing#DuplicatePolicyNameException":
-      response = {
-        ...(await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDuplicatePolicyNameExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "PolicyTypeNotFoundException":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyPoliciesException":
     case "com.amazonaws.elasticloadbalancing#TooManyPoliciesException":
-      response = {
-        ...(await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryTooManyPoliciesExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteLoadBalancerCommand = async (
@@ -1471,25 +1212,19 @@ const deserializeAws_queryDeleteLoadBalancerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteLoadBalancerListenersCommand = async (
@@ -1517,33 +1252,22 @@ const deserializeAws_queryDeleteLoadBalancerListenersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeleteLoadBalancerPolicyCommand = async (
@@ -1571,41 +1295,25 @@ const deserializeAws_queryDeleteLoadBalancerPolicyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommand = async (
@@ -1633,41 +1341,25 @@ const deserializeAws_queryDeregisterInstancesFromLoadBalancerCommandError = asyn
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidEndPointException":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      response = {
-        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeAccountLimitsCommand = async (
@@ -1695,25 +1387,19 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeInstanceHealthCommand = async (
@@ -1741,41 +1427,25 @@ const deserializeAws_queryDescribeInstanceHealthCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidEndPointException":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      response = {
-        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeLoadBalancerAttributesCommand = async (
@@ -1806,41 +1476,25 @@ const deserializeAws_queryDescribeLoadBalancerAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "LoadBalancerAttributeNotFoundException":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
@@ -1868,41 +1522,25 @@ const deserializeAws_queryDescribeLoadBalancerPoliciesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
@@ -1933,33 +1571,22 @@ const deserializeAws_queryDescribeLoadBalancerPolicyTypesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "PolicyTypeNotFoundException":
     case "com.amazonaws.elasticloadbalancing#PolicyTypeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyTypeNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeLoadBalancersCommand = async (
@@ -1987,41 +1614,25 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "DependencyThrottleException":
     case "com.amazonaws.elasticloadbalancing#DependencyThrottleException":
-      response = {
-        ...(await deserializeAws_queryDependencyThrottleExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryDependencyThrottleExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDescribeTagsCommand = async (
@@ -2049,33 +1660,22 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
@@ -2103,41 +1703,25 @@ const deserializeAws_queryDetachLoadBalancerFromSubnetsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = async (
@@ -2168,41 +1752,25 @@ const deserializeAws_queryDisableAvailabilityZonesForLoadBalancerCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = async (
@@ -2230,33 +1798,22 @@ const deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommandError = a
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryModifyLoadBalancerAttributesCommand = async (
@@ -2284,49 +1841,28 @@ const deserializeAws_queryModifyLoadBalancerAttributesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "LoadBalancerAttributeNotFoundException":
     case "com.amazonaws.elasticloadbalancing#LoadBalancerAttributeNotFoundException":
-      response = {
-        ...(await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRegisterInstancesWithLoadBalancerCommand = async (
@@ -2354,41 +1890,25 @@ const deserializeAws_queryRegisterInstancesWithLoadBalancerCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidEndPointException":
     case "com.amazonaws.elasticloadbalancing#InvalidEndPointException":
-      response = {
-        ...(await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidEndPointExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_queryRemoveTagsCommand = async (
@@ -2416,33 +1936,22 @@ const deserializeAws_queryRemoveTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand = async (
@@ -2473,65 +1982,34 @@ const deserializeAws_querySetLoadBalancerListenerSSLCertificateCommandError = as
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "CertificateNotFoundException":
     case "com.amazonaws.elasticloadbalancing#CertificateNotFoundException":
-      response = {
-        ...(await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryCertificateNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "ListenerNotFoundException":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
-      response = {
-        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context);
     case "UnsupportedProtocolException":
     case "com.amazonaws.elasticloadbalancing#UnsupportedProtocolException":
-      response = {
-        ...(await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryUnsupportedProtocolExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = async (
@@ -2562,49 +2040,28 @@ const deserializeAws_querySetLoadBalancerPoliciesForBackendServerCommandError = 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async (
@@ -2635,57 +2092,31 @@ const deserializeAws_querySetLoadBalancerPoliciesOfListenerCommandError = async 
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessPointNotFoundException":
     case "com.amazonaws.elasticloadbalancing#AccessPointNotFoundException":
-      response = {
-        ...(await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryAccessPointNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidConfigurationRequestException":
     case "com.amazonaws.elasticloadbalancing#InvalidConfigurationRequestException":
-      response = {
-        ...(await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryInvalidConfigurationRequestExceptionResponse(parsedOutput, context);
     case "ListenerNotFoundException":
     case "com.amazonaws.elasticloadbalancing#ListenerNotFoundException":
-      response = {
-        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.elasticloadbalancing#PolicyNotFoundException":
-      response = {
-        ...(await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_queryPolicyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
-      response = {
-        ...parsedBody.Error,
-        name: `${errorCode}`,
-        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.Error.code || parsedBody.Error.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody.Error);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_queryAccessPointNotFoundExceptionResponse = async (
@@ -2694,13 +2125,11 @@ const deserializeAws_queryAccessPointNotFoundExceptionResponse = async (
 ): Promise<AccessPointNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryAccessPointNotFoundException(body.Error, context);
-  const contents: AccessPointNotFoundException = {
-    name: "AccessPointNotFoundException",
-    $fault: "client",
+  const exception = new AccessPointNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryCertificateNotFoundExceptionResponse = async (
@@ -2709,13 +2138,11 @@ const deserializeAws_queryCertificateNotFoundExceptionResponse = async (
 ): Promise<CertificateNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryCertificateNotFoundException(body.Error, context);
-  const contents: CertificateNotFoundException = {
-    name: "CertificateNotFoundException",
-    $fault: "client",
+  const exception = new CertificateNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDependencyThrottleExceptionResponse = async (
@@ -2724,13 +2151,11 @@ const deserializeAws_queryDependencyThrottleExceptionResponse = async (
 ): Promise<DependencyThrottleException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDependencyThrottleException(body.Error, context);
-  const contents: DependencyThrottleException = {
-    name: "DependencyThrottleException",
-    $fault: "client",
+  const exception = new DependencyThrottleException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDuplicateAccessPointNameExceptionResponse = async (
@@ -2739,13 +2164,11 @@ const deserializeAws_queryDuplicateAccessPointNameExceptionResponse = async (
 ): Promise<DuplicateAccessPointNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateAccessPointNameException(body.Error, context);
-  const contents: DuplicateAccessPointNameException = {
-    name: "DuplicateAccessPointNameException",
-    $fault: "client",
+  const exception = new DuplicateAccessPointNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDuplicateListenerExceptionResponse = async (
@@ -2754,13 +2177,11 @@ const deserializeAws_queryDuplicateListenerExceptionResponse = async (
 ): Promise<DuplicateListenerException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateListenerException(body.Error, context);
-  const contents: DuplicateListenerException = {
-    name: "DuplicateListenerException",
-    $fault: "client",
+  const exception = new DuplicateListenerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDuplicatePolicyNameExceptionResponse = async (
@@ -2769,13 +2190,11 @@ const deserializeAws_queryDuplicatePolicyNameExceptionResponse = async (
 ): Promise<DuplicatePolicyNameException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicatePolicyNameException(body.Error, context);
-  const contents: DuplicatePolicyNameException = {
-    name: "DuplicatePolicyNameException",
-    $fault: "client",
+  const exception = new DuplicatePolicyNameException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryDuplicateTagKeysExceptionResponse = async (
@@ -2784,13 +2203,11 @@ const deserializeAws_queryDuplicateTagKeysExceptionResponse = async (
 ): Promise<DuplicateTagKeysException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryDuplicateTagKeysException(body.Error, context);
-  const contents: DuplicateTagKeysException = {
-    name: "DuplicateTagKeysException",
-    $fault: "client",
+  const exception = new DuplicateTagKeysException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidConfigurationRequestExceptionResponse = async (
@@ -2799,13 +2216,11 @@ const deserializeAws_queryInvalidConfigurationRequestExceptionResponse = async (
 ): Promise<InvalidConfigurationRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidConfigurationRequestException(body.Error, context);
-  const contents: InvalidConfigurationRequestException = {
-    name: "InvalidConfigurationRequestException",
-    $fault: "client",
+  const exception = new InvalidConfigurationRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidEndPointExceptionResponse = async (
@@ -2814,13 +2229,11 @@ const deserializeAws_queryInvalidEndPointExceptionResponse = async (
 ): Promise<InvalidEndPointException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidEndPointException(body.Error, context);
-  const contents: InvalidEndPointException = {
-    name: "InvalidEndPointException",
-    $fault: "client",
+  const exception = new InvalidEndPointException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidSchemeExceptionResponse = async (
@@ -2829,13 +2242,11 @@ const deserializeAws_queryInvalidSchemeExceptionResponse = async (
 ): Promise<InvalidSchemeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSchemeException(body.Error, context);
-  const contents: InvalidSchemeException = {
-    name: "InvalidSchemeException",
-    $fault: "client",
+  const exception = new InvalidSchemeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidSecurityGroupExceptionResponse = async (
@@ -2844,13 +2255,11 @@ const deserializeAws_queryInvalidSecurityGroupExceptionResponse = async (
 ): Promise<InvalidSecurityGroupException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSecurityGroupException(body.Error, context);
-  const contents: InvalidSecurityGroupException = {
-    name: "InvalidSecurityGroupException",
-    $fault: "client",
+  const exception = new InvalidSecurityGroupException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryInvalidSubnetExceptionResponse = async (
@@ -2859,13 +2268,11 @@ const deserializeAws_queryInvalidSubnetExceptionResponse = async (
 ): Promise<InvalidSubnetException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryInvalidSubnetException(body.Error, context);
-  const contents: InvalidSubnetException = {
-    name: "InvalidSubnetException",
-    $fault: "client",
+  const exception = new InvalidSubnetException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryListenerNotFoundExceptionResponse = async (
@@ -2874,13 +2281,11 @@ const deserializeAws_queryListenerNotFoundExceptionResponse = async (
 ): Promise<ListenerNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryListenerNotFoundException(body.Error, context);
-  const contents: ListenerNotFoundException = {
-    name: "ListenerNotFoundException",
-    $fault: "client",
+  const exception = new ListenerNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse = async (
@@ -2889,13 +2294,11 @@ const deserializeAws_queryLoadBalancerAttributeNotFoundExceptionResponse = async
 ): Promise<LoadBalancerAttributeNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryLoadBalancerAttributeNotFoundException(body.Error, context);
-  const contents: LoadBalancerAttributeNotFoundException = {
-    name: "LoadBalancerAttributeNotFoundException",
-    $fault: "client",
+  const exception = new LoadBalancerAttributeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryOperationNotPermittedExceptionResponse = async (
@@ -2904,13 +2307,11 @@ const deserializeAws_queryOperationNotPermittedExceptionResponse = async (
 ): Promise<OperationNotPermittedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryOperationNotPermittedException(body.Error, context);
-  const contents: OperationNotPermittedException = {
-    name: "OperationNotPermittedException",
-    $fault: "client",
+  const exception = new OperationNotPermittedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPolicyNotFoundExceptionResponse = async (
@@ -2919,13 +2320,11 @@ const deserializeAws_queryPolicyNotFoundExceptionResponse = async (
 ): Promise<PolicyNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPolicyNotFoundException(body.Error, context);
-  const contents: PolicyNotFoundException = {
-    name: "PolicyNotFoundException",
-    $fault: "client",
+  const exception = new PolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryPolicyTypeNotFoundExceptionResponse = async (
@@ -2934,13 +2333,11 @@ const deserializeAws_queryPolicyTypeNotFoundExceptionResponse = async (
 ): Promise<PolicyTypeNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryPolicyTypeNotFoundException(body.Error, context);
-  const contents: PolicyTypeNotFoundException = {
-    name: "PolicyTypeNotFoundException",
-    $fault: "client",
+  const exception = new PolicyTypeNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_querySubnetNotFoundExceptionResponse = async (
@@ -2949,13 +2346,11 @@ const deserializeAws_querySubnetNotFoundExceptionResponse = async (
 ): Promise<SubnetNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_querySubnetNotFoundException(body.Error, context);
-  const contents: SubnetNotFoundException = {
-    name: "SubnetNotFoundException",
-    $fault: "client",
+  const exception = new SubnetNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryTooManyAccessPointsExceptionResponse = async (
@@ -2964,13 +2359,11 @@ const deserializeAws_queryTooManyAccessPointsExceptionResponse = async (
 ): Promise<TooManyAccessPointsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyAccessPointsException(body.Error, context);
-  const contents: TooManyAccessPointsException = {
-    name: "TooManyAccessPointsException",
-    $fault: "client",
+  const exception = new TooManyAccessPointsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryTooManyPoliciesExceptionResponse = async (
@@ -2979,13 +2372,11 @@ const deserializeAws_queryTooManyPoliciesExceptionResponse = async (
 ): Promise<TooManyPoliciesException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyPoliciesException(body.Error, context);
-  const contents: TooManyPoliciesException = {
-    name: "TooManyPoliciesException",
-    $fault: "client",
+  const exception = new TooManyPoliciesException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryTooManyTagsExceptionResponse = async (
@@ -2994,13 +2385,11 @@ const deserializeAws_queryTooManyTagsExceptionResponse = async (
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryTooManyTagsException(body.Error, context);
-  const contents: TooManyTagsException = {
-    name: "TooManyTagsException",
-    $fault: "client",
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
@@ -3009,13 +2398,11 @@ const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
 ): Promise<UnsupportedProtocolException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryUnsupportedProtocolException(body.Error, context);
-  const contents: UnsupportedProtocolException = {
-    name: "UnsupportedProtocolException",
-    $fault: "client",
+  const exception = new UnsupportedProtocolException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_queryAccessLog = (input: AccessLog, context: __SerdeContext): any => {

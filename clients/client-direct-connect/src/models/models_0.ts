@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DirectConnectServiceException as __BaseException } from "./DirectConnectServiceException";
 
 /**
  * <p>Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP)
@@ -201,19 +204,39 @@ export namespace AcceptDirectConnectGatewayAssociationProposalResult {
 /**
  * <p>One or more parameters are not valid.</p>
  */
-export interface DirectConnectClientException extends __SmithyException, $MetadataBearer {
-  name: "DirectConnectClientException";
-  $fault: "client";
-  message?: string;
+export class DirectConnectClientException extends __BaseException {
+  readonly name: "DirectConnectClientException" = "DirectConnectClientException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectConnectClientException, __BaseException>) {
+    super({
+      name: "DirectConnectClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectConnectClientException.prototype);
+  }
 }
 
 /**
  * <p>A server-side error occurred.</p>
  */
-export interface DirectConnectServerException extends __SmithyException, $MetadataBearer {
-  name: "DirectConnectServerException";
-  $fault: "server";
-  message?: string;
+export class DirectConnectServerException extends __BaseException {
+  readonly name: "DirectConnectServerException" = "DirectConnectServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectConnectServerException, __BaseException>) {
+    super({
+      name: "DirectConnectServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectConnectServerException.prototype);
+  }
 }
 
 export enum AddressFamily {
@@ -590,19 +613,39 @@ export namespace AllocateHostedConnectionRequest {
 /**
  * <p>A tag key was specified more than once.</p>
  */
-export interface DuplicateTagKeysException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateTagKeysException";
-  $fault: "client";
-  message?: string;
+export class DuplicateTagKeysException extends __BaseException {
+  readonly name: "DuplicateTagKeysException" = "DuplicateTagKeysException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateTagKeysException, __BaseException>) {
+    super({
+      name: "DuplicateTagKeysException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateTagKeysException.prototype);
+  }
 }
 
 /**
  * <p>You have reached the limit on the number of tags that can be assigned.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 /**

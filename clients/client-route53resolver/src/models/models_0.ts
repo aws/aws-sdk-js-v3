@@ -1,12 +1,27 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { Route53ResolverServiceException as __BaseException } from "./Route53ResolverServiceException";
 
 /**
  * <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum Action {
@@ -211,63 +226,137 @@ export namespace AssociateFirewallRuleGroupResponse {
 /**
  * <p></p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>We encountered an unknown error. Try again in a few minutes.</p>
  */
-export interface InternalServiceErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceErrorException";
-  $fault: "client";
+export class InternalServiceErrorException extends __BaseException {
+  readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceErrorException, __BaseException>) {
+    super({
+      name: "InternalServiceErrorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request caused one or more limits to be exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>For a <code>LimitExceededException</code> error, the type of resource that exceeded the current limit.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>The specified resource doesn't exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>For a <code>ResourceNotFoundException</code> error, the type of resource that doesn't exist.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>The request was throttled. Try again in a few minutes.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -500,36 +589,74 @@ export namespace AssociateResolverEndpointIpAddressResponse {
 /**
  * <p>One or more parameters in this request are not valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   Message: string | undefined;
   /**
    * <p>For an <code>InvalidParameterException</code> error, the name of the parameter that's invalid.</p>
    */
   FieldName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+    this.FieldName = opts.FieldName;
+  }
 }
 
 /**
  * <p>The request is invalid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The resource that you tried to create already exists.</p>
  */
-export interface ResourceExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceExistsException";
-  $fault: "client";
+export class ResourceExistsException extends __BaseException {
+  readonly name: "ResourceExistsException" = "ResourceExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>For a <code>ResourceExistsException</code> error, the type of resource that the error applies to.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceExistsException, __BaseException>) {
+    super({
+      name: "ResourceExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceExistsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 export interface AssociateResolverQueryLogConfigRequest {
@@ -779,14 +906,27 @@ export namespace AssociateResolverRuleResponse {
 /**
  * <p>The specified resource isn't available.</p>
  */
-export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ResourceUnavailableException";
-  $fault: "client";
+export class ResourceUnavailableException extends __BaseException {
+  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>For a <code>ResourceUnavailableException</code> error, the type of resource that isn't available.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
+    super({
+      name: "ResourceUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 export enum AutodefinedReverseFlag {
@@ -1977,14 +2117,27 @@ export namespace DeleteResolverRuleResponse {
 /**
  * <p>The resource that you tried to update or delete is currently in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>For a <code>ResourceInUseException</code> error, the type of resource that is currently in use.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 export interface DisassociateFirewallRuleGroupRequest {
@@ -3043,10 +3196,22 @@ export namespace GetResolverQueryLogConfigPolicyResponse {
 /**
  * <p>The specified resource doesn't exist.</p>
  */
-export interface UnknownResourceException extends __SmithyException, $MetadataBearer {
-  name: "UnknownResourceException";
-  $fault: "client";
+export class UnknownResourceException extends __BaseException {
+  readonly name: "UnknownResourceException" = "UnknownResourceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnknownResourceException, __BaseException>) {
+    super({
+      name: "UnknownResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnknownResourceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetResolverRuleRequest {
@@ -3208,28 +3373,64 @@ export namespace ImportFirewallDomainsResponse {
 /**
  * <p>The value that you specified for <code>NextToken</code> in a <code>List</code> request isn't valid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified Resolver rule policy is invalid.</p>
  */
-export interface InvalidPolicyDocument extends __SmithyException, $MetadataBearer {
-  name: "InvalidPolicyDocument";
-  $fault: "client";
+export class InvalidPolicyDocument extends __BaseException {
+  readonly name: "InvalidPolicyDocument" = "InvalidPolicyDocument";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyDocument, __BaseException>) {
+    super({
+      name: "InvalidPolicyDocument",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyDocument.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified tag is invalid.</p>
  */
-export interface InvalidTagException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagException";
-  $fault: "client";
+export class InvalidTagException extends __BaseException {
+  readonly name: "InvalidTagException" = "InvalidTagException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
+    super({
+      name: "InvalidTagException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum IpAddressStatus {

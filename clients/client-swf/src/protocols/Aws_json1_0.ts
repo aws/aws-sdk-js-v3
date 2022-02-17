@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -11,10 +12,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -291,6 +290,7 @@ import {
   WorkflowTypeInfo,
   WorkflowTypeInfos,
 } from "../models/models_0";
+import { SWFServiceException as __BaseException } from "../models/SWFServiceException";
 
 export const serializeAws_json1_0CountClosedWorkflowExecutionsCommand = async (
   input: CountClosedWorkflowExecutionsCommandInput,
@@ -798,41 +798,25 @@ const deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CountOpenWorkflowExecutionsCommand = async (
@@ -860,41 +844,25 @@ const deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CountPendingActivityTasksCommand = async (
@@ -922,41 +890,25 @@ const deserializeAws_json1_0CountPendingActivityTasksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CountPendingDecisionTasksCommand = async (
@@ -984,41 +936,25 @@ const deserializeAws_json1_0CountPendingDecisionTasksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeprecateActivityTypeCommand = async (
@@ -1043,49 +979,28 @@ const deserializeAws_json1_0DeprecateActivityTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TypeDeprecatedFault":
     case "com.amazonaws.swf#TypeDeprecatedFault":
-      response = {
-        ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeDeprecatedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeprecateDomainCommand = async (
@@ -1110,49 +1025,28 @@ const deserializeAws_json1_0DeprecateDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainDeprecatedFault":
     case "com.amazonaws.swf#DomainDeprecatedFault":
-      response = {
-        ...(await deserializeAws_json1_0DomainDeprecatedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0DomainDeprecatedFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeprecateWorkflowTypeCommand = async (
@@ -1177,49 +1071,28 @@ const deserializeAws_json1_0DeprecateWorkflowTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TypeDeprecatedFault":
     case "com.amazonaws.swf#TypeDeprecatedFault":
-      response = {
-        ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeDeprecatedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeActivityTypeCommand = async (
@@ -1247,41 +1120,25 @@ const deserializeAws_json1_0DescribeActivityTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeDomainCommand = async (
@@ -1309,41 +1166,25 @@ const deserializeAws_json1_0DescribeDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeWorkflowExecutionCommand = async (
@@ -1371,41 +1212,25 @@ const deserializeAws_json1_0DescribeWorkflowExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeWorkflowTypeCommand = async (
@@ -1433,41 +1258,25 @@ const deserializeAws_json1_0DescribeWorkflowTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0GetWorkflowExecutionHistoryCommand = async (
@@ -1495,41 +1304,25 @@ const deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListActivityTypesCommand = async (
@@ -1557,41 +1350,25 @@ const deserializeAws_json1_0ListActivityTypesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListClosedWorkflowExecutionsCommand = async (
@@ -1619,41 +1396,25 @@ const deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListDomainsCommand = async (
@@ -1681,33 +1442,22 @@ const deserializeAws_json1_0ListDomainsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListOpenWorkflowExecutionsCommand = async (
@@ -1735,41 +1485,25 @@ const deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListTagsForResourceCommand = async (
@@ -1797,49 +1531,28 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListWorkflowTypesCommand = async (
@@ -1867,41 +1580,25 @@ const deserializeAws_json1_0ListWorkflowTypesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0PollForActivityTaskCommand = async (
@@ -1929,49 +1626,28 @@ const deserializeAws_json1_0PollForActivityTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0PollForDecisionTaskCommand = async (
@@ -1999,49 +1675,28 @@ const deserializeAws_json1_0PollForDecisionTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RecordActivityTaskHeartbeatCommand = async (
@@ -2069,41 +1724,25 @@ const deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RegisterActivityTypeCommand = async (
@@ -2128,57 +1767,31 @@ const deserializeAws_json1_0RegisterActivityTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RegisterDomainCommand = async (
@@ -2203,57 +1816,31 @@ const deserializeAws_json1_0RegisterDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainAlreadyExistsFault":
     case "com.amazonaws.swf#DomainAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(parsedOutput, context);
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TooManyTagsFault":
     case "com.amazonaws.swf#TooManyTagsFault":
-      response = {
-        ...(await deserializeAws_json1_0TooManyTagsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TooManyTagsFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RegisterWorkflowTypeCommand = async (
@@ -2278,57 +1865,31 @@ const deserializeAws_json1_0RegisterWorkflowTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RequestCancelWorkflowExecutionCommand = async (
@@ -2353,41 +1914,25 @@ const deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RespondActivityTaskCanceledCommand = async (
@@ -2412,41 +1957,25 @@ const deserializeAws_json1_0RespondActivityTaskCanceledCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RespondActivityTaskCompletedCommand = async (
@@ -2471,41 +2000,25 @@ const deserializeAws_json1_0RespondActivityTaskCompletedCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RespondActivityTaskFailedCommand = async (
@@ -2530,41 +2043,25 @@ const deserializeAws_json1_0RespondActivityTaskFailedCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0RespondDecisionTaskCompletedCommand = async (
@@ -2589,41 +2086,25 @@ const deserializeAws_json1_0RespondDecisionTaskCompletedCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0SignalWorkflowExecutionCommand = async (
@@ -2648,41 +2129,25 @@ const deserializeAws_json1_0SignalWorkflowExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0StartWorkflowExecutionCommand = async (
@@ -2710,73 +2175,37 @@ const deserializeAws_json1_0StartWorkflowExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DefaultUndefinedFault":
     case "com.amazonaws.swf#DefaultUndefinedFault":
-      response = {
-        ...(await deserializeAws_json1_0DefaultUndefinedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0DefaultUndefinedFaultResponse(parsedOutput, context);
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TypeDeprecatedFault":
     case "com.amazonaws.swf#TypeDeprecatedFault":
-      response = {
-        ...(await deserializeAws_json1_0TypeDeprecatedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeDeprecatedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     case "WorkflowExecutionAlreadyStartedFault":
     case "com.amazonaws.swf#WorkflowExecutionAlreadyStartedFault":
-      response = {
-        ...(await deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0TagResourceCommand = async (
@@ -2801,57 +2230,31 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TooManyTagsFault":
     case "com.amazonaws.swf#TooManyTagsFault":
-      response = {
-        ...(await deserializeAws_json1_0TooManyTagsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TooManyTagsFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0TerminateWorkflowExecutionCommand = async (
@@ -2876,41 +2279,25 @@ const deserializeAws_json1_0TerminateWorkflowExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UndeprecateActivityTypeCommand = async (
@@ -2935,49 +2322,28 @@ const deserializeAws_json1_0UndeprecateActivityTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UndeprecateDomainCommand = async (
@@ -3002,49 +2368,28 @@ const deserializeAws_json1_0UndeprecateDomainCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DomainAlreadyExistsFault":
     case "com.amazonaws.swf#DomainAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0DomainAlreadyExistsFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UndeprecateWorkflowTypeCommand = async (
@@ -3069,49 +2414,28 @@ const deserializeAws_json1_0UndeprecateWorkflowTypeCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "TypeAlreadyExistsFault":
     case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      response = {
-        ...(await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TypeAlreadyExistsFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UntagResourceCommand = async (
@@ -3136,49 +2460,28 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
     case "com.amazonaws.swf#LimitExceededFault":
-      response = {
-        ...(await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0LimitExceededFaultResponse(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
-      response = {
-        ...(await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0OperationNotPermittedFaultResponse(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
-      response = {
-        ...(await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0UnknownResourceFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_0DefaultUndefinedFaultResponse = async (
@@ -3187,13 +2490,11 @@ const deserializeAws_json1_0DefaultUndefinedFaultResponse = async (
 ): Promise<DefaultUndefinedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0DefaultUndefinedFault(body, context);
-  const contents: DefaultUndefinedFault = {
-    name: "DefaultUndefinedFault",
-    $fault: "client",
+  const exception = new DefaultUndefinedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0DomainAlreadyExistsFaultResponse = async (
@@ -3202,13 +2503,11 @@ const deserializeAws_json1_0DomainAlreadyExistsFaultResponse = async (
 ): Promise<DomainAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0DomainAlreadyExistsFault(body, context);
-  const contents: DomainAlreadyExistsFault = {
-    name: "DomainAlreadyExistsFault",
-    $fault: "client",
+  const exception = new DomainAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0DomainDeprecatedFaultResponse = async (
@@ -3217,13 +2516,11 @@ const deserializeAws_json1_0DomainDeprecatedFaultResponse = async (
 ): Promise<DomainDeprecatedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0DomainDeprecatedFault(body, context);
-  const contents: DomainDeprecatedFault = {
-    name: "DomainDeprecatedFault",
-    $fault: "client",
+  const exception = new DomainDeprecatedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0LimitExceededFaultResponse = async (
@@ -3232,13 +2529,11 @@ const deserializeAws_json1_0LimitExceededFaultResponse = async (
 ): Promise<LimitExceededFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0LimitExceededFault(body, context);
-  const contents: LimitExceededFault = {
-    name: "LimitExceededFault",
-    $fault: "client",
+  const exception = new LimitExceededFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0OperationNotPermittedFaultResponse = async (
@@ -3247,13 +2542,11 @@ const deserializeAws_json1_0OperationNotPermittedFaultResponse = async (
 ): Promise<OperationNotPermittedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0OperationNotPermittedFault(body, context);
-  const contents: OperationNotPermittedFault = {
-    name: "OperationNotPermittedFault",
-    $fault: "client",
+  const exception = new OperationNotPermittedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TooManyTagsFaultResponse = async (
@@ -3262,13 +2555,11 @@ const deserializeAws_json1_0TooManyTagsFaultResponse = async (
 ): Promise<TooManyTagsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TooManyTagsFault(body, context);
-  const contents: TooManyTagsFault = {
-    name: "TooManyTagsFault",
-    $fault: "client",
+  const exception = new TooManyTagsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TypeAlreadyExistsFaultResponse = async (
@@ -3277,13 +2568,11 @@ const deserializeAws_json1_0TypeAlreadyExistsFaultResponse = async (
 ): Promise<TypeAlreadyExistsFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TypeAlreadyExistsFault(body, context);
-  const contents: TypeAlreadyExistsFault = {
-    name: "TypeAlreadyExistsFault",
-    $fault: "client",
+  const exception = new TypeAlreadyExistsFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TypeDeprecatedFaultResponse = async (
@@ -3292,13 +2581,11 @@ const deserializeAws_json1_0TypeDeprecatedFaultResponse = async (
 ): Promise<TypeDeprecatedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TypeDeprecatedFault(body, context);
-  const contents: TypeDeprecatedFault = {
-    name: "TypeDeprecatedFault",
-    $fault: "client",
+  const exception = new TypeDeprecatedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0UnknownResourceFaultResponse = async (
@@ -3307,13 +2594,11 @@ const deserializeAws_json1_0UnknownResourceFaultResponse = async (
 ): Promise<UnknownResourceFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0UnknownResourceFault(body, context);
-  const contents: UnknownResourceFault = {
-    name: "UnknownResourceFault",
-    $fault: "client",
+  const exception = new UnknownResourceFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse = async (
@@ -3322,13 +2607,11 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFaultResponse = async
 ): Promise<WorkflowExecutionAlreadyStartedFault> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0WorkflowExecutionAlreadyStartedFault(body, context);
-  const contents: WorkflowExecutionAlreadyStartedFault = {
-    name: "WorkflowExecutionAlreadyStartedFault",
-    $fault: "client",
+  const exception = new WorkflowExecutionAlreadyStartedFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_0ActivityType = (input: ActivityType, context: __SerdeContext): any => {

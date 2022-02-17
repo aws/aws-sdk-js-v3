@@ -1,25 +1,53 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { RedshiftDataServiceException as __BaseException } from "./RedshiftDataServiceException";
 
 /**
  * <p>The number of active statements exceeds the limit.</p>
  */
-export interface ActiveStatementsExceededException extends __SmithyException, $MetadataBearer {
-  name: "ActiveStatementsExceededException";
-  $fault: "client";
+export class ActiveStatementsExceededException extends __BaseException {
+  readonly name: "ActiveStatementsExceededException" = "ActiveStatementsExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActiveStatementsExceededException, __BaseException>) {
+    super({
+      name: "ActiveStatementsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActiveStatementsExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An SQL statement encountered an environmental error while running.</p>
  */
-export interface BatchExecuteStatementException extends __SmithyException, $MetadataBearer {
-  name: "BatchExecuteStatementException";
-  $fault: "server";
+export class BatchExecuteStatementException extends __BaseException {
+  readonly name: "BatchExecuteStatementException" = "BatchExecuteStatementException";
+  readonly $fault: "server" = "server";
   Message: string | undefined;
   /**
    * <p>Statement identifier of the exception.</p>
    */
   StatementId: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchExecuteStatementException, __BaseException>) {
+    super({
+      name: "BatchExecuteStatementException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchExecuteStatementException.prototype);
+    this.Message = opts.Message;
+    this.StatementId = opts.StatementId;
+  }
 }
 
 export interface BatchExecuteStatementInput {
@@ -113,13 +141,25 @@ export namespace BatchExecuteStatementOutput {
 /**
  * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The exception message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CancelStatementRequest {
@@ -158,30 +198,54 @@ export namespace CancelStatementResponse {
 /**
  * <p>Connection to a database failed.</p>
  */
-export interface DatabaseConnectionException extends __SmithyException, $MetadataBearer {
-  name: "DatabaseConnectionException";
-  $fault: "server";
+export class DatabaseConnectionException extends __BaseException {
+  readonly name: "DatabaseConnectionException" = "DatabaseConnectionException";
+  readonly $fault: "server" = "server";
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DatabaseConnectionException, __BaseException>) {
+    super({
+      name: "DatabaseConnectionException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DatabaseConnectionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The exception message.</p>
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The Amazon Redshift Data API operation failed due to a missing resource. </p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The exception message.</p>
    */
@@ -191,6 +255,19 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Resource identifier associated with the exception.</p>
    */
   ResourceId: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+  }
 }
 
 /**
@@ -629,9 +706,9 @@ export namespace DescribeTableResponse {
 /**
  * <p>The SQL statement encountered an environmental error while running.</p>
  */
-export interface ExecuteStatementException extends __SmithyException, $MetadataBearer {
-  name: "ExecuteStatementException";
-  $fault: "server";
+export class ExecuteStatementException extends __BaseException {
+  readonly name: "ExecuteStatementException" = "ExecuteStatementException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The exception message.</p>
    */
@@ -641,6 +718,19 @@ export interface ExecuteStatementException extends __SmithyException, $MetadataB
    * <p>Statement identifier of the exception.</p>
    */
   StatementId: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecuteStatementException, __BaseException>) {
+    super({
+      name: "ExecuteStatementException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecuteStatementException.prototype);
+    this.Message = opts.Message;
+    this.StatementId = opts.StatementId;
+  }
 }
 
 export interface ExecuteStatementInput {

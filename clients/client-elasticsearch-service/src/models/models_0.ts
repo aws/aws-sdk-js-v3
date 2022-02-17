@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ElasticsearchServiceServiceException as __BaseException } from "./ElasticsearchServiceServiceException";
 
 /**
  * <p>Container for the parameters to the <code><a>AcceptInboundCrossClusterSearchConnection</a></code> operation.</p>
@@ -136,49 +138,77 @@ export namespace AcceptInboundCrossClusterSearchConnectionResponse {
 /**
  * <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
  */
-export interface DisabledOperationException extends __SmithyException, $MetadataBearer {
-  name: "DisabledOperationException";
-  $fault: "client";
+export class DisabledOperationException extends __BaseException {
+  readonly name: "DisabledOperationException" = "DisabledOperationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DisabledOperationException, __BaseException>) {
+    super({
+      name: "DisabledOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DisabledOperationException.prototype);
+  }
 }
 
 /**
  * <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>An error occurred because user does not have permissions to access the resource. Returns HTTP status code 403.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export type OptionState = "Active" | "Processing" | "RequiresIndexDocuments";
@@ -360,37 +390,58 @@ export namespace AddTagsRequest {
 /**
  * <p>An error occurred while processing the request.</p>
  */
-export interface BaseException extends __SmithyException, $MetadataBearer {
-  name: "BaseException";
-  $fault: "client";
+export class BaseException extends __BaseException {
+  readonly name: "BaseException" = "BaseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
+    super({
+      name: "BaseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BaseException.prototype);
+  }
 }
 
 /**
  * <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
  */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+  }
 }
 
 /**
  * <p>An exception for missing / invalid input fields. Gives http status code of 400.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**
@@ -807,13 +858,20 @@ export namespace AssociatePackageResponse {
 /**
  * <p>An error occurred because the client attempts to remove a resource that is currently in use. Returns HTTP status code 409.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 /**
@@ -1750,25 +1808,39 @@ export namespace CreateElasticsearchDomainResponse {
 /**
  * <p>An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.</p>
  */
-export interface InvalidTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTypeException";
-  $fault: "client";
+export class InvalidTypeException extends __BaseException {
+  readonly name: "InvalidTypeException" = "InvalidTypeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidTypeException, __BaseException>) {
+    super({
+      name: "InvalidTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTypeException.prototype);
+  }
 }
 
 /**
  * <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
 }
 
 /**
@@ -3460,13 +3532,20 @@ export namespace DescribeInboundCrossClusterSearchConnectionsResponse {
 /**
  * <p>The request processing has failed because of invalid pagination token provided by customer. Returns an HTTP status code of 400. </p>
  */
-export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPaginationTokenException";
-  $fault: "client";
+export class InvalidPaginationTokenException extends __BaseException {
+  readonly name: "InvalidPaginationTokenException" = "InvalidPaginationTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A description of the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidPaginationTokenException, __BaseException>) {
+    super({
+      name: "InvalidPaginationTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPaginationTokenException.prototype);
+  }
 }
 
 /**

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ApiGatewayManagementApiServiceException as __BaseException } from "./ApiGatewayManagementApiServiceException";
 
 export interface DeleteConnectionRequest {
   ConnectionId: string | undefined;
@@ -16,25 +19,58 @@ export namespace DeleteConnectionRequest {
 /**
  * <p>The caller is not authorized to invoke this operation.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+  }
 }
 
 /**
  * <p>The connection with the provided id no longer exists.</p>
  */
-export interface GoneException extends __SmithyException, $MetadataBearer {
-  name: "GoneException";
-  $fault: "client";
+export class GoneException extends __BaseException {
+  readonly name: "GoneException" = "GoneException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GoneException, __BaseException>) {
+    super({
+      name: "GoneException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GoneException.prototype);
+  }
 }
 
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 export interface GetConnectionRequest {
@@ -96,10 +132,22 @@ export namespace GetConnectionResponse {
 /**
  * <p>The data has exceeded the maximum size allowed.</p>
  */
-export interface PayloadTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "PayloadTooLargeException";
-  $fault: "client";
+export class PayloadTooLargeException extends __BaseException {
+  readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PayloadTooLargeException, __BaseException>) {
+    super({
+      name: "PayloadTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PayloadTooLargeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PostToConnectionRequest {

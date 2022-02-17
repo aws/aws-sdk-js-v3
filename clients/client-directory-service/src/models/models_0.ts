@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DirectoryServiceServiceException as __BaseException } from "./DirectoryServiceServiceException";
 
 export interface AcceptSharedDirectoryRequest {
   /**
@@ -123,9 +125,9 @@ export namespace AcceptSharedDirectoryResult {
 /**
  * <p>A client exception has occurred.</p>
  */
-export interface ClientException extends __SmithyException, $MetadataBearer {
-  name: "ClientException";
-  $fault: "client";
+export class ClientException extends __BaseException {
+  readonly name: "ClientException" = "ClientException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -135,14 +137,27 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClientException, __BaseException>) {
+    super({
+      name: "ClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The specified directory has already been shared with this Amazon Web Services account.</p>
  */
-export interface DirectoryAlreadySharedException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryAlreadySharedException";
-  $fault: "client";
+export class DirectoryAlreadySharedException extends __BaseException {
+  readonly name: "DirectoryAlreadySharedException" = "DirectoryAlreadySharedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -152,14 +167,27 @@ export interface DirectoryAlreadySharedException extends __SmithyException, $Met
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryAlreadySharedException, __BaseException>) {
+    super({
+      name: "DirectoryAlreadySharedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryAlreadySharedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The specified entity could not be found.</p>
  */
-export interface EntityDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "EntityDoesNotExistException";
-  $fault: "client";
+export class EntityDoesNotExistException extends __BaseException {
+  readonly name: "EntityDoesNotExistException" = "EntityDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -169,14 +197,27 @@ export interface EntityDoesNotExistException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityDoesNotExistException, __BaseException>) {
+    super({
+      name: "EntityDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityDoesNotExistException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>One or more parameters are not valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -186,14 +227,27 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>An exception has occurred in Directory Service.</p>
  */
-export interface ServiceException extends __SmithyException, $MetadataBearer {
-  name: "ServiceException";
-  $fault: "server";
+export class ServiceException extends __BaseException {
+  readonly name: "ServiceException" = "ServiceException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -203,14 +257,27 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceException, __BaseException>) {
+    super({
+      name: "ServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>Client authentication is not available in this region at this time.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -220,6 +287,19 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -358,9 +438,9 @@ export namespace AddIpRoutesResult {
 /**
  * <p>The specified directory is unavailable or could not be found.</p>
  */
-export interface DirectoryUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryUnavailableException";
-  $fault: "client";
+export class DirectoryUnavailableException extends __BaseException {
+  readonly name: "DirectoryUnavailableException" = "DirectoryUnavailableException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -370,14 +450,27 @@ export interface DirectoryUnavailableException extends __SmithyException, $Metad
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryUnavailableException, __BaseException>) {
+    super({
+      name: "DirectoryUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryUnavailableException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The specified entity already exists.</p>
  */
-export interface EntityAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EntityAlreadyExistsException";
-  $fault: "client";
+export class EntityAlreadyExistsException extends __BaseException {
+  readonly name: "EntityAlreadyExistsException" = "EntityAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -387,15 +480,28 @@ export interface EntityAlreadyExistsException extends __SmithyException, $Metada
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EntityAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The maximum allowed number of IP addresses was exceeded. The default limit is 100 IP
  *          address blocks.</p>
  */
-export interface IpRouteLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "IpRouteLimitExceededException";
-  $fault: "client";
+export class IpRouteLimitExceededException extends __BaseException {
+  readonly name: "IpRouteLimitExceededException" = "IpRouteLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -405,6 +511,19 @@ export interface IpRouteLimitExceededException extends __SmithyException, $Metad
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IpRouteLimitExceededException, __BaseException>) {
+    super({
+      name: "IpRouteLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IpRouteLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -475,9 +594,9 @@ export namespace AddRegionResult {
  * <p>The Region you specified is the same Region where the Managed Microsoft AD directory
  *       was created. Specify a different Region and try again.</p>
  */
-export interface DirectoryAlreadyInRegionException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryAlreadyInRegionException";
-  $fault: "client";
+export class DirectoryAlreadyInRegionException extends __BaseException {
+  readonly name: "DirectoryAlreadyInRegionException" = "DirectoryAlreadyInRegionException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -487,14 +606,27 @@ export interface DirectoryAlreadyInRegionException extends __SmithyException, $M
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryAlreadyInRegionException, __BaseException>) {
+    super({
+      name: "DirectoryAlreadyInRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryAlreadyInRegionException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The specified directory does not exist in the system.</p>
  */
-export interface DirectoryDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryDoesNotExistException";
-  $fault: "client";
+export class DirectoryDoesNotExistException extends __BaseException {
+  readonly name: "DirectoryDoesNotExistException" = "DirectoryDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -504,15 +636,28 @@ export interface DirectoryDoesNotExistException extends __SmithyException, $Meta
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryDoesNotExistException, __BaseException>) {
+    super({
+      name: "DirectoryDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryDoesNotExistException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>You have reached the limit for maximum number of simultaneous Region replications per
  *       directory.</p>
  */
-export interface RegionLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "RegionLimitExceededException";
-  $fault: "client";
+export class RegionLimitExceededException extends __BaseException {
+  readonly name: "RegionLimitExceededException" = "RegionLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -522,14 +667,27 @@ export interface RegionLimitExceededException extends __SmithyException, $Metada
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RegionLimitExceededException, __BaseException>) {
+    super({
+      name: "RegionLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RegionLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The operation is not supported.</p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -539,6 +697,19 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -605,9 +776,9 @@ export namespace AddTagsToResourceResult {
 /**
  * <p>The maximum allowed number of tags was exceeded.</p>
  */
-export interface TagLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TagLimitExceededException";
-  $fault: "client";
+export class TagLimitExceededException extends __BaseException {
+  readonly name: "TagLimitExceededException" = "TagLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -617,6 +788,19 @@ export interface TagLimitExceededException extends __SmithyException, $MetadataB
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagLimitExceededException, __BaseException>) {
+    super({
+      name: "TagLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -646,9 +830,9 @@ export namespace Attribute {
 /**
  * <p>An authentication error occurred.</p>
  */
-export interface AuthenticationFailedException extends __SmithyException, $MetadataBearer {
-  name: "AuthenticationFailedException";
-  $fault: "client";
+export class AuthenticationFailedException extends __BaseException {
+  readonly name: "AuthenticationFailedException" = "AuthenticationFailedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The textual message for the exception.</p>
    */
@@ -658,6 +842,19 @@ export interface AuthenticationFailedException extends __SmithyException, $Metad
    * <p>The identifier of the request that caused the exception.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AuthenticationFailedException, __BaseException>) {
+    super({
+      name: "AuthenticationFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthenticationFailedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface CancelSchemaExtensionRequest {
@@ -782,9 +979,9 @@ export namespace Certificate {
 /**
  * <p>The certificate has already been registered into the system.</p>
  */
-export interface CertificateAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "CertificateAlreadyExistsException";
-  $fault: "client";
+export class CertificateAlreadyExistsException extends __BaseException {
+  readonly name: "CertificateAlreadyExistsException" = "CertificateAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -794,14 +991,27 @@ export interface CertificateAlreadyExistsException extends __SmithyException, $M
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateAlreadyExistsException, __BaseException>) {
+    super({
+      name: "CertificateAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The certificate is not present in the system for describe or deregister activities.</p>
  */
-export interface CertificateDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "CertificateDoesNotExistException";
-  $fault: "client";
+export class CertificateDoesNotExistException extends __BaseException {
+  readonly name: "CertificateDoesNotExistException" = "CertificateDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -811,6 +1021,19 @@ export interface CertificateDoesNotExistException extends __SmithyException, $Me
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateDoesNotExistException, __BaseException>) {
+    super({
+      name: "CertificateDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateDoesNotExistException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -856,9 +1079,9 @@ export namespace CertificateInfo {
  * <p>The certificate is being used for the LDAP security connection and cannot be removed
  *       without disabling LDAP security.</p>
  */
-export interface CertificateInUseException extends __SmithyException, $MetadataBearer {
-  name: "CertificateInUseException";
-  $fault: "client";
+export class CertificateInUseException extends __BaseException {
+  readonly name: "CertificateInUseException" = "CertificateInUseException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -868,14 +1091,27 @@ export interface CertificateInUseException extends __SmithyException, $MetadataB
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateInUseException, __BaseException>) {
+    super({
+      name: "CertificateInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateInUseException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The certificate could not be added because the certificate limit has been reached.</p>
  */
-export interface CertificateLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "CertificateLimitExceededException";
-  $fault: "client";
+export class CertificateLimitExceededException extends __BaseException {
+  readonly name: "CertificateLimitExceededException" = "CertificateLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -885,6 +1121,19 @@ export interface CertificateLimitExceededException extends __SmithyException, $M
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CertificateLimitExceededException, __BaseException>) {
+    super({
+      name: "CertificateLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CertificateLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export enum ClientAuthenticationStatus {
@@ -1123,9 +1372,9 @@ export namespace ConnectDirectoryResult {
  *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
  *             the region.</p>
  */
-export interface DirectoryLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryLimitExceededException";
-  $fault: "client";
+export class DirectoryLimitExceededException extends __BaseException {
+  readonly name: "DirectoryLimitExceededException" = "DirectoryLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -1135,6 +1384,19 @@ export interface DirectoryLimitExceededException extends __SmithyException, $Met
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryLimitExceededException, __BaseException>) {
+    super({
+      name: "DirectoryLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -1429,9 +1691,9 @@ export namespace CreateLogSubscriptionResult {
 /**
  * <p>The account does not have sufficient permission to perform the operation.</p>
  */
-export interface InsufficientPermissionsException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientPermissionsException";
-  $fault: "client";
+export class InsufficientPermissionsException extends __BaseException {
+  readonly name: "InsufficientPermissionsException" = "InsufficientPermissionsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -1441,6 +1703,19 @@ export interface InsufficientPermissionsException extends __SmithyException, $Me
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientPermissionsException, __BaseException>) {
+    super({
+      name: "InsufficientPermissionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientPermissionsException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export enum DirectoryEdition {
@@ -1572,9 +1847,9 @@ export namespace CreateSnapshotResult {
  *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
  *             for a directory.</p>
  */
-export interface SnapshotLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "SnapshotLimitExceededException";
-  $fault: "client";
+export class SnapshotLimitExceededException extends __BaseException {
+  readonly name: "SnapshotLimitExceededException" = "SnapshotLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -1584,6 +1859,19 @@ export interface SnapshotLimitExceededException extends __SmithyException, $Meta
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotLimitExceededException, __BaseException>) {
+    super({
+      name: "SnapshotLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export enum SelectiveAuth {
@@ -2549,9 +2837,9 @@ export namespace DescribeDirectoriesResult {
 /**
  * <p>The <code>NextToken</code> value is not valid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -2561,6 +2849,19 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface DescribeDomainControllersRequest {
@@ -3394,9 +3695,9 @@ export namespace DirectoryLimits {
 /**
  * <p>The specified directory has not been shared with this Amazon Web Services account.</p>
  */
-export interface DirectoryNotSharedException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryNotSharedException";
-  $fault: "client";
+export class DirectoryNotSharedException extends __BaseException {
+  readonly name: "DirectoryNotSharedException" = "DirectoryNotSharedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -3406,6 +3707,19 @@ export interface DirectoryNotSharedException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryNotSharedException, __BaseException>) {
+    super({
+      name: "DirectoryNotSharedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryNotSharedException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface DisableClientAuthenticationRequest {
@@ -3443,9 +3757,9 @@ export namespace DisableClientAuthenticationResult {
 /**
  * <p>Client authentication is already enabled.</p>
  */
-export interface InvalidClientAuthStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientAuthStatusException";
-  $fault: "client";
+export class InvalidClientAuthStatusException extends __BaseException {
+  readonly name: "InvalidClientAuthStatusException" = "InvalidClientAuthStatusException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -3455,6 +3769,19 @@ export interface InvalidClientAuthStatusException extends __SmithyException, $Me
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClientAuthStatusException, __BaseException>) {
+    super({
+      name: "InvalidClientAuthStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientAuthStatusException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface DisableLDAPSRequest {
@@ -3494,9 +3821,9 @@ export namespace DisableLDAPSResult {
  * <p>The LDAP activities could not be performed because they are limited by the LDAPS
  *       status.</p>
  */
-export interface InvalidLDAPSStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLDAPSStatusException";
-  $fault: "client";
+export class InvalidLDAPSStatusException extends __BaseException {
+  readonly name: "InvalidLDAPSStatusException" = "InvalidLDAPSStatusException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -3506,6 +3833,19 @@ export interface InvalidLDAPSStatusException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLDAPSStatusException, __BaseException>) {
+    super({
+      name: "InvalidLDAPSStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLDAPSStatusException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -3633,9 +3973,9 @@ export namespace EnableClientAuthenticationResult {
  * <p>Client authentication setup could not be completed because at least one valid certificate must be
  *       registered in the system.</p>
  */
-export interface NoAvailableCertificateException extends __SmithyException, $MetadataBearer {
-  name: "NoAvailableCertificateException";
-  $fault: "client";
+export class NoAvailableCertificateException extends __BaseException {
+  readonly name: "NoAvailableCertificateException" = "NoAvailableCertificateException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -3645,6 +3985,19 @@ export interface NoAvailableCertificateException extends __SmithyException, $Met
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoAvailableCertificateException, __BaseException>) {
+    super({
+      name: "NoAvailableCertificateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAvailableCertificateException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface EnableLDAPSRequest {
@@ -4274,9 +4627,9 @@ export namespace ListTagsForResourceResult {
 /**
  * <p>The certificate PEM that was provided has incorrect encoding.</p>
  */
-export interface InvalidCertificateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCertificateException";
-  $fault: "client";
+export class InvalidCertificateException extends __BaseException {
+  readonly name: "InvalidCertificateException" = "InvalidCertificateException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -4286,6 +4639,19 @@ export interface InvalidCertificateException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCertificateException, __BaseException>) {
+    super({
+      name: "InvalidCertificateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCertificateException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface RegisterCertificateRequest {
@@ -4503,9 +4869,9 @@ export namespace RemoveTagsFromResourceResult {
  * <p>The new password provided by the user does not meet the password complexity
  *             requirements defined in your directory.</p>
  */
-export interface InvalidPasswordException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPasswordException";
-  $fault: "client";
+export class InvalidPasswordException extends __BaseException {
+  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -4515,6 +4881,19 @@ export interface InvalidPasswordException extends __SmithyException, $MetadataBe
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
+    super({
+      name: "InvalidPasswordException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface ResetUserPasswordRequest {
@@ -4559,9 +4938,9 @@ export namespace ResetUserPasswordResult {
 /**
  * <p>The user provided a username that does not exist in your directory.</p>
  */
-export interface UserDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "UserDoesNotExistException";
-  $fault: "client";
+export class UserDoesNotExistException extends __BaseException {
+  readonly name: "UserDoesNotExistException" = "UserDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -4571,6 +4950,19 @@ export interface UserDoesNotExistException extends __SmithyException, $MetadataB
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserDoesNotExistException, __BaseException>) {
+    super({
+      name: "UserDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserDoesNotExistException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -4609,9 +5001,9 @@ export namespace RestoreFromSnapshotResult {
 /**
  * <p>The specified shared target is not valid.</p>
  */
-export interface InvalidTargetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTargetException";
-  $fault: "client";
+export class InvalidTargetException extends __BaseException {
+  readonly name: "InvalidTargetException" = "InvalidTargetException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -4621,14 +5013,27 @@ export interface InvalidTargetException extends __SmithyException, $MetadataBear
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTargetException, __BaseException>) {
+    super({
+      name: "InvalidTargetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
  */
-export interface OrganizationsException extends __SmithyException, $MetadataBearer {
-  name: "OrganizationsException";
-  $fault: "client";
+export class OrganizationsException extends __BaseException {
+  readonly name: "OrganizationsException" = "OrganizationsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -4638,6 +5043,19 @@ export interface OrganizationsException extends __SmithyException, $MetadataBear
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationsException, __BaseException>) {
+    super({
+      name: "OrganizationsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationsException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export enum TargetType {
@@ -4726,9 +5144,9 @@ export namespace ShareDirectoryResult {
  * <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been
  *             reached.</p>
  */
-export interface ShareLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ShareLimitExceededException";
-  $fault: "client";
+export class ShareLimitExceededException extends __BaseException {
+  readonly name: "ShareLimitExceededException" = "ShareLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -4738,6 +5156,19 @@ export interface ShareLimitExceededException extends __SmithyException, $Metadat
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ShareLimitExceededException, __BaseException>) {
+    super({
+      name: "ShareLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ShareLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface StartSchemaExtensionRequest {
@@ -4906,9 +5337,9 @@ export namespace UpdateConditionalForwarderResult {
  * <p>The maximum allowed number of domain controllers per directory was exceeded. The
  *       default limit per directory is 20 domain controllers.</p>
  */
-export interface DomainControllerLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "DomainControllerLimitExceededException";
-  $fault: "client";
+export class DomainControllerLimitExceededException extends __BaseException {
+  readonly name: "DomainControllerLimitExceededException" = "DomainControllerLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The descriptive message for the exception.</p>
    */
@@ -4918,6 +5349,19 @@ export interface DomainControllerLimitExceededException extends __SmithyExceptio
    * <p>The Amazon Web Services request identifier.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DomainControllerLimitExceededException, __BaseException>) {
+    super({
+      name: "DomainControllerLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainControllerLimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface UpdateNumberOfDomainControllersRequest {

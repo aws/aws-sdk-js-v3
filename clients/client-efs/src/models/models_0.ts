@@ -1,12 +1,15 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { EFSServiceException as __BaseException } from "./EFSServiceException";
 
 /**
  * <p>Returned if the access point you are trying to create already exists, with the
  *             creation token you provided in the request.</p>
  */
-export interface AccessPointAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "AccessPointAlreadyExists";
-  $fault: "client";
+export class AccessPointAlreadyExists extends __BaseException {
+  readonly name: "AccessPointAlreadyExists" = "AccessPointAlreadyExists";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -23,6 +26,20 @@ export interface AccessPointAlreadyExists extends __SmithyException, $MetadataBe
   Message?: string;
 
   AccessPointId: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessPointAlreadyExists, __BaseException>) {
+    super({
+      name: "AccessPointAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessPointAlreadyExists.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+    this.AccessPointId = opts.AccessPointId;
+  }
 }
 
 export enum LifeCycleState {
@@ -235,9 +252,9 @@ export namespace AccessPointDescription {
  * <p>Returned if the Amazon Web Services account has already created the maximum number of access points
  *             allowed per file system.</p>
  */
-export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "AccessPointLimitExceeded";
-  $fault: "client";
+export class AccessPointLimitExceeded extends __BaseException {
+  readonly name: "AccessPointLimitExceeded" = "AccessPointLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -252,15 +269,28 @@ export interface AccessPointLimitExceeded extends __SmithyException, $MetadataBe
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessPointLimitExceeded, __BaseException>) {
+    super({
+      name: "AccessPointLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessPointLimitExceeded.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the specified <code>AccessPointId</code> value doesn't exist in the
  *             requester's Amazon Web Services account.</p>
  */
-export interface AccessPointNotFound extends __SmithyException, $MetadataBearer {
-  name: "AccessPointNotFound";
-  $fault: "client";
+export class AccessPointNotFound extends __BaseException {
+  readonly name: "AccessPointNotFound" = "AccessPointNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -275,15 +305,28 @@ export interface AccessPointNotFound extends __SmithyException, $MetadataBearer 
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessPointNotFound, __BaseException>) {
+    super({
+      name: "AccessPointNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessPointNotFound.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the Availability Zone that was specified for a mount target is different from the Availability Zone that was specified for One Zone storage classes.
  *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
  */
-export interface AvailabilityZonesMismatch extends __SmithyException, $MetadataBearer {
-  name: "AvailabilityZonesMismatch";
-  $fault: "client";
+export class AvailabilityZonesMismatch extends __BaseException {
+  readonly name: "AvailabilityZonesMismatch" = "AvailabilityZonesMismatch";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -298,6 +341,19 @@ export interface AvailabilityZonesMismatch extends __SmithyException, $MetadataB
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AvailabilityZonesMismatch, __BaseException>) {
+    super({
+      name: "AvailabilityZonesMismatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AvailabilityZonesMismatch.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export enum Status {
@@ -373,9 +429,9 @@ export namespace BackupPolicyDescription {
  * <p>Returned if the request is malformed or contains an error such as an invalid
  *             parameter value or a missing required parameter.</p>
  */
-export interface BadRequest extends __SmithyException, $MetadataBearer {
-  name: "BadRequest";
-  $fault: "client";
+export class BadRequest extends __BaseException {
+  readonly name: "BadRequest" = "BadRequest";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -390,6 +446,19 @@ export interface BadRequest extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequest, __BaseException>) {
+    super({
+      name: "BadRequest",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequest.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateAccessPointRequest {
@@ -444,9 +513,9 @@ export namespace CreateAccessPointRequest {
  * <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
  *             requester's Amazon Web Services account.</p>
  */
-export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
-  name: "FileSystemNotFound";
-  $fault: "client";
+export class FileSystemNotFound extends __BaseException {
+  readonly name: "FileSystemNotFound" = "FileSystemNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -461,14 +530,27 @@ export interface FileSystemNotFound extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FileSystemNotFound, __BaseException>) {
+    super({
+      name: "FileSystemNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileSystemNotFound.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the file system's lifecycle state is not "available".</p>
  */
-export interface IncorrectFileSystemLifeCycleState extends __SmithyException, $MetadataBearer {
-  name: "IncorrectFileSystemLifeCycleState";
-  $fault: "client";
+export class IncorrectFileSystemLifeCycleState extends __BaseException {
+  readonly name: "IncorrectFileSystemLifeCycleState" = "IncorrectFileSystemLifeCycleState";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -483,14 +565,27 @@ export interface IncorrectFileSystemLifeCycleState extends __SmithyException, $M
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncorrectFileSystemLifeCycleState, __BaseException>) {
+    super({
+      name: "IncorrectFileSystemLifeCycleState",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncorrectFileSystemLifeCycleState.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if an error occurred on the server side.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -505,6 +600,19 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export enum PerformanceMode {
@@ -648,9 +756,9 @@ export namespace CreateFileSystemRequest {
  * <p>Returned if the file system you are trying to create already exists, with the
  *             creation token you provided.</p>
  */
-export interface FileSystemAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "FileSystemAlreadyExists";
-  $fault: "client";
+export class FileSystemAlreadyExists extends __BaseException {
+  readonly name: "FileSystemAlreadyExists" = "FileSystemAlreadyExists";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -667,6 +775,20 @@ export interface FileSystemAlreadyExists extends __SmithyException, $MetadataBea
   Message?: string;
 
   FileSystemId: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FileSystemAlreadyExists, __BaseException>) {
+    super({
+      name: "FileSystemAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileSystemAlreadyExists.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+    this.FileSystemId = opts.FileSystemId;
+  }
 }
 
 /**
@@ -840,9 +962,9 @@ export namespace FileSystemDescription {
  * <p>Returned if the Amazon Web Services account has already created the maximum number of file systems
  *             allowed per account.</p>
  */
-export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "FileSystemLimitExceeded";
-  $fault: "client";
+export class FileSystemLimitExceeded extends __BaseException {
+  readonly name: "FileSystemLimitExceeded" = "FileSystemLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -857,6 +979,19 @@ export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBea
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FileSystemLimitExceeded, __BaseException>) {
+    super({
+      name: "FileSystemLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileSystemLimitExceeded.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -866,9 +1001,9 @@ export interface FileSystemLimitExceeded extends __SmithyException, $MetadataBea
  *             when you attempt to change an existing file system from bursting to provisioned
  *             throughput mode. Try again later.</p>
  */
-export interface InsufficientThroughputCapacity extends __SmithyException, $MetadataBearer {
-  name: "InsufficientThroughputCapacity";
-  $fault: "server";
+export class InsufficientThroughputCapacity extends __BaseException {
+  readonly name: "InsufficientThroughputCapacity" = "InsufficientThroughputCapacity";
+  readonly $fault: "server" = "server";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -883,15 +1018,28 @@ export interface InsufficientThroughputCapacity extends __SmithyException, $Meta
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientThroughputCapacity, __BaseException>) {
+    super({
+      name: "InsufficientThroughputCapacity",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientThroughputCapacity.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the throughput mode or amount of provisioned throughput can't be changed
  *             because the throughput limit of 1024 MiB/s has been reached.</p>
  */
-export interface ThroughputLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ThroughputLimitExceeded";
-  $fault: "client";
+export class ThroughputLimitExceeded extends __BaseException {
+  readonly name: "ThroughputLimitExceeded" = "ThroughputLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -906,14 +1054,27 @@ export interface ThroughputLimitExceeded extends __SmithyException, $MetadataBea
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThroughputLimitExceeded, __BaseException>) {
+    super({
+      name: "ThroughputLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThroughputLimitExceeded.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
  */
-export interface UnsupportedAvailabilityZone extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedAvailabilityZone";
-  $fault: "client";
+export class UnsupportedAvailabilityZone extends __BaseException {
+  readonly name: "UnsupportedAvailabilityZone" = "UnsupportedAvailabilityZone";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -928,6 +1089,19 @@ export interface UnsupportedAvailabilityZone extends __SmithyException, $Metadat
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedAvailabilityZone, __BaseException>) {
+    super({
+      name: "UnsupportedAvailabilityZone",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedAvailabilityZone.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -970,9 +1144,9 @@ export namespace CreateMountTargetRequest {
  * <p>Returned if the request specified an <code>IpAddress</code> that is already in use
  *             in the subnet.</p>
  */
-export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
-  name: "IpAddressInUse";
-  $fault: "client";
+export class IpAddressInUse extends __BaseException {
+  readonly name: "IpAddressInUse" = "IpAddressInUse";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -987,15 +1161,28 @@ export interface IpAddressInUse extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IpAddressInUse, __BaseException>) {
+    super({
+      name: "IpAddressInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IpAddressInUse.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the mount target would violate one of the specified restrictions based
  *             on the file system's existing mount targets.</p>
  */
-export interface MountTargetConflict extends __SmithyException, $MetadataBearer {
-  name: "MountTargetConflict";
-  $fault: "client";
+export class MountTargetConflict extends __BaseException {
+  readonly name: "MountTargetConflict" = "MountTargetConflict";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1010,6 +1197,19 @@ export interface MountTargetConflict extends __SmithyException, $MetadataBearer 
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MountTargetConflict, __BaseException>) {
+    super({
+      name: "MountTargetConflict",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MountTargetConflict.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1087,9 +1287,9 @@ export namespace MountTargetDescription {
  *             in the <i>Amazon VPC User Guide </i> (see the Network interfaces per VPC
  *             entry in the table). </p>
  */
-export interface NetworkInterfaceLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "NetworkInterfaceLimitExceeded";
-  $fault: "client";
+export class NetworkInterfaceLimitExceeded extends __BaseException {
+  readonly name: "NetworkInterfaceLimitExceeded" = "NetworkInterfaceLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1104,15 +1304,28 @@ export interface NetworkInterfaceLimitExceeded extends __SmithyException, $Metad
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NetworkInterfaceLimitExceeded, __BaseException>) {
+    super({
+      name: "NetworkInterfaceLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NetworkInterfaceLimitExceeded.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if <code>IpAddress</code> was not specified in the request and there are
  *             no free IP addresses in the subnet.</p>
  */
-export interface NoFreeAddressesInSubnet extends __SmithyException, $MetadataBearer {
-  name: "NoFreeAddressesInSubnet";
-  $fault: "client";
+export class NoFreeAddressesInSubnet extends __BaseException {
+  readonly name: "NoFreeAddressesInSubnet" = "NoFreeAddressesInSubnet";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1127,15 +1340,28 @@ export interface NoFreeAddressesInSubnet extends __SmithyException, $MetadataBea
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoFreeAddressesInSubnet, __BaseException>) {
+    super({
+      name: "NoFreeAddressesInSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoFreeAddressesInSubnet.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
  *             greater than five.</p>
  */
-export interface SecurityGroupLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "SecurityGroupLimitExceeded";
-  $fault: "client";
+export class SecurityGroupLimitExceeded extends __BaseException {
+  readonly name: "SecurityGroupLimitExceeded" = "SecurityGroupLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1150,15 +1376,28 @@ export interface SecurityGroupLimitExceeded extends __SmithyException, $Metadata
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SecurityGroupLimitExceeded, __BaseException>) {
+    super({
+      name: "SecurityGroupLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SecurityGroupLimitExceeded.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if one of the specified security groups doesn't exist in the subnet's
  *             VPC.</p>
  */
-export interface SecurityGroupNotFound extends __SmithyException, $MetadataBearer {
-  name: "SecurityGroupNotFound";
-  $fault: "client";
+export class SecurityGroupNotFound extends __BaseException {
+  readonly name: "SecurityGroupNotFound" = "SecurityGroupNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1173,15 +1412,28 @@ export interface SecurityGroupNotFound extends __SmithyException, $MetadataBeare
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SecurityGroupNotFound, __BaseException>) {
+    super({
+      name: "SecurityGroupNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SecurityGroupNotFound.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
  *             request.</p>
  */
-export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
-  name: "SubnetNotFound";
-  $fault: "client";
+export class SubnetNotFound extends __BaseException {
+  readonly name: "SubnetNotFound" = "SubnetNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1196,6 +1448,19 @@ export interface SubnetNotFound extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetNotFound, __BaseException>) {
+    super({
+      name: "SubnetNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetNotFound.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1360,9 +1625,9 @@ export namespace ReplicationConfigurationDescription {
 /**
  * <p>Returned if the specified file system did not have a replication configuration.</p>
  */
-export interface ReplicationNotFound extends __SmithyException, $MetadataBearer {
-  name: "ReplicationNotFound";
-  $fault: "client";
+export class ReplicationNotFound extends __BaseException {
+  readonly name: "ReplicationNotFound" = "ReplicationNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>ReplicationNotFound</p>
    */
@@ -1376,14 +1641,27 @@ export interface ReplicationNotFound extends __SmithyException, $MetadataBearer 
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationNotFound, __BaseException>) {
+    super({
+      name: "ReplicationNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationNotFound.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1398,6 +1676,19 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1464,9 +1755,9 @@ export namespace DeleteFileSystemRequest {
 /**
  * <p>Returned if a file system has mount targets.</p>
  */
-export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
-  name: "FileSystemInUse";
-  $fault: "client";
+export class FileSystemInUse extends __BaseException {
+  readonly name: "FileSystemInUse" = "FileSystemInUse";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1481,6 +1772,19 @@ export interface FileSystemInUse extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FileSystemInUse, __BaseException>) {
+    super({
+      name: "FileSystemInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileSystemInUse.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteFileSystemPolicyRequest {
@@ -1522,9 +1826,9 @@ export namespace DeleteMountTargetRequest {
  * <p>The service timed out trying to fulfill the request, and the client should try the
  *             call again.</p>
  */
-export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
-  name: "DependencyTimeout";
-  $fault: "server";
+export class DependencyTimeout extends __BaseException {
+  readonly name: "DependencyTimeout" = "DependencyTimeout";
+  readonly $fault: "server" = "server";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1539,15 +1843,28 @@ export interface DependencyTimeout extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyTimeout, __BaseException>) {
+    super({
+      name: "DependencyTimeout",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyTimeout.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Returned if there is no mount target with the specified ID found in the
  *             caller's Amazon Web Services account.</p>
  */
-export interface MountTargetNotFound extends __SmithyException, $MetadataBearer {
-  name: "MountTargetNotFound";
-  $fault: "client";
+export class MountTargetNotFound extends __BaseException {
+  readonly name: "MountTargetNotFound" = "MountTargetNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1562,6 +1879,19 @@ export interface MountTargetNotFound extends __SmithyException, $MetadataBearer 
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MountTargetNotFound, __BaseException>) {
+    super({
+      name: "MountTargetNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MountTargetNotFound.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteReplicationConfigurationRequest {
@@ -1760,9 +2090,9 @@ export namespace DescribeBackupPolicyRequest {
 /**
  * <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
  */
-export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
-  name: "PolicyNotFound";
-  $fault: "client";
+export class PolicyNotFound extends __BaseException {
+  readonly name: "PolicyNotFound" = "PolicyNotFound";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -1777,6 +2107,19 @@ export interface PolicyNotFound extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyNotFound, __BaseException>) {
+    super({
+      name: "PolicyNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyNotFound.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeFileSystemPolicyRequest {
@@ -2085,9 +2428,9 @@ export namespace DescribeMountTargetSecurityGroupsResponse {
  * <p>Returned if the mount target is not in the correct state for the
  *             operation.</p>
  */
-export interface IncorrectMountTargetState extends __SmithyException, $MetadataBearer {
-  name: "IncorrectMountTargetState";
-  $fault: "client";
+export class IncorrectMountTargetState extends __BaseException {
+  readonly name: "IncorrectMountTargetState" = "IncorrectMountTargetState";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -2102,6 +2445,19 @@ export interface IncorrectMountTargetState extends __SmithyException, $MetadataB
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncorrectMountTargetState, __BaseException>) {
+    super({
+      name: "IncorrectMountTargetState",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncorrectMountTargetState.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeReplicationConfigurationsRequest {
@@ -2225,9 +2581,9 @@ export namespace DescribeTagsResponse {
  * <p>Returned if the <code>FileSystemPolicy</code> is is malformed or contains an error such as an invalid
  *             parameter value or a missing required parameter. Returned in the case of a policy lockout safety check error.</p>
  */
-export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPolicyException";
-  $fault: "client";
+export class InvalidPolicyException extends __BaseException {
+  readonly name: "InvalidPolicyException" = "InvalidPolicyException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -2242,6 +2598,19 @@ export interface InvalidPolicyException extends __SmithyException, $MetadataBear
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyException, __BaseException>) {
+    super({
+      name: "InvalidPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyException.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListTagsForResourceRequest {
@@ -2498,9 +2867,9 @@ export namespace UntagResourceRequest {
  * <p>Returned if you don’t wait at least 24 hours before changing the throughput mode, or
  *             decreasing the Provisioned Throughput value.</p>
  */
-export interface TooManyRequests extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequests";
-  $fault: "client";
+export class TooManyRequests extends __BaseException {
+  readonly name: "TooManyRequests" = "TooManyRequests";
+  readonly $fault: "client" = "client";
   /**
    * <p>The error code is a string that uniquely identifies an error condition.
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
@@ -2515,6 +2884,19 @@ export interface TooManyRequests extends __SmithyException, $MetadataBearer {
    *         more likely to ignore the error message.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequests, __BaseException>) {
+    super({
+      name: "TooManyRequests",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequests.prototype);
+    this.ErrorCode = opts.ErrorCode;
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateFileSystemRequest {

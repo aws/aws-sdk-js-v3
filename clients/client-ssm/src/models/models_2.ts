@@ -1,5 +1,5 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   LoggingInfo,
@@ -27,6 +27,7 @@ import {
   OpsResultAttribute,
   ResultAttribute,
 } from "./models_1";
+import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 export interface UpdateDocumentMetadataResponse {}
 
@@ -766,10 +767,20 @@ export namespace UpdateOpsItemResponse {
  * <p>The OpsMetadata object exceeds the maximum number of OpsMetadata keys that you can assign to
  *    an application in Application Manager.</p>
  */
-export interface OpsMetadataKeyLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "OpsMetadataKeyLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class OpsMetadataKeyLimitExceededException extends __BaseException {
+  readonly name: "OpsMetadataKeyLimitExceededException" = "OpsMetadataKeyLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OpsMetadataKeyLimitExceededException, __BaseException>) {
+    super({
+      name: "OpsMetadataKeyLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OpsMetadataKeyLimitExceededException.prototype);
+  }
 }
 
 export interface UpdateOpsMetadataRequest {
@@ -1011,10 +1022,22 @@ export namespace UpdatePatchBaselineResult {
  * <p>Another <code>UpdateResourceDataSync</code> request is being processed. Wait a few minutes
  *    and try again.</p>
  */
-export interface ResourceDataSyncConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceDataSyncConflictException";
-  $fault: "client";
+export class ResourceDataSyncConflictException extends __BaseException {
+  readonly name: "ResourceDataSyncConflictException" = "ResourceDataSyncConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceDataSyncConflictException, __BaseException>) {
+    super({
+      name: "ResourceDataSyncConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceDataSyncConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateResourceDataSyncRequest {

@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { HoneycodeServiceException as __BaseException } from "./HoneycodeServiceException";
 
 /**
  * <p>
@@ -7,28 +9,58 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
  *             IAM policy allows access to the resource in the request.
  *         </p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 /**
  * <p>The automation execution did not end successfully.</p>
  */
-export interface AutomationExecutionException extends __SmithyException, $MetadataBearer {
-  name: "AutomationExecutionException";
-  $fault: "client";
-  message?: string;
+export class AutomationExecutionException extends __BaseException {
+  readonly name: "AutomationExecutionException" = "AutomationExecutionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationExecutionException, __BaseException>) {
+    super({
+      name: "AutomationExecutionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationExecutionException.prototype);
+  }
 }
 
 /**
  * <p>The automation execution timed out.</p>
  */
-export interface AutomationExecutionTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "AutomationExecutionTimeoutException";
-  $fault: "server";
-  message?: string;
+export class AutomationExecutionTimeoutException extends __BaseException {
+  readonly name: "AutomationExecutionTimeoutException" = "AutomationExecutionTimeoutException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationExecutionTimeoutException, __BaseException>) {
+    super({
+      name: "AutomationExecutionTimeoutException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationExecutionTimeoutException.prototype);
+  }
 }
 
 /**
@@ -236,28 +268,58 @@ export namespace BatchCreateTableRowsResult {
 /**
  * <p>There were unexpected errors from the server.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message?: string;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
 }
 
 /**
  * <p>The request timed out.</p>
  */
-export interface RequestTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "RequestTimeoutException";
-  $fault: "server";
-  message?: string;
+export class RequestTimeoutException extends __BaseException {
+  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
+    super({
+      name: "RequestTimeoutException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
+  }
 }
 
 /**
  * <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
@@ -265,28 +327,58 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
  *             The request caused service quota to be breached.
  *         </p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message: string | undefined;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
 }
 
 /**
  * <p>Remote service is unreachable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  message?: string;
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 /**
  * <p>Tps(transactions per second) rate reached.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
@@ -294,10 +386,20 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
  *             Request is invalid. The message in the response contains details on why the request is invalid.
  *         </p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message: string | undefined;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 export interface BatchDeleteTableRowsRequest {

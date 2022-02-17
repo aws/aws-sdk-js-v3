@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MediaStoreServiceException as __BaseException } from "./MediaStoreServiceException";
 
 export enum MethodName {
   DELETE = "DELETE",
@@ -71,10 +74,22 @@ export namespace Container {
  * <p>The container that you specified in the request already exists or is being
  *          updated.</p>
  */
-export interface ContainerInUseException extends __SmithyException, $MetadataBearer {
-  name: "ContainerInUseException";
-  $fault: "client";
+export class ContainerInUseException extends __BaseException {
+  readonly name: "ContainerInUseException" = "ContainerInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContainerInUseException, __BaseException>) {
+    super({
+      name: "ContainerInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContainerInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ContainerLevelMetrics {
@@ -85,10 +100,22 @@ export enum ContainerLevelMetrics {
 /**
  * <p>The container that you specified in the request does not exist.</p>
  */
-export interface ContainerNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ContainerNotFoundException";
-  $fault: "client";
+export class ContainerNotFoundException extends __BaseException {
+  readonly name: "ContainerNotFoundException" = "ContainerNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContainerNotFoundException, __BaseException>) {
+    super({
+      name: "ContainerNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContainerNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -151,10 +178,22 @@ export namespace CorsRule {
 /**
  * <p>The CORS policy that you specified in the request does not exist.</p>
  */
-export interface CorsPolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "CorsPolicyNotFoundException";
-  $fault: "client";
+export class CorsPolicyNotFoundException extends __BaseException {
+  readonly name: "CorsPolicyNotFoundException" = "CorsPolicyNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CorsPolicyNotFoundException, __BaseException>) {
+    super({
+      name: "CorsPolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CorsPolicyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -242,19 +281,43 @@ export namespace CreateContainerOutput {
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface InternalServerError extends __SmithyException, $MetadataBearer {
-  name: "InternalServerError";
-  $fault: "server";
+export class InternalServerError extends __BaseException {
+  readonly name: "InternalServerError" = "InternalServerError";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerError, __BaseException>) {
+    super({
+      name: "InternalServerError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A service limit has been exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteContainerInput {
@@ -314,10 +377,22 @@ export namespace DeleteContainerPolicyOutput {
 /**
  * <p>The policy that you specified in the request does not exist.</p>
  */
-export interface PolicyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "PolicyNotFoundException";
-  $fault: "client";
+export class PolicyNotFoundException extends __BaseException {
+  readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PolicyNotFoundException, __BaseException>) {
+    super({
+      name: "PolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteCorsPolicyInput {

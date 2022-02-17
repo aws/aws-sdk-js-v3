@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { RbinServiceException as __BaseException } from "./RbinServiceException";
 
 /**
  * <p>Information about the resource tags used to identify resources that are retained by the retention
@@ -185,10 +188,22 @@ export namespace CreateRuleResponse {
 /**
  * <p>The service could not respond to the request due to an internal problem.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ServiceQuotaExceededExceptionReason {
@@ -198,14 +213,27 @@ export enum ServiceQuotaExceededExceptionReason {
 /**
  * <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the exception.</p>
    */
   Reason?: ServiceQuotaExceededExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export enum ValidationExceptionReason {
@@ -216,14 +244,27 @@ export enum ValidationExceptionReason {
 /**
  * <p>One or more of the parameters in the request is not valid.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the exception.</p>
    */
   Reason?: ValidationExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export interface DeleteRuleRequest {
@@ -260,14 +301,27 @@ export enum ResourceNotFoundExceptionReason {
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p>The reason for the exception.</p>
    */
   Reason?: ResourceNotFoundExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
 }
 
 export interface GetRuleRequest {

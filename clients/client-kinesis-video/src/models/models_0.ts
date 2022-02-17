@@ -1,31 +1,70 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoServiceException";
 
 /**
  * <p>You do not have required permissions to perform this operation.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You have reached the maximum limit of active signaling channels for this AWS account
  *             in this region.</p>
  */
-export interface AccountChannelLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "AccountChannelLimitExceededException";
-  $fault: "client";
+export class AccountChannelLimitExceededException extends __BaseException {
+  readonly name: "AccountChannelLimitExceededException" = "AccountChannelLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountChannelLimitExceededException, __BaseException>) {
+    super({
+      name: "AccountChannelLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountChannelLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The number of streams created for the account is too high.</p>
  */
-export interface AccountStreamLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "AccountStreamLimitExceededException";
-  $fault: "client";
+export class AccountStreamLimitExceededException extends __BaseException {
+  readonly name: "AccountStreamLimitExceededException" = "AccountStreamLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountStreamLimitExceededException, __BaseException>) {
+    super({
+      name: "AccountStreamLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountStreamLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum APIName {
@@ -166,10 +205,22 @@ export enum ChannelRole {
  * <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
  *             allowed client calls. Try making the call later.</p>
  */
-export interface ClientLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ClientLimitExceededException";
-  $fault: "client";
+export class ClientLimitExceededException extends __BaseException {
+  readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClientLimitExceededException, __BaseException>) {
+    super({
+      name: "ClientLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -249,29 +300,65 @@ export namespace CreateSignalingChannelOutput {
 /**
  * <p>The value for this input parameter is invalid.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The signaling channel is currently not available for this operation.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You have exceeded the limit of tags that you can associate with the resource.
  *             Kinesis video streams support up to 50 tags. </p>
  */
-export interface TagsPerResourceExceededLimitException extends __SmithyException, $MetadataBearer {
-  name: "TagsPerResourceExceededLimitException";
-  $fault: "client";
+export class TagsPerResourceExceededLimitException extends __BaseException {
+  readonly name: "TagsPerResourceExceededLimitException" = "TagsPerResourceExceededLimitException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagsPerResourceExceededLimitException, __BaseException>) {
+    super({
+      name: "TagsPerResourceExceededLimitException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagsPerResourceExceededLimitException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateStreamInput {
@@ -359,19 +446,43 @@ export namespace CreateStreamOutput {
  * <p>Not implemented.
  *             </p>
  */
-export interface DeviceStreamLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "DeviceStreamLimitExceededException";
-  $fault: "client";
+export class DeviceStreamLimitExceededException extends __BaseException {
+  readonly name: "DeviceStreamLimitExceededException" = "DeviceStreamLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeviceStreamLimitExceededException, __BaseException>) {
+    super({
+      name: "DeviceStreamLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeviceStreamLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Not implemented.</p>
  */
-export interface InvalidDeviceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDeviceException";
-  $fault: "client";
+export class InvalidDeviceException extends __BaseException {
+  readonly name: "InvalidDeviceException" = "InvalidDeviceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDeviceException, __BaseException>) {
+    super({
+      name: "InvalidDeviceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDeviceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteSignalingChannelInput {
@@ -412,10 +523,22 @@ export namespace DeleteSignalingChannelOutput {
 /**
  * <p>Amazon Kinesis Video Streams can't find the stream that you specified.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -423,10 +546,22 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
  *             version, use the <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_DescribeStream.html">DescribeStream</a>
  *             API.</p>
  */
-export interface VersionMismatchException extends __SmithyException, $MetadataBearer {
-  name: "VersionMismatchException";
-  $fault: "client";
+export class VersionMismatchException extends __BaseException {
+  readonly name: "VersionMismatchException" = "VersionMismatchException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VersionMismatchException, __BaseException>) {
+    super({
+      name: "VersionMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VersionMismatchException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteStreamInput {
@@ -468,10 +603,22 @@ export namespace DeleteStreamOutput {
 /**
  * <p>The caller is not authorized to perform this operation.</p>
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeSignalingChannelInput {
@@ -757,10 +904,22 @@ export namespace GetSignalingChannelEndpointOutput {
 /**
  * <p>The format of the <code>StreamARN</code> is invalid.</p>
  */
-export interface InvalidResourceFormatException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceFormatException";
-  $fault: "client";
+export class InvalidResourceFormatException extends __BaseException {
+  readonly name: "InvalidResourceFormatException" = "InvalidResourceFormatException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceFormatException, __BaseException>) {
+    super({
+      name: "InvalidResourceFormatException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceFormatException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListSignalingChannelsInput {

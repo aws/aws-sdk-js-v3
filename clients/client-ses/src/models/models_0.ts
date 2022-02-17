@@ -1,13 +1,26 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SESServiceException as __BaseException } from "./SESServiceException";
 
 /**
  * <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>
  *         <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>
  */
-export interface AccountSendingPausedException extends __SmithyException, $MetadataBearer {
-  name: "AccountSendingPausedException";
-  $fault: "client";
-  message?: string;
+export class AccountSendingPausedException extends __BaseException {
+  readonly name: "AccountSendingPausedException" = "AccountSendingPausedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountSendingPausedException, __BaseException>) {
+    super({
+      name: "AccountSendingPausedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountSendingPausedException.prototype);
+  }
 }
 
 /**
@@ -42,16 +55,27 @@ export namespace AddHeaderAction {
 /**
  * <p>Indicates that a resource could not be created because of a naming conflict.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that a resource could not be created because the resource name already
    *             exists.</p>
    */
   Name?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 export enum BehaviorOnMXFailure {
@@ -575,16 +599,27 @@ export namespace BulkEmailDestinationStatus {
 /**
  * <p>Indicates that the delete operation could not be completed.</p>
  */
-export interface CannotDeleteException extends __SmithyException, $MetadataBearer {
-  name: "CannotDeleteException";
-  $fault: "client";
+export class CannotDeleteException extends __BaseException {
+  readonly name: "CannotDeleteException" = "CannotDeleteException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that a resource could not be deleted because no resource with the specified
    *             name exists.</p>
    */
   Name?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotDeleteException, __BaseException>) {
+    super({
+      name: "CannotDeleteException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotDeleteException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 /**
@@ -643,24 +678,45 @@ export namespace CloneReceiptRuleSetResponse {
  *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
  *             Guide</a>.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the provided receipt rule set does not exist.</p>
  */
-export interface RuleSetDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "RuleSetDoesNotExistException";
-  $fault: "client";
+export class RuleSetDoesNotExistException extends __BaseException {
+  readonly name: "RuleSetDoesNotExistException" = "RuleSetDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the named receipt rule set does not exist.</p>
    */
   Name?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RuleSetDoesNotExistException, __BaseException>) {
+    super({
+      name: "RuleSetDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuleSetDoesNotExistException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 export enum DimensionValueSource {
@@ -785,15 +841,26 @@ export namespace ConfigurationSet {
  * <p>Indicates that the configuration set could not be created because of a naming
  *             conflict.</p>
  */
-export interface ConfigurationSetAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ConfigurationSetAlreadyExistsException";
-  $fault: "client";
+export class ConfigurationSetAlreadyExistsException extends __BaseException {
+  readonly name: "ConfigurationSetAlreadyExistsException" = "ConfigurationSetAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConfigurationSetAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ConfigurationSetAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConfigurationSetAlreadyExistsException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 export enum ConfigurationSetAttribute {
@@ -806,30 +873,52 @@ export enum ConfigurationSetAttribute {
 /**
  * <p>Indicates that the configuration set does not exist.</p>
  */
-export interface ConfigurationSetDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ConfigurationSetDoesNotExistException";
-  $fault: "client";
+export class ConfigurationSetDoesNotExistException extends __BaseException {
+  readonly name: "ConfigurationSetDoesNotExistException" = "ConfigurationSetDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the configuration set does not exist.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConfigurationSetDoesNotExistException, __BaseException>) {
+    super({
+      name: "ConfigurationSetDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConfigurationSetDoesNotExistException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
  * <p>Indicates that email sending is disabled for the configuration set.</p>
  *         <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
  */
-export interface ConfigurationSetSendingPausedException extends __SmithyException, $MetadataBearer {
-  name: "ConfigurationSetSendingPausedException";
-  $fault: "client";
+export class ConfigurationSetSendingPausedException extends __BaseException {
+  readonly name: "ConfigurationSetSendingPausedException" = "ConfigurationSetSendingPausedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The name of the configuration set for which email sending is disabled.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConfigurationSetSendingPausedException, __BaseException>) {
+    super({
+      name: "ConfigurationSetSendingPausedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConfigurationSetSendingPausedException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
@@ -872,10 +961,20 @@ export namespace CreateConfigurationSetResponse {
  * <p>Indicates that the configuration set is invalid. See the error message for
  *             details.</p>
  */
-export interface InvalidConfigurationSetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConfigurationSetException";
-  $fault: "client";
-  message?: string;
+export class InvalidConfigurationSetException extends __BaseException {
+  readonly name: "InvalidConfigurationSetException" = "InvalidConfigurationSetException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidConfigurationSetException, __BaseException>) {
+    super({
+      name: "InvalidConfigurationSetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConfigurationSetException.prototype);
+  }
 }
 
 /**
@@ -1060,9 +1159,9 @@ export namespace CreateConfigurationSetEventDestinationResponse {
  * <p>Indicates that the event destination could not be created because of a naming
  *             conflict.</p>
  */
-export interface EventDestinationAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "EventDestinationAlreadyExistsException";
-  $fault: "client";
+export class EventDestinationAlreadyExistsException extends __BaseException {
+  readonly name: "EventDestinationAlreadyExistsException" = "EventDestinationAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the configuration set does not exist.</p>
    */
@@ -1073,16 +1172,28 @@ export interface EventDestinationAlreadyExistsException extends __SmithyExceptio
    */
   EventDestinationName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDestinationAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EventDestinationAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDestinationAlreadyExistsException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
  * <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
  *             details.</p>
  */
-export interface InvalidCloudWatchDestinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCloudWatchDestinationException";
-  $fault: "client";
+export class InvalidCloudWatchDestinationException extends __BaseException {
+  readonly name: "InvalidCloudWatchDestinationException" = "InvalidCloudWatchDestinationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the configuration set does not exist.</p>
    */
@@ -1093,16 +1204,28 @@ export interface InvalidCloudWatchDestinationException extends __SmithyException
    */
   EventDestinationName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCloudWatchDestinationException, __BaseException>) {
+    super({
+      name: "InvalidCloudWatchDestinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCloudWatchDestinationException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
  * <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
  *             message for details.</p>
  */
-export interface InvalidFirehoseDestinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFirehoseDestinationException";
-  $fault: "client";
+export class InvalidFirehoseDestinationException extends __BaseException {
+  readonly name: "InvalidFirehoseDestinationException" = "InvalidFirehoseDestinationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the configuration set does not exist.</p>
    */
@@ -1113,16 +1236,28 @@ export interface InvalidFirehoseDestinationException extends __SmithyException, 
    */
   EventDestinationName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidFirehoseDestinationException, __BaseException>) {
+    super({
+      name: "InvalidFirehoseDestinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFirehoseDestinationException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
  * <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
  *             invalid. See the error message for details.</p>
  */
-export interface InvalidSNSDestinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSNSDestinationException";
-  $fault: "client";
+export class InvalidSNSDestinationException extends __BaseException {
+  readonly name: "InvalidSNSDestinationException" = "InvalidSNSDestinationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the configuration set does not exist.</p>
    */
@@ -1133,7 +1268,19 @@ export interface InvalidSNSDestinationException extends __SmithyException, $Meta
    */
   EventDestinationName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSNSDestinationException, __BaseException>) {
+    super({
+      name: "InvalidSNSDestinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSNSDestinationException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
@@ -1217,26 +1364,47 @@ export namespace CreateConfigurationSetTrackingOptionsResponse {
  *             </li>
  *          </ul>
  */
-export interface InvalidTrackingOptionsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTrackingOptionsException";
-  $fault: "client";
-  message?: string;
+export class InvalidTrackingOptionsException extends __BaseException {
+  readonly name: "InvalidTrackingOptionsException" = "InvalidTrackingOptionsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTrackingOptionsException, __BaseException>) {
+    super({
+      name: "InvalidTrackingOptionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTrackingOptionsException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the configuration set you specified already contains a TrackingOptions
  *             object.</p>
  */
-export interface TrackingOptionsAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "TrackingOptionsAlreadyExistsException";
-  $fault: "client";
+export class TrackingOptionsAlreadyExistsException extends __BaseException {
+  readonly name: "TrackingOptionsAlreadyExistsException" = "TrackingOptionsAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that a TrackingOptions object already exists in the specified configuration
    *             set.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrackingOptionsAlreadyExistsException, __BaseException>) {
+    super({
+      name: "TrackingOptionsAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrackingOptionsAlreadyExistsException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
@@ -1291,42 +1459,75 @@ export namespace CreateCustomVerificationEmailTemplateRequest {
 /**
  * <p>Indicates that custom verification email template provided content is invalid.</p>
  */
-export interface CustomVerificationEmailInvalidContentException extends __SmithyException, $MetadataBearer {
-  name: "CustomVerificationEmailInvalidContentException";
-  $fault: "client";
-  message?: string;
+export class CustomVerificationEmailInvalidContentException extends __BaseException {
+  readonly name: "CustomVerificationEmailInvalidContentException" = "CustomVerificationEmailInvalidContentException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomVerificationEmailInvalidContentException, __BaseException>) {
+    super({
+      name: "CustomVerificationEmailInvalidContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomVerificationEmailInvalidContentException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that a custom verification email template with the name you specified
  *             already exists.</p>
  */
-export interface CustomVerificationEmailTemplateAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "CustomVerificationEmailTemplateAlreadyExistsException";
-  $fault: "client";
+export class CustomVerificationEmailTemplateAlreadyExistsException extends __BaseException {
+  readonly name: "CustomVerificationEmailTemplateAlreadyExistsException" =
+    "CustomVerificationEmailTemplateAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the provided custom verification email template with the specified
    *             template name already exists.</p>
    */
   CustomVerificationEmailTemplateName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomVerificationEmailTemplateAlreadyExistsException, __BaseException>) {
+    super({
+      name: "CustomVerificationEmailTemplateAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomVerificationEmailTemplateAlreadyExistsException.prototype);
+    this.CustomVerificationEmailTemplateName = opts.CustomVerificationEmailTemplateName;
+  }
 }
 
 /**
  * <p>Indicates that the sender address specified for a custom verification email is not
  *             verified, and is therefore not eligible to send the custom verification email. </p>
  */
-export interface FromEmailAddressNotVerifiedException extends __SmithyException, $MetadataBearer {
-  name: "FromEmailAddressNotVerifiedException";
-  $fault: "client";
+export class FromEmailAddressNotVerifiedException extends __BaseException {
+  readonly name: "FromEmailAddressNotVerifiedException" = "FromEmailAddressNotVerifiedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the from email address associated with the custom verification email
    *             template is not verified.</p>
    */
   FromEmailAddress?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FromEmailAddressNotVerifiedException, __BaseException>) {
+    super({
+      name: "FromEmailAddressNotVerifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FromEmailAddressNotVerifiedException.prototype);
+    this.FromEmailAddress = opts.FromEmailAddress;
+  }
 }
 
 export enum ReceiptFilterPolicy {
@@ -1876,15 +2077,26 @@ export namespace CreateReceiptRuleResponse {
  *             about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidLambdaFunctionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLambdaFunctionException";
-  $fault: "client";
+export class InvalidLambdaFunctionException extends __BaseException {
+  readonly name: "InvalidLambdaFunctionException" = "InvalidLambdaFunctionException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the ARN of the function was not found.</p>
    */
   FunctionArn?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidLambdaFunctionException, __BaseException>) {
+    super({
+      name: "InvalidLambdaFunctionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLambdaFunctionException.prototype);
+    this.FunctionArn = opts.FunctionArn;
+  }
 }
 
 /**
@@ -1893,15 +2105,26 @@ export interface InvalidLambdaFunctionException extends __SmithyException, $Meta
  *             information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidS3ConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidS3ConfigurationException";
-  $fault: "client";
+export class InvalidS3ConfigurationException extends __BaseException {
+  readonly name: "InvalidS3ConfigurationException" = "InvalidS3ConfigurationException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicated that the S3 Bucket was not found.</p>
    */
   Bucket?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidS3ConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidS3ConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidS3ConfigurationException.prototype);
+    this.Bucket = opts.Bucket;
+  }
 }
 
 /**
@@ -1910,29 +2133,51 @@ export interface InvalidS3ConfigurationException extends __SmithyException, $Met
  *             permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES
  *                 Developer Guide</a>.</p>
  */
-export interface InvalidSnsTopicException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSnsTopicException";
-  $fault: "client";
+export class InvalidSnsTopicException extends __BaseException {
+  readonly name: "InvalidSnsTopicException" = "InvalidSnsTopicException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the topic does not exist.</p>
    */
   Topic?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSnsTopicException, __BaseException>) {
+    super({
+      name: "InvalidSnsTopicException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSnsTopicException.prototype);
+    this.Topic = opts.Topic;
+  }
 }
 
 /**
  * <p>Indicates that the provided receipt rule does not exist.</p>
  */
-export interface RuleDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "RuleDoesNotExistException";
-  $fault: "client";
+export class RuleDoesNotExistException extends __BaseException {
+  readonly name: "RuleDoesNotExistException" = "RuleDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the named receipt rule does not exist.</p>
    */
   Name?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RuleDoesNotExistException, __BaseException>) {
+    super({
+      name: "RuleDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RuleDoesNotExistException.prototype);
+    this.Name = opts.Name;
+  }
 }
 
 /**
@@ -2056,11 +2301,22 @@ export namespace CreateTemplateResponse {
  * <p>Indicates that the template that you specified could not be rendered. This issue may
  *             occur when a template refers to a partial that does not exist.</p>
  */
-export interface InvalidTemplateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTemplateException";
-  $fault: "client";
+export class InvalidTemplateException extends __BaseException {
+  readonly name: "InvalidTemplateException" = "InvalidTemplateException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTemplateException, __BaseException>) {
+    super({
+      name: "InvalidTemplateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTemplateException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
 export enum CustomMailFromStatus {
@@ -2115,15 +2371,27 @@ export namespace CustomVerificationEmailTemplate {
  * <p>Indicates that a custom verification email template with the name you specified does
  *             not exist.</p>
  */
-export interface CustomVerificationEmailTemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "CustomVerificationEmailTemplateDoesNotExistException";
-  $fault: "client";
+export class CustomVerificationEmailTemplateDoesNotExistException extends __BaseException {
+  readonly name: "CustomVerificationEmailTemplateDoesNotExistException" =
+    "CustomVerificationEmailTemplateDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the provided custom verification email template does not exist.</p>
    */
   CustomVerificationEmailTemplateName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomVerificationEmailTemplateDoesNotExistException, __BaseException>) {
+    super({
+      name: "CustomVerificationEmailTemplateDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomVerificationEmailTemplateDoesNotExistException.prototype);
+    this.CustomVerificationEmailTemplateName = opts.CustomVerificationEmailTemplateName;
+  }
 }
 
 /**
@@ -2207,9 +2475,9 @@ export namespace DeleteConfigurationSetEventDestinationResponse {
 /**
  * <p>Indicates that the event destination does not exist.</p>
  */
-export interface EventDestinationDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "EventDestinationDoesNotExistException";
-  $fault: "client";
+export class EventDestinationDoesNotExistException extends __BaseException {
+  readonly name: "EventDestinationDoesNotExistException" = "EventDestinationDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that the configuration set does not exist.</p>
    */
@@ -2220,7 +2488,19 @@ export interface EventDestinationDoesNotExistException extends __SmithyException
    */
   EventDestinationName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDestinationDoesNotExistException, __BaseException>) {
+    super({
+      name: "EventDestinationDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDestinationDoesNotExistException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+    this.EventDestinationName = opts.EventDestinationName;
+  }
 }
 
 /**
@@ -2261,16 +2541,27 @@ export namespace DeleteConfigurationSetTrackingOptionsResponse {
 /**
  * <p>Indicates that the TrackingOptions object you specified does not exist.</p>
  */
-export interface TrackingOptionsDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "TrackingOptionsDoesNotExistException";
-  $fault: "client";
+export class TrackingOptionsDoesNotExistException extends __BaseException {
+  readonly name: "TrackingOptionsDoesNotExistException" = "TrackingOptionsDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Indicates that a TrackingOptions object does not exist in the specified configuration
    *             set.</p>
    */
   ConfigurationSetName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrackingOptionsDoesNotExistException, __BaseException>) {
+    super({
+      name: "TrackingOptionsDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrackingOptionsDoesNotExistException.prototype);
+    this.ConfigurationSetName = opts.ConfigurationSetName;
+  }
 }
 
 /**
@@ -3461,11 +3752,22 @@ export namespace GetTemplateResponse {
  * <p>Indicates that the Template object you specified does not exist in your Amazon SES
  *             account.</p>
  */
-export interface TemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "TemplateDoesNotExistException";
-  $fault: "client";
+export class TemplateDoesNotExistException extends __BaseException {
+  readonly name: "TemplateDoesNotExistException" = "TemplateDoesNotExistException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TemplateDoesNotExistException, __BaseException>) {
+    super({
+      name: "TemplateDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TemplateDoesNotExistException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
 export type IdentityType = "Domain" | "EmailAddress";
@@ -3473,31 +3775,62 @@ export type IdentityType = "Domain" | "EmailAddress";
 /**
  * <p>Indicates that provided delivery option is invalid.</p>
  */
-export interface InvalidDeliveryOptionsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDeliveryOptionsException";
-  $fault: "client";
-  message?: string;
+export class InvalidDeliveryOptionsException extends __BaseException {
+  readonly name: "InvalidDeliveryOptionsException" = "InvalidDeliveryOptionsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDeliveryOptionsException, __BaseException>) {
+    super({
+      name: "InvalidDeliveryOptionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDeliveryOptionsException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that the provided policy is invalid. Check the error stack for more
  *             information about what caused the error.</p>
  */
-export interface InvalidPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPolicyException";
-  $fault: "client";
-  message?: string;
+export class InvalidPolicyException extends __BaseException {
+  readonly name: "InvalidPolicyException" = "InvalidPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyException, __BaseException>) {
+    super({
+      name: "InvalidPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyException.prototype);
+  }
 }
 
 /**
  * <p>Indicates that one or more of the replacement values you provided is invalid. This
  *             error may occur when the TemplateData object contains invalid JSON.</p>
  */
-export interface InvalidRenderingParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRenderingParameterException";
-  $fault: "client";
+export class InvalidRenderingParameterException extends __BaseException {
+  readonly name: "InvalidRenderingParameterException" = "InvalidRenderingParameterException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRenderingParameterException, __BaseException>) {
+    super({
+      name: "InvalidRenderingParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRenderingParameterException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
 /**
@@ -3903,10 +4236,20 @@ export namespace ListVerifiedEmailAddressesResponse {
  *             custom MAIL FROM domain settings for an identity, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
-export interface MailFromDomainNotVerifiedException extends __SmithyException, $MetadataBearer {
-  name: "MailFromDomainNotVerifiedException";
-  $fault: "client";
-  message?: string;
+export class MailFromDomainNotVerifiedException extends __BaseException {
+  readonly name: "MailFromDomainNotVerifiedException" = "MailFromDomainNotVerifiedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MailFromDomainNotVerifiedException, __BaseException>) {
+    super({
+      name: "MailFromDomainNotVerifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MailFromDomainNotVerifiedException.prototype);
+  }
 }
 
 /**
@@ -3973,10 +4316,20 @@ export namespace MessageDsn {
  * <p>Indicates that the action failed, and the message could not be sent. Check the error
  *             stack for more information about what caused the error.</p>
  */
-export interface MessageRejected extends __SmithyException, $MetadataBearer {
-  name: "MessageRejected";
-  $fault: "client";
-  message?: string;
+export class MessageRejected extends __BaseException {
+  readonly name: "MessageRejected" = "MessageRejected";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
+    super({
+      name: "MessageRejected",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MessageRejected.prototype);
+  }
 }
 
 /**
@@ -3984,11 +4337,22 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
  *             not specified. Ensure that the TemplateData object contains references to all of the
  *             replacement tags in the specified template.</p>
  */
-export interface MissingRenderingAttributeException extends __SmithyException, $MetadataBearer {
-  name: "MissingRenderingAttributeException";
-  $fault: "client";
+export class MissingRenderingAttributeException extends __BaseException {
+  readonly name: "MissingRenderingAttributeException" = "MissingRenderingAttributeException";
+  readonly $fault: "client" = "client";
   TemplateName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingRenderingAttributeException, __BaseException>) {
+    super({
+      name: "MissingRenderingAttributeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingRenderingAttributeException.prototype);
+    this.TemplateName = opts.TemplateName;
+  }
 }
 
 export type NotificationType = "Bounce" | "Complaint" | "Delivery";
@@ -3996,10 +4360,20 @@ export type NotificationType = "Bounce" | "Complaint" | "Delivery";
 /**
  * <p>Indicates that the account has not been granted production access.</p>
  */
-export interface ProductionAccessNotGrantedException extends __SmithyException, $MetadataBearer {
-  name: "ProductionAccessNotGrantedException";
-  $fault: "client";
-  message?: string;
+export class ProductionAccessNotGrantedException extends __BaseException {
+  readonly name: "ProductionAccessNotGrantedException" = "ProductionAccessNotGrantedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ProductionAccessNotGrantedException, __BaseException>) {
+    super({
+      name: "ProductionAccessNotGrantedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProductionAccessNotGrantedException.prototype);
+  }
 }
 
 /**

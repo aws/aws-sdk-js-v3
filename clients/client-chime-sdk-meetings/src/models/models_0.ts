@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ChimeSDKMeetingsServiceException as __BaseException } from "./ChimeSDKMeetingsServiceException";
 
 /**
  * <p>An Amazon Chime SDK meeting attendee. Includes a unique
@@ -71,15 +73,29 @@ export namespace AudioFeatures {
 /**
  * <p>The input parameters don't match the service's restrictions.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
@@ -182,51 +198,93 @@ export namespace BatchCreateAttendeeResponse {
 /**
  * <p>The client is permanently forbidden from making the request.</p>
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The request exceeds the resource limit.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>One or more of the resources in the request does not exist in the system.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**
  * <p>The service is currently unavailable.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   Code?: string;
   Message?: string;
   /**
@@ -238,20 +296,49 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p>The number of seconds the caller should wait before retrying.</p>
    */
   RetryAfterSeconds?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
 }
 
 /**
  * <p>The user isn't authorized to request a resource.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface CreateAttendeeRequest {
@@ -296,15 +383,29 @@ export namespace CreateAttendeeResponse {
 /**
  * <p>The request was well-formed but was unable to be followed due to semantic errors.</p>
  */
-export interface UnprocessableEntityException extends __SmithyException, $MetadataBearer {
-  name: "UnprocessableEntityException";
-  $fault: "client";
+export class UnprocessableEntityException extends __BaseException {
+  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    */
   RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
+    super({
+      name: "UnprocessableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 /**

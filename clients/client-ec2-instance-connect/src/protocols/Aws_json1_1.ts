@@ -1,12 +1,14 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
+import {
+  decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -14,6 +16,7 @@ import {
   SendSerialConsoleSSHPublicKeyCommandOutput,
 } from "../commands/SendSerialConsoleSSHPublicKeyCommand";
 import { SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput } from "../commands/SendSSHPublicKeyCommand";
+import { EC2InstanceConnectServiceException as __BaseException } from "../models/EC2InstanceConnectServiceException";
 import {
   AuthException,
   EC2InstanceNotFoundException,
@@ -82,105 +85,49 @@ const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthException":
     case "com.amazonaws.ec2instanceconnect#AuthException":
-      response = {
-        ...(await deserializeAws_json1_1AuthExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthExceptionResponse(parsedOutput, context);
     case "EC2InstanceNotFoundException":
     case "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(parsedOutput, context);
     case "EC2InstanceStateInvalidException":
     case "com.amazonaws.ec2instanceconnect#EC2InstanceStateInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse(parsedOutput, context);
     case "EC2InstanceTypeInvalidException":
     case "com.amazonaws.ec2instanceconnect#EC2InstanceTypeInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EC2InstanceTypeInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EC2InstanceTypeInvalidExceptionResponse(parsedOutput, context);
     case "InvalidArgsException":
     case "com.amazonaws.ec2instanceconnect#InvalidArgsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
     case "SerialConsoleAccessDisabledException":
     case "com.amazonaws.ec2instanceconnect#SerialConsoleAccessDisabledException":
-      response = {
-        ...(await deserializeAws_json1_1SerialConsoleAccessDisabledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1SerialConsoleAccessDisabledExceptionResponse(parsedOutput, context);
     case "SerialConsoleSessionLimitExceededException":
     case "com.amazonaws.ec2instanceconnect#SerialConsoleSessionLimitExceededException":
-      response = {
-        ...(await deserializeAws_json1_1SerialConsoleSessionLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1SerialConsoleSessionLimitExceededExceptionResponse(parsedOutput, context);
     case "SerialConsoleSessionUnavailableException":
     case "com.amazonaws.ec2instanceconnect#SerialConsoleSessionUnavailableException":
-      response = {
-        ...(await deserializeAws_json1_1SerialConsoleSessionUnavailableExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1SerialConsoleSessionUnavailableExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.ec2instanceconnect#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ec2instanceconnect#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1SendSSHPublicKeyCommand = async (
@@ -208,73 +155,37 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthException":
     case "com.amazonaws.ec2instanceconnect#AuthException":
-      response = {
-        ...(await deserializeAws_json1_1AuthExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1AuthExceptionResponse(parsedOutput, context);
     case "EC2InstanceNotFoundException":
     case "com.amazonaws.ec2instanceconnect#EC2InstanceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse(parsedOutput, context);
     case "EC2InstanceStateInvalidException":
     case "com.amazonaws.ec2instanceconnect#EC2InstanceStateInvalidException":
-      response = {
-        ...(await deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse(parsedOutput, context);
     case "InvalidArgsException":
     case "com.amazonaws.ec2instanceconnect#InvalidArgsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidArgsExceptionResponse(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.ec2instanceconnect#ServiceException":
-      response = {
-        ...(await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ec2instanceconnect#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1AuthExceptionResponse = async (
@@ -283,13 +194,11 @@ const deserializeAws_json1_1AuthExceptionResponse = async (
 ): Promise<AuthException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1AuthException(body, context);
-  const contents: AuthException = {
-    name: "AuthException",
-    $fault: "client",
+  const exception = new AuthException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse = async (
@@ -298,13 +207,11 @@ const deserializeAws_json1_1EC2InstanceNotFoundExceptionResponse = async (
 ): Promise<EC2InstanceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EC2InstanceNotFoundException(body, context);
-  const contents: EC2InstanceNotFoundException = {
-    name: "EC2InstanceNotFoundException",
-    $fault: "client",
+  const exception = new EC2InstanceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse = async (
@@ -313,13 +220,11 @@ const deserializeAws_json1_1EC2InstanceStateInvalidExceptionResponse = async (
 ): Promise<EC2InstanceStateInvalidException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EC2InstanceStateInvalidException(body, context);
-  const contents: EC2InstanceStateInvalidException = {
-    name: "EC2InstanceStateInvalidException",
-    $fault: "client",
+  const exception = new EC2InstanceStateInvalidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1EC2InstanceTypeInvalidExceptionResponse = async (
@@ -328,13 +233,11 @@ const deserializeAws_json1_1EC2InstanceTypeInvalidExceptionResponse = async (
 ): Promise<EC2InstanceTypeInvalidException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1EC2InstanceTypeInvalidException(body, context);
-  const contents: EC2InstanceTypeInvalidException = {
-    name: "EC2InstanceTypeInvalidException",
-    $fault: "client",
+  const exception = new EC2InstanceTypeInvalidException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
@@ -343,13 +246,11 @@ const deserializeAws_json1_1InvalidArgsExceptionResponse = async (
 ): Promise<InvalidArgsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidArgsException(body, context);
-  const contents: InvalidArgsException = {
-    name: "InvalidArgsException",
-    $fault: "client",
+  const exception = new InvalidArgsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1SerialConsoleAccessDisabledExceptionResponse = async (
@@ -358,13 +259,11 @@ const deserializeAws_json1_1SerialConsoleAccessDisabledExceptionResponse = async
 ): Promise<SerialConsoleAccessDisabledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SerialConsoleAccessDisabledException(body, context);
-  const contents: SerialConsoleAccessDisabledException = {
-    name: "SerialConsoleAccessDisabledException",
-    $fault: "client",
+  const exception = new SerialConsoleAccessDisabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1SerialConsoleSessionLimitExceededExceptionResponse = async (
@@ -373,13 +272,11 @@ const deserializeAws_json1_1SerialConsoleSessionLimitExceededExceptionResponse =
 ): Promise<SerialConsoleSessionLimitExceededException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SerialConsoleSessionLimitExceededException(body, context);
-  const contents: SerialConsoleSessionLimitExceededException = {
-    name: "SerialConsoleSessionLimitExceededException",
-    $fault: "client",
+  const exception = new SerialConsoleSessionLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1SerialConsoleSessionUnavailableExceptionResponse = async (
@@ -388,13 +285,11 @@ const deserializeAws_json1_1SerialConsoleSessionUnavailableExceptionResponse = a
 ): Promise<SerialConsoleSessionUnavailableException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1SerialConsoleSessionUnavailableException(body, context);
-  const contents: SerialConsoleSessionUnavailableException = {
-    name: "SerialConsoleSessionUnavailableException",
-    $fault: "server",
+  const exception = new SerialConsoleSessionUnavailableException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServiceExceptionResponse = async (
@@ -403,13 +298,11 @@ const deserializeAws_json1_1ServiceExceptionResponse = async (
 ): Promise<ServiceException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceException(body, context);
-  const contents: ServiceException = {
-    name: "ServiceException",
-    $fault: "server",
+  const exception = new ServiceException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ThrottlingExceptionResponse = async (
@@ -418,13 +311,11 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1SendSerialConsoleSSHPublicKeyRequest = (

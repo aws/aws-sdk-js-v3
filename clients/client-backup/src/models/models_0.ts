@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { BackupServiceException as __BaseException } from "./BackupServiceException";
 
 /**
  * <p>A list of backup options for each resource type.</p>
@@ -42,9 +44,9 @@ export namespace AdvancedBackupSetting {
 /**
  * <p>The required resource already exists.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -66,6 +68,23 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.CreatorRequestId = opts.CreatorRequestId;
+    this.Arn = opts.Arn;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 /**
@@ -1089,9 +1108,9 @@ export namespace CalculatedLifecycle {
  * <p>Backup can't perform the action that you requested until it finishes
  *          performing a previous action. Try again later.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -1103,6 +1122,21 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 /**
@@ -1363,9 +1397,9 @@ export namespace CreateBackupPlanOutput {
  * <p>Indicates that something is wrong with a parameter's value. For example, the value is
  *          out of range.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -1377,15 +1411,30 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 /**
  * <p>A limit in the request has been exceeded; for example, a maximum number of items allowed
  *          in a request.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -1397,14 +1446,29 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 /**
  * <p>Indicates that a required parameter is missing.</p>
  */
-export interface MissingParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "MissingParameterValueException";
-  $fault: "client";
+export class MissingParameterValueException extends __BaseException {
+  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -1416,14 +1480,29 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
+    super({
+      name: "MissingParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 /**
  * <p>The request failed due to a temporary failure of the server.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   Code?: string;
   Message?: string;
   /**
@@ -1435,6 +1514,21 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 export interface CreateBackupSelectionInput {
@@ -1874,9 +1968,9 @@ export namespace DeleteBackupPlanOutput {
  * <p>Indicates that something is wrong with the input to the request. For example, a
  *          parameter is of the wrong type.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -1888,14 +1982,29 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 /**
  * <p>A resource that is required for the action doesn't exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -1907,6 +2016,21 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 export interface DeleteBackupSelectionInput {
@@ -2048,9 +2172,9 @@ export namespace DeleteRecoveryPointInput {
  * <p>Backup is already performing an action on this recovery point. It can't
  *          perform the action you requested until the first action finishes. Try again later.</p>
  */
-export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceStateException";
-  $fault: "client";
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
   Code?: string;
   Message?: string;
   /**
@@ -2062,6 +2186,21 @@ export interface InvalidResourceStateException extends __SmithyException, $Metad
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 export interface DeleteReportPlanInput {
@@ -2083,9 +2222,9 @@ export namespace DeleteReportPlanInput {
 /**
  * <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
  */
-export interface DependencyFailureException extends __SmithyException, $MetadataBearer {
-  name: "DependencyFailureException";
-  $fault: "server";
+export class DependencyFailureException extends __BaseException {
+  readonly name: "DependencyFailureException" = "DependencyFailureException";
+  readonly $fault: "server" = "server";
   Code?: string;
   Message?: string;
   /**
@@ -2097,6 +2236,21 @@ export interface DependencyFailureException extends __SmithyException, $Metadata
    * <p></p>
    */
   Context?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyFailureException, __BaseException>) {
+    super({
+      name: "DependencyFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyFailureException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+    this.Type = opts.Type;
+    this.Context = opts.Context;
+  }
 }
 
 export interface DescribeBackupJobInput {

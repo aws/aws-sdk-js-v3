@@ -1,14 +1,28 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ACMServiceException as __BaseException } from "./ACMServiceException";
 
 /**
  * <p>You do not have access
  *       required to perform this action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -66,67 +80,137 @@ export namespace AddTagsToCertificateRequest {
 /**
  * <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  */
-export interface InvalidArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArnException";
-  $fault: "client";
-  message?: string;
+export class InvalidArnException extends __BaseException {
+  readonly name: "InvalidArnException" = "InvalidArnException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
+    super({
+      name: "InvalidArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArnException.prototype);
+  }
 }
 
 /**
  * <p>An input parameter was invalid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>One or both of the values that make up the key-value pair is not valid. For example, you
  *       cannot specify a tag value that begins with <code>aws:</code>.</p>
  */
-export interface InvalidTagException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagException";
-  $fault: "client";
-  message?: string;
+export class InvalidTagException extends __BaseException {
+  readonly name: "InvalidTagException" = "InvalidTagException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagException, __BaseException>) {
+    super({
+      name: "InvalidTagException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagException.prototype);
+  }
 }
 
 /**
  * <p>The specified certificate cannot be found in the caller's account or the caller's account
  *       cannot be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
  */
-export interface TagPolicyException extends __SmithyException, $MetadataBearer {
-  name: "TagPolicyException";
-  $fault: "client";
-  message?: string;
+export class TagPolicyException extends __BaseException {
+  readonly name: "TagPolicyException" = "TagPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagPolicyException, __BaseException>) {
+    super({
+      name: "TagPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagPolicyException.prototype);
+  }
 }
 
 /**
  * <p>The request was denied
  *       because it exceeded a quota.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 /**
  * <p>The request contains too many tags. Try the request again with fewer tags.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 export enum RecordType {
@@ -711,10 +795,20 @@ export namespace DeleteCertificateRequest {
  * <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the
  *       association and try again.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  message?: string;
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 export interface DescribeCertificateRequest {
@@ -817,10 +911,20 @@ export namespace ExportCertificateResponse {
  * <p>The certificate request is in process and the certificate in your account has not yet been
  *       issued.</p>
  */
-export interface RequestInProgressException extends __SmithyException, $MetadataBearer {
-  name: "RequestInProgressException";
-  $fault: "client";
-  message?: string;
+export class RequestInProgressException extends __BaseException {
+  readonly name: "RequestInProgressException" = "RequestInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestInProgressException, __BaseException>) {
+    super({
+      name: "RequestInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestInProgressException.prototype);
+  }
 }
 
 /**
@@ -966,19 +1070,39 @@ export namespace ImportCertificateResponse {
 /**
  * <p>An ACM quota has been exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>One or more of of request parameters specified is not valid.</p>
  */
-export interface InvalidArgsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgsException";
-  $fault: "client";
-  message?: string;
+export class InvalidArgsException extends __BaseException {
+  readonly name: "InvalidArgsException" = "InvalidArgsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgsException, __BaseException>) {
+    super({
+      name: "InvalidArgsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgsException.prototype);
+  }
 }
 
 /**
@@ -1149,10 +1273,20 @@ export namespace ListTagsForCertificateResponse {
  *       update a resource or configuration that is already being created or updated. Wait for the
  *       previous operation to finish and try again.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 export interface PutAccountConfigurationRequest {
@@ -1186,10 +1320,20 @@ export namespace PutAccountConfigurationRequest {
  * <p>The supplied input
  *       failed to satisfy constraints of an Amazon Web Services service.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 export interface RemoveTagsFromCertificateRequest {
@@ -1245,10 +1389,20 @@ export namespace RenewCertificateRequest {
  * <p>One or more values in the <a>DomainValidationOption</a> structure is
  *       incorrect.</p>
  */
-export interface InvalidDomainValidationOptionsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDomainValidationOptionsException";
-  $fault: "client";
-  message?: string;
+export class InvalidDomainValidationOptionsException extends __BaseException {
+  readonly name: "InvalidDomainValidationOptionsException" = "InvalidDomainValidationOptionsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDomainValidationOptionsException, __BaseException>) {
+    super({
+      name: "InvalidDomainValidationOptionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDomainValidationOptionsException.prototype);
+  }
 }
 
 /**
@@ -1423,10 +1577,20 @@ export namespace RequestCertificateResponse {
 /**
  * <p>Processing has reached an invalid state.</p>
  */
-export interface InvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateException";
-  $fault: "client";
-  message?: string;
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+  }
 }
 
 export interface ResendValidationEmailRequest {

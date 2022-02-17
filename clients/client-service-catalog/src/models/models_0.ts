@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ServiceCatalogServiceException as __BaseException } from "./ServiceCatalogServiceException";
 
 export enum PortfolioShareType {
   AWS_ORGANIZATIONS = "AWS_ORGANIZATIONS",
@@ -77,29 +80,65 @@ export namespace AcceptPortfolioShareOutput {
 /**
  * <p>One or more parameters provided to the operation are not valid.</p>
  */
-export interface InvalidParametersException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParametersException";
-  $fault: "client";
+export class InvalidParametersException extends __BaseException {
+  readonly name: "InvalidParametersException" = "InvalidParametersException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParametersException, __BaseException>) {
+    super({
+      name: "InvalidParametersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParametersException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The current limits of the service would have been exceeded by this operation. Decrease your
  *          resource use or increase your service limits and retry the operation.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum AccessLevelFilterKey {
@@ -212,10 +251,22 @@ export namespace AssociateBudgetWithResourceOutput {
 /**
  * <p>The specified resource is a duplicate.</p>
  */
-export interface DuplicateResourceException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateResourceException";
-  $fault: "client";
+export class DuplicateResourceException extends __BaseException {
+  readonly name: "DuplicateResourceException" = "DuplicateResourceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateResourceException, __BaseException>) {
+    super({
+      name: "DuplicateResourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateResourceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum PrincipalType {
@@ -426,10 +477,22 @@ export namespace AssociateTagOptionWithResourceOutput {
  * <p>An attempt was made to modify a resource that is in a state that is not valid.
  *          Check your resources to ensure that they are in valid states before retrying the operation.</p>
  */
-export interface InvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStateException";
-  $fault: "client";
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -437,10 +500,22 @@ export interface InvalidStateException extends __SmithyException, $MetadataBeare
  *          not been performed for this account. Please use the AWS console to perform the migration
  *          process before retrying the operation.</p>
  */
-export interface TagOptionNotMigratedException extends __SmithyException, $MetadataBearer {
-  name: "TagOptionNotMigratedException";
-  $fault: "client";
+export class TagOptionNotMigratedException extends __BaseException {
+  readonly name: "TagOptionNotMigratedException" = "TagOptionNotMigratedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagOptionNotMigratedException, __BaseException>) {
+    super({
+      name: "TagOptionNotMigratedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagOptionNotMigratedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1168,10 +1243,22 @@ export namespace CreatePortfolioShareOutput {
 /**
  * <p>The operation is not supported.</p>
  */
-export interface OperationNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotSupportedException";
-  $fault: "client";
+export class OperationNotSupportedException extends __BaseException {
+  readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotSupportedException, __BaseException>) {
+    super({
+      name: "OperationNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotSupportedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ProductType {
@@ -2128,10 +2215,22 @@ export namespace DeletePortfolioOutput {
 /**
  * <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeletePortfolioShareInput {

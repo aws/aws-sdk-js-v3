@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { GroundStationServiceException as __BaseException } from "./GroundStationServiceException";
 
 export enum AngleUnits {
   DEGREE_ANGLE = "DEGREE_ANGLE",
@@ -350,36 +353,70 @@ export namespace ContactIdResponse {
 /**
  * <p>Dependency encountered an error.</p>
  */
-export interface DependencyException extends __SmithyException, $MetadataBearer {
-  name: "DependencyException";
-  $fault: "server";
-  message?: string;
+export class DependencyException extends __BaseException {
+  readonly name: "DependencyException" = "DependencyException";
+  readonly $fault: "server" = "server";
   /**
    * <p/>
    */
   parameterName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyException, __BaseException>) {
+    super({
+      name: "DependencyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyException.prototype);
+    this.parameterName = opts.parameterName;
+  }
 }
 
 /**
  * <p>One or more parameters are not valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p/>
    */
   parameterName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.parameterName = opts.parameterName;
+  }
 }
 
 /**
  * <p>Resource was not found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export enum ConfigCapabilityType {
@@ -734,14 +771,26 @@ export namespace CreateConfigRequest {
 /**
  * <p>Account limits for this resource have been exceeded.</p>
  */
-export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p/>
    */
   parameterName?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+    this.parameterName = opts.parameterName;
+  }
 }
 
 /**

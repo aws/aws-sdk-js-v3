@@ -1,12 +1,27 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CloudDirectoryServiceException as __BaseException } from "./CloudDirectoryServiceException";
 
 /**
  * <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -285,75 +300,171 @@ export namespace AddFacetToObjectResponse {
 /**
  * <p>Operations are only permitted on enabled directories.</p>
  */
-export interface DirectoryNotEnabledException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryNotEnabledException";
-  $fault: "client";
+export class DirectoryNotEnabledException extends __BaseException {
+  readonly name: "DirectoryNotEnabledException" = "DirectoryNotEnabledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryNotEnabledException, __BaseException>) {
+    super({
+      name: "DirectoryNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryNotEnabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The <a>Facet</a> that you provided was not well formed or could not be
  *       validated with the schema.</p>
  */
-export interface FacetValidationException extends __SmithyException, $MetadataBearer {
-  name: "FacetValidationException";
-  $fault: "client";
+export class FacetValidationException extends __BaseException {
+  readonly name: "FacetValidationException" = "FacetValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FacetValidationException, __BaseException>) {
+    super({
+      name: "FacetValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FacetValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates that the provided ARN value is not valid.</p>
  */
-export interface InvalidArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArnException";
-  $fault: "client";
+export class InvalidArnException extends __BaseException {
+  readonly name: "InvalidArnException" = "InvalidArnException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
+    super({
+      name: "InvalidArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArnException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates that limits are exceeded. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Limits</a> for more information.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource could not be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  */
-export interface RetryableConflictException extends __SmithyException, $MetadataBearer {
-  name: "RetryableConflictException";
-  $fault: "client";
+export class RetryableConflictException extends __BaseException {
+  readonly name: "RetryableConflictException" = "RetryableConflictException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RetryableConflictException, __BaseException>) {
+    super({
+      name: "RetryableConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RetryableConflictException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates that your request is malformed in some manner. See the exception
  *       message.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ApplySchemaRequest {
@@ -406,20 +517,44 @@ export namespace ApplySchemaResponse {
  * <p>Indicates that an attempt to make an attachment was invalid. For example, attaching two nodes
  *       with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
  */
-export interface InvalidAttachmentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAttachmentException";
-  $fault: "client";
+export class InvalidAttachmentException extends __BaseException {
+  readonly name: "InvalidAttachmentException" = "InvalidAttachmentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAttachmentException, __BaseException>) {
+    super({
+      name: "InvalidAttachmentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAttachmentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates that a schema could not be created due to a naming conflict. Please select a
  *       different name and then try again.</p>
  */
-export interface SchemaAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "SchemaAlreadyExistsException";
-  $fault: "client";
+export class SchemaAlreadyExistsException extends __BaseException {
+  readonly name: "SchemaAlreadyExistsException" = "SchemaAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SchemaAlreadyExistsException, __BaseException>) {
+    super({
+      name: "SchemaAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SchemaAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AttachObjectRequest {
@@ -475,10 +610,22 @@ export namespace AttachObjectResponse {
  * <p>Indicates that a link could not be created due to a naming conflict. Choose a different
  *       name and then try again.</p>
  */
-export interface LinkNameAlreadyInUseException extends __SmithyException, $MetadataBearer {
-  name: "LinkNameAlreadyInUseException";
-  $fault: "client";
+export class LinkNameAlreadyInUseException extends __BaseException {
+  readonly name: "LinkNameAlreadyInUseException" = "LinkNameAlreadyInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LinkNameAlreadyInUseException, __BaseException>) {
+    super({
+      name: "LinkNameAlreadyInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LinkNameAlreadyInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AttachPolicyRequest {
@@ -523,10 +670,22 @@ export namespace AttachPolicyResponse {
 /**
  * <p>Indicates that the requested operation can only operate on policy objects.</p>
  */
-export interface NotPolicyException extends __SmithyException, $MetadataBearer {
-  name: "NotPolicyException";
-  $fault: "client";
+export class NotPolicyException extends __BaseException {
+  readonly name: "NotPolicyException" = "NotPolicyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotPolicyException, __BaseException>) {
+    super({
+      name: "NotPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotPolicyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface AttachToIndexRequest {
@@ -575,19 +734,43 @@ export namespace AttachToIndexResponse {
 /**
  * <p>An object has been attempted to be attached to an object that does not have the appropriate attribute value.</p>
  */
-export interface IndexedAttributeMissingException extends __SmithyException, $MetadataBearer {
-  name: "IndexedAttributeMissingException";
-  $fault: "client";
+export class IndexedAttributeMissingException extends __BaseException {
+  readonly name: "IndexedAttributeMissingException" = "IndexedAttributeMissingException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IndexedAttributeMissingException, __BaseException>) {
+    super({
+      name: "IndexedAttributeMissingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IndexedAttributeMissingException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates that the requested operation can only operate on index objects.</p>
  */
-export interface NotIndexException extends __SmithyException, $MetadataBearer {
-  name: "NotIndexException";
-  $fault: "client";
+export class NotIndexException extends __BaseException {
+  readonly name: "NotIndexException" = "NotIndexException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotIndexException, __BaseException>) {
+    super({
+      name: "NotIndexException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotIndexException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2100,12 +2283,26 @@ export enum BatchWriteExceptionType {
 /**
  * <p>A <code>BatchWrite</code> exception has occurred.</p>
  */
-export interface BatchWriteException extends __SmithyException, $MetadataBearer {
-  name: "BatchWriteException";
-  $fault: "client";
+export class BatchWriteException extends __BaseException {
+  readonly name: "BatchWriteException" = "BatchWriteException";
+  readonly $fault: "client" = "client";
   Index?: number;
   Type?: BatchWriteExceptionType | string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchWriteException, __BaseException>) {
+    super({
+      name: "BatchWriteException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchWriteException.prototype);
+    this.Index = opts.Index;
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -3194,10 +3391,22 @@ export namespace CreateDirectoryResponse {
  * <p>Indicates that a <a>Directory</a> could not be created due to a naming
  *       conflict. Choose a different name and try again.</p>
  */
-export interface DirectoryAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryAlreadyExistsException";
-  $fault: "client";
+export class DirectoryAlreadyExistsException extends __BaseException {
+  readonly name: "DirectoryAlreadyExistsException" = "DirectoryAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryAlreadyExistsException, __BaseException>) {
+    super({
+      name: "DirectoryAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum RuleType {
@@ -3430,19 +3639,43 @@ export namespace CreateFacetResponse {
 /**
  * <p>A facet with the same name already exists.</p>
  */
-export interface FacetAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "FacetAlreadyExistsException";
-  $fault: "client";
+export class FacetAlreadyExistsException extends __BaseException {
+  readonly name: "FacetAlreadyExistsException" = "FacetAlreadyExistsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FacetAlreadyExistsException, __BaseException>) {
+    super({
+      name: "FacetAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FacetAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Occurs when any of the rule parameter keys or values are invalid.</p>
  */
-export interface InvalidRuleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRuleException";
-  $fault: "client";
+export class InvalidRuleException extends __BaseException {
+  readonly name: "InvalidRuleException" = "InvalidRuleException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRuleException, __BaseException>) {
+    super({
+      name: "InvalidRuleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRuleException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateIndexRequest {
@@ -3502,10 +3735,22 @@ export namespace CreateIndexResponse {
 /**
  * <p>Indicates that the requested index type is not supported.</p>
  */
-export interface UnsupportedIndexTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedIndexTypeException";
-  $fault: "client";
+export class UnsupportedIndexTypeException extends __BaseException {
+  readonly name: "UnsupportedIndexTypeException" = "UnsupportedIndexTypeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedIndexTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedIndexTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedIndexTypeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateObjectRequest {
@@ -3749,19 +3994,43 @@ export namespace DeleteDirectoryResponse {
  * <p>A directory that has been deleted and to which access has been attempted. Note: The
  *       requested resource will eventually cease to exist.</p>
  */
-export interface DirectoryDeletedException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryDeletedException";
-  $fault: "client";
+export class DirectoryDeletedException extends __BaseException {
+  readonly name: "DirectoryDeletedException" = "DirectoryDeletedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryDeletedException, __BaseException>) {
+    super({
+      name: "DirectoryDeletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryDeletedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An operation can only operate on a disabled directory.</p>
  */
-export interface DirectoryNotDisabledException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryNotDisabledException";
-  $fault: "client";
+export class DirectoryNotDisabledException extends __BaseException {
+  readonly name: "DirectoryNotDisabledException" = "DirectoryNotDisabledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DirectoryNotDisabledException, __BaseException>) {
+    super({
+      name: "DirectoryNotDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryNotDisabledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteFacetRequest {
@@ -3801,19 +4070,43 @@ export namespace DeleteFacetResponse {
  * <p>Occurs when deleting a facet that contains an attribute that is a target to an
  *       attribute reference in a different facet.</p>
  */
-export interface FacetInUseException extends __SmithyException, $MetadataBearer {
-  name: "FacetInUseException";
-  $fault: "client";
+export class FacetInUseException extends __BaseException {
+  readonly name: "FacetInUseException" = "FacetInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FacetInUseException, __BaseException>) {
+    super({
+      name: "FacetInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FacetInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified <a>Facet</a> could not be found.</p>
  */
-export interface FacetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "FacetNotFoundException";
-  $fault: "client";
+export class FacetNotFoundException extends __BaseException {
+  readonly name: "FacetNotFoundException" = "FacetNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FacetNotFoundException, __BaseException>) {
+    super({
+      name: "FacetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FacetNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteObjectRequest {
@@ -3853,10 +4146,22 @@ export namespace DeleteObjectResponse {
  * <p>Indicates that the requested operation cannot be completed because the object has not
  *       been detached from the tree.</p>
  */
-export interface ObjectNotDetachedException extends __SmithyException, $MetadataBearer {
-  name: "ObjectNotDetachedException";
-  $fault: "client";
+export class ObjectNotDetachedException extends __BaseException {
+  readonly name: "ObjectNotDetachedException" = "ObjectNotDetachedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectNotDetachedException, __BaseException>) {
+    super({
+      name: "ObjectNotDetachedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectNotDetachedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteSchemaRequest {
@@ -3897,10 +4202,22 @@ export namespace DeleteSchemaResponse {
  * <p>The object could not be deleted because links still exist. Remove the links and then
  *       try the operation again.</p>
  */
-export interface StillContainsLinksException extends __SmithyException, $MetadataBearer {
-  name: "StillContainsLinksException";
-  $fault: "client";
+export class StillContainsLinksException extends __BaseException {
+  readonly name: "StillContainsLinksException" = "StillContainsLinksException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StillContainsLinksException, __BaseException>) {
+    super({
+      name: "StillContainsLinksException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StillContainsLinksException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteTypedLinkFacetRequest {
@@ -3982,10 +4299,22 @@ export namespace DetachFromIndexResponse {
 /**
  * <p>Indicates that the object is not attached to the index.</p>
  */
-export interface ObjectAlreadyDetachedException extends __SmithyException, $MetadataBearer {
-  name: "ObjectAlreadyDetachedException";
-  $fault: "client";
+export class ObjectAlreadyDetachedException extends __BaseException {
+  readonly name: "ObjectAlreadyDetachedException" = "ObjectAlreadyDetachedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ObjectAlreadyDetachedException, __BaseException>) {
+    super({
+      name: "ObjectAlreadyDetachedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ObjectAlreadyDetachedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DetachObjectRequest {
@@ -4036,10 +4365,22 @@ export namespace DetachObjectResponse {
  * <p>Occurs when any invalid operations are performed on an object that is not a node, such
  *       as calling <code>ListObjectChildren</code> for a leaf node object.</p>
  */
-export interface NotNodeException extends __SmithyException, $MetadataBearer {
-  name: "NotNodeException";
-  $fault: "client";
+export class NotNodeException extends __BaseException {
+  readonly name: "NotNodeException" = "NotNodeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotNodeException, __BaseException>) {
+    super({
+      name: "NotNodeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotNodeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DetachPolicyRequest {
@@ -4577,10 +4918,22 @@ export namespace GetTypedLinkFacetInformationResponse {
 /**
  * <p>Indicates that the <code>NextToken</code> value is not valid.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListAppliedSchemaArnsRequest {
@@ -5256,10 +5609,22 @@ export namespace ListObjectParentPathsResponse {
 /**
  * <p>Cannot list the parents of a <a>Directory</a> root.</p>
  */
-export interface CannotListParentOfRootException extends __SmithyException, $MetadataBearer {
-  name: "CannotListParentOfRootException";
-  $fault: "client";
+export class CannotListParentOfRootException extends __BaseException {
+  readonly name: "CannotListParentOfRootException" = "CannotListParentOfRootException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotListParentOfRootException, __BaseException>) {
+    super({
+      name: "CannotListParentOfRootException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotListParentOfRootException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListObjectParentsRequest {
@@ -5579,10 +5944,22 @@ export namespace ListPublishedSchemaArnsResponse {
 /**
  * <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
  */
-export interface InvalidTaggingRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTaggingRequestException";
-  $fault: "client";
+export class InvalidTaggingRequestException extends __BaseException {
+  readonly name: "InvalidTaggingRequestException" = "InvalidTaggingRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTaggingRequestException, __BaseException>) {
+    super({
+      name: "InvalidTaggingRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTaggingRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListTagsForResourceRequest {
@@ -5871,19 +6248,43 @@ export namespace PublishSchemaResponse {
 /**
  * <p>Indicates that a schema is already published.</p>
  */
-export interface SchemaAlreadyPublishedException extends __SmithyException, $MetadataBearer {
-  name: "SchemaAlreadyPublishedException";
-  $fault: "client";
+export class SchemaAlreadyPublishedException extends __BaseException {
+  readonly name: "SchemaAlreadyPublishedException" = "SchemaAlreadyPublishedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SchemaAlreadyPublishedException, __BaseException>) {
+    super({
+      name: "SchemaAlreadyPublishedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SchemaAlreadyPublishedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Indicates that the provided <code>SchemaDoc</code> value is not valid.</p>
  */
-export interface InvalidSchemaDocException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSchemaDocException";
-  $fault: "client";
+export class InvalidSchemaDocException extends __BaseException {
+  readonly name: "InvalidSchemaDocException" = "InvalidSchemaDocException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSchemaDocException, __BaseException>) {
+    super({
+      name: "InvalidSchemaDocException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSchemaDocException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface PutSchemaFromJsonRequest {
@@ -6030,10 +6431,22 @@ export namespace UntagResourceResponse {
  * <p>An attempt to modify a <a>Facet</a> resulted in an invalid schema
  *       exception.</p>
  */
-export interface InvalidFacetUpdateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFacetUpdateException";
-  $fault: "client";
+export class InvalidFacetUpdateException extends __BaseException {
+  readonly name: "InvalidFacetUpdateException" = "InvalidFacetUpdateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidFacetUpdateException, __BaseException>) {
+    super({
+      name: "InvalidFacetUpdateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFacetUpdateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6315,10 +6728,22 @@ export namespace UpdateTypedLinkFacetResponse {
 /**
  * <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
  */
-export interface IncompatibleSchemaException extends __SmithyException, $MetadataBearer {
-  name: "IncompatibleSchemaException";
-  $fault: "client";
+export class IncompatibleSchemaException extends __BaseException {
+  readonly name: "IncompatibleSchemaException" = "IncompatibleSchemaException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleSchemaException, __BaseException>) {
+    super({
+      name: "IncompatibleSchemaException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleSchemaException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpgradeAppliedSchemaRequest {

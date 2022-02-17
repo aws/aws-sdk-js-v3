@@ -1,5 +1,5 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 import {
   AssociationComplianceSeverity,
@@ -52,6 +52,7 @@ import {
   Target,
   TargetLocation,
 } from "./models_0";
+import { SSMServiceException as __BaseException } from "./SSMServiceException";
 
 export enum ParameterType {
   SECURE_STRING = "SecureString",
@@ -157,14 +158,20 @@ export namespace DescribeParametersResult {
  * <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
  *    filter, valid options are Recursive and OneLevel.</p>
  */
-export interface InvalidFilterOption extends __SmithyException, $MetadataBearer {
-  name: "InvalidFilterOption";
-  $fault: "client";
+export class InvalidFilterOption extends __BaseException {
+  readonly name: "InvalidFilterOption" = "InvalidFilterOption";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The specified filter option isn't valid. Valid options are Equals and BeginsWith. For Path
-   *    filter, valid options are Recursive and OneLevel.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidFilterOption, __BaseException>) {
+    super({
+      name: "InvalidFilterOption",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFilterOption.prototype);
+  }
 }
 
 export interface DescribePatchBaselinesRequest {
@@ -852,10 +859,22 @@ export namespace DisassociateOpsItemRelatedItemResponse {
  * <p>The association wasn't found using the parameters you specified in the call. Verify the
  *    information and try again.</p>
  */
-export interface OpsItemRelatedItemAssociationNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "OpsItemRelatedItemAssociationNotFoundException";
-  $fault: "client";
+export class OpsItemRelatedItemAssociationNotFoundException extends __BaseException {
+  readonly name: "OpsItemRelatedItemAssociationNotFoundException" = "OpsItemRelatedItemAssociationNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OpsItemRelatedItemAssociationNotFoundException, __BaseException>) {
+    super({
+      name: "OpsItemRelatedItemAssociationNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OpsItemRelatedItemAssociationNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetAutomationExecutionRequest {
@@ -1182,19 +1201,43 @@ export namespace GetCalendarStateResponse {
  * <p>The SSM document type isn't valid. Valid document types are described in the
  *     <code>DocumentType</code> property.</p>
  */
-export interface InvalidDocumentType extends __SmithyException, $MetadataBearer {
-  name: "InvalidDocumentType";
-  $fault: "client";
+export class InvalidDocumentType extends __BaseException {
+  readonly name: "InvalidDocumentType" = "InvalidDocumentType";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDocumentType, __BaseException>) {
+    super({
+      name: "InvalidDocumentType",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDocumentType.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The calendar entry contained in the specified SSM document isn't supported.</p>
  */
-export interface UnsupportedCalendarException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedCalendarException";
-  $fault: "client";
+export class UnsupportedCalendarException extends __BaseException {
+  readonly name: "UnsupportedCalendarException" = "UnsupportedCalendarException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedCalendarException, __BaseException>) {
+    super({
+      name: "UnsupportedCalendarException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedCalendarException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetCommandInvocationRequest {
@@ -1450,18 +1493,40 @@ export namespace GetCommandInvocationResult {
 /**
  * <p>The plugin name isn't valid.</p>
  */
-export interface InvalidPluginName extends __SmithyException, $MetadataBearer {
-  name: "InvalidPluginName";
-  $fault: "client";
+export class InvalidPluginName extends __BaseException {
+  readonly name: "InvalidPluginName" = "InvalidPluginName";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPluginName, __BaseException>) {
+    super({
+      name: "InvalidPluginName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPluginName.prototype);
+  }
 }
 
 /**
  * <p>The command ID and managed node ID you specified didn't match any invocations. Verify the
  *    command ID and the managed node ID and try again. </p>
  */
-export interface InvocationDoesNotExist extends __SmithyException, $MetadataBearer {
-  name: "InvocationDoesNotExist";
-  $fault: "client";
+export class InvocationDoesNotExist extends __BaseException {
+  readonly name: "InvocationDoesNotExist" = "InvocationDoesNotExist";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvocationDoesNotExist, __BaseException>) {
+    super({
+      name: "InvocationDoesNotExist",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvocationDoesNotExist.prototype);
+  }
 }
 
 export interface GetConnectionStatusRequest {
@@ -1682,10 +1747,22 @@ export namespace GetDeployablePatchSnapshotForInstanceResult {
  *    you must enable advanced instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Enabling
  *     the advanced-instances tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  */
-export interface UnsupportedFeatureRequiredException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedFeatureRequiredException";
-  $fault: "client";
+export class UnsupportedFeatureRequiredException extends __BaseException {
+  readonly name: "UnsupportedFeatureRequiredException" = "UnsupportedFeatureRequiredException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedFeatureRequiredException, __BaseException>) {
+    super({
+      name: "UnsupportedFeatureRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedFeatureRequiredException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetDocumentRequest {
@@ -2039,28 +2116,64 @@ export namespace GetInventoryResult {
  *    valid inventory type such as <code>AWS:Application</code> or
  *    <code>AWS:InstanceInformation</code>.</p>
  */
-export interface InvalidAggregatorException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAggregatorException";
-  $fault: "client";
+export class InvalidAggregatorException extends __BaseException {
+  readonly name: "InvalidAggregatorException" = "InvalidAggregatorException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAggregatorException, __BaseException>) {
+    super({
+      name: "InvalidAggregatorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAggregatorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified inventory group isn't valid.</p>
  */
-export interface InvalidInventoryGroupException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInventoryGroupException";
-  $fault: "client";
+export class InvalidInventoryGroupException extends __BaseException {
+  readonly name: "InvalidInventoryGroupException" = "InvalidInventoryGroupException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInventoryGroupException, __BaseException>) {
+    super({
+      name: "InvalidInventoryGroupException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInventoryGroupException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified inventory item result attribute isn't valid.</p>
  */
-export interface InvalidResultAttributeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResultAttributeException";
-  $fault: "client";
+export class InvalidResultAttributeException extends __BaseException {
+  readonly name: "InvalidResultAttributeException" = "InvalidResultAttributeException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResultAttributeException, __BaseException>) {
+    super({
+      name: "InvalidResultAttributeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResultAttributeException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetInventorySchemaRequest {
@@ -3559,20 +3672,40 @@ export namespace GetParameterResult {
 /**
  * <p>The query key ID isn't valid.</p>
  */
-export interface InvalidKeyId extends __SmithyException, $MetadataBearer {
-  name: "InvalidKeyId";
-  $fault: "client";
-  message?: string;
+export class InvalidKeyId extends __BaseException {
+  readonly name: "InvalidKeyId" = "InvalidKeyId";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKeyId, __BaseException>) {
+    super({
+      name: "InvalidKeyId",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKeyId.prototype);
+  }
 }
 
 /**
  * <p>The specified parameter version wasn't found. Verify the parameter name and version, and try
  *    again.</p>
  */
-export interface ParameterVersionNotFound extends __SmithyException, $MetadataBearer {
-  name: "ParameterVersionNotFound";
-  $fault: "client";
-  message?: string;
+export class ParameterVersionNotFound extends __BaseException {
+  readonly name: "ParameterVersionNotFound" = "ParameterVersionNotFound";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterVersionNotFound, __BaseException>) {
+    super({
+      name: "ParameterVersionNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterVersionNotFound.prototype);
+  }
 }
 
 export interface GetParameterHistoryRequest {
@@ -4157,10 +4290,22 @@ export namespace GetServiceSettingResult {
  * <p>The specified service setting wasn't found. Either the service name or the setting hasn't
  *    been provisioned by the Amazon Web Services service team.</p>
  */
-export interface ServiceSettingNotFound extends __SmithyException, $MetadataBearer {
-  name: "ServiceSettingNotFound";
-  $fault: "client";
+export class ServiceSettingNotFound extends __BaseException {
+  readonly name: "ServiceSettingNotFound" = "ServiceSettingNotFound";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceSettingNotFound, __BaseException>) {
+    super({
+      name: "ServiceSettingNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceSettingNotFound.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface LabelParameterVersionRequest {
@@ -4216,10 +4361,20 @@ export namespace LabelParameterVersionResult {
 /**
  * <p>A parameter version can have a maximum of ten labels.</p>
  */
-export interface ParameterVersionLabelLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ParameterVersionLabelLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class ParameterVersionLabelLimitExceeded extends __BaseException {
+  readonly name: "ParameterVersionLabelLimitExceeded" = "ParameterVersionLabelLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterVersionLabelLimitExceeded, __BaseException>) {
+    super({
+      name: "ParameterVersionLabelLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterVersionLabelLimitExceeded.prototype);
+  }
 }
 
 export enum AssociationFilterKey {
@@ -7340,10 +7495,22 @@ export namespace ListTagsForResourceResult {
  *    with a maximum of 20 accounts. You can publicly share up to five documents. If you need to
  *    increase this limit, contact Amazon Web Services Support.</p>
  */
-export interface DocumentPermissionLimit extends __SmithyException, $MetadataBearer {
-  name: "DocumentPermissionLimit";
-  $fault: "client";
+export class DocumentPermissionLimit extends __BaseException {
+  readonly name: "DocumentPermissionLimit" = "DocumentPermissionLimit";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DocumentPermissionLimit, __BaseException>) {
+    super({
+      name: "DocumentPermissionLimit",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DocumentPermissionLimit.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ModifyDocumentPermissionRequest {
@@ -7403,30 +7570,68 @@ export namespace ModifyDocumentPermissionResponse {
  * <p>You specified too many custom compliance types. You can specify a maximum of 10 different
  *    types. </p>
  */
-export interface ComplianceTypeCountLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ComplianceTypeCountLimitExceededException";
-  $fault: "client";
+export class ComplianceTypeCountLimitExceededException extends __BaseException {
+  readonly name: "ComplianceTypeCountLimitExceededException" = "ComplianceTypeCountLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ComplianceTypeCountLimitExceededException, __BaseException>) {
+    super({
+      name: "ComplianceTypeCountLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ComplianceTypeCountLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One or more content items isn't valid.</p>
  */
-export interface InvalidItemContentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidItemContentException";
-  $fault: "client";
+export class InvalidItemContentException extends __BaseException {
+  readonly name: "InvalidItemContentException" = "InvalidItemContentException";
+  readonly $fault: "client" = "client";
   TypeName?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidItemContentException, __BaseException>) {
+    super({
+      name: "InvalidItemContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidItemContentException.prototype);
+    this.TypeName = opts.TypeName;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The inventory item size has exceeded the size limit.</p>
  */
-export interface ItemSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ItemSizeLimitExceededException";
-  $fault: "client";
+export class ItemSizeLimitExceededException extends __BaseException {
+  readonly name: "ItemSizeLimitExceededException" = "ItemSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   TypeName?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ItemSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "ItemSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ItemSizeLimitExceededException.prototype);
+    this.TypeName = opts.TypeName;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -7554,40 +7759,89 @@ export namespace PutComplianceItemsResult {
 /**
  * <p>The size of inventory data has exceeded the total size limit for the resource.</p>
  */
-export interface TotalSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TotalSizeLimitExceededException";
-  $fault: "client";
+export class TotalSizeLimitExceededException extends __BaseException {
+  readonly name: "TotalSizeLimitExceededException" = "TotalSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TotalSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "TotalSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TotalSizeLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You have exceeded the limit for custom schemas. Delete one or more custom schemas and try
  *    again.</p>
  */
-export interface CustomSchemaCountLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "CustomSchemaCountLimitExceededException";
-  $fault: "client";
+export class CustomSchemaCountLimitExceededException extends __BaseException {
+  readonly name: "CustomSchemaCountLimitExceededException" = "CustomSchemaCountLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CustomSchemaCountLimitExceededException, __BaseException>) {
+    super({
+      name: "CustomSchemaCountLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CustomSchemaCountLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>You specified invalid keys or values in the <code>Context</code> attribute for
  *     <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
  */
-export interface InvalidInventoryItemContextException extends __SmithyException, $MetadataBearer {
-  name: "InvalidInventoryItemContextException";
-  $fault: "client";
+export class InvalidInventoryItemContextException extends __BaseException {
+  readonly name: "InvalidInventoryItemContextException" = "InvalidInventoryItemContextException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInventoryItemContextException, __BaseException>) {
+    super({
+      name: "InvalidInventoryItemContextException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInventoryItemContextException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The inventory item has invalid content. </p>
  */
-export interface ItemContentMismatchException extends __SmithyException, $MetadataBearer {
-  name: "ItemContentMismatchException";
-  $fault: "client";
+export class ItemContentMismatchException extends __BaseException {
+  readonly name: "ItemContentMismatchException" = "ItemContentMismatchException";
+  readonly $fault: "client" = "client";
   TypeName?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ItemContentMismatchException, __BaseException>) {
+    super({
+      name: "ItemContentMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ItemContentMismatchException.prototype);
+    this.TypeName = opts.TypeName;
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -7682,10 +7936,22 @@ export namespace PutInventoryResult {
 /**
  * <p>The sub-type count exceeded the limit for the inventory type.</p>
  */
-export interface SubTypeCountLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "SubTypeCountLimitExceededException";
-  $fault: "client";
+export class SubTypeCountLimitExceededException extends __BaseException {
+  readonly name: "SubTypeCountLimitExceededException" = "SubTypeCountLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubTypeCountLimitExceededException, __BaseException>) {
+    super({
+      name: "SubTypeCountLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubTypeCountLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -7693,35 +7959,66 @@ export interface SubTypeCountLimitExceededException extends __SmithyException, $
  *    isn't allowed for this inventory type. You can only use the <code>Context</code> attribute with
  *    inventory types like <code>AWS:ComplianceItem</code>.</p>
  */
-export interface UnsupportedInventoryItemContextException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedInventoryItemContextException";
-  $fault: "client";
+export class UnsupportedInventoryItemContextException extends __BaseException {
+  readonly name: "UnsupportedInventoryItemContextException" = "UnsupportedInventoryItemContextException";
+  readonly $fault: "client" = "client";
   TypeName?: string;
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedInventoryItemContextException, __BaseException>) {
+    super({
+      name: "UnsupportedInventoryItemContextException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedInventoryItemContextException.prototype);
+    this.TypeName = opts.TypeName;
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>Inventory item type schema version has to match supported versions in the service. Check
  *    output of GetInventorySchema to see the available schema version for each type.</p>
  */
-export interface UnsupportedInventorySchemaVersionException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedInventorySchemaVersionException";
-  $fault: "client";
+export class UnsupportedInventorySchemaVersionException extends __BaseException {
+  readonly name: "UnsupportedInventorySchemaVersionException" = "UnsupportedInventorySchemaVersionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedInventorySchemaVersionException, __BaseException>) {
+    super({
+      name: "UnsupportedInventorySchemaVersionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedInventorySchemaVersionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and
  *     constraints for parameter names</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  */
-export interface HierarchyLevelLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "HierarchyLevelLimitExceededException";
-  $fault: "client";
+export class HierarchyLevelLimitExceededException extends __BaseException {
+  readonly name: "HierarchyLevelLimitExceededException" = "HierarchyLevelLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A hierarchy can have a maximum of 15 levels. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html">Requirements and
-   *     constraints for parameter names</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HierarchyLevelLimitExceededException, __BaseException>) {
+    super({
+      name: "HierarchyLevelLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HierarchyLevelLimitExceededException.prototype);
+  }
 }
 
 /**
@@ -7729,75 +8026,137 @@ export interface HierarchyLevelLimitExceededException extends __SmithyException,
  *    can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You
  *    must create a new, unique parameter.</p>
  */
-export interface HierarchyTypeMismatchException extends __SmithyException, $MetadataBearer {
-  name: "HierarchyTypeMismatchException";
-  $fault: "client";
+export class HierarchyTypeMismatchException extends __BaseException {
+  readonly name: "HierarchyTypeMismatchException" = "HierarchyTypeMismatchException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Parameter Store doesn't support changing a parameter type in a hierarchy. For example, you
-   *    can't change a parameter from a <code>String</code> type to a <code>SecureString</code> type. You
-   *    must create a new, unique parameter.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<HierarchyTypeMismatchException, __BaseException>) {
+    super({
+      name: "HierarchyTypeMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HierarchyTypeMismatchException.prototype);
+  }
 }
 
 /**
  * <p>There is a conflict in the policies specified for this parameter. You can't, for example,
  *    specify two Expiration policies for a parameter. Review your policies, and try again.</p>
  */
-export interface IncompatiblePolicyException extends __SmithyException, $MetadataBearer {
-  name: "IncompatiblePolicyException";
-  $fault: "client";
-  message?: string;
+export class IncompatiblePolicyException extends __BaseException {
+  readonly name: "IncompatiblePolicyException" = "IncompatiblePolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatiblePolicyException, __BaseException>) {
+    super({
+      name: "IncompatiblePolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatiblePolicyException.prototype);
+  }
 }
 
 /**
  * <p>The request doesn't meet the regular expression requirement.</p>
  */
-export interface InvalidAllowedPatternException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAllowedPatternException";
-  $fault: "client";
+export class InvalidAllowedPatternException extends __BaseException {
+  readonly name: "InvalidAllowedPatternException" = "InvalidAllowedPatternException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The request doesn't meet the regular expression requirement.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidAllowedPatternException, __BaseException>) {
+    super({
+      name: "InvalidAllowedPatternException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAllowedPatternException.prototype);
+  }
 }
 
 /**
  * <p>A policy attribute or its value is invalid. </p>
  */
-export interface InvalidPolicyAttributeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPolicyAttributeException";
-  $fault: "client";
-  message?: string;
+export class InvalidPolicyAttributeException extends __BaseException {
+  readonly name: "InvalidPolicyAttributeException" = "InvalidPolicyAttributeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyAttributeException, __BaseException>) {
+    super({
+      name: "InvalidPolicyAttributeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyAttributeException.prototype);
+  }
 }
 
 /**
  * <p>The policy type isn't supported. Parameter Store supports the following policy types:
  *    Expiration, ExpirationNotification, and NoChangeNotification.</p>
  */
-export interface InvalidPolicyTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPolicyTypeException";
-  $fault: "client";
-  message?: string;
+export class InvalidPolicyTypeException extends __BaseException {
+  readonly name: "InvalidPolicyTypeException" = "InvalidPolicyTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidPolicyTypeException, __BaseException>) {
+    super({
+      name: "InvalidPolicyTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPolicyTypeException.prototype);
+  }
 }
 
 /**
  * <p>The parameter already exists. You can't create duplicate parameters.</p>
  */
-export interface ParameterAlreadyExists extends __SmithyException, $MetadataBearer {
-  name: "ParameterAlreadyExists";
-  $fault: "client";
-  message?: string;
+export class ParameterAlreadyExists extends __BaseException {
+  readonly name: "ParameterAlreadyExists" = "ParameterAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterAlreadyExists, __BaseException>) {
+    super({
+      name: "ParameterAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterAlreadyExists.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded the number of parameters for this Amazon Web Services account. Delete one or more
  *    parameters and try again.</p>
  */
-export interface ParameterLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ParameterLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class ParameterLimitExceeded extends __BaseException {
+  readonly name: "ParameterLimitExceeded" = "ParameterLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterLimitExceeded, __BaseException>) {
+    super({
+      name: "ParameterLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterLimitExceeded.prototype);
+  }
 }
 
 /**
@@ -7818,32 +8177,59 @@ export interface ParameterLimitExceeded extends __SmithyException, $MetadataBear
  *    oldest version of the parameter to a newer one for use in your operations. For information about
  *    moving parameter labels, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-console-move">Move a parameter label (console)</a> or <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html#sysman-paramstore-labels-cli-move">Move a parameter label (CLI)</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  */
-export interface ParameterMaxVersionLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "ParameterMaxVersionLimitExceeded";
-  $fault: "client";
-  message?: string;
+export class ParameterMaxVersionLimitExceeded extends __BaseException {
+  readonly name: "ParameterMaxVersionLimitExceeded" = "ParameterMaxVersionLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterMaxVersionLimitExceeded, __BaseException>) {
+    super({
+      name: "ParameterMaxVersionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterMaxVersionLimitExceeded.prototype);
+  }
 }
 
 /**
  * <p>The parameter name isn't valid.</p>
  */
-export interface ParameterPatternMismatchException extends __SmithyException, $MetadataBearer {
-  name: "ParameterPatternMismatchException";
-  $fault: "client";
+export class ParameterPatternMismatchException extends __BaseException {
+  readonly name: "ParameterPatternMismatchException" = "ParameterPatternMismatchException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The parameter name isn't valid.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ParameterPatternMismatchException, __BaseException>) {
+    super({
+      name: "ParameterPatternMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterPatternMismatchException.prototype);
+  }
 }
 
 /**
  * <p>You specified more than the maximum number of allowed policies for the parameter. The
  *    maximum is 10.</p>
  */
-export interface PoliciesLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "PoliciesLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class PoliciesLimitExceededException extends __BaseException {
+  readonly name: "PoliciesLimitExceededException" = "PoliciesLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PoliciesLimitExceededException, __BaseException>) {
+    super({
+      name: "PoliciesLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PoliciesLimitExceededException.prototype);
+  }
 }
 
 export interface PutParameterRequest {
@@ -8141,10 +8527,20 @@ export namespace PutParameterResult {
 /**
  * <p>The parameter type isn't supported.</p>
  */
-export interface UnsupportedParameterType extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedParameterType";
-  $fault: "client";
-  message?: string;
+export class UnsupportedParameterType extends __BaseException {
+  readonly name: "UnsupportedParameterType" = "UnsupportedParameterType";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedParameterType, __BaseException>) {
+    super({
+      name: "UnsupportedParameterType",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedParameterType.prototype);
+  }
 }
 
 export interface RegisterDefaultPatchBaselineRequest {
@@ -8337,10 +8733,22 @@ export namespace RegisterTargetWithMaintenanceWindowResult {
  * <p>You attempted to register a <code>LAMBDA</code> or <code>STEP_FUNCTIONS</code> task in a
  *    region where the corresponding service isn't available. </p>
  */
-export interface FeatureNotAvailableException extends __SmithyException, $MetadataBearer {
-  name: "FeatureNotAvailableException";
-  $fault: "client";
+export class FeatureNotAvailableException extends __BaseException {
+  readonly name: "FeatureNotAvailableException" = "FeatureNotAvailableException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FeatureNotAvailableException, __BaseException>) {
+    super({
+      name: "FeatureNotAvailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FeatureNotAvailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface RegisterTaskWithMaintenanceWindowRequest {
@@ -8732,19 +9140,43 @@ export namespace ResumeSessionResponse {
  * <p>The specified step name and execution ID don't exist. Verify the information and try
  *    again.</p>
  */
-export interface AutomationStepNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "AutomationStepNotFoundException";
-  $fault: "client";
+export class AutomationStepNotFoundException extends __BaseException {
+  readonly name: "AutomationStepNotFoundException" = "AutomationStepNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationStepNotFoundException, __BaseException>) {
+    super({
+      name: "AutomationStepNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationStepNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The signal isn't valid for the current Automation execution.</p>
  */
-export interface InvalidAutomationSignalException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAutomationSignalException";
-  $fault: "client";
+export class InvalidAutomationSignalException extends __BaseException {
+  readonly name: "InvalidAutomationSignalException" = "InvalidAutomationSignalException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAutomationSignalException, __BaseException>) {
+    super({
+      name: "InvalidAutomationSignalException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAutomationSignalException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum SignalType {
@@ -8813,18 +9245,41 @@ export namespace SendAutomationSignalResult {
  * <p>One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN)
  *    was provided for an Amazon Simple Notification Service topic.</p>
  */
-export interface InvalidNotificationConfig extends __SmithyException, $MetadataBearer {
-  name: "InvalidNotificationConfig";
-  $fault: "client";
+export class InvalidNotificationConfig extends __BaseException {
+  readonly name: "InvalidNotificationConfig" = "InvalidNotificationConfig";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNotificationConfig, __BaseException>) {
+    super({
+      name: "InvalidNotificationConfig",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNotificationConfig.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The S3 bucket doesn't exist.</p>
  */
-export interface InvalidOutputFolder extends __SmithyException, $MetadataBearer {
-  name: "InvalidOutputFolder";
-  $fault: "client";
+export class InvalidOutputFolder extends __BaseException {
+  readonly name: "InvalidOutputFolder" = "InvalidOutputFolder";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOutputFolder, __BaseException>) {
+    super({
+      name: "InvalidOutputFolder",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOutputFolder.prototype);
+  }
 }
 
 /**
@@ -8832,10 +9287,22 @@ export interface InvalidOutputFolder extends __SmithyException, $MetadataBearer 
  *    configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS Notifications for Run Command</a> in the
  *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  */
-export interface InvalidRole extends __SmithyException, $MetadataBearer {
-  name: "InvalidRole";
-  $fault: "client";
+export class InvalidRole extends __BaseException {
+  readonly name: "InvalidRole" = "InvalidRole";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRole, __BaseException>) {
+    super({
+      name: "InvalidRole",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRole.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface SendCommandRequest {
@@ -9003,10 +9470,22 @@ export namespace SendCommandResult {
 /**
  * <p>The association isn't valid or doesn't exist. </p>
  */
-export interface InvalidAssociation extends __SmithyException, $MetadataBearer {
-  name: "InvalidAssociation";
-  $fault: "client";
+export class InvalidAssociation extends __BaseException {
+  readonly name: "InvalidAssociation" = "InvalidAssociation";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAssociation, __BaseException>) {
+    super({
+      name: "InvalidAssociation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAssociation.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartAssociationsOnceRequest {
@@ -9039,29 +9518,65 @@ export namespace StartAssociationsOnceResult {
 /**
  * <p>An Automation runbook with the specified name couldn't be found.</p>
  */
-export interface AutomationDefinitionNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "AutomationDefinitionNotFoundException";
-  $fault: "client";
+export class AutomationDefinitionNotFoundException extends __BaseException {
+  readonly name: "AutomationDefinitionNotFoundException" = "AutomationDefinitionNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationDefinitionNotFoundException, __BaseException>) {
+    super({
+      name: "AutomationDefinitionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationDefinitionNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An Automation runbook with the specified name and version couldn't be found.</p>
  */
-export interface AutomationDefinitionVersionNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "AutomationDefinitionVersionNotFoundException";
-  $fault: "client";
+export class AutomationDefinitionVersionNotFoundException extends __BaseException {
+  readonly name: "AutomationDefinitionVersionNotFoundException" = "AutomationDefinitionVersionNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationDefinitionVersionNotFoundException, __BaseException>) {
+    super({
+      name: "AutomationDefinitionVersionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationDefinitionVersionNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The number of simultaneously running Automation executions exceeded the allowable
  *    limit.</p>
  */
-export interface AutomationExecutionLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "AutomationExecutionLimitExceededException";
-  $fault: "client";
+export class AutomationExecutionLimitExceededException extends __BaseException {
+  readonly name: "AutomationExecutionLimitExceededException" = "AutomationExecutionLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationExecutionLimitExceededException, __BaseException>) {
+    super({
+      name: "AutomationExecutionLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationExecutionLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -9069,10 +9584,22 @@ export interface AutomationExecutionLimitExceededException extends __SmithyExcep
  *    example, they may not match the set of parameters permitted for the specified Automation
  *    document.</p>
  */
-export interface InvalidAutomationExecutionParametersException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAutomationExecutionParametersException";
-  $fault: "client";
+export class InvalidAutomationExecutionParametersException extends __BaseException {
+  readonly name: "InvalidAutomationExecutionParametersException" = "InvalidAutomationExecutionParametersException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAutomationExecutionParametersException, __BaseException>) {
+    super({
+      name: "InvalidAutomationExecutionParametersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAutomationExecutionParametersException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartAutomationExecutionRequest {
@@ -9208,10 +9735,22 @@ export namespace StartAutomationExecutionResult {
  * <p>Indicates that the Change Manager change template used in the change request was rejected or is
  *    still in a pending state.</p>
  */
-export interface AutomationDefinitionNotApprovedException extends __SmithyException, $MetadataBearer {
-  name: "AutomationDefinitionNotApprovedException";
-  $fault: "client";
+export class AutomationDefinitionNotApprovedException extends __BaseException {
+  readonly name: "AutomationDefinitionNotApprovedException" = "AutomationDefinitionNotApprovedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AutomationDefinitionNotApprovedException, __BaseException>) {
+    super({
+      name: "AutomationDefinitionNotApprovedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AutomationDefinitionNotApprovedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartChangeRequestExecutionRequest {
@@ -9414,19 +9953,43 @@ export namespace StartSessionResponse {
  *    attempt to start a session on a managed node that is located in a different account or
  *    Region</p>
  */
-export interface TargetNotConnected extends __SmithyException, $MetadataBearer {
-  name: "TargetNotConnected";
-  $fault: "client";
+export class TargetNotConnected extends __BaseException {
+  readonly name: "TargetNotConnected" = "TargetNotConnected";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetNotConnected, __BaseException>) {
+    super({
+      name: "TargetNotConnected",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetNotConnected.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified update status operation isn't valid.</p>
  */
-export interface InvalidAutomationStatusUpdateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAutomationStatusUpdateException";
-  $fault: "client";
+export class InvalidAutomationStatusUpdateException extends __BaseException {
+  readonly name: "InvalidAutomationStatusUpdateException" = "InvalidAutomationStatusUpdateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidAutomationStatusUpdateException, __BaseException>) {
+    super({
+      name: "InvalidAutomationStatusUpdateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAutomationStatusUpdateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum StopType {
@@ -9551,19 +10114,43 @@ export namespace UnlabelParameterVersionResult {
  * <p>You have reached the maximum number versions allowed for an association. Each association
  *    has a limit of 1,000 versions. </p>
  */
-export interface AssociationVersionLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "AssociationVersionLimitExceeded";
-  $fault: "client";
+export class AssociationVersionLimitExceeded extends __BaseException {
+  readonly name: "AssociationVersionLimitExceeded" = "AssociationVersionLimitExceeded";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AssociationVersionLimitExceeded, __BaseException>) {
+    super({
+      name: "AssociationVersionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AssociationVersionLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The update isn't valid.</p>
  */
-export interface InvalidUpdate extends __SmithyException, $MetadataBearer {
-  name: "InvalidUpdate";
-  $fault: "client";
+export class InvalidUpdate extends __BaseException {
+  readonly name: "InvalidUpdate" = "InvalidUpdate";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUpdate, __BaseException>) {
+    super({
+      name: "InvalidUpdate",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUpdate.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateAssociationRequest {
@@ -9751,9 +10338,20 @@ export namespace UpdateAssociationResult {
 /**
  * <p>The updated status is the same as the current status.</p>
  */
-export interface StatusUnchanged extends __SmithyException, $MetadataBearer {
-  name: "StatusUnchanged";
-  $fault: "client";
+export class StatusUnchanged extends __BaseException {
+  readonly name: "StatusUnchanged" = "StatusUnchanged";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StatusUnchanged, __BaseException>) {
+    super({
+      name: "StatusUnchanged",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StatusUnchanged.prototype);
+  }
 }
 
 export interface UpdateAssociationStatusRequest {
@@ -9805,30 +10403,66 @@ export namespace UpdateAssociationStatusResult {
  * <p>The document has too many versions. Delete one or more document versions and try
  *    again.</p>
  */
-export interface DocumentVersionLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "DocumentVersionLimitExceeded";
-  $fault: "client";
+export class DocumentVersionLimitExceeded extends __BaseException {
+  readonly name: "DocumentVersionLimitExceeded" = "DocumentVersionLimitExceeded";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DocumentVersionLimitExceeded, __BaseException>) {
+    super({
+      name: "DocumentVersionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DocumentVersionLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The content of the association document matches another document. Change the content of the
  *    document and try again.</p>
  */
-export interface DuplicateDocumentContent extends __SmithyException, $MetadataBearer {
-  name: "DuplicateDocumentContent";
-  $fault: "client";
+export class DuplicateDocumentContent extends __BaseException {
+  readonly name: "DuplicateDocumentContent" = "DuplicateDocumentContent";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateDocumentContent, __BaseException>) {
+    super({
+      name: "DuplicateDocumentContent",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateDocumentContent.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The version name has already been used in this document. Specify a different version name,
  *    and then try again.</p>
  */
-export interface DuplicateDocumentVersionName extends __SmithyException, $MetadataBearer {
-  name: "DuplicateDocumentVersionName";
-  $fault: "client";
+export class DuplicateDocumentVersionName extends __BaseException {
+  readonly name: "DuplicateDocumentVersionName" = "DuplicateDocumentVersionName";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateDocumentVersionName, __BaseException>) {
+    super({
+      name: "DuplicateDocumentVersionName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateDocumentVersionName.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateDocumentRequest {

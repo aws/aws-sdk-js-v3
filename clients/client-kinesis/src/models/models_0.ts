@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { KinesisServiceException as __BaseException } from "./KinesisServiceException";
 
 /**
  * <p>Represents the input for <code>AddTagsToStream</code>.</p>
@@ -28,52 +31,80 @@ export namespace AddTagsToStreamInput {
  * <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+  }
 }
 
 /**
  * <p>The requested resource exceeds the maximum number allowed, or the number of concurrent
  *             stream requests exceeds the maximum number allowed. </p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The resource is not available for this operation. For successful operation, the
  *             resource must be in the <code>ACTIVE</code> state.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 /**
  * <p>The requested resource could not be found. The stream might not be specified
  *             correctly.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
@@ -1155,22 +1186,39 @@ export namespace EnableEnhancedMonitoringInput {
 /**
  * <p>The provided iterator exceeds the maximum age allowed.</p>
  */
-export interface ExpiredIteratorException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredIteratorException";
-  $fault: "client";
+export class ExpiredIteratorException extends __BaseException {
+  readonly name: "ExpiredIteratorException" = "ExpiredIteratorException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ExpiredIteratorException, __BaseException>) {
+    super({
+      name: "ExpiredIteratorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredIteratorException.prototype);
+  }
 }
 
 /**
  * <p>The pagination token passed to the operation is expired.</p>
  */
-export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredNextTokenException";
-  $fault: "client";
-  message?: string;
+export class ExpiredNextTokenException extends __BaseException {
+  readonly name: "ExpiredNextTokenException" = "ExpiredNextTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredNextTokenException, __BaseException>) {
+    super({
+      name: "ExpiredNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredNextTokenException.prototype);
+  }
 }
 
 /**
@@ -1300,26 +1348,40 @@ export namespace GetRecordsOutput {
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  */
-export interface KMSAccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "KMSAccessDeniedException";
-  $fault: "client";
+export class KMSAccessDeniedException extends __BaseException {
+  readonly name: "KMSAccessDeniedException" = "KMSAccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<KMSAccessDeniedException, __BaseException>) {
+    super({
+      name: "KMSAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSAccessDeniedException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified customer master key (CMK) isn't
  *             enabled.</p>
  */
-export interface KMSDisabledException extends __SmithyException, $MetadataBearer {
-  name: "KMSDisabledException";
-  $fault: "client";
+export class KMSDisabledException extends __BaseException {
+  readonly name: "KMSDisabledException" = "KMSDisabledException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<KMSDisabledException, __BaseException>) {
+    super({
+      name: "KMSDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSDisabledException.prototype);
+  }
 }
 
 /**
@@ -1328,38 +1390,59 @@ export interface KMSDisabledException extends __SmithyException, $MetadataBearer
  *                 Customer Master Key</a> in the <i>Amazon Web Services Key Management
  *                 Service Developer Guide</i>.</p>
  */
-export interface KMSInvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "KMSInvalidStateException";
-  $fault: "client";
+export class KMSInvalidStateException extends __BaseException {
+  readonly name: "KMSInvalidStateException" = "KMSInvalidStateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
+    super({
+      name: "KMSInvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
+  }
 }
 
 /**
  * <p>The request was rejected because the specified entity or resource can't be
  *             found.</p>
  */
-export interface KMSNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "KMSNotFoundException";
-  $fault: "client";
+export class KMSNotFoundException extends __BaseException {
+  readonly name: "KMSNotFoundException" = "KMSNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<KMSNotFoundException, __BaseException>) {
+    super({
+      name: "KMSNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
  */
-export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
-  name: "KMSOptInRequired";
-  $fault: "client";
+export class KMSOptInRequired extends __BaseException {
+  readonly name: "KMSOptInRequired" = "KMSOptInRequired";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<KMSOptInRequired, __BaseException>) {
+    super({
+      name: "KMSOptInRequired",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSOptInRequired.prototype);
+  }
 }
 
 /**
@@ -1368,13 +1451,20 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
  *             the <i>Amazon Web Services Key Management Service Developer
  *             Guide</i>.</p>
  */
-export interface KMSThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "KMSThrottlingException";
-  $fault: "client";
+export class KMSThrottlingException extends __BaseException {
+  readonly name: "KMSThrottlingException" = "KMSThrottlingException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<KMSThrottlingException, __BaseException>) {
+    super({
+      name: "KMSThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSThrottlingException.prototype);
+  }
 }
 
 /**
@@ -1384,13 +1474,20 @@ export interface KMSThrottlingException extends __SmithyException, $MetadataBear
  *                 <i>Amazon Kinesis Data Streams Developer Guide</i>, and <a href="https://docs.aws.amazon.com/general/latest/gr/api-retries.html">Error Retries and
  *                 Exponential Backoff in Amazon Web Services</a> in the <i>Amazon Web Services General Reference</i>.</p>
  */
-export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
-  name: "ProvisionedThroughputExceededException";
-  $fault: "client";
+export class ProvisionedThroughputExceededException extends __BaseException {
+  readonly name: "ProvisionedThroughputExceededException" = "ProvisionedThroughputExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>A message that provides information about the error.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ProvisionedThroughputExceededException, __BaseException>) {
+    super({
+      name: "ProvisionedThroughputExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ProvisionedThroughputExceededException.prototype);
+  }
 }
 
 export enum ShardIteratorType {
@@ -1528,10 +1625,20 @@ export namespace IncreaseStreamRetentionPeriodInput {
  * <p>The processing of the request failed because of an unknown error, exception, or
  *             failure.</p>
  */
-export interface InternalFailureException extends __SmithyException {
-  name: "InternalFailureException";
-  $fault: "server";
-  message?: string;
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+  }
 }
 
 export enum ShardFilterType {
@@ -2018,10 +2125,20 @@ export namespace MergeShardsInput {
  *
  *         </p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**

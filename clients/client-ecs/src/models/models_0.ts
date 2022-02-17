@@ -1,13 +1,25 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ECSServiceException as __BaseException } from "./ECSServiceException";
 
 /**
  * <p>You don't have authorization to perform the requested action.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export enum AgentUpdateStatus {
@@ -24,10 +36,20 @@ export enum AgentUpdateStatus {
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
  * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
  */
-export interface ClientException extends __SmithyException, $MetadataBearer {
-  name: "ClientException";
-  $fault: "client";
-  message?: string;
+export class ClientException extends __BaseException {
+  readonly name: "ClientException" = "ClientException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClientException, __BaseException>) {
+    super({
+      name: "ClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientException.prototype);
+  }
 }
 
 export enum ManagedScalingStatus {
@@ -389,28 +411,58 @@ export namespace CreateCapacityProviderResponse {
  * <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>The limit for the resource was exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>These errors are usually caused by a server issue.</p>
  */
-export interface ServerException extends __SmithyException, $MetadataBearer {
-  name: "ServerException";
-  $fault: "server";
-  message?: string;
+export class ServerException extends __BaseException {
+  readonly name: "ServerException" = "ServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerException, __BaseException>) {
+    super({
+      name: "ServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerException.prototype);
+  }
 }
 
 /**
@@ -420,10 +472,20 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
  * 			process can get stuck in that state. However, when the agent reconnects, it resumes
  * 			where it stopped previously.</p>
  */
-export interface UpdateInProgressException extends __SmithyException, $MetadataBearer {
-  name: "UpdateInProgressException";
-  $fault: "client";
-  message?: string;
+export class UpdateInProgressException extends __BaseException {
+  readonly name: "UpdateInProgressException" = "UpdateInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UpdateInProgressException, __BaseException>) {
+    super({
+      name: "UpdateInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UpdateInProgressException.prototype);
+  }
 }
 
 /**
@@ -1034,10 +1096,20 @@ export namespace CreateClusterResponse {
 /**
  * <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  */
-export interface ClusterNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ClusterNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ClusterNotFoundException extends __BaseException {
+  readonly name: "ClusterNotFoundException" = "ClusterNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterNotFoundException, __BaseException>) {
+    super({
+      name: "ClusterNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterNotFoundException.prototype);
+  }
 }
 
 /**
@@ -2518,28 +2590,58 @@ export namespace CreateServiceResponse {
  * <p>The specified platform version doesn't satisfy the required capabilities of the task
  * 			definition.</p>
  */
-export interface PlatformTaskDefinitionIncompatibilityException extends __SmithyException, $MetadataBearer {
-  name: "PlatformTaskDefinitionIncompatibilityException";
-  $fault: "client";
-  message?: string;
+export class PlatformTaskDefinitionIncompatibilityException extends __BaseException {
+  readonly name: "PlatformTaskDefinitionIncompatibilityException" = "PlatformTaskDefinitionIncompatibilityException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PlatformTaskDefinitionIncompatibilityException, __BaseException>) {
+    super({
+      name: "PlatformTaskDefinitionIncompatibilityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PlatformTaskDefinitionIncompatibilityException.prototype);
+  }
 }
 
 /**
  * <p>The specified platform version doesn't exist.</p>
  */
-export interface PlatformUnknownException extends __SmithyException, $MetadataBearer {
-  name: "PlatformUnknownException";
-  $fault: "client";
-  message?: string;
+export class PlatformUnknownException extends __BaseException {
+  readonly name: "PlatformUnknownException" = "PlatformUnknownException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PlatformUnknownException, __BaseException>) {
+    super({
+      name: "PlatformUnknownException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PlatformUnknownException.prototype);
+  }
 }
 
 /**
  * <p>The specified task isn't supported in this Region.</p>
  */
-export interface UnsupportedFeatureException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedFeatureException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedFeatureException extends __BaseException {
+  readonly name: "UnsupportedFeatureException" = "UnsupportedFeatureException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedFeatureException, __BaseException>) {
+    super({
+      name: "UnsupportedFeatureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedFeatureException.prototype);
+  }
 }
 
 export interface CreateTaskSetRequest {
@@ -2706,20 +2808,40 @@ export namespace CreateTaskSetResponse {
  * <p>The specified service isn't active. You can't update a service that's inactive. If you
  * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
  */
-export interface ServiceNotActiveException extends __SmithyException, $MetadataBearer {
-  name: "ServiceNotActiveException";
-  $fault: "client";
-  message?: string;
+export class ServiceNotActiveException extends __BaseException {
+  readonly name: "ServiceNotActiveException" = "ServiceNotActiveException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceNotActiveException, __BaseException>) {
+    super({
+      name: "ServiceNotActiveException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceNotActiveException.prototype);
+  }
 }
 
 /**
  * <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  */
-export interface ServiceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ServiceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ServiceNotFoundException extends __BaseException {
+  readonly name: "ServiceNotFoundException" = "ServiceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceNotFoundException, __BaseException>) {
+    super({
+      name: "ServiceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceNotFoundException.prototype);
+  }
 }
 
 export enum SettingName {
@@ -2901,10 +3023,20 @@ export namespace DeleteAttributesResponse {
  * 			with <a>ListContainerInstances</a>. Amazon ECS container instances are
  * 			cluster-specific and Region-specific.</p>
  */
-export interface TargetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TargetNotFoundException";
-  $fault: "client";
-  message?: string;
+export class TargetNotFoundException extends __BaseException {
+  readonly name: "TargetNotFoundException" = "TargetNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetNotFoundException, __BaseException>) {
+    super({
+      name: "TargetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetNotFoundException.prototype);
+  }
 }
 
 export interface DeleteCapacityProviderRequest {
@@ -2944,10 +3076,20 @@ export namespace DeleteCapacityProviderResponse {
  * 			the container instances before you can delete the cluster. For more information, see
  * 				<a>DeregisterContainerInstance</a>.</p>
  */
-export interface ClusterContainsContainerInstancesException extends __SmithyException, $MetadataBearer {
-  name: "ClusterContainsContainerInstancesException";
-  $fault: "client";
-  message?: string;
+export class ClusterContainsContainerInstancesException extends __BaseException {
+  readonly name: "ClusterContainsContainerInstancesException" = "ClusterContainsContainerInstancesException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterContainsContainerInstancesException, __BaseException>) {
+    super({
+      name: "ClusterContainsContainerInstancesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterContainsContainerInstancesException.prototype);
+  }
 }
 
 /**
@@ -2955,19 +3097,39 @@ export interface ClusterContainsContainerInstancesException extends __SmithyExce
  * 			its desired task count to 0, and then delete the service. For more information, see
  * 				<a>UpdateService</a> and <a>DeleteService</a>.</p>
  */
-export interface ClusterContainsServicesException extends __SmithyException, $MetadataBearer {
-  name: "ClusterContainsServicesException";
-  $fault: "client";
-  message?: string;
+export class ClusterContainsServicesException extends __BaseException {
+  readonly name: "ClusterContainsServicesException" = "ClusterContainsServicesException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterContainsServicesException, __BaseException>) {
+    super({
+      name: "ClusterContainsServicesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterContainsServicesException.prototype);
+  }
 }
 
 /**
  * <p>You can't delete a cluster that has active tasks.</p>
  */
-export interface ClusterContainsTasksException extends __SmithyException, $MetadataBearer {
-  name: "ClusterContainsTasksException";
-  $fault: "client";
-  message?: string;
+export class ClusterContainsTasksException extends __BaseException {
+  readonly name: "ClusterContainsTasksException" = "ClusterContainsTasksException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterContainsTasksException, __BaseException>) {
+    super({
+      name: "ClusterContainsTasksException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterContainsTasksException.prototype);
+  }
 }
 
 export interface DeleteClusterRequest {
@@ -3101,10 +3263,20 @@ export namespace DeleteTaskSetResponse {
  * <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
  * 			Region.</p>
  */
-export interface TaskSetNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TaskSetNotFoundException";
-  $fault: "client";
-  message?: string;
+export class TaskSetNotFoundException extends __BaseException {
+  readonly name: "TaskSetNotFoundException" = "TaskSetNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TaskSetNotFoundException, __BaseException>) {
+    super({
+      name: "TaskSetNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskSetNotFoundException.prototype);
+  }
 }
 
 export interface DeregisterContainerInstanceRequest {
@@ -7478,10 +7650,20 @@ export namespace ExecuteCommandResponse {
  * <p>The target container isn't properly configured with the execute command agent or the
  * 			container is no longer active or running.</p>
  */
-export interface TargetNotConnectedException extends __SmithyException, $MetadataBearer {
-  name: "TargetNotConnectedException";
-  $fault: "client";
-  message?: string;
+export class TargetNotConnectedException extends __BaseException {
+  readonly name: "TargetNotConnectedException" = "TargetNotConnectedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TargetNotConnectedException, __BaseException>) {
+    super({
+      name: "TargetNotConnectedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetNotConnectedException.prototype);
+  }
 }
 
 export interface ListAccountSettingsRequest {
@@ -8341,10 +8523,20 @@ export namespace PutAccountSettingDefaultResponse {
  * 			attributes of a resource with <a>ListAttributes</a>. You can remove existing
  * 			attributes on a resource with <a>DeleteAttributes</a>.</p>
  */
-export interface AttributeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "AttributeLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class AttributeLimitExceededException extends __BaseException {
+  readonly name: "AttributeLimitExceededException" = "AttributeLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AttributeLimitExceededException, __BaseException>) {
+    super({
+      name: "AttributeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttributeLimitExceededException.prototype);
+  }
 }
 
 export interface PutAttributesRequest {
@@ -8453,10 +8645,20 @@ export namespace PutClusterCapacityProvidersResponse {
 /**
  * <p>The specified resource is in-use and can't be removed.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  message?: string;
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+  }
 }
 
 export enum PlatformDeviceType {
@@ -8934,10 +9136,20 @@ export namespace RegisterTaskDefinitionResponse {
  * <p>Your Amazon Web Services account was blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">
  * 				Amazon Web Services Support</a>.</p>
  */
-export interface BlockedException extends __SmithyException, $MetadataBearer {
-  name: "BlockedException";
-  $fault: "client";
-  message?: string;
+export class BlockedException extends __BaseException {
+  readonly name: "BlockedException" = "BlockedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BlockedException, __BaseException>) {
+    super({
+      name: "BlockedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BlockedException.prototype);
+  }
 }
 
 export interface RunTaskRequest {
@@ -9651,10 +9863,20 @@ export namespace SubmitTaskStateChangeResponse {
 /**
  * <p>The specified resource wasn't found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export interface TagResourceRequest {
@@ -9918,10 +10140,20 @@ export namespace UpdateClusterSettingsResponse {
  * 			could be because the agent running on the container instance is a previous or custom
  * 			version that doesn't use our version information.</p>
  */
-export interface MissingVersionException extends __SmithyException, $MetadataBearer {
-  name: "MissingVersionException";
-  $fault: "client";
-  message?: string;
+export class MissingVersionException extends __BaseException {
+  readonly name: "MissingVersionException" = "MissingVersionException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingVersionException, __BaseException>) {
+    super({
+      name: "MissingVersionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingVersionException.prototype);
+  }
 }
 
 /**
@@ -9929,10 +10161,20 @@ export interface MissingVersionException extends __SmithyException, $MetadataBea
  * 			agent is already running the latest version or because it's so old that there's no
  * 			update path to the current version.</p>
  */
-export interface NoUpdateAvailableException extends __SmithyException, $MetadataBearer {
-  name: "NoUpdateAvailableException";
-  $fault: "client";
-  message?: string;
+export class NoUpdateAvailableException extends __BaseException {
+  readonly name: "NoUpdateAvailableException" = "NoUpdateAvailableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoUpdateAvailableException, __BaseException>) {
+    super({
+      name: "NoUpdateAvailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoUpdateAvailableException.prototype);
+  }
 }
 
 export interface UpdateContainerAgentRequest {

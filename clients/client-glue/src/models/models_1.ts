@@ -1,5 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
+import { GlueServiceException as __BaseException } from "./GlueServiceException";
 import {
   Action,
   AuditContext,
@@ -3659,10 +3661,22 @@ export namespace GetUnfilteredPartitionMetadataResponse {
   });
 }
 
-export interface PermissionTypeMismatchException extends __SmithyException, $MetadataBearer {
-  name: "PermissionTypeMismatchException";
-  $fault: "client";
+export class PermissionTypeMismatchException extends __BaseException {
+  readonly name: "PermissionTypeMismatchException" = "PermissionTypeMismatchException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PermissionTypeMismatchException, __BaseException>) {
+    super({
+      name: "PermissionTypeMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PermissionTypeMismatchException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetUnfilteredPartitionsMetadataRequest {
@@ -5306,25 +5320,49 @@ export namespace ResetJobBookmarkResponse {
 /**
  * <p>Too many jobs are being run concurrently.</p>
  */
-export interface ConcurrentRunsExceededException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentRunsExceededException";
-  $fault: "client";
+export class ConcurrentRunsExceededException extends __BaseException {
+  readonly name: "ConcurrentRunsExceededException" = "ConcurrentRunsExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentRunsExceededException, __BaseException>) {
+    super({
+      name: "ConcurrentRunsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentRunsExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The workflow is in an invalid state to perform a requested operation.</p>
  */
-export interface IllegalWorkflowStateException extends __SmithyException, $MetadataBearer {
-  name: "IllegalWorkflowStateException";
-  $fault: "client";
+export class IllegalWorkflowStateException extends __BaseException {
+  readonly name: "IllegalWorkflowStateException" = "IllegalWorkflowStateException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalWorkflowStateException, __BaseException>) {
+    super({
+      name: "IllegalWorkflowStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalWorkflowStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ResumeWorkflowRunRequest {
@@ -5521,10 +5559,22 @@ export namespace SearchTablesResponse {
   });
 }
 
-export interface IllegalBlueprintStateException extends __SmithyException, $MetadataBearer {
-  name: "IllegalBlueprintStateException";
-  $fault: "client";
+export class IllegalBlueprintStateException extends __BaseException {
+  readonly name: "IllegalBlueprintStateException" = "IllegalBlueprintStateException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalBlueprintStateException, __BaseException>) {
+    super({
+      name: "IllegalBlueprintStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalBlueprintStateException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartBlueprintRunRequest {
@@ -5599,25 +5649,49 @@ export namespace StartCrawlerResponse {
 /**
  * <p>There is no applicable schedule.</p>
  */
-export interface NoScheduleException extends __SmithyException, $MetadataBearer {
-  name: "NoScheduleException";
-  $fault: "client";
+export class NoScheduleException extends __BaseException {
+  readonly name: "NoScheduleException" = "NoScheduleException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoScheduleException, __BaseException>) {
+    super({
+      name: "NoScheduleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoScheduleException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified scheduler is already running.</p>
  */
-export interface SchedulerRunningException extends __SmithyException, $MetadataBearer {
-  name: "SchedulerRunningException";
-  $fault: "client";
+export class SchedulerRunningException extends __BaseException {
+  readonly name: "SchedulerRunningException" = "SchedulerRunningException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SchedulerRunningException, __BaseException>) {
+    super({
+      name: "SchedulerRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SchedulerRunningException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartCrawlerScheduleRequest {
@@ -5852,13 +5926,25 @@ export namespace StartJobRunResponse {
 /**
  * <p>The machine learning transform is not ready to run.</p>
  */
-export interface MLTransformNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "MLTransformNotReadyException";
-  $fault: "client";
+export class MLTransformNotReadyException extends __BaseException {
+  readonly name: "MLTransformNotReadyException" = "MLTransformNotReadyException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MLTransformNotReadyException, __BaseException>) {
+    super({
+      name: "MLTransformNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MLTransformNotReadyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StartMLEvaluationTaskRunRequest {
@@ -6003,25 +6089,49 @@ export namespace StartWorkflowRunResponse {
 /**
  * <p>The specified crawler is not running.</p>
  */
-export interface CrawlerNotRunningException extends __SmithyException, $MetadataBearer {
-  name: "CrawlerNotRunningException";
-  $fault: "client";
+export class CrawlerNotRunningException extends __BaseException {
+  readonly name: "CrawlerNotRunningException" = "CrawlerNotRunningException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CrawlerNotRunningException, __BaseException>) {
+    super({
+      name: "CrawlerNotRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CrawlerNotRunningException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified crawler is stopping.</p>
  */
-export interface CrawlerStoppingException extends __SmithyException, $MetadataBearer {
-  name: "CrawlerStoppingException";
-  $fault: "client";
+export class CrawlerStoppingException extends __BaseException {
+  readonly name: "CrawlerStoppingException" = "CrawlerStoppingException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CrawlerStoppingException, __BaseException>) {
+    super({
+      name: "CrawlerStoppingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CrawlerStoppingException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StopCrawlerRequest {
@@ -6054,13 +6164,25 @@ export namespace StopCrawlerResponse {
 /**
  * <p>The specified scheduler is not running.</p>
  */
-export interface SchedulerNotRunningException extends __SmithyException, $MetadataBearer {
-  name: "SchedulerNotRunningException";
-  $fault: "client";
+export class SchedulerNotRunningException extends __BaseException {
+  readonly name: "SchedulerNotRunningException" = "SchedulerNotRunningException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SchedulerNotRunningException, __BaseException>) {
+    super({
+      name: "SchedulerNotRunningException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SchedulerNotRunningException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface StopCrawlerScheduleRequest {
@@ -6450,13 +6572,25 @@ export namespace UpdateClassifierResponse {
 /**
  * <p>There was a version conflict.</p>
  */
-export interface VersionMismatchException extends __SmithyException, $MetadataBearer {
-  name: "VersionMismatchException";
-  $fault: "client";
+export class VersionMismatchException extends __BaseException {
+  readonly name: "VersionMismatchException" = "VersionMismatchException";
+  readonly $fault: "client" = "client";
   /**
    * <p>A message describing the problem.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<VersionMismatchException, __BaseException>) {
+    super({
+      name: "VersionMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, VersionMismatchException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UpdateColumnStatisticsForPartitionRequest {

@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SMSServiceException as __BaseException } from "./SMSServiceException";
 
 export enum AppLaunchConfigurationStatus {
   Configured = "CONFIGURED",
@@ -598,47 +601,97 @@ export namespace CreateAppResponse {
 /**
  * <p>An internal error occurred.</p>
  */
-export interface InternalError extends __SmithyException, $MetadataBearer {
-  name: "InternalError";
-  $fault: "server";
-  message?: string;
+export class InternalError extends __BaseException {
+  readonly name: "InternalError" = "InternalError";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalError, __BaseException>) {
+    super({
+      name: "InternalError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalError.prototype);
+  }
 }
 
 /**
  * <p>A specified parameter is not valid.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>A required parameter is missing.</p>
  */
-export interface MissingRequiredParameterException extends __SmithyException, $MetadataBearer {
-  name: "MissingRequiredParameterException";
-  $fault: "client";
-  message?: string;
+export class MissingRequiredParameterException extends __BaseException {
+  readonly name: "MissingRequiredParameterException" = "MissingRequiredParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingRequiredParameterException, __BaseException>) {
+    super({
+      name: "MissingRequiredParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingRequiredParameterException.prototype);
+  }
 }
 
 /**
  * <p>This operation is not allowed.</p>
  */
-export interface OperationNotPermittedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotPermittedException";
-  $fault: "client";
-  message?: string;
+export class OperationNotPermittedException extends __BaseException {
+  readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotPermittedException, __BaseException>) {
+    super({
+      name: "OperationNotPermittedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotPermittedException.prototype);
+  }
 }
 
 /**
  * <p>You lack permissions needed to perform this operation. Check your IAM policies,
  *             and ensure that you are using the correct access keys.</p>
  */
-export interface UnauthorizedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedOperationException";
-  $fault: "client";
-  message?: string;
+export class UnauthorizedOperationException extends __BaseException {
+  readonly name: "UnauthorizedOperationException" = "UnauthorizedOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedOperationException, __BaseException>) {
+    super({
+      name: "UnauthorizedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedOperationException.prototype);
+  }
 }
 
 export enum LicenseType {
@@ -745,36 +798,77 @@ export namespace CreateReplicationJobResponse {
 /**
  * <p>There are no connectors available.</p>
  */
-export interface NoConnectorsAvailableException extends __SmithyException, $MetadataBearer {
-  name: "NoConnectorsAvailableException";
-  $fault: "client";
-  message?: string;
+export class NoConnectorsAvailableException extends __BaseException {
+  readonly name: "NoConnectorsAvailableException" = "NoConnectorsAvailableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoConnectorsAvailableException, __BaseException>) {
+    super({
+      name: "NoConnectorsAvailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoConnectorsAvailableException.prototype);
+  }
 }
 
 /**
  * <p>The specified replication job already exists.</p>
  */
-export interface ReplicationJobAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ReplicationJobAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ReplicationJobAlreadyExistsException extends __BaseException {
+  readonly name: "ReplicationJobAlreadyExistsException" = "ReplicationJobAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationJobAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ReplicationJobAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationJobAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The specified server cannot be replicated.</p>
  */
-export interface ServerCannotBeReplicatedException extends __SmithyException, $MetadataBearer {
-  name: "ServerCannotBeReplicatedException";
-  $fault: "client";
-  message?: string;
+export class ServerCannotBeReplicatedException extends __BaseException {
+  readonly name: "ServerCannotBeReplicatedException" = "ServerCannotBeReplicatedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerCannotBeReplicatedException, __BaseException>) {
+    super({
+      name: "ServerCannotBeReplicatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerCannotBeReplicatedException.prototype);
+  }
 }
 
 /**
  * <p>The service is temporarily unavailable.</p>
  */
-export interface TemporarilyUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "TemporarilyUnavailableException";
-  $fault: "server";
+export class TemporarilyUnavailableException extends __BaseException {
+  readonly name: "TemporarilyUnavailableException" = "TemporarilyUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TemporarilyUnavailableException, __BaseException>) {
+    super({
+      name: "TemporarilyUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TemporarilyUnavailableException.prototype);
+  }
 }
 
 export interface DeleteAppRequest {
@@ -927,10 +1021,20 @@ export namespace DeleteReplicationJobResponse {
 /**
  * <p>The specified replication job does not exist.</p>
  */
-export interface ReplicationJobNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ReplicationJobNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ReplicationJobNotFoundException extends __BaseException {
+  readonly name: "ReplicationJobNotFoundException" = "ReplicationJobNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationJobNotFoundException, __BaseException>) {
+    super({
+      name: "ReplicationJobNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationJobNotFoundException.prototype);
+  }
 }
 
 export interface DeleteServerCatalogRequest {}
@@ -2578,20 +2682,40 @@ export namespace StartOnDemandAppReplicationResponse {
  * <p>The user has the required permissions, so the request would have succeeded,
  *             but a dry run was performed.</p>
  */
-export interface DryRunOperationException extends __SmithyException, $MetadataBearer {
-  name: "DryRunOperationException";
-  $fault: "client";
-  message?: string;
+export class DryRunOperationException extends __BaseException {
+  readonly name: "DryRunOperationException" = "DryRunOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DryRunOperationException, __BaseException>) {
+    super({
+      name: "DryRunOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DryRunOperationException.prototype);
+  }
 }
 
 /**
  * <p>You have exceeded the number of on-demand replication runs you can request in a
  *             24-hour period.</p>
  */
-export interface ReplicationRunLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ReplicationRunLimitExceededException";
-  $fault: "client";
-  message?: string;
+export class ReplicationRunLimitExceededException extends __BaseException {
+  readonly name: "ReplicationRunLimitExceededException" = "ReplicationRunLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicationRunLimitExceededException, __BaseException>) {
+    super({
+      name: "ReplicationRunLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationRunLimitExceededException.prototype);
+  }
 }
 
 export interface StartOnDemandReplicationRunRequest {

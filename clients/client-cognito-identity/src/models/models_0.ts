@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CognitoIdentityServiceException as __BaseException } from "./CognitoIdentityServiceException";
 
 export enum AmbiguousRoleResolutionType {
   AUTHENTICATED_ROLE = "AuthenticatedRole",
@@ -182,74 +185,116 @@ export namespace IdentityPool {
 /**
  * <p>Thrown when the service encounters an error during processing the request.</p>
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "server";
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The message returned by an InternalErrorException.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+  }
 }
 
 /**
  * <p>Thrown for missing or bad input parameter(s).</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by an InvalidParameterException.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by a LimitExceededException.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>Thrown when a user is not authorized to access the requested resource.</p>
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by a NotAuthorizedException</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+  }
 }
 
 /**
  * <p>Thrown when a user tries to use a login which is already linked to another
  *          account.</p>
  */
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by a ResourceConflictException.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+  }
 }
 
 /**
  * <p>Thrown when a request is throttled.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Message returned by a TooManyRequestsException</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+  }
 }
 
 /**
@@ -345,13 +390,20 @@ export namespace DeleteIdentityPoolInput {
  * <p>Thrown when the requested resource (for example, a dataset or record) does not
  *          exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by a ResourceNotFoundException.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
@@ -430,13 +482,20 @@ export namespace DescribeIdentityPoolInput {
  * <p>An exception thrown when a dependent service such as Facebook or Twitter is not
  *          responding</p>
  */
-export interface ExternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "ExternalServiceException";
-  $fault: "client";
+export class ExternalServiceException extends __BaseException {
+  readonly name: "ExternalServiceException" = "ExternalServiceException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by an ExternalServiceException</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ExternalServiceException, __BaseException>) {
+    super({
+      name: "ExternalServiceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExternalServiceException.prototype);
+  }
 }
 
 /**
@@ -542,14 +601,20 @@ export namespace GetCredentialsForIdentityResponse {
  * <p>Thrown if the identity pool has no role associated for the given auth type
  *          (auth/unauth) or if the AssumeRole fails.</p>
  */
-export interface InvalidIdentityPoolConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidIdentityPoolConfigurationException";
-  $fault: "client";
+export class InvalidIdentityPoolConfigurationException extends __BaseException {
+  readonly name: "InvalidIdentityPoolConfigurationException" = "InvalidIdentityPoolConfigurationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned for an <code>InvalidIdentityPoolConfigurationException</code>
-   *          </p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidIdentityPoolConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidIdentityPoolConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIdentityPoolConfigurationException.prototype);
+  }
 }
 
 /**
@@ -846,13 +911,20 @@ export namespace GetOpenIdTokenResponse {
  * <p>The provided developer user identifier is already registered with Cognito under a
  *          different identity ID.</p>
  */
-export interface DeveloperUserAlreadyRegisteredException extends __SmithyException, $MetadataBearer {
-  name: "DeveloperUserAlreadyRegisteredException";
-  $fault: "client";
+export class DeveloperUserAlreadyRegisteredException extends __BaseException {
+  readonly name: "DeveloperUserAlreadyRegisteredException" = "DeveloperUserAlreadyRegisteredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>This developer user identifier is already registered with Cognito.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DeveloperUserAlreadyRegisteredException, __BaseException>) {
+    super({
+      name: "DeveloperUserAlreadyRegisteredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeveloperUserAlreadyRegisteredException.prototype);
+  }
 }
 
 /**
@@ -1302,13 +1374,20 @@ export namespace MergeDeveloperIdentitiesResponse {
 /**
  * <p>Thrown if there are parallel requests to modify a resource.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned by a ConcurrentModificationException.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**

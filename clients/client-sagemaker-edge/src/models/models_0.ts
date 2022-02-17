@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SagemakerEdgeServiceException as __BaseException } from "./SagemakerEdgeServiceException";
 
 export interface GetDeviceRegistrationRequest {
   /**
@@ -46,10 +49,22 @@ export namespace GetDeviceRegistrationResult {
  * <p>An internal failure occurred. Try your request again. If the problem
  *       persists, contact AWS customer support.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "client";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**

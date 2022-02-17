@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { EKSServiceException as __BaseException } from "./EKSServiceException";
 
 /**
  * <p>You don't have permissions to perform the requested operation. The user or role that
@@ -6,10 +9,20 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
  *             attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
  *                 Management</a> in the <i>IAM User Guide</i>. </p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export enum AddonIssueCode {
@@ -539,9 +552,9 @@ export namespace AssociateEncryptionConfigResponse {
  *             action or resource on behalf of a user that doesn't have permissions to use the action
  *             or resource or specifying an identifier that is not valid.</p>
  */
-export interface ClientException extends __SmithyException, $MetadataBearer {
-  name: "ClientException";
-  $fault: "client";
+export class ClientException extends __BaseException {
+  readonly name: "ClientException" = "ClientException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -553,16 +566,29 @@ export interface ClientException extends __SmithyException, $MetadataBearer {
   nodegroupName?: string;
 
   addonName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClientException, __BaseException>) {
+    super({
+      name: "ClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.addonName = opts.addonName;
+  }
 }
 
 /**
  * <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -579,16 +605,30 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   fargateProfileName?: string;
 
   addonName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.fargateProfileName = opts.fargateProfileName;
+    this.addonName = opts.addonName;
+  }
 }
 
 /**
  * <p>The request is invalid given the state of the cluster. Check the state of the cluster
  *             and the associated operations.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -600,15 +640,28 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
   nodegroupName?: string;
 
   addonName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.addonName = opts.addonName;
+  }
 }
 
 /**
  * <p>The specified resource is in use.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -620,7 +673,20 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
   nodegroupName?: string;
 
   addonName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.addonName = opts.addonName;
+  }
 }
 
 /**
@@ -629,9 +695,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
  *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
  *             Region-specific.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -648,15 +714,29 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   fargateProfileName?: string;
 
   addonName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.fargateProfileName = opts.fargateProfileName;
+    this.addonName = opts.addonName;
+  }
 }
 
 /**
  * <p>These errors are usually caused by a server-side issue.</p>
  */
-export interface ServerException extends __SmithyException, $MetadataBearer {
-  name: "ServerException";
-  $fault: "server";
+export class ServerException extends __BaseException {
+  readonly name: "ServerException" = "ServerException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -668,7 +748,20 @@ export interface ServerException extends __SmithyException, $MetadataBearer {
   nodegroupName?: string;
 
   addonName?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerException, __BaseException>) {
+    super({
+      name: "ServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.addonName = opts.addonName;
+  }
 }
 
 /**
@@ -1530,9 +1623,9 @@ export namespace CreateClusterResponse {
 /**
  * <p>You have encountered a service limit on the specified resource.</p>
  */
-export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceLimitExceededException";
-  $fault: "client";
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -1543,16 +1636,38 @@ export interface ResourceLimitExceededException extends __SmithyException, $Meta
    */
   nodegroupName?: string;
 
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+  }
 }
 
 /**
  * <p>The service is unavailable. Back off and retry the operation.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  message?: string;
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
 }
 
 /**
@@ -1561,10 +1676,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
  *             Availability Zones for your account, from which you can choose subnets for your
  *             cluster.</p>
  */
-export interface UnsupportedAvailabilityZoneException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedAvailabilityZoneException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedAvailabilityZoneException extends __BaseException {
+  readonly name: "UnsupportedAvailabilityZoneException" = "UnsupportedAvailabilityZoneException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The Amazon EKS cluster associated with the exception.</p>
    */
@@ -1580,6 +1694,21 @@ export interface UnsupportedAvailabilityZoneException extends __SmithyException,
    *             Availability Zones for your cluster.</p>
    */
   validZones?: string[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedAvailabilityZoneException, __BaseException>) {
+    super({
+      name: "UnsupportedAvailabilityZoneException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedAvailabilityZoneException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.validZones = opts.validZones;
+  }
 }
 
 /**
@@ -3464,10 +3593,20 @@ export namespace ListNodegroupsResponse {
  * <p>This exception is thrown if the request contains a semantic error. The precise meaning
  *             will depend on the API, and will be documented in the error message.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
-  message?: string;
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 export interface ListTagsForResourceRequest {
@@ -3507,10 +3646,20 @@ export namespace ListTagsForResourceResponse {
  * <p>A service resource associated with the request could not be found. Clients should not
  *             retry such requests.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 export interface ListUpdatesRequest {
@@ -3675,10 +3824,20 @@ export namespace RegisterClusterResponse {
 /**
  * <p>Required resources (such as Service Linked Roles) were created and are still propagating. Retry later.</p>
  */
-export interface ResourcePropagationDelayException extends __SmithyException, $MetadataBearer {
-  name: "ResourcePropagationDelayException";
-  $fault: "client";
-  message?: string;
+export class ResourcePropagationDelayException extends __BaseException {
+  readonly name: "ResourcePropagationDelayException" = "ResourcePropagationDelayException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePropagationDelayException, __BaseException>) {
+    super({
+      name: "ResourcePropagationDelayException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePropagationDelayException.prototype);
+  }
 }
 
 export interface TagResourceRequest {

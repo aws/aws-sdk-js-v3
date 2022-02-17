@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SESv2ServiceException as __BaseException } from "./SESv2ServiceException";
 
 export enum ContactLanguage {
   EN = "EN",
@@ -132,28 +134,58 @@ export namespace AccountDetails {
  * <p>The message can't be sent because the account's ability to send email has been
  *             permanently restricted.</p>
  */
-export interface AccountSuspendedException extends __SmithyException, $MetadataBearer {
-  name: "AccountSuspendedException";
-  $fault: "client";
-  message?: string;
+export class AccountSuspendedException extends __BaseException {
+  readonly name: "AccountSuspendedException" = "AccountSuspendedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccountSuspendedException, __BaseException>) {
+    super({
+      name: "AccountSuspendedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccountSuspendedException.prototype);
+  }
 }
 
 /**
  * <p>The resource specified in your request already exists.</p>
  */
-export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "AlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class AlreadyExistsException extends __BaseException {
+  readonly name: "AlreadyExistsException" = "AlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AlreadyExistsException, __BaseException>) {
+    super({
+      name: "AlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The input you provided is invalid.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
-  message?: string;
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+  }
 }
 
 export enum BehaviorOnMxFailure {
@@ -667,19 +699,39 @@ export namespace CloudWatchDestination {
 /**
  * <p>The resource is being modified by another operation or thread.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "server";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
  * <p>If there is already an ongoing account details update under review.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 export enum SubscriptionStatus {
@@ -1098,28 +1150,58 @@ export namespace CreateConfigurationSetResponse {
 /**
  * <p>There are too many instances of the specified resource type.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  message?: string;
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The resource you attempted to access doesn't exist.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  message?: string;
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+  }
 }
 
 /**
  * <p>Too many requests have been made to the operation.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
-  message?: string;
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+  }
 }
 
 /**
@@ -1751,29 +1833,59 @@ export namespace CreateDeliverabilityTestReportResponse {
 /**
  * <p>The message can't be sent because the sending domain isn't verified.</p>
  */
-export interface MailFromDomainNotVerifiedException extends __SmithyException, $MetadataBearer {
-  name: "MailFromDomainNotVerifiedException";
-  $fault: "client";
-  message?: string;
+export class MailFromDomainNotVerifiedException extends __BaseException {
+  readonly name: "MailFromDomainNotVerifiedException" = "MailFromDomainNotVerifiedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MailFromDomainNotVerifiedException, __BaseException>) {
+    super({
+      name: "MailFromDomainNotVerifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MailFromDomainNotVerifiedException.prototype);
+  }
 }
 
 /**
  * <p>The message can't be sent because it contains invalid content.</p>
  */
-export interface MessageRejected extends __SmithyException, $MetadataBearer {
-  name: "MessageRejected";
-  $fault: "client";
-  message?: string;
+export class MessageRejected extends __BaseException {
+  readonly name: "MessageRejected" = "MessageRejected";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MessageRejected, __BaseException>) {
+    super({
+      name: "MessageRejected",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MessageRejected.prototype);
+  }
 }
 
 /**
  * <p>The message can't be sent because the account's ability to send email is currently
  *             paused.</p>
  */
-export interface SendingPausedException extends __SmithyException, $MetadataBearer {
-  name: "SendingPausedException";
-  $fault: "client";
-  message?: string;
+export class SendingPausedException extends __BaseException {
+  readonly name: "SendingPausedException" = "SendingPausedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SendingPausedException, __BaseException>) {
+    super({
+      name: "SendingPausedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SendingPausedException.prototype);
+  }
 }
 
 export enum DkimSigningKeyLength {
@@ -4629,10 +4741,20 @@ export namespace ImportJobSummary {
 /**
  * <p>The specified request includes an invalid or expired token.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
-  message?: string;
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+  }
 }
 
 /**

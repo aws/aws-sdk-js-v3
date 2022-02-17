@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { BatchServiceException as __BaseException } from "./BatchServiceException";
 
 export enum ArrayJobDependency {
   N_TO_N = "N_TO_N",
@@ -239,19 +242,39 @@ export namespace CancelJobResponse {
  * <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that
  *    doesn't have permissions to use the action or resource, or specifying an identifier that's not valid.</p>
  */
-export interface ClientException extends __SmithyException, $MetadataBearer {
-  name: "ClientException";
-  $fault: "client";
-  message?: string;
+export class ClientException extends __BaseException {
+  readonly name: "ClientException" = "ClientException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClientException, __BaseException>) {
+    super({
+      name: "ClientException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientException.prototype);
+  }
 }
 
 /**
  * <p>These errors are usually caused by a server issue.</p>
  */
-export interface ServerException extends __SmithyException, $MetadataBearer {
-  name: "ServerException";
-  $fault: "server";
-  message?: string;
+export class ServerException extends __BaseException {
+  readonly name: "ServerException" = "ServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServerException, __BaseException>) {
+    super({
+      name: "ServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServerException.prototype);
+  }
 }
 
 export enum CRAllocationStrategy {

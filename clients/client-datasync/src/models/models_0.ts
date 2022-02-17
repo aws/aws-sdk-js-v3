@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DataSyncServiceException as __BaseException } from "./DataSyncServiceException";
 
 export enum AgentStatus {
   OFFLINE = "OFFLINE",
@@ -76,21 +78,43 @@ export namespace CancelTaskExecutionResponse {
 /**
  * <p>This exception is thrown when an error occurs in the DataSync service.</p>
  */
-export interface InternalException extends __SmithyException, $MetadataBearer {
-  name: "InternalException";
-  $fault: "server";
-  message?: string;
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
   errorCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+    this.errorCode = opts.errorCode;
+  }
 }
 
 /**
  * <p>This exception is thrown when the client submits a malformed request.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
-  message?: string;
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   errorCode?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.errorCode = opts.errorCode;
+  }
 }
 
 /**

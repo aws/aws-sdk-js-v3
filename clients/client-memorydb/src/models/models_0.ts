@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MemoryDBServiceException as __BaseException } from "./MemoryDBServiceException";
 
 /**
  * <p>Returns the updates being applied to the ACL.</p>
@@ -78,28 +81,58 @@ export namespace ACL {
 /**
  * <p></p>
  */
-export interface ACLAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ACLAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ACLAlreadyExistsFault extends __BaseException {
+  readonly name: "ACLAlreadyExistsFault" = "ACLAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ACLAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ACLAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ACLAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ACLNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ACLNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ACLNotFoundFault extends __BaseException {
+  readonly name: "ACLNotFoundFault" = "ACLNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ACLNotFoundFault, __BaseException>) {
+    super({
+      name: "ACLNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ACLNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ACLQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ACLQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ACLQuotaExceededFault extends __BaseException {
+  readonly name: "ACLQuotaExceededFault" = "ACLQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ACLQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ACLQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ACLQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -586,19 +619,39 @@ export namespace BatchUpdateClusterResponse {
 /**
  * <p></p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ServiceUpdateNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ServiceUpdateNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ServiceUpdateNotFoundFault extends __BaseException {
+  readonly name: "ServiceUpdateNotFoundFault" = "ServiceUpdateNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUpdateNotFoundFault, __BaseException>) {
+    super({
+      name: "ServiceUpdateNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUpdateNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -875,64 +928,134 @@ export namespace CopySnapshotResponse {
 /**
  * <p></p>
  */
-export interface InvalidParameterCombinationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterCombinationException";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterCombinationException extends __BaseException {
+  readonly name: "InvalidParameterCombinationException" = "InvalidParameterCombinationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterCombinationException, __BaseException>) {
+    super({
+      name: "InvalidParameterCombinationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterCombinationException.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InvalidSnapshotStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidSnapshotStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidSnapshotStateFault extends __BaseException {
+  readonly name: "InvalidSnapshotStateFault" = "InvalidSnapshotStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSnapshotStateFault, __BaseException>) {
+    super({
+      name: "InvalidSnapshotStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSnapshotStateFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ServiceLinkedRoleNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ServiceLinkedRoleNotFoundFault extends __BaseException {
+  readonly name: "ServiceLinkedRoleNotFoundFault" = "ServiceLinkedRoleNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceLinkedRoleNotFoundFault, __BaseException>) {
+    super({
+      name: "ServiceLinkedRoleNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceLinkedRoleNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SnapshotAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotAlreadyExistsFault extends __BaseException {
+  readonly name: "SnapshotAlreadyExistsFault" = "SnapshotAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "SnapshotAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SnapshotNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotNotFoundFault extends __BaseException {
+  readonly name: "SnapshotNotFoundFault" = "SnapshotNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotNotFoundFault, __BaseException>) {
+    super({
+      name: "SnapshotNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SnapshotQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SnapshotQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SnapshotQuotaExceededFault extends __BaseException {
+  readonly name: "SnapshotQuotaExceededFault" = "SnapshotQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SnapshotQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SnapshotQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SnapshotQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface TagQuotaPerResourceExceeded extends __SmithyException, $MetadataBearer {
-  name: "TagQuotaPerResourceExceeded";
-  $fault: "client";
-  message?: string;
+export class TagQuotaPerResourceExceeded extends __BaseException {
+  readonly name: "TagQuotaPerResourceExceeded" = "TagQuotaPerResourceExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagQuotaPerResourceExceeded, __BaseException>) {
+    super({
+      name: "TagQuotaPerResourceExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagQuotaPerResourceExceeded.prototype);
+  }
 }
 
 export interface CreateACLRequest {
@@ -980,46 +1103,96 @@ export namespace CreateACLResponse {
 /**
  * <p></p>
  */
-export interface DefaultUserRequired extends __SmithyException, $MetadataBearer {
-  name: "DefaultUserRequired";
-  $fault: "client";
-  message?: string;
+export class DefaultUserRequired extends __BaseException {
+  readonly name: "DefaultUserRequired" = "DefaultUserRequired";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DefaultUserRequired, __BaseException>) {
+    super({
+      name: "DefaultUserRequired",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DefaultUserRequired.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface DuplicateUserNameFault extends __SmithyException, $MetadataBearer {
-  name: "DuplicateUserNameFault";
-  $fault: "client";
-  message?: string;
+export class DuplicateUserNameFault extends __BaseException {
+  readonly name: "DuplicateUserNameFault" = "DuplicateUserNameFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateUserNameFault, __BaseException>) {
+    super({
+      name: "DuplicateUserNameFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateUserNameFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface UserNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "UserNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class UserNotFoundFault extends __BaseException {
+  readonly name: "UserNotFoundFault" = "UserNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserNotFoundFault, __BaseException>) {
+    super({
+      name: "UserNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ClusterAlreadyExistsFault extends __BaseException {
+  readonly name: "ClusterAlreadyExistsFault" = "ClusterAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ClusterAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ClusterQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class ClusterQuotaForCustomerExceededFault extends __BaseException {
+  readonly name: "ClusterQuotaForCustomerExceededFault" = "ClusterQuotaForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterQuotaForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "ClusterQuotaForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterQuotaForCustomerExceededFault.prototype);
+  }
 }
 
 export interface CreateClusterRequest {
@@ -1161,82 +1334,172 @@ export namespace CreateClusterResponse {
 /**
  * <p></p>
  */
-export interface InsufficientClusterCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientClusterCapacityFault";
-  $fault: "client";
-  message?: string;
+export class InsufficientClusterCapacityFault extends __BaseException {
+  readonly name: "InsufficientClusterCapacityFault" = "InsufficientClusterCapacityFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientClusterCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientClusterCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientClusterCapacityFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InvalidACLStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidACLStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidACLStateFault extends __BaseException {
+  readonly name: "InvalidACLStateFault" = "InvalidACLStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidACLStateFault, __BaseException>) {
+    super({
+      name: "InvalidACLStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidACLStateFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InvalidCredentialsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCredentialsException";
-  $fault: "client";
-  message?: string;
+export class InvalidCredentialsException extends __BaseException {
+  readonly name: "InvalidCredentialsException" = "InvalidCredentialsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCredentialsException, __BaseException>) {
+    super({
+      name: "InvalidCredentialsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCredentialsException.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface InvalidVPCNetworkStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidVPCNetworkStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidVPCNetworkStateFault extends __BaseException {
+  readonly name: "InvalidVPCNetworkStateFault" = "InvalidVPCNetworkStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidVPCNetworkStateFault, __BaseException>) {
+    super({
+      name: "InvalidVPCNetworkStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidVPCNetworkStateFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface NodeQuotaForClusterExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NodeQuotaForClusterExceededFault";
-  $fault: "client";
-  message?: string;
+export class NodeQuotaForClusterExceededFault extends __BaseException {
+  readonly name: "NodeQuotaForClusterExceededFault" = "NodeQuotaForClusterExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeQuotaForClusterExceededFault, __BaseException>) {
+    super({
+      name: "NodeQuotaForClusterExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeQuotaForClusterExceededFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "NodeQuotaForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class NodeQuotaForCustomerExceededFault extends __BaseException {
+  readonly name: "NodeQuotaForCustomerExceededFault" = "NodeQuotaForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NodeQuotaForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "NodeQuotaForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NodeQuotaForCustomerExceededFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ParameterGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ParameterGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "ParameterGroupNotFoundFault" = "ParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "ParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterGroupNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ShardsPerClusterQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ShardsPerClusterQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ShardsPerClusterQuotaExceededFault extends __BaseException {
+  readonly name: "ShardsPerClusterQuotaExceededFault" = "ShardsPerClusterQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ShardsPerClusterQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ShardsPerClusterQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ShardsPerClusterQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SubnetGroupNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupNotFoundFault extends __BaseException {
+  readonly name: "SubnetGroupNotFoundFault" = "SubnetGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "SubnetGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupNotFoundFault.prototype);
+  }
 }
 
 export interface CreateParameterGroupRequest {
@@ -1323,37 +1586,77 @@ export namespace CreateParameterGroupResponse {
 /**
  * <p></p>
  */
-export interface InvalidParameterGroupStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterGroupStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidParameterGroupStateFault extends __BaseException {
+  readonly name: "InvalidParameterGroupStateFault" = "InvalidParameterGroupStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterGroupStateFault, __BaseException>) {
+    super({
+      name: "InvalidParameterGroupStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterGroupStateFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ParameterGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ParameterGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class ParameterGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "ParameterGroupAlreadyExistsFault" = "ParameterGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ParameterGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ParameterGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ParameterGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class ParameterGroupQuotaExceededFault extends __BaseException {
+  readonly name: "ParameterGroupQuotaExceededFault" = "ParameterGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ParameterGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ParameterGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParameterGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ClusterNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ClusterNotFoundFault extends __BaseException {
+  readonly name: "ClusterNotFoundFault" = "ClusterNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ClusterNotFoundFault, __BaseException>) {
+    super({
+      name: "ClusterNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClusterNotFoundFault.prototype);
+  }
 }
 
 export interface CreateSnapshotRequest {
@@ -1406,10 +1709,20 @@ export namespace CreateSnapshotResponse {
 /**
  * <p></p>
  */
-export interface InvalidClusterStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidClusterStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidClusterStateFault extends __BaseException {
+  readonly name: "InvalidClusterStateFault" = "InvalidClusterStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidClusterStateFault, __BaseException>) {
+    super({
+      name: "InvalidClusterStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClusterStateFault.prototype);
+  }
 }
 
 export interface CreateSubnetGroupRequest {
@@ -1553,46 +1866,96 @@ export namespace CreateSubnetGroupResponse {
 /**
  * <p></p>
  */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
-  message?: string;
+export class InvalidSubnet extends __BaseException {
+  readonly name: "InvalidSubnet" = "InvalidSubnet";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
+    super({
+      name: "InvalidSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnet.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SubnetGroupAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupAlreadyExistsFault extends __BaseException {
+  readonly name: "SubnetGroupAlreadyExistsFault" = "SubnetGroupAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "SubnetGroupAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SubnetGroupQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupQuotaExceededFault extends __BaseException {
+  readonly name: "SubnetGroupQuotaExceededFault" = "SubnetGroupQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SubnetGroupQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SubnetNotAllowedFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetNotAllowedFault";
-  $fault: "client";
-  message?: string;
+export class SubnetNotAllowedFault extends __BaseException {
+  readonly name: "SubnetNotAllowedFault" = "SubnetNotAllowedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetNotAllowedFault, __BaseException>) {
+    super({
+      name: "SubnetNotAllowedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetNotAllowedFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface SubnetQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class SubnetQuotaExceededFault extends __BaseException {
+  readonly name: "SubnetQuotaExceededFault" = "SubnetQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetQuotaExceededFault, __BaseException>) {
+    super({
+      name: "SubnetQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetQuotaExceededFault.prototype);
+  }
 }
 
 export enum InputAuthenticationType {
@@ -1753,19 +2116,39 @@ export namespace CreateUserResponse {
 /**
  * <p></p>
  */
-export interface UserAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "UserAlreadyExistsFault";
-  $fault: "client";
-  message?: string;
+export class UserAlreadyExistsFault extends __BaseException {
+  readonly name: "UserAlreadyExistsFault" = "UserAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "UserAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserAlreadyExistsFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface UserQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "UserQuotaExceededFault";
-  $fault: "client";
-  message?: string;
+export class UserQuotaExceededFault extends __BaseException {
+  readonly name: "UserQuotaExceededFault" = "UserQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserQuotaExceededFault, __BaseException>) {
+    super({
+      name: "UserQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserQuotaExceededFault.prototype);
+  }
 }
 
 export interface DeleteACLRequest {
@@ -1936,10 +2319,20 @@ export namespace DeleteSubnetGroupResponse {
 /**
  * <p></p>
  */
-export interface SubnetGroupInUseFault extends __SmithyException, $MetadataBearer {
-  name: "SubnetGroupInUseFault";
-  $fault: "client";
-  message?: string;
+export class SubnetGroupInUseFault extends __BaseException {
+  readonly name: "SubnetGroupInUseFault" = "SubnetGroupInUseFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetGroupInUseFault, __BaseException>) {
+    super({
+      name: "SubnetGroupInUseFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetGroupInUseFault.prototype);
+  }
 }
 
 export interface DeleteUserRequest {
@@ -1977,10 +2370,20 @@ export namespace DeleteUserResponse {
 /**
  * <p></p>
  */
-export interface InvalidUserStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidUserStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidUserStateFault extends __BaseException {
+  readonly name: "InvalidUserStateFault" = "InvalidUserStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUserStateFault, __BaseException>) {
+    super({
+      name: "InvalidUserStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUserStateFault.prototype);
+  }
 }
 
 export interface DescribeACLsRequest {
@@ -2724,10 +3127,20 @@ export namespace DescribeUsersResponse {
 /**
  * <p></p>
  */
-export interface APICallRateForCustomerExceededFault extends __SmithyException, $MetadataBearer {
-  name: "APICallRateForCustomerExceededFault";
-  $fault: "client";
-  message?: string;
+export class APICallRateForCustomerExceededFault extends __BaseException {
+  readonly name: "APICallRateForCustomerExceededFault" = "APICallRateForCustomerExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<APICallRateForCustomerExceededFault, __BaseException>) {
+    super({
+      name: "APICallRateForCustomerExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, APICallRateForCustomerExceededFault.prototype);
+  }
 }
 
 export interface FailoverShardRequest {
@@ -2770,28 +3183,58 @@ export namespace FailoverShardResponse {
 /**
  * <p></p>
  */
-export interface InvalidKMSKeyFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidKMSKeyFault";
-  $fault: "client";
-  message?: string;
+export class InvalidKMSKeyFault extends __BaseException {
+  readonly name: "InvalidKMSKeyFault" = "InvalidKMSKeyFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKMSKeyFault, __BaseException>) {
+    super({
+      name: "InvalidKMSKeyFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKMSKeyFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface ShardNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ShardNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class ShardNotFoundFault extends __BaseException {
+  readonly name: "ShardNotFoundFault" = "ShardNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ShardNotFoundFault, __BaseException>) {
+    super({
+      name: "ShardNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ShardNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface TestFailoverNotAvailableFault extends __SmithyException, $MetadataBearer {
-  name: "TestFailoverNotAvailableFault";
-  $fault: "client";
-  message?: string;
+export class TestFailoverNotAvailableFault extends __BaseException {
+  readonly name: "TestFailoverNotAvailableFault" = "TestFailoverNotAvailableFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TestFailoverNotAvailableFault, __BaseException>) {
+    super({
+      name: "TestFailoverNotAvailableFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TestFailoverNotAvailableFault.prototype);
+  }
 }
 
 export interface ListAllowedNodeTypeUpdatesRequest {
@@ -2835,10 +3278,20 @@ export namespace ListAllowedNodeTypeUpdatesResponse {
 /**
  * <p></p>
  */
-export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidARNFault";
-  $fault: "client";
-  message?: string;
+export class InvalidARNFault extends __BaseException {
+  readonly name: "InvalidARNFault" = "InvalidARNFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidARNFault, __BaseException>) {
+    super({
+      name: "InvalidARNFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidARNFault.prototype);
+  }
 }
 
 export interface ListTagsRequest {
@@ -2955,10 +3408,20 @@ export namespace TagResourceResponse {
 /**
  * <p></p>
  */
-export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "TagNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class TagNotFoundFault extends __BaseException {
+  readonly name: "TagNotFoundFault" = "TagNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TagNotFoundFault, __BaseException>) {
+    super({
+      name: "TagNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagNotFoundFault.prototype);
+  }
 }
 
 export interface UntagResourceRequest {
@@ -3043,19 +3506,39 @@ export namespace UpdateACLResponse {
 /**
  * <p></p>
  */
-export interface InvalidNodeStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidNodeStateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidNodeStateFault extends __BaseException {
+  readonly name: "InvalidNodeStateFault" = "InvalidNodeStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNodeStateFault, __BaseException>) {
+    super({
+      name: "InvalidNodeStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNodeStateFault.prototype);
+  }
 }
 
 /**
  * <p></p>
  */
-export interface NoOperationFault extends __SmithyException, $MetadataBearer {
-  name: "NoOperationFault";
-  $fault: "client";
-  message?: string;
+export class NoOperationFault extends __BaseException {
+  readonly name: "NoOperationFault" = "NoOperationFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoOperationFault, __BaseException>) {
+    super({
+      name: "NoOperationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoOperationFault.prototype);
+  }
 }
 
 /**
@@ -3257,10 +3740,20 @@ export namespace UpdateParameterGroupResponse {
 /**
  * <p></p>
  */
-export interface SubnetInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetInUse";
-  $fault: "client";
-  message?: string;
+export class SubnetInUse extends __BaseException {
+  readonly name: "SubnetInUse" = "SubnetInUse";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubnetInUse, __BaseException>) {
+    super({
+      name: "SubnetInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetInUse.prototype);
+  }
 }
 
 export interface UpdateSubnetGroupRequest {

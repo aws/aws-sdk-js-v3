@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DataPipelineServiceException as __BaseException } from "./DataPipelineServiceException";
 
 /**
  * <p>A value or list of parameter values. </p>
@@ -70,49 +73,77 @@ export namespace ActivatePipelineOutput {
 /**
  * <p>An internal service error occurred.</p>
  */
-export interface InternalServiceError extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceError";
-  $fault: "server";
+export class InternalServiceError extends __BaseException {
+  readonly name: "InternalServiceError" = "InternalServiceError";
+  readonly $fault: "server" = "server";
   /**
-   * <p>Description of the error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
+    super({
+      name: "InternalServiceError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceError.prototype);
+  }
 }
 
 /**
  * <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Description of the error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
  * <p>The specified pipeline has been deleted.</p>
  */
-export interface PipelineDeletedException extends __SmithyException, $MetadataBearer {
-  name: "PipelineDeletedException";
-  $fault: "client";
+export class PipelineDeletedException extends __BaseException {
+  readonly name: "PipelineDeletedException" = "PipelineDeletedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Description of the error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PipelineDeletedException, __BaseException>) {
+    super({
+      name: "PipelineDeletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineDeletedException.prototype);
+  }
 }
 
 /**
  * <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  */
-export interface PipelineNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "PipelineNotFoundException";
-  $fault: "client";
+export class PipelineNotFoundException extends __BaseException {
+  readonly name: "PipelineNotFoundException" = "PipelineNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Description of the error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PipelineNotFoundException, __BaseException>) {
+    super({
+      name: "PipelineNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineNotFoundException.prototype);
+  }
 }
 
 /**
@@ -557,13 +588,20 @@ export namespace EvaluateExpressionOutput {
 /**
  * <p>The specified task was not found. </p>
  */
-export interface TaskNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "TaskNotFoundException";
-  $fault: "client";
+export class TaskNotFoundException extends __BaseException {
+  readonly name: "TaskNotFoundException" = "TaskNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Description of the error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TaskNotFoundException, __BaseException>) {
+    super({
+      name: "TaskNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TaskNotFoundException.prototype);
+  }
 }
 
 /**

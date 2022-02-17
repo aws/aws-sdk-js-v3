@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ResourceGroupsTaggingAPIServiceException as __BaseException } from "./ResourceGroupsTaggingAPIServiceException";
 
 /**
  * <p>Information that shows whether a resource is compliant with the effective tag policy,
@@ -35,10 +38,22 @@ export namespace ComplianceDetails {
  * <p>The target of the operation is currently being modified by a different request. Try
  *             again later.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -63,10 +78,22 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
  *             </li>
  *          </ul>
  */
-export interface ConstraintViolationException extends __SmithyException, $MetadataBearer {
-  name: "ConstraintViolationException";
-  $fault: "client";
+export class ConstraintViolationException extends __BaseException {
+  readonly name: "ConstraintViolationException" = "ConstraintViolationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConstraintViolationException, __BaseException>) {
+    super({
+      name: "ConstraintViolationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConstraintViolationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeReportCreationInput {}
@@ -137,10 +164,22 @@ export namespace DescribeReportCreationOutput {
  * <p>The request processing failed because of an unknown error, exception, or failure. You
  *             can retry the request.</p>
  */
-export interface InternalServiceException extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceException";
-  $fault: "server";
+export class InternalServiceException extends __BaseException {
+  readonly name: "InternalServiceException" = "InternalServiceException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceException, __BaseException>) {
+    super({
+      name: "InternalServiceException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -166,19 +205,43 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
  *             </li>
  *          </ul>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request was denied to limit the frequency of submitted requests.</p>
  */
-export interface ThrottledException extends __SmithyException, $MetadataBearer {
-  name: "ThrottledException";
-  $fault: "client";
+export class ThrottledException extends __BaseException {
+  readonly name: "ThrottledException" = "ThrottledException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottledException, __BaseException>) {
+    super({
+      name: "ThrottledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottledException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum ErrorCode {
@@ -682,10 +745,22 @@ export namespace GetResourcesOutput {
  * <p>A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was
  *             denied because the specified <code>PaginationToken</code> has expired.</p>
  */
-export interface PaginationTokenExpiredException extends __SmithyException, $MetadataBearer {
-  name: "PaginationTokenExpiredException";
-  $fault: "client";
+export class PaginationTokenExpiredException extends __BaseException {
+  readonly name: "PaginationTokenExpiredException" = "PaginationTokenExpiredException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PaginationTokenExpiredException, __BaseException>) {
+    super({
+      name: "PaginationTokenExpiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PaginationTokenExpiredException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetTagKeysInput {

@@ -1,14 +1,27 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MgnServiceException as __BaseException } from "./MgnServiceException";
 
 /**
  * <p>Operating denied due to a file permission or access check error.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
   code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.code = opts.code;
+  }
 }
 
 export interface InitializeServiceRequest {}
@@ -67,10 +80,9 @@ export enum ValidationExceptionReason {
 /**
  * <p>Validate exception.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   code?: string;
   /**
    * <p>Validate exception reason.</p>
@@ -81,15 +93,29 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>Validate exception field list.</p>
    */
   fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.code = opts.code;
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
 }
 
 /**
  * <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
   code?: string;
   /**
    * <p>A conflict occured when prompting for the Resource ID.</p>
@@ -100,6 +126,21 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * <p>A conflict occured when prompting for resource type.</p>
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.code = opts.code;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 export interface DeleteJobRequest {
@@ -132,10 +173,9 @@ export namespace DeleteJobResponse {
 /**
  * <p>Resource not found exception.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   code?: string;
   /**
    * <p>Resource ID not found error.</p>
@@ -146,16 +186,42 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>Resource type not found error.</p>
    */
   resourceType?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.code = opts.code;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
 }
 
 /**
  * <p>Unitialized account exception.</p>
  */
-export interface UninitializedAccountException extends __SmithyException, $MetadataBearer {
-  name: "UninitializedAccountException";
-  $fault: "client";
-  message?: string;
+export class UninitializedAccountException extends __BaseException {
+  readonly name: "UninitializedAccountException" = "UninitializedAccountException";
+  readonly $fault: "client" = "client";
   code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UninitializedAccountException, __BaseException>) {
+    super({
+      name: "UninitializedAccountException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UninitializedAccountException.prototype);
+    this.code = opts.code;
+  }
 }
 
 export interface DescribeJobLogItemsRequest {
@@ -477,14 +543,26 @@ export namespace DescribeJobsResponse {
 /**
  * <p>The server encountered an unexpected condition that prevented it from fulfilling the request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message: string | undefined;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   /**
    * <p>The server encountered an unexpected condition that prevented it from fulfilling the request. The request will be retried again after x seconds.</p>
    */
   retryAfterSeconds?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 export interface ListTagsForResourceRequest {
@@ -523,10 +601,9 @@ export namespace ListTagsForResourceResponse {
 /**
  * <p>Reached throttling quota exception.</p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message: string | undefined;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Reached throttling quota exception service code.</p>
    */
@@ -541,6 +618,21 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
    * <p>Reached throttling quota exception will retry after x seconds.</p>
    */
   retryAfterSeconds?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
 }
 
 export enum ReplicationConfigurationDataPlaneRouting {
@@ -2140,10 +2232,9 @@ export namespace StartCutoverResponse {
 /**
  * <p>The request could not be completed because its exceeded the service quota.</p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message?: string;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   code?: string;
   /**
    * <p>Exceeded the service quota resource Id.</p>
@@ -2164,6 +2255,23 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
    * <p>Exceeded the service quota code.</p>
    */
   quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.code = opts.code;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
 }
 
 export interface StartReplicationRequest {

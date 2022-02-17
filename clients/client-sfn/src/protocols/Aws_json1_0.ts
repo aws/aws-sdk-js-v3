@@ -4,6 +4,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
@@ -15,10 +16,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { CreateActivityCommandInput, CreateActivityCommandOutput } from "../commands/CreateActivityCommand";
@@ -169,6 +168,7 @@ import {
   UpdateStateMachineInput,
   UpdateStateMachineOutput,
 } from "../models/models_0";
+import { SFNServiceException as __BaseException } from "../models/SFNServiceException";
 
 export const serializeAws_json1_0CreateActivityCommand = async (
   input: CreateActivityCommandInput,
@@ -501,49 +501,28 @@ const deserializeAws_json1_0CreateActivityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ActivityLimitExceeded":
     case "com.amazonaws.sfn#ActivityLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0ActivityLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ActivityLimitExceededResponse(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      response = {
-        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
-      response = {
-        ...(await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0CreateStateMachineCommand = async (
@@ -571,105 +550,49 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "InvalidDefinition":
     case "com.amazonaws.sfn#InvalidDefinition":
-      response = {
-        ...(await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context);
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.sfn#InvalidLoggingConfiguration":
-      response = {
-        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      response = {
-        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
     case "InvalidTracingConfiguration":
     case "com.amazonaws.sfn#InvalidTracingConfiguration":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context);
     case "StateMachineAlreadyExists":
     case "com.amazonaws.sfn#StateMachineAlreadyExists":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineAlreadyExistsResponse(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
     case "StateMachineLimitExceeded":
     case "com.amazonaws.sfn#StateMachineLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineLimitExceededResponse(parsedOutput, context);
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
-      response = {
-        ...(await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeleteActivityCommand = async (
@@ -697,33 +620,22 @@ const deserializeAws_json1_0DeleteActivityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DeleteStateMachineCommand = async (
@@ -751,33 +663,22 @@ const deserializeAws_json1_0DeleteStateMachineCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeActivityCommand = async (
@@ -805,41 +706,25 @@ const deserializeAws_json1_0DescribeActivityCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.sfn#ActivityDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeExecutionCommand = async (
@@ -867,41 +752,25 @@ const deserializeAws_json1_0DescribeExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeStateMachineCommand = async (
@@ -929,41 +798,25 @@ const deserializeAws_json1_0DescribeStateMachineCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0DescribeStateMachineForExecutionCommand = async (
@@ -991,41 +844,25 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0GetActivityTaskCommand = async (
@@ -1053,49 +890,28 @@ const deserializeAws_json1_0GetActivityTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.sfn#ActivityDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context);
     case "ActivityWorkerLimitExceeded":
     case "com.amazonaws.sfn#ActivityWorkerLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0GetExecutionHistoryCommand = async (
@@ -1123,49 +939,28 @@ const deserializeAws_json1_0GetExecutionHistoryCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListActivitiesCommand = async (
@@ -1193,33 +988,22 @@ const deserializeAws_json1_0ListActivitiesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListExecutionsCommand = async (
@@ -1247,57 +1031,31 @@ const deserializeAws_json1_0ListExecutionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListStateMachinesCommand = async (
@@ -1325,33 +1083,22 @@ const deserializeAws_json1_0ListStateMachinesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0ListTagsForResourceCommand = async (
@@ -1379,41 +1126,25 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0SendTaskFailureCommand = async (
@@ -1441,49 +1172,28 @@ const deserializeAws_json1_0SendTaskFailureCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     case "TaskDoesNotExist":
     case "com.amazonaws.sfn#TaskDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
     case "TaskTimedOut":
     case "com.amazonaws.sfn#TaskTimedOut":
-      response = {
-        ...(await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0SendTaskHeartbeatCommand = async (
@@ -1511,49 +1221,28 @@ const deserializeAws_json1_0SendTaskHeartbeatCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     case "TaskDoesNotExist":
     case "com.amazonaws.sfn#TaskDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
     case "TaskTimedOut":
     case "com.amazonaws.sfn#TaskTimedOut":
-      response = {
-        ...(await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0SendTaskSuccessCommand = async (
@@ -1581,57 +1270,31 @@ const deserializeAws_json1_0SendTaskSuccessCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidOutput":
     case "com.amazonaws.sfn#InvalidOutput":
-      response = {
-        ...(await deserializeAws_json1_0InvalidOutputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidOutputResponse(parsedOutput, context);
     case "InvalidToken":
     case "com.amazonaws.sfn#InvalidToken":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
     case "TaskDoesNotExist":
     case "com.amazonaws.sfn#TaskDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
     case "TaskTimedOut":
     case "com.amazonaws.sfn#TaskTimedOut":
-      response = {
-        ...(await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0StartExecutionCommand = async (
@@ -1659,81 +1322,40 @@ const deserializeAws_json1_0StartExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExecutionAlreadyExists":
     case "com.amazonaws.sfn#ExecutionAlreadyExists":
-      response = {
-        ...(await deserializeAws_json1_0ExecutionAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExecutionAlreadyExistsResponse(parsedOutput, context);
     case "ExecutionLimitExceeded":
     case "com.amazonaws.sfn#ExecutionLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_0ExecutionLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExecutionLimitExceededResponse(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "InvalidExecutionInput":
     case "com.amazonaws.sfn#InvalidExecutionInput":
-      response = {
-        ...(await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      response = {
-        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0StartSyncExecutionCommand = async (
@@ -1761,73 +1383,37 @@ const deserializeAws_json1_0StartSyncExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "InvalidExecutionInput":
     case "com.amazonaws.sfn#InvalidExecutionInput":
-      response = {
-        ...(await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
-      response = {
-        ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.sfn#StateMachineTypeNotSupported":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0StopExecutionCommand = async (
@@ -1855,41 +1441,25 @@ const deserializeAws_json1_0StopExecutionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0TagResourceCommand = async (
@@ -1917,49 +1487,28 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
-      response = {
-        ...(await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UntagResourceCommand = async (
@@ -1987,41 +1536,25 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
-      response = {
-        ...(await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_0UpdateStateMachineCommand = async (
@@ -2049,81 +1582,40 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.sfn#InvalidArn":
-      response = {
-        ...(await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
     case "InvalidDefinition":
     case "com.amazonaws.sfn#InvalidDefinition":
-      response = {
-        ...(await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context);
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.sfn#InvalidLoggingConfiguration":
-      response = {
-        ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context);
     case "InvalidTracingConfiguration":
     case "com.amazonaws.sfn#InvalidTracingConfiguration":
-      response = {
-        ...(await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context);
     case "MissingRequiredParameter":
     case "com.amazonaws.sfn#MissingRequiredParameter":
-      response = {
-        ...(await deserializeAws_json1_0MissingRequiredParameterResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0MissingRequiredParameterResponse(parsedOutput, context);
     case "StateMachineDeleting":
     case "com.amazonaws.sfn#StateMachineDeleting":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
-      response = {
-        ...(await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_0ActivityDoesNotExistResponse = async (
@@ -2132,13 +1624,11 @@ const deserializeAws_json1_0ActivityDoesNotExistResponse = async (
 ): Promise<ActivityDoesNotExist> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ActivityDoesNotExist(body, context);
-  const contents: ActivityDoesNotExist = {
-    name: "ActivityDoesNotExist",
-    $fault: "client",
+  const exception = new ActivityDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ActivityLimitExceededResponse = async (
@@ -2147,13 +1637,11 @@ const deserializeAws_json1_0ActivityLimitExceededResponse = async (
 ): Promise<ActivityLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ActivityLimitExceeded(body, context);
-  const contents: ActivityLimitExceeded = {
-    name: "ActivityLimitExceeded",
-    $fault: "client",
+  const exception = new ActivityLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ActivityWorkerLimitExceededResponse = async (
@@ -2162,13 +1650,11 @@ const deserializeAws_json1_0ActivityWorkerLimitExceededResponse = async (
 ): Promise<ActivityWorkerLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ActivityWorkerLimitExceeded(body, context);
-  const contents: ActivityWorkerLimitExceeded = {
-    name: "ActivityWorkerLimitExceeded",
-    $fault: "client",
+  const exception = new ActivityWorkerLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ExecutionAlreadyExistsResponse = async (
@@ -2177,13 +1663,11 @@ const deserializeAws_json1_0ExecutionAlreadyExistsResponse = async (
 ): Promise<ExecutionAlreadyExists> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ExecutionAlreadyExists(body, context);
-  const contents: ExecutionAlreadyExists = {
-    name: "ExecutionAlreadyExists",
-    $fault: "client",
+  const exception = new ExecutionAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ExecutionDoesNotExistResponse = async (
@@ -2192,13 +1676,11 @@ const deserializeAws_json1_0ExecutionDoesNotExistResponse = async (
 ): Promise<ExecutionDoesNotExist> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ExecutionDoesNotExist(body, context);
-  const contents: ExecutionDoesNotExist = {
-    name: "ExecutionDoesNotExist",
-    $fault: "client",
+  const exception = new ExecutionDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ExecutionLimitExceededResponse = async (
@@ -2207,13 +1689,11 @@ const deserializeAws_json1_0ExecutionLimitExceededResponse = async (
 ): Promise<ExecutionLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ExecutionLimitExceeded(body, context);
-  const contents: ExecutionLimitExceeded = {
-    name: "ExecutionLimitExceeded",
-    $fault: "client",
+  const exception = new ExecutionLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidArnResponse = async (
@@ -2222,13 +1702,11 @@ const deserializeAws_json1_0InvalidArnResponse = async (
 ): Promise<InvalidArn> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidArn(body, context);
-  const contents: InvalidArn = {
-    name: "InvalidArn",
-    $fault: "client",
+  const exception = new InvalidArn({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidDefinitionResponse = async (
@@ -2237,13 +1715,11 @@ const deserializeAws_json1_0InvalidDefinitionResponse = async (
 ): Promise<InvalidDefinition> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidDefinition(body, context);
-  const contents: InvalidDefinition = {
-    name: "InvalidDefinition",
-    $fault: "client",
+  const exception = new InvalidDefinition({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidExecutionInputResponse = async (
@@ -2252,13 +1728,11 @@ const deserializeAws_json1_0InvalidExecutionInputResponse = async (
 ): Promise<InvalidExecutionInput> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidExecutionInput(body, context);
-  const contents: InvalidExecutionInput = {
-    name: "InvalidExecutionInput",
-    $fault: "client",
+  const exception = new InvalidExecutionInput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidLoggingConfigurationResponse = async (
@@ -2267,13 +1741,11 @@ const deserializeAws_json1_0InvalidLoggingConfigurationResponse = async (
 ): Promise<InvalidLoggingConfiguration> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidLoggingConfiguration(body, context);
-  const contents: InvalidLoggingConfiguration = {
-    name: "InvalidLoggingConfiguration",
-    $fault: "client",
+  const exception = new InvalidLoggingConfiguration({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidNameResponse = async (
@@ -2282,13 +1754,11 @@ const deserializeAws_json1_0InvalidNameResponse = async (
 ): Promise<InvalidName> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidName(body, context);
-  const contents: InvalidName = {
-    name: "InvalidName",
-    $fault: "client",
+  const exception = new InvalidName({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidOutputResponse = async (
@@ -2297,13 +1767,11 @@ const deserializeAws_json1_0InvalidOutputResponse = async (
 ): Promise<InvalidOutput> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidOutput(body, context);
-  const contents: InvalidOutput = {
-    name: "InvalidOutput",
-    $fault: "client",
+  const exception = new InvalidOutput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidTokenResponse = async (
@@ -2312,13 +1780,11 @@ const deserializeAws_json1_0InvalidTokenResponse = async (
 ): Promise<InvalidToken> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidToken(body, context);
-  const contents: InvalidToken = {
-    name: "InvalidToken",
-    $fault: "client",
+  const exception = new InvalidToken({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0InvalidTracingConfigurationResponse = async (
@@ -2327,13 +1793,11 @@ const deserializeAws_json1_0InvalidTracingConfigurationResponse = async (
 ): Promise<InvalidTracingConfiguration> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0InvalidTracingConfiguration(body, context);
-  const contents: InvalidTracingConfiguration = {
-    name: "InvalidTracingConfiguration",
-    $fault: "client",
+  const exception = new InvalidTracingConfiguration({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0MissingRequiredParameterResponse = async (
@@ -2342,13 +1806,11 @@ const deserializeAws_json1_0MissingRequiredParameterResponse = async (
 ): Promise<MissingRequiredParameter> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0MissingRequiredParameter(body, context);
-  const contents: MissingRequiredParameter = {
-    name: "MissingRequiredParameter",
-    $fault: "client",
+  const exception = new MissingRequiredParameter({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0ResourceNotFoundResponse = async (
@@ -2357,13 +1819,11 @@ const deserializeAws_json1_0ResourceNotFoundResponse = async (
 ): Promise<ResourceNotFound> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0ResourceNotFound(body, context);
-  const contents: ResourceNotFound = {
-    name: "ResourceNotFound",
-    $fault: "client",
+  const exception = new ResourceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0StateMachineAlreadyExistsResponse = async (
@@ -2372,13 +1832,11 @@ const deserializeAws_json1_0StateMachineAlreadyExistsResponse = async (
 ): Promise<StateMachineAlreadyExists> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0StateMachineAlreadyExists(body, context);
-  const contents: StateMachineAlreadyExists = {
-    name: "StateMachineAlreadyExists",
-    $fault: "client",
+  const exception = new StateMachineAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0StateMachineDeletingResponse = async (
@@ -2387,13 +1845,11 @@ const deserializeAws_json1_0StateMachineDeletingResponse = async (
 ): Promise<StateMachineDeleting> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0StateMachineDeleting(body, context);
-  const contents: StateMachineDeleting = {
-    name: "StateMachineDeleting",
-    $fault: "client",
+  const exception = new StateMachineDeleting({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0StateMachineDoesNotExistResponse = async (
@@ -2402,13 +1858,11 @@ const deserializeAws_json1_0StateMachineDoesNotExistResponse = async (
 ): Promise<StateMachineDoesNotExist> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0StateMachineDoesNotExist(body, context);
-  const contents: StateMachineDoesNotExist = {
-    name: "StateMachineDoesNotExist",
-    $fault: "client",
+  const exception = new StateMachineDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0StateMachineLimitExceededResponse = async (
@@ -2417,13 +1871,11 @@ const deserializeAws_json1_0StateMachineLimitExceededResponse = async (
 ): Promise<StateMachineLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0StateMachineLimitExceeded(body, context);
-  const contents: StateMachineLimitExceeded = {
-    name: "StateMachineLimitExceeded",
-    $fault: "client",
+  const exception = new StateMachineLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0StateMachineTypeNotSupportedResponse = async (
@@ -2432,13 +1884,11 @@ const deserializeAws_json1_0StateMachineTypeNotSupportedResponse = async (
 ): Promise<StateMachineTypeNotSupported> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0StateMachineTypeNotSupported(body, context);
-  const contents: StateMachineTypeNotSupported = {
-    name: "StateMachineTypeNotSupported",
-    $fault: "client",
+  const exception = new StateMachineTypeNotSupported({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TaskDoesNotExistResponse = async (
@@ -2447,13 +1897,11 @@ const deserializeAws_json1_0TaskDoesNotExistResponse = async (
 ): Promise<TaskDoesNotExist> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TaskDoesNotExist(body, context);
-  const contents: TaskDoesNotExist = {
-    name: "TaskDoesNotExist",
-    $fault: "client",
+  const exception = new TaskDoesNotExist({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TaskTimedOutResponse = async (
@@ -2462,13 +1910,11 @@ const deserializeAws_json1_0TaskTimedOutResponse = async (
 ): Promise<TaskTimedOut> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TaskTimedOut(body, context);
-  const contents: TaskTimedOut = {
-    name: "TaskTimedOut",
-    $fault: "client",
+  const exception = new TaskTimedOut({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_0TooManyTagsResponse = async (
@@ -2477,13 +1923,11 @@ const deserializeAws_json1_0TooManyTagsResponse = async (
 ): Promise<TooManyTags> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_0TooManyTags(body, context);
-  const contents: TooManyTags = {
-    name: "TooManyTags",
-    $fault: "client",
+  const exception = new TooManyTags({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_0CloudWatchLogsLogGroup = (input: CloudWatchLogsLogGroup, context: __SerdeContext): any => {

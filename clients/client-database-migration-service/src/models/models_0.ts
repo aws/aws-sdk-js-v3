@@ -1,17 +1,26 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
 
 /**
  * <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  */
-export interface AccessDeniedFault extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedFault";
-  $fault: "client";
+export class AccessDeniedFault extends __BaseException {
+  readonly name: "AccessDeniedFault" = "AccessDeniedFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AccessDeniedFault, __BaseException>) {
+    super({
+      name: "AccessDeniedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedFault.prototype);
+  }
 }
 
 /**
@@ -139,13 +148,20 @@ export namespace AddTagsToResourceResponse {
 /**
  * <p>The resource could not be found.</p>
  */
-export interface ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundFault";
-  $fault: "client";
+export class ResourceNotFoundFault extends __BaseException {
+  readonly name: "ResourceNotFoundFault" = "ResourceNotFoundFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundFault, __BaseException>) {
+    super({
+      name: "ResourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundFault.prototype);
+  }
 }
 
 /**
@@ -500,13 +516,20 @@ export namespace CancelReplicationTaskAssessmentRunResponse {
 /**
  * <p>The resource is in a state that prevents it from being used for database migration.</p>
  */
-export interface InvalidResourceStateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceStateFault";
-  $fault: "client";
+export class InvalidResourceStateFault extends __BaseException {
+  readonly name: "InvalidResourceStateFault" = "InvalidResourceStateFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateFault, __BaseException>) {
+    super({
+      name: "InvalidResourceStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateFault.prototype);
+  }
 }
 
 /**
@@ -3780,48 +3803,79 @@ export namespace CreateEndpointResponse {
 /**
  * <p>DMS cannot access the KMS key.</p>
  */
-export interface KMSKeyNotAccessibleFault extends __SmithyException, $MetadataBearer {
-  name: "KMSKeyNotAccessibleFault";
-  $fault: "client";
+export class KMSKeyNotAccessibleFault extends __BaseException {
+  readonly name: "KMSKeyNotAccessibleFault" = "KMSKeyNotAccessibleFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<KMSKeyNotAccessibleFault, __BaseException>) {
+    super({
+      name: "KMSKeyNotAccessibleFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSKeyNotAccessibleFault.prototype);
+  }
 }
 
 /**
  * <p>The resource you are attempting to create already exists.</p>
  */
-export interface ResourceAlreadyExistsFault extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsFault";
-  $fault: "client";
-  /**
-   * <p></p>
-   */
-  message?: string;
-
+export class ResourceAlreadyExistsFault extends __BaseException {
+  readonly name: "ResourceAlreadyExistsFault" = "ResourceAlreadyExistsFault";
+  readonly $fault: "client" = "client";
   resourceArn?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsFault.prototype);
+    this.resourceArn = opts.resourceArn;
+  }
 }
 
 /**
  * <p>The quota for this resource quota has been exceeded.</p>
  */
-export interface ResourceQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "ResourceQuotaExceededFault";
-  $fault: "client";
+export class ResourceQuotaExceededFault extends __BaseException {
+  readonly name: "ResourceQuotaExceededFault" = "ResourceQuotaExceededFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceQuotaExceededFault, __BaseException>) {
+    super({
+      name: "ResourceQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceQuotaExceededFault.prototype);
+  }
 }
 
 /**
  * <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
  */
-export interface S3AccessDeniedFault extends __SmithyException, $MetadataBearer {
-  name: "S3AccessDeniedFault";
-  $fault: "client";
-  message?: string;
+export class S3AccessDeniedFault extends __BaseException {
+  readonly name: "S3AccessDeniedFault" = "S3AccessDeniedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3AccessDeniedFault, __BaseException>) {
+    super({
+      name: "S3AccessDeniedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3AccessDeniedFault.prototype);
+  }
 }
 
 /**
@@ -3979,70 +4033,134 @@ export namespace CreateEventSubscriptionResponse {
 /**
  * <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
  */
-export interface KMSAccessDeniedFault extends __SmithyException, $MetadataBearer {
-  name: "KMSAccessDeniedFault";
-  $fault: "client";
-  message?: string;
+export class KMSAccessDeniedFault extends __BaseException {
+  readonly name: "KMSAccessDeniedFault" = "KMSAccessDeniedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSAccessDeniedFault, __BaseException>) {
+    super({
+      name: "KMSAccessDeniedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSAccessDeniedFault.prototype);
+  }
 }
 
 /**
  * <p>The specified KMS key isn't enabled.</p>
  */
-export interface KMSDisabledFault extends __SmithyException, $MetadataBearer {
-  name: "KMSDisabledFault";
-  $fault: "client";
-  message?: string;
+export class KMSDisabledFault extends __BaseException {
+  readonly name: "KMSDisabledFault" = "KMSDisabledFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSDisabledFault, __BaseException>) {
+    super({
+      name: "KMSDisabledFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSDisabledFault.prototype);
+  }
 }
 
 /**
  * <p>The state of the specified KMS resource isn't valid for this request.</p>
  */
-export interface KMSInvalidStateFault extends __SmithyException, $MetadataBearer {
-  name: "KMSInvalidStateFault";
-  $fault: "client";
-  message?: string;
+export class KMSInvalidStateFault extends __BaseException {
+  readonly name: "KMSInvalidStateFault" = "KMSInvalidStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInvalidStateFault, __BaseException>) {
+    super({
+      name: "KMSInvalidStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidStateFault.prototype);
+  }
 }
 
 /**
  * <p>The specified KMS entity or resource can't be found.</p>
  */
-export interface KMSNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "KMSNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class KMSNotFoundFault extends __BaseException {
+  readonly name: "KMSNotFoundFault" = "KMSNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSNotFoundFault, __BaseException>) {
+    super({
+      name: "KMSNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSNotFoundFault.prototype);
+  }
 }
 
 /**
  * <p>This request triggered KMS request throttling.</p>
  */
-export interface KMSThrottlingFault extends __SmithyException, $MetadataBearer {
-  name: "KMSThrottlingFault";
-  $fault: "client";
-  message?: string;
+export class KMSThrottlingFault extends __BaseException {
+  readonly name: "KMSThrottlingFault" = "KMSThrottlingFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSThrottlingFault, __BaseException>) {
+    super({
+      name: "KMSThrottlingFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSThrottlingFault.prototype);
+  }
 }
 
 /**
  * <p>The SNS topic is invalid.</p>
  */
-export interface SNSInvalidTopicFault extends __SmithyException, $MetadataBearer {
-  name: "SNSInvalidTopicFault";
-  $fault: "client";
+export class SNSInvalidTopicFault extends __BaseException {
+  readonly name: "SNSInvalidTopicFault" = "SNSInvalidTopicFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SNSInvalidTopicFault, __BaseException>) {
+    super({
+      name: "SNSInvalidTopicFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSInvalidTopicFault.prototype);
+  }
 }
 
 /**
  * <p>You are not authorized for the SNS subscription.</p>
  */
-export interface SNSNoAuthorizationFault extends __SmithyException, $MetadataBearer {
-  name: "SNSNoAuthorizationFault";
-  $fault: "client";
+export class SNSNoAuthorizationFault extends __BaseException {
+  readonly name: "SNSNoAuthorizationFault" = "SNSNoAuthorizationFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SNSNoAuthorizationFault, __BaseException>) {
+    super({
+      name: "SNSNoAuthorizationFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SNSNoAuthorizationFault.prototype);
+  }
 }
 
 /**
@@ -4625,49 +4743,77 @@ export namespace CreateReplicationInstanceResponse {
 /**
  * <p>There are not enough resources allocated to the database migration.</p>
  */
-export interface InsufficientResourceCapacityFault extends __SmithyException, $MetadataBearer {
-  name: "InsufficientResourceCapacityFault";
-  $fault: "client";
+export class InsufficientResourceCapacityFault extends __BaseException {
+  readonly name: "InsufficientResourceCapacityFault" = "InsufficientResourceCapacityFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InsufficientResourceCapacityFault, __BaseException>) {
+    super({
+      name: "InsufficientResourceCapacityFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientResourceCapacityFault.prototype);
+  }
 }
 
 /**
  * <p>The subnet provided is invalid.</p>
  */
-export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
-  name: "InvalidSubnet";
-  $fault: "client";
+export class InvalidSubnet extends __BaseException {
+  readonly name: "InvalidSubnet" = "InvalidSubnet";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidSubnet, __BaseException>) {
+    super({
+      name: "InvalidSubnet",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSubnet.prototype);
+  }
 }
 
 /**
  * <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
  */
-export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __SmithyException, $MetadataBearer {
-  name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
-  $fault: "client";
+export class ReplicationSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
+  readonly name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs" = "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ReplicationSubnetGroupDoesNotCoverEnoughAZs, __BaseException>) {
+    super({
+      name: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicationSubnetGroupDoesNotCoverEnoughAZs.prototype);
+  }
 }
 
 /**
  * <p>The storage quota has been exceeded.</p>
  */
-export interface StorageQuotaExceededFault extends __SmithyException, $MetadataBearer {
-  name: "StorageQuotaExceededFault";
-  $fault: "client";
+export class StorageQuotaExceededFault extends __BaseException {
+  readonly name: "StorageQuotaExceededFault" = "StorageQuotaExceededFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<StorageQuotaExceededFault, __BaseException>) {
+    super({
+      name: "StorageQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StorageQuotaExceededFault.prototype);
+  }
 }
 
 /**
@@ -7755,10 +7901,20 @@ export namespace ImportCertificateResponse {
 /**
  * <p>The certificate was not valid.</p>
  */
-export interface InvalidCertificateFault extends __SmithyException, $MetadataBearer {
-  name: "InvalidCertificateFault";
-  $fault: "client";
-  message?: string;
+export class InvalidCertificateFault extends __BaseException {
+  readonly name: "InvalidCertificateFault" = "InvalidCertificateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCertificateFault, __BaseException>) {
+    super({
+      name: "InvalidCertificateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCertificateFault.prototype);
+  }
 }
 
 /**
@@ -8321,13 +8477,20 @@ export namespace ModifyReplicationInstanceResponse {
 /**
  * <p>An upgrade dependency is preventing the database migration.</p>
  */
-export interface UpgradeDependencyFailureFault extends __SmithyException, $MetadataBearer {
-  name: "UpgradeDependencyFailureFault";
-  $fault: "client";
+export class UpgradeDependencyFailureFault extends __BaseException {
+  readonly name: "UpgradeDependencyFailureFault" = "UpgradeDependencyFailureFault";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UpgradeDependencyFailureFault, __BaseException>) {
+    super({
+      name: "UpgradeDependencyFailureFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UpgradeDependencyFailureFault.prototype);
+  }
 }
 
 /**
@@ -8381,13 +8544,20 @@ export namespace ModifyReplicationSubnetGroupResponse {
 /**
  * <p>The specified subnet is already in use.</p>
  */
-export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
-  name: "SubnetAlreadyInUse";
-  $fault: "client";
+export class SubnetAlreadyInUse extends __BaseException {
+  readonly name: "SubnetAlreadyInUse" = "SubnetAlreadyInUse";
+  readonly $fault: "client" = "client";
   /**
-   * <p></p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SubnetAlreadyInUse, __BaseException>) {
+    super({
+      name: "SubnetAlreadyInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubnetAlreadyInUse.prototype);
+  }
 }
 
 /**
@@ -8885,20 +9055,40 @@ export namespace StartReplicationTaskAssessmentResponse {
 /**
  * <p>An Key Management Service (KMS) error is preventing access to KMS.</p>
  */
-export interface KMSFault extends __SmithyException, $MetadataBearer {
-  name: "KMSFault";
-  $fault: "client";
-  message?: string;
+export class KMSFault extends __BaseException {
+  readonly name: "KMSFault" = "KMSFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSFault, __BaseException>) {
+    super({
+      name: "KMSFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSFault.prototype);
+  }
 }
 
 /**
  * <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
  *             found.</p>
  */
-export interface S3ResourceNotFoundFault extends __SmithyException, $MetadataBearer {
-  name: "S3ResourceNotFoundFault";
-  $fault: "client";
-  message?: string;
+export class S3ResourceNotFoundFault extends __BaseException {
+  readonly name: "S3ResourceNotFoundFault" = "S3ResourceNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<S3ResourceNotFoundFault, __BaseException>) {
+    super({
+      name: "S3ResourceNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3ResourceNotFoundFault.prototype);
+  }
 }
 
 /**

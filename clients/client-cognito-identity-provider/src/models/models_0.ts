@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CognitoIdentityProviderServiceException as __BaseException } from "./CognitoIdentityProviderServiceException";
 
 export enum RecoveryOptionNameType {
   ADMIN_ONLY = "admin_only",
@@ -381,73 +383,115 @@ export namespace AddCustomAttributesResponse {
 /**
  * <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
  */
-export interface InternalErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalErrorException";
-  $fault: "server";
+export class InternalErrorException extends __BaseException {
+  readonly name: "InternalErrorException" = "InternalErrorException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>The message returned when Amazon Cognito throws an internal error exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InternalErrorException, __BaseException>) {
+    super({
+      name: "InternalErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalErrorException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the Amazon Cognito service encounters an invalid parameter.</p>
  */
-export interface InvalidParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterException";
-  $fault: "client";
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the Amazon Cognito service throws an invalid parameter exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when a user isn't authorized.</p>
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the Amazon Cognito service returns a not authorized exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the Amazon Cognito service can't find the requested resource.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the Amazon Cognito service returns a resource not found exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the user has made too many requests for a given operation.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the Amazon Cognito service returns a too many requests exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when you're trying to modify a user pool while a user import job is in progress for that pool.</p>
  */
-export interface UserImportInProgressException extends __SmithyException, $MetadataBearer {
-  name: "UserImportInProgressException";
-  $fault: "client";
+export class UserImportInProgressException extends __BaseException {
+  readonly name: "UserImportInProgressException" = "UserImportInProgressException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the user pool has an import job running.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UserImportInProgressException, __BaseException>) {
+    super({
+      name: "UserImportInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserImportInProgressException.prototype);
+  }
 }
 
 export interface AdminAddUserToGroupRequest {
@@ -480,13 +524,20 @@ export namespace AdminAddUserToGroupRequest {
 /**
  * <p>This exception is thrown when a user isn't found.</p>
  */
-export interface UserNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "UserNotFoundException";
-  $fault: "client";
+export class UserNotFoundException extends __BaseException {
+  readonly name: "UserNotFoundException" = "UserNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when a user isn't found.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UserNotFoundException, __BaseException>) {
+    super({
+      name: "UserNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserNotFoundException.prototype);
+  }
 }
 
 /**
@@ -560,61 +611,96 @@ export namespace AdminConfirmSignUpResponse {
 /**
  * <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
  */
-export interface InvalidLambdaResponseException extends __SmithyException, $MetadataBearer {
-  name: "InvalidLambdaResponseException";
-  $fault: "client";
+export class InvalidLambdaResponseException extends __BaseException {
+  readonly name: "InvalidLambdaResponseException" = "InvalidLambdaResponseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when Amazon Cognito hrows an invalid Lambda response exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidLambdaResponseException, __BaseException>) {
+    super({
+      name: "InvalidLambdaResponseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidLambdaResponseException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services resource.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when Amazon Cognito throws a limit exceeded exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the user has made too many failed attempts for a given action, such as sign-in.</p>
  */
-export interface TooManyFailedAttemptsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyFailedAttemptsException";
-  $fault: "client";
+export class TooManyFailedAttemptsException extends __BaseException {
+  readonly name: "TooManyFailedAttemptsException" = "TooManyFailedAttemptsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when Amazon Cognito returns a <code>TooManyFailedAttempts</code> exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyFailedAttemptsException, __BaseException>) {
+    super({
+      name: "TooManyFailedAttemptsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyFailedAttemptsException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with Lambda.</p>
  */
-export interface UnexpectedLambdaException extends __SmithyException, $MetadataBearer {
-  name: "UnexpectedLambdaException";
-  $fault: "client";
+export class UnexpectedLambdaException extends __BaseException {
+  readonly name: "UnexpectedLambdaException" = "UnexpectedLambdaException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when Amazon Cognito returns an unexpected Lambda exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UnexpectedLambdaException, __BaseException>) {
+    super({
+      name: "UnexpectedLambdaException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnexpectedLambdaException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception with the Lambda service.</p>
  */
-export interface UserLambdaValidationException extends __SmithyException, $MetadataBearer {
-  name: "UserLambdaValidationException";
-  $fault: "client";
+export class UserLambdaValidationException extends __BaseException {
+  readonly name: "UserLambdaValidationException" = "UserLambdaValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the Amazon Cognito service returns a user validation exception with the Lambda service.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UserLambdaValidationException, __BaseException>) {
+    super({
+      name: "UserLambdaValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserLambdaValidationException.prototype);
+  }
 }
 
 export enum DeliveryMediumType {
@@ -912,87 +998,136 @@ export namespace AdminCreateUserResponse {
 /**
  * <p>This exception is thrown when a verification code fails to deliver successfully.</p>
  */
-export interface CodeDeliveryFailureException extends __SmithyException, $MetadataBearer {
-  name: "CodeDeliveryFailureException";
-  $fault: "client";
+export class CodeDeliveryFailureException extends __BaseException {
+  readonly name: "CodeDeliveryFailureException" = "CodeDeliveryFailureException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message sent when a verification code fails to deliver successfully.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CodeDeliveryFailureException, __BaseException>) {
+    super({
+      name: "CodeDeliveryFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeDeliveryFailureException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
  */
-export interface InvalidPasswordException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPasswordException";
-  $fault: "client";
+export class InvalidPasswordException extends __BaseException {
+  readonly name: "InvalidPasswordException" = "InvalidPasswordException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when Amazon Cognito throws an invalid user password exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidPasswordException, __BaseException>) {
+    super({
+      name: "InvalidPasswordException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPasswordException.prototype);
+  }
 }
 
 /**
  * <p>This exception is returned when the role provided for SMS configuration doesn't have permission to publish using Amazon SNS.</p>
  */
-export interface InvalidSmsRoleAccessPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSmsRoleAccessPolicyException";
-  $fault: "client";
+export class InvalidSmsRoleAccessPolicyException extends __BaseException {
+  readonly name: "InvalidSmsRoleAccessPolicyException" = "InvalidSmsRoleAccessPolicyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the invalid SMS role access policy exception is thrown.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidSmsRoleAccessPolicyException, __BaseException>) {
+    super({
+      name: "InvalidSmsRoleAccessPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSmsRoleAccessPolicyException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the trust relationship is not valid for the role provided for SMS configuration. This can happen if you don't trust <code>cognito-idp.amazonaws.com</code> or the
  *             external ID provided in the role does not match what is provided in the SMS configuration for the user pool.</p>
  */
-export interface InvalidSmsRoleTrustRelationshipException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSmsRoleTrustRelationshipException";
-  $fault: "client";
+export class InvalidSmsRoleTrustRelationshipException extends __BaseException {
+  readonly name: "InvalidSmsRoleTrustRelationshipException" = "InvalidSmsRoleTrustRelationshipException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the role trust relationship for the SMS message is not valid.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidSmsRoleTrustRelationshipException, __BaseException>) {
+    super({
+      name: "InvalidSmsRoleTrustRelationshipException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSmsRoleTrustRelationshipException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when a precondition is not met.</p>
  */
-export interface PreconditionNotMetException extends __SmithyException, $MetadataBearer {
-  name: "PreconditionNotMetException";
-  $fault: "client";
+export class PreconditionNotMetException extends __BaseException {
+  readonly name: "PreconditionNotMetException" = "PreconditionNotMetException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when a precondition is not met.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PreconditionNotMetException, __BaseException>) {
+    super({
+      name: "PreconditionNotMetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionNotMetException.prototype);
+  }
 }
 
 /**
  * <p>The request failed because the user is in an unsupported
  *     state.</p>
  */
-export interface UnsupportedUserStateException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedUserStateException";
-  $fault: "client";
+export class UnsupportedUserStateException extends __BaseException {
+  readonly name: "UnsupportedUserStateException" = "UnsupportedUserStateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the user is in an unsupported state.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UnsupportedUserStateException, __BaseException>) {
+    super({
+      name: "UnsupportedUserStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedUserStateException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when Amazon Cognito encounters a user name that already exists in the user pool.</p>
  */
-export interface UsernameExistsException extends __SmithyException, $MetadataBearer {
-  name: "UsernameExistsException";
-  $fault: "client";
+export class UsernameExistsException extends __BaseException {
+  readonly name: "UsernameExistsException" = "UsernameExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when Amazon Cognito throws a user name exists exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UsernameExistsException, __BaseException>) {
+    super({
+      name: "UsernameExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UsernameExistsException.prototype);
+  }
 }
 
 /**
@@ -1196,13 +1331,20 @@ export namespace AdminDisableProviderForUserResponse {
  * <p>This exception is thrown when a user tries to confirm the account with an email or phone number that has already been supplied as an alias from a different account. This exception
  *             tells user that an account with this email or phone already exists.</p>
  */
-export interface AliasExistsException extends __SmithyException, $MetadataBearer {
-  name: "AliasExistsException";
-  $fault: "client";
+export class AliasExistsException extends __BaseException {
+  readonly name: "AliasExistsException" = "AliasExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message sent to the user when an alias exists.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AliasExistsException, __BaseException>) {
+    super({
+      name: "AliasExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AliasExistsException.prototype);
+  }
 }
 
 /**
@@ -1316,13 +1458,20 @@ export namespace AdminForgetDeviceRequest {
 /**
  * <p>This exception is thrown when the user pool configuration is not valid.</p>
  */
-export interface InvalidUserPoolConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidUserPoolConfigurationException";
-  $fault: "client";
+export class InvalidUserPoolConfigurationException extends __BaseException {
+  readonly name: "InvalidUserPoolConfigurationException" = "InvalidUserPoolConfigurationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the user pool configuration is not valid.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidUserPoolConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidUserPoolConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUserPoolConfigurationException.prototype);
+  }
 }
 
 /**
@@ -1977,37 +2126,58 @@ export namespace AdminInitiateAuthResponse {
 /**
  * <p>This exception is thrown when Amazon Cognito can't find a multi-factor authentication (MFA) method.</p>
  */
-export interface MFAMethodNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "MFAMethodNotFoundException";
-  $fault: "client";
+export class MFAMethodNotFoundException extends __BaseException {
+  readonly name: "MFAMethodNotFoundException" = "MFAMethodNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when Amazon Cognito throws an MFA method not found exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MFAMethodNotFoundException, __BaseException>) {
+    super({
+      name: "MFAMethodNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MFAMethodNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when a password reset is required.</p>
  */
-export interface PasswordResetRequiredException extends __SmithyException, $MetadataBearer {
-  name: "PasswordResetRequiredException";
-  $fault: "client";
+export class PasswordResetRequiredException extends __BaseException {
+  readonly name: "PasswordResetRequiredException" = "PasswordResetRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when a password reset is required.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PasswordResetRequiredException, __BaseException>) {
+    super({
+      name: "PasswordResetRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PasswordResetRequiredException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when a user isn't confirmed successfully.</p>
  */
-export interface UserNotConfirmedException extends __SmithyException, $MetadataBearer {
-  name: "UserNotConfirmedException";
-  $fault: "client";
+export class UserNotConfirmedException extends __BaseException {
+  readonly name: "UserNotConfirmedException" = "UserNotConfirmedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when a user isn't confirmed successfully.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UserNotConfirmedException, __BaseException>) {
+    super({
+      name: "UserNotConfirmedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserNotConfirmedException.prototype);
+  }
 }
 
 export interface AdminLinkProviderForUserRequest {
@@ -2502,10 +2672,20 @@ export namespace AdminListUserAuthEventsResponse {
 /**
  * <p>This exception is thrown when user pool add-ons aren't enabled.</p>
  */
-export interface UserPoolAddOnNotEnabledException extends __SmithyException, $MetadataBearer {
-  name: "UserPoolAddOnNotEnabledException";
-  $fault: "client";
-  message?: string;
+export class UserPoolAddOnNotEnabledException extends __BaseException {
+  readonly name: "UserPoolAddOnNotEnabledException" = "UserPoolAddOnNotEnabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserPoolAddOnNotEnabledException, __BaseException>) {
+    super({
+      name: "UserPoolAddOnNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserPoolAddOnNotEnabledException.prototype);
+  }
 }
 
 export interface AdminRemoveUserFromGroupRequest {
@@ -2607,13 +2787,20 @@ export namespace AdminResetUserPasswordResponse {
 /**
  * <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP status code: 400.</p>
  */
-export interface InvalidEmailRoleAccessPolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEmailRoleAccessPolicyException";
-  $fault: "client";
+export class InvalidEmailRoleAccessPolicyException extends __BaseException {
+  readonly name: "InvalidEmailRoleAccessPolicyException" = "InvalidEmailRoleAccessPolicyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when you have an unverified email address or the identity policy isn't set on an email address that Amazon Cognito can access.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidEmailRoleAccessPolicyException, __BaseException>) {
+    super({
+      name: "InvalidEmailRoleAccessPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEmailRoleAccessPolicyException.prototype);
+  }
 }
 
 /**
@@ -2772,34 +2959,58 @@ export namespace AdminRespondToAuthChallengeResponse {
 /**
  * <p>This exception is thrown if the provided code doesn't match what the server was expecting.</p>
  */
-export interface CodeMismatchException extends __SmithyException, $MetadataBearer {
-  name: "CodeMismatchException";
-  $fault: "client";
+export class CodeMismatchException extends __BaseException {
+  readonly name: "CodeMismatchException" = "CodeMismatchException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided when the code mismatch exception is thrown.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CodeMismatchException, __BaseException>) {
+    super({
+      name: "CodeMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeMismatchException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown if a code has expired.</p>
  */
-export interface ExpiredCodeException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredCodeException";
-  $fault: "client";
+export class ExpiredCodeException extends __BaseException {
+  readonly name: "ExpiredCodeException" = "ExpiredCodeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message returned when the expired code exception is thrown.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ExpiredCodeException, __BaseException>) {
+    super({
+      name: "ExpiredCodeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredCodeException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the software token time-based one-time password (TOTP) multi-factor authentication (MFA) isn't activated for the user pool.</p>
  */
-export interface SoftwareTokenMFANotFoundException extends __SmithyException, $MetadataBearer {
-  name: "SoftwareTokenMFANotFoundException";
-  $fault: "client";
-  message?: string;
+export class SoftwareTokenMFANotFoundException extends __BaseException {
+  readonly name: "SoftwareTokenMFANotFoundException" = "SoftwareTokenMFANotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SoftwareTokenMFANotFoundException, __BaseException>) {
+    super({
+      name: "SoftwareTokenMFANotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SoftwareTokenMFANotFoundException.prototype);
+  }
 }
 
 /**
@@ -3305,13 +3516,20 @@ export namespace AssociateSoftwareTokenResponse {
 /**
  * <p>This exception is thrown if two or more modifications are happening concurrently.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided when the concurrent exception is thrown.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
@@ -3716,10 +3934,20 @@ export namespace CreateGroupResponse {
 /**
  * <p>This exception is thrown when Amazon Cognito encounters a group that already exists in the user pool.</p>
  */
-export interface GroupExistsException extends __SmithyException, $MetadataBearer {
-  name: "GroupExistsException";
-  $fault: "client";
-  message?: string;
+export class GroupExistsException extends __BaseException {
+  readonly name: "GroupExistsException" = "GroupExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GroupExistsException, __BaseException>) {
+    super({
+      name: "GroupExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GroupExistsException.prototype);
+  }
 }
 
 export enum IdentityProviderTypeType {
@@ -4054,10 +4282,20 @@ export namespace CreateIdentityProviderResponse {
 /**
  * <p>This exception is thrown when the provider is already supported by the user pool.</p>
  */
-export interface DuplicateProviderException extends __SmithyException, $MetadataBearer {
-  name: "DuplicateProviderException";
-  $fault: "client";
-  message?: string;
+export class DuplicateProviderException extends __BaseException {
+  readonly name: "DuplicateProviderException" = "DuplicateProviderException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateProviderException, __BaseException>) {
+    super({
+      name: "DuplicateProviderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateProviderException.prototype);
+  }
 }
 
 /**
@@ -5228,10 +5466,20 @@ export namespace CreateUserPoolResponse {
 /**
  * <p>This exception is thrown when a user pool tag can't be set or updated.</p>
  */
-export interface UserPoolTaggingException extends __SmithyException, $MetadataBearer {
-  name: "UserPoolTaggingException";
-  $fault: "client";
-  message?: string;
+export class UserPoolTaggingException extends __BaseException {
+  readonly name: "UserPoolTaggingException" = "UserPoolTaggingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserPoolTaggingException, __BaseException>) {
+    super({
+      name: "UserPoolTaggingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserPoolTaggingException.prototype);
+  }
 }
 
 export enum OAuthFlowType {
@@ -5741,19 +5989,39 @@ export namespace CreateUserPoolClientResponse {
 /**
  * <p>This exception is thrown when the specified OAuth flow is not valid.</p>
  */
-export interface InvalidOAuthFlowException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOAuthFlowException";
-  $fault: "client";
-  message?: string;
+export class InvalidOAuthFlowException extends __BaseException {
+  readonly name: "InvalidOAuthFlowException" = "InvalidOAuthFlowException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidOAuthFlowException, __BaseException>) {
+    super({
+      name: "InvalidOAuthFlowException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOAuthFlowException.prototype);
+  }
 }
 
 /**
  * <p>This exception is thrown when the specified scope doesn't exist.</p>
  */
-export interface ScopeDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ScopeDoesNotExistException";
-  $fault: "client";
-  message?: string;
+export class ScopeDoesNotExistException extends __BaseException {
+  readonly name: "ScopeDoesNotExistException" = "ScopeDoesNotExistException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ScopeDoesNotExistException, __BaseException>) {
+    super({
+      name: "ScopeDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ScopeDoesNotExistException.prototype);
+  }
 }
 
 /**
@@ -5866,10 +6134,20 @@ export namespace DeleteIdentityProviderRequest {
 /**
  * <p>This exception is thrown when the specified identifier isn't supported.</p>
  */
-export interface UnsupportedIdentityProviderException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedIdentityProviderException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedIdentityProviderException extends __BaseException {
+  readonly name: "UnsupportedIdentityProviderException" = "UnsupportedIdentityProviderException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedIdentityProviderException, __BaseException>) {
+    super({
+      name: "UnsupportedIdentityProviderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedIdentityProviderException.prototype);
+  }
 }
 
 export interface DeleteResourceServerRequest {
@@ -8416,28 +8694,58 @@ export namespace RevokeTokenResponse {
 /**
  * <p>Exception that is thrown when the request isn't authorized. This can happen due to an invalid access token in the request.</p>
  */
-export interface UnauthorizedException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedException";
-  $fault: "client";
-  message?: string;
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
 }
 
 /**
  * <p>Exception that is thrown when you attempt to perform an operation that isn't enabled for the user pool client.</p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+  }
 }
 
 /**
  * <p>Exception that is thrown when an unsupported token is passed to an operation.</p>
  */
-export interface UnsupportedTokenTypeException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedTokenTypeException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedTokenTypeException extends __BaseException {
+  readonly name: "UnsupportedTokenTypeException" = "UnsupportedTokenTypeException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedTokenTypeException, __BaseException>) {
+    super({
+      name: "UnsupportedTokenTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedTokenTypeException.prototype);
+  }
 }
 
 export interface SetRiskConfigurationRequest {

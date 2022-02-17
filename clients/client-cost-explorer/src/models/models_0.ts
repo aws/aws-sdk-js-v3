@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CostExplorerServiceException as __BaseException } from "./CostExplorerServiceException";
 
 export enum AccountScope {
   LINKED = "LINKED",
@@ -464,10 +467,22 @@ export namespace CreateAnomalyMonitorResponse {
 /**
  * <p>You made too many calls in a short period of time. Try again later.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateAnomalySubscriptionRequest {
@@ -506,10 +521,22 @@ export namespace CreateAnomalySubscriptionResponse {
  * <p>The cost anomaly monitor does not exist for the account.
  *         </p>
  */
-export interface UnknownMonitorException extends __SmithyException, $MetadataBearer {
-  name: "UnknownMonitorException";
-  $fault: "client";
+export class UnknownMonitorException extends __BaseException {
+  readonly name: "UnknownMonitorException" = "UnknownMonitorException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnknownMonitorException, __BaseException>) {
+    super({
+      name: "UnknownMonitorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnknownMonitorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum CostCategoryInheritedValueDimensionName {
@@ -668,10 +695,22 @@ export namespace CreateCostCategoryDefinitionResponse {
  * <p> You've reached the limit on the number of resources you can create, or exceeded the
  *             size of an individual resource. </p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteAnomalyMonitorRequest {
@@ -732,10 +771,22 @@ export namespace DeleteAnomalySubscriptionResponse {
  * <p>The cost anomaly subscription does not exist for the account.
  *         </p>
  */
-export interface UnknownSubscriptionException extends __SmithyException, $MetadataBearer {
-  name: "UnknownSubscriptionException";
-  $fault: "client";
+export class UnknownSubscriptionException extends __BaseException {
+  readonly name: "UnknownSubscriptionException" = "UnknownSubscriptionException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnknownSubscriptionException, __BaseException>) {
+    super({
+      name: "UnknownSubscriptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnknownSubscriptionException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DeleteCostCategoryDefinitionRequest {
@@ -786,10 +837,22 @@ export namespace DeleteCostCategoryDefinitionResponse {
  *             The specified ARN in the request doesn't exist.
  *         </p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeCostCategoryDefinitionRequest {
@@ -960,10 +1023,22 @@ export namespace GetAnomaliesResponse {
 /**
  * <p>The pagination token is invalid. Try again without a pagination token.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetAnomalyMonitorsRequest {
@@ -1050,19 +1125,43 @@ export namespace GetAnomalySubscriptionsResponse {
 /**
  * <p>The requested report expired. Update the date interval and try again.</p>
  */
-export interface BillExpirationException extends __SmithyException, $MetadataBearer {
-  name: "BillExpirationException";
-  $fault: "client";
+export class BillExpirationException extends __BaseException {
+  readonly name: "BillExpirationException" = "BillExpirationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BillExpirationException, __BaseException>) {
+    super({
+      name: "BillExpirationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BillExpirationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The requested data is unavailable.</p>
  */
-export interface DataUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "DataUnavailableException";
-  $fault: "client";
+export class DataUnavailableException extends __BaseException {
+  readonly name: "DataUnavailableException" = "DataUnavailableException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DataUnavailableException, __BaseException>) {
+    super({
+      name: "DataUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DataUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum Granularity {
@@ -1273,10 +1372,22 @@ export namespace GetCostAndUsageResponse {
  * <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  */
-export interface RequestChangedException extends __SmithyException, $MetadataBearer {
-  name: "RequestChangedException";
-  $fault: "client";
+export class RequestChangedException extends __BaseException {
+  readonly name: "RequestChangedException" = "RequestChangedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestChangedException, __BaseException>) {
+    super({
+      name: "RequestChangedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestChangedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetCostAndUsageWithResourcesResponse {
@@ -4003,10 +4114,22 @@ export namespace GetUsageForecastResponse {
 /**
  * <p>Cost Explorer was unable to identify the usage unit. Provide <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units, for example: <code>hours</code>.</p>
  */
-export interface UnresolvableUsageUnitException extends __SmithyException, $MetadataBearer {
-  name: "UnresolvableUsageUnitException";
-  $fault: "client";
+export class UnresolvableUsageUnitException extends __BaseException {
+  readonly name: "UnresolvableUsageUnitException" = "UnresolvableUsageUnitException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnresolvableUsageUnitException, __BaseException>) {
+    super({
+      name: "UnresolvableUsageUnitException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnresolvableUsageUnitException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListCostCategoryDefinitionsRequest {

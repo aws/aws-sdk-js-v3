@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -11,10 +12,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { DeleteLexiconCommandInput, DeleteLexiconCommandOutput } from "../commands/DeleteLexiconCommand";
@@ -66,6 +65,7 @@ import {
   UnsupportedPlsLanguageException,
   Voice,
 } from "../models/models_0";
+import { PollyServiceException as __BaseException } from "../models/PollyServiceException";
 
 export const serializeAws_restJson1DeleteLexiconCommand = async (
   input: DeleteLexiconCommandInput,
@@ -364,41 +364,25 @@ const deserializeAws_restJson1DeleteLexiconCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeVoicesCommand = async (
@@ -431,41 +415,25 @@ const deserializeAws_restJson1DescribeVoicesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.polly#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetLexiconCommand = async (
@@ -498,41 +466,25 @@ const deserializeAws_restJson1GetLexiconCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
@@ -561,49 +513,28 @@ const deserializeAws_restJson1GetSpeechSynthesisTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTaskIdException":
     case "com.amazonaws.polly#InvalidTaskIdException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidTaskIdExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidTaskIdExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "SynthesisTaskNotFoundException":
     case "com.amazonaws.polly#SynthesisTaskNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1SynthesisTaskNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1SynthesisTaskNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListLexiconsCommand = async (
@@ -636,41 +567,25 @@ const deserializeAws_restJson1ListLexiconsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.polly#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
@@ -703,41 +618,25 @@ const deserializeAws_restJson1ListSpeechSynthesisTasksCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.polly#InvalidNextTokenException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1PutLexiconCommand = async (
@@ -762,81 +661,40 @@ const deserializeAws_restJson1PutLexiconCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLexiconException":
     case "com.amazonaws.polly#InvalidLexiconException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidLexiconExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidLexiconExceptionResponse(parsedOutput, context);
     case "LexiconSizeExceededException":
     case "com.amazonaws.polly#LexiconSizeExceededException":
-      response = {
-        ...(await deserializeAws_restJson1LexiconSizeExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LexiconSizeExceededExceptionResponse(parsedOutput, context);
     case "MaxLexemeLengthExceededException":
     case "com.amazonaws.polly#MaxLexemeLengthExceededException":
-      response = {
-        ...(await deserializeAws_restJson1MaxLexemeLengthExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MaxLexemeLengthExceededExceptionResponse(parsedOutput, context);
     case "MaxLexiconsNumberExceededException":
     case "com.amazonaws.polly#MaxLexiconsNumberExceededException":
-      response = {
-        ...(await deserializeAws_restJson1MaxLexiconsNumberExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MaxLexiconsNumberExceededExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "UnsupportedPlsAlphabetException":
     case "com.amazonaws.polly#UnsupportedPlsAlphabetException":
-      response = {
-        ...(await deserializeAws_restJson1UnsupportedPlsAlphabetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnsupportedPlsAlphabetExceptionResponse(parsedOutput, context);
     case "UnsupportedPlsLanguageException":
     case "com.amazonaws.polly#UnsupportedPlsLanguageException":
-      response = {
-        ...(await deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
@@ -865,121 +723,55 @@ const deserializeAws_restJson1StartSpeechSynthesisTaskCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EngineNotSupportedException":
     case "com.amazonaws.polly#EngineNotSupportedException":
-      response = {
-        ...(await deserializeAws_restJson1EngineNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EngineNotSupportedExceptionResponse(parsedOutput, context);
     case "InvalidS3BucketException":
     case "com.amazonaws.polly#InvalidS3BucketException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidS3BucketExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidS3BucketExceptionResponse(parsedOutput, context);
     case "InvalidS3KeyException":
     case "com.amazonaws.polly#InvalidS3KeyException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidS3KeyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidS3KeyExceptionResponse(parsedOutput, context);
     case "InvalidSampleRateException":
     case "com.amazonaws.polly#InvalidSampleRateException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidSampleRateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidSampleRateExceptionResponse(parsedOutput, context);
     case "InvalidSnsTopicArnException":
     case "com.amazonaws.polly#InvalidSnsTopicArnException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidSnsTopicArnExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidSnsTopicArnExceptionResponse(parsedOutput, context);
     case "InvalidSsmlException":
     case "com.amazonaws.polly#InvalidSsmlException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidSsmlExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidSsmlExceptionResponse(parsedOutput, context);
     case "LanguageNotSupportedException":
     case "com.amazonaws.polly#LanguageNotSupportedException":
-      response = {
-        ...(await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(parsedOutput, context);
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context);
     case "MarksNotSupportedForFormatException":
     case "com.amazonaws.polly#MarksNotSupportedForFormatException":
-      response = {
-        ...(await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "SsmlMarksNotSupportedForTextTypeException":
     case "com.amazonaws.polly#SsmlMarksNotSupportedForTextTypeException":
-      response = {
-        ...(await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(parsedOutput, context);
     case "TextLengthExceededException":
     case "com.amazonaws.polly#TextLengthExceededException":
-      response = {
-        ...(await deserializeAws_restJson1TextLengthExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TextLengthExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
@@ -1014,454 +806,382 @@ const deserializeAws_restJson1SynthesizeSpeechCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EngineNotSupportedException":
     case "com.amazonaws.polly#EngineNotSupportedException":
-      response = {
-        ...(await deserializeAws_restJson1EngineNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EngineNotSupportedExceptionResponse(parsedOutput, context);
     case "InvalidSampleRateException":
     case "com.amazonaws.polly#InvalidSampleRateException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidSampleRateExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidSampleRateExceptionResponse(parsedOutput, context);
     case "InvalidSsmlException":
     case "com.amazonaws.polly#InvalidSsmlException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidSsmlExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidSsmlExceptionResponse(parsedOutput, context);
     case "LanguageNotSupportedException":
     case "com.amazonaws.polly#LanguageNotSupportedException":
-      response = {
-        ...(await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LanguageNotSupportedExceptionResponse(parsedOutput, context);
     case "LexiconNotFoundException":
     case "com.amazonaws.polly#LexiconNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1LexiconNotFoundExceptionResponse(parsedOutput, context);
     case "MarksNotSupportedForFormatException":
     case "com.amazonaws.polly#MarksNotSupportedForFormatException":
-      response = {
-        ...(await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse(parsedOutput, context);
     case "ServiceFailureException":
     case "com.amazonaws.polly#ServiceFailureException":
-      response = {
-        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context);
     case "SsmlMarksNotSupportedForTextTypeException":
     case "com.amazonaws.polly#SsmlMarksNotSupportedForTextTypeException":
-      response = {
-        ...(await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse(parsedOutput, context);
     case "TextLengthExceededException":
     case "com.amazonaws.polly#TextLengthExceededException":
-      response = {
-        ...(await deserializeAws_restJson1TextLengthExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TextLengthExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1EngineNotSupportedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EngineNotSupportedException> => {
-  const contents: EngineNotSupportedException = {
-    name: "EngineNotSupportedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new EngineNotSupportedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidLexiconExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidLexiconException> => {
-  const contents: InvalidLexiconException = {
-    name: "InvalidLexiconException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidLexiconException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidNextTokenExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
-  const contents: InvalidNextTokenException = {
-    name: "InvalidNextTokenException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidNextTokenException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidS3BucketExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidS3BucketException> => {
-  const contents: InvalidS3BucketException = {
-    name: "InvalidS3BucketException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidS3BucketException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidS3KeyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidS3KeyException> => {
-  const contents: InvalidS3KeyException = {
-    name: "InvalidS3KeyException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidS3KeyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidSampleRateExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSampleRateException> => {
-  const contents: InvalidSampleRateException = {
-    name: "InvalidSampleRateException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidSampleRateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidSnsTopicArnExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSnsTopicArnException> => {
-  const contents: InvalidSnsTopicArnException = {
-    name: "InvalidSnsTopicArnException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidSnsTopicArnException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidSsmlExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidSsmlException> => {
-  const contents: InvalidSsmlException = {
-    name: "InvalidSsmlException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidSsmlException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidTaskIdExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidTaskIdException> => {
-  const contents: InvalidTaskIdException = {
-    name: "InvalidTaskIdException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new InvalidTaskIdException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1LanguageNotSupportedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LanguageNotSupportedException> => {
-  const contents: LanguageNotSupportedException = {
-    name: "LanguageNotSupportedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new LanguageNotSupportedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1LexiconNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LexiconNotFoundException> => {
-  const contents: LexiconNotFoundException = {
-    name: "LexiconNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new LexiconNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1LexiconSizeExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<LexiconSizeExceededException> => {
-  const contents: LexiconSizeExceededException = {
-    name: "LexiconSizeExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new LexiconSizeExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1MarksNotSupportedForFormatExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MarksNotSupportedForFormatException> => {
-  const contents: MarksNotSupportedForFormatException = {
-    name: "MarksNotSupportedForFormatException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new MarksNotSupportedForFormatException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1MaxLexemeLengthExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaxLexemeLengthExceededException> => {
-  const contents: MaxLexemeLengthExceededException = {
-    name: "MaxLexemeLengthExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new MaxLexemeLengthExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1MaxLexiconsNumberExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<MaxLexiconsNumberExceededException> => {
-  const contents: MaxLexiconsNumberExceededException = {
-    name: "MaxLexiconsNumberExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new MaxLexiconsNumberExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ServiceFailureExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceFailureException> => {
-  const contents: ServiceFailureException = {
-    name: "ServiceFailureException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new ServiceFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1SsmlMarksNotSupportedForTextTypeExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SsmlMarksNotSupportedForTextTypeException> => {
-  const contents: SsmlMarksNotSupportedForTextTypeException = {
-    name: "SsmlMarksNotSupportedForTextTypeException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new SsmlMarksNotSupportedForTextTypeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1SynthesisTaskNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<SynthesisTaskNotFoundException> => {
-  const contents: SynthesisTaskNotFoundException = {
-    name: "SynthesisTaskNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new SynthesisTaskNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TextLengthExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TextLengthExceededException> => {
-  const contents: TextLengthExceededException = {
-    name: "TextLengthExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new TextLengthExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1UnsupportedPlsAlphabetExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedPlsAlphabetException> => {
-  const contents: UnsupportedPlsAlphabetException = {
-    name: "UnsupportedPlsAlphabetException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new UnsupportedPlsAlphabetException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1UnsupportedPlsLanguageExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<UnsupportedPlsLanguageException> => {
-  const contents: UnsupportedPlsLanguageException = {
-    name: "UnsupportedPlsLanguageException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
     contents.message = __expectString(data.message);
   }
-  return contents;
+  const exception = new UnsupportedPlsLanguageException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const serializeAws_restJson1LexiconNameList = (input: string[], context: __SerdeContext): any => {

@@ -1,13 +1,25 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AppflowServiceException as __BaseException } from "./AppflowServiceException";
 
 /**
  * <p>AppFlow/Requester has invalid or missing permissions.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export enum AggregationType {
@@ -328,10 +340,20 @@ export namespace BasicAuthCredentials {
  * <p> There was a conflict when processing the request (for example, a flow with the given name
  *       already exists within the account. Check for conflicting resource names and try again. </p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 export enum ConnectionMode {
@@ -342,10 +364,20 @@ export enum ConnectionMode {
 /**
  * <p> An error occurred when authenticating with the connector endpoint. </p>
  */
-export interface ConnectorAuthenticationException extends __SmithyException, $MetadataBearer {
-  name: "ConnectorAuthenticationException";
-  $fault: "client";
-  message?: string;
+export class ConnectorAuthenticationException extends __BaseException {
+  readonly name: "ConnectorAuthenticationException" = "ConnectorAuthenticationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConnectorAuthenticationException, __BaseException>) {
+    super({
+      name: "ConnectorAuthenticationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConnectorAuthenticationException.prototype);
+  }
 }
 
 /**
@@ -3313,10 +3345,20 @@ export namespace ConnectorProfileConfig {
 /**
  * <p> An error occurred when retrieving data from the connector endpoint. </p>
  */
-export interface ConnectorServerException extends __SmithyException, $MetadataBearer {
-  name: "ConnectorServerException";
-  $fault: "client";
-  message?: string;
+export class ConnectorServerException extends __BaseException {
+  readonly name: "ConnectorServerException" = "ConnectorServerException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConnectorServerException, __BaseException>) {
+    super({
+      name: "ConnectorServerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConnectorServerException.prototype);
+  }
 }
 
 export interface CreateConnectorProfileRequest {
@@ -3388,29 +3430,59 @@ export namespace CreateConnectorProfileResponse {
  * <p> An internal service error occurred during the processing of your request. Try again
  *       later. </p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
-  message?: string;
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
 }
 
 /**
  * <p> The request would cause a service quota (such as the number of flows) to be exceeded.
  *     </p>
  */
-export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
-  name: "ServiceQuotaExceededException";
-  $fault: "client";
-  message?: string;
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
 }
 
 /**
  * <p> The request has invalid or missing parameters. </p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  message?: string;
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**
@@ -4896,10 +4968,20 @@ export namespace CreateFlowResponse {
  * <p> The resource specified in the request (such as the source or destination connector
  *       profile) is not found. </p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message?: string;
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export interface DeleteConnectorProfileRequest {
@@ -5808,10 +5890,20 @@ export namespace RegisterConnectorResponse {
  * <p>API calls have exceeded the maximum allowed API request rate per account and per Region.
  *     </p>
  */
-export interface ThrottlingException extends __SmithyException, $MetadataBearer {
-  name: "ThrottlingException";
-  $fault: "client";
-  message?: string;
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
 }
 
 export interface StartFlowRequest {
@@ -5899,10 +5991,20 @@ export namespace StopFlowResponse {
 /**
  * <p> The requested operation is not supported for the current flow. </p>
  */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+  }
 }
 
 export interface TagResourceRequest {

@@ -1,15 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CodeCommitServiceException as __BaseException } from "./CodeCommitServiceException";
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
-export interface ActorDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ActorDoesNotExistException";
-  $fault: "client";
+export class ActorDoesNotExistException extends __BaseException {
+  readonly name: "ActorDoesNotExistException" = "ActorDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ActorDoesNotExistException, __BaseException>) {
+    super({
+      name: "ActorDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActorDoesNotExistException.prototype);
+  }
 }
 
 export enum ApprovalState {
@@ -122,25 +132,39 @@ export namespace ApprovalRule {
 /**
  * <p>The content for the approval rule is empty. You must provide some content for an approval rule. The content cannot be null.</p>
  */
-export interface ApprovalRuleContentRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleContentRequiredException";
-  $fault: "client";
+export class ApprovalRuleContentRequiredException extends __BaseException {
+  readonly name: "ApprovalRuleContentRequiredException" = "ApprovalRuleContentRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleContentRequiredException, __BaseException>) {
+    super({
+      name: "ApprovalRuleContentRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleContentRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The specified approval rule does not exist.</p>
  */
-export interface ApprovalRuleDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleDoesNotExistException";
-  $fault: "client";
+export class ApprovalRuleDoesNotExistException extends __BaseException {
+  readonly name: "ApprovalRuleDoesNotExistException" = "ApprovalRuleDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleDoesNotExistException, __BaseException>) {
+    super({
+      name: "ApprovalRuleDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleDoesNotExistException.prototype);
+  }
 }
 
 /**
@@ -176,25 +200,39 @@ export namespace ApprovalRuleEventMetadata {
  * <p>An approval rule with that name already exists. Approval rule names must be unique
  *             within the scope of a pull request.</p>
  */
-export interface ApprovalRuleNameAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleNameAlreadyExistsException";
-  $fault: "client";
+export class ApprovalRuleNameAlreadyExistsException extends __BaseException {
+  readonly name: "ApprovalRuleNameAlreadyExistsException" = "ApprovalRuleNameAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleNameAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ApprovalRuleNameAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleNameAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>An approval rule name is required, but was not specified.</p>
  */
-export interface ApprovalRuleNameRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleNameRequiredException";
-  $fault: "client";
+export class ApprovalRuleNameRequiredException extends __BaseException {
+  readonly name: "ApprovalRuleNameRequiredException" = "ApprovalRuleNameRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleNameRequiredException, __BaseException>) {
+    super({
+      name: "ApprovalRuleNameRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleNameRequiredException.prototype);
+  }
 }
 
 export enum OverrideStatus {
@@ -283,39 +321,60 @@ export namespace ApprovalRuleTemplate {
 /**
  * <p>The content for the approval rule template is empty. You must provide some content for an approval rule template. The content cannot be null.</p>
  */
-export interface ApprovalRuleTemplateContentRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleTemplateContentRequiredException";
-  $fault: "client";
+export class ApprovalRuleTemplateContentRequiredException extends __BaseException {
+  readonly name: "ApprovalRuleTemplateContentRequiredException" = "ApprovalRuleTemplateContentRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateContentRequiredException, __BaseException>) {
+    super({
+      name: "ApprovalRuleTemplateContentRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleTemplateContentRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The specified approval rule template does not exist. Verify that the name is correct and that you are signed in to the AWS Region where the template
  *         was created, and then try again.</p>
  */
-export interface ApprovalRuleTemplateDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleTemplateDoesNotExistException";
-  $fault: "client";
+export class ApprovalRuleTemplateDoesNotExistException extends __BaseException {
+  readonly name: "ApprovalRuleTemplateDoesNotExistException" = "ApprovalRuleTemplateDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateDoesNotExistException, __BaseException>) {
+    super({
+      name: "ApprovalRuleTemplateDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleTemplateDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>The approval rule template is associated with one or more repositories. You cannot delete a template that is associated with a repository. Remove
  *         all associations, and then try again.</p>
  */
-export interface ApprovalRuleTemplateInUseException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleTemplateInUseException";
-  $fault: "client";
+export class ApprovalRuleTemplateInUseException extends __BaseException {
+  readonly name: "ApprovalRuleTemplateInUseException" = "ApprovalRuleTemplateInUseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateInUseException, __BaseException>) {
+    super({
+      name: "ApprovalRuleTemplateInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleTemplateInUseException.prototype);
+  }
 }
 
 /**
@@ -323,25 +382,39 @@ export interface ApprovalRuleTemplateInUseException extends __SmithyException, $
  *             that name already exists in this AWS Region for your AWS account. Approval rule template
  *             names must be unique.</p>
  */
-export interface ApprovalRuleTemplateNameAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleTemplateNameAlreadyExistsException";
-  $fault: "client";
+export class ApprovalRuleTemplateNameAlreadyExistsException extends __BaseException {
+  readonly name: "ApprovalRuleTemplateNameAlreadyExistsException" = "ApprovalRuleTemplateNameAlreadyExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateNameAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ApprovalRuleTemplateNameAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleTemplateNameAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>An approval rule template name is required, but was not specified.</p>
  */
-export interface ApprovalRuleTemplateNameRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalRuleTemplateNameRequiredException";
-  $fault: "client";
+export class ApprovalRuleTemplateNameRequiredException extends __BaseException {
+  readonly name: "ApprovalRuleTemplateNameRequiredException" = "ApprovalRuleTemplateNameRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalRuleTemplateNameRequiredException, __BaseException>) {
+    super({
+      name: "ApprovalRuleTemplateNameRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalRuleTemplateNameRequiredException.prototype);
+  }
 }
 
 /**
@@ -371,13 +444,20 @@ export namespace ApprovalStateChangedEventMetadata {
 /**
  * <p>An approval state is required, but was not specified.</p>
  */
-export interface ApprovalStateRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalStateRequiredException";
-  $fault: "client";
+export class ApprovalStateRequiredException extends __BaseException {
+  readonly name: "ApprovalStateRequiredException" = "ApprovalStateRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalStateRequiredException, __BaseException>) {
+    super({
+      name: "ApprovalStateRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalStateRequiredException.prototype);
+  }
 }
 
 export interface AssociateApprovalRuleTemplateWithRepositoryInput {
@@ -404,61 +484,96 @@ export namespace AssociateApprovalRuleTemplateWithRepositoryInput {
 /**
  * <p>An encryption integrity check failed.</p>
  */
-export interface EncryptionIntegrityChecksFailedException extends __SmithyException, $MetadataBearer {
-  name: "EncryptionIntegrityChecksFailedException";
-  $fault: "server";
+export class EncryptionIntegrityChecksFailedException extends __BaseException {
+  readonly name: "EncryptionIntegrityChecksFailedException" = "EncryptionIntegrityChecksFailedException";
+  readonly $fault: "server" = "server";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<EncryptionIntegrityChecksFailedException, __BaseException>) {
+    super({
+      name: "EncryptionIntegrityChecksFailedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionIntegrityChecksFailedException.prototype);
+  }
 }
 
 /**
  * <p>An encryption key could not be accessed.</p>
  */
-export interface EncryptionKeyAccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "EncryptionKeyAccessDeniedException";
-  $fault: "client";
+export class EncryptionKeyAccessDeniedException extends __BaseException {
+  readonly name: "EncryptionKeyAccessDeniedException" = "EncryptionKeyAccessDeniedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<EncryptionKeyAccessDeniedException, __BaseException>) {
+    super({
+      name: "EncryptionKeyAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionKeyAccessDeniedException.prototype);
+  }
 }
 
 /**
  * <p>The encryption key is disabled.</p>
  */
-export interface EncryptionKeyDisabledException extends __SmithyException, $MetadataBearer {
-  name: "EncryptionKeyDisabledException";
-  $fault: "client";
+export class EncryptionKeyDisabledException extends __BaseException {
+  readonly name: "EncryptionKeyDisabledException" = "EncryptionKeyDisabledException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<EncryptionKeyDisabledException, __BaseException>) {
+    super({
+      name: "EncryptionKeyDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionKeyDisabledException.prototype);
+  }
 }
 
 /**
  * <p>No encryption key was found.</p>
  */
-export interface EncryptionKeyNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "EncryptionKeyNotFoundException";
-  $fault: "client";
+export class EncryptionKeyNotFoundException extends __BaseException {
+  readonly name: "EncryptionKeyNotFoundException" = "EncryptionKeyNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<EncryptionKeyNotFoundException, __BaseException>) {
+    super({
+      name: "EncryptionKeyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionKeyNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The encryption key is not available.</p>
  */
-export interface EncryptionKeyUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "EncryptionKeyUnavailableException";
-  $fault: "client";
+export class EncryptionKeyUnavailableException extends __BaseException {
+  readonly name: "EncryptionKeyUnavailableException" = "EncryptionKeyUnavailableException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<EncryptionKeyUnavailableException, __BaseException>) {
+    super({
+      name: "EncryptionKeyUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionKeyUnavailableException.prototype);
+  }
 }
 
 /**
@@ -467,13 +582,20 @@ export interface EncryptionKeyUnavailableException extends __SmithyException, $M
  *             see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS
  *                 CodeCommit User Guide</a>.</p>
  */
-export interface InvalidApprovalRuleTemplateNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidApprovalRuleTemplateNameException";
-  $fault: "client";
+export class InvalidApprovalRuleTemplateNameException extends __BaseException {
+  readonly name: "InvalidApprovalRuleTemplateNameException" = "InvalidApprovalRuleTemplateNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleTemplateNameException, __BaseException>) {
+    super({
+      name: "InvalidApprovalRuleTemplateNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidApprovalRuleTemplateNameException.prototype);
+  }
 }
 
 /**
@@ -485,62 +607,98 @@ export interface InvalidApprovalRuleTemplateNameException extends __SmithyExcept
  *                 specified repository does not exist.</p>
  *          </note>
  */
-export interface InvalidRepositoryNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryNameException";
-  $fault: "client";
+export class InvalidRepositoryNameException extends __BaseException {
+  readonly name: "InvalidRepositoryNameException" = "InvalidRepositoryNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryNameException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryNameException.prototype);
+  }
 }
 
 /**
  * <p>The maximum number of approval rule templates for a repository has been exceeded. You cannot associate more than 25
  *         approval rule templates with a repository.</p>
  */
-export interface MaximumRuleTemplatesAssociatedWithRepositoryException extends __SmithyException, $MetadataBearer {
-  name: "MaximumRuleTemplatesAssociatedWithRepositoryException";
-  $fault: "client";
+export class MaximumRuleTemplatesAssociatedWithRepositoryException extends __BaseException {
+  readonly name: "MaximumRuleTemplatesAssociatedWithRepositoryException" =
+    "MaximumRuleTemplatesAssociatedWithRepositoryException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaximumRuleTemplatesAssociatedWithRepositoryException, __BaseException>) {
+    super({
+      name: "MaximumRuleTemplatesAssociatedWithRepositoryException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumRuleTemplatesAssociatedWithRepositoryException.prototype);
+  }
 }
 
 /**
  * <p>The specified repository does not exist.</p>
  */
-export interface RepositoryDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryDoesNotExistException";
-  $fault: "client";
+export class RepositoryDoesNotExistException extends __BaseException {
+  readonly name: "RepositoryDoesNotExistException" = "RepositoryDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryDoesNotExistException, __BaseException>) {
+    super({
+      name: "RepositoryDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>A repository name is required, but was not specified.</p>
  */
-export interface RepositoryNameRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryNameRequiredException";
-  $fault: "client";
+export class RepositoryNameRequiredException extends __BaseException {
+  readonly name: "RepositoryNameRequiredException" = "RepositoryNameRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryNameRequiredException, __BaseException>) {
+    super({
+      name: "RepositoryNameRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryNameRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The specified Amazon Resource Name (ARN) does not exist in the AWS account.</p>
  */
-export interface AuthorDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "AuthorDoesNotExistException";
-  $fault: "client";
+export class AuthorDoesNotExistException extends __BaseException {
+  readonly name: "AuthorDoesNotExistException" = "AuthorDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<AuthorDoesNotExistException, __BaseException>) {
+    super({
+      name: "AuthorDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AuthorDoesNotExistException.prototype);
+  }
 }
 
 export interface BatchAssociateApprovalRuleTemplateWithRepositoriesInput {
@@ -620,25 +778,39 @@ export namespace BatchAssociateApprovalRuleTemplateWithRepositoriesOutput {
 /**
  * <p>The maximum number of allowed repository names was exceeded. Currently, this number is 100.</p>
  */
-export interface MaximumRepositoryNamesExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumRepositoryNamesExceededException";
-  $fault: "client";
+export class MaximumRepositoryNamesExceededException extends __BaseException {
+  readonly name: "MaximumRepositoryNamesExceededException" = "MaximumRepositoryNamesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaximumRepositoryNamesExceededException, __BaseException>) {
+    super({
+      name: "MaximumRepositoryNamesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumRepositoryNamesExceededException.prototype);
+  }
 }
 
 /**
  * <p>At least one repository name object is required, but was not specified.</p>
  */
-export interface RepositoryNamesRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryNamesRequiredException";
-  $fault: "client";
+export class RepositoryNamesRequiredException extends __BaseException {
+  readonly name: "RepositoryNamesRequiredException" = "RepositoryNamesRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryNamesRequiredException, __BaseException>) {
+    super({
+      name: "RepositoryNamesRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryNamesRequiredException.prototype);
+  }
 }
 
 export enum ConflictDetailLevelTypeEnum {
@@ -1117,158 +1289,249 @@ export namespace BatchDescribeMergeConflictsOutput {
 /**
  * <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
  */
-export interface CommitDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "CommitDoesNotExistException";
-  $fault: "client";
+export class CommitDoesNotExistException extends __BaseException {
+  readonly name: "CommitDoesNotExistException" = "CommitDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommitDoesNotExistException, __BaseException>) {
+    super({
+      name: "CommitDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommitDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>A commit was not specified.</p>
  */
-export interface CommitRequiredException extends __SmithyException, $MetadataBearer {
-  name: "CommitRequiredException";
-  $fault: "client";
+export class CommitRequiredException extends __BaseException {
+  readonly name: "CommitRequiredException" = "CommitRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommitRequiredException, __BaseException>) {
+    super({
+      name: "CommitRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommitRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The specified commit is not valid.</p>
  */
-export interface InvalidCommitException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCommitException";
-  $fault: "client";
+export class InvalidCommitException extends __BaseException {
+  readonly name: "InvalidCommitException" = "InvalidCommitException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidCommitException, __BaseException>) {
+    super({
+      name: "InvalidCommitException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCommitException.prototype);
+  }
 }
 
 /**
  * <p>The specified conflict detail level is not valid.</p>
  */
-export interface InvalidConflictDetailLevelException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConflictDetailLevelException";
-  $fault: "client";
+export class InvalidConflictDetailLevelException extends __BaseException {
+  readonly name: "InvalidConflictDetailLevelException" = "InvalidConflictDetailLevelException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidConflictDetailLevelException, __BaseException>) {
+    super({
+      name: "InvalidConflictDetailLevelException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConflictDetailLevelException.prototype);
+  }
 }
 
 /**
  * <p>The specified conflict resolution strategy is not valid.</p>
  */
-export interface InvalidConflictResolutionStrategyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConflictResolutionStrategyException";
-  $fault: "client";
+export class InvalidConflictResolutionStrategyException extends __BaseException {
+  readonly name: "InvalidConflictResolutionStrategyException" = "InvalidConflictResolutionStrategyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidConflictResolutionStrategyException, __BaseException>) {
+    super({
+      name: "InvalidConflictResolutionStrategyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConflictResolutionStrategyException.prototype);
+  }
 }
 
 /**
  * <p>The specified continuation token is not valid.</p>
  */
-export interface InvalidContinuationTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidContinuationTokenException";
-  $fault: "client";
+export class InvalidContinuationTokenException extends __BaseException {
+  readonly name: "InvalidContinuationTokenException" = "InvalidContinuationTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidContinuationTokenException, __BaseException>) {
+    super({
+      name: "InvalidContinuationTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidContinuationTokenException.prototype);
+  }
 }
 
 /**
  * <p>The specified value for the number of conflict files to return is not valid.</p>
  */
-export interface InvalidMaxConflictFilesException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMaxConflictFilesException";
-  $fault: "client";
+export class InvalidMaxConflictFilesException extends __BaseException {
+  readonly name: "InvalidMaxConflictFilesException" = "InvalidMaxConflictFilesException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidMaxConflictFilesException, __BaseException>) {
+    super({
+      name: "InvalidMaxConflictFilesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMaxConflictFilesException.prototype);
+  }
 }
 
 /**
  * <p>The specified value for the number of merge hunks to return is not valid.</p>
  */
-export interface InvalidMaxMergeHunksException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMaxMergeHunksException";
-  $fault: "client";
+export class InvalidMaxMergeHunksException extends __BaseException {
+  readonly name: "InvalidMaxMergeHunksException" = "InvalidMaxMergeHunksException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidMaxMergeHunksException, __BaseException>) {
+    super({
+      name: "InvalidMaxMergeHunksException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMaxMergeHunksException.prototype);
+  }
 }
 
 /**
  * <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
  */
-export interface InvalidMergeOptionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMergeOptionException";
-  $fault: "client";
+export class InvalidMergeOptionException extends __BaseException {
+  readonly name: "InvalidMergeOptionException" = "InvalidMergeOptionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidMergeOptionException, __BaseException>) {
+    super({
+      name: "InvalidMergeOptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMergeOptionException.prototype);
+  }
 }
 
 /**
  * <p>The number of files to load exceeds the allowed limit.</p>
  */
-export interface MaximumFileContentToLoadExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumFileContentToLoadExceededException";
-  $fault: "client";
+export class MaximumFileContentToLoadExceededException extends __BaseException {
+  readonly name: "MaximumFileContentToLoadExceededException" = "MaximumFileContentToLoadExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaximumFileContentToLoadExceededException, __BaseException>) {
+    super({
+      name: "MaximumFileContentToLoadExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumFileContentToLoadExceededException.prototype);
+  }
 }
 
 /**
  * <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
  */
-export interface MaximumItemsToCompareExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumItemsToCompareExceededException";
-  $fault: "client";
+export class MaximumItemsToCompareExceededException extends __BaseException {
+  readonly name: "MaximumItemsToCompareExceededException" = "MaximumItemsToCompareExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaximumItemsToCompareExceededException, __BaseException>) {
+    super({
+      name: "MaximumItemsToCompareExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumItemsToCompareExceededException.prototype);
+  }
 }
 
 /**
  * <p>A merge option or stategy is required, and none was provided.</p>
  */
-export interface MergeOptionRequiredException extends __SmithyException, $MetadataBearer {
-  name: "MergeOptionRequiredException";
-  $fault: "client";
+export class MergeOptionRequiredException extends __BaseException {
+  readonly name: "MergeOptionRequiredException" = "MergeOptionRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MergeOptionRequiredException, __BaseException>) {
+    super({
+      name: "MergeOptionRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MergeOptionRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
  *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
  */
-export interface TipsDivergenceExceededException extends __SmithyException, $MetadataBearer {
-  name: "TipsDivergenceExceededException";
-  $fault: "client";
+export class TipsDivergenceExceededException extends __BaseException {
+  readonly name: "TipsDivergenceExceededException" = "TipsDivergenceExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TipsDivergenceExceededException, __BaseException>) {
+    super({
+      name: "TipsDivergenceExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TipsDivergenceExceededException.prototype);
+  }
 }
 
 export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesInput {
@@ -1513,25 +1776,39 @@ export namespace BatchGetCommitsOutput {
 /**
  * <p>The maximum number of allowed commit IDs in a batch request is 100. Verify that your batch requests contains no more than 100 commit IDs, and then try again.</p>
  */
-export interface CommitIdsLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "CommitIdsLimitExceededException";
-  $fault: "client";
+export class CommitIdsLimitExceededException extends __BaseException {
+  readonly name: "CommitIdsLimitExceededException" = "CommitIdsLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommitIdsLimitExceededException, __BaseException>) {
+    super({
+      name: "CommitIdsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommitIdsLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>A list of commit IDs is required, but was either not specified or the list was empty.</p>
  */
-export interface CommitIdsListRequiredException extends __SmithyException, $MetadataBearer {
-  name: "CommitIdsListRequiredException";
-  $fault: "client";
+export class CommitIdsListRequiredException extends __BaseException {
+  readonly name: "CommitIdsListRequiredException" = "CommitIdsListRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommitIdsListRequiredException, __BaseException>) {
+    super({
+      name: "CommitIdsListRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommitIdsListRequiredException.prototype);
+  }
 }
 
 /**
@@ -1647,37 +1924,58 @@ export namespace BatchGetRepositoriesOutput {
 /**
  * <p>The before commit ID and the after commit ID are the same, which is not valid. The before commit ID and the after commit ID must be different commit IDs.</p>
  */
-export interface BeforeCommitIdAndAfterCommitIdAreSameException extends __SmithyException, $MetadataBearer {
-  name: "BeforeCommitIdAndAfterCommitIdAreSameException";
-  $fault: "client";
+export class BeforeCommitIdAndAfterCommitIdAreSameException extends __BaseException {
+  readonly name: "BeforeCommitIdAndAfterCommitIdAreSameException" = "BeforeCommitIdAndAfterCommitIdAreSameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BeforeCommitIdAndAfterCommitIdAreSameException, __BaseException>) {
+    super({
+      name: "BeforeCommitIdAndAfterCommitIdAreSameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BeforeCommitIdAndAfterCommitIdAreSameException.prototype);
+  }
 }
 
 /**
  * <p>The specified blob does not exist.</p>
  */
-export interface BlobIdDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "BlobIdDoesNotExistException";
-  $fault: "client";
+export class BlobIdDoesNotExistException extends __BaseException {
+  readonly name: "BlobIdDoesNotExistException" = "BlobIdDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BlobIdDoesNotExistException, __BaseException>) {
+    super({
+      name: "BlobIdDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BlobIdDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>A blob ID is required, but was not specified.</p>
  */
-export interface BlobIdRequiredException extends __SmithyException, $MetadataBearer {
-  name: "BlobIdRequiredException";
-  $fault: "client";
+export class BlobIdRequiredException extends __BaseException {
+  readonly name: "BlobIdRequiredException" = "BlobIdRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BlobIdRequiredException, __BaseException>) {
+    super({
+      name: "BlobIdRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BlobIdRequiredException.prototype);
+  }
 }
 
 /**
@@ -1730,13 +2028,20 @@ export namespace BlobMetadata {
 /**
  * <p>The specified branch does not exist.</p>
  */
-export interface BranchDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "BranchDoesNotExistException";
-  $fault: "client";
+export class BranchDoesNotExistException extends __BaseException {
+  readonly name: "BranchDoesNotExistException" = "BranchDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BranchDoesNotExistException, __BaseException>) {
+    super({
+      name: "BranchDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BranchDoesNotExistException.prototype);
+  }
 }
 
 /**
@@ -1767,64 +2072,99 @@ export namespace BranchInfo {
  * <p>Cannot create the branch with the specified name because the commit conflicts with an existing branch with the same name.
  *             Branch names must be unique.</p>
  */
-export interface BranchNameExistsException extends __SmithyException, $MetadataBearer {
-  name: "BranchNameExistsException";
-  $fault: "client";
+export class BranchNameExistsException extends __BaseException {
+  readonly name: "BranchNameExistsException" = "BranchNameExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BranchNameExistsException, __BaseException>) {
+    super({
+      name: "BranchNameExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BranchNameExistsException.prototype);
+  }
 }
 
 /**
  * <p>The specified branch name is not valid because it is a tag name. Enter the name of a
  *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
  */
-export interface BranchNameIsTagNameException extends __SmithyException, $MetadataBearer {
-  name: "BranchNameIsTagNameException";
-  $fault: "client";
+export class BranchNameIsTagNameException extends __BaseException {
+  readonly name: "BranchNameIsTagNameException" = "BranchNameIsTagNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BranchNameIsTagNameException, __BaseException>) {
+    super({
+      name: "BranchNameIsTagNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BranchNameIsTagNameException.prototype);
+  }
 }
 
 /**
  * <p>A branch name is required, but was not specified.</p>
  */
-export interface BranchNameRequiredException extends __SmithyException, $MetadataBearer {
-  name: "BranchNameRequiredException";
-  $fault: "client";
+export class BranchNameRequiredException extends __BaseException {
+  readonly name: "BranchNameRequiredException" = "BranchNameRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<BranchNameRequiredException, __BaseException>) {
+    super({
+      name: "BranchNameRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BranchNameRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The approval rule cannot be deleted from the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
  */
-export interface CannotDeleteApprovalRuleFromTemplateException extends __SmithyException, $MetadataBearer {
-  name: "CannotDeleteApprovalRuleFromTemplateException";
-  $fault: "client";
+export class CannotDeleteApprovalRuleFromTemplateException extends __BaseException {
+  readonly name: "CannotDeleteApprovalRuleFromTemplateException" = "CannotDeleteApprovalRuleFromTemplateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CannotDeleteApprovalRuleFromTemplateException, __BaseException>) {
+    super({
+      name: "CannotDeleteApprovalRuleFromTemplateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotDeleteApprovalRuleFromTemplateException.prototype);
+  }
 }
 
 /**
  * <p>The approval rule cannot be modified for the pull request because it was created by an
  *             approval rule template and applied to the pull request automatically.</p>
  */
-export interface CannotModifyApprovalRuleFromTemplateException extends __SmithyException, $MetadataBearer {
-  name: "CannotModifyApprovalRuleFromTemplateException";
-  $fault: "client";
+export class CannotModifyApprovalRuleFromTemplateException extends __BaseException {
+  readonly name: "CannotModifyApprovalRuleFromTemplateException" = "CannotModifyApprovalRuleFromTemplateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CannotModifyApprovalRuleFromTemplateException, __BaseException>) {
+    super({
+      name: "CannotModifyApprovalRuleFromTemplateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotModifyApprovalRuleFromTemplateException.prototype);
+  }
 }
 
 /**
@@ -1834,13 +2174,20 @@ export interface CannotModifyApprovalRuleFromTemplateException extends __SmithyE
  *             parameters and a token is included, the request returns information about the initial
  *             request that used that token.</p>
  */
-export interface ClientRequestTokenRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ClientRequestTokenRequiredException";
-  $fault: "client";
+export class ClientRequestTokenRequiredException extends __BaseException {
+  readonly name: "ClientRequestTokenRequiredException" = "ClientRequestTokenRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ClientRequestTokenRequiredException, __BaseException>) {
+    super({
+      name: "ClientRequestTokenRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ClientRequestTokenRequiredException.prototype);
+  }
 }
 
 export interface CreateApprovalRuleTemplateInput {
@@ -1935,13 +2282,20 @@ export namespace CreateApprovalRuleTemplateOutput {
 /**
  * <p>The content of the approval rule template is not valid.</p>
  */
-export interface InvalidApprovalRuleTemplateContentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidApprovalRuleTemplateContentException";
-  $fault: "client";
+export class InvalidApprovalRuleTemplateContentException extends __BaseException {
+  readonly name: "InvalidApprovalRuleTemplateContentException" = "InvalidApprovalRuleTemplateContentException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleTemplateContentException, __BaseException>) {
+    super({
+      name: "InvalidApprovalRuleTemplateContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidApprovalRuleTemplateContentException.prototype);
+  }
 }
 
 /**
@@ -1950,37 +2304,58 @@ export interface InvalidApprovalRuleTemplateContentException extends __SmithyExc
  *             CodeCommit, see <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User
  *             Guide</a>.</p>
  */
-export interface InvalidApprovalRuleTemplateDescriptionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidApprovalRuleTemplateDescriptionException";
-  $fault: "client";
+export class InvalidApprovalRuleTemplateDescriptionException extends __BaseException {
+  readonly name: "InvalidApprovalRuleTemplateDescriptionException" = "InvalidApprovalRuleTemplateDescriptionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleTemplateDescriptionException, __BaseException>) {
+    super({
+      name: "InvalidApprovalRuleTemplateDescriptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidApprovalRuleTemplateDescriptionException.prototype);
+  }
 }
 
 /**
  * <p>The maximum number of approval rule templates has been exceeded for this AWS Region. </p>
  */
-export interface NumberOfRuleTemplatesExceededException extends __SmithyException, $MetadataBearer {
-  name: "NumberOfRuleTemplatesExceededException";
-  $fault: "client";
+export class NumberOfRuleTemplatesExceededException extends __BaseException {
+  readonly name: "NumberOfRuleTemplatesExceededException" = "NumberOfRuleTemplatesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NumberOfRuleTemplatesExceededException, __BaseException>) {
+    super({
+      name: "NumberOfRuleTemplatesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NumberOfRuleTemplatesExceededException.prototype);
+  }
 }
 
 /**
  * <p>A commit ID was not specified.</p>
  */
-export interface CommitIdRequiredException extends __SmithyException, $MetadataBearer {
-  name: "CommitIdRequiredException";
-  $fault: "client";
+export class CommitIdRequiredException extends __BaseException {
+  readonly name: "CommitIdRequiredException" = "CommitIdRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommitIdRequiredException, __BaseException>) {
+    super({
+      name: "CommitIdRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommitIdRequiredException.prototype);
+  }
 }
 
 /**
@@ -2015,37 +2390,58 @@ export namespace CreateBranchInput {
 /**
  * <p>The specified reference name is not valid.</p>
  */
-export interface InvalidBranchNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidBranchNameException";
-  $fault: "client";
+export class InvalidBranchNameException extends __BaseException {
+  readonly name: "InvalidBranchNameException" = "InvalidBranchNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidBranchNameException, __BaseException>) {
+    super({
+      name: "InvalidBranchNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidBranchNameException.prototype);
+  }
 }
 
 /**
  * <p>The specified commit ID is not valid.</p>
  */
-export interface InvalidCommitIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCommitIdException";
-  $fault: "client";
+export class InvalidCommitIdException extends __BaseException {
+  readonly name: "InvalidCommitIdException" = "InvalidCommitIdException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidCommitIdException, __BaseException>) {
+    super({
+      name: "InvalidCommitIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCommitIdException.prototype);
+  }
 }
 
 /**
  * <p>The commit message is too long. Provide a shorter string. </p>
  */
-export interface CommitMessageLengthExceededException extends __SmithyException, $MetadataBearer {
-  name: "CommitMessageLengthExceededException";
-  $fault: "client";
+export class CommitMessageLengthExceededException extends __BaseException {
+  readonly name: "CommitMessageLengthExceededException" = "CommitMessageLengthExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommitMessageLengthExceededException, __BaseException>) {
+    super({
+      name: "CommitMessageLengthExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommitMessageLengthExceededException.prototype);
+  }
 }
 
 /**
@@ -2286,13 +2682,20 @@ export namespace CreateCommitOutput {
  * <p>A file cannot be added to the repository because the specified path name has the same name as a file that already exists in this repository.
  *         Either provide a different name for the file, or specify a different path for the file.</p>
  */
-export interface DirectoryNameConflictsWithFileNameException extends __SmithyException, $MetadataBearer {
-  name: "DirectoryNameConflictsWithFileNameException";
-  $fault: "client";
+export class DirectoryNameConflictsWithFileNameException extends __BaseException {
+  readonly name: "DirectoryNameConflictsWithFileNameException" = "DirectoryNameConflictsWithFileNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DirectoryNameConflictsWithFileNameException, __BaseException>) {
+    super({
+      name: "DirectoryNameConflictsWithFileNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DirectoryNameConflictsWithFileNameException.prototype);
+  }
 }
 
 /**
@@ -2300,13 +2703,20 @@ export interface DirectoryNameConflictsWithFileNameException extends __SmithyExc
  *             specified for the same file. You cannot provide both. Either specify a source file or
  *             provide the file content directly.</p>
  */
-export interface FileContentAndSourceFileSpecifiedException extends __SmithyException, $MetadataBearer {
-  name: "FileContentAndSourceFileSpecifiedException";
-  $fault: "client";
+export class FileContentAndSourceFileSpecifiedException extends __BaseException {
+  readonly name: "FileContentAndSourceFileSpecifiedException" = "FileContentAndSourceFileSpecifiedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FileContentAndSourceFileSpecifiedException, __BaseException>) {
+    super({
+      name: "FileContentAndSourceFileSpecifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileContentAndSourceFileSpecifiedException.prototype);
+  }
 }
 
 /**
@@ -2314,77 +2724,119 @@ export interface FileContentAndSourceFileSpecifiedException extends __SmithyExce
  *             the combined file content change size is 7 MB. Consider making these changes using a Git
  *             client.</p>
  */
-export interface FileContentSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "FileContentSizeLimitExceededException";
-  $fault: "client";
+export class FileContentSizeLimitExceededException extends __BaseException {
+  readonly name: "FileContentSizeLimitExceededException" = "FileContentSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FileContentSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "FileContentSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileContentSizeLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The specified file does not exist. Verify that you have used the correct file name,
  *             full path, and extension.</p>
  */
-export interface FileDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "FileDoesNotExistException";
-  $fault: "client";
+export class FileDoesNotExistException extends __BaseException {
+  readonly name: "FileDoesNotExistException" = "FileDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FileDoesNotExistException, __BaseException>) {
+    super({
+      name: "FileDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>The commit cannot be created because no files have been specified as added, updated, or changed (PutFile or DeleteFile) for the commit.</p>
  */
-export interface FileEntryRequiredException extends __SmithyException, $MetadataBearer {
-  name: "FileEntryRequiredException";
-  $fault: "client";
+export class FileEntryRequiredException extends __BaseException {
+  readonly name: "FileEntryRequiredException" = "FileEntryRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FileEntryRequiredException, __BaseException>) {
+    super({
+      name: "FileEntryRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileEntryRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The commit cannot be created because no file mode has been specified. A file mode is
  *             required to update mode permissions for a file.</p>
  */
-export interface FileModeRequiredException extends __SmithyException, $MetadataBearer {
-  name: "FileModeRequiredException";
-  $fault: "client";
+export class FileModeRequiredException extends __BaseException {
+  readonly name: "FileModeRequiredException" = "FileModeRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FileModeRequiredException, __BaseException>) {
+    super({
+      name: "FileModeRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileModeRequiredException.prototype);
+  }
 }
 
 /**
  * <p>A file cannot be added to the repository because the specified file name has the same name as a directory in this repository. Either provide
  *         another name for the file, or add the file in a directory that does not match the file name.</p>
  */
-export interface FileNameConflictsWithDirectoryNameException extends __SmithyException, $MetadataBearer {
-  name: "FileNameConflictsWithDirectoryNameException";
-  $fault: "client";
+export class FileNameConflictsWithDirectoryNameException extends __BaseException {
+  readonly name: "FileNameConflictsWithDirectoryNameException" = "FileNameConflictsWithDirectoryNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FileNameConflictsWithDirectoryNameException, __BaseException>) {
+    super({
+      name: "FileNameConflictsWithDirectoryNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileNameConflictsWithDirectoryNameException.prototype);
+  }
 }
 
 /**
  * <p>The commit cannot be created because a specified file path points to a submodule. Verify that the destination files
  *         have valid file paths that do not point to a submodule.</p>
  */
-export interface FilePathConflictsWithSubmodulePathException extends __SmithyException, $MetadataBearer {
-  name: "FilePathConflictsWithSubmodulePathException";
-  $fault: "client";
+export class FilePathConflictsWithSubmodulePathException extends __BaseException {
+  readonly name: "FilePathConflictsWithSubmodulePathException" = "FilePathConflictsWithSubmodulePathException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FilePathConflictsWithSubmodulePathException, __BaseException>) {
+    super({
+      name: "FilePathConflictsWithSubmodulePathException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FilePathConflictsWithSubmodulePathException.prototype);
+  }
 }
 
 /**
@@ -2392,186 +2844,291 @@ export interface FilePathConflictsWithSubmodulePathException extends __SmithyExc
  *             folder whose contents exceed the limit of 6 MB. Either reduce the number and size of your changes,
  *         or split the changes across multiple folders.</p>
  */
-export interface FolderContentSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "FolderContentSizeLimitExceededException";
-  $fault: "client";
+export class FolderContentSizeLimitExceededException extends __BaseException {
+  readonly name: "FolderContentSizeLimitExceededException" = "FolderContentSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FolderContentSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "FolderContentSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FolderContentSizeLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The specified deletion parameter is not valid.</p>
  */
-export interface InvalidDeletionParameterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDeletionParameterException";
-  $fault: "client";
+export class InvalidDeletionParameterException extends __BaseException {
+  readonly name: "InvalidDeletionParameterException" = "InvalidDeletionParameterException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidDeletionParameterException, __BaseException>) {
+    super({
+      name: "InvalidDeletionParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDeletionParameterException.prototype);
+  }
 }
 
 /**
  * <p>The specified email address either contains one or more characters that are not allowed, or it exceeds the maximum number of characters
  *         allowed for an email address.</p>
  */
-export interface InvalidEmailException extends __SmithyException, $MetadataBearer {
-  name: "InvalidEmailException";
-  $fault: "client";
+export class InvalidEmailException extends __BaseException {
+  readonly name: "InvalidEmailException" = "InvalidEmailException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidEmailException, __BaseException>) {
+    super({
+      name: "InvalidEmailException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEmailException.prototype);
+  }
 }
 
 /**
  * <p>The specified file mode permission is not valid. For a list of valid file mode permissions, see <a>PutFile</a>. </p>
  */
-export interface InvalidFileModeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFileModeException";
-  $fault: "client";
+export class InvalidFileModeException extends __BaseException {
+  readonly name: "InvalidFileModeException" = "InvalidFileModeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidFileModeException, __BaseException>) {
+    super({
+      name: "InvalidFileModeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFileModeException.prototype);
+  }
 }
 
 /**
  * <p>The parent commit ID is not valid. The commit ID cannot be empty, and must match the head commit ID for the branch of the repository where you
  *         want to add or update a file.</p>
  */
-export interface InvalidParentCommitIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParentCommitIdException";
-  $fault: "client";
+export class InvalidParentCommitIdException extends __BaseException {
+  readonly name: "InvalidParentCommitIdException" = "InvalidParentCommitIdException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParentCommitIdException, __BaseException>) {
+    super({
+      name: "InvalidParentCommitIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParentCommitIdException.prototype);
+  }
 }
 
 /**
  * <p>The specified path is not valid.</p>
  */
-export interface InvalidPathException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPathException";
-  $fault: "client";
+export class InvalidPathException extends __BaseException {
+  readonly name: "InvalidPathException" = "InvalidPathException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidPathException, __BaseException>) {
+    super({
+      name: "InvalidPathException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPathException.prototype);
+  }
 }
 
 /**
  * <p>The number of specified files to change as part of this commit exceeds the maximum number of files
  *         that can be changed in a single commit. Consider using a Git client for these changes.</p>
  */
-export interface MaximumFileEntriesExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumFileEntriesExceededException";
-  $fault: "client";
+export class MaximumFileEntriesExceededException extends __BaseException {
+  readonly name: "MaximumFileEntriesExceededException" = "MaximumFileEntriesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaximumFileEntriesExceededException, __BaseException>) {
+    super({
+      name: "MaximumFileEntriesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumFileEntriesExceededException.prototype);
+  }
 }
 
 /**
  * <p>The user name is not valid because it has exceeded the character limit for author names. </p>
  */
-export interface NameLengthExceededException extends __SmithyException, $MetadataBearer {
-  name: "NameLengthExceededException";
-  $fault: "client";
+export class NameLengthExceededException extends __BaseException {
+  readonly name: "NameLengthExceededException" = "NameLengthExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NameLengthExceededException, __BaseException>) {
+    super({
+      name: "NameLengthExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NameLengthExceededException.prototype);
+  }
 }
 
 /**
  * <p>The commit cannot be created because no changes will be made to the repository as a result of this commit. A commit must contain at least one change.</p>
  */
-export interface NoChangeException extends __SmithyException, $MetadataBearer {
-  name: "NoChangeException";
-  $fault: "client";
+export class NoChangeException extends __BaseException {
+  readonly name: "NoChangeException" = "NoChangeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NoChangeException, __BaseException>) {
+    super({
+      name: "NoChangeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoChangeException.prototype);
+  }
 }
 
 /**
  * <p>The parent commit ID is not valid because it does not exist. The specified parent commit ID does not exist in the specified branch of the repository.</p>
  */
-export interface ParentCommitDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ParentCommitDoesNotExistException";
-  $fault: "client";
+export class ParentCommitDoesNotExistException extends __BaseException {
+  readonly name: "ParentCommitDoesNotExistException" = "ParentCommitDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ParentCommitDoesNotExistException, __BaseException>) {
+    super({
+      name: "ParentCommitDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParentCommitDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>The file could not be added because the provided parent commit ID is not the current tip of the specified branch. To view the full commit ID of the current head
  *         of the branch, use <a>GetBranch</a>.</p>
  */
-export interface ParentCommitIdOutdatedException extends __SmithyException, $MetadataBearer {
-  name: "ParentCommitIdOutdatedException";
-  $fault: "client";
+export class ParentCommitIdOutdatedException extends __BaseException {
+  readonly name: "ParentCommitIdOutdatedException" = "ParentCommitIdOutdatedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ParentCommitIdOutdatedException, __BaseException>) {
+    super({
+      name: "ParentCommitIdOutdatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParentCommitIdOutdatedException.prototype);
+  }
 }
 
 /**
  * <p>A parent commit ID is required. To view the full commit ID of a branch in a repository, use <a>GetBranch</a> or a Git command
  *         (for example, git pull or git log).</p>
  */
-export interface ParentCommitIdRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ParentCommitIdRequiredException";
-  $fault: "client";
+export class ParentCommitIdRequiredException extends __BaseException {
+  readonly name: "ParentCommitIdRequiredException" = "ParentCommitIdRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ParentCommitIdRequiredException, __BaseException>) {
+    super({
+      name: "ParentCommitIdRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ParentCommitIdRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The folderPath for a location cannot be null.</p>
  */
-export interface PathRequiredException extends __SmithyException, $MetadataBearer {
-  name: "PathRequiredException";
-  $fault: "client";
+export class PathRequiredException extends __BaseException {
+  readonly name: "PathRequiredException" = "PathRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PathRequiredException, __BaseException>) {
+    super({
+      name: "PathRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PathRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The commit cannot be created because one or more files specified in the commit reference both a file and a folder.</p>
  */
-export interface PutFileEntryConflictException extends __SmithyException, $MetadataBearer {
-  name: "PutFileEntryConflictException";
-  $fault: "client";
+export class PutFileEntryConflictException extends __BaseException {
+  readonly name: "PutFileEntryConflictException" = "PutFileEntryConflictException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PutFileEntryConflictException, __BaseException>) {
+    super({
+      name: "PutFileEntryConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PutFileEntryConflictException.prototype);
+  }
 }
 
 /**
  * <p>The commit cannot be created because one of the changes specifies copying or moving a .gitkeep file.</p>
  */
-export interface RestrictedSourceFileException extends __SmithyException, $MetadataBearer {
-  name: "RestrictedSourceFileException";
-  $fault: "client";
+export class RestrictedSourceFileException extends __BaseException {
+  readonly name: "RestrictedSourceFileException" = "RestrictedSourceFileException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RestrictedSourceFileException, __BaseException>) {
+    super({
+      name: "RestrictedSourceFileException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RestrictedSourceFileException.prototype);
+  }
 }
 
 /**
@@ -2579,25 +3136,39 @@ export interface RestrictedSourceFileException extends __SmithyException, $Metad
  *         you cannot make the same delete request to the same file in the same file path twice, or make a delete request and a move request to the same
  *         file as part of the same commit.</p>
  */
-export interface SamePathRequestException extends __SmithyException, $MetadataBearer {
-  name: "SamePathRequestException";
-  $fault: "client";
+export class SamePathRequestException extends __BaseException {
+  readonly name: "SamePathRequestException" = "SamePathRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SamePathRequestException, __BaseException>) {
+    super({
+      name: "SamePathRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SamePathRequestException.prototype);
+  }
 }
 
 /**
  * <p>The commit cannot be created because no source files or file content have been specified for the commit.</p>
  */
-export interface SourceFileOrContentRequiredException extends __SmithyException, $MetadataBearer {
-  name: "SourceFileOrContentRequiredException";
-  $fault: "client";
+export class SourceFileOrContentRequiredException extends __BaseException {
+  readonly name: "SourceFileOrContentRequiredException" = "SourceFileOrContentRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SourceFileOrContentRequiredException, __BaseException>) {
+    super({
+      name: "SourceFileOrContentRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceFileOrContentRequiredException.prototype);
+  }
 }
 
 /**
@@ -2855,38 +3426,59 @@ export namespace CreatePullRequestOutput {
  * <p>The client request token is not valid. Either the token is not in a valid format, or
  *             the token has been used in a previous request and cannot be reused.</p>
  */
-export interface IdempotencyParameterMismatchException extends __SmithyException, $MetadataBearer {
-  name: "IdempotencyParameterMismatchException";
-  $fault: "client";
+export class IdempotencyParameterMismatchException extends __BaseException {
+  readonly name: "IdempotencyParameterMismatchException" = "IdempotencyParameterMismatchException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<IdempotencyParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotencyParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotencyParameterMismatchException.prototype);
+  }
 }
 
 /**
  * <p>The client request token is not valid.</p>
  */
-export interface InvalidClientRequestTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientRequestTokenException";
-  $fault: "client";
+export class InvalidClientRequestTokenException extends __BaseException {
+  readonly name: "InvalidClientRequestTokenException" = "InvalidClientRequestTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidClientRequestTokenException, __BaseException>) {
+    super({
+      name: "InvalidClientRequestTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientRequestTokenException.prototype);
+  }
 }
 
 /**
  * <p>The pull request description is not valid. Descriptions cannot be more than 1,000
  *             characters.</p>
  */
-export interface InvalidDescriptionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDescriptionException";
-  $fault: "client";
+export class InvalidDescriptionException extends __BaseException {
+  readonly name: "InvalidDescriptionException" = "InvalidDescriptionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidDescriptionException, __BaseException>) {
+    super({
+      name: "InvalidDescriptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDescriptionException.prototype);
+  }
 }
 
 /**
@@ -2894,160 +3486,251 @@ export interface InvalidDescriptionException extends __SmithyException, $Metadat
  *             Git references format (for example, refs/heads/master). For more information, see <a href="https://git-scm.com/book/en/v2/Git-Internals-Git-References">Git Internals -
  *                 Git References</a> or consult your Git documentation.</p>
  */
-export interface InvalidReferenceNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidReferenceNameException";
-  $fault: "client";
+export class InvalidReferenceNameException extends __BaseException {
+  readonly name: "InvalidReferenceNameException" = "InvalidReferenceNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidReferenceNameException, __BaseException>) {
+    super({
+      name: "InvalidReferenceNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidReferenceNameException.prototype);
+  }
 }
 
 /**
  * <p>The target for the pull request is not valid. A target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
-export interface InvalidTargetException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTargetException";
-  $fault: "client";
+export class InvalidTargetException extends __BaseException {
+  readonly name: "InvalidTargetException" = "InvalidTargetException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidTargetException, __BaseException>) {
+    super({
+      name: "InvalidTargetException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetException.prototype);
+  }
 }
 
 /**
  * <p>The targets for the pull request is not valid or not in a valid format. Targets are a list of target objects. Each target object must contain the full values for
  *             the repository name, source branch, and destination branch for a pull request.</p>
  */
-export interface InvalidTargetsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTargetsException";
-  $fault: "client";
+export class InvalidTargetsException extends __BaseException {
+  readonly name: "InvalidTargetsException" = "InvalidTargetsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidTargetsException, __BaseException>) {
+    super({
+      name: "InvalidTargetsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTargetsException.prototype);
+  }
 }
 
 /**
  * <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
  */
-export interface InvalidTitleException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTitleException";
-  $fault: "client";
+export class InvalidTitleException extends __BaseException {
+  readonly name: "InvalidTitleException" = "InvalidTitleException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidTitleException, __BaseException>) {
+    super({
+      name: "InvalidTitleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTitleException.prototype);
+  }
 }
 
 /**
  * <p>You cannot create the pull request because the repository has too many open pull requests.
  *             The maximum number of open pull requests for a repository is 1,000. Close one or more open pull requests, and then try again.</p>
  */
-export interface MaximumOpenPullRequestsExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumOpenPullRequestsExceededException";
-  $fault: "client";
+export class MaximumOpenPullRequestsExceededException extends __BaseException {
+  readonly name: "MaximumOpenPullRequestsExceededException" = "MaximumOpenPullRequestsExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaximumOpenPullRequestsExceededException, __BaseException>) {
+    super({
+      name: "MaximumOpenPullRequestsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumOpenPullRequestsExceededException.prototype);
+  }
 }
 
 /**
  * <p>You cannot include more than one repository in a pull request. Make sure you have specified only one repository name in your request, and then try again.</p>
  */
-export interface MultipleRepositoriesInPullRequestException extends __SmithyException, $MetadataBearer {
-  name: "MultipleRepositoriesInPullRequestException";
-  $fault: "client";
+export class MultipleRepositoriesInPullRequestException extends __BaseException {
+  readonly name: "MultipleRepositoriesInPullRequestException" = "MultipleRepositoriesInPullRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MultipleRepositoriesInPullRequestException, __BaseException>) {
+    super({
+      name: "MultipleRepositoriesInPullRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MultipleRepositoriesInPullRequestException.prototype);
+  }
 }
 
 /**
  * <p>The specified reference does not exist. You must provide a full commit ID.</p>
  */
-export interface ReferenceDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "ReferenceDoesNotExistException";
-  $fault: "client";
+export class ReferenceDoesNotExistException extends __BaseException {
+  readonly name: "ReferenceDoesNotExistException" = "ReferenceDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ReferenceDoesNotExistException, __BaseException>) {
+    super({
+      name: "ReferenceDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReferenceDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>A reference name is required, but none was provided.</p>
  */
-export interface ReferenceNameRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ReferenceNameRequiredException";
-  $fault: "client";
+export class ReferenceNameRequiredException extends __BaseException {
+  readonly name: "ReferenceNameRequiredException" = "ReferenceNameRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ReferenceNameRequiredException, __BaseException>) {
+    super({
+      name: "ReferenceNameRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReferenceNameRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The specified reference is not a supported type. </p>
  */
-export interface ReferenceTypeNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "ReferenceTypeNotSupportedException";
-  $fault: "client";
+export class ReferenceTypeNotSupportedException extends __BaseException {
+  readonly name: "ReferenceTypeNotSupportedException" = "ReferenceTypeNotSupportedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ReferenceTypeNotSupportedException, __BaseException>) {
+    super({
+      name: "ReferenceTypeNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReferenceTypeNotSupportedException.prototype);
+  }
 }
 
 /**
  * <p>The source branch and destination branch for the pull request are the same. You must
  *             specify different branches for the source and destination.</p>
  */
-export interface SourceAndDestinationAreSameException extends __SmithyException, $MetadataBearer {
-  name: "SourceAndDestinationAreSameException";
-  $fault: "client";
+export class SourceAndDestinationAreSameException extends __BaseException {
+  readonly name: "SourceAndDestinationAreSameException" = "SourceAndDestinationAreSameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SourceAndDestinationAreSameException, __BaseException>) {
+    super({
+      name: "SourceAndDestinationAreSameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceAndDestinationAreSameException.prototype);
+  }
 }
 
 /**
  * <p>A pull request target is required. It cannot be empty or null. A pull request target must contain the full values for the repository name, source branch, and destination branch for the pull request.</p>
  */
-export interface TargetRequiredException extends __SmithyException, $MetadataBearer {
-  name: "TargetRequiredException";
-  $fault: "client";
+export class TargetRequiredException extends __BaseException {
+  readonly name: "TargetRequiredException" = "TargetRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TargetRequiredException, __BaseException>) {
+    super({
+      name: "TargetRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetRequiredException.prototype);
+  }
 }
 
 /**
  * <p>An array of target objects is required. It cannot be empty or null.</p>
  */
-export interface TargetsRequiredException extends __SmithyException, $MetadataBearer {
-  name: "TargetsRequiredException";
-  $fault: "client";
+export class TargetsRequiredException extends __BaseException {
+  readonly name: "TargetsRequiredException" = "TargetsRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TargetsRequiredException, __BaseException>) {
+    super({
+      name: "TargetsRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TargetsRequiredException.prototype);
+  }
 }
 
 /**
  * <p>A pull request title is required. It cannot be empty or null.</p>
  */
-export interface TitleRequiredException extends __SmithyException, $MetadataBearer {
-  name: "TitleRequiredException";
-  $fault: "client";
+export class TitleRequiredException extends __BaseException {
+  readonly name: "TitleRequiredException" = "TitleRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TitleRequiredException, __BaseException>) {
+    super({
+      name: "TitleRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TitleRequiredException.prototype);
+  }
 }
 
 export interface CreatePullRequestApprovalRuleInput {
@@ -3137,85 +3820,134 @@ export namespace CreatePullRequestApprovalRuleOutput {
 /**
  * <p>The content for the approval rule is not valid.</p>
  */
-export interface InvalidApprovalRuleContentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidApprovalRuleContentException";
-  $fault: "client";
+export class InvalidApprovalRuleContentException extends __BaseException {
+  readonly name: "InvalidApprovalRuleContentException" = "InvalidApprovalRuleContentException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleContentException, __BaseException>) {
+    super({
+      name: "InvalidApprovalRuleContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidApprovalRuleContentException.prototype);
+  }
 }
 
 /**
  * <p>The name for the approval rule is not valid.</p>
  */
-export interface InvalidApprovalRuleNameException extends __SmithyException, $MetadataBearer {
-  name: "InvalidApprovalRuleNameException";
-  $fault: "client";
+export class InvalidApprovalRuleNameException extends __BaseException {
+  readonly name: "InvalidApprovalRuleNameException" = "InvalidApprovalRuleNameException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidApprovalRuleNameException, __BaseException>) {
+    super({
+      name: "InvalidApprovalRuleNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidApprovalRuleNameException.prototype);
+  }
 }
 
 /**
  * <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
  */
-export interface InvalidPullRequestIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPullRequestIdException";
-  $fault: "client";
+export class InvalidPullRequestIdException extends __BaseException {
+  readonly name: "InvalidPullRequestIdException" = "InvalidPullRequestIdException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidPullRequestIdException, __BaseException>) {
+    super({
+      name: "InvalidPullRequestIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPullRequestIdException.prototype);
+  }
 }
 
 /**
  * <p>The approval rule cannot be added. The pull request has the maximum number of approval rules associated with it.</p>
  */
-export interface NumberOfRulesExceededException extends __SmithyException, $MetadataBearer {
-  name: "NumberOfRulesExceededException";
-  $fault: "client";
+export class NumberOfRulesExceededException extends __BaseException {
+  readonly name: "NumberOfRulesExceededException" = "NumberOfRulesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NumberOfRulesExceededException, __BaseException>) {
+    super({
+      name: "NumberOfRulesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NumberOfRulesExceededException.prototype);
+  }
 }
 
 /**
  * <p>The pull request status cannot be updated because it is already closed.</p>
  */
-export interface PullRequestAlreadyClosedException extends __SmithyException, $MetadataBearer {
-  name: "PullRequestAlreadyClosedException";
-  $fault: "client";
+export class PullRequestAlreadyClosedException extends __BaseException {
+  readonly name: "PullRequestAlreadyClosedException" = "PullRequestAlreadyClosedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PullRequestAlreadyClosedException, __BaseException>) {
+    super({
+      name: "PullRequestAlreadyClosedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullRequestAlreadyClosedException.prototype);
+  }
 }
 
 /**
  * <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
  */
-export interface PullRequestDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "PullRequestDoesNotExistException";
-  $fault: "client";
+export class PullRequestDoesNotExistException extends __BaseException {
+  readonly name: "PullRequestDoesNotExistException" = "PullRequestDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PullRequestDoesNotExistException, __BaseException>) {
+    super({
+      name: "PullRequestDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullRequestDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>A pull request ID is required, but none was provided.</p>
  */
-export interface PullRequestIdRequiredException extends __SmithyException, $MetadataBearer {
-  name: "PullRequestIdRequiredException";
-  $fault: "client";
+export class PullRequestIdRequiredException extends __BaseException {
+  readonly name: "PullRequestIdRequiredException" = "PullRequestIdRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PullRequestIdRequiredException, __BaseException>) {
+    super({
+      name: "PullRequestIdRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PullRequestIdRequiredException.prototype);
+  }
 }
 
 /**
@@ -3283,97 +4015,153 @@ export namespace CreateRepositoryOutput {
 /**
  * <p>The specified repository description is not valid.</p>
  */
-export interface InvalidRepositoryDescriptionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRepositoryDescriptionException";
-  $fault: "client";
+export class InvalidRepositoryDescriptionException extends __BaseException {
+  readonly name: "InvalidRepositoryDescriptionException" = "InvalidRepositoryDescriptionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRepositoryDescriptionException, __BaseException>) {
+    super({
+      name: "InvalidRepositoryDescriptionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRepositoryDescriptionException.prototype);
+  }
 }
 
 /**
  * <p>The specified tag is not valid. Key names cannot be prefixed with aws:.</p>
  */
-export interface InvalidSystemTagUsageException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSystemTagUsageException";
-  $fault: "client";
+export class InvalidSystemTagUsageException extends __BaseException {
+  readonly name: "InvalidSystemTagUsageException" = "InvalidSystemTagUsageException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidSystemTagUsageException, __BaseException>) {
+    super({
+      name: "InvalidSystemTagUsageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSystemTagUsageException.prototype);
+  }
 }
 
 /**
  * <p>The map of tags is not valid.</p>
  */
-export interface InvalidTagsMapException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagsMapException";
-  $fault: "client";
+export class InvalidTagsMapException extends __BaseException {
+  readonly name: "InvalidTagsMapException" = "InvalidTagsMapException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidTagsMapException, __BaseException>) {
+    super({
+      name: "InvalidTagsMapException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagsMapException.prototype);
+  }
 }
 
 /**
  * <p>A repository resource limit was exceeded.</p>
  */
-export interface RepositoryLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryLimitExceededException";
-  $fault: "client";
+export class RepositoryLimitExceededException extends __BaseException {
+  readonly name: "RepositoryLimitExceededException" = "RepositoryLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryLimitExceededException, __BaseException>) {
+    super({
+      name: "RepositoryLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryLimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The specified repository name already exists.</p>
  */
-export interface RepositoryNameExistsException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryNameExistsException";
-  $fault: "client";
+export class RepositoryNameExistsException extends __BaseException {
+  readonly name: "RepositoryNameExistsException" = "RepositoryNameExistsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryNameExistsException, __BaseException>) {
+    super({
+      name: "RepositoryNameExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryNameExistsException.prototype);
+  }
 }
 
 /**
  * <p>The tag policy is not valid.</p>
  */
-export interface TagPolicyException extends __SmithyException, $MetadataBearer {
-  name: "TagPolicyException";
-  $fault: "client";
+export class TagPolicyException extends __BaseException {
+  readonly name: "TagPolicyException" = "TagPolicyException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TagPolicyException, __BaseException>) {
+    super({
+      name: "TagPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TagPolicyException.prototype);
+  }
 }
 
 /**
  * <p>The maximum number of tags for an AWS CodeCommit resource has been exceeded.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 /**
  * <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
  */
-export interface ConcurrentReferenceUpdateException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentReferenceUpdateException";
-  $fault: "client";
+export class ConcurrentReferenceUpdateException extends __BaseException {
+  readonly name: "ConcurrentReferenceUpdateException" = "ConcurrentReferenceUpdateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ConcurrentReferenceUpdateException, __BaseException>) {
+    super({
+      name: "ConcurrentReferenceUpdateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentReferenceUpdateException.prototype);
+  }
 }
 
 export enum ReplacementTypeEnum {
@@ -3548,97 +4336,154 @@ export namespace CreateUnreferencedMergeCommitOutput {
 /**
  * <p>The specified conflict resolution list is not valid.</p>
  */
-export interface InvalidConflictResolutionException extends __SmithyException, $MetadataBearer {
-  name: "InvalidConflictResolutionException";
-  $fault: "client";
+export class InvalidConflictResolutionException extends __BaseException {
+  readonly name: "InvalidConflictResolutionException" = "InvalidConflictResolutionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidConflictResolutionException, __BaseException>) {
+    super({
+      name: "InvalidConflictResolutionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidConflictResolutionException.prototype);
+  }
 }
 
 /**
  * <p>Automerge was specified for resolving the conflict, but the replacement type is not valid or content is missing. </p>
  */
-export interface InvalidReplacementContentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidReplacementContentException";
-  $fault: "client";
+export class InvalidReplacementContentException extends __BaseException {
+  readonly name: "InvalidReplacementContentException" = "InvalidReplacementContentException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidReplacementContentException, __BaseException>) {
+    super({
+      name: "InvalidReplacementContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidReplacementContentException.prototype);
+  }
 }
 
 /**
  * <p>Automerge was specified for resolving the conflict, but the specified replacement type is not valid.</p>
  */
-export interface InvalidReplacementTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidReplacementTypeException";
-  $fault: "client";
+export class InvalidReplacementTypeException extends __BaseException {
+  readonly name: "InvalidReplacementTypeException" = "InvalidReplacementTypeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidReplacementTypeException, __BaseException>) {
+    super({
+      name: "InvalidReplacementTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidReplacementTypeException.prototype);
+  }
 }
 
 /**
  * <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
  */
-export interface ManualMergeRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ManualMergeRequiredException";
-  $fault: "client";
+export class ManualMergeRequiredException extends __BaseException {
+  readonly name: "ManualMergeRequiredException" = "ManualMergeRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ManualMergeRequiredException, __BaseException>) {
+    super({
+      name: "ManualMergeRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ManualMergeRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The number of allowed conflict resolution entries was exceeded.</p>
  */
-export interface MaximumConflictResolutionEntriesExceededException extends __SmithyException, $MetadataBearer {
-  name: "MaximumConflictResolutionEntriesExceededException";
-  $fault: "client";
+export class MaximumConflictResolutionEntriesExceededException extends __BaseException {
+  readonly name: "MaximumConflictResolutionEntriesExceededException" =
+    "MaximumConflictResolutionEntriesExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MaximumConflictResolutionEntriesExceededException, __BaseException>) {
+    super({
+      name: "MaximumConflictResolutionEntriesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaximumConflictResolutionEntriesExceededException.prototype);
+  }
 }
 
 /**
  * <p>More than one conflict resolution entries exists for the conflict. A conflict can have only one conflict resolution entry.</p>
  */
-export interface MultipleConflictResolutionEntriesException extends __SmithyException, $MetadataBearer {
-  name: "MultipleConflictResolutionEntriesException";
-  $fault: "client";
+export class MultipleConflictResolutionEntriesException extends __BaseException {
+  readonly name: "MultipleConflictResolutionEntriesException" = "MultipleConflictResolutionEntriesException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MultipleConflictResolutionEntriesException, __BaseException>) {
+    super({
+      name: "MultipleConflictResolutionEntriesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MultipleConflictResolutionEntriesException.prototype);
+  }
 }
 
 /**
  * <p>USE_NEW_CONTENT was specified, but no replacement content has been provided.</p>
  */
-export interface ReplacementContentRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ReplacementContentRequiredException";
-  $fault: "client";
+export class ReplacementContentRequiredException extends __BaseException {
+  readonly name: "ReplacementContentRequiredException" = "ReplacementContentRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ReplacementContentRequiredException, __BaseException>) {
+    super({
+      name: "ReplacementContentRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplacementContentRequiredException.prototype);
+  }
 }
 
 /**
  * <p>A replacement type is required.</p>
  */
-export interface ReplacementTypeRequiredException extends __SmithyException, $MetadataBearer {
-  name: "ReplacementTypeRequiredException";
-  $fault: "client";
+export class ReplacementTypeRequiredException extends __BaseException {
+  readonly name: "ReplacementTypeRequiredException" = "ReplacementTypeRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ReplacementTypeRequiredException, __BaseException>) {
+    super({
+      name: "ReplacementTypeRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplacementTypeRequiredException.prototype);
+  }
 }
 
 export interface DeleteApprovalRuleTemplateInput {
@@ -3677,13 +4522,20 @@ export namespace DeleteApprovalRuleTemplateOutput {
 /**
  * <p>The specified branch is the default branch for the repository, and cannot be deleted. To delete this branch, you must first set another branch as the default branch.</p>
  */
-export interface DefaultBranchCannotBeDeletedException extends __SmithyException, $MetadataBearer {
-  name: "DefaultBranchCannotBeDeletedException";
-  $fault: "client";
+export class DefaultBranchCannotBeDeletedException extends __BaseException {
+  readonly name: "DefaultBranchCannotBeDeletedException" = "DefaultBranchCannotBeDeletedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DefaultBranchCannotBeDeletedException, __BaseException>) {
+    super({
+      name: "DefaultBranchCannotBeDeletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DefaultBranchCannotBeDeletedException.prototype);
+  }
 }
 
 /**
@@ -3732,38 +4584,59 @@ export namespace DeleteBranchOutput {
 /**
  * <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
  */
-export interface CommentDeletedException extends __SmithyException, $MetadataBearer {
-  name: "CommentDeletedException";
-  $fault: "client";
+export class CommentDeletedException extends __BaseException {
+  readonly name: "CommentDeletedException" = "CommentDeletedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommentDeletedException, __BaseException>) {
+    super({
+      name: "CommentDeletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommentDeletedException.prototype);
+  }
 }
 
 /**
  * <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
  *             then try again.</p>
  */
-export interface CommentDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "CommentDoesNotExistException";
-  $fault: "client";
+export class CommentDoesNotExistException extends __BaseException {
+  readonly name: "CommentDoesNotExistException" = "CommentDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommentDoesNotExistException, __BaseException>) {
+    super({
+      name: "CommentDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommentDoesNotExistException.prototype);
+  }
 }
 
 /**
  * <p>The comment ID is missing or null. A comment ID is required.</p>
  */
-export interface CommentIdRequiredException extends __SmithyException, $MetadataBearer {
-  name: "CommentIdRequiredException";
-  $fault: "client";
+export class CommentIdRequiredException extends __BaseException {
+  readonly name: "CommentIdRequiredException" = "CommentIdRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommentIdRequiredException, __BaseException>) {
+    super({
+      name: "CommentIdRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommentIdRequiredException.prototype);
+  }
 }
 
 export interface DeleteCommentContentInput {
@@ -3869,13 +4742,20 @@ export namespace DeleteCommentContentOutput {
 /**
  * <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
  */
-export interface InvalidCommentIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidCommentIdException";
-  $fault: "client";
+export class InvalidCommentIdException extends __BaseException {
+  readonly name: "InvalidCommentIdException" = "InvalidCommentIdException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidCommentIdException, __BaseException>) {
+    super({
+      name: "InvalidCommentIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCommentIdException.prototype);
+  }
 }
 
 export interface DeleteFileInput {
@@ -4422,37 +5302,58 @@ export namespace DescribePullRequestEventsOutput {
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the user who initiated the change for the pull request,
  *             and then try again.</p>
  */
-export interface InvalidActorArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidActorArnException";
-  $fault: "client";
+export class InvalidActorArnException extends __BaseException {
+  readonly name: "InvalidActorArnException" = "InvalidActorArnException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidActorArnException, __BaseException>) {
+    super({
+      name: "InvalidActorArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidActorArnException.prototype);
+  }
 }
 
 /**
  * <p>The specified number of maximum results is not valid.</p>
  */
-export interface InvalidMaxResultsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidMaxResultsException";
-  $fault: "client";
+export class InvalidMaxResultsException extends __BaseException {
+  readonly name: "InvalidMaxResultsException" = "InvalidMaxResultsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidMaxResultsException, __BaseException>) {
+    super({
+      name: "InvalidMaxResultsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidMaxResultsException.prototype);
+  }
 }
 
 /**
  * <p>The pull request event type is not valid. </p>
  */
-export interface InvalidPullRequestEventTypeException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPullRequestEventTypeException";
-  $fault: "client";
+export class InvalidPullRequestEventTypeException extends __BaseException {
+  readonly name: "InvalidPullRequestEventTypeException" = "InvalidPullRequestEventTypeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidPullRequestEventTypeException, __BaseException>) {
+    super({
+      name: "InvalidPullRequestEventTypeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPullRequestEventTypeException.prototype);
+  }
 }
 
 export interface DisassociateApprovalRuleTemplateFromRepositoryInput {
@@ -4553,37 +5454,58 @@ export namespace EvaluatePullRequestApprovalRulesOutput {
 /**
  * <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
  */
-export interface InvalidRevisionIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRevisionIdException";
-  $fault: "client";
+export class InvalidRevisionIdException extends __BaseException {
+  readonly name: "InvalidRevisionIdException" = "InvalidRevisionIdException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRevisionIdException, __BaseException>) {
+    super({
+      name: "InvalidRevisionIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRevisionIdException.prototype);
+  }
 }
 
 /**
  * <p>A revision ID is required, but was not provided.</p>
  */
-export interface RevisionIdRequiredException extends __SmithyException, $MetadataBearer {
-  name: "RevisionIdRequiredException";
-  $fault: "client";
+export class RevisionIdRequiredException extends __BaseException {
+  readonly name: "RevisionIdRequiredException" = "RevisionIdRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RevisionIdRequiredException, __BaseException>) {
+    super({
+      name: "RevisionIdRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RevisionIdRequiredException.prototype);
+  }
 }
 
 /**
  * <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
  */
-export interface RevisionNotCurrentException extends __SmithyException, $MetadataBearer {
-  name: "RevisionNotCurrentException";
-  $fault: "client";
+export class RevisionNotCurrentException extends __BaseException {
+  readonly name: "RevisionNotCurrentException" = "RevisionNotCurrentException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RevisionNotCurrentException, __BaseException>) {
+    super({
+      name: "RevisionNotCurrentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RevisionNotCurrentException.prototype);
+  }
 }
 
 export interface GetApprovalRuleTemplateInput {
@@ -4622,13 +5544,20 @@ export namespace GetApprovalRuleTemplateOutput {
  * <p>The specified file exceeds the file size limit for AWS CodeCommit. For more information about limits in AWS CodeCommit, see
  *             <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">AWS CodeCommit User Guide</a>.</p>
  */
-export interface FileTooLargeException extends __SmithyException, $MetadataBearer {
-  name: "FileTooLargeException";
-  $fault: "client";
+export class FileTooLargeException extends __BaseException {
+  readonly name: "FileTooLargeException" = "FileTooLargeException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FileTooLargeException, __BaseException>) {
+    super({
+      name: "FileTooLargeException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FileTooLargeException.prototype);
+  }
 }
 
 /**
@@ -4677,13 +5606,20 @@ export namespace GetBlobOutput {
 /**
  * <p>The specified blob is not valid.</p>
  */
-export interface InvalidBlobIdException extends __SmithyException, $MetadataBearer {
-  name: "InvalidBlobIdException";
-  $fault: "client";
+export class InvalidBlobIdException extends __BaseException {
+  readonly name: "InvalidBlobIdException" = "InvalidBlobIdException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidBlobIdException, __BaseException>) {
+    super({
+      name: "InvalidBlobIdException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidBlobIdException.prototype);
+  }
 }
 
 /**
@@ -4876,13 +5812,20 @@ export namespace GetCommentReactionsOutput {
 /**
  * <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
  */
-export interface InvalidReactionUserArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidReactionUserArnException";
-  $fault: "client";
+export class InvalidReactionUserArnException extends __BaseException {
+  readonly name: "InvalidReactionUserArnException" = "InvalidReactionUserArnException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidReactionUserArnException, __BaseException>) {
+    super({
+      name: "InvalidReactionUserArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidReactionUserArnException.prototype);
+  }
 }
 
 export interface GetCommentsForComparedCommitInput {
@@ -5159,25 +6102,39 @@ export namespace GetCommentsForPullRequestOutput {
 /**
  * <p>The repository does not contain any pull requests with that pull request ID. Use GetPullRequest to verify the correct repository name for the pull request ID.</p>
  */
-export interface RepositoryNotAssociatedWithPullRequestException extends __SmithyException, $MetadataBearer {
-  name: "RepositoryNotAssociatedWithPullRequestException";
-  $fault: "client";
+export class RepositoryNotAssociatedWithPullRequestException extends __BaseException {
+  readonly name: "RepositoryNotAssociatedWithPullRequestException" = "RepositoryNotAssociatedWithPullRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RepositoryNotAssociatedWithPullRequestException, __BaseException>) {
+    super({
+      name: "RepositoryNotAssociatedWithPullRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RepositoryNotAssociatedWithPullRequestException.prototype);
+  }
 }
 
 /**
  * <p>The specified commit ID does not exist.</p>
  */
-export interface CommitIdDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "CommitIdDoesNotExistException";
-  $fault: "client";
+export class CommitIdDoesNotExistException extends __BaseException {
+  readonly name: "CommitIdDoesNotExistException" = "CommitIdDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CommitIdDoesNotExistException, __BaseException>) {
+    super({
+      name: "CommitIdDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CommitIdDoesNotExistException.prototype);
+  }
 }
 
 /**
@@ -5335,13 +6292,20 @@ export namespace GetDifferencesOutput {
 /**
  * <p>The specified path does not exist.</p>
  */
-export interface PathDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "PathDoesNotExistException";
-  $fault: "client";
+export class PathDoesNotExistException extends __BaseException {
+  readonly name: "PathDoesNotExistException" = "PathDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PathDoesNotExistException, __BaseException>) {
+    super({
+      name: "PathDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PathDoesNotExistException.prototype);
+  }
 }
 
 export interface GetFileInput {
@@ -5425,13 +6389,20 @@ export namespace GetFileOutput {
  * <p>The specified folder does not exist. Either the folder name is not correct, or you did
  *             not enter the full path to the folder.</p>
  */
-export interface FolderDoesNotExistException extends __SmithyException, $MetadataBearer {
-  name: "FolderDoesNotExistException";
-  $fault: "client";
+export class FolderDoesNotExistException extends __BaseException {
+  readonly name: "FolderDoesNotExistException" = "FolderDoesNotExistException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<FolderDoesNotExistException, __BaseException>) {
+    super({
+      name: "FolderDoesNotExistException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FolderDoesNotExistException.prototype);
+  }
 }
 
 export interface GetFolderInput {
@@ -5819,25 +6790,39 @@ export namespace GetMergeConflictsOutput {
 /**
  * <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
  */
-export interface InvalidDestinationCommitSpecifierException extends __SmithyException, $MetadataBearer {
-  name: "InvalidDestinationCommitSpecifierException";
-  $fault: "client";
+export class InvalidDestinationCommitSpecifierException extends __BaseException {
+  readonly name: "InvalidDestinationCommitSpecifierException" = "InvalidDestinationCommitSpecifierException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidDestinationCommitSpecifierException, __BaseException>) {
+    super({
+      name: "InvalidDestinationCommitSpecifierException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDestinationCommitSpecifierException.prototype);
+  }
 }
 
 /**
  * <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
  */
-export interface InvalidSourceCommitSpecifierException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSourceCommitSpecifierException";
-  $fault: "client";
+export class InvalidSourceCommitSpecifierException extends __BaseException {
+  readonly name: "InvalidSourceCommitSpecifierException" = "InvalidSourceCommitSpecifierException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidSourceCommitSpecifierException, __BaseException>) {
+    super({
+      name: "InvalidSourceCommitSpecifierException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSourceCommitSpecifierException.prototype);
+  }
 }
 
 export interface GetMergeOptionsInput {
@@ -6308,25 +7293,39 @@ export namespace ListBranchesOutput {
 /**
  * <p>The Amazon Resource Name (ARN) is not valid. Make sure that you have provided the full ARN for the author of the pull request, and then try again.</p>
  */
-export interface InvalidAuthorArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidAuthorArnException";
-  $fault: "client";
+export class InvalidAuthorArnException extends __BaseException {
+  readonly name: "InvalidAuthorArnException" = "InvalidAuthorArnException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidAuthorArnException, __BaseException>) {
+    super({
+      name: "InvalidAuthorArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidAuthorArnException.prototype);
+  }
 }
 
 /**
  * <p>The pull request status is not valid. The only valid values are <code>OPEN</code> and <code>CLOSED</code>.</p>
  */
-export interface InvalidPullRequestStatusException extends __SmithyException, $MetadataBearer {
-  name: "InvalidPullRequestStatusException";
-  $fault: "client";
+export class InvalidPullRequestStatusException extends __BaseException {
+  readonly name: "InvalidPullRequestStatusException" = "InvalidPullRequestStatusException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidPullRequestStatusException, __BaseException>) {
+    super({
+      name: "InvalidPullRequestStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidPullRequestStatusException.prototype);
+  }
 }
 
 export interface ListPullRequestsInput {
@@ -6391,23 +7390,37 @@ export namespace ListPullRequestsOutput {
 /**
  * <p>The specified sort order is not valid.</p>
  */
-export interface InvalidOrderException extends __SmithyException, $MetadataBearer {
-  name: "InvalidOrderException";
-  $fault: "client";
+export class InvalidOrderException extends __BaseException {
+  readonly name: "InvalidOrderException" = "InvalidOrderException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidOrderException, __BaseException>) {
+    super({
+      name: "InvalidOrderException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidOrderException.prototype);
+  }
 }
 
 /**
  * <p>The specified sort by value is not valid.</p>
  */
-export interface InvalidSortByException extends __SmithyException, $MetadataBearer {
-  name: "InvalidSortByException";
-  $fault: "client";
+export class InvalidSortByException extends __BaseException {
+  readonly name: "InvalidSortByException" = "InvalidSortByException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Any message associated with the exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidSortByException, __BaseException>) {
+    super({
+      name: "InvalidSortByException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSortByException.prototype);
+  }
 }

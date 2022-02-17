@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
 
 export enum AugmentedManifestsDocumentTypeFormat {
   PLAIN_TEXT_DOCUMENT = "PLAIN_TEXT_DOCUMENT",
@@ -220,37 +222,85 @@ export namespace BatchDetectDominantLanguageResponse {
  * <p>The number of documents in the request exceeds the limit of 25. Try your request again
  *       with fewer documents.</p>
  */
-export interface BatchSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "BatchSizeLimitExceededException";
-  $fault: "client";
+export class BatchSizeLimitExceededException extends __BaseException {
+  readonly name: "BatchSizeLimitExceededException" = "BatchSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BatchSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "BatchSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BatchSizeLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An internal server error occurred. Retry your request.</p>
  */
-export interface InternalServerException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerException";
-  $fault: "server";
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The request is invalid.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  */
-export interface TextSizeLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "TextSizeLimitExceededException";
-  $fault: "client";
+export class TextSizeLimitExceededException extends __BaseException {
+  readonly name: "TextSizeLimitExceededException" = "TextSizeLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TextSizeLimitExceededException, __BaseException>) {
+    super({
+      name: "TextSizeLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TextSizeLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum LanguageCode {
@@ -412,10 +462,22 @@ export namespace BatchDetectEntitiesResponse {
  *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
  *       For a list of supported languages, see <a>supported-languages</a>. </p>
  */
-export interface UnsupportedLanguageException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedLanguageException";
-  $fault: "client";
+export class UnsupportedLanguageException extends __BaseException {
+  readonly name: "UnsupportedLanguageException" = "UnsupportedLanguageException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedLanguageException, __BaseException>) {
+    super({
+      name: "UnsupportedLanguageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedLanguageException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface BatchDetectKeyPhrasesRequest {
@@ -1060,10 +1122,22 @@ export namespace ClassifyDocumentResponse {
  * <p>The specified resource is not available. Check the resource and try your request
  *       again.</p>
  */
-export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ResourceUnavailableException";
-  $fault: "client";
+export class ResourceUnavailableException extends __BaseException {
+  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
+    super({
+      name: "ResourceUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface ContainsPiiEntitiesRequest {
@@ -1512,39 +1586,87 @@ export namespace CreateDocumentClassifierResponse {
  * <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and
  *       re-enter it.</p>
  */
-export interface KmsKeyValidationException extends __SmithyException, $MetadataBearer {
-  name: "KmsKeyValidationException";
-  $fault: "client";
+export class KmsKeyValidationException extends __BaseException {
+  readonly name: "KmsKeyValidationException" = "KmsKeyValidationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsKeyValidationException, __BaseException>) {
+    super({
+      name: "KmsKeyValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsKeyValidationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The specified resource name is already in use. Use a different name and try your request
  *       again.</p>
  */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The maximum number of resources per account has been exceeded. Review the resources, and
  *       then try your request again.</p>
  */
-export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceLimitExceededException";
-  $fault: "client";
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1552,10 +1674,22 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
  *       resource). The maximum number of tags includes both existing tags and those included in your
  *       current request. </p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface CreateEndpointRequest {
@@ -1628,10 +1762,22 @@ export namespace CreateEndpointResponse {
 /**
  * <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -2407,10 +2553,22 @@ export namespace DescribeDocumentClassificationJobResponse {
 /**
  * <p>The specified job was not found. Check the job ID and try again.</p>
  */
-export interface JobNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "JobNotFoundException";
-  $fault: "client";
+export class JobNotFoundException extends __BaseException {
+  readonly name: "JobNotFoundException" = "JobNotFoundException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<JobNotFoundException, __BaseException>) {
+    super({
+      name: "JobNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, JobNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeDocumentClassifierRequest {
@@ -4474,10 +4632,22 @@ export namespace ImportModelResponse {
  * <p>The filter specified for the operation is invalid. Specify a different
  *       filter.</p>
  */
-export interface InvalidFilterException extends __SmithyException, $MetadataBearer {
-  name: "InvalidFilterException";
-  $fault: "client";
+export class InvalidFilterException extends __BaseException {
+  readonly name: "InvalidFilterException" = "InvalidFilterException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidFilterException, __BaseException>) {
+    super({
+      name: "InvalidFilterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidFilterException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -6973,10 +7143,22 @@ export namespace StopTrainingEntityRecognizerResponse {
  * <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not
  *       supported. </p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface TagResourceRequest {
@@ -7017,10 +7199,22 @@ export namespace TagResourceResponse {
  * <p>The request contains more tag keys than can be associated with a resource (50 tag keys per
  *       resource).</p>
  */
-export interface TooManyTagKeysException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagKeysException";
-  $fault: "client";
+export class TooManyTagKeysException extends __BaseException {
+  readonly name: "TooManyTagKeysException" = "TooManyTagKeysException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagKeysException, __BaseException>) {
+    super({
+      name: "TooManyTagKeysException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagKeysException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface UntagResourceRequest {

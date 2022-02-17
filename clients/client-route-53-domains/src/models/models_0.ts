@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { Route53DomainsServiceException as __BaseException } from "./Route53DomainsServiceException";
 
 /**
  * <p>The AcceptDomainTransferFromAnotherAwsAccount request includes the following elements.</p>
@@ -54,13 +56,20 @@ export namespace AcceptDomainTransferFromAnotherAwsAccountResponse {
 /**
  * <p>The number of domains has exceeded the allowed threshold for the account.</p>
  */
-export interface DomainLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "DomainLimitExceeded";
-  $fault: "client";
+export class DomainLimitExceeded extends __BaseException {
+  readonly name: "DomainLimitExceeded" = "DomainLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The number of domains has exceeded the allowed threshold for the account.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DomainLimitExceeded, __BaseException>) {
+    super({
+      name: "DomainLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DomainLimitExceeded.prototype);
+  }
 }
 
 /**
@@ -68,38 +77,58 @@ export interface DomainLimitExceeded extends __SmithyException, $MetadataBearer 
  * 			that doesn't belong to the account that submitted the request. For <code>AcceptDomainTransferFromAnotherAwsAccount</code>,
  * 			the password might be invalid.</p>
  */
-export interface InvalidInput extends __SmithyException, $MetadataBearer {
-  name: "InvalidInput";
-  $fault: "client";
+export class InvalidInput extends __BaseException {
+  readonly name: "InvalidInput" = "InvalidInput";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation
-   * 			that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidInput, __BaseException>) {
+    super({
+      name: "InvalidInput",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInput.prototype);
+  }
 }
 
 /**
  * <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
  */
-export interface OperationLimitExceeded extends __SmithyException, $MetadataBearer {
-  name: "OperationLimitExceeded";
-  $fault: "client";
+export class OperationLimitExceeded extends __BaseException {
+  readonly name: "OperationLimitExceeded" = "OperationLimitExceeded";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<OperationLimitExceeded, __BaseException>) {
+    super({
+      name: "OperationLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationLimitExceeded.prototype);
+  }
 }
 
 /**
  * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
  */
-export interface UnsupportedTLD extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedTLD";
-  $fault: "client";
+export class UnsupportedTLD extends __BaseException {
+  readonly name: "UnsupportedTLD" = "UnsupportedTLD";
+  readonly $fault: "client" = "client";
   /**
-   * <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<UnsupportedTLD, __BaseException>) {
+    super({
+      name: "UnsupportedTLD",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedTLD.prototype);
+  }
 }
 
 export enum OperationType {
@@ -1710,25 +1739,39 @@ export namespace DeleteDomainResponse {
 /**
  * <p>The request is already in progress for the domain.</p>
  */
-export interface DuplicateRequest extends __SmithyException, $MetadataBearer {
-  name: "DuplicateRequest";
-  $fault: "client";
+export class DuplicateRequest extends __BaseException {
+  readonly name: "DuplicateRequest" = "DuplicateRequest";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The request is already in progress for the domain.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<DuplicateRequest, __BaseException>) {
+    super({
+      name: "DuplicateRequest",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateRequest.prototype);
+  }
 }
 
 /**
  * <p>The top-level domain does not support this operation.</p>
  */
-export interface TLDRulesViolation extends __SmithyException, $MetadataBearer {
-  name: "TLDRulesViolation";
-  $fault: "client";
+export class TLDRulesViolation extends __BaseException {
+  readonly name: "TLDRulesViolation" = "TLDRulesViolation";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The top-level domain does not support this operation.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TLDRulesViolation, __BaseException>) {
+    super({
+      name: "TLDRulesViolation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TLDRulesViolation.prototype);
+  }
 }
 
 /**

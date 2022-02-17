@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { IoT1ClickDevicesServiceServiceException as __BaseException } from "./IoT1ClickDevicesServiceServiceException";
 
 export interface DeviceDescription {
   /**
@@ -165,9 +168,9 @@ export namespace ClaimDevicesByClaimCodeResponse {
   });
 }
 
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * <p>403</p>
    */
@@ -177,11 +180,24 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
    * <p>The 403 error message returned by the web server.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface InternalFailureException extends __SmithyException, $MetadataBearer {
-  name: "InternalFailureException";
-  $fault: "server";
+export class InternalFailureException extends __BaseException {
+  readonly name: "InternalFailureException" = "InternalFailureException";
+  readonly $fault: "server" = "server";
   /**
    * <p>500</p>
    */
@@ -191,11 +207,24 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
    * <p>The 500 error message returned by the web server.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>400</p>
    */
@@ -205,6 +234,19 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
    * <p>The 400 error message returned by the web server.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface DescribeDeviceRequest {
@@ -239,9 +281,9 @@ export namespace DescribeDeviceResponse {
   });
 }
 
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>404</p>
    */
@@ -251,6 +293,19 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The requested device could not be found.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface FinalizeDeviceClaimRequest {
@@ -294,9 +349,9 @@ export namespace FinalizeDeviceClaimResponse {
   });
 }
 
-export interface PreconditionFailedException extends __SmithyException, $MetadataBearer {
-  name: "PreconditionFailedException";
-  $fault: "client";
+export class PreconditionFailedException extends __BaseException {
+  readonly name: "PreconditionFailedException" = "PreconditionFailedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>412</p>
    */
@@ -306,11 +361,24 @@ export interface PreconditionFailedException extends __SmithyException, $Metadat
    * <p>An error message explaining the error or its remedy.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionFailedException, __BaseException>) {
+    super({
+      name: "PreconditionFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailedException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
-export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
-  name: "ResourceConflictException";
-  $fault: "client";
+export class ResourceConflictException extends __BaseException {
+  readonly name: "ResourceConflictException" = "ResourceConflictException";
+  readonly $fault: "client" = "client";
   /**
    * <p>409</p>
    */
@@ -320,6 +388,19 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
    * <p>An error message explaining the error or its remedy.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceConflictException, __BaseException>) {
+    super({
+      name: "ResourceConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceConflictException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface GetDeviceMethodsRequest {
@@ -428,9 +509,9 @@ export namespace InvokeDeviceMethodResponse {
   });
 }
 
-export interface RangeNotSatisfiableException extends __SmithyException, $MetadataBearer {
-  name: "RangeNotSatisfiableException";
-  $fault: "client";
+export class RangeNotSatisfiableException extends __BaseException {
+  readonly name: "RangeNotSatisfiableException" = "RangeNotSatisfiableException";
+  readonly $fault: "client" = "client";
   /**
    * <p>416</p>
    */
@@ -441,6 +522,19 @@ export interface RangeNotSatisfiableException extends __SmithyException, $Metada
    *  satisfied.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RangeNotSatisfiableException, __BaseException>) {
+    super({
+      name: "RangeNotSatisfiableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RangeNotSatisfiableException.prototype);
+    this.Code = opts.Code;
+    this.Message = opts.Message;
+  }
 }
 
 export interface ListDeviceEventsRequest {

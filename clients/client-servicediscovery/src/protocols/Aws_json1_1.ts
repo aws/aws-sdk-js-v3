@@ -4,6 +4,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -14,10 +15,8 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
@@ -178,6 +177,7 @@ import {
   UpdateServiceRequest,
   UpdateServiceResponse,
 } from "../models/models_0";
+import { ServiceDiscoveryServiceException as __BaseException } from "../models/ServiceDiscoveryServiceException";
 
 export const serializeAws_json1_1CreateHttpNamespaceCommand = async (
   input: CreateHttpNamespaceCommandInput,
@@ -549,65 +549,34 @@ const deserializeAws_json1_1CreateHttpNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreatePrivateDnsNamespaceCommand = async (
@@ -635,65 +604,34 @@ const deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreatePublicDnsNamespaceCommand = async (
@@ -721,65 +659,34 @@ const deserializeAws_json1_1CreatePublicDnsNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceAlreadyExists":
     case "com.amazonaws.servicediscovery#NamespaceAlreadyExists":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1CreateServiceCommand = async (
@@ -807,65 +714,34 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     case "ServiceAlreadyExists":
     case "com.amazonaws.servicediscovery#ServiceAlreadyExists":
-      response = {
-        ...(await deserializeAws_json1_1ServiceAlreadyExistsResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceAlreadyExistsResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteNamespaceCommand = async (
@@ -893,57 +769,31 @@ const deserializeAws_json1_1DeleteNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeleteServiceCommand = async (
@@ -971,49 +821,28 @@ const deserializeAws_json1_1DeleteServiceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DeregisterInstanceCommand = async (
@@ -1041,65 +870,34 @@ const deserializeAws_json1_1DeregisterInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1DiscoverInstancesCommand = async (
@@ -1127,57 +925,31 @@ const deserializeAws_json1_1DiscoverInstancesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
     case "RequestLimitExceeded":
     case "com.amazonaws.servicediscovery#RequestLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1RequestLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetInstanceCommand = async (
@@ -1205,49 +977,28 @@ const deserializeAws_json1_1GetInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetInstancesHealthStatusCommand = async (
@@ -1275,49 +1026,28 @@ const deserializeAws_json1_1GetInstancesHealthStatusCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetNamespaceCommand = async (
@@ -1345,41 +1075,25 @@ const deserializeAws_json1_1GetNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetOperationCommand = async (
@@ -1407,41 +1121,25 @@ const deserializeAws_json1_1GetOperationCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "OperationNotFound":
     case "com.amazonaws.servicediscovery#OperationNotFound":
-      response = {
-        ...(await deserializeAws_json1_1OperationNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1OperationNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1GetServiceCommand = async (
@@ -1469,41 +1167,25 @@ const deserializeAws_json1_1GetServiceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListInstancesCommand = async (
@@ -1531,41 +1213,25 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListNamespacesCommand = async (
@@ -1593,33 +1259,22 @@ const deserializeAws_json1_1ListNamespacesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListOperationsCommand = async (
@@ -1647,33 +1302,22 @@ const deserializeAws_json1_1ListOperationsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListServicesCommand = async (
@@ -1701,33 +1345,22 @@ const deserializeAws_json1_1ListServicesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ListTagsForResourceCommand = async (
@@ -1755,41 +1388,25 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RegisterInstanceCommand = async (
@@ -1817,65 +1434,34 @@ const deserializeAws_json1_1RegisterInstanceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     case "ResourceLimitExceeded":
     case "com.amazonaws.servicediscovery#ResourceLimitExceeded":
-      response = {
-        ...(await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1TagResourceCommand = async (
@@ -1903,49 +1489,28 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.servicediscovery#TooManyTagsException":
-      response = {
-        ...(await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UntagResourceCommand = async (
@@ -1973,41 +1538,25 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.servicediscovery#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateHttpNamespaceCommand = async (
@@ -2035,57 +1584,31 @@ const deserializeAws_json1_1UpdateHttpNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand = async (
@@ -2110,57 +1633,31 @@ const deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomHealthNotFound":
     case "com.amazonaws.servicediscovery#CustomHealthNotFound":
-      response = {
-        ...(await deserializeAws_json1_1CustomHealthNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomHealthNotFoundResponse(parsedOutput, context);
     case "InstanceNotFound":
     case "com.amazonaws.servicediscovery#InstanceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand = async (
@@ -2188,57 +1685,31 @@ const deserializeAws_json1_1UpdatePrivateDnsNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdatePublicDnsNamespaceCommand = async (
@@ -2266,57 +1737,31 @@ const deserializeAws_json1_1UpdatePublicDnsNamespaceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "NamespaceNotFound":
     case "com.amazonaws.servicediscovery#NamespaceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
     case "ResourceInUse":
     case "com.amazonaws.servicediscovery#ResourceInUse":
-      response = {
-        ...(await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1UpdateServiceCommand = async (
@@ -2344,49 +1789,28 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.servicediscovery#DuplicateRequest":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.servicediscovery#InvalidInput":
-      response = {
-        ...(await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     case "ServiceNotFound":
     case "com.amazonaws.servicediscovery#ServiceNotFound":
-      response = {
-        ...(await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
@@ -2395,13 +1819,11 @@ const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
 ): Promise<CustomHealthNotFound> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CustomHealthNotFound(body, context);
-  const contents: CustomHealthNotFound = {
-    name: "CustomHealthNotFound",
-    $fault: "client",
+  const exception = new CustomHealthNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicateRequestResponse = async (
@@ -2410,13 +1832,11 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
 ): Promise<DuplicateRequest> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateRequest(body, context);
-  const contents: DuplicateRequest = {
-    name: "DuplicateRequest",
-    $fault: "client",
+  const exception = new DuplicateRequest({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InstanceNotFoundResponse = async (
@@ -2425,13 +1845,11 @@ const deserializeAws_json1_1InstanceNotFoundResponse = async (
 ): Promise<InstanceNotFound> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InstanceNotFound(body, context);
-  const contents: InstanceNotFound = {
-    name: "InstanceNotFound",
-    $fault: "client",
+  const exception = new InstanceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidInputResponse = async (
@@ -2440,13 +1858,11 @@ const deserializeAws_json1_1InvalidInputResponse = async (
 ): Promise<InvalidInput> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidInput(body, context);
-  const contents: InvalidInput = {
-    name: "InvalidInput",
-    $fault: "client",
+  const exception = new InvalidInput({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1NamespaceAlreadyExistsResponse = async (
@@ -2455,13 +1871,11 @@ const deserializeAws_json1_1NamespaceAlreadyExistsResponse = async (
 ): Promise<NamespaceAlreadyExists> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NamespaceAlreadyExists(body, context);
-  const contents: NamespaceAlreadyExists = {
-    name: "NamespaceAlreadyExists",
-    $fault: "client",
+  const exception = new NamespaceAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1NamespaceNotFoundResponse = async (
@@ -2470,13 +1884,11 @@ const deserializeAws_json1_1NamespaceNotFoundResponse = async (
 ): Promise<NamespaceNotFound> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1NamespaceNotFound(body, context);
-  const contents: NamespaceNotFound = {
-    name: "NamespaceNotFound",
-    $fault: "client",
+  const exception = new NamespaceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1OperationNotFoundResponse = async (
@@ -2485,13 +1897,11 @@ const deserializeAws_json1_1OperationNotFoundResponse = async (
 ): Promise<OperationNotFound> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1OperationNotFound(body, context);
-  const contents: OperationNotFound = {
-    name: "OperationNotFound",
-    $fault: "client",
+  const exception = new OperationNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1RequestLimitExceededResponse = async (
@@ -2500,13 +1910,11 @@ const deserializeAws_json1_1RequestLimitExceededResponse = async (
 ): Promise<RequestLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1RequestLimitExceeded(body, context);
-  const contents: RequestLimitExceeded = {
-    name: "RequestLimitExceeded",
-    $fault: "client",
+  const exception = new RequestLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceInUseResponse = async (
@@ -2515,13 +1923,11 @@ const deserializeAws_json1_1ResourceInUseResponse = async (
 ): Promise<ResourceInUse> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceInUse(body, context);
-  const contents: ResourceInUse = {
-    name: "ResourceInUse",
-    $fault: "client",
+  const exception = new ResourceInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceLimitExceededResponse = async (
@@ -2530,13 +1936,11 @@ const deserializeAws_json1_1ResourceLimitExceededResponse = async (
 ): Promise<ResourceLimitExceeded> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceLimitExceeded(body, context);
-  const contents: ResourceLimitExceeded = {
-    name: "ResourceLimitExceeded",
-    $fault: "client",
+  const exception = new ResourceLimitExceeded({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
@@ -2545,13 +1949,11 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
 ): Promise<ResourceNotFoundException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(body, context);
-  const contents: ResourceNotFoundException = {
-    name: "ResourceNotFoundException",
-    $fault: "client",
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServiceAlreadyExistsResponse = async (
@@ -2560,13 +1962,11 @@ const deserializeAws_json1_1ServiceAlreadyExistsResponse = async (
 ): Promise<ServiceAlreadyExists> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceAlreadyExists(body, context);
-  const contents: ServiceAlreadyExists = {
-    name: "ServiceAlreadyExists",
-    $fault: "client",
+  const exception = new ServiceAlreadyExists({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ServiceNotFoundResponse = async (
@@ -2575,13 +1975,11 @@ const deserializeAws_json1_1ServiceNotFoundResponse = async (
 ): Promise<ServiceNotFound> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ServiceNotFound(body, context);
-  const contents: ServiceNotFound = {
-    name: "ServiceNotFound",
-    $fault: "client",
+  const exception = new ServiceNotFound({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
@@ -2590,13 +1988,11 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
 ): Promise<TooManyTagsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TooManyTagsException(body, context);
-  const contents: TooManyTagsException = {
-    name: "TooManyTagsException",
-    $fault: "client",
+  const exception = new TooManyTagsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {

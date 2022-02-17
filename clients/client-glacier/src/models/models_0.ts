@@ -1,5 +1,8 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 import { Readable } from "stream";
+
+import { GlacierServiceException as __BaseException } from "./GlacierServiceException";
 
 /**
  * <p>Provides options to abort a multipart upload identified by the upload ID.</p>
@@ -41,9 +44,9 @@ export namespace AbortMultipartUploadInput {
 /**
  * <p>Returned if a parameter of the request is incorrectly specified.</p>
  */
-export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValueException";
-  $fault: "client";
+export class InvalidParameterValueException extends __BaseException {
+  readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Client</p>
    */
@@ -55,17 +58,26 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   code?: string;
 
   /**
-   * <p>Returned if a parameter of the request is incorrectly specified.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterValueException, __BaseException>) {
+    super({
+      name: "InvalidParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValueException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p>Returned if a required header or parameter is missing from the request.</p>
  */
-export interface MissingParameterValueException extends __SmithyException, $MetadataBearer {
-  name: "MissingParameterValueException";
-  $fault: "client";
+export class MissingParameterValueException extends __BaseException {
+  readonly name: "MissingParameterValueException" = "MissingParameterValueException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Client.</p>
    */
@@ -77,18 +89,27 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
   code?: string;
 
   /**
-   * <p>Returned if no authentication data is found for the request.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<MissingParameterValueException, __BaseException>) {
+    super({
+      name: "MissingParameterValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingParameterValueException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
  *          exist.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Client</p>
    */
@@ -100,18 +121,26 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   code?: string;
 
   /**
-   * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
-   *          exist.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p>Returned if the service cannot complete the request.</p>
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * <p>Server</p>
    */
@@ -123,9 +152,18 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   code?: string;
 
   /**
-   * <p>Returned if the service cannot complete the request.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**
@@ -276,9 +314,9 @@ export namespace AddTagsToVaultInput {
 /**
  * <p>Returned if the request results in a vault or account limit being exceeded.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Client</p>
    */
@@ -290,9 +328,18 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   code?: string;
 
   /**
-   * <p>Returned if the request results in a vault limit or tags limit being exceeded.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**
@@ -1855,21 +1902,33 @@ export namespace InitiateJobOutput {
  *          error only applies to expedited retrievals and not to standard or bulk
  *          retrievals.</p>
  */
-export interface InsufficientCapacityException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientCapacityException";
-  $fault: "client";
+export class InsufficientCapacityException extends __BaseException {
+  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
+  readonly $fault: "client" = "client";
   type?: string;
   code?: string;
-  message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
+    super({
+      name: "InsufficientCapacityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**
  * <p>Returned if a retrieval job would exceed the current data policy's retrieval rate
  *          limit. For more information about data retrieval policies,</p>
  */
-export interface PolicyEnforcedException extends __SmithyException, $MetadataBearer {
-  name: "PolicyEnforcedException";
-  $fault: "client";
+export class PolicyEnforcedException extends __BaseException {
+  readonly name: "PolicyEnforcedException" = "PolicyEnforcedException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Client</p>
    */
@@ -1881,9 +1940,18 @@ export interface PolicyEnforcedException extends __SmithyException, $MetadataBea
   code?: string;
 
   /**
-   * <p>InitiateJob request denied by current data retrieval policy.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PolicyEnforcedException, __BaseException>) {
+    super({
+      name: "PolicyEnforcedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PolicyEnforcedException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**
@@ -2691,9 +2759,9 @@ export namespace SetVaultNotificationsInput {
  * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
  *          upload.</p>
  */
-export interface RequestTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "RequestTimeoutException";
-  $fault: "client";
+export class RequestTimeoutException extends __BaseException {
+  readonly name: "RequestTimeoutException" = "RequestTimeoutException";
+  readonly $fault: "client" = "client";
   /**
    * <p>Client</p>
    */
@@ -2705,10 +2773,18 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
   code?: string;
 
   /**
-   * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
-   *          upload.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<RequestTimeoutException, __BaseException>) {
+    super({
+      name: "RequestTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestTimeoutException.prototype);
+    this.type = opts.type;
+    this.code = opts.code;
+  }
 }
 
 /**

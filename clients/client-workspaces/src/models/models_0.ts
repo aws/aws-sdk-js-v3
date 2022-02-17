@@ -1,12 +1,25 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { WorkSpacesServiceException as __BaseException } from "./WorkSpacesServiceException";
 
 /**
  * <p>The user is not authorized to access a resource.</p>
  */
-export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
-  name: "AccessDeniedException";
-  $fault: "client";
-  message?: string;
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
 }
 
 export enum AccessPropertyValue {
@@ -118,57 +131,102 @@ export namespace AssociateConnectionAliasResult {
 /**
  * <p>One or more parameter values are not valid.</p>
  */
-export interface InvalidParameterValuesException extends __SmithyException, $MetadataBearer {
-  name: "InvalidParameterValuesException";
-  $fault: "client";
+export class InvalidParameterValuesException extends __BaseException {
+  readonly name: "InvalidParameterValuesException" = "InvalidParameterValuesException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidParameterValuesException, __BaseException>) {
+    super({
+      name: "InvalidParameterValuesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterValuesException.prototype);
+  }
 }
 
 /**
  * <p>The state of the resource is not valid for this operation.</p>
  */
-export interface InvalidResourceStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourceStateException";
-  $fault: "client";
-  message?: string;
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
+  }
 }
 
 /**
  * <p>This operation is not supported.</p>
  */
-export interface OperationNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "OperationNotSupportedException";
-  $fault: "client";
-  message?: string;
+export class OperationNotSupportedException extends __BaseException {
+  readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationNotSupportedException, __BaseException>) {
+    super({
+      name: "OperationNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationNotSupportedException.prototype);
+  }
 }
 
 /**
  * <p>The resource is associated with a directory.</p>
  */
-export interface ResourceAssociatedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAssociatedException";
-  $fault: "client";
-  message?: string;
+export class ResourceAssociatedException extends __BaseException {
+  readonly name: "ResourceAssociatedException" = "ResourceAssociatedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAssociatedException, __BaseException>) {
+    super({
+      name: "ResourceAssociatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAssociatedException.prototype);
+  }
 }
 
 /**
  * <p>The resource could not be found.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  /**
-   * <p>The resource could not be found.</p>
-   */
-  message?: string;
-
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The ID of the resource that could not be found.</p>
    */
   ResourceId?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.ResourceId = opts.ResourceId;
+  }
 }
 
 export interface AssociateIpGroupsRequest {
@@ -206,13 +264,20 @@ export namespace AssociateIpGroupsResult {
 /**
  * <p>Your resource limits have been exceeded.</p>
  */
-export interface ResourceLimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "ResourceLimitExceededException";
-  $fault: "client";
+export class ResourceLimitExceededException extends __BaseException {
+  readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceLimitExceededException, __BaseException>) {
+    super({
+      name: "ResourceLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceLimitExceededException.prototype);
+  }
 }
 
 export enum AssociationStatus {
@@ -692,27 +757,45 @@ export namespace CopyWorkspaceImageResult {
 /**
  * <p>The specified resource already exists.</p>
  */
-export interface ResourceAlreadyExistsException extends __SmithyException, $MetadataBearer {
-  name: "ResourceAlreadyExistsException";
-  $fault: "client";
-  message?: string;
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
 }
 
 /**
  * <p>The specified resource is not available.</p>
  */
-export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ResourceUnavailableException";
-  $fault: "client";
-  /**
-   * <p>The exception error message.</p>
-   */
-  message?: string;
-
+export class ResourceUnavailableException extends __BaseException {
+  readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The identifier of the resource that is not available.</p>
    */
   ResourceId?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceUnavailableException, __BaseException>) {
+    super({
+      name: "ResourceUnavailableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceUnavailableException.prototype);
+    this.ResourceId = opts.ResourceId;
+  }
 }
 
 export interface CreateConnectClientAddInRequest {
@@ -760,10 +843,20 @@ export namespace CreateConnectClientAddInResult {
 /**
  * <p>The resource could not be created.</p>
  */
-export interface ResourceCreationFailedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceCreationFailedException";
-  $fault: "client";
-  message?: string;
+export class ResourceCreationFailedException extends __BaseException {
+  readonly name: "ResourceCreationFailedException" = "ResourceCreationFailedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceCreationFailedException, __BaseException>) {
+    super({
+      name: "ResourceCreationFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceCreationFailedException.prototype);
+  }
 }
 
 export interface CreateConnectionAliasRequest {
@@ -3040,10 +3133,20 @@ export namespace MigrateWorkspaceResult {
 /**
  * <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
  */
-export interface OperationInProgressException extends __SmithyException, $MetadataBearer {
-  name: "OperationInProgressException";
-  $fault: "client";
-  message?: string;
+export class OperationInProgressException extends __BaseException {
+  readonly name: "OperationInProgressException" = "OperationInProgressException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperationInProgressException, __BaseException>) {
+    super({
+      name: "OperationInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationInProgressException.prototype);
+  }
 }
 
 export interface ModifyAccountRequest {
@@ -3325,10 +3428,20 @@ export namespace ModifyWorkspacePropertiesResult {
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html">Required
  *             Configuration and Service Components for WorkSpaces </a>.</p>
  */
-export interface UnsupportedWorkspaceConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedWorkspaceConfigurationException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedWorkspaceConfigurationException extends __BaseException {
+  readonly name: "UnsupportedWorkspaceConfigurationException" = "UnsupportedWorkspaceConfigurationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedWorkspaceConfigurationException, __BaseException>) {
+    super({
+      name: "UnsupportedWorkspaceConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedWorkspaceConfigurationException.prototype);
+  }
 }
 
 export enum TargetWorkspaceState {
@@ -3540,20 +3653,40 @@ export namespace RegisterWorkspaceDirectoryResult {
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
  *             Configure a VPC for Amazon WorkSpaces</a>.</p>
  */
-export interface UnsupportedNetworkConfigurationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedNetworkConfigurationException";
-  $fault: "client";
-  message?: string;
+export class UnsupportedNetworkConfigurationException extends __BaseException {
+  readonly name: "UnsupportedNetworkConfigurationException" = "UnsupportedNetworkConfigurationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedNetworkConfigurationException, __BaseException>) {
+    super({
+      name: "UnsupportedNetworkConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedNetworkConfigurationException.prototype);
+  }
 }
 
 /**
  * <p>The workspaces_DefaultRole role could not be found. If this is the first time you are registering a directory, you
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
  */
-export interface WorkspacesDefaultRoleNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "WorkspacesDefaultRoleNotFoundException";
-  $fault: "client";
-  message?: string;
+export class WorkspacesDefaultRoleNotFoundException extends __BaseException {
+  readonly name: "WorkspacesDefaultRoleNotFoundException" = "WorkspacesDefaultRoleNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WorkspacesDefaultRoleNotFoundException, __BaseException>) {
+    super({
+      name: "WorkspacesDefaultRoleNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WorkspacesDefaultRoleNotFoundException.prototype);
+  }
 }
 
 export interface RestoreWorkspaceRequest {

@@ -4,6 +4,7 @@ import {
   isValidHostname as __isValidHostname,
 } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -15,10 +16,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import {
@@ -119,6 +118,7 @@ import {
   UpdateTableStorageOptimizerCommandInput,
   UpdateTableStorageOptimizerCommandOutput,
 } from "../commands/UpdateTableStorageOptimizerCommand";
+import { LakeFormationServiceException as __BaseException } from "../models/LakeFormationServiceException";
 import {
   AccessDeniedException,
   AddObjectInput,
@@ -1478,73 +1478,37 @@ const deserializeAws_restJson1AddLFTagsToResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1BatchGrantPermissionsCommand = async (
@@ -1573,41 +1537,25 @@ const deserializeAws_restJson1BatchGrantPermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1BatchRevokePermissionsCommand = async (
@@ -1636,41 +1584,25 @@ const deserializeAws_restJson1BatchRevokePermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CancelTransactionCommand = async (
@@ -1695,81 +1627,40 @@ const deserializeAws_restJson1CancelTransactionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "TransactionCommitInProgressException":
     case "com.amazonaws.lakeformation#TransactionCommitInProgressException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommitInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommitInProgressExceptionResponse(parsedOutput, context);
     case "TransactionCommittedException":
     case "com.amazonaws.lakeformation#TransactionCommittedException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CommitTransactionCommand = async (
@@ -1798,73 +1689,37 @@ const deserializeAws_restJson1CommitTransactionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.lakeformation#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateDataCellsFilterCommand = async (
@@ -1889,81 +1744,40 @@ const deserializeAws_restJson1CreateDataCellsFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AlreadyExistsException":
     case "com.amazonaws.lakeformation#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "ResourceNumberLimitExceededException":
     case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateLFTagCommand = async (
@@ -1988,73 +1802,37 @@ const deserializeAws_restJson1CreateLFTagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "ResourceNumberLimitExceededException":
     case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteDataCellsFilterCommand = async (
@@ -2079,65 +1857,34 @@ const deserializeAws_restJson1DeleteDataCellsFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteLFTagCommand = async (
@@ -2162,65 +1909,34 @@ const deserializeAws_restJson1DeleteLFTagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteObjectsOnCancelCommand = async (
@@ -2245,89 +1961,43 @@ const deserializeAws_restJson1DeleteObjectsOnCancelCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.lakeformation#ResourceNotReadyException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.lakeformation#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context);
     case "TransactionCommittedException":
     case "com.amazonaws.lakeformation#TransactionCommittedException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeregisterResourceCommand = async (
@@ -2352,57 +2022,31 @@ const deserializeAws_restJson1DeregisterResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeResourceCommand = async (
@@ -2431,57 +2075,31 @@ const deserializeAws_restJson1DescribeResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DescribeTransactionCommand = async (
@@ -2513,57 +2131,31 @@ const deserializeAws_restJson1DescribeTransactionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ExtendTransactionCommand = async (
@@ -2588,81 +2180,40 @@ const deserializeAws_restJson1ExtendTransactionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.lakeformation#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context);
     case "TransactionCommitInProgressException":
     case "com.amazonaws.lakeformation#TransactionCommitInProgressException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommitInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommitInProgressExceptionResponse(parsedOutput, context);
     case "TransactionCommittedException":
     case "com.amazonaws.lakeformation#TransactionCommittedException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetDataLakeSettingsCommand = async (
@@ -2691,49 +2242,28 @@ const deserializeAws_restJson1GetDataLakeSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetEffectivePermissionsForPathCommand = async (
@@ -2766,57 +2296,31 @@ const deserializeAws_restJson1GetEffectivePermissionsForPathCommandError = async
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetLFTagCommand = async (
@@ -2853,65 +2357,34 @@ const deserializeAws_restJson1GetLFTagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetQueryStateCommand = async (
@@ -2944,49 +2417,28 @@ const deserializeAws_restJson1GetQueryStateCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetQueryStatisticsCommand = async (
@@ -3023,73 +2475,37 @@ const deserializeAws_restJson1GetQueryStatisticsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ExpiredException":
     case "com.amazonaws.lakeformation#ExpiredException":
-      response = {
-        ...(await deserializeAws_restJson1ExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ExpiredExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "StatisticsNotReadyYetException":
     case "com.amazonaws.lakeformation#StatisticsNotReadyYetException":
-      response = {
-        ...(await deserializeAws_restJson1StatisticsNotReadyYetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1StatisticsNotReadyYetExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.lakeformation#ThrottledException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetResourceLFTagsCommand = async (
@@ -3126,73 +2542,37 @@ const deserializeAws_restJson1GetResourceLFTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.lakeformation#GlueEncryptionException":
-      response = {
-        ...(await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetTableObjectsCommand = async (
@@ -3225,81 +2605,40 @@ const deserializeAws_restJson1GetTableObjectsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.lakeformation#ResourceNotReadyException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.lakeformation#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context);
     case "TransactionCommittedException":
     case "com.amazonaws.lakeformation#TransactionCommittedException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommand = async (
@@ -3340,73 +2679,37 @@ const deserializeAws_restJson1GetTemporaryGluePartitionCredentialsCommandError =
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "PermissionTypeMismatchException":
     case "com.amazonaws.lakeformation#PermissionTypeMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1PermissionTypeMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1PermissionTypeMismatchExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommand = async (
@@ -3447,73 +2750,37 @@ const deserializeAws_restJson1GetTemporaryGlueTableCredentialsCommandError = asy
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "PermissionTypeMismatchException":
     case "com.amazonaws.lakeformation#PermissionTypeMismatchException":
-      response = {
-        ...(await deserializeAws_restJson1PermissionTypeMismatchExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1PermissionTypeMismatchExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetWorkUnitResultsCommand = async (
@@ -3540,65 +2807,34 @@ const deserializeAws_restJson1GetWorkUnitResultsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ExpiredException":
     case "com.amazonaws.lakeformation#ExpiredException":
-      response = {
-        ...(await deserializeAws_restJson1ExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ExpiredExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.lakeformation#ThrottledException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetWorkUnitsCommand = async (
@@ -3635,65 +2871,34 @@ const deserializeAws_restJson1GetWorkUnitsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ExpiredException":
     case "com.amazonaws.lakeformation#ExpiredException":
-      response = {
-        ...(await deserializeAws_restJson1ExpiredExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ExpiredExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "WorkUnitsNotReadyYetException":
     case "com.amazonaws.lakeformation#WorkUnitsNotReadyYetException":
-      response = {
-        ...(await deserializeAws_restJson1WorkUnitsNotReadyYetExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1WorkUnitsNotReadyYetExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GrantPermissionsCommand = async (
@@ -3718,49 +2923,28 @@ const deserializeAws_restJson1GrantPermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListDataCellsFilterCommand = async (
@@ -3793,57 +2977,31 @@ const deserializeAws_restJson1ListDataCellsFilterCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListLFTagsCommand = async (
@@ -3876,65 +3034,34 @@ const deserializeAws_restJson1ListLFTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListPermissionsCommand = async (
@@ -3970,49 +3097,28 @@ const deserializeAws_restJson1ListPermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListResourcesCommand = async (
@@ -4045,49 +3151,28 @@ const deserializeAws_restJson1ListResourcesCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListTableStorageOptimizersCommand = async (
@@ -4120,57 +3205,31 @@ const deserializeAws_restJson1ListTableStorageOptimizersCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1ListTransactionsCommand = async (
@@ -4203,49 +3262,28 @@ const deserializeAws_restJson1ListTransactionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1PutDataLakeSettingsCommand = async (
@@ -4270,41 +3308,25 @@ const deserializeAws_restJson1PutDataLakeSettingsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1RegisterResourceCommand = async (
@@ -4329,81 +3351,40 @@ const deserializeAws_restJson1RegisterResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "AlreadyExistsException":
     case "com.amazonaws.lakeformation#AlreadyExistsException":
-      response = {
-        ...(await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "ResourceNumberLimitExceededException":
     case "com.amazonaws.lakeformation#ResourceNumberLimitExceededException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNumberLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1RemoveLFTagsFromResourceCommand = async (
@@ -4432,81 +3413,40 @@ const deserializeAws_restJson1RemoveLFTagsFromResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.lakeformation#GlueEncryptionException":
-      response = {
-        ...(await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1RevokePermissionsCommand = async (
@@ -4531,49 +3471,28 @@ const deserializeAws_restJson1RevokePermissionsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1SearchDatabasesByLFTagsCommand = async (
@@ -4606,73 +3525,37 @@ const deserializeAws_restJson1SearchDatabasesByLFTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.lakeformation#GlueEncryptionException":
-      response = {
-        ...(await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1SearchTablesByLFTagsCommand = async (
@@ -4705,73 +3588,37 @@ const deserializeAws_restJson1SearchTablesByLFTagsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "GlueEncryptionException":
     case "com.amazonaws.lakeformation#GlueEncryptionException":
-      response = {
-        ...(await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1GlueEncryptionExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartQueryPlanningCommand = async (
@@ -4800,57 +3647,31 @@ const deserializeAws_restJson1StartQueryPlanningCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.lakeformation#ThrottledException":
-      response = {
-        ...(await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1StartTransactionCommand = async (
@@ -4879,41 +3700,25 @@ const deserializeAws_restJson1StartTransactionCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateLFTagCommand = async (
@@ -4938,73 +3743,37 @@ const deserializeAws_restJson1UpdateLFTagCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateResourceCommand = async (
@@ -5029,57 +3798,31 @@ const deserializeAws_restJson1UpdateResourceCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateTableObjectsCommand = async (
@@ -5104,97 +3847,46 @@ const deserializeAws_restJson1UpdateTableObjectsCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.lakeformation#ConcurrentModificationException":
-      response = {
-        ...(await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     case "OperationTimeoutException":
     case "com.amazonaws.lakeformation#OperationTimeoutException":
-      response = {
-        ...(await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1OperationTimeoutExceptionResponse(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.lakeformation#ResourceNotReadyException":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotReadyExceptionResponse(parsedOutput, context);
     case "TransactionCanceledException":
     case "com.amazonaws.lakeformation#TransactionCanceledException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCanceledExceptionResponse(parsedOutput, context);
     case "TransactionCommitInProgressException":
     case "com.amazonaws.lakeformation#TransactionCommitInProgressException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommitInProgressExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommitInProgressExceptionResponse(parsedOutput, context);
     case "TransactionCommittedException":
     case "com.amazonaws.lakeformation#TransactionCommittedException":
-      response = {
-        ...(await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1TransactionCommittedExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1UpdateTableStorageOptimizerCommand = async (
@@ -5223,366 +3915,319 @@ const deserializeAws_restJson1UpdateTableStorageOptimizerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.lakeformation#AccessDeniedException":
-      response = {
-        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
     case "EntityNotFoundException":
     case "com.amazonaws.lakeformation#EntityNotFoundException":
-      response = {
-        ...(await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1EntityNotFoundExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.lakeformation#InternalServiceException":
-      response = {
-        ...(await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
     case "InvalidInputException":
     case "com.amazonaws.lakeformation#InvalidInputException":
-      response = {
-        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: AccessDeniedException = {
-    name: "AccessDeniedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1AlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AlreadyExistsException> => {
-  const contents: AlreadyExistsException = {
-    name: "AlreadyExistsException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new AlreadyExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ConcurrentModificationExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
-  const contents: ConcurrentModificationException = {
-    name: "ConcurrentModificationException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ConcurrentModificationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1EntityNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<EntityNotFoundException> => {
-  const contents: EntityNotFoundException = {
-    name: "EntityNotFoundException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new EntityNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ExpiredExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ExpiredException> => {
-  const contents: ExpiredException = {
-    name: "ExpiredException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ExpiredException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1GlueEncryptionExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<GlueEncryptionException> => {
-  const contents: GlueEncryptionException = {
-    name: "GlueEncryptionException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new GlueEncryptionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InternalServiceExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServiceException> => {
-  const contents: InternalServiceException = {
-    name: "InternalServiceException",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InternalServiceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InvalidInputExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
-  const contents: InvalidInputException = {
-    name: "InvalidInputException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InvalidInputException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1OperationTimeoutExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<OperationTimeoutException> => {
-  const contents: OperationTimeoutException = {
-    name: "OperationTimeoutException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new OperationTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1PermissionTypeMismatchExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<PermissionTypeMismatchException> => {
-  const contents: PermissionTypeMismatchException = {
-    name: "PermissionTypeMismatchException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new PermissionTypeMismatchException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceNotReadyExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotReadyException> => {
-  const contents: ResourceNotReadyException = {
-    name: "ResourceNotReadyException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ResourceNotReadyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceNumberLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNumberLimitExceededException> => {
-  const contents: ResourceNumberLimitExceededException = {
-    name: "ResourceNumberLimitExceededException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ResourceNumberLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1StatisticsNotReadyYetExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<StatisticsNotReadyYetException> => {
-  const contents: StatisticsNotReadyYetException = {
-    name: "StatisticsNotReadyYetException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new StatisticsNotReadyYetException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ThrottledExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ThrottledException> => {
-  const contents: ThrottledException = {
-    name: "ThrottledException",
-    $fault: "client",
-    $retryable: {
-      throttling: true,
-    },
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ThrottledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TransactionCanceledExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransactionCanceledException> => {
-  const contents: TransactionCanceledException = {
-    name: "TransactionCanceledException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new TransactionCanceledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TransactionCommitInProgressExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransactionCommitInProgressException> => {
-  const contents: TransactionCommitInProgressException = {
-    name: "TransactionCommitInProgressException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new TransactionCommitInProgressException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1TransactionCommittedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TransactionCommittedException> => {
-  const contents: TransactionCommittedException = {
-    name: "TransactionCommittedException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new TransactionCommittedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1WorkUnitsNotReadyYetExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<WorkUnitsNotReadyYetException> => {
-  const contents: WorkUnitsNotReadyYetException = {
-    name: "WorkUnitsNotReadyYetException",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new WorkUnitsNotReadyYetException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const serializeAws_restJson1AddObjectInput = (input: AddObjectInput, context: __SerdeContext): any => {

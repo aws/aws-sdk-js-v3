@@ -1,5 +1,7 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { CodePipelineServiceException as __BaseException } from "./CodePipelineServiceException";
 
 /**
  * <p>Represents the input of an AcknowledgeJob action.</p>
@@ -60,37 +62,58 @@ export namespace AcknowledgeJobOutput {
 /**
  * <p>The nonce was specified in an invalid format.</p>
  */
-export interface InvalidNonceException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNonceException";
-  $fault: "client";
+export class InvalidNonceException extends __BaseException {
+  readonly name: "InvalidNonceException" = "InvalidNonceException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidNonceException, __BaseException>) {
+    super({
+      name: "InvalidNonceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNonceException.prototype);
+  }
 }
 
 /**
  * <p>The job was specified in an invalid format or cannot be found.</p>
  */
-export interface JobNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "JobNotFoundException";
-  $fault: "client";
+export class JobNotFoundException extends __BaseException {
+  readonly name: "JobNotFoundException" = "JobNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<JobNotFoundException, __BaseException>) {
+    super({
+      name: "JobNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, JobNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The validation was specified in an invalid format.</p>
  */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
 }
 
 /**
@@ -146,13 +169,20 @@ export namespace AcknowledgeThirdPartyJobOutput {
 /**
  * <p>The client token was specified in an invalid format</p>
  */
-export interface InvalidClientTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidClientTokenException";
-  $fault: "client";
+export class InvalidClientTokenException extends __BaseException {
+  readonly name: "InvalidClientTokenException" = "InvalidClientTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidClientTokenException, __BaseException>) {
+    super({
+      name: "InvalidClientTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidClientTokenException.prototype);
+  }
 }
 
 export enum ActionCategory {
@@ -826,13 +856,20 @@ export namespace ActionExecutionFilter {
 /**
  * <p>The specified action cannot be found.</p>
  */
-export interface ActionNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ActionNotFoundException";
-  $fault: "client";
+export class ActionNotFoundException extends __BaseException {
+  readonly name: "ActionNotFoundException" = "ActionNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ActionNotFoundException, __BaseException>) {
+    super({
+      name: "ActionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActionNotFoundException.prototype);
+  }
 }
 
 /**
@@ -1409,25 +1446,39 @@ export namespace ActionTypeDeclaration {
 /**
  * <p>The specified action type cannot be found.</p>
  */
-export interface ActionTypeNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ActionTypeNotFoundException";
-  $fault: "client";
+export class ActionTypeNotFoundException extends __BaseException {
+  readonly name: "ActionTypeNotFoundException" = "ActionTypeNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ActionTypeNotFoundException, __BaseException>) {
+    super({
+      name: "ActionTypeNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActionTypeNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The approval action has already been approved or rejected.</p>
  */
-export interface ApprovalAlreadyCompletedException extends __SmithyException, $MetadataBearer {
-  name: "ApprovalAlreadyCompletedException";
-  $fault: "client";
+export class ApprovalAlreadyCompletedException extends __BaseException {
+  readonly name: "ApprovalAlreadyCompletedException" = "ApprovalAlreadyCompletedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ApprovalAlreadyCompletedException, __BaseException>) {
+    super({
+      name: "ApprovalAlreadyCompletedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApprovalAlreadyCompletedException.prototype);
+  }
 }
 
 export enum ApprovalStatus {
@@ -1742,10 +1793,20 @@ export namespace BlockerDeclaration {
 /**
  * <p>Unable to modify the tag due to a simultaneous update request.</p>
  */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  message?: string;
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+  }
 }
 
 /**
@@ -1862,32 +1923,59 @@ export namespace CreateCustomActionTypeOutput {
 /**
  * <p>The specified resource tags are invalid.</p>
  */
-export interface InvalidTagsException extends __SmithyException, $MetadataBearer {
-  name: "InvalidTagsException";
-  $fault: "client";
-  message?: string;
+export class InvalidTagsException extends __BaseException {
+  readonly name: "InvalidTagsException" = "InvalidTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagsException, __BaseException>) {
+    super({
+      name: "InvalidTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagsException.prototype);
+  }
 }
 
 /**
  * <p>The number of pipelines associated with the AWS account has exceeded the limit
  *             allowed for the account.</p>
  */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
 }
 
 /**
  * <p>The tags limit for a resource has been exceeded.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
-  message?: string;
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 /**
@@ -2035,61 +2123,96 @@ export namespace CreatePipelineOutput {
 /**
  * <p>The action declaration was specified in an invalid format.</p>
  */
-export interface InvalidActionDeclarationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidActionDeclarationException";
-  $fault: "client";
+export class InvalidActionDeclarationException extends __BaseException {
+  readonly name: "InvalidActionDeclarationException" = "InvalidActionDeclarationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidActionDeclarationException, __BaseException>) {
+    super({
+      name: "InvalidActionDeclarationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidActionDeclarationException.prototype);
+  }
 }
 
 /**
  * <p>Reserved for future use.</p>
  */
-export interface InvalidBlockerDeclarationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidBlockerDeclarationException";
-  $fault: "client";
+export class InvalidBlockerDeclarationException extends __BaseException {
+  readonly name: "InvalidBlockerDeclarationException" = "InvalidBlockerDeclarationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidBlockerDeclarationException, __BaseException>) {
+    super({
+      name: "InvalidBlockerDeclarationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidBlockerDeclarationException.prototype);
+  }
 }
 
 /**
  * <p>The stage declaration was specified in an invalid format.</p>
  */
-export interface InvalidStageDeclarationException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStageDeclarationException";
-  $fault: "client";
+export class InvalidStageDeclarationException extends __BaseException {
+  readonly name: "InvalidStageDeclarationException" = "InvalidStageDeclarationException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidStageDeclarationException, __BaseException>) {
+    super({
+      name: "InvalidStageDeclarationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStageDeclarationException.prototype);
+  }
 }
 
 /**
  * <p>The structure was specified in an invalid format.</p>
  */
-export interface InvalidStructureException extends __SmithyException, $MetadataBearer {
-  name: "InvalidStructureException";
-  $fault: "client";
+export class InvalidStructureException extends __BaseException {
+  readonly name: "InvalidStructureException" = "InvalidStructureException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidStructureException, __BaseException>) {
+    super({
+      name: "InvalidStructureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStructureException.prototype);
+  }
 }
 
 /**
  * <p>The specified pipeline name is already in use.</p>
  */
-export interface PipelineNameInUseException extends __SmithyException, $MetadataBearer {
-  name: "PipelineNameInUseException";
-  $fault: "client";
+export class PipelineNameInUseException extends __BaseException {
+  readonly name: "PipelineNameInUseException" = "PipelineNameInUseException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PipelineNameInUseException, __BaseException>) {
+    super({
+      name: "PipelineNameInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineNameInUseException.prototype);
+  }
 }
 
 /**
@@ -2201,9 +2324,20 @@ export namespace DeregisterWebhookWithThirdPartyOutput {
  * <p>The specified webhook was entered in an invalid format or cannot be
  *             found.</p>
  */
-export interface WebhookNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "WebhookNotFoundException";
-  $fault: "client";
+export class WebhookNotFoundException extends __BaseException {
+  readonly name: "WebhookNotFoundException" = "WebhookNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<WebhookNotFoundException, __BaseException>) {
+    super({
+      name: "WebhookNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, WebhookNotFoundException.prototype);
+  }
 }
 
 export enum StageTransitionType {
@@ -2255,25 +2389,39 @@ export namespace DisableStageTransitionInput {
 /**
  * <p>The pipeline was specified in an invalid format or cannot be found.</p>
  */
-export interface PipelineNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "PipelineNotFoundException";
-  $fault: "client";
+export class PipelineNotFoundException extends __BaseException {
+  readonly name: "PipelineNotFoundException" = "PipelineNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PipelineNotFoundException, __BaseException>) {
+    super({
+      name: "PipelineNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineNotFoundException.prototype);
+  }
 }
 
 /**
  * <p>The stage was specified in an invalid format or cannot be found.</p>
  */
-export interface StageNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "StageNotFoundException";
-  $fault: "client";
+export class StageNotFoundException extends __BaseException {
+  readonly name: "StageNotFoundException" = "StageNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<StageNotFoundException, __BaseException>) {
+    super({
+      name: "StageNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StageNotFoundException.prototype);
+  }
 }
 
 /**
@@ -2681,13 +2829,20 @@ export namespace GetPipelineOutput {
  * <p>The pipeline version was specified in an invalid format or cannot be
  *             found.</p>
  */
-export interface PipelineVersionNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "PipelineVersionNotFoundException";
-  $fault: "client";
+export class PipelineVersionNotFoundException extends __BaseException {
+  readonly name: "PipelineVersionNotFoundException" = "PipelineVersionNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PipelineVersionNotFoundException, __BaseException>) {
+    super({
+      name: "PipelineVersionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineVersionNotFoundException.prototype);
+  }
 }
 
 /**
@@ -2822,13 +2977,20 @@ export namespace GetPipelineExecutionOutput {
  * <p>The pipeline execution was specified in an invalid format or cannot be found, or an
  *             execution ID does not belong to the specified pipeline. </p>
  */
-export interface PipelineExecutionNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "PipelineExecutionNotFoundException";
-  $fault: "client";
+export class PipelineExecutionNotFoundException extends __BaseException {
+  readonly name: "PipelineExecutionNotFoundException" = "PipelineExecutionNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PipelineExecutionNotFoundException, __BaseException>) {
+    super({
+      name: "PipelineExecutionNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineExecutionNotFoundException.prototype);
+  }
 }
 
 /**
@@ -3160,26 +3322,40 @@ export namespace GetThirdPartyJobDetailsOutput {
 /**
  * <p>The job was specified in an invalid format or cannot be found.</p>
  */
-export interface InvalidJobException extends __SmithyException, $MetadataBearer {
-  name: "InvalidJobException";
-  $fault: "client";
+export class InvalidJobException extends __BaseException {
+  readonly name: "InvalidJobException" = "InvalidJobException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidJobException, __BaseException>) {
+    super({
+      name: "InvalidJobException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidJobException.prototype);
+  }
 }
 
 /**
  * <p>The next token was specified in an invalid format. Make sure that the next token
  *             you provide is the token returned by a previous call.</p>
  */
-export interface InvalidNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidNextTokenException";
-  $fault: "client";
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
+  }
 }
 
 export interface ListActionExecutionsInput {
@@ -3625,10 +3801,20 @@ export namespace ListPipelinesOutput {
 /**
  * <p>The specified resource ARN is invalid.</p>
  */
-export interface InvalidArnException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArnException";
-  $fault: "client";
-  message?: string;
+export class InvalidArnException extends __BaseException {
+  readonly name: "InvalidArnException" = "InvalidArnException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArnException, __BaseException>) {
+    super({
+      name: "InvalidArnException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArnException.prototype);
+  }
 }
 
 export interface ListTagsForResourceInput {
@@ -3686,13 +3872,20 @@ export namespace ListTagsForResourceOutput {
 /**
  * <p>The resource was specified in an invalid format.</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export interface ListWebhooksInput {
@@ -4154,13 +4347,20 @@ export namespace PutActionRevisionOutput {
 /**
  * <p>The approval request already received a response or has expired.</p>
  */
-export interface InvalidApprovalTokenException extends __SmithyException, $MetadataBearer {
-  name: "InvalidApprovalTokenException";
-  $fault: "client";
+export class InvalidApprovalTokenException extends __BaseException {
+  readonly name: "InvalidApprovalTokenException" = "InvalidApprovalTokenException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidApprovalTokenException, __BaseException>) {
+    super({
+      name: "InvalidApprovalTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidApprovalTokenException.prototype);
+  }
 }
 
 /**
@@ -4226,13 +4426,20 @@ export namespace PutApprovalResultOutput {
 /**
  * <p>The job state was specified in an invalid format.</p>
  */
-export interface InvalidJobStateException extends __SmithyException, $MetadataBearer {
-  name: "InvalidJobStateException";
-  $fault: "client";
+export class InvalidJobStateException extends __BaseException {
+  readonly name: "InvalidJobStateException" = "InvalidJobStateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidJobStateException, __BaseException>) {
+    super({
+      name: "InvalidJobStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidJobStateException.prototype);
+  }
 }
 
 export enum FailureType {
@@ -4301,10 +4508,20 @@ export namespace PutJobFailureResultInput {
 /**
  * <p>Exceeded the total size limit for all variables in the pipeline.</p>
  */
-export interface OutputVariablesSizeExceededException extends __SmithyException, $MetadataBearer {
-  name: "OutputVariablesSizeExceededException";
-  $fault: "client";
-  message?: string;
+export class OutputVariablesSizeExceededException extends __BaseException {
+  readonly name: "OutputVariablesSizeExceededException" = "OutputVariablesSizeExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OutputVariablesSizeExceededException, __BaseException>) {
+    super({
+      name: "OutputVariablesSizeExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OutputVariablesSizeExceededException.prototype);
+  }
 }
 
 /**
@@ -4504,25 +4721,39 @@ export namespace PutThirdPartyJobSuccessResultInput {
 /**
  * <p>The specified authentication type is in an invalid format.</p>
  */
-export interface InvalidWebhookAuthenticationParametersException extends __SmithyException, $MetadataBearer {
-  name: "InvalidWebhookAuthenticationParametersException";
-  $fault: "client";
+export class InvalidWebhookAuthenticationParametersException extends __BaseException {
+  readonly name: "InvalidWebhookAuthenticationParametersException" = "InvalidWebhookAuthenticationParametersException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidWebhookAuthenticationParametersException, __BaseException>) {
+    super({
+      name: "InvalidWebhookAuthenticationParametersException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidWebhookAuthenticationParametersException.prototype);
+  }
 }
 
 /**
  * <p>The specified event filter rule is in an invalid format.</p>
  */
-export interface InvalidWebhookFilterPatternException extends __SmithyException, $MetadataBearer {
-  name: "InvalidWebhookFilterPatternException";
-  $fault: "client";
+export class InvalidWebhookFilterPatternException extends __BaseException {
+  readonly name: "InvalidWebhookFilterPatternException" = "InvalidWebhookFilterPatternException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidWebhookFilterPatternException, __BaseException>) {
+    super({
+      name: "InvalidWebhookFilterPatternException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidWebhookFilterPatternException.prototype);
+  }
 }
 
 export interface PutWebhookInput {
@@ -4598,23 +4829,40 @@ export namespace RegisterWebhookWithThirdPartyOutput {
  * <p>Your request cannot be handled because the pipeline is busy handling ongoing
  *             activities. Try again later.</p>
  */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  message?: string;
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
 }
 
 /**
  * <p>The stage has failed in a later run of the pipeline and the pipelineExecutionId
  *             associated with the request is out of date.</p>
  */
-export interface NotLatestPipelineExecutionException extends __SmithyException, $MetadataBearer {
-  name: "NotLatestPipelineExecutionException";
-  $fault: "client";
+export class NotLatestPipelineExecutionException extends __BaseException {
+  readonly name: "NotLatestPipelineExecutionException" = "NotLatestPipelineExecutionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<NotLatestPipelineExecutionException, __BaseException>) {
+    super({
+      name: "NotLatestPipelineExecutionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotLatestPipelineExecutionException.prototype);
+  }
 }
 
 export enum StageRetryMode {
@@ -4681,13 +4929,20 @@ export namespace RetryStageExecutionOutput {
  *             actions awaited retry, or the stage contains no failed
  *             actions.</p>
  */
-export interface StageNotRetryableException extends __SmithyException, $MetadataBearer {
-  name: "StageNotRetryableException";
-  $fault: "client";
+export class StageNotRetryableException extends __BaseException {
+  readonly name: "StageNotRetryableException" = "StageNotRetryableException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The message provided to the user in the event of an exception.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<StageNotRetryableException, __BaseException>) {
+    super({
+      name: "StageNotRetryableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StageNotRetryableException.prototype);
+  }
 }
 
 /**
@@ -4742,20 +4997,40 @@ export namespace StartPipelineExecutionOutput {
  *             tasks. If you already chose to stop and abandon, you cannot make that request
  *             again.</p>
  */
-export interface DuplicatedStopRequestException extends __SmithyException, $MetadataBearer {
-  name: "DuplicatedStopRequestException";
-  $fault: "client";
-  message?: string;
+export class DuplicatedStopRequestException extends __BaseException {
+  readonly name: "DuplicatedStopRequestException" = "DuplicatedStopRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicatedStopRequestException, __BaseException>) {
+    super({
+      name: "DuplicatedStopRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicatedStopRequestException.prototype);
+  }
 }
 
 /**
  * <p>Unable to stop the pipeline execution. The execution might already be in a
  *                 <code>Stopped</code> state, or it might no longer be in progress.</p>
  */
-export interface PipelineExecutionNotStoppableException extends __SmithyException, $MetadataBearer {
-  name: "PipelineExecutionNotStoppableException";
-  $fault: "client";
-  message?: string;
+export class PipelineExecutionNotStoppableException extends __BaseException {
+  readonly name: "PipelineExecutionNotStoppableException" = "PipelineExecutionNotStoppableException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PipelineExecutionNotStoppableException, __BaseException>) {
+    super({
+      name: "PipelineExecutionNotStoppableException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PipelineExecutionNotStoppableException.prototype);
+  }
 }
 
 export interface StopPipelineExecutionInput {
@@ -4878,10 +5153,20 @@ export namespace UntagResourceOutput {
 /**
  * <p>The request failed because of an unknown error, exception, or failure.</p>
  */
-export interface RequestFailedException extends __SmithyException, $MetadataBearer {
-  name: "RequestFailedException";
-  $fault: "client";
-  message?: string;
+export class RequestFailedException extends __BaseException {
+  readonly name: "RequestFailedException" = "RequestFailedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RequestFailedException, __BaseException>) {
+    super({
+      name: "RequestFailedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RequestFailedException.prototype);
+  }
 }
 
 export interface UpdateActionTypeInput {

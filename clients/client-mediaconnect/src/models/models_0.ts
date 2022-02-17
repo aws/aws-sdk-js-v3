@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { MediaConnectServiceException as __BaseException } from "./MediaConnectServiceException";
 
 export enum Colorimetry {
   BT2020 = "BT2020",
@@ -1644,85 +1647,169 @@ export namespace AddFlowMediaStreamsResponse {
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
-  name: "InternalServerErrorException";
-  $fault: "server";
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
+export class ServiceUnavailableException extends __BaseException {
+  readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
+  readonly $fault: "server" = "server";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface AddFlowOutputs420Exception extends __SmithyException, $MetadataBearer {
-  name: "AddFlowOutputs420Exception";
-  $fault: "client";
+export class AddFlowOutputs420Exception extends __BaseException {
+  readonly name: "AddFlowOutputs420Exception" = "AddFlowOutputs420Exception";
+  readonly $fault: "client" = "client";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AddFlowOutputs420Exception, __BaseException>) {
+    super({
+      name: "AddFlowOutputs420Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AddFlowOutputs420Exception.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -1863,13 +1950,25 @@ export namespace AddFlowVpcInterfacesResponse {
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface CreateFlow420Exception extends __SmithyException, $MetadataBearer {
-  name: "CreateFlow420Exception";
-  $fault: "client";
+export class CreateFlow420Exception extends __BaseException {
+  readonly name: "CreateFlow420Exception" = "CreateFlow420Exception";
+  readonly $fault: "client" = "client";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CreateFlow420Exception, __BaseException>) {
+    super({
+      name: "CreateFlow420Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CreateFlow420Exception.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum FailoverMode {
@@ -2238,13 +2337,25 @@ export namespace DescribeReservationResponse {
 /**
  * Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
  */
-export interface GrantFlowEntitlements420Exception extends __SmithyException, $MetadataBearer {
-  name: "GrantFlowEntitlements420Exception";
-  $fault: "client";
+export class GrantFlowEntitlements420Exception extends __BaseException {
+  readonly name: "GrantFlowEntitlements420Exception" = "GrantFlowEntitlements420Exception";
+  readonly $fault: "client" = "client";
   /**
    * The error message returned by AWS Elemental MediaConnect.
    */
   Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GrantFlowEntitlements420Exception, __BaseException>) {
+    super({
+      name: "GrantFlowEntitlements420Exception",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GrantFlowEntitlements420Exception.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**

@@ -1,22 +1,48 @@
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { SageMakerRuntimeServiceException as __BaseException } from "./SageMakerRuntimeServiceException";
 
 /**
  * <p>Your request caused an exception with an internal dependency. Contact customer support. </p>
  */
-export interface InternalDependencyException extends __SmithyException, $MetadataBearer {
-  name: "InternalDependencyException";
-  $fault: "server";
+export class InternalDependencyException extends __BaseException {
+  readonly name: "InternalDependencyException" = "InternalDependencyException";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalDependencyException, __BaseException>) {
+    super({
+      name: "InternalDependencyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalDependencyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> An internal failure occurred. </p>
  */
-export interface InternalFailure extends __SmithyException, $MetadataBearer {
-  name: "InternalFailure";
-  $fault: "server";
+export class InternalFailure extends __BaseException {
+  readonly name: "InternalFailure" = "InternalFailure";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailure, __BaseException>) {
+    super({
+      name: "InternalFailure",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailure.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface InvokeEndpointInput {
@@ -158,9 +184,9 @@ export namespace InvokeEndpointOutput {
  * <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
  *         </p>
  */
-export interface ModelError extends __SmithyException, $MetadataBearer {
-  name: "ModelError";
-  $fault: "client";
+export class ModelError extends __BaseException {
+  readonly name: "ModelError" = "ModelError";
+  readonly $fault: "client" = "client";
   Message?: string;
   /**
    * <p> Original status code. </p>
@@ -176,33 +202,84 @@ export interface ModelError extends __SmithyException, $MetadataBearer {
    * <p> The Amazon Resource Name (ARN) of the log stream. </p>
    */
   LogStreamArn?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ModelError, __BaseException>) {
+    super({
+      name: "ModelError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ModelError.prototype);
+    this.Message = opts.Message;
+    this.OriginalStatusCode = opts.OriginalStatusCode;
+    this.OriginalMessage = opts.OriginalMessage;
+    this.LogStreamArn = opts.LogStreamArn;
+  }
 }
 
 /**
  * <p>Either a serverless endpoint variant's resources are still being provisioned, or a multi-model endpoint is still downloading or loading the target model. Wait and try your request again.</p>
  */
-export interface ModelNotReadyException extends __SmithyException, $MetadataBearer {
-  name: "ModelNotReadyException";
-  $fault: "client";
+export class ModelNotReadyException extends __BaseException {
+  readonly name: "ModelNotReadyException" = "ModelNotReadyException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ModelNotReadyException, __BaseException>) {
+    super({
+      name: "ModelNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ModelNotReadyException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> The service is unavailable. Try your call again. </p>
  */
-export interface ServiceUnavailable extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailable";
-  $fault: "server";
+export class ServiceUnavailable extends __BaseException {
+  readonly name: "ServiceUnavailable" = "ServiceUnavailable";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailable, __BaseException>) {
+    super({
+      name: "ServiceUnavailable",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailable.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p> Inspect your request and try again. </p>
  */
-export interface ValidationError extends __SmithyException, $MetadataBearer {
-  name: "ValidationError";
-  $fault: "client";
+export class ValidationError extends __BaseException {
+  readonly name: "ValidationError" = "ValidationError";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationError, __BaseException>) {
+    super({
+      name: "ValidationError",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export interface InvokeEndpointAsyncInput {

@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -9,16 +10,15 @@ import {
 import {
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput } from "../commands/BatchMeterUsageCommand";
 import { MeterUsageCommandInput, MeterUsageCommandOutput } from "../commands/MeterUsageCommand";
 import { RegisterUsageCommandInput, RegisterUsageCommandOutput } from "../commands/RegisterUsageCommand";
 import { ResolveCustomerCommandInput, ResolveCustomerCommandOutput } from "../commands/ResolveCustomerCommand";
+import { MarketplaceMeteringServiceException as __BaseException } from "../models/MarketplaceMeteringServiceException";
 import {
   BatchMeterUsageRequest,
   BatchMeterUsageResult,
@@ -128,97 +128,46 @@ const deserializeAws_json1_1BatchMeterUsageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledApiException":
     case "com.amazonaws.marketplacemetering#DisabledApiException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledApiExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledApiExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplacemetering#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
     case "InvalidCustomerIdentifierException":
     case "com.amazonaws.marketplacemetering#InvalidCustomerIdentifierException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidCustomerIdentifierExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidCustomerIdentifierExceptionResponse(parsedOutput, context);
     case "InvalidProductCodeException":
     case "com.amazonaws.marketplacemetering#InvalidProductCodeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidProductCodeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidProductCodeExceptionResponse(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.marketplacemetering#InvalidTagException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
     case "InvalidUsageAllocationsException":
     case "com.amazonaws.marketplacemetering#InvalidUsageAllocationsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse(parsedOutput, context);
     case "InvalidUsageDimensionException":
     case "com.amazonaws.marketplacemetering#InvalidUsageDimensionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacemetering#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     case "TimestampOutOfBoundsException":
     case "com.amazonaws.marketplacemetering#TimestampOutOfBoundsException":
-      response = {
-        ...(await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1MeterUsageCommand = async (
@@ -246,105 +195,49 @@ const deserializeAws_json1_1MeterUsageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomerNotEntitledException":
     case "com.amazonaws.marketplacemetering#CustomerNotEntitledException":
-      response = {
-        ...(await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(parsedOutput, context);
     case "DuplicateRequestException":
     case "com.amazonaws.marketplacemetering#DuplicateRequestException":
-      response = {
-        ...(await deserializeAws_json1_1DuplicateRequestExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DuplicateRequestExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplacemetering#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
     case "InvalidEndpointRegionException":
     case "com.amazonaws.marketplacemetering#InvalidEndpointRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidEndpointRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidEndpointRegionExceptionResponse(parsedOutput, context);
     case "InvalidProductCodeException":
     case "com.amazonaws.marketplacemetering#InvalidProductCodeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidProductCodeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidProductCodeExceptionResponse(parsedOutput, context);
     case "InvalidTagException":
     case "com.amazonaws.marketplacemetering#InvalidTagException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTagExceptionResponse(parsedOutput, context);
     case "InvalidUsageAllocationsException":
     case "com.amazonaws.marketplacemetering#InvalidUsageAllocationsException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse(parsedOutput, context);
     case "InvalidUsageDimensionException":
     case "com.amazonaws.marketplacemetering#InvalidUsageDimensionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidUsageDimensionExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacemetering#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     case "TimestampOutOfBoundsException":
     case "com.amazonaws.marketplacemetering#TimestampOutOfBoundsException":
-      response = {
-        ...(await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1RegisterUsageCommand = async (
@@ -372,89 +265,43 @@ const deserializeAws_json1_1RegisterUsageCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomerNotEntitledException":
     case "com.amazonaws.marketplacemetering#CustomerNotEntitledException":
-      response = {
-        ...(await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1CustomerNotEntitledExceptionResponse(parsedOutput, context);
     case "DisabledApiException":
     case "com.amazonaws.marketplacemetering#DisabledApiException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledApiExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledApiExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplacemetering#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
     case "InvalidProductCodeException":
     case "com.amazonaws.marketplacemetering#InvalidProductCodeException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidProductCodeExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidProductCodeExceptionResponse(parsedOutput, context);
     case "InvalidPublicKeyVersionException":
     case "com.amazonaws.marketplacemetering#InvalidPublicKeyVersionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidPublicKeyVersionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidPublicKeyVersionExceptionResponse(parsedOutput, context);
     case "InvalidRegionException":
     case "com.amazonaws.marketplacemetering#InvalidRegionException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidRegionExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidRegionExceptionResponse(parsedOutput, context);
     case "PlatformNotSupportedException":
     case "com.amazonaws.marketplacemetering#PlatformNotSupportedException":
-      response = {
-        ...(await deserializeAws_json1_1PlatformNotSupportedExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1PlatformNotSupportedExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacemetering#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_json1_1ResolveCustomerCommand = async (
@@ -482,65 +329,34 @@ const deserializeAws_json1_1ResolveCustomerCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledApiException":
     case "com.amazonaws.marketplacemetering#DisabledApiException":
-      response = {
-        ...(await deserializeAws_json1_1DisabledApiExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1DisabledApiExceptionResponse(parsedOutput, context);
     case "ExpiredTokenException":
     case "com.amazonaws.marketplacemetering#ExpiredTokenException":
-      response = {
-        ...(await deserializeAws_json1_1ExpiredTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ExpiredTokenExceptionResponse(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.marketplacemetering#InternalServiceErrorException":
-      response = {
-        ...(await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
     case "InvalidTokenException":
     case "com.amazonaws.marketplacemetering#InvalidTokenException":
-      response = {
-        ...(await deserializeAws_json1_1InvalidTokenExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1InvalidTokenExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.marketplacemetering#ThrottlingException":
-      response = {
-        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_json1_1CustomerNotEntitledExceptionResponse = async (
@@ -549,13 +365,11 @@ const deserializeAws_json1_1CustomerNotEntitledExceptionResponse = async (
 ): Promise<CustomerNotEntitledException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1CustomerNotEntitledException(body, context);
-  const contents: CustomerNotEntitledException = {
-    name: "CustomerNotEntitledException",
-    $fault: "client",
+  const exception = new CustomerNotEntitledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DisabledApiExceptionResponse = async (
@@ -564,13 +378,11 @@ const deserializeAws_json1_1DisabledApiExceptionResponse = async (
 ): Promise<DisabledApiException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DisabledApiException(body, context);
-  const contents: DisabledApiException = {
-    name: "DisabledApiException",
-    $fault: "client",
+  const exception = new DisabledApiException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1DuplicateRequestExceptionResponse = async (
@@ -579,13 +391,11 @@ const deserializeAws_json1_1DuplicateRequestExceptionResponse = async (
 ): Promise<DuplicateRequestException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1DuplicateRequestException(body, context);
-  const contents: DuplicateRequestException = {
-    name: "DuplicateRequestException",
-    $fault: "client",
+  const exception = new DuplicateRequestException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ExpiredTokenExceptionResponse = async (
@@ -594,13 +404,11 @@ const deserializeAws_json1_1ExpiredTokenExceptionResponse = async (
 ): Promise<ExpiredTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ExpiredTokenException(body, context);
-  const contents: ExpiredTokenException = {
-    name: "ExpiredTokenException",
-    $fault: "client",
+  const exception = new ExpiredTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
@@ -609,13 +417,11 @@ const deserializeAws_json1_1InternalServiceErrorExceptionResponse = async (
 ): Promise<InternalServiceErrorException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InternalServiceErrorException(body, context);
-  const contents: InternalServiceErrorException = {
-    name: "InternalServiceErrorException",
-    $fault: "server",
+  const exception = new InternalServiceErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidCustomerIdentifierExceptionResponse = async (
@@ -624,13 +430,11 @@ const deserializeAws_json1_1InvalidCustomerIdentifierExceptionResponse = async (
 ): Promise<InvalidCustomerIdentifierException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidCustomerIdentifierException(body, context);
-  const contents: InvalidCustomerIdentifierException = {
-    name: "InvalidCustomerIdentifierException",
-    $fault: "client",
+  const exception = new InvalidCustomerIdentifierException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidEndpointRegionExceptionResponse = async (
@@ -639,13 +443,11 @@ const deserializeAws_json1_1InvalidEndpointRegionExceptionResponse = async (
 ): Promise<InvalidEndpointRegionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidEndpointRegionException(body, context);
-  const contents: InvalidEndpointRegionException = {
-    name: "InvalidEndpointRegionException",
-    $fault: "client",
+  const exception = new InvalidEndpointRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidProductCodeExceptionResponse = async (
@@ -654,13 +456,11 @@ const deserializeAws_json1_1InvalidProductCodeExceptionResponse = async (
 ): Promise<InvalidProductCodeException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidProductCodeException(body, context);
-  const contents: InvalidProductCodeException = {
-    name: "InvalidProductCodeException",
-    $fault: "client",
+  const exception = new InvalidProductCodeException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidPublicKeyVersionExceptionResponse = async (
@@ -669,13 +469,11 @@ const deserializeAws_json1_1InvalidPublicKeyVersionExceptionResponse = async (
 ): Promise<InvalidPublicKeyVersionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidPublicKeyVersionException(body, context);
-  const contents: InvalidPublicKeyVersionException = {
-    name: "InvalidPublicKeyVersionException",
-    $fault: "client",
+  const exception = new InvalidPublicKeyVersionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidRegionExceptionResponse = async (
@@ -684,13 +482,11 @@ const deserializeAws_json1_1InvalidRegionExceptionResponse = async (
 ): Promise<InvalidRegionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidRegionException(body, context);
-  const contents: InvalidRegionException = {
-    name: "InvalidRegionException",
-    $fault: "client",
+  const exception = new InvalidRegionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidTagExceptionResponse = async (
@@ -699,13 +495,11 @@ const deserializeAws_json1_1InvalidTagExceptionResponse = async (
 ): Promise<InvalidTagException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTagException(body, context);
-  const contents: InvalidTagException = {
-    name: "InvalidTagException",
-    $fault: "client",
+  const exception = new InvalidTagException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
@@ -714,13 +508,11 @@ const deserializeAws_json1_1InvalidTokenExceptionResponse = async (
 ): Promise<InvalidTokenException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidTokenException(body, context);
-  const contents: InvalidTokenException = {
-    name: "InvalidTokenException",
-    $fault: "client",
+  const exception = new InvalidTokenException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse = async (
@@ -729,13 +521,11 @@ const deserializeAws_json1_1InvalidUsageAllocationsExceptionResponse = async (
 ): Promise<InvalidUsageAllocationsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidUsageAllocationsException(body, context);
-  const contents: InvalidUsageAllocationsException = {
-    name: "InvalidUsageAllocationsException",
-    $fault: "client",
+  const exception = new InvalidUsageAllocationsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1InvalidUsageDimensionExceptionResponse = async (
@@ -744,13 +534,11 @@ const deserializeAws_json1_1InvalidUsageDimensionExceptionResponse = async (
 ): Promise<InvalidUsageDimensionException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1InvalidUsageDimensionException(body, context);
-  const contents: InvalidUsageDimensionException = {
-    name: "InvalidUsageDimensionException",
-    $fault: "client",
+  const exception = new InvalidUsageDimensionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1PlatformNotSupportedExceptionResponse = async (
@@ -759,13 +547,11 @@ const deserializeAws_json1_1PlatformNotSupportedExceptionResponse = async (
 ): Promise<PlatformNotSupportedException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1PlatformNotSupportedException(body, context);
-  const contents: PlatformNotSupportedException = {
-    name: "PlatformNotSupportedException",
-    $fault: "client",
+  const exception = new PlatformNotSupportedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1ThrottlingExceptionResponse = async (
@@ -774,13 +560,11 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
 ): Promise<ThrottlingException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ThrottlingException(body, context);
-  const contents: ThrottlingException = {
-    name: "ThrottlingException",
-    $fault: "client",
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse = async (
@@ -789,13 +573,11 @@ const deserializeAws_json1_1TimestampOutOfBoundsExceptionResponse = async (
 ): Promise<TimestampOutOfBoundsException> => {
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1TimestampOutOfBoundsException(body, context);
-  const contents: TimestampOutOfBoundsException = {
-    name: "TimestampOutOfBoundsException",
-    $fault: "client",
+  const exception = new TimestampOutOfBoundsException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
-  };
-  return contents;
+  });
+  return __decorateServiceException(exception, body);
 };
 
 const serializeAws_json1_1BatchMeterUsageRequest = (input: BatchMeterUsageRequest, context: __SerdeContext): any => {

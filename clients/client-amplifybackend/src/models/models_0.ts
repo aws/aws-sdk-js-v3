@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { AmplifyBackendServiceException as __BaseException } from "./AmplifyBackendServiceException";
 
 export enum AdditionalConstraintsElement {
   REQUIRE_DIGIT = "REQUIRE_DIGIT",
@@ -10,13 +13,25 @@ export enum AdditionalConstraintsElement {
 /**
  * <p>An error returned if a request is not formed properly.</p>
  */
-export interface BadRequestException extends __SmithyException, $MetadataBearer {
-  name: "BadRequestException";
-  $fault: "client";
+export class BadRequestException extends __BaseException {
+  readonly name: "BadRequestException" = "BadRequestException";
+  readonly $fault: "client" = "client";
   /**
    * <p>An error message to inform that the request failed.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BadRequestException, __BaseException>) {
+    super({
+      name: "BadRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -92,21 +107,33 @@ export namespace CloneBackendResponse {
 /**
  * <p>An error returned if there's a temporary issue with the service.</p>
  */
-export interface GatewayTimeoutException extends __SmithyException, $MetadataBearer {
-  name: "GatewayTimeoutException";
-  $fault: "server";
+export class GatewayTimeoutException extends __BaseException {
+  readonly name: "GatewayTimeoutException" = "GatewayTimeoutException";
+  readonly $fault: "server" = "server";
   /**
    * <p>An error message to inform that the request failed.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GatewayTimeoutException, __BaseException>) {
+    super({
+      name: "GatewayTimeoutException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GatewayTimeoutException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>An error returned when a specific resource type is not found.</p>
  */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
+export class NotFoundException extends __BaseException {
+  readonly name: "NotFoundException" = "NotFoundException";
+  readonly $fault: "client" = "client";
   /**
    * <p>An error message to inform that the request has failed.</p>
    */
@@ -116,14 +143,27 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
    * <p>The type of resource that is not found.</p>
    */
   ResourceType?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotFoundException, __BaseException>) {
+    super({
+      name: "NotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
  * <p>An error that is returned when a limit of a specific type has been exceeded.</p>
  */
-export interface TooManyRequestsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyRequestsException";
-  $fault: "client";
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
   /**
    * <p>The type of limit that was exceeded.</p>
    */
@@ -133,6 +173,19 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
    * <p>An error message to inform that the request has failed.</p>
    */
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.LimitType = opts.LimitType;
+    this.Message = opts.Message;
+  }
 }
 
 /**

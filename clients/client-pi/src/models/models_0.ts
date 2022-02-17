@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { PIServiceException as __BaseException } from "./PIServiceException";
 
 /**
  * <p>A timestamp, and a single numerical value, which together represent a measurement at a particular point in time.</p>
@@ -450,28 +453,64 @@ export namespace DescribeDimensionKeysResponse {
 /**
  * <p>The request failed due to an unknown error.</p>
  */
-export interface InternalServiceError extends __SmithyException, $MetadataBearer {
-  name: "InternalServiceError";
-  $fault: "server";
+export class InternalServiceError extends __BaseException {
+  readonly name: "InternalServiceError" = "InternalServiceError";
+  readonly $fault: "server" = "server";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
+    super({
+      name: "InternalServiceError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceError.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>One of the arguments provided is invalid for this request.</p>
  */
-export interface InvalidArgumentException extends __SmithyException, $MetadataBearer {
-  name: "InvalidArgumentException";
-  $fault: "client";
+export class InvalidArgumentException extends __BaseException {
+  readonly name: "InvalidArgumentException" = "InvalidArgumentException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidArgumentException, __BaseException>) {
+    super({
+      name: "InvalidArgumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidArgumentException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
  * <p>The user is not authorized to perform this request.</p>
  */
-export interface NotAuthorizedException extends __SmithyException, $MetadataBearer {
-  name: "NotAuthorizedException";
-  $fault: "client";
+export class NotAuthorizedException extends __BaseException {
+  readonly name: "NotAuthorizedException" = "NotAuthorizedException";
+  readonly $fault: "client" = "client";
   Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NotAuthorizedException, __BaseException>) {
+    super({
+      name: "NotAuthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NotAuthorizedException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 export enum DetailStatus {

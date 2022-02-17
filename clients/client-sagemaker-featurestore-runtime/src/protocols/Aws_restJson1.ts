@@ -1,5 +1,6 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
+  decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -7,10 +8,8 @@ import {
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
 import { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "../commands/BatchGetRecordCommand";
@@ -28,6 +27,7 @@ import {
   ServiceUnavailable,
   ValidationError,
 } from "../models/models_0";
+import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
 
 export const serializeAws_restJson1BatchGetRecordCommand = async (
   input: BatchGetRecordCommandInput,
@@ -200,57 +200,31 @@ const deserializeAws_restJson1BatchGetRecordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      response = {
-        ...(await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      response = {
-        ...(await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1DeleteRecordCommand = async (
@@ -275,57 +249,31 @@ const deserializeAws_restJson1DeleteRecordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      response = {
-        ...(await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      response = {
-        ...(await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1GetRecordCommand = async (
@@ -354,65 +302,34 @@ const deserializeAws_restJson1GetRecordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      response = {
-        ...(await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ResourceNotFound":
-      response = {
-        ...(await deserializeAws_restJson1ResourceNotFoundResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ResourceNotFoundResponse(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      response = {
-        ...(await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1PutRecordCommand = async (
@@ -437,142 +354,111 @@ const deserializeAws_restJson1PutRecordCommandError = async (
     ...output,
     body: await parseBody(output.body, context),
   };
-  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let response: __BaseException;
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":
     case "com.amazonaws.sagemakerfeaturestoreruntime#AccessForbidden":
-      response = {
-        ...(await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1AccessForbiddenResponse(parsedOutput, context);
     case "InternalFailure":
     case "com.amazonaws.sagemakerfeaturestoreruntime#InternalFailure":
-      response = {
-        ...(await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1InternalFailureResponse(parsedOutput, context);
     case "ServiceUnavailable":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ServiceUnavailable":
-      response = {
-        ...(await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ServiceUnavailableResponse(parsedOutput, context);
     case "ValidationError":
     case "com.amazonaws.sagemakerfeaturestoreruntime#ValidationError":
-      response = {
-        ...(await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
+      throw await deserializeAws_restJson1ValidationErrorResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
-      errorCode = parsedBody.code || parsedBody.Code || errorCode;
-      response = {
-        ...parsedBody,
-        name: `${errorCode}`,
-        message: parsedBody.message || parsedBody.Message || errorCode,
+      response = new __BaseException({
+        name: parsedBody.code || parsedBody.Code || errorCode,
         $fault: "client",
         $metadata: deserializeMetadata(output),
-      } as any;
+      });
+      throw __decorateServiceException(response, parsedBody);
   }
-  const message = response.message || response.Message || errorCode;
-  response.message = message;
-  delete response.Message;
-  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 const deserializeAws_restJson1AccessForbiddenResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessForbidden> => {
-  const contents: AccessForbidden = {
-    name: "AccessForbidden",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new AccessForbidden({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1InternalFailureResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalFailure> => {
-  const contents: InternalFailure = {
-    name: "InternalFailure",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new InternalFailure({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ResourceNotFoundResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFound> => {
-  const contents: ResourceNotFound = {
-    name: "ResourceNotFound",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ResourceNotFound({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ServiceUnavailableResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailable> => {
-  const contents: ServiceUnavailable = {
-    name: "ServiceUnavailable",
-    $fault: "server",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ServiceUnavailable({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const deserializeAws_restJson1ValidationErrorResponse = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ValidationError> => {
-  const contents: ValidationError = {
-    name: "ValidationError",
-    $fault: "client",
-    $metadata: deserializeMetadata(parsedOutput),
-    Message: undefined,
-  };
+  const contents: any = {};
   const data: any = parsedOutput.body;
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
-  return contents;
+  const exception = new ValidationError({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
 };
 
 const serializeAws_restJson1BatchGetRecordIdentifier = (

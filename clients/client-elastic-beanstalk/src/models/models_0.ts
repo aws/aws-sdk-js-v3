@@ -1,4 +1,7 @@
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+import { ElasticBeanstalkServiceException as __BaseException } from "./ElasticBeanstalkServiceException";
 
 /**
  * <p></p>
@@ -30,13 +33,20 @@ export namespace AbortEnvironmentUpdateMessage {
  * <p>The specified account does not have sufficient privileges for one or more AWS
  *       services.</p>
  */
-export interface InsufficientPrivilegesException extends __SmithyException, $MetadataBearer {
-  name: "InsufficientPrivilegesException";
-  $fault: "client";
+export class InsufficientPrivilegesException extends __BaseException {
+  readonly name: "InsufficientPrivilegesException" = "InsufficientPrivilegesException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InsufficientPrivilegesException, __BaseException>) {
+    super({
+      name: "InsufficientPrivilegesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientPrivilegesException.prototype);
+  }
 }
 
 export type ActionHistoryStatus = "Completed" | "Failed" | "Unknown";
@@ -734,25 +744,39 @@ export namespace ApplyEnvironmentManagedActionResult {
 /**
  * <p>A generic service exception has occurred.</p>
  */
-export interface ElasticBeanstalkServiceException extends __SmithyException, $MetadataBearer {
-  name: "ElasticBeanstalkServiceException";
-  $fault: "client";
+export class ElasticBeanstalkServiceException extends __BaseException {
+  readonly name: "ElasticBeanstalkServiceException" = "ElasticBeanstalkServiceException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ElasticBeanstalkServiceException, __BaseException>) {
+    super({
+      name: "ElasticBeanstalkServiceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ElasticBeanstalkServiceException.prototype);
+  }
 }
 
 /**
  * <p>Cannot modify the managed action in its current state.</p>
  */
-export interface ManagedActionInvalidStateException extends __SmithyException, $MetadataBearer {
-  name: "ManagedActionInvalidStateException";
-  $fault: "client";
+export class ManagedActionInvalidStateException extends __BaseException {
+  readonly name: "ManagedActionInvalidStateException" = "ManagedActionInvalidStateException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ManagedActionInvalidStateException, __BaseException>) {
+    super({
+      name: "ManagedActionInvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ManagedActionInvalidStateException.prototype);
+  }
 }
 
 /**
@@ -1298,13 +1322,20 @@ export namespace EnvironmentDescriptionsMessage {
 /**
  * <p>The specified account has reached its limit of environments.</p>
  */
-export interface TooManyEnvironmentsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyEnvironmentsException";
-  $fault: "client";
+export class TooManyEnvironmentsException extends __BaseException {
+  readonly name: "TooManyEnvironmentsException" = "TooManyEnvironmentsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyEnvironmentsException, __BaseException>) {
+    super({
+      name: "TooManyEnvironmentsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyEnvironmentsException.prototype);
+  }
 }
 
 /**
@@ -1371,25 +1402,39 @@ export namespace CreateApplicationMessage {
 /**
  * <p>The specified account has reached its limit of applications.</p>
  */
-export interface TooManyApplicationsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyApplicationsException";
-  $fault: "client";
+export class TooManyApplicationsException extends __BaseException {
+  readonly name: "TooManyApplicationsException" = "TooManyApplicationsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyApplicationsException, __BaseException>) {
+    super({
+      name: "TooManyApplicationsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyApplicationsException.prototype);
+  }
 }
 
 /**
  * <p>AWS CodeBuild is not available in the specified region.</p>
  */
-export interface CodeBuildNotInServiceRegionException extends __SmithyException, $MetadataBearer {
-  name: "CodeBuildNotInServiceRegionException";
-  $fault: "client";
+export class CodeBuildNotInServiceRegionException extends __BaseException {
+  readonly name: "CodeBuildNotInServiceRegionException" = "CodeBuildNotInServiceRegionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<CodeBuildNotInServiceRegionException, __BaseException>) {
+    super({
+      name: "CodeBuildNotInServiceRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CodeBuildNotInServiceRegionException.prototype);
+  }
 }
 
 export enum ComputeType {
@@ -1562,25 +1607,39 @@ export namespace CreateApplicationVersionMessage {
  * 	           </li>
  *          </ul>
  */
-export interface S3LocationNotInServiceRegionException extends __SmithyException, $MetadataBearer {
-  name: "S3LocationNotInServiceRegionException";
-  $fault: "client";
+export class S3LocationNotInServiceRegionException extends __BaseException {
+  readonly name: "S3LocationNotInServiceRegionException" = "S3LocationNotInServiceRegionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<S3LocationNotInServiceRegionException, __BaseException>) {
+    super({
+      name: "S3LocationNotInServiceRegionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3LocationNotInServiceRegionException.prototype);
+  }
 }
 
 /**
  * <p>The specified account has reached its limit of application versions.</p>
  */
-export interface TooManyApplicationVersionsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyApplicationVersionsException";
-  $fault: "client";
+export class TooManyApplicationVersionsException extends __BaseException {
+  readonly name: "TooManyApplicationVersionsException" = "TooManyApplicationVersionsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyApplicationVersionsException, __BaseException>) {
+    super({
+      name: "TooManyApplicationVersionsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyApplicationVersionsException.prototype);
+  }
 }
 
 export type ConfigurationDeploymentStatus = "deployed" | "failed" | "pending";
@@ -1833,25 +1892,39 @@ export namespace CreateConfigurationTemplateMessage {
 /**
  * <p>The specified account has reached its limit of Amazon S3 buckets.</p>
  */
-export interface TooManyBucketsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyBucketsException";
-  $fault: "client";
+export class TooManyBucketsException extends __BaseException {
+  readonly name: "TooManyBucketsException" = "TooManyBucketsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyBucketsException, __BaseException>) {
+    super({
+      name: "TooManyBucketsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyBucketsException.prototype);
+  }
 }
 
 /**
  * <p>The specified account has reached its limit of configuration templates.</p>
  */
-export interface TooManyConfigurationTemplatesException extends __SmithyException, $MetadataBearer {
-  name: "TooManyConfigurationTemplatesException";
-  $fault: "client";
+export class TooManyConfigurationTemplatesException extends __BaseException {
+  readonly name: "TooManyConfigurationTemplatesException" = "TooManyConfigurationTemplatesException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyConfigurationTemplatesException, __BaseException>) {
+    super({
+      name: "TooManyConfigurationTemplatesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyConfigurationTemplatesException.prototype);
+  }
 }
 
 /**
@@ -2179,13 +2252,20 @@ export namespace CreatePlatformVersionResult {
 /**
  * <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>
  */
-export interface TooManyPlatformsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyPlatformsException";
-  $fault: "client";
+export class TooManyPlatformsException extends __BaseException {
+  readonly name: "TooManyPlatformsException" = "TooManyPlatformsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyPlatformsException, __BaseException>) {
+    super({
+      name: "TooManyPlatformsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyPlatformsException.prototype);
+  }
 }
 
 /**
@@ -2210,13 +2290,20 @@ export namespace CreateStorageLocationResultMessage {
 /**
  * <p>The specified account does not have a subscription to Amazon S3.</p>
  */
-export interface S3SubscriptionRequiredException extends __SmithyException, $MetadataBearer {
-  name: "S3SubscriptionRequiredException";
-  $fault: "client";
+export class S3SubscriptionRequiredException extends __BaseException {
+  readonly name: "S3SubscriptionRequiredException" = "S3SubscriptionRequiredException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<S3SubscriptionRequiredException, __BaseException>) {
+    super({
+      name: "S3SubscriptionRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, S3SubscriptionRequiredException.prototype);
+  }
 }
 
 /**
@@ -2248,13 +2335,20 @@ export namespace DeleteApplicationMessage {
  * <p>Unable to perform the specified operation because another operation that effects an
  *       element in this activity is already in progress.</p>
  */
-export interface OperationInProgressException extends __SmithyException, $MetadataBearer {
-  name: "OperationInProgressException";
-  $fault: "client";
+export class OperationInProgressException extends __BaseException {
+  readonly name: "OperationInProgressException" = "OperationInProgressException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<OperationInProgressException, __BaseException>) {
+    super({
+      name: "OperationInProgressException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperationInProgressException.prototype);
+  }
 }
 
 /**
@@ -2292,13 +2386,20 @@ export namespace DeleteApplicationVersionMessage {
  * <p>Unable to delete the Amazon S3 source bundle associated with the application version.
  *       The application version was deleted successfully.</p>
  */
-export interface SourceBundleDeletionException extends __SmithyException, $MetadataBearer {
-  name: "SourceBundleDeletionException";
-  $fault: "client";
+export class SourceBundleDeletionException extends __BaseException {
+  readonly name: "SourceBundleDeletionException" = "SourceBundleDeletionException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<SourceBundleDeletionException, __BaseException>) {
+    super({
+      name: "SourceBundleDeletionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceBundleDeletionException.prototype);
+  }
 }
 
 /**
@@ -2384,13 +2485,20 @@ export namespace DeletePlatformVersionResult {
 /**
  * <p>You cannot delete the platform version because there are still environments running on it.</p>
  */
-export interface PlatformVersionStillReferencedException extends __SmithyException, $MetadataBearer {
-  name: "PlatformVersionStillReferencedException";
-  $fault: "client";
+export class PlatformVersionStillReferencedException extends __BaseException {
+  readonly name: "PlatformVersionStillReferencedException" = "PlatformVersionStillReferencedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<PlatformVersionStillReferencedException, __BaseException>) {
+    super({
+      name: "PlatformVersionStillReferencedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PlatformVersionStillReferencedException.prototype);
+  }
 }
 
 /**
@@ -3002,13 +3110,20 @@ export namespace DescribeEnvironmentHealthResult {
  * <p>One or more input parameters is not valid. Please correct the input parameters and try
  *       the operation again.</p>
  */
-export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
-  name: "InvalidRequestException";
-  $fault: "client";
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
 }
 
 /**
@@ -4608,13 +4723,20 @@ export namespace ListTagsForResourceMessage {
 /**
  * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
  */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
 }
 
 export interface ResourceTagsDescriptionMessage {
@@ -4641,13 +4763,20 @@ export namespace ResourceTagsDescriptionMessage {
 /**
  * <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
  */
-export interface ResourceTypeNotSupportedException extends __SmithyException, $MetadataBearer {
-  name: "ResourceTypeNotSupportedException";
-  $fault: "client";
+export class ResourceTypeNotSupportedException extends __BaseException {
+  readonly name: "ResourceTypeNotSupportedException" = "ResourceTypeNotSupportedException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<ResourceTypeNotSupportedException, __BaseException>) {
+    super({
+      name: "ResourceTypeNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceTypeNotSupportedException.prototype);
+  }
 }
 
 /**
@@ -5188,13 +5317,20 @@ export namespace UpdateEnvironmentMessage {
  *          <p>To calculate this, the operation considers both the number of tags the resource already has
  *       and the tags this operation would add if it succeeded.</p>
  */
-export interface TooManyTagsException extends __SmithyException, $MetadataBearer {
-  name: "TooManyTagsException";
-  $fault: "client";
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
   /**
-   * <p>The exception error message.</p>
+   * @internal
    */
-  message?: string;
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+  }
 }
 
 export interface UpdateTagsForResourceMessage {
