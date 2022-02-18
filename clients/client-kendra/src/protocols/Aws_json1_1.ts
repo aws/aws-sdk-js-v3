@@ -257,6 +257,7 @@ import {
   FailedEntity,
   FaqStatistics,
   FaqSummary,
+  FsxConfiguration,
   GetQuerySuggestionsRequest,
   GetQuerySuggestionsResponse,
   GetSnapshotsRequest,
@@ -6970,6 +6971,10 @@ const serializeAws_json1_1DataSourceConfiguration = (input: DataSourceConfigurat
       input.DatabaseConfiguration !== null && {
         DatabaseConfiguration: serializeAws_json1_1DatabaseConfiguration(input.DatabaseConfiguration, context),
       }),
+    ...(input.FsxConfiguration !== undefined &&
+      input.FsxConfiguration !== null && {
+        FsxConfiguration: serializeAws_json1_1FsxConfiguration(input.FsxConfiguration, context),
+      }),
     ...(input.GoogleDriveConfiguration !== undefined &&
       input.GoogleDriveConfiguration !== null && {
         GoogleDriveConfiguration: serializeAws_json1_1GoogleDriveConfiguration(input.GoogleDriveConfiguration, context),
@@ -7605,6 +7610,31 @@ const serializeAws_json1_1FaqIdsList = (input: string[], context: __SerdeContext
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1FsxConfiguration = (input: FsxConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.ExclusionPatterns !== undefined &&
+      input.ExclusionPatterns !== null && {
+        ExclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.ExclusionPatterns, context),
+      }),
+    ...(input.FieldMappings !== undefined &&
+      input.FieldMappings !== null && {
+        FieldMappings: serializeAws_json1_1DataSourceToIndexFieldMappingList(input.FieldMappings, context),
+      }),
+    ...(input.FileSystemId !== undefined && input.FileSystemId !== null && { FileSystemId: input.FileSystemId }),
+    ...(input.FileSystemType !== undefined &&
+      input.FileSystemType !== null && { FileSystemType: input.FileSystemType }),
+    ...(input.InclusionPatterns !== undefined &&
+      input.InclusionPatterns !== null && {
+        InclusionPatterns: serializeAws_json1_1DataSourceInclusionsExclusionsStrings(input.InclusionPatterns, context),
+      }),
+    ...(input.SecretArn !== undefined && input.SecretArn !== null && { SecretArn: input.SecretArn }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1DataSourceVpcConfiguration(input.VpcConfiguration, context),
+      }),
+  };
 };
 
 const serializeAws_json1_1GetQuerySuggestionsRequest = (
@@ -9588,6 +9618,10 @@ const deserializeAws_json1_1DataSourceConfiguration = (
       output.DatabaseConfiguration !== undefined && output.DatabaseConfiguration !== null
         ? deserializeAws_json1_1DatabaseConfiguration(output.DatabaseConfiguration, context)
         : undefined,
+    FsxConfiguration:
+      output.FsxConfiguration !== undefined && output.FsxConfiguration !== null
+        ? deserializeAws_json1_1FsxConfiguration(output.FsxConfiguration, context)
+        : undefined,
     GoogleDriveConfiguration:
       output.GoogleDriveConfiguration !== undefined && output.GoogleDriveConfiguration !== null
         ? deserializeAws_json1_1GoogleDriveConfiguration(output.GoogleDriveConfiguration, context)
@@ -10405,6 +10439,30 @@ const deserializeAws_json1_1FaqSummaryItems = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1FaqSummary(entry, context);
     });
+};
+
+const deserializeAws_json1_1FsxConfiguration = (output: any, context: __SerdeContext): FsxConfiguration => {
+  return {
+    ExclusionPatterns:
+      output.ExclusionPatterns !== undefined && output.ExclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.ExclusionPatterns, context)
+        : undefined,
+    FieldMappings:
+      output.FieldMappings !== undefined && output.FieldMappings !== null
+        ? deserializeAws_json1_1DataSourceToIndexFieldMappingList(output.FieldMappings, context)
+        : undefined,
+    FileSystemId: __expectString(output.FileSystemId),
+    FileSystemType: __expectString(output.FileSystemType),
+    InclusionPatterns:
+      output.InclusionPatterns !== undefined && output.InclusionPatterns !== null
+        ? deserializeAws_json1_1DataSourceInclusionsExclusionsStrings(output.InclusionPatterns, context)
+        : undefined,
+    SecretArn: __expectString(output.SecretArn),
+    VpcConfiguration:
+      output.VpcConfiguration !== undefined && output.VpcConfiguration !== null
+        ? deserializeAws_json1_1DataSourceVpcConfiguration(output.VpcConfiguration, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GetQuerySuggestionsResponse = (

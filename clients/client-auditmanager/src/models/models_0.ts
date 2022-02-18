@@ -1665,7 +1665,7 @@ export interface CreateAssessmentFrameworkControl {
   /**
    * <p> The unique identifier of the control. </p>
    */
-  id?: string;
+  id: string | undefined;
 }
 
 export namespace CreateAssessmentFrameworkControl {
@@ -4821,7 +4821,7 @@ export interface UpdateAssessmentFrameworkControlSet {
   /**
    * <p> The list of controls that are contained within the control set. </p>
    */
-  controls?: CreateAssessmentFrameworkControl[];
+  controls: CreateAssessmentFrameworkControl[] | undefined;
 }
 
 export namespace UpdateAssessmentFrameworkControlSet {

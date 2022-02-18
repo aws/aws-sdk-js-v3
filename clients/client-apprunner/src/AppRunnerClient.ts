@@ -60,12 +60,14 @@ import {
 } from "./commands/CreateAutoScalingConfigurationCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
+import { CreateVpcConnectorCommandInput, CreateVpcConnectorCommandOutput } from "./commands/CreateVpcConnectorCommand";
 import {
   DeleteAutoScalingConfigurationCommandInput,
   DeleteAutoScalingConfigurationCommandOutput,
 } from "./commands/DeleteAutoScalingConfigurationCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
+import { DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput } from "./commands/DeleteVpcConnectorCommand";
 import {
   DescribeAutoScalingConfigurationCommandInput,
   DescribeAutoScalingConfigurationCommandOutput,
@@ -75,6 +77,10 @@ import {
   DescribeCustomDomainsCommandOutput,
 } from "./commands/DescribeCustomDomainsCommand";
 import { DescribeServiceCommandInput, DescribeServiceCommandOutput } from "./commands/DescribeServiceCommand";
+import {
+  DescribeVpcConnectorCommandInput,
+  DescribeVpcConnectorCommandOutput,
+} from "./commands/DescribeVpcConnectorCommand";
 import {
   DisassociateCustomDomainCommandInput,
   DisassociateCustomDomainCommandOutput,
@@ -90,6 +96,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListVpcConnectorsCommandInput, ListVpcConnectorsCommandOutput } from "./commands/ListVpcConnectorsCommand";
 import { PauseServiceCommandInput, PauseServiceCommandOutput } from "./commands/PauseServiceCommand";
 import { ResumeServiceCommandInput, ResumeServiceCommandOutput } from "./commands/ResumeServiceCommand";
 import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "./commands/StartDeploymentCommand";
@@ -103,18 +110,22 @@ export type ServiceInputTypes =
   | CreateAutoScalingConfigurationCommandInput
   | CreateConnectionCommandInput
   | CreateServiceCommandInput
+  | CreateVpcConnectorCommandInput
   | DeleteAutoScalingConfigurationCommandInput
   | DeleteConnectionCommandInput
   | DeleteServiceCommandInput
+  | DeleteVpcConnectorCommandInput
   | DescribeAutoScalingConfigurationCommandInput
   | DescribeCustomDomainsCommandInput
   | DescribeServiceCommandInput
+  | DescribeVpcConnectorCommandInput
   | DisassociateCustomDomainCommandInput
   | ListAutoScalingConfigurationsCommandInput
   | ListConnectionsCommandInput
   | ListOperationsCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
+  | ListVpcConnectorsCommandInput
   | PauseServiceCommandInput
   | ResumeServiceCommandInput
   | StartDeploymentCommandInput
@@ -127,18 +138,22 @@ export type ServiceOutputTypes =
   | CreateAutoScalingConfigurationCommandOutput
   | CreateConnectionCommandOutput
   | CreateServiceCommandOutput
+  | CreateVpcConnectorCommandOutput
   | DeleteAutoScalingConfigurationCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteServiceCommandOutput
+  | DeleteVpcConnectorCommandOutput
   | DescribeAutoScalingConfigurationCommandOutput
   | DescribeCustomDomainsCommandOutput
   | DescribeServiceCommandOutput
+  | DescribeVpcConnectorCommandOutput
   | DisassociateCustomDomainCommandOutput
   | ListAutoScalingConfigurationsCommandOutput
   | ListConnectionsCommandOutput
   | ListOperationsCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListVpcConnectorsCommandOutput
   | PauseServiceCommandOutput
   | ResumeServiceCommandOutput
   | StartDeploymentCommandOutput

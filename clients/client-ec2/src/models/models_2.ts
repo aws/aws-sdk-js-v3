@@ -6466,8 +6466,7 @@ export interface DescribeAvailabilityZonesRequest {
    *             <li>
    *                <p>
    *                   <code>state</code> - The state of the Availability Zone, the Local Zone, or the
-   *           Wavelength Zone (<code>available</code> | <code>information</code> | <code>impaired</code>
-   *           | <code>unavailable</code>).</p>
+   *           Wavelength Zone (<code>available</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6555,7 +6554,8 @@ export type AvailabilityZoneState = "available" | "impaired" | "information" | "
  */
 export interface AvailabilityZone {
   /**
-   * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone.</p>
+   * <p>The state of the Availability Zone, Local Zone, or Wavelength Zone. This value is always
+   *         <code>available</code>.</p>
    */
   State?: AvailabilityZoneState | string;
 
@@ -7133,6 +7133,10 @@ export interface DescribeCapacityReservationsRequest {
    * 							permitted instances can use the reserved capacity.</p>
    *                   </li>
    *                </ul>
+   * 	  		       </li>
+   *             <li>
+   * 	  			         <p>
+   *                   <code>placement-group-arn</code> - The ARN of the cluster placement group in which the Capacity Reservation was created.</p>
    * 	  		       </li>
    *          </ul>
    */
@@ -8376,19 +8380,15 @@ export interface DescribeCoipPoolsRequest {
   PoolIds?: string[];
 
   /**
-   * <p>The filters. The following are the possible values:</p>
+   * <p>One or more filters.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>coip-pool.pool-id</code>
-   *                </p>
+   *                   <code>coip-pool.local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
    *             </li>
-   *          </ul>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>coip-pool.local-gateway-route-table-id</code>
-   *                </p>
+   *                   <code>coip-pool.pool-id</code> - The ID of the address pool.</p>
    *             </li>
    *          </ul>
    */

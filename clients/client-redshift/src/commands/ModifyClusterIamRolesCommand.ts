@@ -24,7 +24,9 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
 /**
  * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
  *             used by the cluster to access other Amazon Web Services services.</p>
- *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
+ *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+ *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
+ *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -765,6 +765,7 @@ export const serializeAws_restJson1ListExperimentsCommand = async (
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
   return new __HttpRequest({
@@ -833,6 +834,7 @@ export const serializeAws_restJson1ListLaunchesCommand = async (
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1914,6 +1916,14 @@ const deserializeAws_restJson1DeleteExperimentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2325,6 +2335,14 @@ const deserializeAws_restJson1GetExperimentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2570,6 +2588,14 @@ const deserializeAws_restJson1GetLaunchCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.evidently#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2700,6 +2726,14 @@ const deserializeAws_restJson1ListExperimentsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.evidently#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.evidently#ResourceNotFoundException":
       response = {
@@ -3249,6 +3283,14 @@ const deserializeAws_restJson1StartLaunchCommandError = async (
     case "com.amazonaws.evidently#AccessDeniedException":
       response = {
         ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.evidently#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

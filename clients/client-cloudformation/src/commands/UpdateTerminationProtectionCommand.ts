@@ -27,7 +27,7 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  *          unchanged. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a
  *             Stack From Being Deleted</a> in the <i>CloudFormation User Guide</i>.</p>
  *          <p>For <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
- *             stacks</a>, termination protection is set on the root stack and cannot be changed
+ *             stacks</a>, termination protection is set on the root stack and can't be changed
  *          directly on the nested stack.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

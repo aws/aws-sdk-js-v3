@@ -4793,7 +4793,7 @@ export class EC2 extends EC2Client {
    * <p>Launches an EC2 Fleet.</p>
    *          <p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by
    *          instance type, AMI, Availability Zone, or subnet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
   public createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
@@ -7298,7 +7298,7 @@ export class EC2 extends EC2Client {
    *             </li>
    *          </ul>
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Deleting an EC2
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
    *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public deleteFleets(
@@ -9316,8 +9316,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>c</p>
-   *    	     <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
+   * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
    * 			in scheduled event notifications for resources in the Region.</p>
    */
   public deregisterInstanceEventNotificationAttributes(
@@ -10364,7 +10363,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the running instances for the specified EC2 Fleet.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeFleetInstances(
     args: DescribeFleetInstancesCommandInput,
@@ -10397,7 +10396,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeFleets(
     args: DescribeFleetsCommandInput,
@@ -19134,7 +19133,7 @@ export class EC2 extends EC2Client {
    * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is
    *             enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html">Monitor your instances using
    *                 CloudWatch</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>To disable detailed monitoring, see .</p>
+   *         <p>To disable detailed monitoring, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html">UnmonitorInstances</a>.</p>
    */
   public monitorInstances(
     args: MonitorInstancesCommandInput,
@@ -19581,7 +19580,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.
    *    		</p>
-   *          <p>To remove tags, use .</p>
+   *          <p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
    */
   public registerInstanceEventNotificationAttributes(
     args: RegisterInstanceEventNotificationAttributesCommandInput,

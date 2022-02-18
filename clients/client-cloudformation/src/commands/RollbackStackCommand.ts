@@ -24,7 +24,7 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
 /**
  * <p>When specifying <code>RollbackStack</code>, you preserve the state of previously
  *          provisioned resources when an operation fails. You can check the status of the stack
- *          through the <a>DescribeStacks</a> API.</p>
+ *          through the <a>DescribeStacks</a> operation.</p>
  *          <p>Rolls back the specified stack to the last known stable state from
  *             <code>CREATE_FAILED</code> or <code>UPDATE_FAILED</code> stack statuses.</p>
  *          <p>This operation will delete a stack if it doesn't contain a last known stable state. A

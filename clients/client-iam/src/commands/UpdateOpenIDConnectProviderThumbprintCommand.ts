@@ -27,8 +27,8 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
  *         <p>The list that you pass with this operation completely replaces the existing list of
  *             thumbprints. (The lists are not merged.)</p>
- *         <p>Typically, you need to update a thumbprint only when the identity provider
- *             certificate changes, which occurs rarely. However, if the provider's certificate
+ *         <p>Typically, you need to update a thumbprint only when the identity provider certificate
+ *             changes, which occurs rarely. However, if the provider's certificate
  *                 <i>does</i> change, any attempt to assume an IAM role that specifies
  *             the OIDC provider as a principal fails until the certificate thumbprint is
  *             updated.</p>

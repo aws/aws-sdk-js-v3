@@ -272,23 +272,20 @@ import {
 import { S3ControlClient } from "./S3ControlClient";
 
 /**
- * <p>
- *          Amazon Web Services S3 Control provides access to Amazon S3 control plane actions.
- *
- *       </p>
+ * <p> Amazon Web Services S3 Control provides access to Amazon S3 control plane actions. </p>
  */
 export class S3Control extends S3ControlClient {
   /**
    * <p>Creates an access point and associates it with the specified bucket. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3 Access
-   *             Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
+   *             Data Access with Amazon S3 Access Points</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>
    *          <note>
-   *             <p>S3 on Outposts only supports VPC-style access points.
-   *          </p>
-   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
-   *          Accessing Amazon S3 on Outposts using virtual private cloud (VPC) only access points</a> in
-   *          the <i>Amazon S3 User Guide</i>.</p>
+   *             <p>S3 on Outposts only supports VPC-style access points. </p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html"> Accessing Amazon S3 on Outposts using
+   *                virtual private cloud (VPC) only access points</a> in the
+   *                <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html#API_control_CreateAccessPoint_Examples">Examples</a> section.</p>
    *          <p></p>
@@ -341,9 +338,10 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Creates an Object Lambda Access Point. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>The following actions are related to <code>CreateAccessPointForObjectLambda</code>:</p>
+   * <p>Creates an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
+   *             Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>The following actions are related to
+   *          <code>CreateAccessPointForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -393,12 +391,15 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create Bucket</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action creates an Amazon S3 on Outposts bucket. To create an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html">Create
+   *                Bucket</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Creates a new Outposts bucket. By creating the bucket, you become the bucket owner. To create an Outposts bucket, you must have S3 on Outposts.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
-   *          <p>Not every string is an acceptable bucket name. For information on bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules">Working with Amazon S3 Buckets</a>.</p>
+   *          <p>Creates a new Outposts bucket. By creating the bucket, you become the bucket owner. To
+   *          create an Outposts bucket, you must have S3 on Outposts. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+   *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Not every string is an acceptable bucket name. For information on bucket naming
+   *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html#bucketnamingrules">Working with
+   *             Amazon S3 Buckets</a>.</p>
    *          <p>S3 on Outposts buckets support:</p>
    *          <ul>
    *             <li>
@@ -408,13 +409,15 @@ export class S3Control extends S3ControlClient {
    *                <p>LifecycleConfigurations for deleting expired objects</p>
    *             </li>
    *          </ul>
-   *          <p>For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html">
+   *          <p>For a complete list of restrictions and Amazon S3 feature limitations on S3 on Outposts, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OnOutpostsRestrictionsLimitations.html">
    *             Amazon S3 on Outposts Restrictions and Limitations</a>.</p>
    *          <p>For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts
-   *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
+   *          endpoint hostname prefix and <code>x-amz-outpost-id</code> in your API request, see the
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateBucket.html#API_control_CreateBucket_Examples">Examples</a> section.</p>
    *
-   *          <p>The following actions are related to <code>CreateBucket</code> for Amazon S3 on Outposts:</p>
+   *          <p>The following actions are related to <code>CreateBucket</code> for
+   *          Amazon S3 on Outposts:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -470,10 +473,9 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects. Batch Operations can run a
-   *          single action on lists of Amazon S3 objects that you specify. For more information,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   * <p>You can use S3 Batch Operations to perform large-scale batch actions on Amazon S3 objects.
+   *          Batch Operations can run a single action on lists of Amazon S3 objects that you specify. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This action creates a S3 Batch Operations job.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
@@ -529,17 +531,16 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Creates a Multi-Region Access Point and associates it with the specified buckets. For more information about creating Multi-Region Access Points, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html">Creating
-   *          Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>This action will always be routed to the US West (Oregon) Region. For more
-   *             information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   * <p>Creates a Multi-Region Access Point and associates it with the specified buckets. For more information
+   *          about creating Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html">Creating
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>This action will always be routed to the US West (Oregon) Region. For more information
+   *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This request is asynchronous, meaning that you might receive a response before the
-   *             command has completed. When this request provides a response, it provides a token that
-   *             you can use to monitor the status of the request with
-   *                 <code>DescribeMultiRegionAccessPointOperation</code>.</p>
+   *          command has completed. When this request provides a response, it provides a token that you
+   *          can use to monitor the status of the request with
+   *             <code>DescribeMultiRegionAccessPointOperation</code>.</p>
    *          <p>The following actions are related to <code>CreateMultiRegionAccessPoint</code>:</p>
    *          <ul>
    *             <li>
@@ -647,7 +648,8 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Deletes the specified Object Lambda Access Point.</p>
-   *          <p>The following actions are related to <code>DeleteAccessPointForObjectLambda</code>:</p>
+   *          <p>The following actions are related to
+   *          <code>DeleteAccessPointForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -744,7 +746,8 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Removes the resource policy for an Object Lambda Access Point.</p>
-   *          <p>The following actions are related to <code>DeleteAccessPointPolicyForObjectLambda</code>:</p>
+   *          <p>The following actions are related to
+   *          <code>DeleteAccessPointPolicyForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -791,13 +794,12 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action deletes an Amazon S3 on Outposts bucket. To delete an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html">DeleteBucket</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Deletes the Amazon S3 on Outposts bucket. All objects (including all object versions and delete markers) in the
-   *          bucket must be deleted before the bucket itself can be deleted.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Deletes the Amazon S3 on Outposts bucket. All objects (including all object versions and
+   *          delete markers) in the bucket must be deleted before the bucket itself can be deleted. For
+   *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucket.html#API_control_DeleteBucket_Examples">Examples</a> section.</p>
    *          <p class="title">
    *             <b>Related Resources</b>
@@ -848,14 +850,15 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete an
-   *          S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action deletes an Amazon S3 on Outposts bucket's lifecycle configuration. To delete
+   *             an S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Deletes the lifecycle configuration from the specified Outposts bucket. Amazon S3 on Outposts removes all the lifecycle configuration
-   *          rules in the lifecycle subresource associated with the bucket. Your objects never expire, and Amazon S3 on Outposts no longer automatically
-   *          deletes any objects on the basis of rules contained in the deleted lifecycle configuration.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Deletes the lifecycle configuration from the specified Outposts bucket.
+   *          Amazon S3 on Outposts removes all the lifecycle configuration rules in the lifecycle subresource
+   *          associated with the bucket. Your objects never expire, and Amazon S3 on Outposts no longer
+   *          automatically deletes any objects on the basis of rules contained in the deleted lifecycle
+   *          configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <p>To use this action, you must have permission to perform the
    *             <code>s3-outposts:DeleteLifecycleConfiguration</code> action. By default, the bucket
    *          owner has this permission and the Outposts bucket owner can grant this permission to
@@ -908,30 +911,31 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action deletes an Amazon S3 on Outposts bucket policy. To delete an
-   *          S3 bucket policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html">DeleteBucketPolicy</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action deletes an Amazon S3 on Outposts bucket policy. To delete an S3 bucket policy,
+   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html">DeleteBucketPolicy</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
    *          <p>This implementation of the DELETE action uses the policy subresource to delete the
    *          policy of a specified Amazon S3 on Outposts bucket. If you are using an identity other than the
    *          root user of the Amazon Web Services account that owns the bucket, the calling identity must have the
    *             <code>s3-outposts:DeleteBucketPolicy</code> permissions on the specified Outposts bucket
    *          and belong to the bucket owner's account to use this action. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+   *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
    *
-   *          <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a
-   *          <code>403 Access Denied</code> error. If you have the correct permissions, but you're
-   *          not using an identity that belongs to the bucket owner's account, Amazon S3 returns a
-   *          <code>405 Method Not Allowed</code> error. </p>
+   *          <p>If you don't have <code>DeleteBucketPolicy</code> permissions, Amazon S3 returns a <code>403
+   *             Access Denied</code> error. If you have the correct permissions, but you're not using an
+   *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
+   *             Allowed</code> error. </p>
    *
    *
    *          <important>
-   *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can always use this action,
-   *          even if the policy explicitly denies the root user the ability to perform this action.</p>
+   *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
+   *             always use this action, even if the policy explicitly denies the root user the ability
+   *             to perform this action.</p>
    *          </important>
    *
-   *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User Policies</a>. </p>
+   *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
+   *             Policies</a>. </p>
    *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketPolicy.html#API_control_DeleteBucketPolicy_Examples">Examples</a> section.</p>
    *
@@ -980,16 +984,15 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action deletes an Amazon S3 on Outposts bucket's tags. To delete an
-   *          S3 bucket tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket tags,
+   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Deletes the tags from the Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+   *             Amazon S3 on Outposts</a> in <i>Amazon S3 User Guide</i>.</p>
    *
-   *          <p>To use this action, you must have permission to perform the <code>PutBucketTagging</code> action.
-   *          By default, the bucket owner has this permission and can grant this permission to others.
-   *       </p>
+   *          <p>To use this action, you must have permission to perform the
+   *             <code>PutBucketTagging</code> action. By default, the bucket owner has this permission
+   *          and can grant this permission to others. </p>
    *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketTagging.html#API_control_DeleteBucketTagging_Examples">Examples</a> section.</p>
    *
@@ -1039,8 +1042,9 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,
    *          you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and labeling jobs using tags</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+   *             access and labeling jobs using tags</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -1092,15 +1096,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Deletes a Multi-Region Access Point. This action does not delete the buckets associated with the Multi-Region Access Point,
-   *             only the Multi-Region Access Point itself.</p>
-   *          <p>This action will always be routed to the US West (Oregon) Region. For more
-   *             information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          only the Multi-Region Access Point itself.</p>
+   *          <p>This action will always be routed to the US West (Oregon) Region. For more information
+   *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This request is asynchronous, meaning that you might receive a response before the
-   *             command has completed. When this request provides a response, it provides a token that
-   *             you can use to monitor the status of the request with
-   *                 <code>DescribeMultiRegionAccessPointOperation</code>.</p>
+   *          command has completed. When this request provides a response, it provides a token that you
+   *          can use to monitor the status of the request with
+   *             <code>DescribeMultiRegionAccessPointOperation</code>.</p>
    *          <p>The following actions are related to <code>DeleteMultiRegionAccessPoint</code>:</p>
    *          <ul>
    *             <li>
@@ -1202,15 +1205,14 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Deletes the Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   * <p>Deletes the Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
    *             activity and usage with Amazon S3 Storage Lens </a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>To use this action,
-   *          you must have permission to perform the <code>s3:DeleteStorageLensConfiguration</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <p>To use this action, you must have permission to perform the
+   *                <code>s3:DeleteStorageLensConfiguration</code> action. For more information, see
+   *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to
+   *                use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    */
   public deleteStorageLensConfiguration(
@@ -1244,14 +1246,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
-   *             activity and usage with Amazon S3 Storage Lens </a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
+   *             storage activity and usage with Amazon S3 Storage Lens </a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>To use this action,
-   *          you must have permission to perform the <code>s3:DeleteStorageLensConfigurationTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <p>To use this action, you must have permission to perform the
+   *                <code>s3:DeleteStorageLensConfigurationTagging</code> action. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to
+   *                use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    */
   public deleteStorageLensConfigurationTagging(
@@ -1287,8 +1289,7 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Retrieves the configuration parameters and status for a Batch Operations job. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in
-   *          the <i>Amazon S3 User Guide</i>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -1339,9 +1340,8 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Retrieves the status of an asynchronous request to manage a Multi-Region Access Point. For more information
-   *             about managing Multi-Region Access Points and how asynchronous requests work, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          about managing Multi-Region Access Points and how asynchronous requests work, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>The following actions are related to <code>GetMultiRegionAccessPoint</code>:</p>
    *          <ul>
    *             <li>
@@ -1452,7 +1452,8 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Returns configuration for an Object Lambda Access Point.</p>
-   *          <p>The following actions are related to <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
+   *          <p>The following actions are related to
+   *             <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1589,7 +1590,8 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Returns the resource policy for an Object Lambda Access Point.</p>
-   *          <p>The following actions are related to <code>GetAccessPointPolicyForObjectLambda</code>:</p>
+   *          <p>The following actions are related to
+   *          <code>GetAccessPointPolicyForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1633,7 +1635,9 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3 access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Indicates whether the specified access point currently has a policy that allows public access.
+   *          For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3
+   *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   public getAccessPointPolicyStatus(
     args: GetAccessPointPolicyStatusCommandInput,
@@ -1699,18 +1703,16 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">
-   *          Using Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you are using an identity other than the root user of the Amazon Web Services account
-   *          that owns the Outposts bucket, the calling identity must have the
-   *          <code>s3-outposts:GetBucket</code> permissions on the specified Outposts bucket and
-   *          belong to the Outposts bucket owner's account in order to use this action. Only
-   *          users from Outposts bucket owner account with the right permissions can perform
-   *          actions on an Outposts bucket.
-   *       </p>
-   *          <p>
-   *          If you don't have <code>s3-outposts:GetBucket</code> permissions or you're not using an identity that belongs to the bucket owner's
-   *          account, Amazon S3 returns a <code>403 Access Denied</code> error.</p>
+   * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html"> Using Amazon S3 on Outposts</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
+   *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
+   *          Outposts bucket, the calling identity must have the <code>s3-outposts:GetBucket</code>
+   *          permissions on the specified Outposts bucket and belong to the Outposts bucket owner's
+   *          account in order to use this action. Only users from Outposts bucket owner account with
+   *          the right permissions can perform actions on an Outposts bucket. </p>
+   *          <p> If you don't have <code>s3-outposts:GetBucket</code> permissions or you're not using an
+   *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>403 Access
+   *             Denied</code> error.</p>
    *          <p>The following actions are related to <code>GetBucket</code> for Amazon S3 on Outposts:</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucket.html#API_control_GetBucket_Examples">Examples</a> section.</p>
    *          <ul>
@@ -1756,19 +1758,20 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an
-   *          S3 bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action gets an Amazon S3 on Outposts bucket's lifecycle configuration. To get an S3
+   *             bucket's lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
+   *          </p>
    *          </note>
    *          <p>Returns the lifecycle configuration information set on the Outposts bucket. For more
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> and for
-   *          information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html"> Object Lifecycle Management</a> in
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html"> Object Lifecycle
+   *             Management</a> in <i>Amazon S3 User Guide</i>.</p>
    *
-   *          <p>To use this action, you must have permission to perform the <code>s3-outposts:GetLifecycleConfiguration</code> action.
-   *          The Outposts bucket owner has this permission, by default. The bucket owner can grant this permission to others. For more
-   *          information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions
-   *             Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a>.</p>
+   *          <p>To use this action, you must have permission to perform the
+   *             <code>s3-outposts:GetLifecycleConfiguration</code> action. The Outposts bucket owner
+   *          has this permission, by default. The bucket owner can grant this permission to others. For
+   *          more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+   *             Access Permissions to Your Amazon S3 Resources</a>.</p>
    *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
    *
@@ -1791,7 +1794,8 @@ export class S3Control extends S3ControlClient {
    *                </ul>
    *             </li>
    *          </ul>
-   *          <p>The following actions are related to <code>GetBucketLifecycleConfiguration</code>:</p>
+   *          <p>The following actions are related to
+   *          <code>GetBucketLifecycleConfiguration</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1836,25 +1840,30 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for an S3
-   *             bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
+   *             <p>This action gets a bucket policy for an Amazon S3 on Outposts bucket. To get a policy for
+   *             an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html">GetBucketPolicy</a> in the
    *                <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
-   *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the bucket, the calling identity
-   *       must have the <code>GetBucketPolicy</code> permissions on the specified bucket and belong to the bucket owner's account in order to use this action.</p>
+   *          <p>Returns the policy of a specified Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+   *             Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
+   *          bucket, the calling identity must have the <code>GetBucketPolicy</code> permissions on the
+   *          specified bucket and belong to the bucket owner's account in order to use this
+   *          action.</p>
    *
-   *          <p>Only users from Outposts bucket owner account with the right permissions can perform actions on an Outposts bucket.
-   *          If you don't have <code>s3-outposts:GetBucketPolicy</code> permissions or you're not using an identity that belongs to the bucket owner's
-   *          account, Amazon S3 returns a <code>403 Access Denied</code> error.</p>
+   *          <p>Only users from Outposts bucket owner account with the right permissions can perform
+   *          actions on an Outposts bucket. If you don't have <code>s3-outposts:GetBucketPolicy</code>
+   *          permissions or you're not using an identity that belongs to the bucket owner's account,
+   *          Amazon S3 returns a <code>403 Access Denied</code> error.</p>
    *
    *          <important>
-   *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can always use this action, even if the policy
-   *          explicitly denies the root user the ability to perform this action.</p>
+   *             <p>As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
+   *             always use this action, even if the policy explicitly denies the root user the ability
+   *             to perform this action.</p>
    *          </important>
    *
-   *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User Policies</a>.</p>
+   *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
+   *             Policies</a>.</p>
    *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketPolicy.html#API_control_GetBucketPolicy_Examples">Examples</a> section.</p>
    *
@@ -1908,15 +1917,15 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action gets an Amazon S3 on Outposts bucket's tags. To get an
-   *          S3 bucket tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html">GetBucketTagging</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action gets an Amazon S3 on Outposts bucket's tags. To get an S3 bucket tags, see
+   *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html">GetBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
    *          <p>Returns the tag set associated with the Outposts bucket. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
-   *          <p>To use this action, you must have permission to perform the <code>GetBucketTagging</code> action.
-   *          By default, the bucket owner has this permission and can grant this permission to others.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+   *             Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>To use this action, you must have permission to perform the
+   *             <code>GetBucketTagging</code> action. By default, the bucket owner has this permission
+   *          and can grant this permission to others.</p>
    *
    *          <p>
    *             <code>GetBucketTagging</code> has the following special error:</p>
@@ -2033,10 +2042,9 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Returns configuration information about the specified Multi-Region Access Point.</p>
-   *          <p>This action will always be routed to the US West (Oregon) Region. For more
-   *             information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          <p>This action will always be routed to the US West (Oregon) Region. For more information
+   *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>The following actions are related to <code>GetMultiRegionAccessPoint</code>:</p>
    *          <ul>
    *             <li>
@@ -2092,11 +2100,11 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Returns the access control policy of the specified Multi-Region Access Point.</p>
-   *          <p>This action will always be routed to the US West (Oregon) Region. For more
-   *             information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
-   *          <p>The following actions are related to <code>GetMultiRegionAccessPointPolicy</code>:</p>
+   *          <p>This action will always be routed to the US West (Oregon) Region. For more information
+   *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>The following actions are related to
+   *          <code>GetMultiRegionAccessPointPolicy</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2141,12 +2149,12 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Indicates whether the specified Multi-Region Access Point has an access control policy that allows public
-   *             access.</p>
-   *          <p>This action will always be routed to the US West (Oregon) Region. For more
-   *             information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *           <i>Amazon S3 User Guide</i>.</p>
-   *          <p>The following actions are related to <code>GetMultiRegionAccessPointPolicyStatus</code>:</p>
+   *          access.</p>
+   *          <p>This action will always be routed to the US West (Oregon) Region. For more information
+   *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>The following actions are related to
+   *          <code>GetMultiRegionAccessPointPolicyStatus</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2192,8 +2200,8 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
+   * <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. For
+   *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
    *             public access</a>.</p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -2239,15 +2247,13 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
+   * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
    *             activity and usage with Amazon S3 Storage Lens </a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>To use this action,
-   *          you must have permission to perform the <code>s3:GetStorageLensConfiguration</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <p>To use this action, you must have permission to perform the
+   *                <code>s3:GetStorageLensConfiguration</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *                <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    */
   public getStorageLensConfiguration(
@@ -2281,13 +2287,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Gets the tags of Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
-   *             activity and usage with Amazon S3 Storage Lens </a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
+   *             storage activity and usage with Amazon S3 Storage Lens </a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>To use this action,
-   *          you must have permission to perform the <code>s3:GetStorageLensConfigurationTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <p>To use this action, you must have permission to perform the
+   *                <code>s3:GetStorageLensConfigurationTagging</code> action. For more information, see
+   *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to
+   *                use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    */
   public getStorageLensConfigurationTagging(
@@ -2320,10 +2327,10 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Returns a list of the access points currently associated with the specified bucket. You
-   *          can retrieve up to 1000 access points per call. If the specified bucket has more than 1,000
-   *          access points (or the number specified in <code>maxResults</code>, whichever is less), the
-   *          response will include a continuation token that you can use to list the additional access points.</p>
+   * <p>Returns a list of the access points currently associated with the specified bucket. You can
+   *          retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or
+   *          the number specified in <code>maxResults</code>, whichever is less), the response will
+   *          include a continuation token that you can use to list the additional access points.</p>
    *          <p></p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
    *          <p>The following actions are related to <code>ListAccessPoints</code>:</p>
@@ -2375,11 +2382,11 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Returns a list of the access points associated with the Object Lambda Access Point. You
-   *          can retrieve up to 1000 access points per call. If there are more than 1,000
-   *          access points (or the number specified in <code>maxResults</code>, whichever is less), the
-   *          response will include a continuation token that you can use to list the additional access points.</p>
-   *          <p>The following actions are related to <code>ListAccessPointsForObjectLambda</code>:</p>
+   * <p>Returns some or all (up to 1,000) access points associated with the Object Lambda Access Point per call. If there
+   *          are more access points than what can be returned in one call, the response will include a
+   *          continuation token that you can use to list the additional access points.</p>
+   *          <p>The following actions are related to
+   *          <code>ListAccessPointsForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2429,7 +2436,7 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Lists current S3 Batch Operations jobs and jobs that have ended within the last 30 days for
-   *          the Amazon Web Services account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
+   *          the Amazon Web Services account making the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
    *          <p>Related actions include:</p>
    *          <p></p>
@@ -2480,13 +2487,12 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Returns a list of the Multi-Region Access Points currently associated with the specified Amazon Web Services account. Each
-   *           call can return up to 100 Multi-Region Access Points, the maximum number of Multi-Region Access Points that can be associated with
-   *           a single account.</p>
-   *          <p>This action will always be routed to the US West (Oregon) Region. For more
-   *             information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   * <p>Returns a list of the Multi-Region Access Points currently associated with the specified Amazon Web Services account.
+   *          Each call can return up to 100 Multi-Region Access Points, the maximum number of Multi-Region Access Points that can be
+   *          associated with a single account.</p>
+   *          <p>This action will always be routed to the US West (Oregon) Region. For more information
+   *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>The following actions are related to <code>ListMultiRegionAccessPoint</code>:</p>
    *          <ul>
    *             <li>
@@ -2578,14 +2584,14 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Gets a list of Amazon S3 Storage Lens configurations. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
-   *             activity and usage with Amazon S3 Storage Lens </a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your
+   *             storage activity and usage with Amazon S3 Storage Lens </a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>To use this action,
-   *          you must have permission to perform the <code>s3:ListStorageLensConfigurations</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <p>To use this action, you must have permission to perform the
+   *                <code>s3:ListStorageLensConfigurations</code> action. For more information, see
+   *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to
+   *                use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    */
   public listStorageLensConfigurations(
@@ -2619,7 +2625,8 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Replaces configuration for an Object Lambda Access Point.</p>
-   *          <p>The following actions are related to <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
+   *          <p>The following actions are related to
+   *             <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2660,8 +2667,9 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API
-   *          replaces any existing policy associated with the specified access point.</p>
+   * <p>Associates an access policy with the specified access point. Each access point can have only one policy,
+   *          so a request made to this API replaces any existing policy associated with the specified
+   *          access point.</p>
    *          <p></p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html#API_control_PutAccessPointPolicy_Examples">Examples</a> section.</p>
    *          <p>The following actions are related to <code>PutAccessPointPolicy</code>:</p>
@@ -2708,9 +2716,9 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Creates or replaces resource policy for an Object Lambda Access Point. For an example policy, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>The following actions are related to <code>PutAccessPointPolicyForObjectLambda</code>:</p>
+   * <p>Creates or replaces resource policy for an Object Lambda Access Point. For an example policy, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-create.html#olap-create-cli">Creating Object Lambda Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>The following actions are related to
+   *          <code>PutAccessPointPolicyForObjectLambda</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2755,16 +2763,18 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a lifecycle configuration to an S3 bucket,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a
+   *             lifecycle configuration to an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
+   *          </p>
    *          </note>
-   *          <p>Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing
-   *          lifecycle configuration. Outposts buckets only support lifecycle configurations that delete/expire objects
-   *          after a certain period of time and abort incomplete multipart uploads.</p>
+   *          <p>Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an
+   *          existing lifecycle configuration. Outposts buckets only support lifecycle configurations
+   *          that delete/expire objects after a certain period of time and abort incomplete multipart
+   *          uploads.</p>
    *          <p></p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
-   *          <p>The following actions are related to <code>PutBucketLifecycleConfiguration</code>:</p>
+   *          <p>The following actions are related to
+   *          <code>PutBucketLifecycleConfiguration</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2809,28 +2819,31 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an S3 bucket,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the <i>Amazon S3 API Reference</i>.
-   *       </p>
+   *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an
+   *             S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the
+   *                <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+   *             Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
    *          Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
    *          permissions on the specified Outposts bucket and belong to the bucket owner's account in
    *          order to use this action.</p>
    *
-   *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions,
-   *          but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
+   *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
+   *             Access Denied</code> error. If you have the correct permissions, but you're not using an
+   *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
+   *             Allowed</code> error.</p>
    *
    *          <important>
-   *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can always use this action, even if the policy
-   *          explicitly denies the root user the ability to perform this action.
-   *       </p>
+   *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
+   *             always use this action, even if the policy explicitly denies the root user the ability
+   *             to perform this action. </p>
    *          </important>
    *
    *
-   *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User Policies</a>.</p>
+   *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
+   *             Policies</a>.</p>
    *
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples">Examples</a> section.</p>
    *
@@ -2882,26 +2895,26 @@ export class S3Control extends S3ControlClient {
    *             <p>This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
    *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
-   *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this, sign up to get your
-   *          Amazon Web Services account bill with tag key values included. Then, to see the cost of combined resources, organize your
-   *          billing information according to resources with the same tag key values. For example, you can tag several
-   *          resources with a specific application name, and then organize your billing information to see the total cost
-   *          of that application across several services. For more information, see
-   *          <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost
-   *             allocation and tagging</a>.</p>
+   *          <p>Sets the tags for an S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+   *             Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this,
+   *          sign up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost
+   *          of combined resources, organize your billing information according to resources with the
+   *          same tag key values. For example, you can tag several resources with a specific application
+   *          name, and then organize your billing information to see the total cost of that application
+   *          across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost allocation and
+   *             tagging</a>.</p>
    *
    *          <note>
-   *             <p>Within a bucket, if you add a tag that has the same key as an existing tag, the new value overwrites
-   *          the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">
-   *             Using cost allocation in Amazon S3 bucket tags</a>.</p>
+   *             <p>Within a bucket, if you add a tag that has the same key as an existing tag, the new
+   *             value overwrites the old value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html"> Using cost allocation in Amazon S3
+   *                bucket tags</a>.</p>
    *          </note>
    *          <p>To use this action, you must have permissions to perform the
    *             <code>s3-outposts:PutBucketTagging</code> action. The Outposts bucket owner has this
    *          permission by default and can grant this permission to others. For more information about
-   *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources"> Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing access permissions to your Amazon S3
-   *             resources</a>.</p>
+   *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources"> Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
+   *             access permissions to your Amazon S3 resources</a>.</p>
    *
    *          <p>
    *             <code>PutBucketTagging</code> has the following special errors:</p>
@@ -2911,9 +2924,10 @@ export class S3Control extends S3ControlClient {
    *                </p>
    *                <ul>
    *                   <li>
-   *                      <p>Description: The tag provided was not a valid tag. This error can occur if the tag did not pass input validation.
-   *                   For information about tag restrictions, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">
-   *                      User-Defined Tag Restrictions</a>  and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">
+   *                      <p>Description: The tag provided was not a valid tag. This error can occur if
+   *                      the tag did not pass input validation. For information about tag restrictions,
+   *                      see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">
+   *                         User-Defined Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">
    *                         Amazon Web Services-Generated Cost Allocation Tag Restrictions</a>.</p>
    *                   </li>
    *                </ul>
@@ -2932,8 +2946,8 @@ export class S3Control extends S3ControlClient {
    *                </p>
    *                <ul>
    *                   <li>
-   *                      <p>Description: A conflicting conditional action is currently in progress against this
-   *                      resource. Try again.</p>
+   *                      <p>Description: A conflicting conditional action is currently in progress
+   *                      against this resource. Try again.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2942,7 +2956,8 @@ export class S3Control extends S3ControlClient {
    *                </p>
    *                <ul>
    *                   <li>
-   *                      <p>Description: The service was unable to apply the provided tag to the bucket.</p>
+   *                      <p>Description: The service was unable to apply the provided tag to the
+   *                      bucket.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2997,22 +3012,20 @@ export class S3Control extends S3ControlClient {
    *          <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending
    *          a PUT request against the tagging subresource that is associated with the job. To modify
    *          the existing tag set, you can either replace the existing tag set entirely, or make changes
-   *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this action to replace the
-   *          tag set with the one you modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling access and
-   *             labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>. </p>
+   *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this action to replace the tag set
+   *          with the one you modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+   *             access and labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>. </p>
    *          <p></p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>If you send this request with an empty tag set, Amazon S3 deletes the existing tag set on the
-   *                   Batch Operations job. If you use this method, you are charged for a Tier 1 Request
-   *                   (PUT). For more information, see <a href="http://aws.amazon.com/s3/pricing/">Amazon S3
-   *                      pricing</a>.</p>
+   *                   <p>If you send this request with an empty tag set, Amazon S3 deletes the existing
+   *                   tag set on the Batch Operations job. If you use this method, you are charged for a Tier
+   *                   1 Request (PUT). For more information, see <a href="http://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
    *                </li>
    *                <li>
-   *                   <p>For deleting existing tags for your Batch Operations job, a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html">DeleteJobTagging</a>
-   *                   request is preferred because it achieves the same result without incurring
-   *                   charges.</p>
+   *                   <p>For deleting existing tags for your Batch Operations job, a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteJobTagging.html">DeleteJobTagging</a> request is preferred because it achieves the same
+   *                   result without incurring charges.</p>
    *                </li>
    *                <li>
    *                   <p>A few things to consider about using tags:</p>
@@ -3021,23 +3034,27 @@ export class S3Control extends S3ControlClient {
    *                         <p>Amazon S3 limits the maximum number of tags to 50 tags per job.</p>
    *                      </li>
    *                      <li>
-   *                         <p>You can associate up to 50 tags with a job as long as they have unique tag keys.</p>
+   *                         <p>You can associate up to 50 tags with a job as long as they have unique
+   *                         tag keys.</p>
    *                      </li>
    *                      <li>
-   *                         <p>A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length.</p>
+   *                         <p>A tag key can be up to 128 Unicode characters in length, and tag values
+   *                         can be up to 256 Unicode characters in length.</p>
    *                      </li>
    *                      <li>
    *                         <p>The key and values are case sensitive.</p>
    *                      </li>
    *                      <li>
-   *                         <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>Billing and Cost Management User Guide</i>.</p>
+   *                         <p>For tagging-related restrictions related to characters and encodings, see
+   *                            <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> in the <i>Billing and Cost Management User Guide</i>.</p>
    *                      </li>
    *                   </ul>
    *                </li>
    *             </ul>
    *          </note>
    *          <p></p>
-   *          <p>To use this action, you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
+   *          <p>To use this action, you must have permission to perform the
+   *             <code>s3:PutJobTagging</code> action.</p>
    *          <p>Related actions include:</p>
    *          <ul>
    *             <li>
@@ -3088,13 +3105,13 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Associates an access control policy with the specified Multi-Region Access Point. Each Multi-Region Access Point can have only
-   *             one policy, so a request made to this action replaces any existing policy that is
-   *             associated with the specified Multi-Region Access Point.</p>
-   *          <p>This action will always be routed to the US West (Oregon) Region. For more
-   *             information about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-   *                 Multi-Region Access Points</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
-   *          <p>The following actions are related to <code>PutMultiRegionAccessPointPolicy</code>:</p>
+   *          one policy, so a request made to this action replaces any existing policy that is
+   *          associated with the specified Multi-Region Access Point.</p>
+   *          <p>This action will always be routed to the US West (Oregon) Region. For more information
+   *          about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
+   *             Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>The following actions are related to
+   *          <code>PutMultiRegionAccessPointPolicy</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3138,9 +3155,10 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon Web Services account. For
-   *          more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html"> Using Amazon S3 block
-   *             public access</a>.</p>
+   * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an
+   *          Amazon Web Services account. For this operation, users must have the
+   *             <code>s3:PutBucketPublicAccessBlock</code> permission. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html">
+   *             Using Amazon S3 block public access</a>.</p>
    *          <p>Related actions include:</p>
    *          <ul>
    *             <li>
@@ -3188,10 +3206,9 @@ export class S3Control extends S3ControlClient {
    * <p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with
    *             Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>To use this action,
-   *          you must have permission to perform the <code>s3:PutStorageLensConfiguration</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <p>To use this action, you must have permission to perform the
+   *                <code>s3:PutStorageLensConfiguration</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
+   *                <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    */
   public putStorageLensConfiguration(
@@ -3224,15 +3241,14 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Put or replace tags on an existing Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
-   *             activity and usage with Amazon S3 Storage Lens </a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   * <p>Put or replace tags on an existing Amazon S3 Storage Lens configuration. For more information
+   *          about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage activity and usage with Amazon S3 Storage Lens </a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
-   *             <p>To use this action,
-   *          you must have permission to perform the <code>s3:PutStorageLensConfigurationTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
-   *          <i>Amazon S3 User Guide</i>.</p>
+   *             <p>To use this action, you must have permission to perform the
+   *                <code>s3:PutStorageLensConfigurationTagging</code> action. For more information, see
+   *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to
+   *                use Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    */
   public putStorageLensConfigurationTagging(
@@ -3265,8 +3281,7 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>
@@ -3323,8 +3338,7 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Updates the status for the specified job. Use this action to confirm that you want to
-   *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          run a job or to cancel an existing job. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>
    *          <p>Related actions include:</p>
    *          <ul>

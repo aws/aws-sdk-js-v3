@@ -30,7 +30,8 @@ export interface GetAccessPointConfigurationForObjectLambdaCommandOutput
 
 /**
  * <p>Returns configuration for an Object Lambda Access Point.</p>
- *          <p>The following actions are related to <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
+ *          <p>The following actions are related to
+ *             <code>GetAccessPointConfigurationForObjectLambda</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

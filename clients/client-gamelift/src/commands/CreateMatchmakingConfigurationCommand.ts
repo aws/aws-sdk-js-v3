@@ -37,7 +37,7 @@ export interface CreateMatchmakingConfigurationCommandOutput
  *             and the maximum time allowed for a matchmaking attempt. When using FlexMatch with GameLift
  *             hosting, you also need to identify the game session queue to use when starting a game
  *             session for the match.</p>
- *         <p>In addition, you must set up an Amazon Simple Notification Service (SNS) topic to receive matchmaking notifications.
+ *         <p>In addition, you must set up an Amazon Simple Notification Service topic to receive matchmaking notifications.
  *             Provide the topic ARN in the matchmaking configuration. An alternative method,
  *             continuously polling ticket status with <a>DescribeMatchmaking</a>, is only
  *             suitable for games in development with low matchmaking usage.</p>

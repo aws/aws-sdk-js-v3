@@ -43,7 +43,7 @@ export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSes
  *             </li>
  *             <li>
  *                 <p>To retrieve details for a specific game session, provide the game session ID.
- *                     This approach looks for the game session ID in all fleets that reside in the AWS
+ *                     This approach looks for the game session ID in all fleets that reside in the Amazon Web Services
  *                     Region defined in the request.</p>
  *             </li>
  *          </ul>

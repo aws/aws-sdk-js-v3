@@ -13659,6 +13659,9 @@ const serializeAws_queryAssociateDataShareConsumerMessage = (
   if (input.ConsumerArn !== undefined && input.ConsumerArn !== null) {
     entries["ConsumerArn"] = input.ConsumerArn;
   }
+  if (input.ConsumerRegion !== undefined && input.ConsumerRegion !== null) {
+    entries["ConsumerRegion"] = input.ConsumerRegion;
+  }
   return entries;
 };
 
@@ -15431,6 +15434,9 @@ const serializeAws_queryDisassociateDataShareConsumerMessage = (
   }
   if (input.ConsumerArn !== undefined && input.ConsumerArn !== null) {
     entries["ConsumerArn"] = input.ConsumerArn;
+  }
+  if (input.ConsumerRegion !== undefined && input.ConsumerRegion !== null) {
+    entries["ConsumerRegion"] = input.ConsumerRegion;
   }
   return entries;
 };
@@ -18399,6 +18405,7 @@ const deserializeAws_queryDataShareAssociation = (output: any, context: __SerdeC
   const contents: any = {
     ConsumerIdentifier: undefined,
     Status: undefined,
+    ConsumerRegion: undefined,
     CreatedDate: undefined,
     StatusChangeDate: undefined,
   };
@@ -18407,6 +18414,9 @@ const deserializeAws_queryDataShareAssociation = (output: any, context: __SerdeC
   }
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
+  }
+  if (output["ConsumerRegion"] !== undefined) {
+    contents.ConsumerRegion = __expectString(output["ConsumerRegion"]);
   }
   if (output["CreatedDate"] !== undefined) {
     contents.CreatedDate = __expectNonNull(__parseRfc3339DateTime(output["CreatedDate"]));

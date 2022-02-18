@@ -22,7 +22,8 @@ export interface DeleteGameSessionQueueCommandInput extends DeleteGameSessionQue
 export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQueueOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled <a>StartGameSessionPlacement</a> requests that reference the queue will fail.
+ * <p>Deletes a game session queue. Once a queue is successfully deleted, unfulfilled
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a> requests that reference the queue will fail.
  *             To delete a queue, specify the queue name.</p>
  *         <p>
  *             <b>Learn more</b>
@@ -35,10 +36,14 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateGameSessionQueue</a> |
- *                     <a>DescribeGameSessionQueues</a> |
- *                     <a>UpdateGameSessionQueue</a> |
- *                     <a>DeleteGameSessionQueue</a> |
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
+ *                     |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
+ *                     |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
+ *                     |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
+ *                     |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

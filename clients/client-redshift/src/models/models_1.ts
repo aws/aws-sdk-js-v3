@@ -1625,6 +1625,11 @@ export interface DisassociateDataShareConsumerMessage {
    *             the datashare is removed from.</p>
    */
   ConsumerArn?: string;
+
+  /**
+   * <p>From a datashare consumer account, removes association of a datashare from all the existing and future namespaces in the specified Amazon Web Services Region.</p>
+   */
+  ConsumerRegion?: string;
 }
 
 export namespace DisassociateDataShareConsumerMessage {
@@ -2345,8 +2350,8 @@ export interface ModifyClusterMessage {
    *                 <p>Must contain one number.</p>
    *             </li>
    *             <li>
-   *                 <p>Can be any printable ASCII character (ASCII code 33 to 126) except '
-   *                     (single quote), " (double quote), \, /, @, or space.</p>
+   *                 <p>Can be any printable ASCII character (ASCII code 33-126) except '
+   *                     (single quote), " (double quote), \, /, or @.</p>
    *             </li>
    *          </ul>
    */
@@ -2621,14 +2626,12 @@ export interface ModifyClusterIamRolesMessage {
 
   /**
    * <p>Zero or more IAM roles to associate with the cluster. The roles must be in their
-   *             Amazon Resource Name (ARN) format. You can associate up to 10 IAM roles with a single
-   *             cluster in a single request.</p>
+   *             Amazon Resource Name (ARN) format. </p>
    */
   AddIamRoles?: string[];
 
   /**
-   * <p>Zero or more IAM roles in ARN format to disassociate from the cluster. You can
-   *             disassociate up to 10 IAM roles from a single cluster in a single request.</p>
+   * <p>Zero or more IAM roles in ARN format to disassociate from the cluster. </p>
    */
   RemoveIamRoles?: string[];
 
@@ -3551,9 +3554,10 @@ export interface RestoreFromClusterSnapshotMessage {
   /**
    * <p>A list of Identity and Access Management (IAM) roles that can be used by the
    *             cluster to access other Amazon Web Services services. You must supply the IAM roles in their Amazon
-   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
-   *             request.</p>
-   *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
+   *             Resource Name (ARN) format. </p>
+   *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+   *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
+   *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
   IamRoles?: string[];
 

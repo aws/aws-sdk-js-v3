@@ -894,7 +894,11 @@ export interface CreateAssociationRequest {
    * <p>The document version you want to associate with the target(s). Can be a specific version or
    *    the default version.</p>
    *          <important>
-   *             <p>State Manager doesn't support running associations that use a new version of a document if that document is shared from another account. State Manager always runs the <code>default</code> version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed. If you want to run an association using a new version of a document shared form another account, you must set the document version to <code>default</code>.</p>
+   *             <p>State Manager doesn't support running associations that use a new version of a document if
+   *     that document is shared from another account. State Manager always runs the <code>default</code>
+   *     version of a document if shared from another account, even though the Systems Manager console shows that a
+   *     new version was processed. If you want to run an association using a new version of a document
+   *     shared form another account, you must set the document version to <code>default</code>.</p>
    *          </important>
    */
   DocumentVersion?: string;
@@ -1778,6 +1782,10 @@ export interface CreateDocumentRequest {
 
   /**
    * <p>The type of document to create.</p>
+   *          <note>
+   *             <p>The <code>DeploymentStrategy</code> document type is an internal-use-only document type
+   *     reserved for AppConfig.</p>
+   *          </note>
    */
   DocumentType?: DocumentType | string;
 
@@ -6548,7 +6556,7 @@ export interface PatchComplianceData {
   Classification: string | undefined;
 
   /**
-   * <p>The severity of the patchsuch as <code>Critical</code>, <code>Important</code>, and
+   * <p>The severity of the patch such as <code>Critical</code>, <code>Important</code>, and
    *     <code>Moderate</code>.</p>
    */
   Severity: string | undefined;
@@ -8214,11 +8222,27 @@ export interface MaintenanceWindowTask {
 
   /**
    * <p>The maximum number of targets this task can be run for, in parallel.</p>
+   *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
+   *          </note>
    */
   MaxConcurrency?: string;
 
   /**
    * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
+   *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
+   *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
+   *          </note>
    */
   MaxErrors?: string;
 
@@ -8696,7 +8720,7 @@ export interface ParameterInlinePolicy {
   PolicyText?: string;
 
   /**
-   * <p>The type of policy. Parameter Store, a capablility of Amazon Web Services Systems Manager, supports the following
+   * <p>The type of policy. Parameter Store, a capability of Amazon Web Services Systems Manager, supports the following
    *    policy types: Expiration, ExpirationNotification, and NoChangeNotification. </p>
    */
   PolicyType?: string;

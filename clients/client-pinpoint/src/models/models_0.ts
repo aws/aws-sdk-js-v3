@@ -2207,6 +2207,11 @@ export interface ApplicationResponse {
    * <p>A string-to-string map of key-value pairs that identifies the tags that are associated with the application. Each tag consists of a required tag key and an associated tag value.</p>
    */
   tags?: { [key: string]: string };
+
+  /**
+   * <p>The date and time when the Application was created.</p>
+   */
+  CreationDate?: string;
 }
 
 export namespace ApplicationResponse {

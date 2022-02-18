@@ -1317,6 +1317,85 @@ export namespace ExcludedRule {
   });
 }
 
+/**
+ * <p>Details about your login page password field, used in a <code>ManagedRuleGroupConfig</code>. </p>
+ */
+export interface PasswordField {
+  /**
+   * <p>The name of the password field. For example <code>/form/password</code>.</p>
+   */
+  Identifier: string | undefined;
+}
+
+export namespace PasswordField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PasswordField): any => ({
+    ...obj,
+  });
+}
+
+export enum PayloadType {
+  FORM_ENCODED = "FORM_ENCODED",
+  JSON = "JSON",
+}
+
+/**
+ * <p>Details about your login page username field, used in a <code>ManagedRuleGroupConfig</code>. </p>
+ */
+export interface UsernameField {
+  /**
+   * <p>The name of the username field. For example <code>/form/username</code>.</p>
+   */
+  Identifier: string | undefined;
+}
+
+export namespace UsernameField {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UsernameField): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>
+ *          <p>Use this for the account takeover prevention managed rule group
+ *       <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>
+ */
+export interface ManagedRuleGroupConfig {
+  /**
+   * <p>The login endpoint for your application. For example <code>https://example.com/web/login</code>.</p>
+   */
+  LoginPath?: string;
+
+  /**
+   * <p>The payload type for your login endpoint, either JSON or form encoded.</p>
+   */
+  PayloadType?: PayloadType | string;
+
+  /**
+   * <p>Details about your login page username field. </p>
+   */
+  UsernameField?: UsernameField;
+
+  /**
+   * <p>Details about your login page password field. </p>
+   */
+  PasswordField?: PasswordField;
+}
+
+export namespace ManagedRuleGroupConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ManagedRuleGroupConfig): any => ({
+    ...obj,
+  });
+}
+
 export enum RateBasedStatementAggregateKeyType {
   FORWARDED_IP = "FORWARDED_IP",
   IP = "IP",
@@ -1618,12 +1697,14 @@ export enum ParameterExceptionField {
   LABEL_MATCH_STATEMENT = "LABEL_MATCH_STATEMENT",
   LOGGING_FILTER = "LOGGING_FILTER",
   LOG_DESTINATION = "LOG_DESTINATION",
+  MANAGED_RULE_GROUP_CONFIG = "MANAGED_RULE_GROUP_CONFIG",
   MANAGED_RULE_SET = "MANAGED_RULE_SET",
   MANAGED_RULE_SET_STATEMENT = "MANAGED_RULE_SET_STATEMENT",
   METRIC_NAME = "METRIC_NAME",
   NOT_STATEMENT = "NOT_STATEMENT",
   OR_STATEMENT = "OR_STATEMENT",
   OVERRIDE_ACTION = "OVERRIDE_ACTION",
+  PAYLOAD_TYPE = "PAYLOAD_TYPE",
   POSITION = "POSITION",
   RATE_BASED_STATEMENT = "RATE_BASED_STATEMENT",
   REGEX_PATTERN_REFERENCE_STATEMENT = "REGEX_PATTERN_REFERENCE_STATEMENT",
@@ -3102,6 +3183,48 @@ export namespace DisassociateWebACLResponse {
   });
 }
 
+export enum Platform {
+  ANDROID = "ANDROID",
+  IOS = "IOS",
+}
+
+export interface GenerateMobileSdkReleaseUrlRequest {
+  /**
+   * <p>The device platform.</p>
+   */
+  Platform: Platform | string | undefined;
+
+  /**
+   * <p>The release version. For the latest available version, specify <code>LATEST</code>.</p>
+   */
+  ReleaseVersion: string | undefined;
+}
+
+export namespace GenerateMobileSdkReleaseUrlRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateMobileSdkReleaseUrlRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GenerateMobileSdkReleaseUrlResponse {
+  /**
+   * <p>The presigned download URL for the specified SDK release.</p>
+   */
+  Url?: string;
+}
+
+export namespace GenerateMobileSdkReleaseUrlResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GenerateMobileSdkReleaseUrlResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetIPSetRequest {
   /**
    * <p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>
@@ -3608,6 +3731,78 @@ export namespace GetManagedRuleSetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetManagedRuleSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMobileSdkReleaseRequest {
+  /**
+   * <p>The device platform.</p>
+   */
+  Platform: Platform | string | undefined;
+
+  /**
+   * <p>The release version. For the latest available version, specify <code>LATEST</code>.</p>
+   */
+  ReleaseVersion: string | undefined;
+}
+
+export namespace GetMobileSdkReleaseRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMobileSdkReleaseRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information for a release of the mobile SDK, including release notes and tags.</p>
+ *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+ */
+export interface MobileSdkRelease {
+  /**
+   * <p>The release version. </p>
+   */
+  ReleaseVersion?: string;
+
+  /**
+   * <p>The timestamp of the release. </p>
+   */
+  Timestamp?: Date;
+
+  /**
+   * <p>Notes describing the release.</p>
+   */
+  ReleaseNotes?: string;
+
+  /**
+   * <p>Tags that are associated with the release. </p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace MobileSdkRelease {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MobileSdkRelease): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMobileSdkReleaseResponse {
+  /**
+   * <p>Information for a specified SDK release, including release notes and tags.</p>
+   */
+  MobileSdkRelease?: MobileSdkRelease;
+}
+
+export namespace GetMobileSdkReleaseResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMobileSdkReleaseResponse): any => ({
     ...obj,
   });
 }
@@ -4699,6 +4894,83 @@ export namespace ListManagedRuleSetsResponse {
   });
 }
 
+export interface ListMobileSdkReleasesRequest {
+  /**
+   * <p>The device platform to retrieve the list for.</p>
+   */
+  Platform: Platform | string | undefined;
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The maximum number of objects that you want WAF to return for this request. If more
+   *           objects are available, in the response, WAF provides a
+   *          <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>
+   */
+  Limit?: number;
+}
+
+export namespace ListMobileSdkReleasesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMobileSdkReleasesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>High level information for an SDK release. </p>
+ */
+export interface ReleaseSummary {
+  /**
+   * <p>The release version. </p>
+   */
+  ReleaseVersion?: string;
+
+  /**
+   * <p>The timestamp of the release. </p>
+   */
+  Timestamp?: Date;
+}
+
+export namespace ReleaseSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReleaseSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMobileSdkReleasesResponse {
+  /**
+   * <p>High level information for the available SDK releases. </p>
+   */
+  ReleaseSummaries?: ReleaseSummary[];
+
+  /**
+   * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
+   *          for retrieval exceeds the limit, WAF returns a <code>NextMarker</code>
+   *          value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>
+   */
+  NextMarker?: string;
+}
+
+export namespace ListMobileSdkReleasesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMobileSdkReleasesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListRegexPatternSetsRequest {
   /**
    * <p>Specifies whether this is for an Amazon CloudFront distribution or for a regional application. A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, or an AppSync GraphQL API.  </p>
@@ -5737,6 +6009,13 @@ export interface ManagedRuleGroupStatement {
    *          rule statement. </p>
    */
   ScopeDownStatement?: Statement;
+
+  /**
+   * <p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>
+   *          <p>Use this for the account takeover prevention managed rule group
+   *       <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>
+   */
+  ManagedRuleGroupConfigs?: ManagedRuleGroupConfig[];
 }
 
 export namespace ManagedRuleGroupStatement {
@@ -6659,6 +6938,11 @@ export interface GetWebACLResponse {
    * <p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>
    */
   LockToken?: string;
+
+  /**
+   * <p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html">WAF application integration</a> in the <i>WAF Developer Guide</i>.</p>
+   */
+  ApplicationIntegrationURL?: string;
 }
 
 export namespace GetWebACLResponse {

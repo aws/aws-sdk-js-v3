@@ -32,9 +32,9 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *         <note>
  *             <p>This operation does not use other policy types when determining whether a resource
  *                 could access a service. These other policy types include resource-based policies,
- *                 access control lists, Organizations policies, IAM permissions boundaries, and
- *                 STS assume role policies. It only applies permissions policy logic. For more
- *                 about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
+ *                 access control lists, Organizations policies, IAM permissions boundaries, and STS
+ *                 assume role policies. It only applies permissions policy logic. For more about the
+ *                 evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
  *                 <i>IAM User Guide</i>.</p>
  *         </note>
  *         <p>The list of policies returned by the operation depends on the ARN of the identity that

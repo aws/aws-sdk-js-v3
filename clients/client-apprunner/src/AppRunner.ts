@@ -22,6 +22,11 @@ import {
   CreateServiceCommandOutput,
 } from "./commands/CreateServiceCommand";
 import {
+  CreateVpcConnectorCommand,
+  CreateVpcConnectorCommandInput,
+  CreateVpcConnectorCommandOutput,
+} from "./commands/CreateVpcConnectorCommand";
+import {
   DeleteAutoScalingConfigurationCommand,
   DeleteAutoScalingConfigurationCommandInput,
   DeleteAutoScalingConfigurationCommandOutput,
@@ -37,6 +42,11 @@ import {
   DeleteServiceCommandOutput,
 } from "./commands/DeleteServiceCommand";
 import {
+  DeleteVpcConnectorCommand,
+  DeleteVpcConnectorCommandInput,
+  DeleteVpcConnectorCommandOutput,
+} from "./commands/DeleteVpcConnectorCommand";
+import {
   DescribeAutoScalingConfigurationCommand,
   DescribeAutoScalingConfigurationCommandInput,
   DescribeAutoScalingConfigurationCommandOutput,
@@ -51,6 +61,11 @@ import {
   DescribeServiceCommandInput,
   DescribeServiceCommandOutput,
 } from "./commands/DescribeServiceCommand";
+import {
+  DescribeVpcConnectorCommand,
+  DescribeVpcConnectorCommandInput,
+  DescribeVpcConnectorCommandOutput,
+} from "./commands/DescribeVpcConnectorCommand";
 import {
   DisassociateCustomDomainCommand,
   DisassociateCustomDomainCommandInput,
@@ -81,6 +96,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListVpcConnectorsCommand,
+  ListVpcConnectorsCommandInput,
+  ListVpcConnectorsCommandOutput,
+} from "./commands/ListVpcConnectorsCommand";
 import {
   PauseServiceCommand,
   PauseServiceCommandInput,
@@ -171,9 +191,9 @@ export class AppRunner extends AppRunnerClient {
    * <p>Create an App Runner automatic scaling configuration resource. App Runner requires this resource
    *       when you create App Runner services that require non-default auto scaling settings. You can share an
    *       auto scaling configuration across multiple services.</p>
-   *          <p>Create multiple revisions of a configuration by using the same <code>AutoScalingConfigurationName</code> and different
-   *         <code>AutoScalingConfigurationRevision</code> values. When you create a service, you can set it to use the latest active revision of an auto scaling
-   *       configuration or a specific revision.</p>
+   *          <p>Create multiple revisions of a configuration by calling this action multiple times using the same <code>AutoScalingConfigurationName</code>. The call
+   *       returns incremental <code>AutoScalingConfigurationRevision</code> values. When you create a service, you can set it to use the latest active revision of
+   *       an auto scaling configuration or a specific revision.</p>
    *          <p>Configure a higher <code>MinSize</code> to increase the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is
    *       a higher minimal cost.</p>
    *          <p>Configure a lower <code>MaxSize</code> to control your cost. The tradeoff is lower responsiveness during peak demand.</p>
@@ -265,6 +285,39 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: CreateServiceCommandOutput) => void
   ): Promise<CreateServiceCommandOutput> | void {
     const command = new CreateServiceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Create an App Runner VPC connector resource. App Runner requires this resource when you want to associate your App Runner service to a custom Amazon Virtual Private Cloud
+   *         (Amazon VPC).</p>
+   */
+  public createVpcConnector(
+    args: CreateVpcConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcConnectorCommandOutput>;
+  public createVpcConnector(
+    args: CreateVpcConnectorCommandInput,
+    cb: (err: any, data?: CreateVpcConnectorCommandOutput) => void
+  ): void;
+  public createVpcConnector(
+    args: CreateVpcConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcConnectorCommandOutput) => void
+  ): void;
+  public createVpcConnector(
+    args: CreateVpcConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVpcConnectorCommandOutput) => void),
+    cb?: (err: any, data?: CreateVpcConnectorCommandOutput) => void
+  ): Promise<CreateVpcConnectorCommandOutput> | void {
+    const command = new CreateVpcConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -376,6 +429,39 @@ export class AppRunner extends AppRunnerClient {
   }
 
   /**
+   * <p>Delete an App Runner VPC connector resource. You can't delete a
+   *       connector that's used by one or more App Runner services.</p>
+   */
+  public deleteVpcConnector(
+    args: DeleteVpcConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcConnectorCommandOutput>;
+  public deleteVpcConnector(
+    args: DeleteVpcConnectorCommandInput,
+    cb: (err: any, data?: DeleteVpcConnectorCommandOutput) => void
+  ): void;
+  public deleteVpcConnector(
+    args: DeleteVpcConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcConnectorCommandOutput) => void
+  ): void;
+  public deleteVpcConnector(
+    args: DeleteVpcConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVpcConnectorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVpcConnectorCommandOutput) => void
+  ): Promise<DeleteVpcConnectorCommandOutput> | void {
+    const command = new DeleteVpcConnectorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>
    */
   public describeAutoScalingConfiguration(
@@ -461,6 +547,38 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: DescribeServiceCommandOutput) => void
   ): Promise<DescribeServiceCommandOutput> | void {
     const command = new DescribeServiceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Return a description of an App Runner VPC connector resource.</p>
+   */
+  public describeVpcConnector(
+    args: DescribeVpcConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcConnectorCommandOutput>;
+  public describeVpcConnector(
+    args: DescribeVpcConnectorCommandInput,
+    cb: (err: any, data?: DescribeVpcConnectorCommandOutput) => void
+  ): void;
+  public describeVpcConnector(
+    args: DescribeVpcConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcConnectorCommandOutput) => void
+  ): void;
+  public describeVpcConnector(
+    args: DescribeVpcConnectorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVpcConnectorCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVpcConnectorCommandOutput) => void
+  ): Promise<DescribeVpcConnectorCommandOutput> | void {
+    const command = new DescribeVpcConnectorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -656,6 +774,38 @@ export class AppRunner extends AppRunnerClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of App Runner VPC connectors in your Amazon Web Services account.</p>
+   */
+  public listVpcConnectors(
+    args: ListVpcConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcConnectorsCommandOutput>;
+  public listVpcConnectors(
+    args: ListVpcConnectorsCommandInput,
+    cb: (err: any, data?: ListVpcConnectorsCommandOutput) => void
+  ): void;
+  public listVpcConnectors(
+    args: ListVpcConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcConnectorsCommandOutput) => void
+  ): void;
+  public listVpcConnectors(
+    args: ListVpcConnectorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVpcConnectorsCommandOutput) => void),
+    cb?: (err: any, data?: ListVpcConnectorsCommandOutput) => void
+  ): Promise<ListVpcConnectorsCommandOutput> | void {
+    const command = new ListVpcConnectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

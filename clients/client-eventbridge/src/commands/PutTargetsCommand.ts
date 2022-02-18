@@ -25,6 +25,9 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * <p>Adds the specified targets to the specified rule, or updates the targets if they are
  *       already associated with the rule.</p>
  *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
+ *          <note>
+ *             <p>Each rule can have up to five (5) targets associated with it at one time.</p>
+ *          </note>
  *          <p>You can configure the following as targets for Events:</p>
  *
  *          <ul>
@@ -54,6 +57,9 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *             </li>
  *             <li>
  *                <p>Amazon EC2 <code>CreateSnapshot</code> API call</p>
+ *             </li>
+ *             <li>
+ *                <p>EC2 Image Builder</p>
  *             </li>
  *             <li>
  *                <p>Amazon EC2 <code>RebootInstances</code> API call</p>
@@ -91,7 +97,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *                <p>Amazon SNS topic</p>
  *             </li>
  *             <li>
- *                <p>Amazon SQS queues (includes FIFO queues</p>
+ *                <p>Amazon SQS queues (includes FIFO queues)</p>
  *             </li>
  *             <li>
  *                <p>SSM Automation</p>

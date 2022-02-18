@@ -4971,7 +4971,7 @@ export class SSM extends SSMClient {
 
   /**
    * <p>Permanently ends a session and closes the data connection between the Session Manager client and
-   *    SSM Agent on the managed node. A terminated session isn't be resumed.</p>
+   *    SSM Agent on the managed node. A terminated session can't be resumed.</p>
    */
   public terminateSession(
     args: TerminateSessionCommandInput,
@@ -5037,7 +5037,7 @@ export class SSM extends SSMClient {
   /**
    * <p>Updates an association. You can update the association name and version, the document
    *    version, schedule, parameters, and Amazon Simple Storage Service (Amazon S3) output. When you
-   *    call <code>UpdateAssociation</code>, the system drops all optional parameters from the request
+   *    call <code>UpdateAssociation</code>, the system removes all optional parameters from the request
    *    and overwrites the association with null values for those parameters. This is by design. You must
    *    specify all optional parameters in the call, even if you are not changing the parameters. This
    *    includes the <code>Name</code> parameter. Before calling this API action, we recommend that you

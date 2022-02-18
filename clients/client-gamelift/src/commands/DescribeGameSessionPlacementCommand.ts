@@ -25,8 +25,16 @@ export interface DescribeGameSessionPlacementCommandOutput
 
 /**
  * <p>Retrieves information, including current status, about a game session placement request. </p>
- *         <p>To get game session placement details, specify the placement ID.</p>
- *         <p>If successful, a <a>GameSessionPlacement</a> object is returned.</p>
+ *          <p>To get game session placement details, specify the placement ID.</p>
+ *          <p>This operation is not designed to be continually called to track game session status.
+ *         This practice can cause you to exceed your API limit, which results in errors. Instead,
+ *         you must configure configure an
+ *         Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling
+ *         with <code>DescribeGameSessionPlacement</code> should only be used for games in development with
+ *         low game session usage.
+ *     </p>
+ *
+ *          <p>If successful, a <a>GameSessionPlacement</a> object is returned.</p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>

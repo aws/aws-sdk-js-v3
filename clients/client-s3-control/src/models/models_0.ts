@@ -30,7 +30,8 @@ export enum NetworkOrigin {
  */
 export interface VpcConfiguration {
   /**
-   * <p>If this field is specified, this access point will only allow connections from the specified VPC ID.</p>
+   * <p>If this field is specified, this access point will only allow connections from the specified VPC
+   *          ID.</p>
    */
   VpcId: string | undefined;
 }
@@ -66,7 +67,8 @@ export interface AccessPoint {
   /**
    * <p>The virtual private cloud (VPC) configuration for this access point, if one exists.</p>
    *          <note>
-   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other Amazon Web Services.</p>
+   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other
+   *                Amazon Web Services.</p>
    *          </note>
    */
   VpcConfiguration?: VpcConfiguration;
@@ -279,18 +281,20 @@ export enum AsyncOperationName {
 }
 
 /**
- * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
- *          You can enable the configuration options in any combination. For more information about
- *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+ * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
+ *          account. You can enable the configuration options in any combination. For more information
+ *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>This is not supported for Amazon S3 on Outposts.</p>
  */
 export interface PublicAccessBlockConfiguration {
   /**
-   * <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in
-   *       this account. Setting this element to <code>TRUE</code> causes the following behavior:</p>
+   * <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets
+   *          in this account. Setting this element to <code>TRUE</code> causes the following
+   *          behavior:</p>
    *          <ul>
    *             <li>
-   *                <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.</p>
+   *                <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is
+   *                public.</p>
    *             </li>
    *             <li>
    *                <p>PUT Object calls fail if the request includes a public ACL.</p>
@@ -305,9 +309,9 @@ export interface PublicAccessBlockConfiguration {
   BlockPublicAcls?: boolean;
 
   /**
-   * <p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting this
-   *          element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in this
-   *          account and any objects that they contain. </p>
+   * <p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting
+   *          this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in
+   *          this account and any objects that they contain. </p>
    *          <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
    *          prevent new public ACLs from being set.</p>
    *          <p>This is not supported for Amazon S3 on Outposts.</p>
@@ -324,12 +328,13 @@ export interface PublicAccessBlockConfiguration {
   BlockPublicPolicy?: boolean;
 
   /**
-   * <p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this account.
-   *          Setting this element to <code>TRUE</code> restricts access to buckets with public policies
-   *          to only Amazon Web Service principals and authorized users within this account.</p>
-   *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that public
-   *          and cross-account access within any public bucket policy, including non-public delegation to
-   *          specific accounts, is blocked.</p>
+   * <p>Specifies whether Amazon S3 should restrict public bucket policies for buckets in this
+   *          account. Setting this element to <code>TRUE</code> restricts access to buckets with public
+   *          policies to only Amazon Web Service principals and authorized users within this
+   *          account.</p>
+   *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that
+   *          public and cross-account access within any public bucket policy, including non-public
+   *          delegation to specific accounts, is blocked.</p>
    *          <p>This is not supported for Amazon S3 on Outposts.</p>
    */
   RestrictPublicBuckets?: boolean;
@@ -364,10 +369,7 @@ export namespace Region {
 }
 
 /**
- * <p>A container for the information associated with a
- *           <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a>
- *           request.
- *       </p>
+ * <p>A container for the information associated with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a> request. </p>
  */
 export interface CreateMultiRegionAccessPointInput {
   /**
@@ -376,9 +378,9 @@ export interface CreateMultiRegionAccessPointInput {
   Name: string | undefined;
 
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
-   *          You can enable the configuration options in any combination. For more information about
-   *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
+   *          account. You can enable the configuration options in any combination. For more information
+   *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlock?: PublicAccessBlockConfiguration;
@@ -399,9 +401,7 @@ export namespace CreateMultiRegionAccessPointInput {
 }
 
 /**
- * <p>A container for the information associated with a
- *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a>
- *          request.</p>
+ * <p>A container for the information associated with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a> request.</p>
  */
 export interface DeleteMultiRegionAccessPointInput {
   /**
@@ -420,9 +420,7 @@ export namespace DeleteMultiRegionAccessPointInput {
 }
 
 /**
- * <p>A container for the information associated with a
- *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPoint.html">PutMultiRegionAccessPoint</a>
- *          request.</p>
+ * <p>A container for the information associated with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPoint.html">PutMultiRegionAccessPoint</a> request.</p>
  */
 export interface PutMultiRegionAccessPointPolicyInput {
   /**
@@ -450,23 +448,17 @@ export namespace PutMultiRegionAccessPointPolicyInput {
  */
 export interface AsyncRequestParameters {
   /**
-   * <p>A container of the parameters for a
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a>
-   *          request.</p>
+   * <p>A container of the parameters for a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a> request.</p>
    */
   CreateMultiRegionAccessPointRequest?: CreateMultiRegionAccessPointInput;
 
   /**
-   * <p>A container of the parameters for a
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a>
-   *          request.</p>
+   * <p>A container of the parameters for a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a> request.</p>
    */
   DeleteMultiRegionAccessPointRequest?: DeleteMultiRegionAccessPointInput;
 
   /**
-   * <p>A container of the parameters for a
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPoint.html">PutMultiRegionAccessPoint</a>
-   *          request.</p>
+   * <p>A container of the parameters for a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPoint.html">PutMultiRegionAccessPoint</a> request.</p>
    */
   PutMultiRegionAccessPointPolicyRequest?: PutMultiRegionAccessPointPolicyInput;
 }
@@ -510,7 +502,7 @@ export namespace MultiRegionAccessPointRegionalResponse {
 export interface MultiRegionAccessPointsAsyncResponse {
   /**
    * <p>A collection of status information for the different Regions that a Multi-Region Access Point
-   *             supports.</p>
+   *          supports.</p>
    */
   Regions?: MultiRegionAccessPointRegionalResponse[];
 }
@@ -526,7 +518,7 @@ export namespace MultiRegionAccessPointsAsyncResponse {
 
 /**
  * <p>A container for the response details that are returned when querying about an
- *             asynchronous request.</p>
+ *          asynchronous request.</p>
  */
 export interface AsyncResponseDetails {
   /**
@@ -603,7 +595,8 @@ export interface AwsLambdaTransformation {
   FunctionArn: string | undefined;
 
   /**
-   * <p>Additional JSON that provides supplemental data to the Lambda function used to transform objects.</p>
+   * <p>Additional JSON that provides supplemental data to the Lambda function used to transform
+   *          objects.</p>
    */
   FunctionPayload?: string;
 }
@@ -619,7 +612,8 @@ export namespace AwsLambdaTransformation {
 
 export interface CreateAccessPointRequest {
   /**
-   * <p>The Amazon Web Services account ID for the owner of the bucket for which you want to create an access point.</p>
+   * <p>The Amazon Web Services account ID for the owner of the bucket for which you want to create an
+   *          access point.</p>
    */
   AccountId?: string;
 
@@ -645,8 +639,7 @@ export interface CreateAccessPointRequest {
   VpcConfiguration?: VpcConfiguration;
 
   /**
-   * <p>
-   *         The <code>PublicAccessBlock</code> configuration that you want to apply to the access point.
+   * <p> The <code>PublicAccessBlock</code> configuration that you want to apply to the access point.
    *       </p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
@@ -739,7 +732,8 @@ export namespace ObjectLambdaContentTransformation {
  */
 export interface ObjectLambdaTransformationConfiguration {
   /**
-   * <p>A container for the action of an Object Lambda Access Point configuration. Valid input is <code>GetObject</code>.</p>
+   * <p>A container for the action of an Object Lambda Access Point configuration. Valid input is
+   *             <code>GetObject</code>.</p>
    */
   Actions: (ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
 
@@ -776,8 +770,8 @@ export interface ObjectLambdaConfiguration {
   CloudWatchMetricsEnabled?: boolean;
 
   /**
-   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code>
-   *            and <code>GetObject-PartNumber</code>.</p>
+   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code> and
+   *             <code>GetObject-PartNumber</code>.</p>
    */
   AllowedFeatures?: (ObjectLambdaAllowedFeature | string)[];
 
@@ -885,10 +879,8 @@ export type BucketLocationConstraint =
  */
 export interface CreateBucketConfiguration {
   /**
-   * <p>Specifies the Region where the bucket will be created.
-   *          If you are creating a bucket on the US East (N. Virginia) Region (us-east-1),
-   *          you do not need to specify the location.
-   *       </p>
+   * <p>Specifies the Region where the bucket will be created. If you are creating a bucket on
+   *          the US East (N. Virginia) Region (us-east-1), you do not need to specify the location. </p>
    *          <note>
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
@@ -928,7 +920,8 @@ export interface CreateBucketRequest {
   CreateBucketConfiguration?: CreateBucketConfiguration;
 
   /**
-   * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
+   * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
+   *          bucket.</p>
    *          <note>
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
@@ -1072,7 +1065,8 @@ export enum JobManifestFormat {
 }
 
 /**
- * <p>Describes the format of a manifest. If the manifest is in CSV format, also describes the columns contained within the manifest.</p>
+ * <p>Describes the format of a manifest. If the manifest is in CSV format, also describes the
+ *          columns contained within the manifest.</p>
  */
 export interface JobManifestSpec {
   /**
@@ -1081,7 +1075,8 @@ export interface JobManifestSpec {
   Format: JobManifestFormat | string | undefined;
 
   /**
-   * <p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code> format, this element describes which columns contain the required data.</p>
+   * <p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code>
+   *          format, this element describes which columns contain the required data.</p>
    */
   Fields?: (JobManifestFieldName | string)[];
 }
@@ -1100,7 +1095,8 @@ export namespace JobManifestSpec {
  */
 export interface JobManifest {
   /**
-   * <p>Describes the format of the specified job's manifest. If the manifest is in CSV format, also describes the columns contained within the manifest.</p>
+   * <p>Describes the format of the specified job's manifest. If the manifest is in CSV format,
+   *          also describes the columns contained within the manifest.</p>
    */
   Spec: JobManifestSpec | undefined;
 
@@ -1119,12 +1115,244 @@ export namespace JobManifest {
   });
 }
 
+export enum ReplicationStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  NONE = "NONE",
+  REPLICA = "REPLICA",
+}
+
+/**
+ * <p>The filter used to describe a set of objects for the job's manifest.</p>
+ */
+export interface JobManifestGeneratorFilter {
+  /**
+   * <p>Include objects in the generated manifest only if they are eligible for replication
+   *          according to the Replication configuration on the source bucket.</p>
+   */
+  EligibleForReplication?: boolean;
+
+  /**
+   * <p>If provided, the generated manifest should include only source bucket objects that were
+   *          created after this time.</p>
+   */
+  CreatedAfter?: Date;
+
+  /**
+   * <p>If provided, the generated manifest should include only source bucket objects that were
+   *          created before this time.</p>
+   */
+  CreatedBefore?: Date;
+
+  /**
+   * <p>If provided, the generated manifest should include only source bucket objects that have
+   *          one of the specified Replication statuses.</p>
+   */
+  ObjectReplicationStatuses?: (ReplicationStatus | string)[];
+}
+
+export namespace JobManifestGeneratorFilter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobManifestGeneratorFilter): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for the use of SSE-KMS to encrypt generated manifest objects.</p>
+ */
+export interface SSEKMSEncryption {
+  /**
+   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric customer managed
+   *          key to use for encrypting generated manifest objects.</p>
+   */
+  KeyId: string | undefined;
+}
+
+export namespace SSEKMSEncryption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SSEKMSEncryption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration for the use of SSE-S3 to encrypt generated manifest objects.</p>
+ */
+export interface SSES3Encryption {}
+
+export namespace SSES3Encryption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SSES3Encryption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The encryption configuration to use when storing the generated manifest.</p>
+ */
+export interface GeneratedManifestEncryption {
+  /**
+   * <p>Specifies the use of SSE-S3 to encrypt generated manifest objects.</p>
+   */
+  SSES3?: SSES3Encryption;
+
+  /**
+   * <p>Configuration details on how SSE-KMS is used to encrypt generated manifest
+   *          objects.</p>
+   */
+  SSEKMS?: SSEKMSEncryption;
+}
+
+export namespace GeneratedManifestEncryption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GeneratedManifestEncryption): any => ({
+    ...obj,
+  });
+}
+
+export enum GeneratedManifestFormat {
+  S3InventoryReport_CSV_20211130 = "S3InventoryReport_CSV_20211130",
+}
+
+/**
+ * <p>Location details for where the generated manifest should be written.</p>
+ */
+export interface S3ManifestOutputLocation {
+  /**
+   * <p>The Account ID that owns the bucket the generated manifest is written to.</p>
+   */
+  ExpectedManifestBucketOwner?: string;
+
+  /**
+   * <p>The bucket ARN the generated manifest should be written to.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Prefix identifying one or more objects to which the manifest applies.</p>
+   */
+  ManifestPrefix?: string;
+
+  /**
+   * <p>Specifies what encryption should be used when the generated manifest objects are
+   *          written.</p>
+   */
+  ManifestEncryption?: GeneratedManifestEncryption;
+
+  /**
+   * <p>The format of the generated manifest.</p>
+   */
+  ManifestFormat: GeneratedManifestFormat | string | undefined;
+}
+
+export namespace S3ManifestOutputLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ManifestOutputLocation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The container for the service that will create the S3 manifest.</p>
+ */
+export interface S3JobManifestGenerator {
+  /**
+   * <p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If
+   *          provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else
+   *          the job fails.</p>
+   */
+  ExpectedBucketOwner?: string;
+
+  /**
+   * <p>The source bucket used by the ManifestGenerator.</p>
+   */
+  SourceBucket: string | undefined;
+
+  /**
+   * <p>Specifies the location the generated manifest will be written to.</p>
+   */
+  ManifestOutputLocation?: S3ManifestOutputLocation;
+
+  /**
+   * <p>Specifies rules the S3JobManifestGenerator should use to use to decide whether an object
+   *          in the source bucket should or should not be included in the generated job manifest.</p>
+   */
+  Filter?: JobManifestGeneratorFilter;
+
+  /**
+   * <p>Determines whether or not to write the job's generated manifest to a bucket.</p>
+   */
+  EnableManifestOutput: boolean | undefined;
+}
+
+export namespace S3JobManifestGenerator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3JobManifestGenerator): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configures the type of the job's ManifestGenerator.</p>
+ */
+export type JobManifestGenerator =
+  | JobManifestGenerator.S3JobManifestGeneratorMember
+  | JobManifestGenerator.$UnknownMember;
+
+export namespace JobManifestGenerator {
+  /**
+   * <p>The S3 job ManifestGenerator's configuration details.</p>
+   */
+  export interface S3JobManifestGeneratorMember {
+    S3JobManifestGenerator: S3JobManifestGenerator;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    S3JobManifestGenerator?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    S3JobManifestGenerator: (value: S3JobManifestGenerator) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: JobManifestGenerator, visitor: Visitor<T>): T => {
+    if (value.S3JobManifestGenerator !== undefined) return visitor.S3JobManifestGenerator(value.S3JobManifestGenerator);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobManifestGenerator): any => {
+    if (obj.S3JobManifestGenerator !== undefined)
+      return { S3JobManifestGenerator: S3JobManifestGenerator.filterSensitiveLog(obj.S3JobManifestGenerator) };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
+}
+
 /**
  * <p>Contains the configuration parameters for a <code>Lambda Invoke</code> operation.</p>
  */
 export interface LambdaInvokeOperation {
   /**
-   * <p>The Amazon Resource Name (ARN) for the Lambda function that the specified job will invoke on every object in the manifest.</p>
+   * <p>The Amazon Resource Name (ARN) for the Lambda function that the specified job will
+   *          invoke on every object in the manifest.</p>
    */
   FunctionArn?: string;
 }
@@ -1139,7 +1367,8 @@ export namespace LambdaInvokeOperation {
 }
 
 /**
- * <p>Contains no configuration parameters because the DELETE Object tagging API only accepts the bucket name and key name as parameters, which are defined in the job's manifest.</p>
+ * <p>Contains no configuration parameters because the DELETE Object tagging API only accepts
+ *          the bucket name and key name as parameters, which are defined in the job's manifest.</p>
  */
 export interface S3DeleteObjectTaggingOperation {}
 
@@ -1159,21 +1388,20 @@ export enum S3GlacierJobTier {
 
 /**
  * <p>Contains the configuration parameters for an S3 Initiate Restore Object job.
- *          S3 Batch Operations passes every object to the underlying POST Object restore API. For
- *          more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html#RESTObjectPOSTrestore-restore-request">RestoreObject</a>.</p>
+ *          S3 Batch Operations passes every object to the underlying POST Object restore API. For more
+ *          information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html#RESTObjectPOSTrestore-restore-request">RestoreObject</a>.</p>
  */
 export interface S3InitiateRestoreObjectOperation {
   /**
-   * <p>This argument specifies how long the S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive object remains available in Amazon S3.
-   *          S3 Initiate Restore Object jobs that
-   *          target S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive objects require <code>ExpirationInDays</code> set to 1
-   *          or greater.</p>
-   *          <p>Conversely, do <i>not</i> set <code>ExpirationInDays</code> when
-   *          creating S3 Initiate Restore Object jobs that target
-   *          S3 Intelligent-Tiering Archive Access and Deep Archive Access tier objects. Objects in
-   *          S3 Intelligent-Tiering archive access tiers are not subject to restore expiry, so
-   *          specifying <code>ExpirationInDays</code> results in restore request failure.</p>
-   *          <p>S3 Batch Operations jobs can operate either on S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive storage class
+   * <p>This argument specifies how long the S3 Glacier or S3 Glacier Deep Archive object remains
+   *          available in Amazon S3. S3 Initiate Restore Object jobs that target S3 Glacier and S3 Glacier Deep Archive
+   *          objects require <code>ExpirationInDays</code> set to 1 or greater.</p>
+   *          <p>Conversely, do <i>not</i> set <code>ExpirationInDays</code> when creating
+   *          S3 Initiate Restore Object jobs that target S3 Intelligent-Tiering Archive Access and
+   *          Deep Archive Access tier objects. Objects in S3 Intelligent-Tiering archive access tiers are
+   *          not subject to restore expiry, so specifying <code>ExpirationInDays</code> results in
+   *          restore request failure.</p>
+   *          <p>S3 Batch Operations jobs can operate either on S3 Glacier and S3 Glacier Deep Archive storage class
    *          objects or on S3 Intelligent-Tiering Archive Access and Deep Archive Access storage tier
    *          objects, but not both types in the same job. If you need to restore objects of both types
    *          you <i>must</i> create separate Batch Operations jobs. </p>
@@ -1181,8 +1409,8 @@ export interface S3InitiateRestoreObjectOperation {
   ExpirationInDays?: number;
 
   /**
-   * <p>S3 Batch Operations supports <code>STANDARD</code> and <code>BULK</code> retrieval tiers,
-   *          but not the <code>EXPEDITED</code> retrieval tier.</p>
+   * <p>S3 Batch Operations supports <code>STANDARD</code> and <code>BULK</code> retrieval tiers, but
+   *          not the <code>EXPEDITED</code> retrieval tier.</p>
    */
   GlacierJobTier?: S3GlacierJobTier | string;
 }
@@ -1346,8 +1574,9 @@ export namespace S3AccessControlPolicy {
 }
 
 /**
- * <p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations passes every object to the underlying PUT Object acl API.
- *          For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">PUT Object acl</a>.</p>
+ * <p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations
+ *          passes every object to the underlying PUT Object acl API. For more information about the
+ *          parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">PUT Object acl</a>.</p>
  */
 export interface S3SetObjectAclOperation {
   /**
@@ -1481,6 +1710,7 @@ export enum S3ObjectLockMode {
 export enum S3StorageClass {
   DEEP_ARCHIVE = "DEEP_ARCHIVE",
   GLACIER = "GLACIER",
+  GLACIER_IR = "GLACIER_IR",
   INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
   ONEZONE_IA = "ONEZONE_IA",
   STANDARD = "STANDARD",
@@ -1488,14 +1718,15 @@ export enum S3StorageClass {
 }
 
 /**
- * <p>Contains the configuration parameters for a PUT Copy object operation. S3 Batch Operations passes every object to the underlying PUT Copy object
- *          API. For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html">PUT Object - Copy</a>.</p>
+ * <p>Contains the configuration parameters for a PUT Copy object operation. S3 Batch Operations
+ *          passes every object to the underlying PUT Copy object API. For more information about the
+ *          parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html">PUT Object - Copy</a>.</p>
  */
 export interface S3CopyObjectOperation {
   /**
-   * <p>Specifies the destination bucket ARN for the batch copy operation.
-   *          For example, to copy objects to a bucket named "destinationBucket",
-   *          set the TargetResource to "arn:aws:s3:::destinationBucket".</p>
+   * <p>Specifies the destination bucket ARN for the batch copy operation. For example, to copy
+   *          objects to a bucket named "destinationBucket", set the TargetResource to
+   *          "arn:aws:s3:::destinationBucket".</p>
    */
   TargetResource?: string;
 
@@ -1520,7 +1751,9 @@ export interface S3CopyObjectOperation {
   ModifiedSinceConstraint?: Date;
 
   /**
-   * <p></p>
+   * <p>If you don't provide this parameter, Amazon S3 copies all the metadata from the original
+   *          objects. If you specify an empty set, the new objects will have no tags. Otherwise, Amazon S3
+   *          assigns the supplied tags to the new objects.</p>
    */
   NewObjectMetadata?: S3ObjectMetadata;
 
@@ -1574,8 +1807,8 @@ export interface S3CopyObjectOperation {
   ObjectLockMode?: S3ObjectLockMode | string;
 
   /**
-   * <p>The date when the applied object retention configuration expires on all objects in
-   *          the Batch Operations job.</p>
+   * <p>The date when the applied object retention configuration expires on all objects in the
+   *          Batch Operations job.</p>
    */
   ObjectLockRetainUntilDate?: Date;
 
@@ -1584,7 +1817,7 @@ export interface S3CopyObjectOperation {
    *          server-side encryption using Amazon Web Services KMS (SSE-KMS). Setting this header to <code>true</code>
    *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
    *          <p>Specifying this header with an <i>object</i> action doesn’t affect
-   *          <i>bucket-level</i> settings for S3 Bucket Key.</p>
+   *             <i>bucket-level</i> settings for S3 Bucket Key.</p>
    */
   BucketKeyEnabled?: boolean;
 }
@@ -1604,7 +1837,8 @@ export namespace S3CopyObjectOperation {
  */
 export interface S3ObjectLockLegalHold {
   /**
-   * <p>The Object Lock legal hold status to be applied to all objects in the Batch Operations job.</p>
+   * <p>The Object Lock legal hold status to be applied to all objects in the Batch Operations
+   *          job.</p>
    */
   Status: S3ObjectLockLegalHoldStatus | string | undefined;
 }
@@ -1620,14 +1854,14 @@ export namespace S3ObjectLockLegalHold {
 
 /**
  * <p>Contains the configuration for an S3 Object Lock legal hold operation that an
- *          S3 Batch Operations job passes every object to the underlying
- *             <code>PutObjectLegalHold</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using
- *             S3 Object Lock legal hold with S3 Batch Operations</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *          S3 Batch Operations job passes every object to the underlying <code>PutObjectLegalHold</code>
+ *          API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
+ *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface S3SetObjectLegalHoldOperation {
   /**
-   * <p>Contains the Object Lock legal hold status to be applied to all objects in the Batch Operations job.</p>
+   * <p>Contains the Object Lock legal hold status to be applied to all objects in the
+   *          Batch Operations job.</p>
    */
   LegalHold: S3ObjectLockLegalHold | undefined;
 }
@@ -1655,12 +1889,14 @@ export enum S3ObjectLockRetentionMode {
  */
 export interface S3Retention {
   /**
-   * <p>The date when the applied Object Lock retention will expire on all objects set by the Batch Operations job.</p>
+   * <p>The date when the applied Object Lock retention will expire on all objects set by the
+   *          Batch Operations job.</p>
    */
   RetainUntilDate?: Date;
 
   /**
-   * <p>The Object Lock retention mode to be applied to all objects in the Batch Operations job.</p>
+   * <p>The Object Lock retention mode to be applied to all objects in the Batch Operations
+   *          job.</p>
    */
   Mode?: S3ObjectLockRetentionMode | string;
 }
@@ -1683,8 +1919,8 @@ export namespace S3Retention {
  */
 export interface S3SetObjectRetentionOperation {
   /**
-   * <p>Indicates if the action should be applied to objects in the Batch Operations job even if they have Object Lock <code>
-   *          GOVERNANCE</code> type in place.</p>
+   * <p>Indicates if the action should be applied to objects in the Batch Operations job even if they
+   *          have Object Lock <code> GOVERNANCE</code> type in place.</p>
    */
   BypassGovernanceRetention?: boolean;
 
@@ -1706,8 +1942,9 @@ export namespace S3SetObjectRetentionOperation {
 }
 
 /**
- * <p>Contains the configuration parameters for a Set Object Tagging operation. S3 Batch Operations passes every object to the underlying PUT Object tagging API.
- *          For more information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTtagging.html">PUT Object tagging</a>.</p>
+ * <p>Contains the configuration parameters for a Set Object Tagging operation. S3 Batch Operations
+ *          passes every object to the underlying PUT Object tagging API. For more information about
+ *          the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTtagging.html">PUT Object tagging</a>.</p>
  */
 export interface S3SetObjectTaggingOperation {
   /**
@@ -1726,47 +1963,67 @@ export namespace S3SetObjectTaggingOperation {
 }
 
 /**
+ * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the job's
+ *          manifest.</p>
+ */
+export interface S3ReplicateObjectOperation {}
+
+export namespace S3ReplicateObjectOperation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3ReplicateObjectOperation): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The operation that you want this job to perform on every object listed in the manifest.
  *          For more information about the available operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-operations.html">Operations</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
  */
 export interface JobOperation {
   /**
-   * <p>Directs the specified job to invoke an Lambda function on every object in the manifest.</p>
+   * <p>Directs the specified job to invoke an Lambda function on every object in the
+   *          manifest.</p>
    */
   LambdaInvoke?: LambdaInvokeOperation;
 
   /**
-   * <p>Directs the specified job to run a PUT Copy object call on every object in the manifest.</p>
+   * <p>Directs the specified job to run a PUT Copy object call on every object in the
+   *          manifest.</p>
    */
   S3PutObjectCopy?: S3CopyObjectOperation;
 
   /**
-   * <p>Directs the specified job to run a PUT Object acl call on every object in the manifest.</p>
+   * <p>Directs the specified job to run a PUT Object acl call on every object in the
+   *          manifest.</p>
    */
   S3PutObjectAcl?: S3SetObjectAclOperation;
 
   /**
-   * <p>Directs the specified job to run a PUT Object tagging call on every object in the manifest.</p>
+   * <p>Directs the specified job to run a PUT Object tagging call on every object in the
+   *          manifest.</p>
    */
   S3PutObjectTagging?: S3SetObjectTaggingOperation;
 
   /**
-   * <p>Directs the specified job to execute a DELETE Object tagging call on every object in the manifest.</p>
+   * <p>Directs the specified job to execute a DELETE Object tagging call on every object in the
+   *          manifest.</p>
    */
   S3DeleteObjectTagging?: S3DeleteObjectTaggingOperation;
 
   /**
-   * <p>Directs the specified job to initiate restore requests for every archived object in the manifest.</p>
+   * <p>Directs the specified job to initiate restore requests for every archived object in the
+   *          manifest.</p>
    */
   S3InitiateRestoreObject?: S3InitiateRestoreObjectOperation;
 
   /**
    * <p>Contains the configuration for an S3 Object Lock legal hold operation that an
-   *          S3 Batch Operations job passes every object to the underlying
-   *             <code>PutObjectLegalHold</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using
-   *             S3 Object Lock legal hold with S3 Batch Operations</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          S3 Batch Operations job passes every object to the underlying <code>PutObjectLegalHold</code>
+   *          API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
+   *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   S3PutObjectLegalHold?: S3SetObjectLegalHoldOperation;
 
@@ -1778,6 +2035,12 @@ export interface JobOperation {
    *             <i>Amazon S3 User Guide</i>.</p>
    */
   S3PutObjectRetention?: S3SetObjectRetentionOperation;
+
+  /**
+   * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the
+   *          job's manifest.</p>
+   */
+  S3ReplicateObject?: S3ReplicateObjectOperation;
 }
 
 export namespace JobOperation {
@@ -1803,7 +2066,8 @@ export enum JobReportScope {
  */
 export interface JobReport {
   /**
-   * <p>The Amazon Resource Name (ARN) for the bucket where specified job-completion report will be stored.</p>
+   * <p>The Amazon Resource Name (ARN) for the bucket where specified job-completion report will
+   *          be stored.</p>
    */
   Bucket?: string;
 
@@ -1825,7 +2089,8 @@ export interface JobReport {
   Prefix?: string;
 
   /**
-   * <p>Indicates whether the job-completion report will include details of all tasks or only failed tasks.</p>
+   * <p>Indicates whether the job-completion report will include details of all tasks or only
+   *          failed tasks.</p>
    */
   ReportScope?: JobReportScope | string;
 }
@@ -1846,13 +2111,14 @@ export interface CreateJobRequest {
   AccountId?: string;
 
   /**
-   * <p>Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is only required for jobs created through the Amazon S3 console.</p>
+   * <p>Indicates whether confirmation is required before Amazon S3 runs the job. Confirmation is
+   *          only required for jobs created through the Amazon S3 console.</p>
    */
   ConfirmationRequired?: boolean;
 
   /**
-   * <p>The action that you want this job to perform on every object listed in the manifest.
-   *          For more information about the available actions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-actions.html">Operations</a> in the
+   * <p>The action that you want this job to perform on every object listed in the manifest. For
+   *          more information about the available actions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-actions.html">Operations</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
    */
   Operation: JobOperation | undefined;
@@ -1863,17 +2129,19 @@ export interface CreateJobRequest {
   Report: JobReport | undefined;
 
   /**
-   * <p>An idempotency token to ensure that you don't accidentally submit the same request twice. You can use any string up to the maximum length.</p>
+   * <p>An idempotency token to ensure that you don't accidentally submit the same request
+   *          twice. You can use any string up to the maximum length.</p>
    */
   ClientRequestToken?: string;
 
   /**
    * <p>Configuration parameters for the manifest.</p>
    */
-  Manifest: JobManifest | undefined;
+  Manifest?: JobManifest;
 
   /**
-   * <p>A description for this job. You can use any string within the permitted length. Descriptions don't need to be unique and can be used for multiple jobs.</p>
+   * <p>A description for this job. You can use any string within the permitted length.
+   *          Descriptions don't need to be unique and can be used for multiple jobs.</p>
    */
   Description?: string;
 
@@ -1883,16 +2151,22 @@ export interface CreateJobRequest {
   Priority: number | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role
-   *          that Batch Operations will use to run this job's action on every object in the
-   *          manifest.</p>
+   * <p>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role that Batch Operations will
+   *          use to run this job's action on every object in the manifest.</p>
    */
   RoleArn: string | undefined;
 
   /**
-   * <p>A set of tags to associate with the S3 Batch Operations job. This is an optional parameter. </p>
+   * <p>A set of tags to associate with the S3 Batch Operations job. This is an optional parameter.
+   *       </p>
    */
   Tags?: S3Tag[];
+
+  /**
+   * <p>The attribute container for the ManifestGenerator details. Jobs must be created with
+   *          either a manifest file or a ManifestGenerator, but not both.</p>
+   */
+  ManifestGenerator?: JobManifestGenerator;
 }
 
 export namespace CreateJobRequest {
@@ -1901,6 +2175,7 @@ export namespace CreateJobRequest {
    */
   export const filterSensitiveLog = (obj: CreateJobRequest): any => ({
     ...obj,
+    ...(obj.ManifestGenerator && { ManifestGenerator: JobManifestGenerator.filterSensitiveLog(obj.ManifestGenerator) }),
   });
 }
 
@@ -1951,13 +2226,13 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 export interface CreateMultiRegionAccessPointRequest {
   /**
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point. The owner of the Multi-Region Access Point also must own
-   *             the underlying buckets.</p>
+   *          the underlying buckets.</p>
    */
   AccountId?: string;
 
   /**
    * <p>An idempotency token used to identify the request and guarantee that requests are
-   *             unique.</p>
+   *          unique.</p>
    */
   ClientToken?: string;
 
@@ -1978,8 +2253,8 @@ export namespace CreateMultiRegionAccessPointRequest {
 
 export interface CreateMultiRegionAccessPointResult {
   /**
-   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of
-   *             asynchronous requests.</p>
+   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
+   *          requests.</p>
    */
   RequestTokenARN?: string;
 }
@@ -2222,7 +2497,7 @@ export interface DeleteMultiRegionAccessPointRequest {
 
   /**
    * <p>An idempotency token used to identify the request and guarantee that requests are
-   *             unique.</p>
+   *          unique.</p>
    */
   ClientToken?: string;
 
@@ -2243,8 +2518,8 @@ export namespace DeleteMultiRegionAccessPointRequest {
 
 export interface DeleteMultiRegionAccessPointResult {
   /**
-   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of
-   *             asynchronous requests.</p>
+   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
+   *          requests.</p>
    */
   RequestTokenARN?: string;
 }
@@ -2260,8 +2535,8 @@ export namespace DeleteMultiRegionAccessPointResult {
 
 export interface DeletePublicAccessBlockRequest {
   /**
-   * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration you want
-   *          to remove.</p>
+   * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
+   *          you want to remove.</p>
    */
   AccountId?: string;
 }
@@ -2374,7 +2649,53 @@ export namespace JobFailure {
 }
 
 /**
- * <p>Describes the total number of tasks that the specified job has started, the number of tasks that succeeded, and the number of tasks that failed.</p>
+ * <p>Describes the specified job's generated manifest. Batch Operations jobs created with a
+ *          ManifestGenerator populate details of this descriptor after execution of the
+ *          ManifestGenerator.</p>
+ */
+export interface S3GeneratedManifestDescriptor {
+  /**
+   * <p>The format of the generated manifest.</p>
+   */
+  Format?: GeneratedManifestFormat | string;
+
+  /**
+   * <p>Contains the information required to locate a manifest object.</p>
+   */
+  Location?: JobManifestLocation;
+}
+
+export namespace S3GeneratedManifestDescriptor {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3GeneratedManifestDescriptor): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides timing details for the job.</p>
+ */
+export interface JobTimers {
+  /**
+   * <p>Indicates the elapsed time in seconds the job has been in the Active job state.</p>
+   */
+  ElapsedTimeInActiveSeconds?: number;
+}
+
+export namespace JobTimers {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JobTimers): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the total number of tasks that the specified job has started, the number of
+ *          tasks that succeeded, and the number of tasks that failed.</p>
  */
 export interface JobProgressSummary {
   /**
@@ -2391,6 +2712,11 @@ export interface JobProgressSummary {
    * <p></p>
    */
   NumberOfTasksFailed?: number;
+
+  /**
+   * <p>The JobTimers attribute of a job's progress summary.</p>
+   */
+  Timers?: JobTimers;
 }
 
 export namespace JobProgressSummary {
@@ -2419,7 +2745,8 @@ export enum JobStatus {
 }
 
 /**
- * <p>A container element for the job configuration and status information returned by a <code>Describe Job</code> request.</p>
+ * <p>A container element for the job configuration and status information returned by a
+ *             <code>Describe Job</code> request.</p>
  */
 export interface JobDescriptor {
   /**
@@ -2428,12 +2755,14 @@ export interface JobDescriptor {
   JobId?: string;
 
   /**
-   * <p>Indicates whether confirmation is required before Amazon S3 begins running the specified job. Confirmation is required only for jobs created through the Amazon S3 console.</p>
+   * <p>Indicates whether confirmation is required before Amazon S3 begins running the specified job.
+   *          Confirmation is required only for jobs created through the Amazon S3 console.</p>
    */
   ConfirmationRequired?: boolean;
 
   /**
-   * <p>The description for this job, if one was provided in this job's <code>Create Job</code> request.</p>
+   * <p>The description for this job, if one was provided in this job's <code>Create Job</code>
+   *          request.</p>
    */
   Description?: string;
 
@@ -2453,7 +2782,8 @@ export interface JobDescriptor {
   Manifest?: JobManifest;
 
   /**
-   * <p>The operation that the specified job is configured to run on the objects listed in the manifest.</p>
+   * <p>The operation that the specified job is configured to run on the objects listed in the
+   *          manifest.</p>
    */
   Operation?: JobOperation;
 
@@ -2474,12 +2804,14 @@ export interface JobDescriptor {
   StatusUpdateReason?: string;
 
   /**
-   * <p>If the specified job failed, this field contains information describing the failure.</p>
+   * <p>If the specified job failed, this field contains information describing the
+   *          failure.</p>
    */
   FailureReasons?: JobFailure[];
 
   /**
-   * <p>Contains the configuration information for the job-completion report if you requested one in the <code>Create Job</code> request.</p>
+   * <p>Contains the configuration information for the job-completion report if you requested
+   *          one in the <code>Create Job</code> request.</p>
    */
   Report?: JobReport;
 
@@ -2489,13 +2821,14 @@ export interface JobDescriptor {
   CreationTime?: Date;
 
   /**
-   * <p>A timestamp indicating when this job terminated. A job's termination date is the date and time when it succeeded, failed, or was canceled.</p>
+   * <p>A timestamp indicating when this job terminated. A job's termination date is the date
+   *          and time when it succeeded, failed, or was canceled.</p>
    */
   TerminationDate?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role
-   *          assigned to run the tasks for this job.</p>
+   * <p>The Amazon Resource Name (ARN) for the Identity and Access Management (IAM) role assigned to run the tasks
+   *          for this job.</p>
    */
   RoleArn?: string;
 
@@ -2505,10 +2838,23 @@ export interface JobDescriptor {
   SuspendedDate?: Date;
 
   /**
-   * <p>The reason why the specified job was suspended. A job is only suspended if you create it through the Amazon S3 console. When you create the job, it enters
-   *             the <code>Suspended</code> state to await confirmation before running. After you confirm the job, it automatically exits the <code>Suspended</code> state.</p>
+   * <p>The reason why the specified job was suspended. A job is only suspended if you create it
+   *          through the Amazon S3 console. When you create the job, it enters the <code>Suspended</code>
+   *          state to await confirmation before running. After you confirm the job, it automatically
+   *          exits the <code>Suspended</code> state.</p>
    */
   SuspendedCause?: string;
+
+  /**
+   * <p>The manifest generator that was used to generate a job manifest for this job.</p>
+   */
+  ManifestGenerator?: JobManifestGenerator;
+
+  /**
+   * <p>The attribute of the JobDescriptor containing details about the job's generated
+   *          manifest.</p>
+   */
+  GeneratedManifestDescriptor?: S3GeneratedManifestDescriptor;
 }
 
 export namespace JobDescriptor {
@@ -2517,12 +2863,14 @@ export namespace JobDescriptor {
    */
   export const filterSensitiveLog = (obj: JobDescriptor): any => ({
     ...obj,
+    ...(obj.ManifestGenerator && { ManifestGenerator: JobManifestGenerator.filterSensitiveLog(obj.ManifestGenerator) }),
   });
 }
 
 export interface DescribeJobResult {
   /**
-   * <p>Contains the configuration parameters and status for the job specified in the <code>Describe Job</code> request.</p>
+   * <p>Contains the configuration parameters and status for the job specified in the
+   *             <code>Describe Job</code> request.</p>
    */
   Job?: JobDescriptor;
 }
@@ -2533,6 +2881,7 @@ export namespace DescribeJobResult {
    */
   export const filterSensitiveLog = (obj: DescribeJobResult): any => ({
     ...obj,
+    ...(obj.Job && { Job: JobDescriptor.filterSensitiveLog(obj.Job) }),
   });
 }
 
@@ -2544,8 +2893,8 @@ export interface DescribeMultiRegionAccessPointOperationRequest {
 
   /**
    * <p>The request token associated with the request you want to know about. This request token
-   *             is returned as part of the response when you make an asynchronous request. You provide
-   *             this token to query about the status of the asynchronous action.</p>
+   *          is returned as part of the response when you make an asynchronous request. You provide this
+   *          token to query about the status of the asynchronous action.</p>
    */
   RequestTokenARN: string | undefined;
 }
@@ -2623,15 +2972,16 @@ export interface GetAccessPointResult {
   /**
    * <p>Contains the virtual private cloud (VPC) configuration for the specified access point.</p>
    *          <note>
-   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other Amazon Web Services.</p>
+   *             <p>This element is empty if this access point is an Amazon S3 on Outposts access point that is used by other
+   *                Amazon Web Services.</p>
    *          </note>
    */
   VpcConfiguration?: VpcConfiguration;
 
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
-   *          You can enable the configuration options in any combination. For more information about
-   *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
+   *          account. You can enable the configuration options in any combination. For more information
+   *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
@@ -2732,7 +3082,8 @@ export interface GetAccessPointForObjectLambdaResult {
   Name?: string;
 
   /**
-   * <p>Configuration to block all public access. This setting is turned on and can not be edited. </p>
+   * <p>Configuration to block all public access. This setting is turned on and can not be
+   *          edited. </p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 
@@ -2849,10 +3200,8 @@ export namespace GetAccessPointPolicyStatusRequest {
 }
 
 /**
- * <p>Indicates whether this access point policy is public. For more information about how Amazon S3 evaluates policies to determine whether they are public, see
- *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the
- * 	 <i>Amazon S3 User Guide</i>.
- *       </p>
+ * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
+ *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
  */
 export interface PolicyStatus {
   /**
@@ -2909,10 +3258,8 @@ export namespace GetAccessPointPolicyStatusForObjectLambdaRequest {
 
 export interface GetAccessPointPolicyStatusForObjectLambdaResult {
   /**
-   * <p>Indicates whether this access point policy is public. For more information about how Amazon S3 evaluates policies to determine whether they are public, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the
-   * 	 <i>Amazon S3 User Guide</i>.
-   *       </p>
+   * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
+   *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
    */
   PolicyStatus?: PolicyStatus;
 }
@@ -3009,7 +3356,8 @@ export interface LifecycleExpiration {
   Date?: Date;
 
   /**
-   * <p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>
+   * <p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value
+   *          must be a non-zero positive integer.</p>
    */
   Days?: number;
 
@@ -3040,7 +3388,8 @@ export interface LifecycleRuleAndOperator {
   Prefix?: string;
 
   /**
-   * <p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>
+   * <p>All of these tags must exist in the object's tag set in order for the rule to
+   *          apply.</p>
    */
   Tags?: S3Tag[];
 }
@@ -3095,7 +3444,8 @@ export interface NoncurrentVersionExpiration {
   /**
    * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the
    *          associated action. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">How
-   *             Amazon S3 Calculates When an Object Became Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             Amazon S3 Calculates When an Object Became Noncurrent</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
 }
@@ -3116,10 +3466,10 @@ export type TransitionStorageClass = "DEEP_ARCHIVE" | "GLACIER" | "INTELLIGENT_T
  */
 export interface NoncurrentVersionTransition {
   /**
-   * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action.
-   *          For information about the noncurrent days calculations, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations">
-   *             How Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the
+   *          associated action. For information about the noncurrent days calculations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations"> How
+   *             Amazon S3 Calculates How Long an Object Has Been Noncurrent</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    */
   NoncurrentDays?: number;
 
@@ -3148,14 +3498,14 @@ export type ExpirationStatus = "Disabled" | "Enabled";
  */
 export interface Transition {
   /**
-   * <p>Indicates when objects are transitioned to the specified storage class.
-   *          The date value must be in ISO 8601 format. The time is always midnight UTC.</p>
+   * <p>Indicates when objects are transitioned to the specified storage class. The date value
+   *          must be in ISO 8601 format. The time is always midnight UTC.</p>
    */
   Date?: Date;
 
   /**
-   * <p>Indicates the number of days after creation when objects are transitioned to the specified storage class.
-   *          The value must be a positive integer.</p>
+   * <p>Indicates the number of days after creation when objects are transitioned to the
+   *          specified storage class. The value must be a positive integer.</p>
    */
   Days?: number;
 
@@ -3179,8 +3529,8 @@ export namespace Transition {
  */
 export interface LifecycleRule {
   /**
-   * <p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object
-   *          has a delete marker.</p>
+   * <p>Specifies the expiration for the lifecycle of the object in the form of date, days and,
+   *          whether the object has a delete marker.</p>
    */
   Expiration?: LifecycleExpiration;
 
@@ -3195,7 +3545,8 @@ export interface LifecycleRule {
   Filter?: LifecycleRuleFilter;
 
   /**
-   * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>
+   * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not
+   *          currently being applied.</p>
    */
   Status: ExpirationStatus | string | undefined;
 
@@ -3384,9 +3735,9 @@ export interface GetMultiRegionAccessPointRequest {
 
   /**
    * <p>The name of the Multi-Region Access Point whose configuration information you want to receive. The name of
-   *             the Multi-Region Access Point is different from the alias. For more information about the distinction
-   *             between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
-   *                 <i>Amazon S3 User Guide</i>.</p>
+   *          the Multi-Region Access Point is different from the alias. For more information about the distinction between
+   *          the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    */
   Name: string | undefined;
 }
@@ -3443,9 +3794,8 @@ export interface MultiRegionAccessPointReport {
   Name?: string;
 
   /**
-   * <p>The alias for the Multi-Region Access Point. For more information about the distinction between the
-   *          name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing
-   *             Multi-Region Access Points</a>.</p>
+   * <p>The alias for the Multi-Region Access Point. For more information about the distinction between the name
+   *          and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a>.</p>
    */
   Alias?: string;
 
@@ -3455,9 +3805,9 @@ export interface MultiRegionAccessPointReport {
   CreatedAt?: Date;
 
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 account.
-   *          You can enable the configuration options in any combination. For more information about
-   *          when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
+   *          account. You can enable the configuration options in any combination. For more information
+   *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>This is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlock?: PublicAccessBlockConfiguration;
@@ -3466,10 +3816,10 @@ export interface MultiRegionAccessPointReport {
    * <p>The current status of the Multi-Region Access Point.</p>
    *          <p>
    *             <code>CREATING</code> and <code>DELETING</code> are temporary states that exist while
-   *             the request is propogating and being completed. If a Multi-Region Access Point has a status of
-   *                 <code>PARTIALLY_CREATED</code>, you can retry creation or send a request to delete
-   *             the Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a
-   *             delete request to finish the deletion of the Multi-Region Access Point.</p>
+   *          the request is propogating and being completed. If a Multi-Region Access Point has a status of
+   *             <code>PARTIALLY_CREATED</code>, you can retry creation or send a request to delete the
+   *          Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a delete
+   *          request to finish the deletion of the Multi-Region Access Point.</p>
    */
   Status?: MultiRegionAccessPointStatus | string;
 
@@ -3512,9 +3862,8 @@ export interface GetMultiRegionAccessPointPolicyRequest {
 
   /**
    * <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
-   *             information about the distinction between the name and the alias of an Multi-Region Access Point, see
-   *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
-   *                 <i>Amazon S3 User Guide</i>.</p>
+   *          information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    */
   Name: string | undefined;
 }
@@ -3531,9 +3880,9 @@ export namespace GetMultiRegionAccessPointPolicyRequest {
 /**
  * <p>The last established access control policy for a Multi-Region Access Point.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
- *             update is finished and all Regions have been updated, the proposed policy is listed as
- *             the established policy. If both policies have the same version number, the proposed
- *             policy is the established policy.</p>
+ *          update is finished and all Regions have been updated, the proposed policy is listed as the
+ *          established policy. If both policies have the same version number, the proposed policy is
+ *          the established policy.</p>
  */
 export interface EstablishedMultiRegionAccessPointPolicy {
   /**
@@ -3554,9 +3903,9 @@ export namespace EstablishedMultiRegionAccessPointPolicy {
 /**
  * <p>The proposed access control policy for the Multi-Region Access Point.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
- *             update is finished and all Regions have been updated, the proposed policy is listed as
- *             the established policy. If both policies have the same version number, the proposed
- *             policy is the established policy.</p>
+ *          update is finished and all Regions have been updated, the proposed policy is listed as the
+ *          established policy. If both policies have the same version number, the proposed policy is
+ *          the established policy.</p>
  */
 export interface ProposedMultiRegionAccessPointPolicy {
   /**
@@ -3577,9 +3926,9 @@ export namespace ProposedMultiRegionAccessPointPolicy {
 /**
  * <p>The Multi-Region Access Point access control policy.</p>
  *          <p>When you update the policy, the update is first listed as the proposed policy. After the
- *             update is finished and all Regions have been updated, the proposed policy is listed as
- *             the established policy. If both policies have the same version number, the proposed
- *             policy is the established policy.</p>
+ *          update is finished and all Regions have been updated, the proposed policy is listed as the
+ *          established policy. If both policies have the same version number, the proposed policy is
+ *          the established policy.</p>
  */
 export interface MultiRegionAccessPointPolicyDocument {
   /**
@@ -3626,9 +3975,8 @@ export interface GetMultiRegionAccessPointPolicyStatusRequest {
 
   /**
    * <p>Specifies the Multi-Region Access Point. The name of the Multi-Region Access Point is different from the alias. For more
-   *             information about the distinction between the name and the alias of an Multi-Region Access Point, see
-   *                 <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
-   *                 <i>Amazon S3 User Guide</i>.</p>
+   *          information about the distinction between the name and the alias of an Multi-Region Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing Multi-Region Access Points</a> in the
+   *          <i>Amazon S3 User Guide</i>.</p>
    */
   Name: string | undefined;
 }
@@ -3644,10 +3992,8 @@ export namespace GetMultiRegionAccessPointPolicyStatusRequest {
 
 export interface GetMultiRegionAccessPointPolicyStatusResult {
   /**
-   * <p>Indicates whether this access point policy is public. For more information about how Amazon S3 evaluates policies to determine whether they are public, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the
-   * 	 <i>Amazon S3 User Guide</i>.
-   *       </p>
+   * <p>Indicates whether this access point policy is public. For more information about how Amazon S3
+   *          evaluates policies to determine whether they are public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>. </p>
    */
   Established?: PolicyStatus;
 }
@@ -3663,7 +4009,8 @@ export namespace GetMultiRegionAccessPointPolicyStatusResult {
 
 export interface GetPublicAccessBlockOutput {
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon Web Services account.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this
+   *          Amazon Web Services account.</p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 }
@@ -3679,8 +4026,8 @@ export namespace GetPublicAccessBlockOutput {
 
 export interface GetPublicAccessBlockRequest {
   /**
-   * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration you want
-   *          to retrieve.</p>
+   * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
+   *          you want to retrieve.</p>
    */
   AccountId?: string;
 }
@@ -3696,7 +4043,8 @@ export namespace GetPublicAccessBlockRequest {
 
 /**
  * <p>Amazon S3 throws this exception if you make a <code>GetPublicAccessBlock</code> request
- *       against an account that doesn't have a <code>PublicAccessBlockConfiguration</code> set.</p>
+ *          against an account that doesn't have a <code>PublicAccessBlockConfiguration</code>
+ *          set.</p>
  */
 export interface NoSuchPublicAccessBlockConfiguration extends __SmithyException, $MetadataBearer {
   name: "NoSuchPublicAccessBlockConfiguration";
@@ -3730,9 +4078,9 @@ export namespace GetStorageLensConfigurationRequest {
  */
 export interface StorageLensAwsOrg {
   /**
-   * <p>A container for the Amazon Resource Name (ARN) of the Amazon Web Services organization.
-   *          This property is read-only and follows the following format:
-   *          <code> arn:aws:organizations:<i>us-east-1</i>:<i>example-account-id</i>:organization/<i>o-ex2l495dck</i>
+   * <p>A container for the Amazon Resource Name (ARN) of the Amazon Web Services organization. This property
+   *          is read-only and follows the following format: <code>
+   *                arn:aws:organizations:<i>us-east-1</i>:<i>example-account-id</i>:organization/<i>o-ex2l495dck</i>
    *             </code>
    *          </p>
    */
@@ -3750,11 +4098,14 @@ export namespace StorageLensAwsOrg {
 
 /**
  * <p>A container for enabling Amazon CloudWatch publishing for S3 Storage Lens metrics.</p>
- *          <p>For more information about publishing S3 Storage Lens metrics to CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html">Monitor S3 Storage Lens metrics in CloudWatch</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>For more information about publishing S3 Storage Lens metrics to CloudWatch, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html">Monitor
+ *             S3 Storage Lens metrics in CloudWatch</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface CloudWatchMetrics {
   /**
-   * <p>A container that indicates whether CloudWatch publishing for S3 Storage Lens metrics is enabled. A value of <code>true</code> indicates that CloudWatch publishing for S3 Storage Lens metrics is enabled.</p>
+   * <p>A container that indicates whether CloudWatch publishing for S3 Storage Lens metrics is enabled. A
+   *          value of <code>true</code> indicates that CloudWatch publishing for S3 Storage Lens metrics is
+   *          enabled.</p>
    */
   IsEnabled: boolean | undefined;
 }
@@ -3773,9 +4124,9 @@ export namespace CloudWatchMetrics {
  */
 export interface SSEKMS {
   /**
-   * <p>A container for the ARN of the SSE-KMS encryption.
-   *          This property is read-only and follows the following format:
-   *          <code> arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i>
+   * <p>A container for the ARN of the SSE-KMS encryption. This property is read-only and
+   *          follows the following format: <code>
+   *                arn:aws:kms:<i>us-east-1</i>:<i>example-account-id</i>:key/<i>example-9a73-4afc-8d29-8f5900cef44e</i>
    *             </code>
    *          </p>
    */
@@ -3834,7 +4185,8 @@ export type Format = "CSV" | "Parquet";
 export type OutputSchemaVersion = "V_1";
 
 /**
- * <p>A container for the bucket where the Amazon S3 Storage Lens metrics export files are located.</p>
+ * <p>A container for the bucket where the Amazon S3 Storage Lens metrics export files are
+ *          located.</p>
  */
 export interface S3BucketDestination {
   /**
@@ -3853,9 +4205,9 @@ export interface S3BucketDestination {
   AccountId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the bucket.
-   *          This property is read-only and follows the following format:
-   *          <code> arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:bucket/<i>your-destination-bucket-name</i>
+   * <p>The Amazon Resource Name (ARN) of the bucket. This property is read-only and follows the
+   *          following format: <code>
+   *                arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:bucket/<i>your-destination-bucket-name</i>
    *             </code>
    *          </p>
    */
@@ -3889,7 +4241,8 @@ export interface StorageLensDataExport {
   /**
    * <p>A container for the bucket where the S3 Storage Lens metrics export will be located.</p>
    *          <note>
-   *             <p>This bucket must be located in the same Region as the storage lens configuration. </p>
+   *             <p>This bucket must be located in the same Region as the storage lens configuration.
+   *          </p>
    *          </note>
    */
   S3BucketDestination?: S3BucketDestination;
@@ -3985,8 +4338,8 @@ export interface StorageLensConfiguration {
   Exclude?: _Exclude;
 
   /**
-   * <p>A container to specify the properties of your S3 Storage Lens metrics export including, the destination, schema and
-   *          format.</p>
+   * <p>A container to specify the properties of your S3 Storage Lens metrics export including, the
+   *          destination, schema and format.</p>
    */
   DataExport?: StorageLensDataExport;
 
@@ -4001,9 +4354,9 @@ export interface StorageLensConfiguration {
   AwsOrg?: StorageLensAwsOrg;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the S3 Storage Lens configuration. This property is
-   *          read-only and follows the following format:
-   *          <code> arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:storage-lens/<i>your-dashboard-name</i>
+   * <p>The Amazon Resource Name (ARN) of the S3 Storage Lens configuration. This property is read-only
+   *          and follows the following format: <code>
+   *                arn:aws:s3:<i>us-east-1</i>:<i>example-account-id</i>:storage-lens/<i>your-dashboard-name</i>
    *             </code>
    *          </p>
    */
@@ -4110,15 +4463,17 @@ export interface ListAccessPointsRequest {
   Bucket?: string;
 
   /**
-   * <p>A continuation token. If a previous call to <code>ListAccessPoints</code> returned a continuation token in the <code>NextToken</code> field, then providing that value here causes Amazon S3 to retrieve the next page of results.</p>
+   * <p>A continuation token. If a previous call to <code>ListAccessPoints</code> returned a
+   *          continuation token in the <code>NextToken</code> field, then providing that value here
+   *          causes Amazon S3 to retrieve the next page of results.</p>
    */
   NextToken?: string;
 
   /**
    * <p>The maximum number of access points that you want to include in the list. If the specified
-   *          bucket has more than this number of access points, then the response will include a
-   *          continuation token in the <code>NextToken</code> field that you can use to retrieve the
-   *          next page of access points.</p>
+   *          bucket has more than this number of access points, then the response will include a continuation
+   *          token in the <code>NextToken</code> field that you can use to retrieve the next page of
+   *          access points.</p>
    */
   MaxResults?: number;
 }
@@ -4134,15 +4489,15 @@ export namespace ListAccessPointsRequest {
 
 export interface ListAccessPointsResult {
   /**
-   * <p>Contains identification and configuration information for one or more access points
-   *          associated with the specified bucket.</p>
+   * <p>Contains identification and configuration information for one or more access points associated
+   *          with the specified bucket.</p>
    */
   AccessPointList?: AccessPoint[];
 
   /**
-   * <p>If the specified bucket has more access points than can be returned in one call to this
-   *          API, this field contains a continuation token that you can provide in subsequent calls to
-   *          this API to retrieve additional access points.</p>
+   * <p>If the specified bucket has more access points than can be returned in one call to this API,
+   *          this field contains a continuation token that you can provide in subsequent calls to this
+   *          API to retrieve additional access points.</p>
    */
   NextToken?: string;
 }
@@ -4163,14 +4518,17 @@ export interface ListAccessPointsForObjectLambdaRequest {
   AccountId?: string;
 
   /**
-   * <p>If the list has more access points than can be returned in one call to this
-   *          API, this field contains a continuation token that you can provide in subsequent calls to
-   *          this API to retrieve additional access points.</p>
+   * <p>If the list has more access points than can be returned in one call to this API, this field
+   *          contains a continuation token that you can provide in subsequent calls to this API to
+   *          retrieve additional access points.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of access points that you want to include in the list. If there are more than this number of access points, then the response will include a continuation token in the <code>NextToken</code> field that you can use to retrieve the next page of access points.</p>
+   * <p>The maximum number of access points that you want to include in the list. The response may
+   *          contain fewer access points but will never contain more. If there are more than this number of
+   *          access points, then the response will include a continuation token in the <code>NextToken</code>
+   *          field that you can use to retrieve the next page of access points.</p>
    */
   MaxResults?: number;
 }
@@ -4185,7 +4543,8 @@ export namespace ListAccessPointsForObjectLambdaRequest {
 }
 
 /**
- * <p>An access point with an attached Lambda function used to access transformed data from an Amazon S3 bucket.</p>
+ * <p>An access point with an attached Lambda function used to access transformed data from an Amazon S3
+ *          bucket.</p>
  */
 export interface ObjectLambdaAccessPoint {
   /**
@@ -4215,9 +4574,9 @@ export interface ListAccessPointsForObjectLambdaResult {
   ObjectLambdaAccessPointList?: ObjectLambdaAccessPoint[];
 
   /**
-   * <p>If the list has more access points than can be returned in one call to this
-   *          API, this field contains a continuation token that you can provide in subsequent calls to
-   *          this API to retrieve additional access points.</p>
+   * <p>If the list has more access points than can be returned in one call to this API, this field
+   *          contains a continuation token that you can provide in subsequent calls to this API to
+   *          retrieve additional access points.</p>
    */
   NextToken?: string;
 }
@@ -4256,17 +4615,23 @@ export interface ListJobsRequest {
   AccountId?: string;
 
   /**
-   * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this element.</p>
+   * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this
+   *          element.</p>
    */
   JobStatuses?: (JobStatus | string)[];
 
   /**
-   * <p>A pagination token to request the next page of results. Use the token that Amazon S3 returned in the <code>NextToken</code> element of the <code>ListJobsResult</code> from the previous <code>List Jobs</code> request.</p>
+   * <p>A pagination token to request the next page of results. Use the token that Amazon S3 returned
+   *          in the <code>NextToken</code> element of the <code>ListJobsResult</code> from the previous
+   *             <code>List Jobs</code> request.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code> response. If there are more jobs than this number, the response will include a pagination token in the <code>NextToken</code> field to enable you to retrieve the next page of results.</p>
+   * <p>The maximum number of jobs that Amazon S3 will include in the <code>List Jobs</code>
+   *          response. If there are more jobs than this number, the response will include a pagination
+   *          token in the <code>NextToken</code> field to enable you to retrieve the next page of
+   *          results.</p>
    */
   MaxResults?: number;
 }
@@ -4289,10 +4654,12 @@ export enum OperationName {
   S3PutObjectLegalHold = "S3PutObjectLegalHold",
   S3PutObjectRetention = "S3PutObjectRetention",
   S3PutObjectTagging = "S3PutObjectTagging",
+  S3ReplicateObject = "S3ReplicateObject",
 }
 
 /**
- * <p>Contains the configuration and status information for a single job retrieved as part of a job list.</p>
+ * <p>Contains the configuration and status information for a single job retrieved as part of
+ *          a job list.</p>
  */
 export interface JobListDescriptor {
   /**
@@ -4301,12 +4668,14 @@ export interface JobListDescriptor {
   JobId?: string;
 
   /**
-   * <p>The user-specified description that was included in the specified job's <code>Create Job</code> request.</p>
+   * <p>The user-specified description that was included in the specified job's <code>Create
+   *             Job</code> request.</p>
    */
   Description?: string;
 
   /**
-   * <p>The operation that the specified job is configured to run on every object listed in the manifest.</p>
+   * <p>The operation that the specified job is configured to run on every object listed in the
+   *          manifest.</p>
    */
   Operation?: OperationName | string;
 
@@ -4326,7 +4695,8 @@ export interface JobListDescriptor {
   CreationTime?: Date;
 
   /**
-   * <p>A timestamp indicating when the specified job terminated. A job's termination date is the date and time when it succeeded, failed, or was canceled.</p>
+   * <p>A timestamp indicating when the specified job terminated. A job's termination date is
+   *          the date and time when it succeeded, failed, or was canceled.</p>
    */
   TerminationDate?: Date;
 
@@ -4348,8 +4718,9 @@ export namespace JobListDescriptor {
 
 export interface ListJobsResult {
   /**
-   * <p>If the <code>List Jobs</code> request produced more than the maximum number of results, you can pass this value into a subsequent <code>List Jobs</code> request in order to retrieve
-   *             the next page of results.</p>
+   * <p>If the <code>List Jobs</code> request produced more than the maximum number of results,
+   *          you can pass this value into a subsequent <code>List Jobs</code> request in order to
+   *          retrieve the next page of results.</p>
    */
   NextToken?: string;
 
@@ -4402,8 +4773,8 @@ export interface ListMultiRegionAccessPointsResult {
 
   /**
    * <p>If the specified bucket has more Multi-Region Access Points than can be returned in one call to this
-   *             action, this field contains a continuation token. You can use this token tin subsequent
-   *             calls to this action to retrieve additional Multi-Region Access Points.</p>
+   *          action, this field contains a continuation token. You can use this token tin subsequent
+   *          calls to this action to retrieve additional Multi-Region Access Points.</p>
    */
   NextToken?: string;
 }
@@ -4498,10 +4869,10 @@ export interface ListRegionalBucketsResult {
 
   /**
    * <p>
-   *             <code>NextToken</code> is sent when <code>isTruncated</code> is true, which means
-   *       there are more buckets that can be listed. The next list requests to Amazon S3
-   *       can be continued with this <code>NextToken</code>.
-   *       <code>NextToken</code> is obfuscated and is not a real key.</p>
+   *             <code>NextToken</code> is sent when <code>isTruncated</code> is true, which means there
+   *          are more buckets that can be listed. The next list requests to Amazon S3 can be continued with
+   *          this <code>NextToken</code>. <code>NextToken</code> is obfuscated and is not a real
+   *          key.</p>
    */
   NextToken?: string;
 }
@@ -4559,7 +4930,8 @@ export interface ListStorageLensConfigurationEntry {
   HomeRegion: string | undefined;
 
   /**
-   * <p>A container for whether the S3 Storage Lens configuration is enabled. This property is required.</p>
+   * <p>A container for whether the S3 Storage Lens configuration is enabled. This property is
+   *          required.</p>
    */
   IsEnabled?: boolean;
 }
@@ -4637,7 +5009,9 @@ export interface PutAccessPointPolicyRequest {
   Name: string | undefined;
 
   /**
-   * <p>The policy that you want to apply to the specified access point. For more information about access point policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3 access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>The policy that you want to apply to the specified access point. For more information about access point
+   *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3
+   *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Policy: string | undefined;
 }
@@ -4736,7 +5110,8 @@ export interface PutBucketPolicyRequest {
   Bucket: string | undefined;
 
   /**
-   * <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>
+   * <p>Set this parameter to true to confirm that you want to remove your permissions to change
+   *          this bucket policy in the future.</p>
    *          <note>
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
@@ -4859,7 +5234,7 @@ export interface PutMultiRegionAccessPointPolicyRequest {
 
   /**
    * <p>An idempotency token used to identify the request and guarantee that requests are
-   *             unique.</p>
+   *          unique.</p>
    */
   ClientToken?: string;
 
@@ -4880,8 +5255,8 @@ export namespace PutMultiRegionAccessPointPolicyRequest {
 
 export interface PutMultiRegionAccessPointPolicyResult {
   /**
-   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of
-   *             asynchronous requests.</p>
+   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
+   *          requests.</p>
    */
   RequestTokenARN?: string;
 }
@@ -4897,13 +5272,14 @@ export namespace PutMultiRegionAccessPointPolicyResult {
 
 export interface PutPublicAccessBlockRequest {
   /**
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified Amazon Web Services account.</p>
+   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified
+   *          Amazon Web Services account.</p>
    */
   PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
 
   /**
-   * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration you want
-   *          to set.</p>
+   * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
+   *          you want to set.</p>
    */
   AccountId?: string;
 }
@@ -5069,7 +5445,8 @@ export interface UpdateJobStatusRequest {
   RequestedJobStatus: RequestedJobStatus | string | undefined;
 
   /**
-   * <p>A description of the reason why you want to change the specified job's status. This field can be any string up to the maximum length.</p>
+   * <p>A description of the reason why you want to change the specified job's status. This
+   *          field can be any string up to the maximum length.</p>
    */
   StatusUpdateReason?: string;
 }

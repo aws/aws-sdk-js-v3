@@ -24,15 +24,15 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
 /**
  * <p>Returns the indexing status for one or more documents submitted
  *             with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
- *                 BatchPutDocument</a> operation.</p>
- *         <p>When you use the <code>BatchPutDocument</code> operation,
+ *                 BatchPutDocument</a> API.</p>
+ *         <p>When you use the <code>BatchPutDocument</code> API,
  *             documents are indexed asynchronously. You can use the
- *                 <code>BatchGetDocumentStatus</code> operation to get the current
+ *                 <code>BatchGetDocumentStatus</code> API to get the current
  *             status of a list of documents so that you can determine if they have
  *             been successfully indexed.</p>
- *         <p>You can also use the <code>BatchGetDocumentStatus</code> operation
+ *         <p>You can also use the <code>BatchGetDocumentStatus</code> API
  *             to check the status of the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
- *                 BatchDeleteDocument</a> operation. When a document is
+ *                 BatchDeleteDocument</a> API. When a document is
  *             deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the
  *             status.</p>
  * @example

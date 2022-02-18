@@ -22600,6 +22600,7 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     KMSKeyId: undefined,
     CreateTime: undefined,
     TagList: undefined,
+    SupportsBabelfish: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -22726,6 +22727,9 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   }
   if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  if (output["SupportsBabelfish"] !== undefined) {
+    contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
   }
   return contents;
 };
@@ -28668,6 +28672,7 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
     SupportedEngineModes: undefined,
     SupportsParallelQuery: undefined,
     SupportsGlobalDatabases: undefined,
+    SupportsBabelfish: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -28698,6 +28703,9 @@ const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext)
   }
   if (output["SupportsGlobalDatabases"] !== undefined) {
     contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
+  }
+  if (output["SupportsBabelfish"] !== undefined) {
+    contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
   }
   return contents;
 };

@@ -35,7 +35,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *             ticket is returned with status set to <code>QUEUED</code>. </p>
  *         <p>Track matchmaking events to respond as needed and acquire game session connection
  *             information for successfully completed matches. Ticket status updates are tracked using
- *             event notification through Amazon Simple Notification Service (SNS), which is defined in the matchmaking
+ *             event notification through Amazon Simple Notification Service, which is defined in the matchmaking
  *             configuration.</p>
  *         <p>
  *             <b>Learn more</b>

@@ -14,6 +14,7 @@ export * from "./DeleteStackSetCommand";
 export * from "./DeregisterTypeCommand";
 export * from "./DescribeAccountLimitsCommand";
 export * from "./DescribeChangeSetCommand";
+export * from "./DescribeChangeSetHooksCommand";
 export * from "./DescribePublisherCommand";
 export * from "./DescribeStackDriftDetectionStatusCommand";
 export * from "./DescribeStackEventsCommand";

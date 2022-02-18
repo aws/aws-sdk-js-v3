@@ -40,7 +40,7 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  *          resources contained within the stack. Use <a>DescribeStackDriftDetectionStatus</a> to monitor the progress of a detect stack drift operation. Once the drift detection
  *          operation has completed, use <a>DescribeStackResourceDrifts</a> to return drift
  *          information about the stack and its resources.</p>
- *          <p>When detecting drift on a stack, CloudFormation does not detect drift on any nested stacks
+ *          <p>When detecting drift on a stack, CloudFormation doesn't detect drift on any nested stacks
  *          belonging to that stack. Perform <code>DetectStackDrift</code> directly on the nested stack
  *          itself.</p>
  * @example

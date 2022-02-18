@@ -25,28 +25,31 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an S3 bucket,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the <i>Amazon S3 API Reference</i>.
- *       </p>
+ *             <p>This action puts a bucket policy to an Amazon S3 on Outposts bucket. To put a policy on an
+ *             S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html">PutBucketPolicy</a> in the
+ *                <i>Amazon S3 API Reference</i>. </p>
  *          </note>
- *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *          <p>Applies an Amazon S3 bucket policy to an Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using
+ *             Amazon S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p>If you are using an identity other than the root user of the Amazon Web Services account that owns the
  *          Outposts bucket, the calling identity must have the <code>PutBucketPolicy</code>
  *          permissions on the specified Outposts bucket and belong to the bucket owner's account in
  *          order to use this action.</p>
  *
- *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403 Access Denied</code> error. If you have the correct permissions,
- *          but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not Allowed</code> error.</p>
+ *          <p>If you don't have <code>PutBucketPolicy</code> permissions, Amazon S3 returns a <code>403
+ *             Access Denied</code> error. If you have the correct permissions, but you're not using an
+ *          identity that belongs to the bucket owner's account, Amazon S3 returns a <code>405 Method Not
+ *             Allowed</code> error.</p>
  *
  *          <important>
- *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can always use this action, even if the policy
- *          explicitly denies the root user the ability to perform this action.
- *       </p>
+ *             <p> As a security precaution, the root user of the Amazon Web Services account that owns a bucket can
+ *             always use this action, even if the policy explicitly denies the root user the ability
+ *             to perform this action. </p>
  *          </important>
  *
  *
- *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User Policies</a>.</p>
+ *          <p>For more information about bucket policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html">Using Bucket Policies and User
+ *             Policies</a>.</p>
  *
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketPolicy.html#API_control_PutBucketPolicy_Examples">Examples</a> section.</p>
  *

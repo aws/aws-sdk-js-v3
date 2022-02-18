@@ -25,7 +25,7 @@ export interface ListGameServerGroupsCommandOutput extends ListGameServerGroupsO
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Retrieves information on all game servers groups that exist in the current AWS
+ *         <p>Retrieves information on all game servers groups that exist in the current Amazon Web Services
  *             account for the selected Region. Use the pagination parameters to retrieve results in a
  *             set of sequential segments. </p>
  *         <p>

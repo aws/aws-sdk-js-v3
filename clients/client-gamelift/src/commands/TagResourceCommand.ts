@@ -22,9 +22,9 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p> Assigns a tag to a GameLift resource. AWS resource tags provide an additional
+ * <p> Assigns a tag to a GameLift resource. Amazon Web Services resource tags provide an additional
  *             management tool set. You can use tags to organize resources, create IAM permissions
- *             policies to manage access to groups of resources, customize AWS cost breakdowns, etc.
+ *             policies to manage access to groups of resources, customize Amazon Web Services cost breakdowns, etc.
  *             This operation handles the permissions necessary to manage tags for the following GameLift
  *             resource types:</p>
  *         <ul>
@@ -57,12 +57,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> in the
- *             <i>AWS General Reference</i>
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in the
+ *             <i>Amazon Web Services General Reference</i>
  *          </p>
  *         <p>
  *             <a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
- *             AWS Tagging Strategies</a>
+ *             Amazon Web Services Tagging Strategies</a>
  *          </p>
  *         <p>
  *             <b>Related actions</b>

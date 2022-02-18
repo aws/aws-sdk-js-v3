@@ -1598,6 +1598,7 @@ export namespace IncidentRecordSummary {
 export enum ItemType {
   ANALYSIS = "ANALYSIS",
   ATTACHMENT = "ATTACHMENT",
+  AUTOMATION = "AUTOMATION",
   INCIDENT = "INCIDENT",
   METRIC = "METRIC",
   OTHER = "OTHER",

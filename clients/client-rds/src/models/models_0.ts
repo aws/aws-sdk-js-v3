@@ -3094,6 +3094,11 @@ export interface UpgradeTarget {
    * <p>A value that indicates whether you can use Aurora global databases with the target engine version.</p>
    */
   SupportsGlobalDatabases?: boolean;
+
+  /**
+   * <p>A value that indicates whether you can use Babelfish for Aurora PostgreSQL with the target engine version.</p>
+   */
+  SupportsBabelfish?: boolean;
 }
 
 export namespace UpgradeTarget {
@@ -3261,6 +3266,11 @@ export interface DBEngineVersion {
    *          </p>
    */
   TagList?: Tag[];
+
+  /**
+   * <p>A value that indicates whether the engine version supports Babelfish for Aurora PostgreSQL.</p>
+   */
+  SupportsBabelfish?: boolean;
 }
 
 export namespace DBEngineVersion {
@@ -11453,25 +11463,25 @@ export interface DescribeDBClustersMessage {
    *             <li>
    *                <p>
    *                   <code>clone-group-id</code> - Accepts clone group identifiers.
-   * 			  The results list will only include information about
+   * 			  The results list only includes information about
    *               the DB clusters associated with these clone groups.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs). The results list will only include information about
+   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
    *               the DB clusters identified by these ARNs.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>domain</code> - Accepts Active Directory directory IDs.
-   *               The results list will only include information about
+   *               The results list only includes information about
    *               the DB clusters associated with these domains.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>engine</code> - Accepts engine names.
-   *               The results list will only include information about
+   *               The results list only includes information about
    *               the DB clusters for these engines.</p>
    *             </li>
    *          </ul>
@@ -11918,7 +11928,86 @@ export interface DescribeDBEngineVersionsMessage {
   DBParameterGroupFamily?: string;
 
   /**
-   * <p>This parameter isn't currently supported.</p>
+   * <p>A filter that specifies one or more DB engine versions to describe.</p>
+   *          <p>Supported filters:</p>
+   *          <ul>
+   *             <li>
+   *               <p>
+   *                   <code>db-parameter-group-family</code> - Accepts parameter groups family names.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these parameter group families.
+   *               </p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>engine</code> - Accepts engine names.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engines.
+   *               </p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>engine-mode</code> - Accepts DB engine modes.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engine modes. Valid
+   *                   DB engine modes are the following:
+   *               </p>
+   *               <ul>
+   *                   <li>
+   *                       <p>
+   *                         <code>global</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                       <p>
+   *                         <code>multimaster</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                       <p>
+   *                         <code>parallelquery</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                       <p>
+   *                         <code>provisioned</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                       <p>
+   *                         <code>serverless</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>engine-version</code> - Accepts engine versions.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these engine versions.
+   *               </p>
+   *             </li>
+   *             <li>
+   *               <p>
+   *                   <code>status</code> - Accepts engine version statuses.
+   *                   The results list only includes information about
+   *                   the DB engine versions for these statuses. Valid statuses
+   *                   are the following:
+   *               </p>
+   *               <ul>
+   *                   <li>
+   *                       <p>
+   *                         <code>available</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                       <p>
+   *                         <code>deprecated</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
   Filters?: Filter[];
 
@@ -12158,13 +12247,13 @@ export interface DescribeDBInstancesMessage {
    *             <li>
    *                <p>
    *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs). The results list will only include information about
+   *               cluster Amazon Resource Names (ARNs). The results list only includes information about
    *               the DB instances associated with the DB clusters identified by these ARNs.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
-   *               instance Amazon Resource Names (ARNs). The results list will only include information about
+   *               instance Amazon Resource Names (ARNs). The results list only includes information about
    *               the DB instances identified by these ARNs.</p>
    *             </li>
    *             <li>
@@ -12174,12 +12263,12 @@ export interface DescribeDBInstancesMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>domain</code> - Accepts Active Directory directory IDs. The results list will only
-   *               include information about the DB instances associated with these domains.</p>
+   *                   <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes
+   *               information about the DB instances associated with these domains.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>engine</code> - Accepts engine names. The results list will only include information
+   *                   <code>engine</code> - Accepts engine names. The results list only includes information
    *               about the DB instances for these engines.</p>
    *             </li>
    *          </ul>

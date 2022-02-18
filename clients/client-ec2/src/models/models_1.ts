@@ -1007,7 +1007,7 @@ export interface CreateFleetRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *             Idempotency</a>.</p>
+   *             idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -1752,13 +1752,13 @@ export interface CreateFleetError {
 
   /**
    * <p>The error code that indicates why the instance could not be launched. For more
-   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
    */
   ErrorCode?: string;
 
   /**
    * <p>The error message that describes why the instance could not be launched. For more
-   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
    */
   ErrorMessage?: string;
 }
@@ -2232,7 +2232,7 @@ export interface EbsBlockDevice {
    *         <p>In no case can you remove encryption from an encrypted volume.</p>
    *         <p>Encrypted volumes can only be attached to instances that support Amazon EBS
    *             encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
-   *         <p>This parameter is not returned by .</p>
+   *         <p>This parameter is not returned by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html">DescribeImageAttribute</a>.</p>
    */
   Encrypted?: boolean;
 }
@@ -4337,8 +4337,9 @@ export namespace LaunchTemplatePrivateDnsNameOptionsRequest {
 export interface LaunchTemplateTagSpecificationRequest {
   /**
    * <p>The type of resource to tag. Currently, the resource types that support tagging on
-   *             creation are <code>instance</code> and <code>volume</code>. To tag a resource after it
-   *         	has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   *             creation are <code>instance</code>, <code>volume</code>, <code>elastic-gpu</code>,
+   *                 <code>network-interface</code>, and <code>spot-instances-request</code>. To tag a
+   *             resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
   ResourceType?: ResourceType | string;
 
@@ -5232,9 +5233,12 @@ export interface LaunchTemplateInstanceMetadataOptions {
   HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
 
   /**
-   * <p>
-   *
-   *         </p>
+   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
+   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the instance
+   *             metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
+   *                 instance tags using the instance metadata</a>.</p>
+   *         <p>Default: <code>disabled</code>
+   *          </p>
    */
   InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
 }
@@ -7055,10 +7059,8 @@ export interface CreateNetworkInterfaceRequest {
   Ipv6PrefixCount?: number;
 
   /**
-   * <p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify
-   * 			<code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">
-   * 			    Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. To create a trunk network interface, specify
-   * 		    <code>trunk</code>.</p>
+   * <p>The type of network interface. The default is <code>interface</code>.</p>
+   * 	        <p>The only supported values are <code>efa</code> and <code>trunk</code>.</p>
    */
   InterfaceType?: NetworkInterfaceCreationType | string;
 
@@ -7218,7 +7220,24 @@ export namespace GroupIdentifier {
   });
 }
 
-export type NetworkInterfaceType = "efa" | "interface" | "natGateway" | "trunk";
+export type NetworkInterfaceType =
+  | "api_gateway_managed"
+  | "aws_codestar_connections_managed"
+  | "branch"
+  | "efa"
+  | "gateway_load_balancer"
+  | "gateway_load_balancer_endpoint"
+  | "global_accelerator_managed"
+  | "interface"
+  | "iot_rules_managed"
+  | "lambda"
+  | "load_balancer"
+  | "natGateway"
+  | "network_load_balancer"
+  | "quicksight"
+  | "transit_gateway"
+  | "trunk"
+  | "vpc_endpoint";
 
 /**
  * <p>Describes an IPv6 address associated with a network interface.</p>

@@ -23,15 +23,15 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
 
 /**
  * <p>Updates a stack using the input information that was provided when the specified change
- *          set was created. After the call successfully completes, CloudFormation starts
- *          updating the stack. Use the <a>DescribeStacks</a> action to view the status of
- *          the update.</p>
+ *          set was created. After the call successfully completes, CloudFormation starts updating
+ *          the stack. Use the <a>DescribeStacks</a> action to view the status of the
+ *          update.</p>
  *          <p>When you execute a change set, CloudFormation deletes all other change sets
  *          associated with the stack because they aren't valid for the updated stack.</p>
- *          <p>If a stack policy is associated with the stack, CloudFormation enforces the
- *          policy during the update. You can't specify a temporary stack policy that overrides the
- *          current policy.</p>
- *          <p>To create a change set for the entire stack hierachy, <code>IncludeNestedStacks</code>
+ *          <p>If a stack policy is associated with the stack, CloudFormation enforces the policy
+ *          during the update. You can't specify a temporary stack policy that overrides the current
+ *          policy.</p>
+ *          <p>To create a change set for the entire stack hierarchy, <code>IncludeNestedStacks</code>
  *          must have been set to <code>True</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

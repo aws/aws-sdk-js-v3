@@ -23,12 +23,12 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
 
 /**
  * <p>Creates a new Amazon Kendra index. Index creation is an asynchronous
- *       operation. To determine if index creation has completed, check the
+ *       API. To determine if index creation has completed, check the
  *         <code>Status</code> field returned from a call to
  *         <code>DescribeIndex</code>. The <code>Status</code> field is set to
  *         <code>ACTIVE</code> when the index is ready to use.</p>
  *          <p>Once the index is active you can index your documents using the
- *         <code>BatchPutDocument</code> operation or using one of the supported
+ *         <code>BatchPutDocument</code> API or using one of the supported
  *       data sources. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

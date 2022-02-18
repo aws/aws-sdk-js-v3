@@ -3447,6 +3447,14 @@ const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, con
     ...(input.IdentityProviderType !== undefined &&
       input.IdentityProviderType !== null && { IdentityProviderType: input.IdentityProviderType }),
     ...(input.LoggingRole !== undefined && input.LoggingRole !== null && { LoggingRole: input.LoggingRole }),
+    ...(input.PostAuthenticationLoginBanner !== undefined &&
+      input.PostAuthenticationLoginBanner !== null && {
+        PostAuthenticationLoginBanner: input.PostAuthenticationLoginBanner,
+      }),
+    ...(input.PreAuthenticationLoginBanner !== undefined &&
+      input.PreAuthenticationLoginBanner !== null && {
+        PreAuthenticationLoginBanner: input.PreAuthenticationLoginBanner,
+      }),
     ...(input.ProtocolDetails !== undefined &&
       input.ProtocolDetails !== null && {
         ProtocolDetails: serializeAws_json1_1ProtocolDetails(input.ProtocolDetails, context),
@@ -3952,6 +3960,14 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
         IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context),
       }),
     ...(input.LoggingRole !== undefined && input.LoggingRole !== null && { LoggingRole: input.LoggingRole }),
+    ...(input.PostAuthenticationLoginBanner !== undefined &&
+      input.PostAuthenticationLoginBanner !== null && {
+        PostAuthenticationLoginBanner: input.PostAuthenticationLoginBanner,
+      }),
+    ...(input.PreAuthenticationLoginBanner !== undefined &&
+      input.PreAuthenticationLoginBanner !== null && {
+        PreAuthenticationLoginBanner: input.PreAuthenticationLoginBanner,
+      }),
     ...(input.ProtocolDetails !== undefined &&
       input.ProtocolDetails !== null && {
         ProtocolDetails: serializeAws_json1_1ProtocolDetails(input.ProtocolDetails, context),
@@ -4206,6 +4222,8 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
         : undefined,
     IdentityProviderType: __expectString(output.IdentityProviderType),
     LoggingRole: __expectString(output.LoggingRole),
+    PostAuthenticationLoginBanner: __expectString(output.PostAuthenticationLoginBanner),
+    PreAuthenticationLoginBanner: __expectString(output.PreAuthenticationLoginBanner),
     ProtocolDetails:
       output.ProtocolDetails !== undefined && output.ProtocolDetails !== null
         ? deserializeAws_json1_1ProtocolDetails(output.ProtocolDetails, context)

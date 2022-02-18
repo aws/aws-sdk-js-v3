@@ -2623,13 +2623,14 @@ export interface MaintenanceWindowAutomationParameters {
    *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
    *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
    *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+   *
    *             <p>
    *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
    *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
    *       about how Systems Manager handles these options for the supported maintenance window task
    *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
-   *             <p>For <code>AUTOMATION</code>
-   *     task types, Amazon Web Services Systems Manager ignores any values specified for these parameters.</p>
+   *             <p>For <code>AUTOMATION</code> task types, Amazon Web Services Systems Manager ignores any values specified for these
+   *     parameters.</p>
    *          </note>
    */
   Parameters?: { [key: string]: string[] };
@@ -2653,13 +2654,14 @@ export namespace MaintenanceWindowAutomationParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+ *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For Lambda tasks, Systems Manager ignores
- *     any values specified for TaskParameters and LoggingInfo.</p>
+ *             <p>For Lambda tasks, Systems Manager ignores any values specified for TaskParameters and
+ *     LoggingInfo.</p>
  *          </note>
  */
 export interface MaintenanceWindowLambdaParameters {
@@ -2761,14 +2763,15 @@ export namespace NotificationConfig {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+ *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For <code>RUN_COMMAND</code>
- *     tasks, Systems Manager uses specified values for <code>TaskParameters</code> and <code>LoggingInfo</code>
- *     only if no values are specified for <code>TaskInvocationParameters</code>. </p>
+ *             <p>For <code>RUN_COMMAND</code> tasks, Systems Manager uses specified values for
+ *      <code>TaskParameters</code> and <code>LoggingInfo</code> only if no values are specified for
+ *      <code>TaskInvocationParameters</code>. </p>
  *          </note>
  */
 export interface MaintenanceWindowRunCommandParameters {
@@ -2863,14 +2866,14 @@ export namespace MaintenanceWindowRunCommandParameters {
  *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
  *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
  *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+ *
  *             <p>
  *                <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs,
  *       instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information
  *       about how Systems Manager handles these options for the supported maintenance window task
  *       types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *             <p>For Step Functions tasks, Systems Manager
- *     ignores any values specified for <code>TaskParameters</code> and
- *     <code>LoggingInfo</code>.</p>
+ *             <p>For Step Functions tasks, Systems Manager ignores any values specified for
+ *      <code>TaskParameters</code> and <code>LoggingInfo</code>.</p>
  *          </note>
  */
 export interface MaintenanceWindowStepFunctionsParameters {
@@ -3474,11 +3477,19 @@ export interface Parameter {
   /**
    * <p>The type of parameter. Valid values include the following: <code>String</code>,
    *     <code>StringList</code>, and <code>SecureString</code>.</p>
+   *          <note>
+   *             <p>If type is <code>StringList</code>, the system returns a comma-separated string with no
+   *     spaces between commas in the <code>Value</code> field.</p>
+   *          </note>
    */
   Type?: ParameterType | string;
 
   /**
    * <p>The parameter value.</p>
+   *          <note>
+   *             <p>If type is <code>StringList</code>, the system returns a comma-separated string with no
+   *     spaces between commas in the <code>Value</code> field.</p>
+   *          </note>
    */
   Value?: string;
 
@@ -3755,11 +3766,11 @@ export namespace GetParametersResult {
 
 export interface GetParametersByPathRequest {
   /**
-   * <p>The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierachy is
-   *    the parameter name except the last part of the parameter. For the API call to succeeed, the last
-   *    part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of
-   *    15 levels. Here is an example of a hierarchy: <code>/Finance/Prod/IAD/WinServ2016/license33
-   *    </code>
+   * <p>The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy
+   *    is the parameter name except the last part of the parameter. For the API call to succeed, the
+   *    last part of the parameter name can't be in the path. A parameter name hierarchy can have a
+   *    maximum of 15 levels. Here is an example of a hierarchy:
+   *     <code>/Finance/Prod/IAD/WinServ2016/license33 </code>
    *          </p>
    */
   Path: string | undefined;
@@ -4312,7 +4323,11 @@ export interface Association {
   /**
    * <p>The version of the document used in the association.</p>
    *          <important>
-   *             <p>State Manager doesn't support running associations that use a new version of a document if that document is shared from another account. State Manager always runs the <code>default</code> version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed. If you want to run an association using a new version of a document shared form another account, you must set the document version to <code>default</code>.</p>
+   *             <p>State Manager doesn't support running associations that use a new version of a document if
+   *     that document is shared from another account. State Manager always runs the <code>default</code>
+   *     version of a document if shared from another account, even though the Systems Manager console shows that a
+   *     new version was processed. If you want to run an association using a new version of a document
+   *     shared form another account, you must set the document version to <code>default</code>.</p>
    *          </important>
    */
   DocumentVersion?: string;
@@ -5370,8 +5385,8 @@ export interface Command {
 
   /**
    * <p>The number of targets for which the command invocation reached a terminal state. Terminal
-   *    states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out, Cancelled,
-   *    Terminated, or Undeliverable.</p>
+   *    states include the following: Success, Failed, Execution Timed Out, Delivery Timed Out,
+   *    Cancelled, Terminated, or Undeliverable.</p>
    */
   CompletedCount?: number;
 
@@ -6081,11 +6096,6 @@ export namespace DocumentFilter {
  *                   <li>
  *                      <p>
  *                         <code>Command</code>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>DeploymentStrategy</code>
  *                      </p>
  *                   </li>
  *                   <li>
@@ -8078,6 +8088,11 @@ export interface PutParameterRequest {
    *                   <code>aws:ec2:image</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws:ssm:integration</code>
+   *                </p>
+   *             </li>
    *          </ul>
    *          <p>When you create a <code>String</code> parameter and specify <code>aws:ec2:image</code>,
    *    Amazon Web Services Systems Manager validates the parameter value is in the required format, such as
@@ -8414,8 +8429,11 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   Priority?: number;
 
   /**
-   * <p>The maximum number of targets this task can be run for in parallel.</p>
+   * <p>The maximum number of targets this task can be run for, in parallel.</p>
    *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
    *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
    *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
    *     affect the running of your task.</p>
@@ -8426,6 +8444,9 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
   /**
    * <p>The maximum number of errors allowed before this task stops being scheduled.</p>
    *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
    *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
    *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
    *     affect the running of your task.</p>
@@ -9561,7 +9582,11 @@ export interface UpdateAssociationRequest {
   /**
    * <p>The document version you want update for the association. </p>
    *          <important>
-   *             <p>State Manager doesn't support running associations that use a new version of a document if that document is shared from another account. State Manager always runs the <code>default</code> version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed. If you want to run an association using a new version of a document shared form another account, you must set the document version to <code>default</code>.</p>
+   *             <p>State Manager doesn't support running associations that use a new version of a document if
+   *     that document is shared from another account. State Manager always runs the <code>default</code>
+   *     version of a document if shared from another account, even though the Systems Manager console shows that a
+   *     new version was processed. If you want to run an association using a new version of a document
+   *     shared form another account, you must set the document version to <code>default</code>.</p>
    *          </important>
    */
   DocumentVersion?: string;

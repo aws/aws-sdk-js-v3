@@ -22,12 +22,12 @@ export interface ListScriptsCommandInput extends ListScriptsInput {}
 export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves script records for all Realtime scripts that are associated with the AWS account in use. </p>
+ * <p>Retrieves script records for all Realtime scripts that are associated with the Amazon Web Services account in use. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
  *         </p>
  *         <p>
  *             <b>Related actions</b>

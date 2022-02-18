@@ -23,8 +23,7 @@ export interface UpdateJobPriorityCommandInput extends UpdateJobPriorityRequest 
 export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult, __MetadataBearer {}
 
 /**
- * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <p></p>
  *          <p>Related actions include:</p>
  *          <ul>

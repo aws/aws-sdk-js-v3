@@ -31,9 +31,8 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  *             </li>
  *             <li>
  *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to
- *                   <code>SELF</code> while signed in to the organization's management account,
- *                   <code>ListStackSets</code> returns all stack sets in the management
- *                account.</p>
+ *                   <code>SELF</code> while signed in to the organization's management account, <code>ListStackSets</code> returns all stack sets in the
+ *                management account.</p>
  *             </li>
  *             <li>
  *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to

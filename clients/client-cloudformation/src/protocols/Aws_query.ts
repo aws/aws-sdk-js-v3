@@ -52,6 +52,10 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "../commands/DescribeAccountLimitsCommand";
 import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "../commands/DescribeChangeSetCommand";
+import {
+  DescribeChangeSetHooksCommandInput,
+  DescribeChangeSetHooksCommandOutput,
+} from "../commands/DescribeChangeSetHooksCommand";
 import { DescribePublisherCommandInput, DescribePublisherCommandOutput } from "../commands/DescribePublisherCommand";
 import {
   DescribeStackDriftDetectionStatusCommandInput,
@@ -178,6 +182,9 @@ import {
   Capability,
   CFNRegistryException,
   Change,
+  ChangeSetHook,
+  ChangeSetHookResourceTargetDetails,
+  ChangeSetHookTargetDetails,
   ChangeSetNotFoundException,
   ChangeSetSummary,
   ContinueUpdateRollbackInput,
@@ -205,6 +212,8 @@ import {
   DeregisterTypeOutput,
   DescribeAccountLimitsInput,
   DescribeAccountLimitsOutput,
+  DescribeChangeSetHooksInput,
+  DescribeChangeSetHooksOutput,
   DescribeChangeSetInput,
   DescribeChangeSetOutput,
   DescribePublisherInput,
@@ -625,6 +634,22 @@ export const serializeAws_queryDescribeChangeSetCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeChangeSetInput(input, context),
     Action: "DescribeChangeSet",
+    Version: "2010-05-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeChangeSetHooksCommand = async (
+  input: DescribeChangeSetHooksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeChangeSetHooksInput(input, context),
+    Action: "DescribeChangeSetHooks",
     Version: "2010-05-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2402,6 +2427,60 @@ const deserializeAws_queryDescribeChangeSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ChangeSetNotFoundException":
+    case "com.amazonaws.cloudformation#ChangeSetNotFoundException":
+      response = {
+        ...(await deserializeAws_queryChangeSetNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeChangeSetHooksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChangeSetHooksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeChangeSetHooksCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeChangeSetHooksOutput(data.DescribeChangeSetHooksResult, context);
+  const response: DescribeChangeSetHooksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeChangeSetHooksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChangeSetHooksCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6088,6 +6167,26 @@ const serializeAws_queryDescribeAccountLimitsInput = (
   return entries;
 };
 
+const serializeAws_queryDescribeChangeSetHooksInput = (
+  input: DescribeChangeSetHooksInput,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
+    entries["ChangeSetName"] = input.ChangeSetName;
+  }
+  if (input.StackName !== undefined && input.StackName !== null) {
+    entries["StackName"] = input.StackName;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.LogicalResourceId !== undefined && input.LogicalResourceId !== null) {
+    entries["LogicalResourceId"] = input.LogicalResourceId;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeChangeSetInput = (input: DescribeChangeSetInput, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ChangeSetName !== undefined && input.ChangeSetName !== null) {
@@ -7774,10 +7873,14 @@ const deserializeAws_queryCFNRegistryException = (output: any, context: __SerdeC
 const deserializeAws_queryChange = (output: any, context: __SerdeContext): Change => {
   const contents: any = {
     Type: undefined,
+    HookInvocationCount: undefined,
     ResourceChange: undefined,
   };
   if (output["Type"] !== undefined) {
     contents.Type = __expectString(output["Type"]);
+  }
+  if (output["HookInvocationCount"] !== undefined) {
+    contents.HookInvocationCount = __strictParseInt32(output["HookInvocationCount"]) as number;
   }
   if (output["ResourceChange"] !== undefined) {
     contents.ResourceChange = deserializeAws_queryResourceChange(output["ResourceChange"], context);
@@ -7794,6 +7897,88 @@ const deserializeAws_queryChanges = (output: any, context: __SerdeContext): Chan
       }
       return deserializeAws_queryChange(entry, context);
     });
+};
+
+const deserializeAws_queryChangeSetHook = (output: any, context: __SerdeContext): ChangeSetHook => {
+  const contents: any = {
+    InvocationPoint: undefined,
+    FailureMode: undefined,
+    TypeName: undefined,
+    TypeVersionId: undefined,
+    TypeConfigurationVersionId: undefined,
+    TargetDetails: undefined,
+  };
+  if (output["InvocationPoint"] !== undefined) {
+    contents.InvocationPoint = __expectString(output["InvocationPoint"]);
+  }
+  if (output["FailureMode"] !== undefined) {
+    contents.FailureMode = __expectString(output["FailureMode"]);
+  }
+  if (output["TypeName"] !== undefined) {
+    contents.TypeName = __expectString(output["TypeName"]);
+  }
+  if (output["TypeVersionId"] !== undefined) {
+    contents.TypeVersionId = __expectString(output["TypeVersionId"]);
+  }
+  if (output["TypeConfigurationVersionId"] !== undefined) {
+    contents.TypeConfigurationVersionId = __expectString(output["TypeConfigurationVersionId"]);
+  }
+  if (output["TargetDetails"] !== undefined) {
+    contents.TargetDetails = deserializeAws_queryChangeSetHookTargetDetails(output["TargetDetails"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryChangeSetHookResourceTargetDetails = (
+  output: any,
+  context: __SerdeContext
+): ChangeSetHookResourceTargetDetails => {
+  const contents: any = {
+    LogicalResourceId: undefined,
+    ResourceType: undefined,
+    ResourceAction: undefined,
+  };
+  if (output["LogicalResourceId"] !== undefined) {
+    contents.LogicalResourceId = __expectString(output["LogicalResourceId"]);
+  }
+  if (output["ResourceType"] !== undefined) {
+    contents.ResourceType = __expectString(output["ResourceType"]);
+  }
+  if (output["ResourceAction"] !== undefined) {
+    contents.ResourceAction = __expectString(output["ResourceAction"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryChangeSetHooks = (output: any, context: __SerdeContext): ChangeSetHook[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryChangeSetHook(entry, context);
+    });
+};
+
+const deserializeAws_queryChangeSetHookTargetDetails = (
+  output: any,
+  context: __SerdeContext
+): ChangeSetHookTargetDetails => {
+  const contents: any = {
+    TargetType: undefined,
+    ResourceTargetDetails: undefined,
+  };
+  if (output["TargetType"] !== undefined) {
+    contents.TargetType = __expectString(output["TargetType"]);
+  }
+  if (output["ResourceTargetDetails"] !== undefined) {
+    contents.ResourceTargetDetails = deserializeAws_queryChangeSetHookResourceTargetDetails(
+      output["ResourceTargetDetails"],
+      context
+    );
+  }
+  return contents;
 };
 
 const deserializeAws_queryChangeSetNotFoundException = (
@@ -8021,6 +8206,46 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeChangeSetHooksOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeChangeSetHooksOutput => {
+  const contents: any = {
+    ChangeSetId: undefined,
+    ChangeSetName: undefined,
+    Hooks: undefined,
+    Status: undefined,
+    NextToken: undefined,
+    StackId: undefined,
+    StackName: undefined,
+  };
+  if (output["ChangeSetId"] !== undefined) {
+    contents.ChangeSetId = __expectString(output["ChangeSetId"]);
+  }
+  if (output["ChangeSetName"] !== undefined) {
+    contents.ChangeSetName = __expectString(output["ChangeSetName"]);
+  }
+  if (output.Hooks === "") {
+    contents.Hooks = [];
+  }
+  if (output["Hooks"] !== undefined && output["Hooks"]["member"] !== undefined) {
+    contents.Hooks = deserializeAws_queryChangeSetHooks(__getArrayIfSingleItem(output["Hooks"]["member"]), context);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["NextToken"]);
+  }
+  if (output["StackId"] !== undefined) {
+    contents.StackId = __expectString(output["StackId"]);
+  }
+  if (output["StackName"] !== undefined) {
+    contents.StackName = __expectString(output["StackName"]);
   }
   return contents;
 };
@@ -9843,6 +10068,11 @@ const deserializeAws_queryStackEvent = (output: any, context: __SerdeContext): S
     ResourceStatusReason: undefined,
     ResourceProperties: undefined,
     ClientRequestToken: undefined,
+    HookType: undefined,
+    HookStatus: undefined,
+    HookStatusReason: undefined,
+    HookInvocationPoint: undefined,
+    HookFailureMode: undefined,
   };
   if (output["StackId"] !== undefined) {
     contents.StackId = __expectString(output["StackId"]);
@@ -9876,6 +10106,21 @@ const deserializeAws_queryStackEvent = (output: any, context: __SerdeContext): S
   }
   if (output["ClientRequestToken"] !== undefined) {
     contents.ClientRequestToken = __expectString(output["ClientRequestToken"]);
+  }
+  if (output["HookType"] !== undefined) {
+    contents.HookType = __expectString(output["HookType"]);
+  }
+  if (output["HookStatus"] !== undefined) {
+    contents.HookStatus = __expectString(output["HookStatus"]);
+  }
+  if (output["HookStatusReason"] !== undefined) {
+    contents.HookStatusReason = __expectString(output["HookStatusReason"]);
+  }
+  if (output["HookInvocationPoint"] !== undefined) {
+    contents.HookInvocationPoint = __expectString(output["HookInvocationPoint"]);
+  }
+  if (output["HookFailureMode"] !== undefined) {
+    contents.HookFailureMode = __expectString(output["HookFailureMode"]);
   }
   return contents;
 };

@@ -22,7 +22,7 @@ export interface DescribeDataSourceCommandInput extends DescribeDataSourceReques
 export interface DescribeDataSourceCommandOutput extends DescribeDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a Amazon Kendra data source.</p>
+ * <p>Gets information about an Amazon Kendra data source.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

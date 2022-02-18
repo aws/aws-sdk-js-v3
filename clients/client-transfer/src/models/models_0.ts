@@ -838,6 +838,8 @@ export interface CreateServerRequest {
    */
   LoggingRole?: string;
 
+  PostAuthenticationLoginBanner?: string;
+  PreAuthenticationLoginBanner?: string;
   /**
    * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
    *       client can connect to your server's endpoint. The available protocols are:</p>
@@ -2065,6 +2067,8 @@ export interface DescribedServer {
    */
   LoggingRole?: string;
 
+  PostAuthenticationLoginBanner?: string;
+  PreAuthenticationLoginBanner?: string;
   /**
    * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
    *       client can connect to your server's endpoint. The available protocols are:</p>
@@ -3697,6 +3701,8 @@ export interface UpdateServerRequest {
    */
   LoggingRole?: string;
 
+  PostAuthenticationLoginBanner?: string;
+  PreAuthenticationLoginBanner?: string;
   /**
    * <p>Specifies the file transfer protocol or protocols over which your file transfer protocol
    *       client can connect to your server's endpoint. The available protocols are:</p>

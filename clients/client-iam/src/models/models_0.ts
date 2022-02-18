@@ -146,8 +146,8 @@ export interface AccessKeyLastUsed {
   LastUsedDate: Date | undefined;
 
   /**
-   * <p>The name of the Amazon Web Services service with which this access key was most recently used. The value
-   *          of this field is "N/A" in the following situations:</p>
+   * <p>The name of the Amazon Web Services service with which this access key was most recently used. The
+   *          value of this field is "N/A" in the following situations:</p>
    *          <ul>
    *             <li>
    *                <p>The user does not have an access key.</p>
@@ -164,8 +164,8 @@ export interface AccessKeyLastUsed {
   ServiceName: string | undefined;
 
   /**
-   * <p>The Amazon Web Services Region where this access key was most recently used. The value for this field is
-   *          "N/A" in the following situations:</p>
+   * <p>The Amazon Web Services Region where this access key was most recently used. The value for this field
+   *          is "N/A" in the following situations:</p>
    *          <ul>
    *             <li>
    *                <p>The user does not have an access key.</p>
@@ -848,7 +848,8 @@ export interface RoleLastUsed {
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
    *             format</a> that the role was last used.</p>
    *          <p>This field is null if the role has not been used within the IAM tracking period. For
-   *          more information about the tracking period, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>. </p>
+   *          more information about the tracking period, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.
+   *       </p>
    */
   LastUsedDate?: Date;
 
@@ -1153,10 +1154,10 @@ export interface CreateOpenIDConnectProviderRequest {
   Url: string | undefined;
 
   /**
-   * <p>Provides a list of client IDs, also known as audiences. When a mobile or web app registers
-   *             with an OpenID Connect provider, they establish a value that identifies the application.
-   *             This is the value that's sent as the <code>client_id</code> parameter on OAuth
-   *             requests.</p>
+   * <p>Provides a list of client IDs, also known as audiences. When a mobile or web app
+   *             registers with an OpenID Connect provider, they establish a value that identifies the
+   *             application. This is the value that's sent as the <code>client_id</code> parameter on
+   *             OAuth requests.</p>
    *         <p>You can register multiple client IDs with the same provider. For example, you might
    *             have multiple applications that use the same OIDC provider. You cannot register more
    *             than 100 client IDs with a single IAM OIDC provider.</p>
@@ -1256,16 +1257,15 @@ export interface CreatePolicyRequest {
    *     most punctuation characters, digits, and upper and lowercased letters.</p>
    *         <note>
    *             <p>You cannot use an asterisk (*) in the path name.</p>
-   *          </note>
+   *         </note>
    */
   Path?: string;
 
   /**
    * <p>The JSON policy document that you want to use as the content for the new
    *             policy.</p>
-   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *         <p>You must provide policies in JSON format in IAM. However, for CloudFormation
    *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
-   *
    *             IAM.</p>
    *         <p>The maximum length of the policy document that you can pass in this operation,
    *             including whitespace, is listed below. To view the maximum character counts of a managed policy with no whitespaces, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-quotas-entity-length">IAM and STS character quotas</a>.</p>
@@ -1590,9 +1590,9 @@ export interface CreateRoleRequest {
    * <p>The trust relationship policy document that grants an entity permission to assume the
    *             role.</p>
    *         <p>In IAM, you must provide a JSON policy that has been converted to a string. However,
-   *             for CloudFormation templates formatted in YAML, you can provide the policy in JSON
-   *             or YAML format. CloudFormation always converts a YAML policy to JSON format before
-   *             submitting it to IAM.</p>
+   *             for CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML
+   *             format. CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *             IAM.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     used to validate this parameter is a string of characters consisting of the following:</p>
    *          <ul>
@@ -1622,16 +1622,15 @@ export interface CreateRoleRequest {
    * <p>The maximum session duration (in seconds) that you want to set for the specified role.
    *             If you do not specify a value for this setting, the default maximum of one hour is
    *             applied. This setting can have a value from 1 hour to 12 hours.</p>
-   *         <p>Anyone who assumes the role from the  or API can use the
-   *                 <code>DurationSeconds</code> API parameter or the <code>duration-seconds</code> CLI
-   *             parameter to request a longer session. The <code>MaxSessionDuration</code> setting
-   *             determines the maximum duration that can be requested using the
-   *                 <code>DurationSeconds</code> parameter. If users don't specify a value for the
-   *                 <code>DurationSeconds</code> parameter, their security credentials are valid for one
-   *             hour by default. This applies when you use the <code>AssumeRole*</code> API operations
-   *             or the <code>assume-role*</code> CLI operations but does not apply when you use those
-   *             operations to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM
-   *                 roles</a> in the <i>IAM User Guide</i>.</p>
+   *         <p>Anyone who assumes the role from the or API can use the <code>DurationSeconds</code>
+   *             API parameter or the <code>duration-seconds</code> CLI parameter to request a longer
+   *             session. The <code>MaxSessionDuration</code> setting determines the maximum duration
+   *             that can be requested using the <code>DurationSeconds</code> parameter. If users don't
+   *             specify a value for the <code>DurationSeconds</code> parameter, their security
+   *             credentials are valid for one hour by default. This applies when you use the
+   *                 <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI
+   *             operations but does not apply when you use those operations to create a console URL. For
+   *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM roles</a> in the <i>IAM User Guide</i>.</p>
    */
   MaxSessionDuration?: number;
 
@@ -2025,8 +2024,8 @@ export interface User {
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the user's password was last used to sign in to an Amazon Web Services website. For
-   *          a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential
+   *             format</a>, when the user's password was last used to sign in to an Amazon Web Services website.
+   *          For a list of Amazon Web Services websites that capture a user's last sign-in time, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Credential
    *             reports</a> topic in the <i>IAM User Guide</i>. If a password is
    *          used more than once in a five-minute span, only the first use is returned in this field. If
    *          the field is null (no value), then it indicates that they never signed in with a password.
@@ -3483,28 +3482,36 @@ export interface PasswordPolicy {
   MinimumPasswordLength?: number;
 
   /**
-   * <p>Specifies whether IAM user passwords must contain at least one of the following symbols:</p>
+   * <p>Specifies whether IAM user passwords must contain at least one of the following
+   *          symbols:</p>
    *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] { } | '</p>
    */
   RequireSymbols?: boolean;
 
   /**
-   * <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to 9).</p>
+   * <p>Specifies whether IAM user passwords must contain at least one numeric character (0 to
+   *          9).</p>
    */
   RequireNumbers?: boolean;
 
   /**
-   * <p>Specifies whether IAM user passwords must contain at least one uppercase character (A to Z).</p>
+   * <p>Specifies whether IAM user passwords must contain at least one uppercase character (A
+   *          to Z).</p>
    */
   RequireUppercaseCharacters?: boolean;
 
   /**
-   * <p>Specifies whether IAM user passwords must contain at least one lowercase character (a to z).</p>
+   * <p>Specifies whether IAM user passwords must contain at least one lowercase character (a
+   *          to z).</p>
    */
   RequireLowercaseCharacters?: boolean;
 
   /**
-   * <p>Specifies whether IAM users are allowed to change their own password.</p>
+   * <p>Specifies whether IAM users are allowed to change their own password. Gives IAM
+   *          users permissions to <code>iam:ChangePassword</code> for only their user and to the
+   *             <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a
+   *          permissions policy to each user, rather the permissions are applied at the account-level
+   *          for all users by IAM.</p>
    */
   AllowUsersToChangePassword?: boolean;
 
@@ -3527,8 +3534,11 @@ export interface PasswordPolicy {
   PasswordReusePrevention?: number;
 
   /**
-   * <p>Specifies whether IAM users are prevented from setting a new password after their
-   *          password has expired.</p>
+   * <p>Specifies whether IAM users are prevented from setting a new password via the
+   *          Amazon Web Services Management Console after their password has expired. The IAM user cannot access the console until
+   *          an administrator resets the password. IAM users with <code>iam:ChangePassword</code>
+   *          permission and active access keys can reset their own expired console password using the
+   *          CLI or API.</p>
    */
   HardExpiry?: boolean;
 }
@@ -3894,8 +3904,9 @@ export interface GetGroupPolicyResponse {
   /**
    * <p>The policy document.</p>
    *
-   *         <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts
-   *             a YAML policy to JSON format before submitting it to IAM.</p>
+   *         <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation
+   *             templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format
+   *             before submitting it to IAM.</p>
    */
   PolicyDocument: string | undefined;
 }
@@ -4360,8 +4371,9 @@ export interface GetRolePolicyResponse {
 
   /**
    * <p>The policy document.</p>
-   *          <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts
-   *             a YAML policy to JSON format before submitting it to IAM.</p>
+   *         <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation
+   *             templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format
+   *             before submitting it to IAM.</p>
    */
   PolicyDocument: string | undefined;
 }
@@ -4596,7 +4608,8 @@ export namespace GetServiceLastAccessedDetailsRequest {
 }
 
 /**
- * <p>Contains details about the most recent attempt to access an action within the service.</p>
+ * <p>Contains details about the most recent attempt to access an action within the
+ *          service.</p>
  *          <p>This data type is used as a response element in the <a>GetServiceLastAccessedDetails</a> operation.</p>
  */
 export interface TrackedActionLastAccessed {
@@ -4618,7 +4631,7 @@ export interface TrackedActionLastAccessed {
    *             format</a>, when an authenticated entity most recently attempted to access the
    *          tracked service. Amazon Web Services does not report unauthenticated requests.</p>
    *          <p>This field is null if no IAM entities attempted to access the service within the
-   *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">reporting period</a>.</p>
    */
   LastAccessedTime?: Date;
 
@@ -5129,8 +5142,8 @@ export interface SSHPublicKey {
 
   /**
    * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
-   *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key
-   *          cannot be used.</p>
+   *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
+   *          used.</p>
    */
   Status: StatusType | string | undefined;
 
@@ -5214,11 +5227,11 @@ export interface GetUserResponse {
    *                 last signed in before May 3, 2018. For users that signed in after May 23, 2018 14:08
    *                 PDT, the returned password last used date is accurate.</p>
    *             <p>You can use password last used information to identify unused credentials for
-   *                 deletion. For example, you might delete users who did not sign in to Amazon Web Services in the last
-   *                 90 days. In cases like this, we recommend that you adjust your evaluation window to
-   *                 include dates after May 23, 2018. Alternatively, if your users use access keys to
-   *                 access Amazon Web Services programmatically you can refer to access key last used information
-   *                 because it is accurate for all dates. </p>
+   *                 deletion. For example, you might delete users who did not sign in to Amazon Web Services in the
+   *                 last 90 days. In cases like this, we recommend that you adjust your evaluation
+   *                 window to include dates after May 23, 2018. Alternatively, if your users use access
+   *                 keys to access Amazon Web Services programmatically you can refer to access key last used
+   *                 information because it is accurate for all dates. </p>
    *         </important>
    */
   User: User | undefined;
@@ -5276,8 +5289,9 @@ export interface GetUserPolicyResponse {
   /**
    * <p>The policy document.</p>
    *
-   *         <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts
-   *             a YAML policy to JSON format before submitting it to IAM.</p>
+   *         <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation
+   *             templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format
+   *             before submitting it to IAM.</p>
    */
   PolicyDocument: string | undefined;
 }
@@ -7851,8 +7865,8 @@ export interface SSHPublicKeyMetadata {
 
   /**
    * <p>The status of the SSH public key. <code>Active</code> means that the key can be used for
-   *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key
-   *          cannot be used.</p>
+   *          authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be
+   *          used.</p>
    */
   Status: StatusType | string | undefined;
 
@@ -8232,9 +8246,9 @@ export interface PutGroupPolicyRequest {
   /**
    * <p>The policy document.</p>
    *
-   *         <p>You must provide policies in JSON format in IAM. However, for CloudFormation
-   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
-   * =            IAM.</p>
+   *         <p>You must provide policies in JSON format in IAM. However, for CloudFormation templates
+   *             formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always
+   *             converts a YAML policy to JSON format before submitting it to = IAM.</p>
    *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
    *     used to validate this parameter is a string of characters consisting of the following:</p>
    *          <ul>
@@ -8653,7 +8667,8 @@ export enum ContextKeyTypeEnum {
  *          specifies the value (or values, if the context key supports multiple values) to use in the
  *          simulation. This information is used when evaluating the <code>Condition</code> elements of
  *          the input policies.</p>
- *          <p>This data type is used as an input parameter to <a>SimulateCustomPolicy</a> and <a>SimulatePrincipalPolicy</a>.</p>
+ *          <p>This data type is used as an input parameter to <a>SimulateCustomPolicy</a>
+ *          and <a>SimulatePrincipalPolicy</a>.</p>
  */
 export interface ContextEntry {
   /**

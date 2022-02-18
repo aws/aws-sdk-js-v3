@@ -20,7 +20,7 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
 
 /**
  * <p>Updates a stack as specified in the template. After the call completes successfully, the
- *          stack update starts. You can check the status of the stack via the <a>DescribeStacks</a> action.</p>
+ *          stack update starts. You can check the status of the stack through the <a>DescribeStacks</a> action.</p>
  *          <p>To get a copy of the template for an existing stack, you can use the <a>GetTemplate</a> action.</p>
  *          <p>For more information about creating an update template, updating a stack, and monitoring
  *          the progress of the update, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">Updating a

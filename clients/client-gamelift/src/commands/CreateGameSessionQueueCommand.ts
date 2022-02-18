@@ -29,7 +29,7 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  *         <p>A game session queue is configured with a set of destinations (GameLift fleets or
  *             aliases), which determine the locations where the queue can place new game sessions.
  *             These destinations can span multiple fleet types (Spot and On-Demand), instance types,
- *             and AWS Regions. If the queue includes multi-location fleets, the queue is able to place
+ *             and Amazon Web Services Regions. If the queue includes multi-location fleets, the queue is able to place
  *             game sessions in all of a fleet's remote locations. You can opt to filter out individual
  *             locations if needed.</p>
  *         <p>The queue configuration also determines how FleetIQ selects the best available placement
@@ -43,7 +43,10 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  *             (SNS) topic to receive notifications of game session placement activity. Notifications
  *             using SNS or CloudWatch events is the preferred way to track placement activity.</p>
  *         <p>If successful, a new <code>GameSessionQueue</code> object is returned with an assigned
- *             queue ARN. New game session requests, which are submitted to the  queue with <a>StartGameSessionPlacement</a> or <a>StartMatchmaking</a>,
+ *             queue ARN. New game session requests, which are submitted to queue with
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartGameSessionPlacement.html">StartGameSessionPlacement</a>
+ *             or
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html">StartMatchmaking</a>,
  *             reference a queue's name or ARN. </p>
  *         <p>
  *             <b>Learn more</b>
@@ -60,10 +63,14 @@ export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQu
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateGameSessionQueue</a> |
- *                     <a>DescribeGameSessionQueues</a> |
- *                     <a>UpdateGameSessionQueue</a> |
- *                     <a>DeleteGameSessionQueue</a> |
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html">CreateGameSessionQueue</a>
+ *                     |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html">DescribeGameSessionQueues</a>
+ *                     |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html">UpdateGameSessionQueue</a>
+ *                     |
+ *                     <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html">DeleteGameSessionQueue</a>
+ *                     |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

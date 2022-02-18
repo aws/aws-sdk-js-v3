@@ -1401,8 +1401,8 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
-   * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key
-   *             (CMK) from Key Management Service (KMS) to encrypt copied snapshots in a
+   * <p>Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key
+   *             from Key Management Service (KMS) to encrypt copied snapshots in a
    *             destination region.</p>
    *         <p>
    * For more information about managing snapshot copy grants, go to
@@ -3524,9 +3524,9 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Disables the automatic copying of snapshots from one region to another region for a
    *             specified cluster.</p>
-   *         <p>If your cluster and its snapshots are encrypted using a customer master key (CMK)
+   *         <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
    *             from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
-   *             grants Amazon Redshift permission to the CMK in the destination region. </p>
+   *             grants Amazon Redshift permission to the key in the destination region. </p>
    */
   public disableSnapshotCopy(
     args: DisableSnapshotCopyCommandInput,
@@ -3917,7 +3917,9 @@ export class Redshift extends RedshiftClient {
   /**
    * <p>Modifies the list of Identity and Access Management (IAM) roles that can be
    *             used by the cluster to access other Amazon Web Services services.</p>
-   *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
+   *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+   *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
+   *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
   public modifyClusterIamRoles(
     args: ModifyClusterIamRolesCommandInput,

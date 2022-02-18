@@ -22,7 +22,7 @@ export interface ListStackSetOperationsCommandInput extends ListStackSetOperatio
 export interface ListStackSetOperationsCommandOutput extends ListStackSetOperationsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns summary information about operations performed on a stack set. </p>
+ * <p>Returns summary information about operations performed on a stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

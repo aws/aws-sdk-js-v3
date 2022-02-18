@@ -41,7 +41,7 @@ export interface AclConfiguration {
    *             response based on user context. The document is only returned to
    *             users that are in one of the groups specified in the
    *                 <code>UserContext</code> field of the <code>Query</code>
-   *             operation.</p>
+   *             API.</p>
    */
   AllowedGroupsColumnName: string | undefined;
 }
@@ -605,7 +605,7 @@ export enum ErrorCode {
 /**
  * <p>Provides information about documents that could not be removed
  *             from an index by the <code>BatchDeleteDocument</code>
- *             operation.</p>
+ *             API.</p>
  */
 export interface BatchDeleteDocumentResponseFailedDocument {
   /**
@@ -724,8 +724,8 @@ export namespace DocumentInfo {
 export interface BatchGetDocumentStatusRequest {
   /**
    * <p>The identifier of the index to add documents to. The index ID is
-   *             returned by the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html"> CreateIndex
-   *             </a> operation.</p>
+   *             returned by the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html">CreateIndex
+   *             </a> API.</p>
    */
   IndexId: string | undefined;
 
@@ -1212,7 +1212,7 @@ export interface Document {
    * <p>The contents of the document. </p>
    *         <p>Documents passed to the <code>Blob</code> parameter must be base64
    *             encoded. Your code might not need to encode the document file bytes
-   *             if you're using an Amazon Web Services SDK to call Amazon Kendra operations. If you are
+   *             if you're using an Amazon Web Services SDK to call Amazon Kendra APIs. If you are
    *             calling the Amazon Kendra endpoint directly using REST, you must base64
    *             encode the contents before sending.</p>
    */
@@ -1229,6 +1229,11 @@ export interface Document {
    *             attributes to provide additional information for searching, to
    *             provide facets for refining searches, and to provide additional
    *             information in the query response.</p>
+   *         <p>For example, 'DataSourceId' and 'DataSourceSyncJobId' are custom
+   *             attributes that provide information on the synchronization
+   *             of documents running on a data source. Note,
+   *             'DataSourceSyncJobId' could be an optional custom attribute
+   *             as Amazon Kendra will use the ID of a running sync job.</p>
    */
   Attributes?: DocumentAttribute[];
 
@@ -1264,26 +1269,20 @@ export interface BatchPutDocumentRequest {
   /**
    * <p>The identifier of the index to add the documents to. You need to
    *       create the index first using the <code>CreateIndex</code>
-   *       operation.</p>
+   *       API.</p>
    */
   IndexId: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role that is allowed to run the
-   *         <code>BatchPutDocument</code> operation. For more information, see
+   *         <code>BatchPutDocument</code> API. For more information, see
    *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM
-   *         Roles for Amazon Kendra</a>.</p>
+   *           Roles for Amazon Kendra</a>.</p>
    */
   RoleArn?: string;
 
   /**
    * <p>One or more documents to add to the index.</p>
-   *          <p>Documents can include custom attributes. For example,
-   *       'DataSourceId' and 'DataSourceSyncJobId' are custom
-   *       attributes that provide information on the synchronization
-   *       of documents running on a data source. Note,
-   *       'DataSourceSyncJobId' could be an optional custom attribute
-   *       as Amazon Kendra will use the ID of a running sync job.</p>
    *          <p>Documents have the following file size limits.</p>
    *          <ul>
    *             <li>
@@ -1304,7 +1303,7 @@ export interface BatchPutDocumentRequest {
   /**
    * <p>Configuration information for altering your document metadata and content during
    *             the document ingestion process when you use the <code>BatchPutDocument</code>
-   *             operation.</p>
+   *             API.</p>
    *         <p>For more information on how to create, modify and delete document metadata,
    *             or make other content alterations when you ingest documents into Amazon Kendra, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html">Customizing
@@ -1420,13 +1419,13 @@ export enum ConfluenceAttachmentFieldName {
  * <p>Defines the mapping between a field in the Confluence data source
  *             to a Amazon Kendra index field.</p>
  *         <p>You must first create the index field using the
- *                 <code>UpdateIndex</code> operation. </p>
+ *                 <code>UpdateIndex</code> API. </p>
  */
 export interface ConfluenceAttachmentToIndexFieldMapping {
   /**
    * <p>The name of the field in the data source. </p>
    *         <p>You must first create the index field using the
-   *                 <code>UpdateIndex</code> operation. </p>
+   *                 <code>UpdateIndex</code> API. </p>
    */
   DataSourceFieldName?: ConfluenceAttachmentFieldName | string;
 
@@ -1471,7 +1470,7 @@ export interface ConfluenceAttachmentConfiguration {
    * <p>Defines how attachment metadata fields should be mapped to index
    *             fields. Before you can map a field, you must first create an index
    *             field with a matching type using the console or the
-   *                 <code>UpdateIndex</code> operation.</p>
+   *                 <code>UpdateIndex</code> API.</p>
    *         <p>If you specify the <code>AttachentFieldMappings</code> parameter,
    *             you must specify at least one field mapping.</p>
    */
@@ -1503,7 +1502,7 @@ export enum ConfluenceBlogFieldName {
  * <p>Defines the mapping between a blog field in the Confluence data
  *             source to a Amazon Kendra index field.</p>
  *         <p>You must first create the index field using the
- *                 <code>UpdateIndex</code> operation. </p>
+ *                 <code>UpdateIndex</code> API. </p>
  */
 export interface ConfluenceBlogToIndexFieldMapping {
   /**
@@ -1540,14 +1539,14 @@ export namespace ConfluenceBlogToIndexFieldMapping {
  * <p>Specifies the blog settings for the Confluence data source. Blogs
  *             are always indexed unless filtered from the index by the
  *                 <code>ExclusionPatterns</code> or <code>InclusionPatterns</code>
- *             fields in the <code>ConfluenceConfiguration</code> type.</p>
+ *             fields in the <code>ConfluenceConfiguration</code> object.</p>
  */
 export interface ConfluenceBlogConfiguration {
   /**
    * <p>Defines how blog metadata fields should be mapped to index fields.
    *             Before you can map a field, you must first create an index field
    *             with a matching type using the console or the
-   *                 <code>UpdateIndex</code> operation.</p>
+   *                 <code>UpdateIndex</code> API.</p>
    *         <p>If you specify the <code>BlogFieldMappings</code> parameter, you
    *             must specify at least one field mapping.</p>
    */
@@ -1582,7 +1581,7 @@ export enum ConfluencePageFieldName {
  * <p>Defines the mapping between a field in the Confluence data source
  *             to a Amazon Kendra index field.</p>
  *         <p>You must first create the index field using the
- *                 <code>UpdateIndex</code> operation. </p>
+ *                 <code>UpdateIndex</code> API.</p>
  */
 export interface ConfluencePageToIndexFieldMapping {
   /**
@@ -1623,7 +1622,7 @@ export interface ConfluencePageConfiguration {
    * <p>Defines how page metadata fields should be mapped to index fields.
    *             Before you can map a field, you must first create an index field
    *             with a matching type using the console or the
-   *                 <code>UpdateIndex</code> operation.</p>
+   *                 <code>UpdateIndex</code> API.</p>
    *         <p>If you specify the <code>PageFieldMappings</code> parameter, you
    *             must specify at least one field mapping.</p>
    */
@@ -1648,9 +1647,9 @@ export enum ConfluenceSpaceFieldName {
 
 /**
  * <p>Defines the mapping between a field in the Confluence data source
- *             to a Amazon Kendra index field.</p>
+ *             to an Amazon Kendra index field.</p>
  *         <p>You must first create the index field using the
- *                 <code>UpdateIndex</code> operation. </p>
+ *                 <code>UpdateIndex</code> API.</p>
  */
 export interface ConfluenceSpaceToIndexFieldMapping {
   /**
@@ -1725,7 +1724,7 @@ export interface ConfluenceSpaceConfiguration {
    * <p>Defines how space metadata fields should be mapped to index
    *             fields. Before you can map a field, you must first create an index
    *             field with a matching type using the console or the
-   *                 <code>UpdateIndex</code> operation.</p>
+   *                 <code>UpdateIndex</code> API.</p>
    *         <p>If you specify the <code>SpaceFieldMappings</code> parameter, you
    *             must specify at least one field mapping.</p>
    */
@@ -1876,7 +1875,7 @@ export namespace ConfluenceConfiguration {
 /**
  * <p>Maps a column or attribute in the data source to an index field.
  *             You must first create the fields in the index using the
- *                 <code>UpdateIndex</code> operation.</p>
+ *                 <code>UpdateIndex</code> API.</p>
  */
 export interface DataSourceToIndexFieldMapping {
   /**
@@ -1927,7 +1926,7 @@ export interface ColumnConfiguration {
   /**
    * <p>An array of objects that map database column names to the
    *             corresponding fields in an index. You must first create the fields
-   *             in the index using the <code>UpdateIndex</code> operation.</p>
+   *             in the index using the <code>UpdateIndex</code> API.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
 
@@ -2085,6 +2084,100 @@ export namespace DatabaseConfiguration {
   });
 }
 
+export enum FsxFileSystemType {
+  WINDOWS = "WINDOWS",
+}
+
+/**
+ * <p>Provides the configuration information to connect to Amazon FSx as
+ *             your data source.</p>
+ */
+export interface FsxConfiguration {
+  /**
+   * <p>The identifier of the Amazon FSx file system.</p>
+   *         <p>You can find your file system ID on the file system dashboard in
+   *             the Amazon FSx console. For information on how to create a
+   *             file system in Amazon FSx console, using Windows File Server
+   *             as an example, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started-step1.html">Amazon FSx
+   *                 Getting started guide</a>.</p>
+   */
+  FileSystemId: string | undefined;
+
+  /**
+   * <p>The Amazon FSx file system type. Windows is currently the only
+   *             supported type.</p>
+   */
+  FileSystemType: FsxFileSystemType | string | undefined;
+
+  /**
+   * <p>Provides the configuration information for connecting to an
+   *             Amazon Virtual Private Cloud for your Amazon FSx. Your Amazon FSx
+   *             instance must reside inside your VPC.</p>
+   */
+  VpcConfiguration: DataSourceVpcConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Secrets Manager secret that
+   *             contains the key-value pairs required to connect to your Amazon FSx
+   *             file system. Windows is currently the only supported type. The secret must
+   *             contain a JSON structure with the following keys:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>username—The Active Directory user name, along with the
+   *                     Domain Name System (DNS) domain name. For example,
+   *                     <i>user@corp.example.com</i>. The Active Directory
+   *                     user account must have read and mounting access to the
+   *                     Amazon FSx file system for Windows.</p>
+   *             </li>
+   *             <li>
+   *                 <p>password—The password of the active directory user with
+   *                     read and mounting access Amazon FSx Windows file system.</p>
+   *             </li>
+   *          </ul>
+   */
+  SecretArn?: string;
+
+  /**
+   * <p>A list of regular expression patterns to include certain files
+   *             in your Amazon FSx file system. Files that match the patterns
+   *             are included in the index. Files that don't match the patterns are
+   *             excluded from the index. If a file matches both an inclusion pattern
+   *             and an exclusion pattern, the exclusion pattern takes precedence
+   *             and the file isn't included in the index.</p>
+   */
+  InclusionPatterns?: string[];
+
+  /**
+   * <p>A list of regular expression patterns to exclude certain files
+   *             in your Amazon FSx file system. Files that match the patterns
+   *             are excluded from the index. Files that don’t match the patterns are
+   *             included in the index. If a file matches both an inclusion pattern
+   *             and an exclusion pattern, the exclusion pattern takes precedence
+   *             and the file isn't included in the index.</p>
+   */
+  ExclusionPatterns?: string[];
+
+  /**
+   * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that
+   *             map Amazon FSx data source attributes or field names to Amazon Kendra
+   *             index field names in Amazon Kendra. To create custom fields, use the
+   *             <code>UpdateIndex</code> API before you map to Amazon FSx fields.
+   *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
+   *                 data source fields</a>. The Amazon FSx data source field names
+   *             must exist in your Amazon FSx custom metadata.</p>
+   */
+  FieldMappings?: DataSourceToIndexFieldMapping[];
+}
+
+export namespace FsxConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FsxConfiguration): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Provides configuration information for data sources that connect
  *             to Google Drive.</p>
@@ -2124,7 +2217,7 @@ export interface GoogleDriveConfiguration {
    *         <p>If you are using the console, you can define index fields when
    *             creating the mapping. If you are using the API, you must first
    *             create the field using the <code>UpdateIndex</code>
-   *             operation.</p>
+   *             API.</p>
    */
   FieldMappings?: DataSourceToIndexFieldMapping[];
 
@@ -3020,7 +3113,7 @@ export interface SharePointConfiguration {
    * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that
    *             map Microsoft SharePoint attributes to custom fields in the Amazon Kendra
    *             index. You must first create the index fields using the
-   *                 <code>UpdateIndex</code> operation before you map SharePoint
+   *                 <code>UpdateIndex</code> API before you map SharePoint
    *             attributes. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping Data Source
    *                 Fields</a>.</p>
    */
@@ -3392,7 +3485,7 @@ export interface WorkDocsConfiguration {
   /**
    * <p>A list of <code>DataSourceToIndexFieldMapping</code> objects that map
    *             Amazon WorkDocs field names to custom index field names in Amazon Kendra. You must first
-   *             create the custom index fields using the <code>UpdateIndex</code> operation before
+   *             create the custom index fields using the <code>UpdateIndex</code> API before
    *             you map to Amazon WorkDocs fields. For more information, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/field-mapping.html">Mapping
    *                 Data Source Fields</a>. The Amazon WorkDocs data source field names
@@ -3469,10 +3562,16 @@ export interface DataSourceConfiguration {
   WebCrawlerConfiguration?: WebCrawlerConfiguration;
 
   /**
-   * <p>Provides the configuration information to connect to WorkDocs
+   * <p>Provides the configuration information to connect to Amazon WorkDocs
    *             as your data source.</p>
    */
   WorkDocsConfiguration?: WorkDocsConfiguration;
+
+  /**
+   * <p>Provides the configuration information to connect to Amazon FSx as
+   *             your data source.</p>
+   */
+  FsxConfiguration?: FsxConfiguration;
 }
 
 export namespace DataSourceConfiguration {
@@ -3516,6 +3615,7 @@ export enum DataSourceType {
   CONFLUENCE = "CONFLUENCE",
   CUSTOM = "CUSTOM",
   DATABASE = "DATABASE",
+  FSX = "FSX",
   GOOGLEDRIVE = "GOOGLEDRIVE",
   ONEDRIVE = "ONEDRIVE",
   S3 = "S3",
@@ -3561,10 +3661,10 @@ export interface CreateDataSourceRequest {
   Description?: string;
 
   /**
-   * <p>Sets the frequency that Amazon Kendra will check the documents in your
+   * <p>Sets the frequency for Amazon Kendra to check the documents in your
    *       repository and update the index. If you don't set a schedule Amazon Kendra
    *       will not periodically update the index. You can call the
-   *         <code>StartDataSourceSyncJob</code> operation to update the
+   *         <code>StartDataSourceSyncJob</code> API to update the
    *       index.</p>
    *          <p>You can't specify the <code>Schedule</code> parameter when the
    *         <code>Type</code> parameter is set to <code>CUSTOM</code>. If you do,
@@ -3593,7 +3693,7 @@ export interface CreateDataSourceRequest {
 
   /**
    * <p>A token that you provide to identify the request to create a data
-   *       source. Multiple calls to the <code>CreateDataSource</code> operation with
+   *       source. Multiple calls to the <code>CreateDataSource</code> API with
    *       the same client token will create only one data source.</p>
    */
   ClientToken?: string;
@@ -3661,7 +3761,7 @@ export interface ContentSourceConfiguration {
   /**
    * <p>
    *             <code>TRUE</code> to use documents you indexed directly using the
-   *                 <code>BatchPutDocument</code> operation.</p>
+   *                 <code>BatchPutDocument</code> API.</p>
    */
   DirectPutContent?: boolean;
 }
@@ -3709,7 +3809,7 @@ export interface ExperienceConfiguration {
   /**
    * <p>The identifiers of your data sources and FAQs. Or, you can specify
    *             that you want to use documents indexed via the <code>BatchPutDocument</code>
-   *             operation. This is the content you want to use for your Amazon Kendra experience.</p>
+   *             API. This is the content you want to use for your Amazon Kendra experience.</p>
    */
   ContentSourceConfiguration?: ContentSourceConfiguration;
 
@@ -3742,8 +3842,8 @@ export interface CreateExperienceRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
-   *             operations, <code>QuerySuggestions</code> operations, <code>SubmitFeedback</code>
-   *             operations, and Amazon Web Services SSO that stores your user and group information.
+   *             API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code>
+   *             API, and Amazon Web Services SSO that stores your user and group information.
    *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
    */
   RoleArn?: string;
@@ -3763,7 +3863,7 @@ export interface CreateExperienceRequest {
 
   /**
    * <p>A token that you provide to identify the request to create your Amazon Kendra experience.
-   *             Multiple calls to the <code>CreateExperience</code> operation with the same client
+   *             Multiple calls to the <code>CreateExperience</code> API with the same client
    *             token creates only one Amazon Kendra experience.</p>
    */
   ClientToken?: string;
@@ -3846,7 +3946,7 @@ export interface CreateFaqRequest {
 
   /**
    * <p>A token that you provide to identify the request to create a FAQ. Multiple calls to
-   *             the <code>CreateFaqRequest</code> operation with the same client token will create only
+   *             the <code>CreateFaqRequest</code> API with the same client token will create only
    *             one FAQ. </p>
    */
   ClientToken?: string;
@@ -3932,7 +4032,7 @@ export enum UserGroupResolutionMode {
  *          group's access to documents. You can also map your users to their
  *          groups for user context filtering using the
  *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping
- *             operation</a>.</p>
+ *             API</a>.</p>
  *          <p>To set up an Amazon Web Services SSO identity source in the console to use with
  *          Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting started
  *             with an Amazon Web Services SSO identity source</a>. You must also grant the required
@@ -3941,7 +4041,7 @@ export enum UserGroupResolutionMode {
  *             Amazon Web Services SSO</a>.</p>
  *          <p>Amazon Kendra currently does not support using <code>UserGroupResolutionConfiguration</code>
  *          with an Amazon Web Services organization member account for your Amazon Web Services SSO
- *          identify source. You must create your index in the parent account for the organization
+ *          identify source. You must create your index in the management account for the organization
  *          in order to use <code>UserGroupResolutionConfiguration</code>.</p>
  */
 export interface UserGroupResolutionConfiguration {
@@ -4088,7 +4188,7 @@ export interface CreateIndexRequest {
    * <p>An Identity and Access Management(IAM) role that gives
    *       Amazon Kendra permissions to access your Amazon CloudWatch logs and
    *       metrics. This is also the role used when you use the
-   *         <code>BatchPutDocument</code> operation to index documents from an
+   *         <code>BatchPutDocument</code> API to index documents from an
    *       Amazon S3 bucket.</p>
    */
   RoleArn: string | undefined;
@@ -4107,7 +4207,7 @@ export interface CreateIndexRequest {
 
   /**
    * <p>A token that you provide to identify the request to create an index.
-   *       Multiple calls to the <code>CreateIndex</code> operation with the same
+   *       Multiple calls to the <code>CreateIndex</code> API with the same
    *       client token will create only one index.</p>
    */
   ClientToken?: string;
@@ -4226,7 +4326,7 @@ export interface CreateQuerySuggestionsBlockListRequest {
   /**
    * <p>The IAM (Identity and Access Management) role used by Amazon Kendra to
    *             access the block list text file in your S3 bucket.</p>
-   *         <p>You need permissions to the role ARN (Amazon Resource Name).
+   *         <p>You need permissions to the role ARN (Amazon Web Services Resource Name).
    *             The role needs S3 read permissions to your file in S3 and needs
    *             to give STS (Security Token Service) assume role permissions
    *             to Amazon Kendra.</p>
@@ -4305,7 +4405,7 @@ export interface CreateThesaurusRequest {
 
   /**
    * <p>A token that you provide to identify the request to create a
-   *          thesaurus. Multiple calls to the <code>CreateThesaurus</code> operation
+   *          thesaurus. Multiple calls to the <code>CreateThesaurus</code> API
    *          with the same client token will create only one thesaurus.
    *       </p>
    */
@@ -4604,7 +4704,7 @@ export interface DescribeDataSourceResponse {
   Status?: DataSourceStatus | string;
 
   /**
-   * <p>The schedule that Amazon Kendra will update the data source.</p>
+   * <p>The schedule for Amazon Kendra to update the index.</p>
    */
   Schedule?: string;
 
@@ -4765,8 +4865,8 @@ export interface DescribeExperienceResponse {
 
   /**
    * <p>Shows the Amazon Resource Name (ARN) of a role with permission to access
-   *             <code>Query</code> operations, <code>QuerySuggestions</code> operations,
-   *             <code>SubmitFeedback</code> operations, and Amazon Web Services SSO that stores
+   *             <code>Query</code> API, <code>QuerySuggestions</code> API,
+   *             <code>SubmitFeedback</code> API, and Amazon Web Services SSO that stores
    *             your user and group information.</p>
    */
   RoleArn?: string;
@@ -5604,7 +5704,7 @@ export interface DescribeQuerySuggestionsConfigResponse {
    *         <p>By default, Amazon Kendra enables query suggestions.<code>LEARN_ONLY</code>
    *             turns off query suggestions for your users. You can change the mode using
    *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html">UpdateQuerySuggestionsConfig</a>
-   *             operation.</p>
+   *             API.</p>
    */
   Mode?: Mode | string;
 
@@ -5730,7 +5830,7 @@ export interface DescribeThesaurusResponse {
    *          more information.
    *       </p>
    *          <p>If the status is <code>ACTIVE_BUT_UPDATE_FAILED</code>, it means
-   *       that Amazon Kendra could not ingest the new thesaurus file. The old
+   *          that Amazon Kendra could not ingest the new thesaurus file. The old
    *       thesaurus file is still active.
    *       </p>
    */
@@ -6223,8 +6323,8 @@ export namespace ListDataSourcesRequest {
 }
 
 /**
- * <p>Summary information for a Amazon Kendra data source. Returned in a call
- *             to the <code>DescribeDataSource</code> operation.</p>
+ * <p>Summary information for an Amazon Kendra data source. Returned in a call
+ *             to the <code>DescribeDataSource</code> API.</p>
  */
 export interface DataSourceSummary {
   /**
@@ -6404,7 +6504,7 @@ export namespace DataSourceSyncJobMetrics {
 }
 
 /**
- * <p>Provides information about a synchronization job.</p>
+ * <p>Provides information about a data source synchronization job.</p>
  */
 export interface DataSourceSyncJob {
   /**
@@ -6413,12 +6513,12 @@ export interface DataSourceSyncJob {
   ExecutionId?: string;
 
   /**
-   * <p>The UNIX datetime that the synchronization job was started.</p>
+   * <p>The UNIX datetime that the synchronization job started.</p>
    */
   StartTime?: Date;
 
   /**
-   * <p>The UNIX datetime that the synchronization job was
+   * <p>The UNIX datetime that the synchronization job
    *             completed.</p>
    */
   EndTime?: Date;
@@ -6442,8 +6542,8 @@ export interface DataSourceSyncJob {
 
   /**
    * <p>If the <code>Status</code> field is set to <code>FAILED</code>,
-   *             the <code>ErrorCode</code> field contains a the reason that the
-   *             synchronization failed.</p>
+   *             the <code>ErrorCode</code> field indicates the reason the
+   *         synchronization failed.</p>
    */
   ErrorCode?: ErrorCode | string;
 
@@ -7065,7 +7165,7 @@ export interface IndexConfigurationSummary {
 
   /**
    * <p>A unique identifier for the index. Use this to identify the index
-   *             when you are using operations such as <code>Query</code>,
+   *             when you are using APIs such as <code>Query</code>,
    *                 <code>DescribeIndex</code>, <code>UpdateIndex</code>, and
    *                 <code>DeleteIndex</code>.</p>
    */
@@ -7084,7 +7184,7 @@ export interface IndexConfigurationSummary {
 
   /**
    * <p>The Unix timestamp when the index was last updated by the
-   *                 <code>UpdateIndex</code> operation.</p>
+   *                 <code>UpdateIndex</code> API.</p>
    */
   UpdatedAt: Date | undefined;
 
@@ -7591,7 +7691,7 @@ export enum SortOrder {
  * <p>Specifies the document attribute to use to sort the response to a
  *             Amazon Kendra query. You can specify a single attribute for sorting. The
  *             attribute must have the <code>Sortable</code> flag set to
- *                 <code>true</code>, otherwise Amazon Kendra returns an exception.</p>
+ *             <code>true</code>, otherwise Amazon Kendra returns an exception.</p>
  *         <p>You can sort attributes of the following types.</p>
  *         <ul>
  *             <li>
@@ -7688,8 +7788,7 @@ export namespace DataSourceGroup {
 
 /**
  * <p>Provides information about the user context for
- *          an
- *          Amazon Kendra index.</p>
+ *          an Amazon Kendra index.</p>
  *          <p>This is used for filtering search results for different users based on their access
  *          to documents.</p>
  *          <p>You provide one of the following:</p>
@@ -8055,7 +8154,7 @@ export namespace StopDataSourceSyncJobRequest {
 /**
  * <p>Gathers information about when a particular result was clicked by
  *             a user. Your application uses the <code>SubmitFeedback</code>
- *             operation to provide click information.</p>
+ *             API to provide click information.</p>
  */
 export interface ClickFeedback {
   /**
@@ -8087,7 +8186,7 @@ export enum RelevanceType {
 
 /**
  * <p>Provides feedback on how relevant a document is to a search. Your
- *             application uses the <code>SubmitFeedback</code> operation to
+ *             application uses the <code>SubmitFeedback</code> API to
  *             provide relevance information.</p>
  */
 export interface RelevanceFeedback {
@@ -8122,7 +8221,7 @@ export interface SubmitFeedbackRequest {
   /**
    * <p>The identifier of the specific query for which you are submitting
    *             feedback. The query ID is returned in the response to the
-   *                 <code>Query</code> operation.</p>
+   *                 <code>Query</code> API.</p>
    */
   QueryId: string | undefined;
 
@@ -8303,8 +8402,8 @@ export interface UpdateExperienceRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access <code>Query</code>
-   *             operations, <code>QuerySuggestions</code> operations, <code>SubmitFeedback</code>
-   *             operations, and Amazon Web Services SSO that stores your user and group information.
+   *             API, <code>QuerySuggestions</code> API, <code>SubmitFeedback</code>
+   *             API, and Amazon Web Services SSO that stores your user and group information.
    *             For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html">IAM roles for Amazon Kendra</a>.</p>
    */
   RoleArn?: string;
@@ -8665,7 +8764,7 @@ export interface QueryRequest {
   /**
    * <p>The unique identifier of the index to search. The identifier is
    *          returned in the response from the <code>CreateIndex</code>
-   *          operation.</p>
+   *          API.</p>
    */
   IndexId: string | undefined;
 
@@ -8719,7 +8818,7 @@ export interface QueryRequest {
 
   /**
    * <p>Query results are returned in pages the size of the
-   *             <code>PageSize</code> parameter. By default, Amazon Kendra returns
+   *          <code>PageSize</code> parameter. By default, Amazon Kendra returns
    *          the first page of results. Use this parameter to get result pages after
    *          the first one.</p>
    */

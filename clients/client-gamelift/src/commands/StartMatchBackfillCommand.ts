@@ -44,6 +44,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *             backfilled. Optionally, specify the <code>GameSession</code> ARN. If successful, a match
  *             backfill ticket is created and returned with status set to QUEUED. Track the status of
  *             backfill tickets using the same method for tracking tickets for new matches.</p>
+ *         <p>Only game sessions created by FlexMatch are supported for match backfill.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>

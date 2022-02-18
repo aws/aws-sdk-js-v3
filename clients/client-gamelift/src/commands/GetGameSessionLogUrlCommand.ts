@@ -26,7 +26,7 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  *             When a game session is terminated, GameLift automatically stores the logs in Amazon S3 and
  *             retains them for 14 days. Use this URL to download the logs.</p>
  *         <note>
- *             <p>See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS Service
+ *             <p>See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">Amazon Web Services Service
  *                     Limits</a> page for maximum log file sizes. Log files that exceed this limit
  *                 are not saved.</p>
  *         </note>

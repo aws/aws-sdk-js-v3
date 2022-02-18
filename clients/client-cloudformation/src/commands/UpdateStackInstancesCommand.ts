@@ -23,11 +23,12 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
 
 /**
  * <p>Updates the parameter values for stack instances for the specified accounts, within the
- *          specified Regions. A stack instance refers to a stack in a specific account and Region. </p>
- *          <p>You can only update stack instances in Regions and accounts where they already exist; to
- *          create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>. </p>
- *          <p>During stack set updates, any parameters overridden for a stack instance are not
- *          updated, but retain their overridden value.</p>
+ *          specified Amazon Web Services Regions. A stack instance refers to a stack in a specific
+ *          account and Region.</p>
+ *          <p>You can only update stack instances in Amazon Web Services Regions and accounts where
+ *          they already exist; to create additional stack instances, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html">CreateStackInstances</a>.</p>
+ *          <p>During stack set updates, any parameters overridden for a stack instance aren't updated,
+ *          but retain their overridden value.</p>
  *          <p>You can only update the parameter <i>values</i> that are specified in the
  *          stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set template. If you add a parameter to a
  *          template, before you can override the parameter value specified in the stack set you must

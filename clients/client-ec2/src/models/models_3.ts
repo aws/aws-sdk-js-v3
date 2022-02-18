@@ -1608,7 +1608,11 @@ export interface DescribeFleetsRequest {
   NextToken?: string;
 
   /**
-   * <p>The ID of the EC2 Fleets.</p>
+   * <p>The IDs of the EC2 Fleets.</p>
+   *          <note>
+   *             <p>If a fleet is of type <code>instant</code>, you must specify the fleet ID, otherwise
+   *             it does not appear in the response.</p>
+   *          </note>
    */
   FleetIds?: string[];
 
@@ -1682,13 +1686,13 @@ export interface DescribeFleetError {
 
   /**
    * <p>The error code that indicates why the instance could not be launched. For more
-   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
    */
   ErrorCode?: string;
 
   /**
    * <p>The error message that describes why the instance could not be launched. For more
-   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error codes</a>.</p>
    */
   ErrorMessage?: string;
 }
@@ -2110,7 +2114,7 @@ export interface FleetData {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *             Idempotency</a>.</p>
+   *             idempotency</a>.</p>
    *          <p>Constraints: Maximum 64 ASCII characters</p>
    */
   ClientToken?: string;
@@ -6308,7 +6312,7 @@ export interface InstanceNetworkInterface {
   VpcId?: string;
 
   /**
-   * <p>Describes the type of network interface.</p>
+   * <p>The type of network interface.</p>
    * 	        <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
    *          </p>
    */
@@ -7332,8 +7336,8 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-storage-info.encryption-supported</code> - Indicates whether data is encrypted at rest
-   *      (<code>required</code> | <code>unsupported</code>).</p>
+   *                   <code>instance-storage-info.encryption-support</code> - Indicates whether data is encrypted at rest
+   *      (<code>required</code> | <code>supported</code> | <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7394,6 +7398,11 @@ export interface DescribeInstanceTypesRequest {
    *             <li>
    *                <p>
    *                   <code>network-info.ipv6-supported</code> - Indicates whether the instance type supports IPv6  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-info.maximum-network-cards</code> - The maximum number of network cards per
+   *      instance.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9030,11 +9039,20 @@ export interface DescribeLocalGatewayRouteTablesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the
+   *                local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>local-gateway-route-table-id</code> - The ID of a local gateway route table.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9157,6 +9175,11 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
+   *                gateway route table for the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
    *             </li>
    *             <li>
@@ -9166,6 +9189,11 @@ export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
    *             <li>
    *                <p>
    *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual
+   *                interface group association.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9297,11 +9325,21 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>local-gateway-route-table-arn</code> - The Amazon Resource Name (ARN) of the local
+   *                gateway route table for the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway route table
+   *                for the association.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9366,6 +9404,11 @@ export namespace DescribeLocalGatewayRouteTableVpcAssociationsResult {
 
 export interface DescribeLocalGatewaysRequest {
   /**
+   * <p>The IDs of the local gateways.</p>
+   */
+  LocalGatewayIds?: string[];
+
+  /**
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -9374,30 +9417,17 @@ export interface DescribeLocalGatewaysRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>state</code> - The state of the association.</p>
    *             </li>
    *          </ul>
-   */
-  LocalGatewayIds?: string[];
-
-  /**
-   * <p>One or more filters.</p>
    */
   Filters?: Filter[];
 
@@ -9504,11 +9534,15 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
    *             </li>
    *          </ul>
    */
@@ -9610,6 +9644,45 @@ export interface DescribeLocalGatewayVirtualInterfacesRequest {
 
   /**
    * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-address</code> - The local address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-bgp-asn</code> - The Border Gateway Protocol (BGP) Autonomous System Number (ASN)
+   *                of the local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of the local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-address</code> - The peer address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peer-bgp-asn</code> - The peer BGP ASN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vlan</code> - The ID of the VLAN.</p>
+   *             </li>
+   *          </ul>
    */
   Filters?: Filter[];
 
@@ -11135,6 +11208,15 @@ export interface DescribeNetworkInterfacesRequest {
    *                   <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with
    *                     the network interface.</p>
    *                </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>interface-type</code> - The type of network interface (<code>api_gateway_managed</code> |
+   * 		               <code>aws_codestar_connections_managed</code> | <code>branch</code> | <code>efa</code> |
+   * 		               <code>gateway_load_balancer</code> | <code>gateway_load_balancer_endpoint</code> | <code>global_accelerator_managed</code> |
+   * 		               <code>interface</code> | <code>iot_rules_managed</code> | <code>lambda</code> | <code>load_balancer</code> |
+   * 		               <code>nat_gateway</code> | <code>network_load_balancer</code> | <code>quicksight</code> |
+   * 		               <code>transit_gateway</code> | <code>trunk</code> | <code>vpc_endpoint</code>).</p>
+   * 		          </li>
    *             <li>
    * 		             <p>
    *                   <code>mac-address</code> - The MAC address of the network interface.</p>

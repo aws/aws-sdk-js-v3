@@ -25,16 +25,18 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
 
 /**
  * <note>
- *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a lifecycle configuration to an S3 bucket,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
- *       </p>
+ *             <p>This action puts a lifecycle configuration to an Amazon S3 on Outposts bucket. To put a
+ *             lifecycle configuration to an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> in the <i>Amazon S3 API Reference</i>.
+ *          </p>
  *          </note>
- *          <p>Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an existing
- *          lifecycle configuration. Outposts buckets only support lifecycle configurations that delete/expire objects
- *          after a certain period of time and abort incomplete multipart uploads.</p>
+ *          <p>Creates a new lifecycle configuration for the S3 on Outposts bucket or replaces an
+ *          existing lifecycle configuration. Outposts buckets only support lifecycle configurations
+ *          that delete/expire objects after a certain period of time and abort incomplete multipart
+ *          uploads.</p>
  *          <p></p>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request and an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketLifecycleConfiguration.html#API_control_PutBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
- *          <p>The following actions are related to <code>PutBucketLifecycleConfiguration</code>:</p>
+ *          <p>The following actions are related to
+ *          <code>PutBucketLifecycleConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

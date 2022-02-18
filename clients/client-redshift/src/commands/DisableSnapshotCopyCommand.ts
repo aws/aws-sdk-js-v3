@@ -24,9 +24,9 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
 /**
  * <p>Disables the automatic copying of snapshots from one region to another region for a
  *             specified cluster.</p>
- *         <p>If your cluster and its snapshots are encrypted using a customer master key (CMK)
+ *         <p>If your cluster and its snapshots are encrypted using an encrypted symmetric key
  *             from Key Management Service, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
- *             grants Amazon Redshift permission to the CMK in the destination region. </p>
+ *             grants Amazon Redshift permission to the key in the destination region. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

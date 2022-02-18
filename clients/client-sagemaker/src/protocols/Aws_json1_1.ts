@@ -27131,6 +27131,7 @@ const deserializeAws_json1_1CandidateArtifactLocations = (
 ): CandidateArtifactLocations => {
   return {
     Explainability: __expectString(output.Explainability),
+    ModelInsights: __expectString(output.ModelInsights),
   } as any;
 };
 

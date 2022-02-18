@@ -67,6 +67,11 @@ import {
   DisassociateWebACLCommandInput,
   DisassociateWebACLCommandOutput,
 } from "./commands/DisassociateWebACLCommand";
+import {
+  GenerateMobileSdkReleaseUrlCommand,
+  GenerateMobileSdkReleaseUrlCommandInput,
+  GenerateMobileSdkReleaseUrlCommandOutput,
+} from "./commands/GenerateMobileSdkReleaseUrlCommand";
 import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommand,
@@ -78,6 +83,11 @@ import {
   GetManagedRuleSetCommandInput,
   GetManagedRuleSetCommandOutput,
 } from "./commands/GetManagedRuleSetCommand";
+import {
+  GetMobileSdkReleaseCommand,
+  GetMobileSdkReleaseCommandInput,
+  GetMobileSdkReleaseCommandOutput,
+} from "./commands/GetMobileSdkReleaseCommand";
 import {
   GetPermissionPolicyCommand,
   GetPermissionPolicyCommandInput,
@@ -130,6 +140,11 @@ import {
   ListManagedRuleSetsCommandInput,
   ListManagedRuleSetsCommandOutput,
 } from "./commands/ListManagedRuleSetsCommand";
+import {
+  ListMobileSdkReleasesCommand,
+  ListMobileSdkReleasesCommandInput,
+  ListMobileSdkReleasesCommandOutput,
+} from "./commands/ListMobileSdkReleasesCommand";
 import {
   ListRegexPatternSetsCommand,
   ListRegexPatternSetsCommandInput,
@@ -750,6 +765,39 @@ export class WAFV2 extends WAFV2Client {
   }
 
   /**
+   * <p>Generates a presigned download URL for the specified release of the mobile SDK.</p>
+   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+   */
+  public generateMobileSdkReleaseUrl(
+    args: GenerateMobileSdkReleaseUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateMobileSdkReleaseUrlCommandOutput>;
+  public generateMobileSdkReleaseUrl(
+    args: GenerateMobileSdkReleaseUrlCommandInput,
+    cb: (err: any, data?: GenerateMobileSdkReleaseUrlCommandOutput) => void
+  ): void;
+  public generateMobileSdkReleaseUrl(
+    args: GenerateMobileSdkReleaseUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateMobileSdkReleaseUrlCommandOutput) => void
+  ): void;
+  public generateMobileSdkReleaseUrl(
+    args: GenerateMobileSdkReleaseUrlCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateMobileSdkReleaseUrlCommandOutput) => void),
+    cb?: (err: any, data?: GenerateMobileSdkReleaseUrlCommandOutput) => void
+  ): Promise<GenerateMobileSdkReleaseUrlCommandOutput> | void {
+    const command = new GenerateMobileSdkReleaseUrlCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the specified <a>IPSet</a>.</p>
    */
   public getIPSet(args: GetIPSetCommandInput, options?: __HttpHandlerOptions): Promise<GetIPSetCommandOutput>;
@@ -833,6 +881,39 @@ export class WAFV2 extends WAFV2Client {
     cb?: (err: any, data?: GetManagedRuleSetCommandOutput) => void
   ): Promise<GetManagedRuleSetCommandOutput> | void {
     const command = new GetManagedRuleSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information for the specified mobile SDK release, including release notes and tags.</p>
+   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+   */
+  public getMobileSdkRelease(
+    args: GetMobileSdkReleaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMobileSdkReleaseCommandOutput>;
+  public getMobileSdkRelease(
+    args: GetMobileSdkReleaseCommandInput,
+    cb: (err: any, data?: GetMobileSdkReleaseCommandOutput) => void
+  ): void;
+  public getMobileSdkRelease(
+    args: GetMobileSdkReleaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMobileSdkReleaseCommandOutput) => void
+  ): void;
+  public getMobileSdkRelease(
+    args: GetMobileSdkReleaseCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMobileSdkReleaseCommandOutput) => void),
+    cb?: (err: any, data?: GetMobileSdkReleaseCommandOutput) => void
+  ): Promise<GetMobileSdkReleaseCommandOutput> | void {
+    const command = new GetMobileSdkReleaseCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1223,6 +1304,39 @@ export class WAFV2 extends WAFV2Client {
     cb?: (err: any, data?: ListManagedRuleSetsCommandOutput) => void
   ): Promise<ListManagedRuleSetsCommandOutput> | void {
     const command = new ListManagedRuleSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list of the available releases for the mobile SDK and the specified device platform. </p>
+   *          <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>
+   */
+  public listMobileSdkReleases(
+    args: ListMobileSdkReleasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMobileSdkReleasesCommandOutput>;
+  public listMobileSdkReleases(
+    args: ListMobileSdkReleasesCommandInput,
+    cb: (err: any, data?: ListMobileSdkReleasesCommandOutput) => void
+  ): void;
+  public listMobileSdkReleases(
+    args: ListMobileSdkReleasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMobileSdkReleasesCommandOutput) => void
+  ): void;
+  public listMobileSdkReleases(
+    args: ListMobileSdkReleasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMobileSdkReleasesCommandOutput) => void),
+    cb?: (err: any, data?: ListMobileSdkReleasesCommandOutput) => void
+  ): Promise<ListMobileSdkReleasesCommandOutput> | void {
+    const command = new ListMobileSdkReleasesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

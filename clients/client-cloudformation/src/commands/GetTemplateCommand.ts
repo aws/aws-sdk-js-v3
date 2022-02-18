@@ -21,10 +21,10 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
 /**
  * <p>Returns the template body for a specified stack. You can get the template for running or
  *          deleted stacks.</p>
- *          <p>For deleted stacks, GetTemplate returns the template for up to 90 days after the stack
- *          has been deleted.</p>
+ *          <p>For deleted stacks, <code>GetTemplate</code> returns the template for up to 90 days
+ *          after the stack has been deleted.</p>
  *          <note>
- *             <p>If the template does not exist, a <code>ValidationError</code> is returned.</p>
+ *             <p>If the template doesn't exist, a <code>ValidationError</code> is returned.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

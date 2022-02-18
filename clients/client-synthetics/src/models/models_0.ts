@@ -612,7 +612,9 @@ export interface CanaryCodeInput {
   /**
    * <p>If you input your canary script directly into the canary instead of referring to an S3
    *          location, the value of this parameter is the base64-encoded contents of the .zip file that
-   *          contains the script. It must be smaller than 256 Kb.</p>
+   *          contains the script. It must be smaller than 225 Kb.</p>
+   *          <p>For large canary scripts, we recommend that you use an S3 location instead of inputting it
+   *       directly with this parameter.</p>
    */
   ZipFile?: Uint8Array;
 
@@ -921,6 +923,15 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 /**
+ * <p>One of the input resources is larger than is allowed.</p>
+ */
+export interface RequestEntityTooLargeException extends __SmithyException, $MetadataBearer {
+  name: "RequestEntityTooLargeException";
+  $fault: "client";
+  Message?: string;
+}
+
+/**
  * <p>A parameter could not be validated.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
@@ -978,6 +989,19 @@ export interface DescribeCanariesRequest {
    *       the <code>DescribeCanaries</code> operation. If you omit this parameter, the default of 100 is used.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use this parameter to return only canaries that match the names that you specify here. You can
+   *          specify as many as five canary names.</p>
+   *          <p>If you specify this parameter, the operation is successful only if you have authorization to view
+   *          all the canaries that you specify in your request. If you do not have permission to view any of
+   *          the canaries, the request fails with a 403 response.</p>
+   *          <p>You are required to use this parameter if you are logged on to a user or role that has an
+   *          IAM policy that restricts which canaries that you are allowed to view. For more information,
+   *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
+   *             Limiting a user to viewing specific canaries</a>.</p>
+   */
+  Names?: string[];
 }
 
 export namespace DescribeCanariesRequest {
@@ -1026,6 +1050,19 @@ export interface DescribeCanariesLastRunRequest {
    *          the <code>DescribeLastRun</code> operation. If you omit this parameter, the default of 100 is used.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Use this parameter to return only canaries that match the names that you specify here. You can
+   *          specify as many as five canary names.</p>
+   *          <p>If you specify this parameter, the operation is successful only if you have authorization to view
+   *          all the canaries that you specify in your request. If you do not have permission to view any of
+   *          the canaries, the request fails with a 403 response.</p>
+   *          <p>You are required to use the <code>Names</code> parameter if you are logged on to a user or role that has an
+   *          IAM policy that restricts which canaries that you are allowed to view. For more information,
+   *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
+   *             Limiting a user to viewing specific canaries</a>.</p>
+   */
+  Names?: string[];
 }
 
 export namespace DescribeCanariesLastRunRequest {

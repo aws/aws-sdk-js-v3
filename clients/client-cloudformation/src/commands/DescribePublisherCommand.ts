@@ -23,9 +23,9 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
 
 /**
  * <p>Returns information about a CloudFormation extension publisher.</p>
- *          <p>If you do not supply a <code>PublisherId</code>, and you have registered as an extension
+ *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
  *          publisher, <code>DescribePublisher</code> returns information about your own publisher
- *          account. </p>
+ *          account.</p>
  *          <p>For more information on registering as a publisher, see:</p>
  *          <ul>
  *             <li>
@@ -36,8 +36,7 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
- *                   extensions to make them available for public use</a> in the
- *                   <i>CloudFormation CLI User Guide</i>
+ *                   extensions to make them available for public use</a> in the <i>CloudFormation CLI User Guide</i>
  *                </p>
  *             </li>
  *          </ul>
