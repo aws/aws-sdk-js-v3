@@ -59,7 +59,7 @@ might not have the same name either.
 
   ```javascript
   const { Agent } = require("https");
-  const { Agent: HttpAgnet } = require("http");
+  const { Agent: HttpAgent } = require("http");
   const { NodeHttpHandler } = require("@aws-sdk/node-http-handler");
   const dynamodbClient = new DynamoDBClient({
     requestHandler: new NodeHttpHandler({
