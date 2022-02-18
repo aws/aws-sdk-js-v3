@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.52.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.51.0...v3.52.0) (2022-02-18)
+
+
+### Features
+
+* **smithy-client:** add ExceptionOptionType type ([#3314](https://github.com/aws/aws-sdk-js-v3/issues/3314)) ([030da71](https://github.com/aws/aws-sdk-js-v3/commit/030da71b0fe66df4333a0d42771b4414a18ea9f8))
+
+
+
+
+
 # [3.50.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.49.0...v3.50.0) (2022-02-08)
 
 

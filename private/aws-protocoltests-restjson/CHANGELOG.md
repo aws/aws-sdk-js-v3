@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.52.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.51.0...v3.52.0) (2022-02-18)
+
+
+### Features
+
+* **clients:** update clients as of 2022/02/18 ([#3335](https://github.com/aws/aws-sdk-js-v3/issues/3335)) ([717b06f](https://github.com/aws/aws-sdk-js-v3/commit/717b06fc43e9876a6f8040147b75ad5da38b1e0f))
+
+
+
+
+
 # [3.49.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.48.0...v3.49.0) (2022-01-29)
 
 

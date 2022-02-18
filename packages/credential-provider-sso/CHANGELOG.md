@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.52.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.51.0...v3.52.0) (2022-02-18)
+
+
+### Features
+
+* **credential-provider-sso:** refactor into modular components ([#3296](https://github.com/aws/aws-sdk-js-v3/issues/3296)) ([eece76f](https://github.com/aws/aws-sdk-js-v3/commit/eece76f7ba9b6d58ad87327cfc70cd793baee615))
+
+
+
+
+
 # [3.51.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.50.0...v3.51.0) (2022-02-12)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-sso

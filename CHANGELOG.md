@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.52.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.51.0...v3.52.0) (2022-02-18)
+
+
+### Bug Fixes
+
+* **package.json:** set root version to 0.0.0 ([#3325](https://github.com/aws/aws-sdk-js-v3/issues/3325)) ([9a15961](https://github.com/aws/aws-sdk-js-v3/commit/9a15961ed8b1b176b07015c28d4ef54028f42112))
+* **package.json:** update version to v3.51.0 ([#3315](https://github.com/aws/aws-sdk-js-v3/issues/3315)) ([b77a9b5](https://github.com/aws/aws-sdk-js-v3/commit/b77a9b521ab4ac789c9a0d4c972343d243b5b9b8))
+* **scripts:** generate clients in batches ([#3319](https://github.com/aws/aws-sdk-js-v3/issues/3319)) ([2308e5f](https://github.com/aws/aws-sdk-js-v3/commit/2308e5fe758972ccfb73b59d19a5e1ed4810e42b))
+* **scripts:** store clients generated in a batch in temp directory ([#3323](https://github.com/aws/aws-sdk-js-v3/issues/3323)) ([2eef0a4](https://github.com/aws/aws-sdk-js-v3/commit/2eef0a461959466c4ca92c09d7b6771caee7fe1b))
+
+
+### Features
+
+* **clients:** update clients as of 2022/02/18 ([#3335](https://github.com/aws/aws-sdk-js-v3/issues/3335)) ([717b06f](https://github.com/aws/aws-sdk-js-v3/commit/717b06fc43e9876a6f8040147b75ad5da38b1e0f))
+* **credential-provider-env:** refactor into modular components ([#3293](https://github.com/aws/aws-sdk-js-v3/issues/3293)) ([e0697ed](https://github.com/aws/aws-sdk-js-v3/commit/e0697ed82d7eaa98ccc48337b516bf7f3b369e3a))
+* **credential-provider-node:** refactor into modular components ([#3294](https://github.com/aws/aws-sdk-js-v3/issues/3294)) ([5f351cd](https://github.com/aws/aws-sdk-js-v3/commit/5f351cdca347e073810419613123a6204f04a4c9))
+* **credential-provider-sso:** refactor into modular components ([#3296](https://github.com/aws/aws-sdk-js-v3/issues/3296)) ([eece76f](https://github.com/aws/aws-sdk-js-v3/commit/eece76f7ba9b6d58ad87327cfc70cd793baee615))
+* **smithy-client:** add ExceptionOptionType type ([#3314](https://github.com/aws/aws-sdk-js-v3/issues/3314)) ([030da71](https://github.com/aws/aws-sdk-js-v3/commit/030da71b0fe66df4333a0d42771b4414a18ea9f8))
+
+
+
+
+
 # [3.51.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.50.0...v3.51.0) (2022-02-12)
 
 
