@@ -24,8 +24,7 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  *             public extensions</a> in the <i>CloudFormation User Guide</i>.</p>
  *          <p>Once you have activated a public third-party extension in your account and region, use
  *             <a href="AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For
- *          more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation
- *             User Guide</i>.</p>
+ *          more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

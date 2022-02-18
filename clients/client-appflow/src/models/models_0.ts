@@ -3779,6 +3779,82 @@ export namespace SalesforceDestinationProperties {
 }
 
 /**
+ * <p>Determines how Amazon AppFlow handles the success response that it gets
+ *       from the connector after placing data.</p>
+ *          <p>For example, this setting would determine
+ *       where to write the response from the destination connector upon a successful insert
+ *       operation.</p>
+ */
+export interface SuccessResponseHandlingConfig {
+  /**
+   * <p>The Amazon S3 bucket prefix.</p>
+   */
+  bucketPrefix?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket.</p>
+   */
+  bucketName?: string;
+}
+
+export namespace SuccessResponseHandlingConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuccessResponseHandlingConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The properties that are applied when using SAPOData as a flow destination</p>
+ */
+export interface SAPODataDestinationProperties {
+  /**
+   * <p>The object path specified in the SAPOData flow destination.</p>
+   */
+  objectPath: string | undefined;
+
+  /**
+   * <p>Determines how Amazon AppFlow handles the success response that it gets
+   *       from the connector after placing data.</p>
+   *          <p>For example, this setting would determine where to write the response from a destination
+   *       connector upon a successful insert operation.</p>
+   */
+  successResponseHandlingConfig?: SuccessResponseHandlingConfig;
+
+  /**
+   * <p> A list of field names that can be used as an ID field when performing a write operation.
+   *     </p>
+   */
+  idFieldNames?: string[];
+
+  /**
+   * <p> The settings that determine how Amazon AppFlow handles an error when placing data in the
+   *       destination. For example, this setting would determine if the flow should fail after one
+   *       insertion error, or continue and attempt to insert every record regardless of the initial
+   *       failure. <code>ErrorHandlingConfig</code> is a part of the destination connector details.
+   *     </p>
+   */
+  errorHandlingConfig?: ErrorHandlingConfig;
+
+  /**
+   * <p> The possible write operations in the destination connector. When this value is not
+   *       provided, this defaults to the <code>INSERT</code> operation. </p>
+   */
+  writeOperationType?: WriteOperationType | string;
+}
+
+export namespace SAPODataDestinationProperties {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SAPODataDestinationProperties): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p> The properties that are applied when Snowflake is being used as a destination. </p>
  */
 export interface SnowflakeDestinationProperties {
@@ -3980,6 +4056,11 @@ export interface DestinationConnectorProperties {
    * <p>The properties that are required to query the custom Connector.</p>
    */
   CustomConnector?: CustomConnectorDestinationProperties;
+
+  /**
+   * <p>The properties required to query SAPOData.</p>
+   */
+  SAPOData?: SAPODataDestinationProperties;
 }
 
 export namespace DestinationConnectorProperties {
@@ -4568,6 +4649,7 @@ export enum TaskType {
   MAP_ALL = "Map_all",
   MASK = "Mask",
   MERGE = "Merge",
+  PASSTHROUGH = "Passthrough",
   TRUNCATE = "Truncate",
   VALIDATE = "Validate",
 }

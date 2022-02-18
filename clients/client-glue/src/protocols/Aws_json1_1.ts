@@ -21047,6 +21047,7 @@ const serializeAws_json1_1UpdateTableRequest = (input: UpdateTableRequest, conte
     ...(input.TableInput !== undefined &&
       input.TableInput !== null && { TableInput: serializeAws_json1_1TableInput(input.TableInput, context) }),
     ...(input.TransactionId !== undefined && input.TransactionId !== null && { TransactionId: input.TransactionId }),
+    ...(input.VersionId !== undefined && input.VersionId !== null && { VersionId: input.VersionId }),
   };
 };
 
@@ -25523,6 +25524,7 @@ const deserializeAws_json1_1Table = (output: any, context: __SerdeContext): Tabl
       output.UpdateTime !== undefined && output.UpdateTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdateTime)))
         : undefined,
+    VersionId: __expectString(output.VersionId),
     ViewExpandedText: __expectString(output.ViewExpandedText),
     ViewOriginalText: __expectString(output.ViewOriginalText),
   } as any;

@@ -1667,6 +1667,9 @@ export class EventBridge extends EventBridgeClient {
    * <p>Adds the specified targets to the specified rule, or updates the targets if they are
    *       already associated with the rule.</p>
    *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
+   *          <note>
+   *             <p>Each rule can have up to five (5) targets associated with it at one time.</p>
+   *          </note>
    *          <p>You can configure the following as targets for Events:</p>
    *
    *          <ul>
@@ -1696,6 +1699,9 @@ export class EventBridge extends EventBridgeClient {
    *             </li>
    *             <li>
    *                <p>Amazon EC2 <code>CreateSnapshot</code> API call</p>
+   *             </li>
+   *             <li>
+   *                <p>EC2 Image Builder</p>
    *             </li>
    *             <li>
    *                <p>Amazon EC2 <code>RebootInstances</code> API call</p>
@@ -1733,7 +1739,7 @@ export class EventBridge extends EventBridgeClient {
    *                <p>Amazon SNS topic</p>
    *             </li>
    *             <li>
-   *                <p>Amazon SQS queues (includes FIFO queues</p>
+   *                <p>Amazon SQS queues (includes FIFO queues)</p>
    *             </li>
    *             <li>
    *                <p>SSM Automation</p>
@@ -1892,6 +1898,10 @@ export class EventBridge extends EventBridgeClient {
   /**
    * <p>Removes the specified targets from the specified rule. When the rule is triggered, those
    *       targets are no longer be invoked.</p>
+   *
+   *          <note>
+   *             <p>A successful execution of <code>RemoveTargets</code> doesn't guarantee all targets are removed from the rule, it means that the target(s) listed in the request are removed.</p>
+   *          </note>
    *
    *          <p>When you remove a target, when the associated rule triggers, removed targets might
    *       continue to be invoked. Allow a short period of time for changes to take effect.</p>

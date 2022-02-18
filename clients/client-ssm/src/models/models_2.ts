@@ -56,10 +56,9 @@ export interface UpdateMaintenanceWindowRequest {
   Description?: string;
 
   /**
-   * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
-   *    Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles", "UTC", or
-   *    "Asia/Seoul". For more information, see the <a href="https://www.iana.org/time-zones">Time
-   *     Zone Database</a> on the IANA website.</p>
+   * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
+   *    become active. <code>StartDate</code> allows you to delay activation of the maintenance window
+   *    until the specified future date.</p>
    */
   StartDate?: string;
 
@@ -401,12 +400,14 @@ export interface UpdateMaintenanceWindowTaskRequest {
 
   /**
    * <p>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
-   *    is the number of targets that are allowed to run this task in parallel.</p>
+   *    is the number of targets that are allowed to run this task, in parallel.</p>
    *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
    *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
-   *     option. Instead, the system inserts a placeholder value of <code>1</code>, which may be reported
-   *     in the response to this command. This value doesn't affect the running of your task and can be
-   *     ignored.</p>
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
    *          </note>
    */
   MaxConcurrency?: string;
@@ -415,10 +416,12 @@ export interface UpdateMaintenanceWindowTaskRequest {
    * <p>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
    *    number of errors that are allowed before the task stops being scheduled.</p>
    *          <note>
+   *             <p>Although this element is listed as "Required: No", a value can be omitted only when you are
+   *     registering or updating a <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html">targetless
+   *      task</a> You must provide a value in all other cases.</p>
    *             <p>For maintenance window tasks without a target specified, you can't supply a value for this
-   *     option. Instead, the system inserts a placeholder value of <code>1</code>, which may be reported
-   *     in the response to this command. This value doesn't affect the running of your task and can be
-   *     ignored.</p>
+   *     option. Instead, the system inserts a placeholder value of <code>1</code>. This value doesn't
+   *     affect the running of your task.</p>
    *          </note>
    */
   MaxErrors?: string;
@@ -771,7 +774,7 @@ export interface OpsMetadataKeyLimitExceededException extends __SmithyException,
 
 export interface UpdateOpsMetadataRequest {
   /**
-   * <p>The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object to update.</p>
    */
   OpsMetadataArn: string | undefined;
 

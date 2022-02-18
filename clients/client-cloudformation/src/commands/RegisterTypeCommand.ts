@@ -23,16 +23,16 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  *          extension makes it available for use in CloudFormation templates in your Amazon Web Services account, and includes:</p>
  *          <ul>
  *             <li>
- *                <p>Validating the extension schema</p>
+ *                <p>Validating the extension schema.</p>
  *             </li>
  *             <li>
- *                <p>Determining which handlers, if any, have been specified for the extension</p>
+ *                <p>Determining which handlers, if any, have been specified for the extension.</p>
  *             </li>
  *             <li>
- *                <p>Making the extension available for use in your account</p>
+ *                <p>Making the extension available for use in your account.</p>
  *             </li>
  *          </ul>
- *          <p>For more information on how to develop extensions and ready them for registeration, see
+ *          <p>For more information on how to develop extensions and ready them for registration, see
  *             <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-types.html">Creating Resource
  *             Providers</a> in the <i>CloudFormation CLI User
  *          Guide</i>.</p>
@@ -45,8 +45,7 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  *             </code> to
  *          monitor the progress of the registration request.</p>
  *          <p>Once you have registered a private extension in your account and region, use <a href="AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For
- *          more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation
- *             User Guide</i>.</p>
+ *          more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring extensions at the account level</a> in the <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -20,10 +20,10 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
 
 /**
  * <p>Searches an active index. Use this API to search your documents
- *          using query. The <code>Query</code> operation enables to do faceted
+ *          using query. The <code>Query</code> API enables to do faceted
  *          search and to filter results based on document attributes.</p>
  *          <p>It also enables you to provide user context that Amazon Kendra uses
- *          to enforce document access control in the search results. </p>
+ *          to enforce document access control in the search results.</p>
  *          <p>Amazon Kendra searches your index for text content and question and
  *          answer (FAQ) content. By default the response contains three types of
  *          results.</p>

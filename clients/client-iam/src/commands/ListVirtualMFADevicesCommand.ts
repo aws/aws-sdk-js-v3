@@ -28,8 +28,7 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  *                 <code>Any</code>.</p>
  *         <note>
  *             <p>IAM resource-listing operations return a subset of the available
- *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a virtual MFA device, see
- *                     <a>ListVirtualMFADevices</a>.</p>
+ *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view tag information for a virtual MFA device, see <a>ListMFADeviceTags</a>.</p>
  *         </note>
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>

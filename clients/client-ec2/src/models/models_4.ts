@@ -2751,10 +2751,6 @@ export interface InstanceNetworkInterfaceSpecification {
 
   /**
    * <p>The type of network interface.</p>
-   * 	        <p>To create an Elastic Fabric Adapter (EFA), specify
-   * 			<code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
-   * 			<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *
    * 	        <p>Valid values: <code>interface</code> | <code>efa</code>
    *          </p>
    */
@@ -10652,33 +10648,23 @@ export interface GetCoipPoolUsageRequest {
   PoolId: string | undefined;
 
   /**
-   * <p>The filters. The following are the possible values:</p>
+   * <p>One or more filters.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>coip-address-usage.allocation-id</code>
-   *                </p>
+   *                   <code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</p>
    *             </li>
-   *          </ul>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>coip-address-usage.aws-account-id</code>
-   *                </p>
+   *                   <code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services account that is using the customer-owned IP address.</p>
    *             </li>
-   *          </ul>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>coip-address-usage.aws-service</code>
-   *                </p>
+   *                   <code>coip-address-usage.aws-service</code> - The Amazon Web Services service that is using the customer-owned IP address.</p>
    *             </li>
-   *          </ul>
-   *          <ul>
    *             <li>
    *                <p>
-   *                   <code>coip-address-usage.co-ip</code>
-   *                </p>
+   *                   <code>coip-address-usage.co-ip</code> - The customer-owned IP address.</p>
    *             </li>
    *          </ul>
    */

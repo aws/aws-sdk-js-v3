@@ -26,6 +26,14 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             optionally filter the results by current game session status. Alternatively, use <a>SearchGameSessions</a> to request a set of active game sessions that are
  *             filtered by certain criteria. To retrieve the protection policy for game sessions, use
  *                 <a>DescribeGameSessionDetails</a>.</p>
+ *         <p>This operation is not designed to be continually called to track game session status.
+ *             This practice can cause you to exceed your API limit, which results in errors. Instead,
+ *             you must configure configure an
+ *             Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling
+ *             with <code>DescribeGameSessions</code> should only be used for games in development with
+ *             low game session usage.
+ *         </p>
+ *
  *         <p>This operation can be used in the following ways: </p>
  *         <ul>
  *             <li>
@@ -42,15 +50,21 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             </li>
  *             <li>
  *                 <p>To retrieve a specific game session, provide the game session ID. This
- *                     approach looks for the game session ID in all fleets that reside in the AWS
+ *                     approach looks for the game session ID in all fleets that reside in the Amazon Web Services
  *                     Region defined in the request.</p>
  *             </li>
  *          </ul>
  *         <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
  *         <p>If successful, a <code>GameSession</code> object is returned for each game session
  *             that matches the request.</p>
+ *         <p>This operation is not designed to be continually called to track matchmaking ticket
+ *             status. This practice can cause you to exceed your API limit, which results in errors.
+ *             Instead, as a best practice, set up an Amazon Simple Notification Service to receive notifications, and provide
+ *             the topic ARN in the matchmaking configuration. Continuously poling ticket status with
+ *             <a>DescribeGameSessions</a> should only be used for games in development
+ *             with low matchmaking usage.</p>
  *         <p>
- *             <i>Available in GameLift Local.</i>
+ *             <i>Available in Amazon Web Services Local.</i>
  *          </p>
  *         <p>
  *             <b>Learn more</b>

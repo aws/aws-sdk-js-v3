@@ -29,7 +29,7 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon Web Services Realtime Servers</a>
  *         </p>
  *         <p>
  *             <b>Related actions</b>

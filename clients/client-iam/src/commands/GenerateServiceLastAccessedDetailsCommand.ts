@@ -29,9 +29,9 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
 /**
  * <p>Generates a report that includes details about when an IAM resource (user, group,
  *             role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
- *             usually appears within four hours. IAM reports activity for the last 365 days, or less
- *             if your Region began supporting this feature within the last year. For more information,
- *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a>.</p>
+ *             usually appears within four hours. IAM reports activity for at least the last 400
+ *             days, or less if your Region began supporting this feature within the last year. For
+ *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a>.</p>
  *         <important>
  *             <p>The service last accessed data includes all attempts to access an Amazon Web Services API, not
  *                 just the successful ones. This includes all attempts that were made using the
@@ -74,9 +74,9 @@ export interface GenerateServiceLastAccessedDetailsCommandOutput
  *         <note>
  *             <p>Service last accessed data does not use other policy types when determining
  *                 whether a resource could access a service. These other policy types include
- *                 resource-based policies, access control lists, Organizations policies, IAM
- *                 permissions boundaries, and STS assume role policies. It only applies
- *                 permissions policy logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
+ *                 resource-based policies, access control lists, Organizations policies, IAM permissions
+ *                 boundaries, and STS assume role policies. It only applies permissions policy
+ *                 logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
  *                 <i>IAM User Guide</i>.</p>
  *         </note>
  *         <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing permissions using service last accessed data</a> in the

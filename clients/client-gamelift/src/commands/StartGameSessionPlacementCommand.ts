@@ -22,20 +22,20 @@ export interface StartGameSessionPlacementCommandInput extends StartGameSessionP
 export interface StartGameSessionPlacementCommandOutput extends StartGameSessionPlacementOutput, __MetadataBearer {}
 
 /**
- * <p>Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>). When processing a placement request, Amazon GameLift
+ * <p>Places a request for a new game session in a queue (see <a>CreateGameSessionQueue</a>). When processing a placement request, Amazon Web Services
  *         searches for available resources on the queue's destinations, scanning each until it
  *         finds resources or the placement request times out.</p>
  *          <p>A game session placement request can also request player sessions. When a new game
- *         session is successfully created, Amazon GameLift creates a player session for each player
+ *         session is successfully created, Amazon Web Services creates a player session for each player
  *         included in the request.</p>
- *          <p>When placing a game session, by default Amazon GameLift tries each fleet in the order they
+ *          <p>When placing a game session, by default Amazon Web Services tries each fleet in the order they
  *         are listed in the queue configuration. Ideally, a queue's destinations are listed in
  *         preference order.</p>
  *          <p>Alternatively, when requesting a game session with players, you can also provide
  *         latency data for each player in relevant Regions. Latency data indicates the performance
- *         lag a player experiences when connected to a fleet in the Region. Amazon GameLift uses latency
+ *         lag a player experiences when connected to a fleet in the Region. Amazon Web Services uses latency
  *         data to reorder the list of destinations to place the game session in a Region with
- *         minimal lag. If latency data is provided for multiple players, Amazon GameLift calculates each
+ *         minimal lag. If latency data is provided for multiple players, Amazon Web Services calculates each
  *         Region's average lag for all players and reorders to get the best game play across all
  *         players. </p>
  *          <p>To place a new game session request, specify the following:</p>

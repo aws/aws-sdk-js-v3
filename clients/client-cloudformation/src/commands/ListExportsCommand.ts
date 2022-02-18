@@ -25,7 +25,7 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  *                <code>Fn::ImportValue</code>
  *             </a> function.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html">
- *             CloudFormation Export Stack Output Values</a>.</p>
+ *             CloudFormation export stack output values</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

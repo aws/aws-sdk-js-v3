@@ -23,7 +23,7 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
 
 /**
  * <p>Reports progress of a resource handler to CloudFormation.</p>
- *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Do not use this API in your code.</p>
+ *          <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>. Don't use this API in your code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

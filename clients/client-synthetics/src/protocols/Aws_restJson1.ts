@@ -59,6 +59,7 @@ import {
   CanaryTimeline,
   ConflictException,
   InternalServerException,
+  RequestEntityTooLargeException,
   ResourceNotFoundException,
   RuntimeVersion,
   S3EncryptionConfig,
@@ -160,6 +161,8 @@ export const serializeAws_restJson1DescribeCanariesCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.Names !== undefined &&
+      input.Names !== null && { Names: serializeAws_restJson1DescribeCanariesNameFilter(input.Names, context) }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
@@ -185,6 +188,8 @@ export const serializeAws_restJson1DescribeCanariesLastRunCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.Names !== undefined &&
+      input.Names !== null && { Names: serializeAws_restJson1DescribeCanariesLastRunNameFilter(input.Names, context) }),
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
   });
   return new __HttpRequest({
@@ -530,6 +535,14 @@ const deserializeAws_restJson1CreateCanaryCommandError = async (
     case "com.amazonaws.synthetics#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RequestEntityTooLargeException":
+    case "com.amazonaws.synthetics#RequestEntityTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1RequestEntityTooLargeExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1370,6 +1383,14 @@ const deserializeAws_restJson1UpdateCanaryCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "RequestEntityTooLargeException":
+    case "com.amazonaws.synthetics#RequestEntityTooLargeException":
+      response = {
+        ...(await deserializeAws_restJson1RequestEntityTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.synthetics#ResourceNotFoundException":
       response = {
@@ -1427,6 +1448,23 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   const contents: InternalServerException = {
     name: "InternalServerException",
     $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.Message !== undefined && data.Message !== null) {
+    contents.Message = __expectString(data.Message);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1RequestEntityTooLargeExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestEntityTooLargeException> => {
+  const contents: RequestEntityTooLargeException = {
+    name: "RequestEntityTooLargeException",
+    $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
   };
@@ -1542,6 +1580,28 @@ const serializeAws_restJson1CanaryScheduleInput = (input: CanaryScheduleInput, c
       input.DurationInSeconds !== null && { DurationInSeconds: input.DurationInSeconds }),
     ...(input.Expression !== undefined && input.Expression !== null && { Expression: input.Expression }),
   };
+};
+
+const serializeAws_restJson1DescribeCanariesLastRunNameFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1DescribeCanariesNameFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1EnvironmentVariablesMap = (

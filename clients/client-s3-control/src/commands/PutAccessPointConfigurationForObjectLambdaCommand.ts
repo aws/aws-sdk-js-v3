@@ -25,7 +25,8 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
 
 /**
  * <p>Replaces configuration for an Object Lambda Access Point.</p>
- *          <p>The following actions are related to <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
+ *          <p>The following actions are related to
+ *             <code>PutAccessPointConfigurationForObjectLambda</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

@@ -33,10 +33,10 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *                     changed manually or through automatic scaling. </p>
  *             </li>
  *             <li>
- *                 <p>Desired capacity: Manually set the number of EC2 instances to be maintained
+ *                 <p>Desired capacity: Manually set the number of Amazon EC2 instances to be maintained
  *                     in a fleet location. Before changing a fleet's desired capacity, you may want to
  *                     call <a>DescribeEC2InstanceLimits</a> to get the maximum capacity of
- *                     the fleet's EC2 instance type. Alternatively, consider using automatic scaling
+ *                     the fleet's Amazon EC2 instance type. Alternatively, consider using automatic scaling
  *                     to adjust capacity based on player demand.</p>
  *             </li>
  *          </ul>

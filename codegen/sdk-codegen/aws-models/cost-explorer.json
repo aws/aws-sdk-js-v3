@@ -1621,10 +1621,6 @@
             "name": "LEGAL_ENTITY_NAME"
           },
           {
-            "value": "INVOICING_ENTITY",
-            "name": "INVOICING_ENTITY"
-          },
-          {
             "value": "DEPLOYMENT_OPTION",
             "name": "DEPLOYMENT_OPTION"
           },
@@ -1675,6 +1671,10 @@
           {
             "value": "AGREEMENT_END_DATE_TIME_BEFORE",
             "name": "AGREEMENT_END_DATE_TIME_BEFORE"
+          },
+          {
+            "value": "INVOICING_ENTITY",
+            "name": "INVOICING_ENTITY"
           }
         ]
       }
@@ -6123,7 +6123,7 @@
           "min": 6,
           "max": 302
         },
-        "smithy.api#pattern": "^(^[a-zA-Z0-9.!#$%&'*+=?^_‘{|}~-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$)|(^arn:(aws[a-zA-Z-]*):sns:[a-zA-Z0-9-]+:[0-9]{12}:[a-zA-Z0-9_-]+$)$"
+        "smithy.api#pattern": "^(^[a-zA-Z0-9.!#$%&'*+=?^_‘{|}~-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$)|(^arn:(aws[a-zA-Z-]*):sns:[a-zA-Z0-9-]+:[0-9]{12}:[a-zA-Z0-9_-]+(\\.fifo)?$)$"
       }
     },
     "com.amazonaws.costexplorer#SubscriberStatus": {

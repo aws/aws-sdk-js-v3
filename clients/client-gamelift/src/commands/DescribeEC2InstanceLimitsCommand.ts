@@ -22,15 +22,15 @@ export interface DescribeEC2InstanceLimitsCommandInput extends DescribeEC2Instan
 export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2InstanceLimitsOutput, __MetadataBearer {}
 
 /**
- * <p>The GameLift service limits and current utilization for an AWS Region or location.
+ * <p>The GameLift service limits and current utilization for an Amazon Web Services Region or location.
  *             Instance limits control the number of instances, per instance type, per location, that
- *             your AWS account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
+ *             your Amazon Web Services account can use. Learn more at <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>. The information
  *             returned includes the maximum number of instances allowed and your account's current
  *             usage across all fleets. This information can affect your ability to scale your GameLift
  *             fleets. You can request a limit increase for your account by using the <b>Service limits</b> page in the GameLift console.</p>
  *         <p>Instance limits differ based on whether the instances are deployed in a fleet's home
  *             Region or in a remote location. For remote locations, limits also differ based on the
- *             combination of home Region and remote location. All  requests must specify an AWS Region
+ *             combination of home Region and remote location. All  requests must specify an Amazon Web Services Region
  *             (either explicitly or as your default settings). To get the limit for a remote location,
  *             you must also specify the location. For example, the following requests all return
  *             different results: </p>
@@ -58,14 +58,14 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  *         <p>This operation can be used in the following ways:</p>
  *         <ul>
  *             <li>
- *                 <p>To get limit and usage data for all instance types that are deployed in an AWS
+ *                 <p>To get limit and usage data for all instance types that are deployed in an Amazon Web Services
  *                     Region by fleets that reside in the same Region: Specify the Region only.
  *                     Optionally, specify a single instance type to retrieve information for.</p>
  *             </li>
  *             <li>
  *                 <p>To get limit and usage data for all instance types that are deployed to a
- *                     remote location by fleets that reside in different AWS Region: Provide both the
- *                     AWS Region and the remote location. Optionally, specify a single instance type
+ *                     remote location by fleets that reside in different Amazon Web Services Region: Provide both the
+ *                     Amazon Web Services Region and the remote location. Optionally, specify a single instance type
  *                     to retrieve information for.</p>
  *             </li>
  *          </ul>

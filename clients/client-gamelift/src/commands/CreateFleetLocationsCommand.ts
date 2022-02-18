@@ -27,7 +27,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *             other configuration settings. </p>
  *         <note>
  *             <p>This operation cannot be used with fleets that don't support remote locations. Fleets
- *                 can have multiple locations only if they reside in AWS Regions that support this
+ *                 can have multiple locations only if they reside in Amazon Web Services Regions that support this
  *                 feature (see <a>CreateFleet</a> for the complete list) and were created
  *                 after the feature was released in March 2021.</p>
  *         </note>

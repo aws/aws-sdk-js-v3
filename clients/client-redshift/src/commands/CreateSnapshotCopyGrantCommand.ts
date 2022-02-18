@@ -22,8 +22,8 @@ export interface CreateSnapshotCopyGrantCommandInput extends CreateSnapshotCopyG
 export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopyGrantResult, __MetadataBearer {}
 
 /**
- * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key
- *             (CMK) from Key Management Service (KMS) to encrypt copied snapshots in a
+ * <p>Creates a snapshot copy grant that permits Amazon Redshift to use an encrypted symmetric key
+ *             from Key Management Service (KMS) to encrypt copied snapshots in a
  *             destination region.</p>
  *         <p>
  * For more information about managing snapshot copy grants, go to

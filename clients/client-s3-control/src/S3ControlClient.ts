@@ -515,10 +515,7 @@ type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHan
 export interface S3ControlClientResolvedConfig extends S3ControlClientResolvedConfigType {}
 
 /**
- * <p>
- *          Amazon Web Services S3 Control provides access to Amazon S3 control plane actions.
- *
- *       </p>
+ * <p> Amazon Web Services S3 Control provides access to Amazon S3 control plane actions. </p>
  */
 export class S3ControlClient extends __Client<
   __HttpHandlerOptions,

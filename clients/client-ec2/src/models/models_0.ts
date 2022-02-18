@@ -444,7 +444,7 @@ export interface Tag {
 
   /**
    * <p>The value of the tag.</p>
-   *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 255 Unicode characters.</p>
+   *          <p>Constraints: Tag values are case-sensitive and accept a maximum of 256 Unicode characters.</p>
    */
   Value?: string;
 }

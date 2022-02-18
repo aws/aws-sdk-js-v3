@@ -19004,6 +19004,7 @@ const deserializeAws_restJson1ApplicationDateRangeKpiResponse = (
 const deserializeAws_restJson1ApplicationResponse = (output: any, context: __SerdeContext): ApplicationResponse => {
   return {
     Arn: __expectString(output.Arn),
+    CreationDate: __expectString(output.CreationDate),
     Id: __expectString(output.Id),
     Name: __expectString(output.Name),
     tags:

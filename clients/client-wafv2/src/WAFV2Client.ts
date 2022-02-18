@@ -83,12 +83,20 @@ import {
   DescribeManagedRuleGroupCommandOutput,
 } from "./commands/DescribeManagedRuleGroupCommand";
 import { DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput } from "./commands/DisassociateWebACLCommand";
+import {
+  GenerateMobileSdkReleaseUrlCommandInput,
+  GenerateMobileSdkReleaseUrlCommandOutput,
+} from "./commands/GenerateMobileSdkReleaseUrlCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput,
 } from "./commands/GetLoggingConfigurationCommand";
 import { GetManagedRuleSetCommandInput, GetManagedRuleSetCommandOutput } from "./commands/GetManagedRuleSetCommand";
+import {
+  GetMobileSdkReleaseCommandInput,
+  GetMobileSdkReleaseCommandOutput,
+} from "./commands/GetMobileSdkReleaseCommand";
 import {
   GetPermissionPolicyCommandInput,
   GetPermissionPolicyCommandOutput,
@@ -122,6 +130,10 @@ import {
   ListManagedRuleSetsCommandInput,
   ListManagedRuleSetsCommandOutput,
 } from "./commands/ListManagedRuleSetsCommand";
+import {
+  ListMobileSdkReleasesCommandInput,
+  ListMobileSdkReleasesCommandOutput,
+} from "./commands/ListMobileSdkReleasesCommand";
 import {
   ListRegexPatternSetsCommandInput,
   ListRegexPatternSetsCommandOutput,
@@ -179,9 +191,11 @@ export type ServiceInputTypes =
   | DeleteWebACLCommandInput
   | DescribeManagedRuleGroupCommandInput
   | DisassociateWebACLCommandInput
+  | GenerateMobileSdkReleaseUrlCommandInput
   | GetIPSetCommandInput
   | GetLoggingConfigurationCommandInput
   | GetManagedRuleSetCommandInput
+  | GetMobileSdkReleaseCommandInput
   | GetPermissionPolicyCommandInput
   | GetRateBasedStatementManagedKeysCommandInput
   | GetRegexPatternSetCommandInput
@@ -194,6 +208,7 @@ export type ServiceInputTypes =
   | ListIPSetsCommandInput
   | ListLoggingConfigurationsCommandInput
   | ListManagedRuleSetsCommandInput
+  | ListMobileSdkReleasesCommandInput
   | ListRegexPatternSetsCommandInput
   | ListResourcesForWebACLCommandInput
   | ListRuleGroupsCommandInput
@@ -226,9 +241,11 @@ export type ServiceOutputTypes =
   | DeleteWebACLCommandOutput
   | DescribeManagedRuleGroupCommandOutput
   | DisassociateWebACLCommandOutput
+  | GenerateMobileSdkReleaseUrlCommandOutput
   | GetIPSetCommandOutput
   | GetLoggingConfigurationCommandOutput
   | GetManagedRuleSetCommandOutput
+  | GetMobileSdkReleaseCommandOutput
   | GetPermissionPolicyCommandOutput
   | GetRateBasedStatementManagedKeysCommandOutput
   | GetRegexPatternSetCommandOutput
@@ -241,6 +258,7 @@ export type ServiceOutputTypes =
   | ListIPSetsCommandOutput
   | ListLoggingConfigurationsCommandOutput
   | ListManagedRuleSetsCommandOutput
+  | ListMobileSdkReleasesCommandOutput
   | ListRegexPatternSetsCommandOutput
   | ListResourcesForWebACLCommandOutput
   | ListRuleGroupsCommandOutput

@@ -50,12 +50,20 @@ import {
   DescribeManagedRuleGroupCommandOutput,
 } from "../commands/DescribeManagedRuleGroupCommand";
 import { DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput } from "../commands/DisassociateWebACLCommand";
+import {
+  GenerateMobileSdkReleaseUrlCommandInput,
+  GenerateMobileSdkReleaseUrlCommandOutput,
+} from "../commands/GenerateMobileSdkReleaseUrlCommand";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "../commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
   GetLoggingConfigurationCommandOutput,
 } from "../commands/GetLoggingConfigurationCommand";
 import { GetManagedRuleSetCommandInput, GetManagedRuleSetCommandOutput } from "../commands/GetManagedRuleSetCommand";
+import {
+  GetMobileSdkReleaseCommandInput,
+  GetMobileSdkReleaseCommandOutput,
+} from "../commands/GetMobileSdkReleaseCommand";
 import {
   GetPermissionPolicyCommandInput,
   GetPermissionPolicyCommandOutput,
@@ -89,6 +97,10 @@ import {
   ListManagedRuleSetsCommandInput,
   ListManagedRuleSetsCommandOutput,
 } from "../commands/ListManagedRuleSetsCommand";
+import {
+  ListMobileSdkReleasesCommandInput,
+  ListMobileSdkReleasesCommandOutput,
+} from "../commands/ListMobileSdkReleasesCommand";
 import {
   ListRegexPatternSetsCommandInput,
   ListRegexPatternSetsCommandOutput,
@@ -184,6 +196,8 @@ import {
   FirewallManagerRuleGroup,
   FirewallManagerStatement,
   ForwardedIPConfig,
+  GenerateMobileSdkReleaseUrlRequest,
+  GenerateMobileSdkReleaseUrlResponse,
   GeoMatchStatement,
   GetIPSetRequest,
   GetIPSetResponse,
@@ -191,6 +205,8 @@ import {
   GetLoggingConfigurationResponse,
   GetManagedRuleSetRequest,
   GetManagedRuleSetResponse,
+  GetMobileSdkReleaseRequest,
+  GetMobileSdkReleaseResponse,
   GetPermissionPolicyRequest,
   GetPermissionPolicyResponse,
   GetRateBasedStatementManagedKeysRequest,
@@ -228,6 +244,8 @@ import {
   ListLoggingConfigurationsResponse,
   ListManagedRuleSetsRequest,
   ListManagedRuleSetsResponse,
+  ListMobileSdkReleasesRequest,
+  ListMobileSdkReleasesResponse,
   ListRegexPatternSetsRequest,
   ListRegexPatternSetsResponse,
   ListResourcesForWebACLRequest,
@@ -240,6 +258,7 @@ import {
   ListWebACLsResponse,
   LoggingConfiguration,
   LoggingFilter,
+  ManagedRuleGroupConfig,
   ManagedRuleGroupStatement,
   ManagedRuleGroupSummary,
   ManagedRuleGroupVersion,
@@ -247,10 +266,12 @@ import {
   ManagedRuleSetSummary,
   ManagedRuleSetVersion,
   Method,
+  MobileSdkRelease,
   NoneAction,
   NotStatement,
   OrStatement,
   OverrideAction,
+  PasswordField,
   PutLoggingConfigurationRequest,
   PutLoggingConfigurationResponse,
   PutManagedRuleSetVersionsRequest,
@@ -265,6 +286,7 @@ import {
   RegexPatternSet,
   RegexPatternSetReferenceStatement,
   RegexPatternSetSummary,
+  ReleaseSummary,
   Rule,
   RuleAction,
   RuleGroup,
@@ -296,6 +318,7 @@ import {
   UpdateWebACLRequest,
   UpdateWebACLResponse,
   UriPath,
+  UsernameField,
   VersionToPublish,
   VisibilityConfig,
   WAFAssociatedItemException,
@@ -515,6 +538,19 @@ export const serializeAws_json1_1DisassociateWebACLCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GenerateMobileSdkReleaseUrlCommand = async (
+  input: GenerateMobileSdkReleaseUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.GenerateMobileSdkReleaseUrl",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GenerateMobileSdkReleaseUrlRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetIPSetCommand = async (
   input: GetIPSetCommandInput,
   context: __SerdeContext
@@ -551,6 +587,19 @@ export const serializeAws_json1_1GetManagedRuleSetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetManagedRuleSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetMobileSdkReleaseCommand = async (
+  input: GetMobileSdkReleaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.GetMobileSdkRelease",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetMobileSdkReleaseRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -707,6 +756,19 @@ export const serializeAws_json1_1ListManagedRuleSetsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListManagedRuleSetsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListMobileSdkReleasesCommand = async (
+  input: ListMobileSdkReleasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSWAF_20190729.ListMobileSdkReleases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMobileSdkReleasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2451,6 +2513,84 @@ const deserializeAws_json1_1DisassociateWebACLCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMobileSdkReleaseUrlCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GenerateMobileSdkReleaseUrlResponse(data, context);
+  const response: GenerateMobileSdkReleaseUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMobileSdkReleaseUrlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2628,6 +2768,84 @@ const deserializeAws_json1_1GetManagedRuleSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetManagedRuleSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFNonexistentItemException":
+    case "com.amazonaws.wafv2#WAFNonexistentItemException":
+      response = {
+        ...(await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetMobileSdkReleaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMobileSdkReleaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetMobileSdkReleaseCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetMobileSdkReleaseResponse(data, context);
+  const response: GetMobileSdkReleaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetMobileSdkReleaseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMobileSdkReleaseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3524,6 +3742,76 @@ const deserializeAws_json1_1ListManagedRuleSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedRuleSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "WAFInternalErrorException":
+    case "com.amazonaws.wafv2#WAFInternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidOperationException":
+    case "com.amazonaws.wafv2#WAFInvalidOperationException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "WAFInvalidParameterException":
+    case "com.amazonaws.wafv2#WAFInvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListMobileSdkReleasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMobileSdkReleasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMobileSdkReleasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMobileSdkReleasesResponse(data, context);
+  const response: ListMobileSdkReleasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMobileSdkReleasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMobileSdkReleasesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -5661,6 +5949,17 @@ const serializeAws_json1_1ForwardedIPConfig = (input: ForwardedIPConfig, context
   };
 };
 
+const serializeAws_json1_1GenerateMobileSdkReleaseUrlRequest = (
+  input: GenerateMobileSdkReleaseUrlRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
+    ...(input.ReleaseVersion !== undefined &&
+      input.ReleaseVersion !== null && { ReleaseVersion: input.ReleaseVersion }),
+  };
+};
+
 const serializeAws_json1_1GeoMatchStatement = (input: GeoMatchStatement, context: __SerdeContext): any => {
   return {
     ...(input.CountryCodes !== undefined &&
@@ -5697,6 +5996,17 @@ const serializeAws_json1_1GetManagedRuleSetRequest = (
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Scope !== undefined && input.Scope !== null && { Scope: input.Scope }),
+  };
+};
+
+const serializeAws_json1_1GetMobileSdkReleaseRequest = (
+  input: GetMobileSdkReleaseRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
+    ...(input.ReleaseVersion !== undefined &&
+      input.ReleaseVersion !== null && { ReleaseVersion: input.ReleaseVersion }),
   };
 };
 
@@ -5928,6 +6238,17 @@ const serializeAws_json1_1ListManagedRuleSetsRequest = (
   };
 };
 
+const serializeAws_json1_1ListMobileSdkReleasesRequest = (
+  input: ListMobileSdkReleasesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Limit !== undefined && input.Limit !== null && { Limit: input.Limit }),
+    ...(input.NextMarker !== undefined && input.NextMarker !== null && { NextMarker: input.NextMarker }),
+    ...(input.Platform !== undefined && input.Platform !== null && { Platform: input.Platform }),
+  };
+};
+
 const serializeAws_json1_1ListRegexPatternSetsRequest = (
   input: ListRegexPatternSetsRequest,
   context: __SerdeContext
@@ -6016,6 +6337,32 @@ const serializeAws_json1_1LoggingFilter = (input: LoggingFilter, context: __Serd
   };
 };
 
+const serializeAws_json1_1ManagedRuleGroupConfig = (input: ManagedRuleGroupConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.LoginPath !== undefined && input.LoginPath !== null && { LoginPath: input.LoginPath }),
+    ...(input.PasswordField !== undefined &&
+      input.PasswordField !== null && {
+        PasswordField: serializeAws_json1_1PasswordField(input.PasswordField, context),
+      }),
+    ...(input.PayloadType !== undefined && input.PayloadType !== null && { PayloadType: input.PayloadType }),
+    ...(input.UsernameField !== undefined &&
+      input.UsernameField !== null && {
+        UsernameField: serializeAws_json1_1UsernameField(input.UsernameField, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1ManagedRuleGroupConfigs = (input: ManagedRuleGroupConfig[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1ManagedRuleGroupConfig(entry, context);
+    });
+};
+
 const serializeAws_json1_1ManagedRuleGroupStatement = (
   input: ManagedRuleGroupStatement,
   context: __SerdeContext
@@ -6024,6 +6371,10 @@ const serializeAws_json1_1ManagedRuleGroupStatement = (
     ...(input.ExcludedRules !== undefined &&
       input.ExcludedRules !== null && {
         ExcludedRules: serializeAws_json1_1ExcludedRules(input.ExcludedRules, context),
+      }),
+    ...(input.ManagedRuleGroupConfigs !== undefined &&
+      input.ManagedRuleGroupConfigs !== null && {
+        ManagedRuleGroupConfigs: serializeAws_json1_1ManagedRuleGroupConfigs(input.ManagedRuleGroupConfigs, context),
       }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.ScopeDownStatement !== undefined &&
@@ -6063,6 +6414,12 @@ const serializeAws_json1_1OverrideAction = (input: OverrideAction, context: __Se
       input.Count !== null && { Count: serializeAws_json1_1CountAction(input.Count, context) }),
     ...(input.None !== undefined &&
       input.None !== null && { None: serializeAws_json1_1NoneAction(input.None, context) }),
+  };
+};
+
+const serializeAws_json1_1PasswordField = (input: PasswordField, context: __SerdeContext): any => {
+  return {
+    ...(input.Identifier !== undefined && input.Identifier !== null && { Identifier: input.Identifier }),
   };
 };
 
@@ -6525,6 +6882,12 @@ const serializeAws_json1_1UpdateWebACLRequest = (input: UpdateWebACLRequest, con
 
 const serializeAws_json1_1UriPath = (input: UriPath, context: __SerdeContext): any => {
   return {};
+};
+
+const serializeAws_json1_1UsernameField = (input: UsernameField, context: __SerdeContext): any => {
+  return {
+    ...(input.Identifier !== undefined && input.Identifier !== null && { Identifier: input.Identifier }),
+  };
 };
 
 const serializeAws_json1_1VersionsToPublish = (
@@ -7042,6 +7405,15 @@ const deserializeAws_json1_1ForwardedIPConfig = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1GenerateMobileSdkReleaseUrlResponse = (
+  output: any,
+  context: __SerdeContext
+): GenerateMobileSdkReleaseUrlResponse => {
+  return {
+    Url: __expectString(output.Url),
+  } as any;
+};
+
 const deserializeAws_json1_1GeoMatchStatement = (output: any, context: __SerdeContext): GeoMatchStatement => {
   return {
     CountryCodes:
@@ -7086,6 +7458,18 @@ const deserializeAws_json1_1GetManagedRuleSetResponse = (
     ManagedRuleSet:
       output.ManagedRuleSet !== undefined && output.ManagedRuleSet !== null
         ? deserializeAws_json1_1ManagedRuleSet(output.ManagedRuleSet, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetMobileSdkReleaseResponse = (
+  output: any,
+  context: __SerdeContext
+): GetMobileSdkReleaseResponse => {
+  return {
+    MobileSdkRelease:
+      output.MobileSdkRelease !== undefined && output.MobileSdkRelease !== null
+        ? deserializeAws_json1_1MobileSdkRelease(output.MobileSdkRelease, context)
         : undefined,
   } as any;
 };
@@ -7169,6 +7553,7 @@ const deserializeAws_json1_1GetWebACLForResourceResponse = (
 
 const deserializeAws_json1_1GetWebACLResponse = (output: any, context: __SerdeContext): GetWebACLResponse => {
   return {
+    ApplicationIntegrationURL: __expectString(output.ApplicationIntegrationURL),
     LockToken: __expectString(output.LockToken),
     WebACL:
       output.WebACL !== undefined && output.WebACL !== null
@@ -7423,6 +7808,19 @@ const deserializeAws_json1_1ListManagedRuleSetsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListMobileSdkReleasesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMobileSdkReleasesResponse => {
+  return {
+    NextMarker: __expectString(output.NextMarker),
+    ReleaseSummaries:
+      output.ReleaseSummaries !== undefined && output.ReleaseSummaries !== null
+        ? deserializeAws_json1_1ReleaseSummaries(output.ReleaseSummaries, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListRegexPatternSetsResponse = (
   output: any,
   context: __SerdeContext
@@ -7532,6 +7930,35 @@ const deserializeAws_json1_1LoggingFilter = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1ManagedRuleGroupConfig = (output: any, context: __SerdeContext): ManagedRuleGroupConfig => {
+  return {
+    LoginPath: __expectString(output.LoginPath),
+    PasswordField:
+      output.PasswordField !== undefined && output.PasswordField !== null
+        ? deserializeAws_json1_1PasswordField(output.PasswordField, context)
+        : undefined,
+    PayloadType: __expectString(output.PayloadType),
+    UsernameField:
+      output.UsernameField !== undefined && output.UsernameField !== null
+        ? deserializeAws_json1_1UsernameField(output.UsernameField, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ManagedRuleGroupConfigs = (
+  output: any,
+  context: __SerdeContext
+): ManagedRuleGroupConfig[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ManagedRuleGroupConfig(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ManagedRuleGroupStatement = (
   output: any,
   context: __SerdeContext
@@ -7540,6 +7967,10 @@ const deserializeAws_json1_1ManagedRuleGroupStatement = (
     ExcludedRules:
       output.ExcludedRules !== undefined && output.ExcludedRules !== null
         ? deserializeAws_json1_1ExcludedRules(output.ExcludedRules, context)
+        : undefined,
+    ManagedRuleGroupConfigs:
+      output.ManagedRuleGroupConfigs !== undefined && output.ManagedRuleGroupConfigs !== null
+        ? deserializeAws_json1_1ManagedRuleGroupConfigs(output.ManagedRuleGroupConfigs, context)
         : undefined,
     Name: __expectString(output.Name),
     ScopeDownStatement:
@@ -7667,6 +8098,21 @@ const deserializeAws_json1_1Method = (output: any, context: __SerdeContext): Met
   return {} as any;
 };
 
+const deserializeAws_json1_1MobileSdkRelease = (output: any, context: __SerdeContext): MobileSdkRelease => {
+  return {
+    ReleaseNotes: __expectString(output.ReleaseNotes),
+    ReleaseVersion: __expectString(output.ReleaseVersion),
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1NoneAction = (output: any, context: __SerdeContext): NoneAction => {
   return {} as any;
 };
@@ -7699,6 +8145,12 @@ const deserializeAws_json1_1OverrideAction = (output: any, context: __SerdeConte
       output.None !== undefined && output.None !== null
         ? deserializeAws_json1_1NoneAction(output.None, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PasswordField = (output: any, context: __SerdeContext): PasswordField => {
+  return {
+    Identifier: __expectString(output.Identifier),
   } as any;
 };
 
@@ -7871,6 +8323,27 @@ const deserializeAws_json1_1RegularExpressionList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1Regex(entry, context);
     });
+};
+
+const deserializeAws_json1_1ReleaseSummaries = (output: any, context: __SerdeContext): ReleaseSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ReleaseSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1ReleaseSummary = (output: any, context: __SerdeContext): ReleaseSummary => {
+  return {
+    ReleaseVersion: __expectString(output.ReleaseVersion),
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.Timestamp)))
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceArns = (output: any, context: __SerdeContext): string[] => {
@@ -8305,6 +8778,12 @@ const deserializeAws_json1_1UpdateWebACLResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1UriPath = (output: any, context: __SerdeContext): UriPath => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UsernameField = (output: any, context: __SerdeContext): UsernameField => {
+  return {
+    Identifier: __expectString(output.Identifier),
+  } as any;
 };
 
 const deserializeAws_json1_1VisibilityConfig = (output: any, context: __SerdeContext): VisibilityConfig => {

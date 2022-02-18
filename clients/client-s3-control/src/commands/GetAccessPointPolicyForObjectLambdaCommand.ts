@@ -29,7 +29,8 @@ export interface GetAccessPointPolicyForObjectLambdaCommandOutput
 
 /**
  * <p>Returns the resource policy for an Object Lambda Access Point.</p>
- *          <p>The following actions are related to <code>GetAccessPointPolicyForObjectLambda</code>:</p>
+ *          <p>The following actions are related to
+ *          <code>GetAccessPointPolicyForObjectLambda</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

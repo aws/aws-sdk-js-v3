@@ -1206,7 +1206,7 @@ export class SNS extends SNSClient {
    *             subscribed to the topic. The format of the message depends on the notification protocol
    *             for each subscribed endpoint.</p>
    *         <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS
-   *             immediately deliverers it to subscribers.</p>
+   *             immediately delivers it to subscribers.</p>
    *         <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
    *             such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for
    *             the TargetArn parameter. The EndpointArn is returned when making a call with the

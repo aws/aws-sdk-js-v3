@@ -738,7 +738,7 @@ export class LookoutVision extends LookoutVisionClient {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>lookoutvision:StartModelPackagingJobs</code>
+   *                   <code>lookoutvision:StartModelPackagingJob</code>
    *                </p>
    *             </li>
    *             <li>

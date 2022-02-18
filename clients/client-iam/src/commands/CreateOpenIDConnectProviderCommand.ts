@@ -41,7 +41,7 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *             </li>
  *             <li>
  *                 <p>A list of client IDs (also known as audiences) that identify the application
- *                     or applications  allowed to authenticate using the OIDC provider</p>
+ *                     or applications allowed to authenticate using the OIDC provider</p>
  *             </li>
  *             <li>
  *                 <p>A list of thumbprints of one or more server certificates that the IdP

@@ -499,6 +499,11 @@ export interface AssociateDataShareConsumerMessage {
    *             datashare.</p>
    */
   ConsumerArn?: string;
+
+  /**
+   * <p>From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified Amazon Web Services Region.</p>
+   */
+  ConsumerRegion?: string;
 }
 
 export namespace AssociateDataShareConsumerMessage {
@@ -534,6 +539,11 @@ export interface DataShareAssociation {
    * <p>The status of the datashare that is associated.</p>
    */
   Status?: DataShareStatus | string;
+
+  /**
+   * <p>The Amazon Web Services Region of the consumer accounts that have an association with a producer datashare.</p>
+   */
+  ConsumerRegion?: string;
 
   /**
    * <p>The creation date of the datashare that is associated.</p>
@@ -3882,8 +3892,8 @@ export interface CreateClusterMessage {
    *                 <p>Must contain one number.</p>
    *             </li>
    *             <li>
-   *                 <p>Can be any printable ASCII character (ASCII code 33 to 126) except '
-   *                     (single quote), " (double quote), \, /, @, or space.</p>
+   *                 <p>Can be any printable ASCII character (ASCII code 33-126) except '
+   *                     (single quote), " (double quote), \, /, or @.</p>
    *             </li>
    *          </ul>
    */
@@ -4086,9 +4096,10 @@ export interface CreateClusterMessage {
   /**
    * <p>A list of Identity and Access Management (IAM) roles that can be used by the
    *             cluster to access other Amazon Web Services services. You must supply the IAM roles in their Amazon
-   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
-   *             request.</p>
-   *         <p>A cluster can have up to 10 IAM roles associated with it at any time.</p>
+   *             Resource Name (ARN) format. </p>
+   *         <p>The maximum number of IAM roles that you can associate is subject to a quota.
+   *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Quotas and limits</a>
+   *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
   IamRoles?: string[];
 
@@ -5540,7 +5551,7 @@ export interface CreateSnapshotCopyGrantMessage {
   SnapshotCopyGrantName: string | undefined;
 
   /**
-   * <p>The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift
+   * <p>The unique identifier of the encrypted symmetric key to which to grant Amazon Redshift
    *             permission. If no key is specified, the default key is used.</p>
    */
   KmsKeyId?: string;
@@ -5562,7 +5573,7 @@ export namespace CreateSnapshotCopyGrantMessage {
 
 /**
  * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
- *             snapshots with the specified customer master key (CMK) from Amazon Web Services KMS in the destination
+ *             snapshots with the specified encrypted symmetric key from Amazon Web Services KMS in the destination
  *             region.</p>
  *         <p>
  * For more information about managing snapshot copy grants, go to
@@ -5577,7 +5588,7 @@ export interface SnapshotCopyGrant {
   SnapshotCopyGrantName?: string;
 
   /**
-   * <p>The unique identifier of the customer master key (CMK) in Amazon Web Services KMS to which
+   * <p>The unique identifier of the encrypted symmetric key in Amazon Web Services KMS to which
    *             Amazon Redshift is granted permission.</p>
    */
   KmsKeyId?: string;
@@ -5600,7 +5611,7 @@ export namespace SnapshotCopyGrant {
 export interface CreateSnapshotCopyGrantResult {
   /**
    * <p>The snapshot copy grant that grants Amazon Redshift permission to encrypt copied
-   *             snapshots with the specified customer master key (CMK) from Amazon Web Services KMS in the destination
+   *             snapshots with the specified encrypted symmetric key from Amazon Web Services KMS in the destination
    *             region.</p>
    *         <p>
    * For more information about managing snapshot copy grants, go to
@@ -5807,6 +5818,7 @@ export enum UsageLimitBreachAction {
 
 export enum UsageLimitFeatureType {
   CONCURRENCY_SCALING = "concurrency-scaling",
+  CROSS_REGION_DATASHARING = "cross-region-datasharing",
   SPECTRUM = "spectrum",
 }
 
@@ -5836,6 +5848,7 @@ export interface CreateUsageLimitMessage {
    * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.
    *             If <code>FeatureType</code> is <code>spectrum</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
    *             If <code>FeatureType</code> is <code>concurrency-scaling</code>, then <code>LimitType</code> must be <code>time</code>.
+   *             If <code>FeatureType</code> is <code>cross-region-datasharing</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
    *            </p>
    */
   LimitType: UsageLimitLimitType | string | undefined;

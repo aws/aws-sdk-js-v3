@@ -173,6 +173,7 @@ import {
   SalesforceSourceProperties,
   SAPODataConnectorProfileCredentials,
   SAPODataConnectorProfileProperties,
+  SAPODataDestinationProperties,
   SAPODataMetadata,
   SAPODataSourceProperties,
   ScheduledTriggerProperties,
@@ -197,6 +198,7 @@ import {
   SourceConnectorProperties,
   SourceFieldProperties,
   SourceFlowConfig,
+  SuccessResponseHandlingConfig,
   SupportedFieldTypeDetails,
   Task,
   ThrottlingException,
@@ -3323,6 +3325,10 @@ const serializeAws_restJson1DestinationConnectorProperties = (
       }),
     ...(input.S3 !== undefined &&
       input.S3 !== null && { S3: serializeAws_restJson1S3DestinationProperties(input.S3, context) }),
+    ...(input.SAPOData !== undefined &&
+      input.SAPOData !== null && {
+        SAPOData: serializeAws_restJson1SAPODataDestinationProperties(input.SAPOData, context),
+      }),
     ...(input.Salesforce !== undefined &&
       input.Salesforce !== null && {
         Salesforce: serializeAws_restJson1SalesforceDestinationProperties(input.Salesforce, context),
@@ -3836,6 +3842,32 @@ const serializeAws_restJson1SAPODataConnectorProfileProperties = (
   };
 };
 
+const serializeAws_restJson1SAPODataDestinationProperties = (
+  input: SAPODataDestinationProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.errorHandlingConfig !== undefined &&
+      input.errorHandlingConfig !== null && {
+        errorHandlingConfig: serializeAws_restJson1ErrorHandlingConfig(input.errorHandlingConfig, context),
+      }),
+    ...(input.idFieldNames !== undefined &&
+      input.idFieldNames !== null && {
+        idFieldNames: serializeAws_restJson1IdFieldNameList(input.idFieldNames, context),
+      }),
+    ...(input.objectPath !== undefined && input.objectPath !== null && { objectPath: input.objectPath }),
+    ...(input.successResponseHandlingConfig !== undefined &&
+      input.successResponseHandlingConfig !== null && {
+        successResponseHandlingConfig: serializeAws_restJson1SuccessResponseHandlingConfig(
+          input.successResponseHandlingConfig,
+          context
+        ),
+      }),
+    ...(input.writeOperationType !== undefined &&
+      input.writeOperationType !== null && { writeOperationType: input.writeOperationType }),
+  };
+};
+
 const serializeAws_restJson1SAPODataSourceProperties = (
   input: SAPODataSourceProperties,
   context: __SerdeContext
@@ -4076,6 +4108,16 @@ const serializeAws_restJson1SourceFlowConfig = (input: SourceFlowConfig, context
           context
         ),
       }),
+  };
+};
+
+const serializeAws_restJson1SuccessResponseHandlingConfig = (
+  input: SuccessResponseHandlingConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    ...(input.bucketPrefix !== undefined && input.bucketPrefix !== null && { bucketPrefix: input.bucketPrefix }),
   };
 };
 
@@ -5046,6 +5088,10 @@ const deserializeAws_restJson1DestinationConnectorProperties = (
       output.S3 !== undefined && output.S3 !== null
         ? deserializeAws_restJson1S3DestinationProperties(output.S3, context)
         : undefined,
+    SAPOData:
+      output.SAPOData !== undefined && output.SAPOData !== null
+        ? deserializeAws_restJson1SAPODataDestinationProperties(output.SAPOData, context)
+        : undefined,
     Salesforce:
       output.Salesforce !== undefined && output.Salesforce !== null
         ? deserializeAws_restJson1SalesforceDestinationProperties(output.Salesforce, context)
@@ -5696,6 +5742,28 @@ const deserializeAws_restJson1SAPODataConnectorProfileProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1SAPODataDestinationProperties = (
+  output: any,
+  context: __SerdeContext
+): SAPODataDestinationProperties => {
+  return {
+    errorHandlingConfig:
+      output.errorHandlingConfig !== undefined && output.errorHandlingConfig !== null
+        ? deserializeAws_restJson1ErrorHandlingConfig(output.errorHandlingConfig, context)
+        : undefined,
+    idFieldNames:
+      output.idFieldNames !== undefined && output.idFieldNames !== null
+        ? deserializeAws_restJson1IdFieldNameList(output.idFieldNames, context)
+        : undefined,
+    objectPath: __expectString(output.objectPath),
+    successResponseHandlingConfig:
+      output.successResponseHandlingConfig !== undefined && output.successResponseHandlingConfig !== null
+        ? deserializeAws_restJson1SuccessResponseHandlingConfig(output.successResponseHandlingConfig, context)
+        : undefined,
+    writeOperationType: __expectString(output.writeOperationType),
+  } as any;
+};
+
 const deserializeAws_restJson1SAPODataMetadata = (output: any, context: __SerdeContext): SAPODataMetadata => {
   return {} as any;
 };
@@ -5956,6 +6024,16 @@ const deserializeAws_restJson1SourceFlowConfig = (output: any, context: __SerdeC
       output.sourceConnectorProperties !== undefined && output.sourceConnectorProperties !== null
         ? deserializeAws_restJson1SourceConnectorProperties(output.sourceConnectorProperties, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SuccessResponseHandlingConfig = (
+  output: any,
+  context: __SerdeContext
+): SuccessResponseHandlingConfig => {
+  return {
+    bucketName: __expectString(output.bucketName),
+    bucketPrefix: __expectString(output.bucketPrefix),
   } as any;
 };
 

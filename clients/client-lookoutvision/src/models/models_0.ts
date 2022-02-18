@@ -1116,13 +1116,14 @@ export namespace TargetPlatform {
 export interface GreengrassConfiguration {
   /**
    * <p>Additional compiler options for the Greengrass component. Currently,
-   *    only NVIDIA Graphics Processing Units (GPU) are supported.</p>
+   *    only NVIDIA Graphics Processing Units (GPU) are supported. If you specify <code>TargetPlatform</code>, you must specify
+   * <code>CompilerOptions</code>. If you specify <code>TargetDevice</code>, don't specify <code>CompilerOptions</code>.</p>
    *
    *
    *          <p>For more information, see
    *       <i>Compiler options</i> in the  Amazon Lookout for Vision Developer Guide. </p>
    */
-  CompilerOptions: string | undefined;
+  CompilerOptions?: string;
 
   /**
    * <p>The target device for the model. Currently the only supported value is <code>jetson_xavier</code>.

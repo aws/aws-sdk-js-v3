@@ -24,6 +24,13 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
 /**
  * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
  *             into a specified order. </p>
+ *         <p>This operation is not designed to be continually called to track game session status.
+ *             This practice can cause you to exceed your API limit, which results in errors. Instead,
+ *             you must configure configure an
+ *             Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or queues. Continuously polling game session status
+ *             with <code>DescribeGameSessions</code> should only be used for games in development with
+ *             low game session usage.
+ *         </p>
  *         <p>When searching for game sessions, you specify exactly where you want to search and
  *             provide a search filter expression, a sort expression, or both. A search request can
  *             search only one fleet, but it can search all of a fleet's locations.  </p>

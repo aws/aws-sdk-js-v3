@@ -3396,6 +3396,7 @@ const serializeAws_json1_1WorkGroupConfigurationUpdates = (
 const deserializeAws_json1_1AthenaError = (output: any, context: __SerdeContext): AthenaError => {
   return {
     ErrorCategory: __expectInt32(output.ErrorCategory),
+    ErrorType: __expectInt32(output.ErrorType),
   } as any;
 };
 

@@ -2307,13 +2307,13 @@ export interface DescribePendingMaintenanceActionsMessage {
    *             <li>
    *                <p>
    *                   <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB
-   *               cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance
+   *               cluster Amazon Resource Names (ARNs). The results list only includes pending maintenance
    *               actions for the DB clusters identified by these ARNs.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>db-instance-id</code> - Accepts DB instance identifiers and DB
-   *             instance ARNs. The results list will only include pending maintenance
+   *             instance ARNs. The results list only includes pending maintenance
    *             actions for the DB instances identified by these ARNs.</p>
    *             </li>
    *          </ul>
@@ -3922,8 +3922,8 @@ export interface ModifyDBClusterMessage {
    * <p>The name of the DB parameter group to apply to all instances of the DB cluster. </p>
    *          <note>
    *             <p>When you apply a parameter group using the <code>DBInstanceParameterGroupName</code> parameter, the DB
-   *                 cluster isn't rebooted automatically. Also, parameter changes aren't
-   *                 applied during the next maintenance window but instead are applied immediately.</p>
+   *           cluster isn't rebooted automatically. Also, parameter changes are applied immediately rather than
+   *              during the next maintenance window.</p>
    *          </note>
    *          <p>Default: The existing name setting</p>
    *          <p>Constraints:</p>
@@ -3932,8 +3932,8 @@ export interface ModifyDBClusterMessage {
    *                <p>The DB parameter group must be in the same DB parameter group family as this DB cluster.</p>
    *             </li>
    *             <li>
-   *                <p>The <code>DBInstanceParameterGroupName</code> parameter is only valid in combination with
-   *               the <code>AllowMajorVersionUpgrade</code> parameter.</p>
+   *                <p>The <code>DBInstanceParameterGroupName</code> parameter is valid in combination with the
+   *               <code>AllowMajorVersionUpgrade</code> parameter for a major version upgrade only.</p>
    *             </li>
    *          </ul>
    *          <p>Valid for: Aurora DB clusters only</p>
@@ -7268,7 +7268,7 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *         <p>For the full list of DB instance classes, and availability for your engine, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
-   *         <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   *         <p>Valid for: Multi-AZ DB clusters only</p>
    */
   DBClusterInstanceClass?: string;
 

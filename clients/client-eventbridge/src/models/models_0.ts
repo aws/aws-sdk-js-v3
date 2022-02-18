@@ -3160,7 +3160,7 @@ export interface EcsParameters {
   /**
    * <p>Specifies the launch type on which your task is running. The launch type that you specify
    *       here must match one of the launch type (compatibilities) of the target task. The
-   *       <code>FARGATE</code> value is supported only in the Regions where Fargate witt Amazon ECS
+   *       <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS
    *      is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *       the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
@@ -3617,7 +3617,7 @@ export namespace SqsParameters {
  */
 export interface Target {
   /**
-   * <p>The ID of the target. We recommend using a memorable and unique string.</p>
+   * <p>The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.</p>
    */
   Id: string | undefined;
 
@@ -3798,7 +3798,7 @@ export interface PutEventsRequestEntry {
   EventBusName?: string;
 
   /**
-   * <p>An X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that contains the
+   * <p>An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that contains the
    *       trace-id associated with the event.</p>
    *          <p>To learn more about X-Ray trace headers, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader">Tracing header</a> in the X-Ray Developer Guide.</p>
    */
@@ -3833,7 +3833,8 @@ export namespace PutEventsRequest {
 }
 
 /**
- * <p>Represents an event that failed to be submitted.</p>
+ * <p>Represents an event that failed to be submitted. For information about the errors that are common to all actions, see
+ *       <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
  */
 export interface PutEventsResultEntry {
   /**
@@ -4070,6 +4071,9 @@ export interface PutPermissionRequest {
    * <p>An identifier string for the external account that you are granting permissions to. If you
    *       later want to revoke the permission for this external account, specify this
    *       <code>StatementId</code> when you run <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_RemovePermission.html">RemovePermission</a>.</p>
+   *          <note>
+   *             <p>Each <code>StatementId</code> must be unique.</p>
+   *          </note>
    */
   StatementId?: string;
 

@@ -29,11 +29,15 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *          it expires. Backup transitions and expires backups automatically according to
  *          the lifecycle that you define.</p>
  *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
- *          days. Therefore, the “expire after days” setting must be 90 days greater than the
- *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
- *          be changed after a backup has been transitioned to cold.</p>
- *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
- *          <p>Does not support continuous backups.</p>
+ *          days. Therefore, the “retention” setting must be 90 days greater than the “transition to
+ *          cold after days” setting. The “transition to cold after days” setting cannot be changed
+ *          after a backup has been transitioned to cold.</p>
+ *          <p>Only resource types that support full Backup management can transition their
+ *          backups to cold storage. Those resource types are listed in the "Full Backup
+ *          management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
+ *             availability by resource</a> table. Backup ignores this expression for
+ *          other resource types.</p>
+ *          <p>This operation does not support continuous backups.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

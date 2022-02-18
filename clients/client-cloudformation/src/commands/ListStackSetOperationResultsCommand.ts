@@ -24,7 +24,7 @@ export interface ListStackSetOperationResultsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns summary information about the results of a stack set operation. </p>
+ * <p>Returns summary information about the results of a stack set operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

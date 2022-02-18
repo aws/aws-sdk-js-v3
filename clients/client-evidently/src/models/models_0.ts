@@ -391,18 +391,18 @@ export interface MetricDefinitionConfig {
   /**
    * <p>A name for the metric.</p>
    */
-  name?: string;
+  name: string | undefined;
 
   /**
    * <p>The entity, such as a user or session, that does an action that causes a metric
    *        value to be recorded. An example is <code>userDetails.userID</code>.</p>
    */
-  entityIdKey?: string;
+  entityIdKey: string | undefined;
 
   /**
    * <p>The value that is tracked to produce the metric.</p>
    */
-  valueKey?: string;
+  valueKey: string | undefined;
 
   /**
    * <p>The EventBridge event pattern that defines how the metric is recorded.</p>
@@ -2415,6 +2415,11 @@ export interface ListExperimentsRequest {
    *        <code>ListExperiments</code> operation.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Use this optional parameter to limit the returned results to only the experiments with the status that you specify here.</p>
+   */
+  status?: ExperimentStatus | string;
 }
 
 export namespace ListExperimentsRequest {
@@ -2946,6 +2951,11 @@ export interface ListLaunchesRequest {
    *        <code>ListLaunches</code> operation.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Use this optional parameter to limit the returned results to only the launches with the status that you specify here.</p>
+   */
+  status?: LaunchStatus | string;
 }
 
 export namespace ListLaunchesRequest {

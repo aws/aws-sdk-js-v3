@@ -19,9 +19,7 @@ export enum ThresholdType {
 }
 
 /**
- * <p>
- * 			The trigger threshold of the action.
- * 		</p>
+ * <p>The trigger threshold of the action. </p>
  */
 export interface ActionThreshold {
   /**
@@ -56,36 +54,26 @@ export enum ApprovalModel {
 }
 
 /**
- * <p>
- * 			The AWS Identity and Access Management (IAM) action definition details.
- * 		</p>
+ * <p>The Identity and Access Management (IAM) action definition details. </p>
  */
 export interface IamActionDefinition {
   /**
-   * <p>
-   * 			The Amazon Resource Name (ARN) of the policy to be attached.
-   * 		</p>
+   * <p>The Amazon Resource Name (ARN) of the policy to be attached. </p>
    */
   PolicyArn: string | undefined;
 
   /**
-   * <p>
-   * 			A list of roles to be attached. There must be at least one role.
-   * 		</p>
+   * <p>A list of roles to be attached. There must be at least one role. </p>
    */
   Roles?: string[];
 
   /**
-   * <p>
-   * 			A list of groups to be attached. There must be at least one group.
-   * 		</p>
+   * <p>A list of groups to be attached. There must be at least one group. </p>
    */
   Groups?: string[];
 
   /**
-   * <p>
-   * 			A list of users to be attached. There must be at least one user.
-   * 		</p>
+   * <p>A list of users to be attached. There must be at least one user. </p>
    */
   Users?: string[];
 }
@@ -100,22 +88,16 @@ export namespace IamActionDefinition {
 }
 
 /**
- * <p>
- * 			The service control policies (SCP) action definition details.
- * 		</p>
+ * <p>The service control policies (SCP) action definition details. </p>
  */
 export interface ScpActionDefinition {
   /**
-   * <p>
-   * 			The policy ID attached.
-   * 		</p>
+   * <p>The policy ID attached. </p>
    */
   PolicyId: string | undefined;
 
   /**
-   * <p>
-   * 			A list of target IDs.
-   * 		</p>
+   * <p>A list of target IDs. </p>
    */
   TargetIds: string[] | undefined;
 }
@@ -135,29 +117,21 @@ export enum ActionSubType {
 }
 
 /**
- * <p>
- * 			The AWS Systems Manager (SSM) action definition details.
- * 		</p>
+ * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
  */
 export interface SsmActionDefinition {
   /**
-   * <p>
-   * 			The action subType.
-   * 		</p>
+   * <p>The action subType. </p>
    */
   ActionSubType: ActionSubType | string | undefined;
 
   /**
-   * <p>
-   * 			The Region to run the SSM document.
-   * 		</p>
+   * <p>The Region to run the SSM document. </p>
    */
   Region: string | undefined;
 
   /**
-   * <p>
-   * 			The EC2 and RDS instance IDs.
-   * 		</p>
+   * <p>The EC2 and RDS instance IDs. </p>
    */
   InstanceIds: string[] | undefined;
 }
@@ -172,29 +146,21 @@ export namespace SsmActionDefinition {
 }
 
 /**
- * <p>
- * 			Specifies all of the type-specific parameters.
- * 		</p>
+ * <p>Specifies all of the type-specific parameters. </p>
  */
 export interface Definition {
   /**
-   * <p>
-   * 			The AWS Identity and Access Management (IAM) action definition details.
-   * 		</p>
+   * <p>The Identity and Access Management (IAM) action definition details. </p>
    */
   IamActionDefinition?: IamActionDefinition;
 
   /**
-   * <p>
-   * 			The service control policies (SCPs) action definition details.
-   * 		</p>
+   * <p>The service control policies (SCPs) action definition details. </p>
    */
   ScpActionDefinition?: ScpActionDefinition;
 
   /**
-   * <p>
-   * 			The AWS Systems Manager (SSM) action definition details.
-   * 		</p>
+   * <p>The Amazon Web Services Systems Manager (SSM) action definition details. </p>
    */
   SsmActionDefinition?: SsmActionDefinition;
 }
@@ -233,7 +199,7 @@ export enum SubscriptionType {
 
 /**
  * <p>The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.</p>
- * 		       <p>For example, an email subscriber would have the following parameters:</p>
+ * 		       <p>For example, an email subscriber has the following parameters:</p>
  * 		       <ul>
  *             <li>
  * 				           <p>A <code>subscriptionType</code> of <code>EMAIL</code>
@@ -247,12 +213,12 @@ export enum SubscriptionType {
  */
 export interface Subscriber {
   /**
-   * <p>The type of notification that AWS sends to a subscriber.</p>
+   * <p>The type of notification that Amazon Web Services sends to a subscriber.</p>
    */
   SubscriptionType: SubscriptionType | string | undefined;
 
   /**
-   * <p>The address that AWS sends budget notifications to, either an SNS topic or an email.</p>
+   * <p>The address that Amazon Web Services sends budget notifications to, either an SNS topic or an email.</p>
    * 		       <p>When you create a subscriber, the value of <code>Address</code> can't contain line breaks.</p>
    */
   Address: string | undefined;
@@ -269,15 +235,11 @@ export namespace Subscriber {
 }
 
 /**
- * <p>
- * 			A budget action resource.
- * 		</p>
+ * <p>A budget action resource. </p>
  */
 export interface Action {
   /**
-   * <p>
-   * 			A system-generated universally unique identifier (UUID) for the action.
-   * 		</p>
+   * <p>A system-generated universally unique identifier (UUID) for the action. </p>
    */
   ActionId: string | undefined;
 
@@ -292,44 +254,34 @@ export interface Action {
   NotificationType: NotificationType | string | undefined;
 
   /**
-   * <p>
-   * 			The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition.
-   * 		</p>
+   * <p>The type of action. This defines the type of tasks that can be carried out by this action.
+   * 			This field also determines the format for definition. </p>
    */
   ActionType: ActionType | string | undefined;
 
   /**
-   * <p>
-   * 			The trigger threshold of the action.
-   * 		</p>
+   * <p>The trigger threshold of the action. </p>
    */
   ActionThreshold: ActionThreshold | undefined;
 
   /**
-   * <p>
-   * 			Where you specify all of the type-specific parameters.
-   * 		</p>
+   * <p>Where you specify all of the type-specific parameters. </p>
    */
   Definition: Definition | undefined;
 
   /**
-   * <p>
-   * 			The role passed for action execution and reversion. Roles and actions must be in the same account.
-   * 		</p>
+   * <p>The role passed for action execution and reversion. Roles and actions must be in the same
+   * 			account. </p>
    */
   ExecutionRoleArn: string | undefined;
 
   /**
-   * <p>
-   * 			This specifies if the action needs manual or automatic approval.
-   * 		</p>
+   * <p>This specifies if the action needs manual or automatic approval. </p>
    */
   ApprovalModel: ApprovalModel | string | undefined;
 
   /**
-   * <p>
-   * 			The status of action.
-   * 		</p>
+   * <p>The status of the action. </p>
    */
   Status: ActionStatus | string | undefined;
 
@@ -350,9 +302,7 @@ export namespace Action {
 }
 
 /**
- * <p>
- * 			The description of details of the event.
- * 		</p>
+ * <p>The description of the details for the event. </p>
  */
 export interface ActionHistoryDetails {
   /**
@@ -361,9 +311,7 @@ export interface ActionHistoryDetails {
   Message: string | undefined;
 
   /**
-   * <p>
-   * 			The budget action resource.
-   * 		</p>
+   * <p>The budget action resource. </p>
    */
   Action: Action | undefined;
 }
@@ -387,34 +335,27 @@ export enum EventType {
 }
 
 /**
- * <p>
- * 			The historical records for a budget action.
- * 		</p>
+ * <p>The historical records for a budget action. </p>
  */
 export interface ActionHistory {
   /**
-   * <p> A generic time stamp. In Java, it is transformed to a <code>Date</code> object.</p>
+   * <p> A generic time stamp. In Java, it's transformed to a <code>Date</code> object.</p>
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>
-   * 			The status of action at the time of the event.
-   * 		</p>
+   * <p>The status of action at the time of the event. </p>
    */
   Status: ActionStatus | string | undefined;
 
   /**
-   * <p>
-   * 			This distinguishes between whether the events are triggered by the user or generated by the system.
-   * 		</p>
+   * <p>This distinguishes between whether the events are triggered by the user or are generated by
+   * 			the system. </p>
    */
   EventType: EventType | string | undefined;
 
   /**
-   * <p>
-   * 			The description of details of the event.
-   * 		</p>
+   * <p>The description of the details for the event. </p>
    */
   ActionHistoryDetails: ActionHistoryDetails | undefined;
 }
@@ -431,9 +372,84 @@ export namespace ActionHistory {
   });
 }
 
+export enum AutoAdjustType {
+  FORECAST = "FORECAST",
+  HISTORICAL = "HISTORICAL",
+}
+
 /**
- * <p>The amount of cost or usage that is measured for a budget.</p>
- * 		       <p>For example, a <code>Spend</code> for <code>3 GB</code> of S3 usage would have the following parameters:</p>
+ * <p>The parameters that define or describe the historical data that your auto-adjusting budget is based on.</p>
+ */
+export interface HistoricalOptions {
+  /**
+   * <p>The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the <code>TimeUnit</code> granularity of the budget:</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>For the <code>DAILY</code> granularity, the maximum value is <code>60</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>MONTHLY</code> granularity, the maximum value is <code>12</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>QUARTERLY</code> granularity, the maximum value is <code>4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>ANNUALLY</code> granularity, the maximum value is <code>1</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  BudgetAdjustmentPeriod: number | undefined;
+
+  /**
+   * <p>The integer that describes how many budget periods in your <code>BudgetAdjustmentPeriod</code> are included in the calculation of your current <code>BudgetLimit</code>. If the first budget period in your <code>BudgetAdjustmentPeriod</code> has no cost data, then that budget period isn’t included in the average that determines your budget limit. </p>
+   * 		       <p>For example, if you set <code>BudgetAdjustmentPeriod</code> as <code>4</code> quarters, but your account had no cost data in the first quarter, then only the last three quarters are included in the calculation. In this scenario, <code>LookBackAvailablePeriods</code> returns <code>3</code>. </p>
+   * 		       <p>You can’t set your own <code>LookBackAvailablePeriods</code>. The value is automatically calculated from the <code>BudgetAdjustmentPeriod</code> and your historical cost data.</p>
+   */
+  LookBackAvailablePeriods?: number;
+}
+
+export namespace HistoricalOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HistoricalOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
+ */
+export interface AutoAdjustData {
+  /**
+   * <p>The string that defines whether your budget auto-adjusts based on historical or forecasted data.</p>
+   */
+  AutoAdjustType: AutoAdjustType | string | undefined;
+
+  /**
+   * <p>The parameters that define or describe the historical data that your auto-adjusting budget is based on.</p>
+   */
+  HistoricalOptions?: HistoricalOptions;
+
+  /**
+   * <p>The last time that your budget was auto-adjusted.</p>
+   */
+  LastAutoAdjustTime?: Date;
+}
+
+export namespace AutoAdjustData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoAdjustData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The amount of cost or usage that's measured for a budget.</p>
+ * 		       <p>For example, a <code>Spend</code> for <code>3 GB</code> of S3 usage has the following
+ * 			parameters:</p>
  * 		       <ul>
  *             <li>
  * 				           <p>An <code>Amount</code> of <code>3</code>
@@ -447,12 +463,14 @@ export namespace ActionHistory {
  */
 export interface Spend {
   /**
-   * <p>The cost or usage amount that is associated with a budget forecast, actual spend, or budget threshold.</p>
+   * <p>The cost or usage amount that's associated with a budget forecast, actual spend, or budget
+   * 			threshold.</p>
    */
   Amount: string | undefined;
 
   /**
-   * <p>The unit of measurement that is used for the budget forecast, actual spend, or budget threshold, such as dollars or GB.</p>
+   * <p>The unit of measurement that's used for the budget forecast, actual spend, or budget
+   * 			threshold, such as USD or GBP.</p>
    */
   Unit: string | undefined;
 }
@@ -476,17 +494,23 @@ export enum BudgetType {
 }
 
 /**
- * <p>The spend objects that are associated with this budget. The <code>actualSpend</code> tracks how much you've used, cost, usage, RI units, or Savings Plans units and the <code>forecastedSpend</code> tracks how much you are predicted to spend based on your historical usage profile.</p>
- * 		       <p>For example, if it is the 20th of the month and you have spent <code>50</code> dollars on Amazon EC2, your <code>actualSpend</code> is <code>50 USD</code>, and your <code>forecastedSpend</code> is <code>75 USD</code>.</p>
+ * <p>The spend objects that are associated with this budget. The <code>actualSpend</code> tracks
+ * 			how much you've used, cost, usage, RI units, or Savings Plans units and the
+ * 				<code>forecastedSpend</code> tracks how much that you're predicted to spend based on
+ * 			your historical usage profile.</p>
+ * 		       <p>For example, if it's the 20th of the month and you have spent <code>50</code> dollars on
+ * 			Amazon EC2, your <code>actualSpend</code> is <code>50 USD</code>, and your
+ * 				<code>forecastedSpend</code> is <code>75 USD</code>.</p>
  */
 export interface CalculatedSpend {
   /**
-   * <p>The amount of cost, usage, RI units, or Savings Plans units that you have used.</p>
+   * <p>The amount of cost, usage, RI units, or Savings Plans units that you used.</p>
    */
   ActualSpend: Spend | undefined;
 
   /**
-   * <p>The amount of cost, usage, RI units, or Savings Plans units that you are forecasted to use.</p>
+   * <p>The amount of cost, usage, RI units, or Savings Plans units that you're forecasted to
+   * 			use.</p>
    */
   ForecastedSpend?: Spend;
 }
@@ -503,7 +527,9 @@ export namespace CalculatedSpend {
 /**
  * <p>The types of cost that are included in a <code>COST</code> budget, such as tax and subscriptions.</p>
  * 		       <p>
- *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>, <code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code> budgets do not have <code>CostTypes</code>.</p>
+ *             <code>USAGE</code>, <code>RI_UTILIZATION</code>, <code>RI_COVERAGE</code>,
+ * 				<code>SAVINGS_PLANS_UTILIZATION</code>, and <code>SAVINGS_PLANS_COVERAGE</code>
+ * 			budgets don't have <code>CostTypes</code>.</p>
  */
 export interface CostTypes {
   /**
@@ -583,18 +609,21 @@ export namespace CostTypes {
 }
 
 /**
- * <p>The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date. </p>
+ * <p>The period of time that's covered by a budget. The period has a start date and an end date.
+ * 			The start date must come before the end date. There are no restrictions on the end date. </p>
  */
 export interface TimePeriod {
   /**
-   * <p>The start date for a budget. If you created your budget and didn't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API.</p>
+   * <p>The start date for a budget. If you created your budget and didn't specify a start date, Amazon Web Services defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set a start date, Amazon Web Services set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>, Amazon Web Services set your start date to <code>01/01/18 00:00 UTC</code>. The defaults are the same for the Billing and Cost Management console and the API.</p>
    * 		       <p>You can change your start date with the <code>UpdateBudget</code> operation.</p>
    */
   Start?: Date;
 
   /**
-   * <p>The end date for a budget. If you didn't specify an end date, AWS set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API.</p>
-   * 		       <p>After the end date, AWS deletes the budget and all associated notifications and subscribers. You can change your end date with the <code>UpdateBudget</code> operation.</p>
+   * <p>The end date for a budget. If you didn't specify an end date, Amazon Web Services set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the Billing and Cost Management console and the API.</p>
+   * 		       <p>After the end date, Amazon Web Services deletes the budget and all the associated
+   * 			notifications and subscribers. You can change your end date with the
+   * 				<code>UpdateBudget</code> operation.</p>
    */
   End?: Date;
 }
@@ -617,7 +646,7 @@ export enum TimeUnit {
 
 /**
  * <p>Represents the output of the <code>CreateBudget</code> operation. The content consists of the detailed metadata and data file information, and the current status of the <code>budget</code> object.</p>
- * 		       <p>This is the ARN pattern for a budget: </p>
+ * 		       <p>This is the Amazon Resource Name (ARN) pattern for a budget: </p>
  * 		       <p>
  *             <code>arn:aws:budgets::AccountId:budget/budgetName</code>
  *          </p>
@@ -629,32 +658,50 @@ export interface Budget {
   BudgetName: string | undefined;
 
   /**
-   * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage that you want to track with your budget.</p>
+   * <p>The total amount of cost, usage, RI utilization, RI coverage, Savings Plans utilization, or
+   * 			Savings Plans coverage that you want to track with your budget.</p>
    * 		       <p>
-   *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or coverage budgets default to <code>100</code>, which is the only valid value for RI or Savings Plans utilization or coverage budgets. You can't use <code>BudgetLimit</code> with <code>PlannedBudgetLimits</code> for <code>CreateBudget</code> and <code>UpdateBudget</code> actions. </p>
+   *             <code>BudgetLimit</code> is required for cost or usage budgets, but optional for RI or
+   * 			Savings Plans utilization or coverage budgets. RI and Savings Plans utilization or
+   * 			coverage budgets default to <code>100</code>. This is the only valid value for RI or
+   * 			Savings Plans utilization or coverage budgets. You can't use <code>BudgetLimit</code>
+   * 			with <code>PlannedBudgetLimits</code> for <code>CreateBudget</code> and
+   * 				<code>UpdateBudget</code> actions. </p>
    */
   BudgetLimit?: Spend;
 
   /**
    * <p>A map containing multiple <code>BudgetLimit</code>, including current or future limits.</p>
    * 		       <p>
-   *             <code>PlannedBudgetLimits</code> is available for cost or usage budget and supports monthly and quarterly <code>TimeUnit</code>. </p>
+   *             <code>PlannedBudgetLimits</code> is available for cost or usage budget and supports both
+   * 			monthly and quarterly <code>TimeUnit</code>. </p>
    * 		       <p>For monthly budgets, provide 12 months of <code>PlannedBudgetLimits</code> values. This must start from the current month and include the next 11 months. The <code>key</code> is the start of the month, <code>UTC</code> in epoch seconds. </p>
-   * 		       <p>For quarterly budgets, provide 4 quarters of <code>PlannedBudgetLimits</code> value entries in standard calendar quarter increments. This must start from the current quarter and include the next 3 quarters. The <code>key</code> is the start of the quarter, <code>UTC</code> in epoch seconds. </p>
-   * 		       <p>If the planned budget expires before 12 months for monthly or 4 quarters for quarterly, provide the <code>PlannedBudgetLimits</code> values only for the remaining periods.</p>
+   * 		       <p>For quarterly budgets, provide four quarters of <code>PlannedBudgetLimits</code> value
+   * 			entries in standard calendar quarter increments. This must start from the current
+   * 			quarter and include the next three quarters. The <code>key</code> is the start of the
+   * 			quarter, <code>UTC</code> in epoch seconds. </p>
+   * 		       <p>If the planned budget expires before 12 months for monthly or four quarters for quarterly,
+   * 			provide the <code>PlannedBudgetLimits</code> values only for the remaining
+   * 			periods.</p>
    * 		       <p>If the budget begins at a date in the future, provide <code>PlannedBudgetLimits</code> values from the start date of the budget. </p>
    * 		       <p>After all of the <code>BudgetLimit</code> values in <code>PlannedBudgetLimits</code> are used, the budget continues to use the last limit as the <code>BudgetLimit</code>. At that point, the planned budget provides the same experience as a fixed budget. </p>
    * 		       <p>
-   *             <code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with <code>PlannedBudgetLimits</code> will also contain <code>BudgetLimit</code> representing the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This only applies to budgets created with <code>PlannedBudgetLimits</code>. Budgets created without <code>PlannedBudgetLimits</code> will only contain <code>BudgetLimit</code>, and no <code>PlannedBudgetLimits</code>.</p>
+   *             <code>DescribeBudget</code> and <code>DescribeBudgets</code> response along with
+   * 				<code>PlannedBudgetLimits</code> also contain <code>BudgetLimit</code> representing
+   * 			the current month or quarter limit present in <code>PlannedBudgetLimits</code>. This
+   * 			only applies to budgets that are created with <code>PlannedBudgetLimits</code>. Budgets
+   * 			that are created without <code>PlannedBudgetLimits</code> only contain
+   * 				<code>BudgetLimit</code>. They don't contain
+   * 			<code>PlannedBudgetLimits</code>.</p>
    */
   PlannedBudgetLimits?: { [key: string]: Spend };
 
   /**
-   * <p>The cost filters, such as service or tag, that are applied to a budget.</p>
-   * 		       <p>AWS Budgets supports the following services as a filter for RI budgets:</p>
+   * <p>The cost filters, such as <code>Region</code>, <code>Service</code>, <code>member account</code>, <code>Tag</code>, or <code>Cost Category</code>, that are applied to a budget.</p>
+   * 		       <p>Amazon Web Services Budgets supports the following services as a <code>Service</code> filter for RI budgets:</p>
    * 		       <ul>
    *             <li>
-   * 				           <p>Amazon Elastic Compute Cloud - Compute</p>
+   * 				           <p>Amazon EC2</p>
    * 			         </li>
    *             <li>
    * 				           <p>Amazon Redshift</p>
@@ -666,7 +713,7 @@ export interface Budget {
    * 				           <p>Amazon ElastiCache</p>
    * 			         </li>
    *             <li>
-   * 				           <p>Amazon Elasticsearch Service</p>
+   * 				           <p>Amazon OpenSearch Service</p>
    * 			         </li>
    *          </ul>
    */
@@ -685,10 +732,19 @@ export interface Budget {
   TimeUnit: TimeUnit | string | undefined;
 
   /**
-   * <p>The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. The end date must come before <code>06/15/87 00:00 UTC</code>. </p>
-   * 		       <p>If you create your budget and don't specify a start date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>. If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00 UTC</code>. If you didn't specify an end date, AWS set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for the AWS Billing and Cost Management console and the API. </p>
+   * <p>The period of time that's covered by a budget. You setthe start date and end date. The start
+   * 			date must come before the end date. The end date must come before <code>06/15/87 00:00
+   * 				UTC</code>. </p>
+   * 		       <p>If you create your budget and don't specify a start date, Amazon Web Services defaults to the
+   * 			start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or ANNUALLY). For example,
+   * 			if you created your budget on January 24, 2018, chose <code>DAILY</code>, and didn't set
+   * 			a start date, Amazon Web Services set your start date to <code>01/24/18 00:00 UTC</code>.
+   * 			If you chose <code>MONTHLY</code>, Amazon Web Services set your start date to
+   * 				<code>01/01/18 00:00 UTC</code>. If you didn't specify an end date, Amazon Web Services set your end date to <code>06/15/87 00:00 UTC</code>. The defaults are the same for
+   * 			the Billing and Cost Management console and the API. </p>
    * 		       <p>You can change either date with the <code>UpdateBudget</code> operation.</p>
-   * 		       <p>After the end date, AWS deletes the budget and all associated notifications and subscribers.</p>
+   * 		       <p>After the end date, Amazon Web Services deletes the budget and all the associated
+   * 			notifications and subscribers.</p>
    */
   TimePeriod?: TimePeriod;
 
@@ -698,7 +754,8 @@ export interface Budget {
   CalculatedSpend?: CalculatedSpend;
 
   /**
-   * <p>Whether this budget tracks costs, usage, RI utilization, RI coverage, Savings Plans utilization, or Savings Plans coverage.</p>
+   * <p>Specifies whether this budget tracks costs, usage, RI utilization, RI coverage, Savings
+   * 			Plans utilization, or Savings Plans coverage.</p>
    */
   BudgetType: BudgetType | string | undefined;
 
@@ -706,6 +763,11 @@ export interface Budget {
    * <p>The last time that you updated this budget.</p>
    */
   LastUpdatedTime?: Date;
+
+  /**
+   * <p>The parameters that determine the budget amount for an auto-adjusting budget.</p>
+   */
+  AutoAdjustData?: AutoAdjustData;
 }
 
 export namespace Budget {
@@ -729,7 +791,7 @@ export enum NotificationState {
 }
 
 /**
- * <p>A notification that is associated with a budget. A budget can have up to ten notifications. </p>
+ * <p>A notification that's associated with a budget. A budget can have up to ten notifications. </p>
  * 		       <p>Each notification must have at least one subscriber. A notification can have one SNS subscriber and up to 10 email subscribers, for a total of 11 subscribers.</p>
  * 		       <p>For example, if you have a budget for 200 dollars and you want to be notified when you go over 160 dollars, create a notification with the following parameters:</p>
  * 		       <ul>
@@ -753,27 +815,31 @@ export enum NotificationState {
  */
 export interface Notification {
   /**
-   * <p>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for how much you're forecasted to spend (<code>FORECASTED</code>).</p>
+   * <p>Specifies whether the notification is for how much you have spent (<code>ACTUAL</code>) or
+   * 			for how much that you're forecasted to spend (<code>FORECASTED</code>).</p>
    */
   NotificationType: NotificationType | string | undefined;
 
   /**
-   * <p>The comparison that is used for this notification.</p>
+   * <p>The comparison that's used for this notification.</p>
    */
   ComparisonOperator: ComparisonOperator | string | undefined;
 
   /**
-   * <p>The threshold that is associated with a notification. Thresholds are always a percentage, and many customers find value being alerted between 50% - 200% of the budgeted amount. The maximum limit for your threshold is 1,000,000% above the budgeted amount.</p>
+   * <p>The threshold that's associated with a notification. Thresholds are always a percentage, and
+   * 			many customers find value being alerted between 50% - 200% of the budgeted amount. The
+   * 			maximum limit for your threshold is 1,000,000% above the budgeted amount.</p>
    */
   Threshold: number | undefined;
 
   /**
-   * <p>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds, AWS notifies you when you go over or are forecasted to go over your total cost threshold. For <code>PERCENTAGE</code> thresholds, AWS notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of 80%, AWS notifies you when you go over 160 dollars.</p>
+   * <p>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds, Amazon Web Services notifies you when you go over or are forecasted to go over your total cost threshold. For <code>PERCENTAGE</code> thresholds, Amazon Web Services notifies you when you go over or are forecasted to go over a certain percentage of your forecasted spend. For example, if you have a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of 80%, Amazon Web Services notifies you when you go over 160 dollars.</p>
    */
   ThresholdType?: ThresholdType | string;
 
   /**
-   * <p>Whether this notification is in alarm. If a budget notification is in the <code>ALARM</code> state, you have passed the set threshold for the budget.</p>
+   * <p>Specifies whether this notification is in alarm. If a budget notification is in the
+   * 				<code>ALARM</code> state, you passed the set threshold for the budget.</p>
    */
   NotificationState?: NotificationState | string;
 }
@@ -792,7 +858,7 @@ export namespace Notification {
  */
 export interface NotificationWithSubscribers {
   /**
-   * <p>The notification that is associated with a budget.</p>
+   * <p>The notification that's associated with a budget.</p>
    */
   Notification: Notification | undefined;
 
@@ -827,7 +893,7 @@ export interface CreateBudgetRequest {
   Budget: Budget | undefined;
 
   /**
-   * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, AWS creates the notifications and subscribers for you.</p>
+   * <p>A notification that you want to associate with a budget. A budget can have up to five notifications, and each notification can have one SNS subscriber and up to 10 email subscribers. If you include notifications and subscribers in your <code>CreateBudget</code> call, Amazon Web Services creates the notifications and subscribers for you.</p>
    */
   NotificationsWithSubscribers?: NotificationWithSubscribers[];
 }
@@ -905,7 +971,7 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 
 export interface CreateBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -927,16 +993,12 @@ export interface CreateBudgetActionRequest {
   ActionType: ActionType | string | undefined;
 
   /**
-   * <p>
-   * 			The trigger threshold of the action.
-   * 		</p>
+   * <p>The trigger threshold of the action. </p>
    */
   ActionThreshold: ActionThreshold | undefined;
 
   /**
-   * <p>
-   * 			Specifies all of the type-specific parameters.
-   * 		</p>
+   * <p>Specifies all of the type-specific parameters. </p>
    */
   Definition: Definition | undefined;
 
@@ -972,7 +1034,7 @@ export namespace CreateBudgetActionRequest {
 
 export interface CreateBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1020,7 +1082,7 @@ export interface CreateNotificationRequest {
   AccountId: string | undefined;
 
   /**
-   * <p>The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.</p>
+   * <p>The name of the budget that you want Amazon Web Services to notify you about. Budget names must be unique within an account.</p>
    */
   BudgetName: string | undefined;
 
@@ -1148,7 +1210,7 @@ export namespace DeleteBudgetResponse {
 
 export interface DeleteBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1176,7 +1238,7 @@ export namespace DeleteBudgetActionRequest {
 
 export interface DeleteBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1186,9 +1248,7 @@ export interface DeleteBudgetActionResponse {
   BudgetName: string | undefined;
 
   /**
-   * <p>
-   * 			A budget action resource.
-   * 		</p>
+   * <p>A budget action resource. </p>
    */
   Action: Action | undefined;
 }
@@ -1353,7 +1413,7 @@ export namespace DescribeBudgetResponse {
 
 export interface DescribeBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1381,7 +1441,7 @@ export namespace DescribeBudgetActionRequest {
 
 export interface DescribeBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1410,7 +1470,7 @@ export namespace DescribeBudgetActionResponse {
 
 export interface DescribeBudgetActionHistoriesRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1427,7 +1487,8 @@ export interface DescribeBudgetActionHistoriesRequest {
   ActionId: string | undefined;
 
   /**
-   * <p>The period of time that is covered by a budget. The period has a start date and an end date. The start date must come before the end date. There are no restrictions on the end date. </p>
+   * <p>The period of time that's covered by a budget. The period has a start date and an end date.
+   * 			The start date must come before the end date. There are no restrictions on the end date. </p>
    */
   TimePeriod?: TimePeriod;
 
@@ -1488,7 +1549,7 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 
 export interface DescribeBudgetActionsForAccountRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1537,7 +1598,7 @@ export namespace DescribeBudgetActionsForAccountResponse {
 
 export interface DescribeBudgetActionsForBudgetRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1589,9 +1650,98 @@ export namespace DescribeBudgetActionsForBudgetResponse {
   });
 }
 
+export interface DescribeBudgetNotificationsForAccountRequest {
+  /**
+   * <p>The account ID of the user. It's a 12-digit number.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>
+   * 			An integer that shows how many budget name entries a paginated response contains.
+   * 		</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p> A generic string.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeBudgetNotificationsForAccountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeBudgetNotificationsForAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          The budget name and associated notifications for an account.
+ *       </p>
+ */
+export interface BudgetNotificationsForAccount {
+  /**
+   * <p> A list of notifications.</p>
+   */
+  Notifications?: Notification[];
+
+  /**
+   * <p> A string that represents the budget name. The ":" and "\" characters aren't allowed.</p>
+   */
+  BudgetName?: string;
+}
+
+export namespace BudgetNotificationsForAccount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BudgetNotificationsForAccount): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeBudgetNotificationsForAccountResponse {
+  /**
+   * <p>
+   * 			A list of budget names and associated notifications for an account.
+   * 		</p>
+   */
+  BudgetNotificationsForAccount?: BudgetNotificationsForAccount[];
+
+  /**
+   * <p> A generic string.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeBudgetNotificationsForAccountResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeBudgetNotificationsForAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The pagination token expired.</p>
+ */
+export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
+  name: "ExpiredNextTokenException";
+  $fault: "client";
+  /**
+   * <p>The error message the exception carries.</p>
+   */
+  Message?: string;
+}
+
 export interface DescribeBudgetPerformanceHistoryRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1640,7 +1790,7 @@ export interface BudgetedAndActualAmounts {
   ActualAmount?: Spend;
 
   /**
-   * <p>The time period covered by this budget comparison.</p>
+   * <p>The time period that's covered by this budget comparison.</p>
    */
   TimePeriod?: TimePeriod;
 }
@@ -1686,7 +1836,8 @@ export interface BudgetPerformanceHistory {
   TimeUnit?: TimeUnit | string;
 
   /**
-   * <p>A list of amounts of cost or usage that you created budgets for, compared to your actual costs or usage.</p>
+   * <p>A list of amounts of cost or usage that you created budgets for, which are compared to your
+   * 			actual costs or usage.</p>
    */
   BudgetedAndActualAmountsList?: BudgetedAndActualAmounts[];
 }
@@ -1720,18 +1871,6 @@ export namespace DescribeBudgetPerformanceHistoryResponse {
   export const filterSensitiveLog = (obj: DescribeBudgetPerformanceHistoryResponse): any => ({
     ...obj,
   });
-}
-
-/**
- * <p>The pagination token expired.</p>
- */
-export interface ExpiredNextTokenException extends __SmithyException, $MetadataBearer {
-  name: "ExpiredNextTokenException";
-  $fault: "client";
-  /**
-   * <p>The error message the exception carries.</p>
-   */
-  Message?: string;
 }
 
 /**
@@ -1918,7 +2057,7 @@ export enum ExecutionType {
 
 export interface ExecuteBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -1953,7 +2092,7 @@ export namespace ExecuteBudgetActionRequest {
 
 export interface ExecuteBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -2026,7 +2165,7 @@ export namespace UpdateBudgetResponse {
 
 export interface UpdateBudgetActionRequest {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 
@@ -2048,16 +2187,12 @@ export interface UpdateBudgetActionRequest {
   NotificationType?: NotificationType | string;
 
   /**
-   * <p>
-   * 			The trigger threshold of the action.
-   * 		</p>
+   * <p>The trigger threshold of the action. </p>
    */
   ActionThreshold?: ActionThreshold;
 
   /**
-   * <p>
-   * 			Specifies all of the type-specific parameters.
-   * 		</p>
+   * <p>Specifies all of the type-specific parameters. </p>
    */
   Definition?: Definition;
 
@@ -2093,7 +2228,7 @@ export namespace UpdateBudgetActionRequest {
 
 export interface UpdateBudgetActionResponse {
   /**
-   * <p>The account ID of the user. It should be a 12-digit number.</p>
+   * <p>The account ID of the user. It's a 12-digit number.</p>
    */
   AccountId: string | undefined;
 

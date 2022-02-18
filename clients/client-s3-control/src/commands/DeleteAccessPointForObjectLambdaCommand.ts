@@ -24,7 +24,8 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
 
 /**
  * <p>Deletes the specified Object Lambda Access Point.</p>
- *          <p>The following actions are related to <code>DeleteAccessPointForObjectLambda</code>:</p>
+ *          <p>The following actions are related to
+ *          <code>DeleteAccessPointForObjectLambda</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

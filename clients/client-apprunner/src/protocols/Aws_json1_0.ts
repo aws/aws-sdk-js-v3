@@ -26,12 +26,14 @@ import {
 } from "../commands/CreateAutoScalingConfigurationCommand";
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "../commands/CreateConnectionCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "../commands/CreateServiceCommand";
+import { CreateVpcConnectorCommandInput, CreateVpcConnectorCommandOutput } from "../commands/CreateVpcConnectorCommand";
 import {
   DeleteAutoScalingConfigurationCommandInput,
   DeleteAutoScalingConfigurationCommandOutput,
 } from "../commands/DeleteAutoScalingConfigurationCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "../commands/DeleteConnectionCommand";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
+import { DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput } from "../commands/DeleteVpcConnectorCommand";
 import {
   DescribeAutoScalingConfigurationCommandInput,
   DescribeAutoScalingConfigurationCommandOutput,
@@ -41,6 +43,10 @@ import {
   DescribeCustomDomainsCommandOutput,
 } from "../commands/DescribeCustomDomainsCommand";
 import { DescribeServiceCommandInput, DescribeServiceCommandOutput } from "../commands/DescribeServiceCommand";
+import {
+  DescribeVpcConnectorCommandInput,
+  DescribeVpcConnectorCommandOutput,
+} from "../commands/DescribeVpcConnectorCommand";
 import {
   DisassociateCustomDomainCommandInput,
   DisassociateCustomDomainCommandOutput,
@@ -56,6 +62,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVpcConnectorsCommandInput, ListVpcConnectorsCommandOutput } from "../commands/ListVpcConnectorsCommand";
 import { PauseServiceCommandInput, PauseServiceCommandOutput } from "../commands/PauseServiceCommand";
 import { ResumeServiceCommandInput, ResumeServiceCommandOutput } from "../commands/ResumeServiceCommand";
 import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "../commands/StartDeploymentCommand";
@@ -80,6 +87,8 @@ import {
   CreateConnectionResponse,
   CreateServiceRequest,
   CreateServiceResponse,
+  CreateVpcConnectorRequest,
+  CreateVpcConnectorResponse,
   CustomDomain,
   DeleteAutoScalingConfigurationRequest,
   DeleteAutoScalingConfigurationResponse,
@@ -87,14 +96,19 @@ import {
   DeleteConnectionResponse,
   DeleteServiceRequest,
   DeleteServiceResponse,
+  DeleteVpcConnectorRequest,
+  DeleteVpcConnectorResponse,
   DescribeAutoScalingConfigurationRequest,
   DescribeAutoScalingConfigurationResponse,
   DescribeCustomDomainsRequest,
   DescribeCustomDomainsResponse,
   DescribeServiceRequest,
   DescribeServiceResponse,
+  DescribeVpcConnectorRequest,
+  DescribeVpcConnectorResponse,
   DisassociateCustomDomainRequest,
   DisassociateCustomDomainResponse,
+  EgressConfiguration,
   EncryptionConfiguration,
   HealthCheckConfiguration,
   ImageConfiguration,
@@ -113,6 +127,9 @@ import {
   ListServicesResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  ListVpcConnectorsRequest,
+  ListVpcConnectorsResponse,
+  NetworkConfiguration,
   OperationSummary,
   PauseServiceRequest,
   PauseServiceResponse,
@@ -133,6 +150,7 @@ import {
   UntagResourceResponse,
   UpdateServiceRequest,
   UpdateServiceResponse,
+  VpcConnector,
 } from "../models/models_0";
 
 export const serializeAws_json1_0AssociateCustomDomainCommand = async (
@@ -187,6 +205,19 @@ export const serializeAws_json1_0CreateServiceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0CreateVpcConnectorCommand = async (
+  input: CreateVpcConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.CreateVpcConnector",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0CreateVpcConnectorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DeleteAutoScalingConfigurationCommand = async (
   input: DeleteAutoScalingConfigurationCommandInput,
   context: __SerdeContext
@@ -226,6 +257,19 @@ export const serializeAws_json1_0DeleteServiceCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_0DeleteVpcConnectorCommand = async (
+  input: DeleteVpcConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.DeleteVpcConnector",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DeleteVpcConnectorRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_0DescribeAutoScalingConfigurationCommand = async (
   input: DescribeAutoScalingConfigurationCommandInput,
   context: __SerdeContext
@@ -262,6 +306,19 @@ export const serializeAws_json1_0DescribeServiceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0DescribeServiceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0DescribeVpcConnectorCommand = async (
+  input: DescribeVpcConnectorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.DescribeVpcConnector",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0DescribeVpcConnectorRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -340,6 +397,19 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_0ListTagsForResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_0ListVpcConnectorsCommand = async (
+  input: ListVpcConnectorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.0",
+    "x-amz-target": "AppRunner.ListVpcConnectors",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_0ListVpcConnectorsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -701,6 +771,76 @@ const deserializeAws_json1_0CreateServiceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0CreateVpcConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcConnectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0CreateVpcConnectorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0CreateVpcConnectorResponse(data, context);
+  const response: CreateVpcConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0CreateVpcConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_0ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0DeleteAutoScalingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -919,6 +1059,76 @@ const deserializeAws_json1_0DeleteServiceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_0DeleteVpcConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcConnectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DeleteVpcConnectorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DeleteVpcConnectorResponse(data, context);
+  const response: DeleteVpcConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DeleteVpcConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcConnectorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_0DescribeAutoScalingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1080,6 +1290,76 @@ const deserializeAws_json1_0DescribeServiceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0DescribeVpcConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcConnectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0DescribeVpcConnectorCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0DescribeVpcConnectorResponse(data, context);
+  const response: DescribeVpcConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0DescribeVpcConnectorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcConnectorCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1520,6 +1800,68 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     case "com.amazonaws.apprunner#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_0ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_0ListVpcConnectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcConnectorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_0ListVpcConnectorsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_0ListVpcConnectorsResponse(data, context);
+  const response: ListVpcConnectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_0ListVpcConnectorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcConnectorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      response = {
+        ...(await deserializeAws_json1_0InternalServiceErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2181,12 +2523,33 @@ const serializeAws_json1_0CreateServiceRequest = (input: CreateServiceRequest, c
       input.InstanceConfiguration !== null && {
         InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
       }),
+    ...(input.NetworkConfiguration !== undefined &&
+      input.NetworkConfiguration !== null && {
+        NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
+      }),
     ...(input.ServiceName !== undefined && input.ServiceName !== null && { ServiceName: input.ServiceName }),
     ...(input.SourceConfiguration !== undefined &&
       input.SourceConfiguration !== null && {
         SourceConfiguration: serializeAws_json1_0SourceConfiguration(input.SourceConfiguration, context),
       }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+  };
+};
+
+const serializeAws_json1_0CreateVpcConnectorRequest = (
+  input: CreateVpcConnectorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecurityGroups !== undefined &&
+      input.SecurityGroups !== null && {
+        SecurityGroups: serializeAws_json1_0StringList(input.SecurityGroups, context),
+      }),
+    ...(input.Subnets !== undefined &&
+      input.Subnets !== null && { Subnets: serializeAws_json1_0StringList(input.Subnets, context) }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_0TagList(input.Tags, context) }),
+    ...(input.VpcConnectorName !== undefined &&
+      input.VpcConnectorName !== null && { VpcConnectorName: input.VpcConnectorName }),
   };
 };
 
@@ -2209,6 +2572,16 @@ const serializeAws_json1_0DeleteConnectionRequest = (input: DeleteConnectionRequ
 const serializeAws_json1_0DeleteServiceRequest = (input: DeleteServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+  };
+};
+
+const serializeAws_json1_0DeleteVpcConnectorRequest = (
+  input: DeleteVpcConnectorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.VpcConnectorArn !== undefined &&
+      input.VpcConnectorArn !== null && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
@@ -2239,6 +2612,16 @@ const serializeAws_json1_0DescribeServiceRequest = (input: DescribeServiceReques
   };
 };
 
+const serializeAws_json1_0DescribeVpcConnectorRequest = (
+  input: DescribeVpcConnectorRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.VpcConnectorArn !== undefined &&
+      input.VpcConnectorArn !== null && { VpcConnectorArn: input.VpcConnectorArn }),
+  };
+};
+
 const serializeAws_json1_0DisassociateCustomDomainRequest = (
   input: DisassociateCustomDomainRequest,
   context: __SerdeContext
@@ -2246,6 +2629,14 @@ const serializeAws_json1_0DisassociateCustomDomainRequest = (
   return {
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
     ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
+  };
+};
+
+const serializeAws_json1_0EgressConfiguration = (input: EgressConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.EgressType !== undefined && input.EgressType !== null && { EgressType: input.EgressType }),
+    ...(input.VpcConnectorArn !== undefined &&
+      input.VpcConnectorArn !== null && { VpcConnectorArn: input.VpcConnectorArn }),
   };
 };
 
@@ -2355,6 +2746,25 @@ const serializeAws_json1_0ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_0ListVpcConnectorsRequest = (
+  input: ListVpcConnectorsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_0NetworkConfiguration = (input: NetworkConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.EgressConfiguration !== undefined &&
+      input.EgressConfiguration !== null && {
+        EgressConfiguration: serializeAws_json1_0EgressConfiguration(input.EgressConfiguration, context),
+      }),
+  };
+};
+
 const serializeAws_json1_0PauseServiceRequest = (input: PauseServiceRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
@@ -2417,6 +2827,17 @@ const serializeAws_json1_0StartDeploymentRequest = (input: StartDeploymentReques
   };
 };
 
+const serializeAws_json1_0StringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
@@ -2472,6 +2893,10 @@ const serializeAws_json1_0UpdateServiceRequest = (input: UpdateServiceRequest, c
     ...(input.InstanceConfiguration !== undefined &&
       input.InstanceConfiguration !== null && {
         InstanceConfiguration: serializeAws_json1_0InstanceConfiguration(input.InstanceConfiguration, context),
+      }),
+    ...(input.NetworkConfiguration !== undefined &&
+      input.NetworkConfiguration !== null && {
+        NetworkConfiguration: serializeAws_json1_0NetworkConfiguration(input.NetworkConfiguration, context),
       }),
     ...(input.ServiceArn !== undefined && input.ServiceArn !== null && { ServiceArn: input.ServiceArn }),
     ...(input.SourceConfiguration !== undefined &&
@@ -2691,6 +3116,18 @@ const deserializeAws_json1_0CreateServiceResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_0CreateVpcConnectorResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateVpcConnectorResponse => {
+  return {
+    VpcConnector:
+      output.VpcConnector !== undefined && output.VpcConnector !== null
+        ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0CustomDomain = (output: any, context: __SerdeContext): CustomDomain => {
   return {
     CertificateValidationRecords:
@@ -2748,6 +3185,18 @@ const deserializeAws_json1_0DeleteServiceResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_0DeleteVpcConnectorResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteVpcConnectorResponse => {
+  return {
+    VpcConnector:
+      output.VpcConnector !== undefined && output.VpcConnector !== null
+        ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DescribeAutoScalingConfigurationResponse = (
   output: any,
   context: __SerdeContext
@@ -2787,6 +3236,18 @@ const deserializeAws_json1_0DescribeServiceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0DescribeVpcConnectorResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeVpcConnectorResponse => {
+  return {
+    VpcConnector:
+      output.VpcConnector !== undefined && output.VpcConnector !== null
+        ? deserializeAws_json1_0VpcConnector(output.VpcConnector, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0DisassociateCustomDomainResponse = (
   output: any,
   context: __SerdeContext
@@ -2798,6 +3259,13 @@ const deserializeAws_json1_0DisassociateCustomDomainResponse = (
         : undefined,
     DNSTarget: __expectString(output.DNSTarget),
     ServiceArn: __expectString(output.ServiceArn),
+  } as any;
+};
+
+const deserializeAws_json1_0EgressConfiguration = (output: any, context: __SerdeContext): EgressConfiguration => {
+  return {
+    EgressType: __expectString(output.EgressType),
+    VpcConnectorArn: __expectString(output.VpcConnectorArn),
   } as any;
 };
 
@@ -2936,6 +3404,28 @@ const deserializeAws_json1_0ListTagsForResourceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0ListVpcConnectorsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListVpcConnectorsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    VpcConnectors:
+      output.VpcConnectors !== undefined && output.VpcConnectors !== null
+        ? deserializeAws_json1_0VpcConnectors(output.VpcConnectors, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0NetworkConfiguration = (output: any, context: __SerdeContext): NetworkConfiguration => {
+  return {
+    EgressConfiguration:
+      output.EgressConfiguration !== undefined && output.EgressConfiguration !== null
+        ? deserializeAws_json1_0EgressConfiguration(output.EgressConfiguration, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
     EndedAt:
@@ -3038,6 +3528,10 @@ const deserializeAws_json1_0Service = (output: any, context: __SerdeContext): Se
       output.InstanceConfiguration !== undefined && output.InstanceConfiguration !== null
         ? deserializeAws_json1_0InstanceConfiguration(output.InstanceConfiguration, context)
         : undefined,
+    NetworkConfiguration:
+      output.NetworkConfiguration !== undefined && output.NetworkConfiguration !== null
+        ? deserializeAws_json1_0NetworkConfiguration(output.NetworkConfiguration, context)
+        : undefined,
     ServiceArn: __expectString(output.ServiceArn),
     ServiceId: __expectString(output.ServiceId),
     ServiceName: __expectString(output.ServiceName),
@@ -3126,6 +3620,17 @@ const deserializeAws_json1_0StartDeploymentResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0StringList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     Key: __expectString(output.Key),
@@ -3160,6 +3665,42 @@ const deserializeAws_json1_0UpdateServiceResponse = (output: any, context: __Ser
         ? deserializeAws_json1_0Service(output.Service, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_0VpcConnector = (output: any, context: __SerdeContext): VpcConnector => {
+  return {
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
+        : undefined,
+    DeletedAt:
+      output.DeletedAt !== undefined && output.DeletedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DeletedAt)))
+        : undefined,
+    SecurityGroups:
+      output.SecurityGroups !== undefined && output.SecurityGroups !== null
+        ? deserializeAws_json1_0StringList(output.SecurityGroups, context)
+        : undefined,
+    Status: __expectString(output.Status),
+    Subnets:
+      output.Subnets !== undefined && output.Subnets !== null
+        ? deserializeAws_json1_0StringList(output.Subnets, context)
+        : undefined,
+    VpcConnectorArn: __expectString(output.VpcConnectorArn),
+    VpcConnectorName: __expectString(output.VpcConnectorName),
+    VpcConnectorRevision: __expectInt32(output.VpcConnectorRevision),
+  } as any;
+};
+
+const deserializeAws_json1_0VpcConnectors = (output: any, context: __SerdeContext): VpcConnector[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_0VpcConnector(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

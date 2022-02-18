@@ -26,8 +26,8 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  *             authorization for the VPC peering connection that you want to delete. You can check for
  *             an authorization by calling <a>DescribeVpcPeeringAuthorizations</a> or
  *             request a new one using <a>CreateVpcPeeringAuthorization</a>. </p>
- *         <p>Once a valid authorization exists, call this operation from the AWS account that is
- *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection
+ *         <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
+ *             used to manage the Amazon Web Services fleets. Identify the connection to delete by the connection
  *             ID and fleet ID. If successful, the connection is removed. </p>
  *         <p>
  *             <b>Related actions</b>

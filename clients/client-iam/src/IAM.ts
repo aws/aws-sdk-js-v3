@@ -949,13 +949,12 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Changes the password of the IAM user who is calling this operation. This operation
-   *
    *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
    *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user
    *             password is not affected by this operation.</p>
    *         <p>Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
    *                 <b>Users</b> page in the IAM console to change the
-   *            password for any IAM user. For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
+   *             password for any IAM user. For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
    *                 passwords</a> in the <i>IAM User Guide</i>.</p>
    */
   public changePassword(
@@ -1134,10 +1133,8 @@ export class IAM extends IAMClient {
   /**
    * <p>Creates a password for the specified IAM user. A password allows an IAM user to
    *             access Amazon Web Services services through the Amazon Web Services Management Console.</p>
-   *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the IAM console to create a password for any IAM user.
-   *             Use <a>ChangePassword</a> to update your own existing password in the
-   *                 <b>My Security Credentials</b> page in the
-   *             Amazon Web Services Management Console.</p>
+   *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
+   *             page in the IAM console to create a password for any IAM user. Use <a>ChangePassword</a> to update your own existing password in the <b>My Security Credentials</b> page in the Amazon Web Services Management Console.</p>
    *         <p>For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
    *                 <i>IAM User Guide</i>.</p>
    */
@@ -1188,7 +1185,7 @@ export class IAM extends IAMClient {
    *             </li>
    *             <li>
    *                 <p>A list of client IDs (also known as audiences) that identify the application
-   *                     or applications  allowed to authenticate using the OIDC provider</p>
+   *                     or applications allowed to authenticate using the OIDC provider</p>
    *             </li>
    *             <li>
    *                 <p>A list of thumbprints of one or more server certificates that the IdP
@@ -1796,9 +1793,9 @@ export class IAM extends IAMClient {
   /**
    * <p>Deletes the password for the specified IAM user, which terminates the user's ability
    *             to access Amazon Web Services services through the Amazon Web Services Management Console.</p>
-   *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b> page in the IAM console to delete a password for any IAM user.
-   *             You can use <a>ChangePassword</a> to update, but not delete, your own
-   *             password in the <b>My Security Credentials</b> page in the
+   *         <p>You can use the CLI, the Amazon Web Services API, or the <b>Users</b>
+   *             page in the IAM console to delete a password for any IAM user. You can use <a>ChangePassword</a> to update, but not delete, your own password in the
+   *                 <b>My Security Credentials</b> page in the
    *             Amazon Web Services Management Console.</p>
    *         <important>
    *             <p> Deleting a user's password does not prevent a user from accessing Amazon Web Services through
@@ -2816,9 +2813,9 @@ export class IAM extends IAMClient {
   /**
    * <p>Generates a report that includes details about when an IAM resource (user, group,
    *             role, or policy) was last used in an attempt to access Amazon Web Services services. Recent activity
-   *             usually appears within four hours. IAM reports activity for the last 365 days, or less
-   *             if your Region began supporting this feature within the last year. For more information,
-   *             see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a>.</p>
+   *             usually appears within four hours. IAM reports activity for at least the last 400
+   *             days, or less if your Region began supporting this feature within the last year. For
+   *             more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a>.</p>
    *         <important>
    *             <p>The service last accessed data includes all attempts to access an Amazon Web Services API, not
    *                 just the successful ones. This includes all attempts that were made using the
@@ -2861,9 +2858,9 @@ export class IAM extends IAMClient {
    *         <note>
    *             <p>Service last accessed data does not use other policy types when determining
    *                 whether a resource could access a service. These other policy types include
-   *                 resource-based policies, access control lists, Organizations policies, IAM
-   *                 permissions boundaries, and STS assume role policies. It only applies
-   *                 permissions policy logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
+   *                 resource-based policies, access control lists, Organizations policies, IAM permissions
+   *                 boundaries, and STS assume role policies. It only applies permissions policy
+   *                 logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
    *                 <i>IAM User Guide</i>.</p>
    *         </note>
    *         <p>For more information about service and action last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing permissions using service last accessed data</a> in the
@@ -3646,9 +3643,9 @@ export class IAM extends IAMClient {
    *         <note>
    *             <p>Service last accessed data does not use other policy types when determining
    *                 whether a resource could access a service. These other policy types include
-   *                 resource-based policies, access control lists, Organizations policies, IAM
-   *                 permissions boundaries, and STS assume role policies. It only applies
-   *                 permissions policy logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
+   *                 resource-based policies, access control lists, Organizations policies, IAM permissions
+   *                 boundaries, and STS assume role policies. It only applies permissions policy
+   *                 logic. For more about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
    *                 <i>IAM User Guide</i>.</p>
    *         </note>
    *         <p>For each service that the resource could access using permissions policies, the
@@ -4573,9 +4570,9 @@ export class IAM extends IAMClient {
    *         <note>
    *             <p>This operation does not use other policy types when determining whether a resource
    *                 could access a service. These other policy types include resource-based policies,
-   *                 access control lists, Organizations policies, IAM permissions boundaries, and
-   *                 STS assume role policies. It only applies permissions policy logic. For more
-   *                 about the evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
+   *                 access control lists, Organizations policies, IAM permissions boundaries, and STS
+   *                 assume role policies. It only applies permissions policy logic. For more about the
+   *                 evaluation of policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies</a> in the
    *                 <i>IAM User Guide</i>.</p>
    *         </note>
    *         <p>The list of policies returned by the operation depends on the ARN of the identity that
@@ -5196,8 +5193,7 @@ export class IAM extends IAMClient {
    *                 <code>Any</code>.</p>
    *         <note>
    *             <p>IAM resource-listing operations return a subset of the available
-   *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view all of the information for a virtual MFA device, see
-   *                     <a>ListVirtualMFADevices</a>.</p>
+   *    attributes for the resource. For example, this operation does not return tags, even though they are an attribute of the returned object. To view tag information for a virtual MFA device, see <a>ListMFADeviceTags</a>.</p>
    *         </note>
    *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
    *             parameters.</p>
@@ -5684,7 +5680,7 @@ export class IAM extends IAMClient {
    *             go to a single endpoint at <code>https://sts.amazonaws.com</code>. Amazon Web Services recommends
    *             using Regional STS endpoints to reduce latency, build in redundancy, and increase
    *             session token availability. For information about Regional endpoints for STS, see
-   *           <a href="https://docs.aws.amazon.com/general/latest/gr/sts.html">Security Token Service
+   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/sts.html">Security Token Service
    *                 endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    *         <p>If you make an STS call to the global endpoint, the resulting session tokens might
    *             be valid in some Regions but not others. It depends on the version that is set in this
@@ -6684,17 +6680,12 @@ export class IAM extends IAMClient {
   /**
    * <p>Updates the password policy settings for the Amazon Web Services account.</p>
    *         <note>
-   *             <ul>
-   *                <li>
-   *                     <p>This operation does not support partial updates. No parameters are
-   *                         required, but if you do not specify a parameter, that parameter's value
-   *                         reverts to its default value. See the <b>Request
-   *                             Parameters</b> section for each parameter's default value. Also
-   *                         note that some parameters do not allow the default parameter to be
-   *                         explicitly set. Instead, to invoke the default value, do not include that
-   *                         parameter when you invoke the operation.</p>
-   *                 </li>
-   *             </ul>
+   *             <p>This operation does not support partial updates. No parameters are required, but
+   *                 if you do not specify a parameter, that parameter's value reverts to its default
+   *                 value. See the <b>Request Parameters</b> section for each
+   *                 parameter's default value. Also note that some parameters do not allow the default
+   *                 parameter to be explicitly set. Instead, to invoke the default value, do not include
+   *                 that parameter when you invoke the operation.</p>
    *         </note>
    *         <p> For more information about using a password policy, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html">Managing an IAM password
    *                 policy</a> in the <i>IAM User Guide</i>.</p>
@@ -6846,8 +6837,8 @@ export class IAM extends IAMClient {
    *             Connect (OIDC) provider resource object with a new list of thumbprints.</p>
    *         <p>The list that you pass with this operation completely replaces the existing list of
    *             thumbprints. (The lists are not merged.)</p>
-   *         <p>Typically, you need to update a thumbprint only when the identity provider
-   *             certificate changes, which occurs rarely. However, if the provider's certificate
+   *         <p>Typically, you need to update a thumbprint only when the identity provider certificate
+   *             changes, which occurs rarely. However, if the provider's certificate
    *                 <i>does</i> change, any attempt to assume an IAM role that specifies
    *             the OIDC provider as a principal fails until the certificate thumbprint is
    *             updated.</p>
@@ -7196,10 +7187,12 @@ export class IAM extends IAMClient {
    * <p>Uploads a server certificate entity for the Amazon Web Services account. The server certificate
    *             entity includes a public key certificate, a private key, and an optional certificate
    *             chain, which should all be PEM-encoded.</p>
-   *         <p>We recommend that you use <a href="https://docs.aws.amazon.com/acm/">Certificate Manager</a> to provision, manage, and deploy your server certificates. With ACM
-   *             you can request a certificate, deploy it to Amazon Web Services resources, and let ACM handle
-   *             certificate renewals for you. Certificates provided by ACM are free. For more
-   *             information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
+   *         <p>We recommend that you use <a href="https://docs.aws.amazon.com/acm/">Certificate Manager</a> to
+   *             provision, manage, and deploy your server certificates. With ACM you can request a
+   *             certificate, deploy it to Amazon Web Services resources, and let ACM handle certificate renewals for
+   *             you. Certificates provided by ACM are free. For more information about using ACM,
+   *             see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User
+   *                 Guide</a>.</p>
    *         <p>For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
    *                 with server certificates</a> in the <i>IAM User Guide</i>. This
    *             topic includes a list of Amazon Web Services services that can use the server certificates that you

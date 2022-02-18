@@ -28,7 +28,7 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *             go to a single endpoint at <code>https://sts.amazonaws.com</code>. Amazon Web Services recommends
  *             using Regional STS endpoints to reduce latency, build in redundancy, and increase
  *             session token availability. For information about Regional endpoints for STS, see
- *           <a href="https://docs.aws.amazon.com/general/latest/gr/sts.html">Security Token Service
+ *                 <a href="https://docs.aws.amazon.com/general/latest/gr/sts.html">Security Token Service
  *                 endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
  *         <p>If you make an STS call to the global endpoint, the resulting session tokens might
  *             be valid in some Regions but not others. It depends on the version that is set in this

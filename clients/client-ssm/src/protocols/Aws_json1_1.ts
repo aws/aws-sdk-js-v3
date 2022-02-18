@@ -11663,14 +11663,6 @@ const deserializeAws_json1_1TerminateSessionCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      response = {
-        ...(await deserializeAws_json1_1DoesNotExistExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       response = {

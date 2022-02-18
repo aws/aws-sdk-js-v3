@@ -22,7 +22,7 @@ export interface DescribeStackSetCommandInput extends DescribeStackSetInput {}
 export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the description of the specified stack set. </p>
+ * <p>Returns the description of the specified stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

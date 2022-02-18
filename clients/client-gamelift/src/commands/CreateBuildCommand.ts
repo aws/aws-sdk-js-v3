@@ -22,10 +22,10 @@ export interface CreateBuildCommandInput extends CreateBuildInput {}
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon GameLift build resource for your game server binary files. Game server
- *             binaries must be combined into a zip file for use with Amazon GameLift. </p>
+ * <p>Creates a new Amazon Web Services build resource for your game server binary files. Game server
+ *             binaries must be combined into a zip file for use with Amazon Web Services. </p>
  *         <important>
- *             <p>When setting up a new game build for GameLift, we recommend using the AWS CLI
+ *             <p>When setting up a new game build for GameLift, we recommend using the Amazon Web Services CLI
  *                 command <b>
  *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a>
  *                </b>. This helper command combines two tasks: (1) it
@@ -36,7 +36,7 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  *         <ul>
  *             <li>
  *                 <p>To create a new game build with build files that are in an Amazon S3 location under
- *                     an AWS account that you control. To use this option, you must first give Amazon GameLift
+ *                     an Amazon Web Services account that you control. To use this option, you must first give Amazon Web Services
  *                     access to the Amazon S3 bucket. With permissions in place, call
  *                         <code>CreateBuild</code> and specify a build name, operating system, and the
  *                     Amazon S3 storage location of your game build.</p>

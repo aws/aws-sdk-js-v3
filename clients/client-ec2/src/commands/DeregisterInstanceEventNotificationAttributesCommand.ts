@@ -28,8 +28,7 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>c</p>
- *    	     <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
+ * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
  * 			in scheduled event notifications for resources in the Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

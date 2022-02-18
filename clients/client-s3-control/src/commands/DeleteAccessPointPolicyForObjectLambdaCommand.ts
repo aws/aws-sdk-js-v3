@@ -25,7 +25,8 @@ export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __M
 
 /**
  * <p>Removes the resource policy for an Object Lambda Access Point.</p>
- *          <p>The following actions are related to <code>DeleteAccessPointPolicyForObjectLambda</code>:</p>
+ *          <p>The following actions are related to
+ *          <code>DeleteAccessPointPolicyForObjectLambda</code>:</p>
  *          <ul>
  *             <li>
  *                <p>

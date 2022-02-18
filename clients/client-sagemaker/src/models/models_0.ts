@@ -4158,6 +4158,12 @@ export interface CandidateArtifactLocations {
    *          candidate.</p>
    */
   Explainability: string | undefined;
+
+  /**
+   * <p>The Amazon S3 prefix to the model insight artifacts generated for the AutoML
+   *          candidate.</p>
+   */
+  ModelInsights?: string;
 }
 
 export namespace CandidateArtifactLocations {
@@ -4762,9 +4768,11 @@ export enum AutoMLJobSecondaryStatus {
   FAILED = "Failed",
   FEATURE_ENGINEERING = "FeatureEngineering",
   GENERATING_EXPLAINABILITY_REPORT = "GeneratingExplainabilityReport",
+  GENERATING_MODEL_INSIGHTS_REPORT = "GeneratingModelInsightsReport",
   MAX_AUTO_ML_JOB_RUNTIME_REACHED = "MaxAutoMLJobRuntimeReached",
   MAX_CANDIDATES_REACHED = "MaxCandidatesReached",
   MODEL_DEPLOYMENT_ERROR = "ModelDeploymentError",
+  MODEL_INSIGHTS_ERROR = "ModelInsightsError",
   MODEL_TUNING = "ModelTuning",
   STARTING = "Starting",
   STOPPED = "Stopped",

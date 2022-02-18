@@ -217,6 +217,7 @@ import {
   CreateMultiRegionAccessPointInput,
   DeleteMultiRegionAccessPointInput,
   EstablishedMultiRegionAccessPointPolicy,
+  GeneratedManifestEncryption,
   IdempotencyException,
   Include,
   InternalServiceException,
@@ -227,12 +228,15 @@ import {
   JobListDescriptor,
   JobManifest,
   JobManifestFieldName,
+  JobManifestGenerator,
+  JobManifestGeneratorFilter,
   JobManifestLocation,
   JobManifestSpec,
   JobOperation,
   JobProgressSummary,
   JobReport,
   JobStatusException,
+  JobTimers,
   LambdaInvokeOperation,
   LifecycleConfiguration,
   LifecycleExpiration,
@@ -263,17 +267,22 @@ import {
   Region,
   RegionalBucket,
   RegionReport,
+  ReplicationStatus,
   S3AccessControlList,
   S3AccessControlPolicy,
   S3BucketDestination,
   S3CopyObjectOperation,
   S3DeleteObjectTaggingOperation,
+  S3GeneratedManifestDescriptor,
   S3Grant,
   S3Grantee,
   S3InitiateRestoreObjectOperation,
+  S3JobManifestGenerator,
+  S3ManifestOutputLocation,
   S3ObjectLockLegalHold,
   S3ObjectMetadata,
   S3ObjectOwner,
+  S3ReplicateObjectOperation,
   S3Retention,
   S3SetObjectAclOperation,
   S3SetObjectLegalHoldOperation,
@@ -282,7 +291,9 @@ import {
   S3Tag,
   SelectionCriteria,
   SSEKMS,
+  SSEKMSEncryption,
   SSES3,
+  SSES3Encryption,
   StorageLensAwsOrg,
   StorageLensConfiguration,
   StorageLensDataExport,
@@ -497,6 +508,12 @@ export const serializeAws_restXmlCreateJobCommand = async (
   }
   if (input.Manifest !== undefined) {
     const node = serializeAws_restXmlJobManifest(input.Manifest, context).withName("Manifest");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ManifestGenerator !== undefined) {
+    const node = serializeAws_restXmlJobManifestGenerator(input.ManifestGenerator, context).withName(
+      "ManifestGenerator"
+    );
     bodyNode.addChildNode(node);
   }
   if (input.Operation !== undefined) {
@@ -6253,6 +6270,22 @@ const serializeAws_restXml_Exclude = (input: _Exclude, context: __SerdeContext):
   return bodyNode;
 };
 
+const serializeAws_restXmlGeneratedManifestEncryption = (
+  input: GeneratedManifestEncryption,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("GeneratedManifestEncryption");
+  if (input.SSES3 !== undefined && input.SSES3 !== null) {
+    const node = serializeAws_restXmlSSES3Encryption(input.SSES3, context).withName("SSE-S3");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SSEKMS !== undefined && input.SSEKMS !== null) {
+    const node = serializeAws_restXmlSSEKMSEncryption(input.SSEKMS, context).withName("SSE-KMS");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlInclude = (input: Include, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Include");
   if (input.Buckets !== undefined && input.Buckets !== null) {
@@ -6300,6 +6333,57 @@ const serializeAws_restXmlJobManifestFieldList = (
       const node = new __XmlNode("JobManifestFieldName").addChildNode(new __XmlText(entry));
       return node.withName("member");
     });
+};
+
+const serializeAws_restXmlJobManifestGenerator = (input: JobManifestGenerator, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("JobManifestGenerator");
+  JobManifestGenerator.visit(input, {
+    S3JobManifestGenerator: (value) => {
+      const node = serializeAws_restXmlS3JobManifestGenerator(value, context).withName("S3JobManifestGenerator");
+      bodyNode.addChildNode(node);
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+    },
+  });
+  return bodyNode;
+};
+
+const serializeAws_restXmlJobManifestGeneratorFilter = (
+  input: JobManifestGeneratorFilter,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("JobManifestGeneratorFilter");
+  if (input.EligibleForReplication !== undefined && input.EligibleForReplication !== null) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.EligibleForReplication)))
+      .withName("EligibleForReplication");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CreatedAfter !== undefined && input.CreatedAfter !== null) {
+    const node = new __XmlNode("ObjectCreationTime")
+      .addChildNode(new __XmlText(input.CreatedAfter.toISOString().split(".")[0] + "Z"))
+      .withName("CreatedAfter");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CreatedBefore !== undefined && input.CreatedBefore !== null) {
+    const node = new __XmlNode("ObjectCreationTime")
+      .addChildNode(new __XmlText(input.CreatedBefore.toISOString().split(".")[0] + "Z"))
+      .withName("CreatedBefore");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ObjectReplicationStatuses !== undefined && input.ObjectReplicationStatuses !== null) {
+    const nodes = serializeAws_restXmlReplicationStatusFilterList(input.ObjectReplicationStatuses, context);
+    const containerNode = new __XmlNode("ObjectReplicationStatuses");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
 };
 
 const serializeAws_restXmlJobManifestLocation = (input: JobManifestLocation, context: __SerdeContext): any => {
@@ -6379,6 +6463,12 @@ const serializeAws_restXmlJobOperation = (input: JobOperation, context: __SerdeC
   if (input.S3PutObjectRetention !== undefined && input.S3PutObjectRetention !== null) {
     const node = serializeAws_restXmlS3SetObjectRetentionOperation(input.S3PutObjectRetention, context).withName(
       "S3PutObjectRetention"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.S3ReplicateObject !== undefined && input.S3ReplicateObject !== null) {
+    const node = serializeAws_restXmlS3ReplicateObjectOperation(input.S3ReplicateObject, context).withName(
+      "S3ReplicateObject"
     );
     bodyNode.addChildNode(node);
   }
@@ -6837,6 +6927,21 @@ const serializeAws_restXmlRegions = (input: string[], context: __SerdeContext): 
     });
 };
 
+const serializeAws_restXmlReplicationStatusFilterList = (
+  input: (ReplicationStatus | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("ReplicationStatus").addChildNode(new __XmlText(entry));
+      return node.withName("member");
+    });
+};
+
 const serializeAws_restXmlS3AccessControlList = (input: S3AccessControlList, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3AccessControlList");
   if (input.Owner !== undefined && input.Owner !== null) {
@@ -7087,6 +7192,75 @@ const serializeAws_restXmlS3InitiateRestoreObjectOperation = (
   return bodyNode;
 };
 
+const serializeAws_restXmlS3JobManifestGenerator = (input: S3JobManifestGenerator, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("S3JobManifestGenerator");
+  if (input.ExpectedBucketOwner !== undefined && input.ExpectedBucketOwner !== null) {
+    const node = new __XmlNode("AccountId")
+      .addChildNode(new __XmlText(input.ExpectedBucketOwner))
+      .withName("ExpectedBucketOwner");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SourceBucket !== undefined && input.SourceBucket !== null) {
+    const node = new __XmlNode("S3BucketArnString")
+      .addChildNode(new __XmlText(input.SourceBucket))
+      .withName("SourceBucket");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ManifestOutputLocation !== undefined && input.ManifestOutputLocation !== null) {
+    const node = serializeAws_restXmlS3ManifestOutputLocation(input.ManifestOutputLocation, context).withName(
+      "ManifestOutputLocation"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.Filter !== undefined && input.Filter !== null) {
+    const node = serializeAws_restXmlJobManifestGeneratorFilter(input.Filter, context).withName("Filter");
+    bodyNode.addChildNode(node);
+  }
+  if (input.EnableManifestOutput !== undefined && input.EnableManifestOutput !== null) {
+    const node = new __XmlNode("Boolean")
+      .addChildNode(new __XmlText(String(input.EnableManifestOutput)))
+      .withName("EnableManifestOutput");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlS3ManifestOutputLocation = (
+  input: S3ManifestOutputLocation,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("S3ManifestOutputLocation");
+  if (input.ExpectedManifestBucketOwner !== undefined && input.ExpectedManifestBucketOwner !== null) {
+    const node = new __XmlNode("AccountId")
+      .addChildNode(new __XmlText(input.ExpectedManifestBucketOwner))
+      .withName("ExpectedManifestBucketOwner");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Bucket !== undefined && input.Bucket !== null) {
+    const node = new __XmlNode("S3BucketArnString").addChildNode(new __XmlText(input.Bucket)).withName("Bucket");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ManifestPrefix !== undefined && input.ManifestPrefix !== null) {
+    const node = new __XmlNode("ManifestPrefixString")
+      .addChildNode(new __XmlText(input.ManifestPrefix))
+      .withName("ManifestPrefix");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ManifestEncryption !== undefined && input.ManifestEncryption !== null) {
+    const node = serializeAws_restXmlGeneratedManifestEncryption(input.ManifestEncryption, context).withName(
+      "ManifestEncryption"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.ManifestFormat !== undefined && input.ManifestFormat !== null) {
+    const node = new __XmlNode("GeneratedManifestFormat")
+      .addChildNode(new __XmlText(input.ManifestFormat))
+      .withName("ManifestFormat");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlS3ObjectLockLegalHold = (input: S3ObjectLockLegalHold, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("S3ObjectLockLegalHold");
   if (input.Status !== undefined && input.Status !== null) {
@@ -7183,6 +7357,14 @@ const serializeAws_restXmlS3ObjectOwner = (input: S3ObjectOwner, context: __Serd
       .withName("DisplayName");
     bodyNode.addChildNode(node);
   }
+  return bodyNode;
+};
+
+const serializeAws_restXmlS3ReplicateObjectOperation = (
+  input: S3ReplicateObjectOperation,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("S3ReplicateObjectOperation");
   return bodyNode;
 };
 
@@ -7329,7 +7511,21 @@ const serializeAws_restXmlSSEKMS = (input: SSEKMS, context: __SerdeContext): any
   return bodyNode;
 };
 
+const serializeAws_restXmlSSEKMSEncryption = (input: SSEKMSEncryption, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("SSE-KMS");
+  if (input.KeyId !== undefined && input.KeyId !== null) {
+    const node = new __XmlNode("KmsKeyArnString").addChildNode(new __XmlText(input.KeyId)).withName("KeyId");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlSSES3 = (input: SSES3, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("SSE-S3");
+  return bodyNode;
+};
+
+const serializeAws_restXmlSSES3Encryption = (input: SSES3Encryption, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("SSE-S3");
   return bodyNode;
 };
@@ -7810,6 +8006,23 @@ const deserializeAws_restXml_Exclude = (output: any, context: __SerdeContext): _
   return contents;
 };
 
+const deserializeAws_restXmlGeneratedManifestEncryption = (
+  output: any,
+  context: __SerdeContext
+): GeneratedManifestEncryption => {
+  const contents: any = {
+    SSES3: undefined,
+    SSEKMS: undefined,
+  };
+  if (output["SSE-S3"] !== undefined) {
+    contents.SSES3 = deserializeAws_restXmlSSES3Encryption(output["SSE-S3"], context);
+  }
+  if (output["SSE-KMS"] !== undefined) {
+    contents.SSEKMS = deserializeAws_restXmlSSEKMSEncryption(output["SSE-KMS"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlInclude = (output: any, context: __SerdeContext): Include => {
   const contents: any = {
     Buckets: undefined,
@@ -7849,6 +8062,8 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
     RoleArn: undefined,
     SuspendedDate: undefined,
     SuspendedCause: undefined,
+    ManifestGenerator: undefined,
+    GeneratedManifestDescriptor: undefined,
   };
   if (output["JobId"] !== undefined) {
     contents.JobId = __expectString(output["JobId"]);
@@ -7906,6 +8121,18 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
   }
   if (output["SuspendedCause"] !== undefined) {
     contents.SuspendedCause = __expectString(output["SuspendedCause"]);
+  }
+  if (output["ManifestGenerator"] !== undefined) {
+    contents.ManifestGenerator = deserializeAws_restXmlJobManifestGenerator(
+      __expectUnion(output["ManifestGenerator"]),
+      context
+    );
+  }
+  if (output["GeneratedManifestDescriptor"] !== undefined) {
+    contents.GeneratedManifestDescriptor = deserializeAws_restXmlS3GeneratedManifestDescriptor(
+      output["GeneratedManifestDescriptor"],
+      context
+    );
   }
   return contents;
 };
@@ -8012,6 +8239,49 @@ const deserializeAws_restXmlJobManifestFieldList = (
     });
 };
 
+const deserializeAws_restXmlJobManifestGenerator = (output: any, context: __SerdeContext): JobManifestGenerator => {
+  if (output["S3JobManifestGenerator"] !== undefined) {
+    return {
+      S3JobManifestGenerator: deserializeAws_restXmlS3JobManifestGenerator(output["S3JobManifestGenerator"], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restXmlJobManifestGeneratorFilter = (
+  output: any,
+  context: __SerdeContext
+): JobManifestGeneratorFilter => {
+  const contents: any = {
+    EligibleForReplication: undefined,
+    CreatedAfter: undefined,
+    CreatedBefore: undefined,
+    ObjectReplicationStatuses: undefined,
+  };
+  if (output["EligibleForReplication"] !== undefined) {
+    contents.EligibleForReplication = __parseBoolean(output["EligibleForReplication"]);
+  }
+  if (output["CreatedAfter"] !== undefined) {
+    contents.CreatedAfter = __expectNonNull(__parseRfc3339DateTime(output["CreatedAfter"]));
+  }
+  if (output["CreatedBefore"] !== undefined) {
+    contents.CreatedBefore = __expectNonNull(__parseRfc3339DateTime(output["CreatedBefore"]));
+  }
+  if (output.ObjectReplicationStatuses === "") {
+    contents.ObjectReplicationStatuses = [];
+  }
+  if (
+    output["ObjectReplicationStatuses"] !== undefined &&
+    output["ObjectReplicationStatuses"]["member"] !== undefined
+  ) {
+    contents.ObjectReplicationStatuses = deserializeAws_restXmlReplicationStatusFilterList(
+      __getArrayIfSingleItem(output["ObjectReplicationStatuses"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlJobManifestLocation = (output: any, context: __SerdeContext): JobManifestLocation => {
   const contents: any = {
     ObjectArn: undefined,
@@ -8060,6 +8330,7 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
     S3InitiateRestoreObject: undefined,
     S3PutObjectLegalHold: undefined,
     S3PutObjectRetention: undefined,
+    S3ReplicateObject: undefined,
   };
   if (output["LambdaInvoke"] !== undefined) {
     contents.LambdaInvoke = deserializeAws_restXmlLambdaInvokeOperation(output["LambdaInvoke"], context);
@@ -8100,6 +8371,9 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
       context
     );
   }
+  if (output["S3ReplicateObject"] !== undefined) {
+    contents.S3ReplicateObject = deserializeAws_restXmlS3ReplicateObjectOperation(output["S3ReplicateObject"], context);
+  }
   return contents;
 };
 
@@ -8108,6 +8382,7 @@ const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeC
     TotalNumberOfTasks: undefined,
     NumberOfTasksSucceeded: undefined,
     NumberOfTasksFailed: undefined,
+    Timers: undefined,
   };
   if (output["TotalNumberOfTasks"] !== undefined) {
     contents.TotalNumberOfTasks = __strictParseLong(output["TotalNumberOfTasks"]) as number;
@@ -8117,6 +8392,9 @@ const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeC
   }
   if (output["NumberOfTasksFailed"] !== undefined) {
     contents.NumberOfTasksFailed = __strictParseLong(output["NumberOfTasksFailed"]) as number;
+  }
+  if (output["Timers"] !== undefined) {
+    contents.Timers = deserializeAws_restXmlJobTimers(output["Timers"], context);
   }
   return contents;
 };
@@ -8143,6 +8421,16 @@ const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): 
   }
   if (output["ReportScope"] !== undefined) {
     contents.ReportScope = __expectString(output["ReportScope"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlJobTimers = (output: any, context: __SerdeContext): JobTimers => {
+  const contents: any = {
+    ElapsedTimeInActiveSeconds: undefined,
+  };
+  if (output["ElapsedTimeInActiveSeconds"] !== undefined) {
+    contents.ElapsedTimeInActiveSeconds = __strictParseLong(output["ElapsedTimeInActiveSeconds"]) as number;
   }
   return contents;
 };
@@ -8815,6 +9103,20 @@ const deserializeAws_restXmlRegions = (output: any, context: __SerdeContext): st
     });
 };
 
+const deserializeAws_restXmlReplicationStatusFilterList = (
+  output: any,
+  context: __SerdeContext
+): (ReplicationStatus | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restXmlS3AccessControlList = (output: any, context: __SerdeContext): S3AccessControlList => {
   const contents: any = {
     Owner: undefined,
@@ -8970,6 +9272,23 @@ const deserializeAws_restXmlS3DeleteObjectTaggingOperation = (
   return contents;
 };
 
+const deserializeAws_restXmlS3GeneratedManifestDescriptor = (
+  output: any,
+  context: __SerdeContext
+): S3GeneratedManifestDescriptor => {
+  const contents: any = {
+    Format: undefined,
+    Location: undefined,
+  };
+  if (output["Format"] !== undefined) {
+    contents.Format = __expectString(output["Format"]);
+  }
+  if (output["Location"] !== undefined) {
+    contents.Location = deserializeAws_restXmlJobManifestLocation(output["Location"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3Grant => {
   const contents: any = {
     Grantee: undefined,
@@ -9026,6 +9345,67 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
   }
   if (output["GlacierJobTier"] !== undefined) {
     contents.GlacierJobTier = __expectString(output["GlacierJobTier"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlS3JobManifestGenerator = (output: any, context: __SerdeContext): S3JobManifestGenerator => {
+  const contents: any = {
+    ExpectedBucketOwner: undefined,
+    SourceBucket: undefined,
+    ManifestOutputLocation: undefined,
+    Filter: undefined,
+    EnableManifestOutput: undefined,
+  };
+  if (output["ExpectedBucketOwner"] !== undefined) {
+    contents.ExpectedBucketOwner = __expectString(output["ExpectedBucketOwner"]);
+  }
+  if (output["SourceBucket"] !== undefined) {
+    contents.SourceBucket = __expectString(output["SourceBucket"]);
+  }
+  if (output["ManifestOutputLocation"] !== undefined) {
+    contents.ManifestOutputLocation = deserializeAws_restXmlS3ManifestOutputLocation(
+      output["ManifestOutputLocation"],
+      context
+    );
+  }
+  if (output["Filter"] !== undefined) {
+    contents.Filter = deserializeAws_restXmlJobManifestGeneratorFilter(output["Filter"], context);
+  }
+  if (output["EnableManifestOutput"] !== undefined) {
+    contents.EnableManifestOutput = __parseBoolean(output["EnableManifestOutput"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlS3ManifestOutputLocation = (
+  output: any,
+  context: __SerdeContext
+): S3ManifestOutputLocation => {
+  const contents: any = {
+    ExpectedManifestBucketOwner: undefined,
+    Bucket: undefined,
+    ManifestPrefix: undefined,
+    ManifestEncryption: undefined,
+    ManifestFormat: undefined,
+  };
+  if (output["ExpectedManifestBucketOwner"] !== undefined) {
+    contents.ExpectedManifestBucketOwner = __expectString(output["ExpectedManifestBucketOwner"]);
+  }
+  if (output["Bucket"] !== undefined) {
+    contents.Bucket = __expectString(output["Bucket"]);
+  }
+  if (output["ManifestPrefix"] !== undefined) {
+    contents.ManifestPrefix = __expectString(output["ManifestPrefix"]);
+  }
+  if (output["ManifestEncryption"] !== undefined) {
+    contents.ManifestEncryption = deserializeAws_restXmlGeneratedManifestEncryption(
+      output["ManifestEncryption"],
+      context
+    );
+  }
+  if (output["ManifestFormat"] !== undefined) {
+    contents.ManifestFormat = __expectString(output["ManifestFormat"]);
   }
   return contents;
 };
@@ -9107,6 +9487,14 @@ const deserializeAws_restXmlS3ObjectOwner = (output: any, context: __SerdeContex
   if (output["DisplayName"] !== undefined) {
     contents.DisplayName = __expectString(output["DisplayName"]);
   }
+  return contents;
+};
+
+const deserializeAws_restXmlS3ReplicateObjectOperation = (
+  output: any,
+  context: __SerdeContext
+): S3ReplicateObjectOperation => {
+  const contents: any = {};
   return contents;
 };
 
@@ -9248,7 +9636,22 @@ const deserializeAws_restXmlSSEKMS = (output: any, context: __SerdeContext): SSE
   return contents;
 };
 
+const deserializeAws_restXmlSSEKMSEncryption = (output: any, context: __SerdeContext): SSEKMSEncryption => {
+  const contents: any = {
+    KeyId: undefined,
+  };
+  if (output["KeyId"] !== undefined) {
+    contents.KeyId = __expectString(output["KeyId"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlSSES3 = (output: any, context: __SerdeContext): SSES3 => {
+  const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_restXmlSSES3Encryption = (output: any, context: __SerdeContext): SSES3Encryption => {
   const contents: any = {};
   return contents;
 };

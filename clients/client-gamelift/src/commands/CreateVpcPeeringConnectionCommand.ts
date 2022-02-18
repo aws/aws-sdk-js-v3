@@ -22,20 +22,20 @@ export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeering
 export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**
- * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an AWS account with the VPC
- *             for your Amazon GameLift fleet. VPC peering enables the game servers on your fleet to
- *             communicate directly with other AWS resources. You can peer with VPCs in any AWS account
- *             that you have access to, including the account that you use to manage your Amazon GameLift
+ * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC
+ *             for your Amazon Web Services fleet. VPC peering enables the game servers on your fleet to
+ *             communicate directly with other Amazon Web Services resources. You can peer with VPCs in any Amazon Web Services account
+ *             that you have access to, including the account that you use to manage your Amazon Web Services
  *             fleets. You cannot peer with VPCs that are in different Regions. For more information,
- *             see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Fleets</a>.</p>
+ *             see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon Web Services Fleets</a>.</p>
  *         <p>Before calling this operation to establish the peering connection, you first need
  *             to call <a>CreateVpcPeeringAuthorization</a> and identify the VPC you want to
  *             peer with. Once the authorization for the specified VPC is issued, you have 24 hours to
  *             establish the connection. These two operations handle all tasks necessary to peer the
  *             two VPCs, including acceptance, updating routing tables, etc. </p>
- *         <p>To establish the connection, call this operation from the AWS account that is used
- *             to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of the fleet
- *             you want to be enable a VPC peering connection for; (2) The AWS account with the VPC
+ *         <p>To establish the connection, call this operation from the Amazon Web Services account that is used
+ *             to manage the Amazon Web Services fleets. Identify the following values: (1) The ID of the fleet
+ *             you want to be enable a VPC peering connection for; (2) The Amazon Web Services account with the VPC
  *             that you want to peer with; and (3) The ID of the VPC you want to peer with. This
  *             operation is asynchronous. If successful, a <a>VpcPeeringConnection</a>
  *             request is created. You can use continuous polling to track the request's status using

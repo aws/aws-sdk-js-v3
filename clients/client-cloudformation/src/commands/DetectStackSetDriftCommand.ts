@@ -24,14 +24,14 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
 /**
  * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a
  *          stack set, it performs drift detection on the stack associated with each stack instance in
- *          the stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation Performs Drift Detection on a Stack Set</a>.</p>
+ *          the stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation performs drift detection on a stack set</a>.</p>
  *          <p>
  *             <code>DetectStackSetDrift</code> returns the <code>OperationId</code> of the stack set
  *          drift detection operation. Use this operation id with <code>
  *                <a>DescribeStackSetOperation</a>
  *             </code> to monitor the progress of the drift
  *          detection operation. The drift detection operation may take some time, depending on the
- *          number of stack instances included in the stack set, as well as the number of resources
+ *          number of stack instances included in the stack set, in addition to the number of resources
  *          included in each stack.</p>
  *          <p>Once the operation has completed, use the following actions to return drift
  *          information:</p>
@@ -42,7 +42,7 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  *                   </code> to return detailed information
  *                about the stack set, including detailed information about the last
  *                   <i>completed</i> drift operation performed on the stack set.
- *                (Information about drift operations that are in progress is not included.)</p>
+ *                (Information about drift operations that are in progress isn't included.)</p>
  *             </li>
  *             <li>
  *                <p>Use <code>
@@ -60,9 +60,10 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  *             </li>
  *          </ul>
  *          <p>For more information on performing a drift detection operation on a stack set, see
- *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged
- *             Changes in Stack Sets</a>. </p>
- *          <p>You can only run a single drift detection operation on a given stack set at one time. </p>
+ *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting unmanaged
+ *             changes in stack sets</a>.</p>
+ *          <p>You can only run a single drift detection operation on a given stack set at one
+ *          time.</p>
  *          <p>To stop a drift detection stack set operation, use <code>
  *                <a>StopStackSetOperation</a>
  *             </code>.</p>

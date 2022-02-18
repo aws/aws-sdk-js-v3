@@ -23,6 +23,15 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
 
 /**
  * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
+ *
+ *          <p>This operation supports resource-level authorization using an IAM policy and
+ *          the <code>Names</code> parameter. If you specify the <code>Names</code> parameter, the operation is successful only if you have authorization to view
+ *          all the canaries that you specify in your request. If you do not have permission to view any of
+ *          the canaries, the request fails with a 403 response.</p>
+ *          <p>You are required to use the <code>Names</code> parameter if you are logged on to a user or role that has an
+ *          IAM policy that restricts which canaries that you are allowed to view. For more information,
+ *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html">
+ *             Limiting a user to viewing specific canaries</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

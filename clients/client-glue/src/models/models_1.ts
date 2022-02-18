@@ -3268,6 +3268,8 @@ export interface Table {
    * <p>The ID of the Data Catalog in which the table resides.</p>
    */
   CatalogId?: string;
+
+  VersionId?: string;
 }
 
 export namespace Table {
@@ -7381,6 +7383,8 @@ export interface UpdateTableRequest {
    * <p>The transaction ID at which to update the table contents. </p>
    */
   TransactionId?: string;
+
+  VersionId?: string;
 }
 
 export namespace UpdateTableRequest {

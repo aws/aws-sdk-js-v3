@@ -201,6 +201,12 @@ export interface CreateAutoScalingConfigurationRequest {
   /**
    * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
    *       name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
+   *          <note>
+   *             <p>The name <code>DefaultConfiguration</code> is reserved (it's the configuration that App Runner uses if you don't provide a custome one). You can't use it
+   *         to create a new auto scaling configuration, and you can't create a revision of it.</p>
+   *             <p>When you want to use your own auto scaling configuration for your App Runner service, <i>create a configuration with a different name</i>,
+   *         and then provide it when you create or update your service.</p>
+   *          </note>
    */
   AutoScalingConfigurationName: string | undefined;
 
@@ -250,11 +256,12 @@ export enum AutoScalingConfigurationStatus {
 }
 
 /**
- * <p>Describes an App Runner automatic scaling configuration resource. Multiple revisions of a configuration have the same
- *         <code>AutoScalingConfigurationName</code> and different <code>AutoScalingConfigurationRevision</code> values.</p>
+ * <p>Describes an App Runner automatic scaling configuration resource.</p>
  *          <p>A higher <code>MinSize</code> increases the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is a higher
  *       minimal cost.</p>
  *          <p>A lower <code>MaxSize</code> controls your cost. The tradeoff is lower responsiveness during peak demand.</p>
+ *          <p>Multiple revisions of a configuration might have the same <code>AutoScalingConfigurationName</code> and different
+ *         <code>AutoScalingConfigurationRevision</code> values.</p>
  */
 export interface AutoScalingConfiguration {
   /**
@@ -560,6 +567,58 @@ export namespace InstanceConfiguration {
   });
 }
 
+export enum EgressType {
+  DEFAULT = "DEFAULT",
+  VPC = "VPC",
+}
+
+/**
+ * <p>Describes configuration settings related to outbound network traffic of an App Runner service.</p>
+ */
+export interface EgressConfiguration {
+  /**
+   * <p>The type of egress configuration.</p>
+   *          <p>Set to <code>DEFAULT</code> for access to resources hosted on public networks.</p>
+   *          <p>Set to <code>VPC</code> to associate your service to a custom VPC specified by <code>VpcConnectorArn</code>.</p>
+   */
+  EgressType?: EgressType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when <code>EgressType =
+   *         VPC</code>.</p>
+   */
+  VpcConnectorArn?: string;
+}
+
+export namespace EgressConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EgressConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes configuration settings related to network traffic of an App Runner service. Consists of embedded objects for each configurable network
+ *       feature.</p>
+ */
+export interface NetworkConfiguration {
+  /**
+   * <p>Network configuration settings for outbound message traffic.</p>
+   */
+  EgressConfiguration?: EgressConfiguration;
+}
+
+export namespace NetworkConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.</p>
  */
@@ -775,6 +834,7 @@ export namespace ImageConfiguration {
   export const filterSensitiveLog = (obj: ImageConfiguration): any => ({
     ...obj,
     ...(obj.RuntimeEnvironmentVariables && { RuntimeEnvironmentVariables: SENSITIVE_STRING }),
+    ...(obj.StartCommand && { StartCommand: SENSITIVE_STRING }),
   });
 }
 
@@ -860,7 +920,7 @@ export namespace SourceConfiguration {
 
 export interface CreateServiceRequest {
   /**
-   * <p>A name for the new service. It must be unique across all the running App Runner services in your Amazon Web Services account in the Amazon Web Services Region.</p>
+   * <p>A name for the App Runner service. It must be unique across all the running App Runner services in your Amazon Web Services account in the Amazon Web Services Region.</p>
    */
   ServiceName: string | undefined;
 
@@ -875,26 +935,31 @@ export interface CreateServiceRequest {
   InstanceConfiguration?: InstanceConfiguration;
 
   /**
-   * <p>An optional list of metadata items that you can associate with your service resource. A tag is a key-value pair.</p>
+   * <p>An optional list of metadata items that you can associate with the App Runner service resource. A tag is a key-value pair.</p>
    */
   Tags?: Tag[];
 
   /**
    * <p>An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default,
-   *       App Runner uses an Amazon Web Services managed CMK.</p>
+   *       App Runner uses an Amazon Web Services managed key.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
-   * <p>The settings for the health check that App Runner performs to monitor the health of your service.</p>
+   * <p>The settings for the health check that App Runner performs to monitor the health of the App Runner service.</p>
    */
   HealthCheckConfiguration?: HealthCheckConfiguration;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner
-   *       associates the latest revision of a default auto scaling configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with the App Runner service. If not provided,
+   *       App Runner associates the latest revision of a default auto scaling configuration.</p>
    */
   AutoScalingConfigurationArn?: string;
+
+  /**
+   * <p>Configuration settings related to network traffic of the web application that the App Runner service runs.</p>
+   */
+  NetworkConfiguration?: NetworkConfiguration;
 }
 
 export namespace CreateServiceRequest {
@@ -1022,7 +1087,7 @@ export interface Service {
 
   /**
    * <p>The encryption key that App Runner uses to encrypt the service logs and the copy of the source repository that App Runner maintains for the service. It can be
-   *       either a customer-provided encryption key or an Amazon Web Services managed CMK.</p>
+   *       either a customer-provided encryption key or an Amazon Web Services managed key.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
@@ -1035,6 +1100,11 @@ export interface Service {
    * <p>Summary information for the App Runner automatic scaling configuration resource that's associated with this service.</p>
    */
   AutoScalingConfigurationSummary: AutoScalingConfigurationSummary | undefined;
+
+  /**
+   * <p>Configuration settings related to network traffic of the web application that this service runs.</p>
+   */
+  NetworkConfiguration: NetworkConfiguration | undefined;
 }
 
 export namespace Service {
@@ -1068,6 +1138,125 @@ export namespace CreateServiceResponse {
   export const filterSensitiveLog = (obj: CreateServiceResponse): any => ({
     ...obj,
     ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
+  });
+}
+
+export interface CreateVpcConnectorRequest {
+  /**
+   * <p>A name for the VPC connector.</p>
+   */
+  VpcConnectorName: string | undefined;
+
+  /**
+   * <p>A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single
+   *         Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.</p>
+   */
+  Subnets: string[] | undefined;
+
+  /**
+   * <p>A list of IDs of security groups that App Runner should use for access to Amazon Web Services resources under the specified subnets. If not specified, App Runner uses the
+   *       default security group of the Amazon VPC. The default security group allows all outbound traffic.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>A list of metadata items that you can associate with your VPC connector resource. A tag is a key-value pair.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateVpcConnectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcConnectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum VpcConnectorStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+}
+
+/**
+ * <p>Describes an App Runner VPC connector resource. A VPC connector describes the Amazon Virtual Private Cloud (Amazon VPC) that an App Runner service is
+ *       associated with, and the subnets and security group that are used.</p>
+ *          <p>Multiple revisions of a connector might have the same <code>Name</code> and different <code>Revision</code> values.</p>
+ *          <note>
+ *             <p>At this time, App Runner supports only one revision per name.</p>
+ *          </note>
+ */
+export interface VpcConnector {
+  /**
+   * <p>The customer-provided VPC connector name.</p>
+   */
+  VpcConnectorName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of this VPC connector.</p>
+   */
+  VpcConnectorArn?: string;
+
+  /**
+   * <p>The revision of this VPC connector. It's unique among all the active connectors (<code>"Status": "ACTIVE"</code>) that share the same
+   *       <code>Name</code>.</p>
+   *          <note>
+   *             <p>At this time, App Runner supports only one revision per name.</p>
+   *          </note>
+   */
+  VpcConnectorRevision?: number;
+
+  /**
+   * <p>A list of IDs of subnets that App Runner uses for your service. All IDs are of subnets of a single Amazon VPC.</p>
+   */
+  Subnets?: string[];
+
+  /**
+   * <p>A list of IDs of security groups that App Runner uses for access to Amazon Web Services resources under the specified subnets. If not specified, App Runner uses the default
+   *       security group of the Amazon VPC. The default security group allows all outbound traffic.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The current state of the VPC connector. If the status of a connector revision is <code>INACTIVE</code>, it was deleted and can't be
+   *       used. Inactive connector revisions are permanently removed some time after they are deleted.</p>
+   */
+  Status?: VpcConnectorStatus | string;
+
+  /**
+   * <p>The time when the VPC connector was created. It's in Unix time stamp format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>The time when the VPC connector was deleted. It's in Unix time stamp format.</p>
+   */
+  DeletedAt?: Date;
+}
+
+export namespace VpcConnector {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcConnector): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVpcConnectorResponse {
+  /**
+   * <p>A description of the App Runner VPC connector that's created by this request.</p>
+   */
+  VpcConnector: VpcConnector | undefined;
+}
+
+export namespace CreateVpcConnectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcConnectorResponse): any => ({
+    ...obj,
   });
 }
 
@@ -1184,6 +1373,39 @@ export namespace DeleteServiceResponse {
   export const filterSensitiveLog = (obj: DeleteServiceResponse): any => ({
     ...obj,
     ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
+  });
+}
+
+export interface DeleteVpcConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to delete.</p>
+   *          <p>The ARN must be a full VPC connector ARN.</p>
+   */
+  VpcConnectorArn: string | undefined;
+}
+
+export namespace DeleteVpcConnectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVpcConnectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteVpcConnectorResponse {
+  /**
+   * <p>A description of the App Runner VPC connector that this request just deleted.</p>
+   */
+  VpcConnector: VpcConnector | undefined;
+}
+
+export namespace DeleteVpcConnectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteVpcConnectorResponse): any => ({
+    ...obj,
   });
 }
 
@@ -1315,6 +1537,39 @@ export namespace DescribeServiceResponse {
   export const filterSensitiveLog = (obj: DescribeServiceResponse): any => ({
     ...obj,
     ...(obj.Service && { Service: Service.filterSensitiveLog(obj.Service) }),
+  });
+}
+
+export interface DescribeVpcConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the App Runner VPC connector that you want a description for.</p>
+   *          <p>The ARN must be a full VPC connector ARN.</p>
+   */
+  VpcConnectorArn: string | undefined;
+}
+
+export namespace DescribeVpcConnectorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcConnectorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVpcConnectorResponse {
+  /**
+   * <p>A description of the App Runner VPC connector that you specified in this request.</p>
+   */
+  VpcConnector: VpcConnector | undefined;
+}
+
+export namespace DescribeVpcConnectorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVpcConnectorResponse): any => ({
+    ...obj,
   });
 }
 
@@ -1774,6 +2029,52 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface ListVpcConnectorsRequest {
+  /**
+   * <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>
+   *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be
+   *       identical to the ones that are specified in the initial request.</p>
+   *          <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListVpcConnectorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListVpcConnectorsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListVpcConnectorsResponse {
+  /**
+   * <p>A list of information records for VPC connectors. In a paginated request, the request returns up to <code>MaxResults</code> records for each
+   *       call.</p>
+   */
+  VpcConnectors: VpcConnector[] | undefined;
+
+  /**
+   * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListVpcConnectorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListVpcConnectorsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface PauseServiceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the App Runner service that you want to pause.</p>
@@ -1973,14 +2274,19 @@ export interface UpdateServiceRequest {
   InstanceConfiguration?: InstanceConfiguration;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with your service.</p>
+   * <p>The Amazon Resource Name (ARN) of an App Runner automatic scaling configuration resource that you want to associate with the App Runner service.</p>
    */
   AutoScalingConfigurationArn?: string;
 
   /**
-   * <p>The settings for the health check that App Runner performs to monitor the health of your service.</p>
+   * <p>The settings for the health check that App Runner performs to monitor the health of the App Runner service.</p>
    */
   HealthCheckConfiguration?: HealthCheckConfiguration;
+
+  /**
+   * <p>Configuration settings related to network traffic of the web application that the App Runner service runs.</p>
+   */
+  NetworkConfiguration?: NetworkConfiguration;
 }
 
 export namespace UpdateServiceRequest {

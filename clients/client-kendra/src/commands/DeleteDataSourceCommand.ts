@@ -25,7 +25,7 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the
  *       data source is already being deleted. While the data source is being
  *       deleted, the <code>Status</code> field returned by a call to the
- *         <code>DescribeDataSource</code> operation is set to
+ *         <code>DescribeDataSource</code> API is set to
  *         <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

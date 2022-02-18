@@ -23,9 +23,9 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
 
 /**
  * <p>Adds one or more documents to an index.</p>
- *          <p>The <code>BatchPutDocument</code> operation enables you to ingest
+ *          <p>The <code>BatchPutDocument</code> API enables you to ingest
  *       inline documents or a set of documents stored in an Amazon S3 bucket. Use
- *       this operation to ingest your text and unstructured text into an index,
+ *       this API to ingest your text and unstructured text into an index,
  *       add custom attributes to the documents, and to attach an access control
  *       list to the documents added to the index.</p>
  *          <p>The documents are indexed asynchronously. You can see the progress of

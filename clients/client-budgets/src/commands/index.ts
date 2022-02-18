@@ -11,6 +11,7 @@ export * from "./DescribeBudgetActionHistoriesCommand";
 export * from "./DescribeBudgetActionsForAccountCommand";
 export * from "./DescribeBudgetActionsForBudgetCommand";
 export * from "./DescribeBudgetCommand";
+export * from "./DescribeBudgetNotificationsForAccountCommand";
 export * from "./DescribeBudgetPerformanceHistoryCommand";
 export * from "./DescribeBudgetsCommand";
 export * from "./DescribeNotificationsForBudgetCommand";

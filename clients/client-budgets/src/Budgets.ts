@@ -67,6 +67,11 @@ import {
   DescribeBudgetCommandOutput,
 } from "./commands/DescribeBudgetCommand";
 import {
+  DescribeBudgetNotificationsForAccountCommand,
+  DescribeBudgetNotificationsForAccountCommandInput,
+  DescribeBudgetNotificationsForAccountCommandOutput,
+} from "./commands/DescribeBudgetNotificationsForAccountCommand";
+import {
   DescribeBudgetPerformanceHistoryCommand,
   DescribeBudgetPerformanceHistoryCommandInput,
   DescribeBudgetPerformanceHistoryCommandOutput,
@@ -113,7 +118,7 @@ import {
 } from "./commands/UpdateSubscriberCommand";
 
 /**
- * <p>The AWS Budgets API enables you to use AWS Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for AWS Budgets. </p>
+ * <p>The Amazon Web Services Budgets API enables you to use Amazon Web Services Budgets to plan your service usage, service costs, and instance reservations. The API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Amazon Web Services Budgets. </p>
  * 		       <p>Budgets provide you with a way to see the following information:</p>
  * 		       <ul>
  *             <li>
@@ -123,13 +128,13 @@ import {
  * 				           <p>Your usage-to-date, including how much you've used of your Reserved Instances (RIs)</p>
  * 			         </li>
  *             <li>
- * 				           <p>Your current estimated charges from AWS, and how much your predicted usage will accrue in charges by the end of the month</p>
+ * 				           <p>Your current estimated charges from Amazon Web Services, and how much your predicted usage will accrue in charges by the end of the month</p>
  * 			         </li>
  *             <li>
  * 				           <p>How much of your budget has been used</p>
  * 			         </li>
  *          </ul>
- * 		       <p>AWS updates your budget status several times a day. Budgets track your unblended costs, subscriptions, refunds, and RIs. You can create the following types of budgets:</p>
+ * 		       <p>Amazon Web Services updates your budget status several times a day. Budgets track your unblended costs, subscriptions, refunds, and RIs. You can create the following types of budgets:</p>
  * 		       <ul>
  *             <li>
  * 				           <p>
@@ -149,13 +154,13 @@ import {
  * 			         </li>
  *          </ul>
  * 		       <p>Service Endpoint</p>
- * 		       <p>The AWS Budgets API provides the following endpoint:</p>
+ * 		       <p>The Amazon Web Services Budgets API provides the following endpoint:</p>
  * 		       <ul>
  *             <li>
  * 				           <p>https://budgets.amazonaws.com</p>
  * 			         </li>
  *          </ul>
- * 		       <p>For information about costs that are associated with the AWS Budgets API, see <a href="https://aws.amazon.com/aws-cost-management/pricing/">AWS Cost Management Pricing</a>.</p>
+ * 		       <p>For information about costs that are associated with the Amazon Web Services Budgets API, see <a href="https://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost Management Pricing</a>.</p>
  */
 export class Budgets extends BudgetsClient {
   /**
@@ -596,6 +601,42 @@ export class Budgets extends BudgetsClient {
   }
 
   /**
+   * <p>
+   * 			Lists the budget names and notifications that are associated with an account.
+   * 		</p>
+   */
+  public describeBudgetNotificationsForAccount(
+    args: DescribeBudgetNotificationsForAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBudgetNotificationsForAccountCommandOutput>;
+  public describeBudgetNotificationsForAccount(
+    args: DescribeBudgetNotificationsForAccountCommandInput,
+    cb: (err: any, data?: DescribeBudgetNotificationsForAccountCommandOutput) => void
+  ): void;
+  public describeBudgetNotificationsForAccount(
+    args: DescribeBudgetNotificationsForAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBudgetNotificationsForAccountCommandOutput) => void
+  ): void;
+  public describeBudgetNotificationsForAccount(
+    args: DescribeBudgetNotificationsForAccountCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBudgetNotificationsForAccountCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBudgetNotificationsForAccountCommandOutput) => void
+  ): Promise<DescribeBudgetNotificationsForAccountCommandOutput> | void {
+    const command = new DescribeBudgetNotificationsForAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the history for <code>DAILY</code>, <code>MONTHLY</code>, and <code>QUARTERLY</code> budgets. Budget history isn't available for <code>ANNUAL</code> budgets.</p>
    */
   public describeBudgetPerformanceHistory(
@@ -761,7 +802,7 @@ export class Budgets extends BudgetsClient {
   }
 
   /**
-   * <p>Updates a budget. You can change every part of a budget except for the <code>budgetName</code> and the <code>calculatedSpend</code>. When you modify a budget, the <code>calculatedSpend</code> drops to zero until AWS has new usage data to use for forecasting.</p>
+   * <p>Updates a budget. You can change every part of a budget except for the <code>budgetName</code> and the <code>calculatedSpend</code>. When you modify a budget, the <code>calculatedSpend</code> drops to zero until Amazon Web Services has new usage data to use for forecasting.</p>
    * 		       <important>
    * 			         <p>Only one of <code>BudgetLimit</code> or <code>PlannedBudgetLimits</code> can be present in the syntax at one time. Use the syntax that matches your case. The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_UpdateBudget.html#API_UpdateBudget_Examples">Examples</a> section. </p>
    * 		       </important>
