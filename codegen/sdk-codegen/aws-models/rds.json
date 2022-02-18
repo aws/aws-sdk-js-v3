@@ -5503,6 +5503,12 @@
         },
         "TagList": {
           "target": "com.amazonaws.rds#TagList"
+        },
+        "SupportsBabelfish": {
+          "target": "com.amazonaws.rds#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that indicates whether the engine version supports Babelfish for Aurora PostgreSQL.</p>"
+          }
         }
       },
       "traits": {
@@ -9317,7 +9323,7 @@
         "Filters": {
           "target": "com.amazonaws.rds#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A filter that specifies one or more DB clusters to describe.</p>\n         <p>Supported filters:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>clone-group-id</code> - Accepts clone group identifiers. \n\t\t\t  The results list will only include information about\n              the DB clusters associated with these clone groups.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB \n              cluster Amazon Resource Names (ARNs). The results list will only include information about\n              the DB clusters identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>domain</code> - Accepts Active Directory directory IDs. \n              The results list will only include information about\n              the DB clusters associated with these domains.</p>\n            </li>\n            <li>\n               <p>\n                  <code>engine</code> - Accepts engine names. \n              The results list will only include information about\n              the DB clusters for these engines.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A filter that specifies one or more DB clusters to describe.</p>\n         <p>Supported filters:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>clone-group-id</code> - Accepts clone group identifiers. \n\t\t\t  The results list only includes information about\n              the DB clusters associated with these clone groups.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB \n              cluster Amazon Resource Names (ARNs). The results list only includes information about\n              the DB clusters identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>domain</code> - Accepts Active Directory directory IDs. \n              The results list only includes information about\n              the DB clusters associated with these domains.</p>\n            </li>\n            <li>\n               <p>\n                  <code>engine</code> - Accepts engine names. \n              The results list only includes information about\n              the DB clusters for these engines.</p>\n            </li>\n         </ul>"
           }
         },
         "MaxRecords": {
@@ -9385,7 +9391,7 @@
         "Filters": {
           "target": "com.amazonaws.rds#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>This parameter isn't currently supported.</p>"
+            "smithy.api#documentation": "<p>A filter that specifies one or more DB engine versions to describe.</p>\n         <p>Supported filters:</p>\n         <ul>\n            <li>\n              <p>\n                  <code>db-parameter-group-family</code> - Accepts parameter groups family names. \n                  The results list only includes information about\n                  the DB engine versions for these parameter group families.\n              </p>             \n            </li>\n            <li>\n              <p>\n                  <code>engine</code> - Accepts engine names. \n                  The results list only includes information about\n                  the DB engine versions for these engines.\n              </p>             \n            </li>\n            <li>\n              <p>\n                  <code>engine-mode</code> - Accepts DB engine modes. \n                  The results list only includes information about\n                  the DB engine versions for these engine modes. Valid \n                  DB engine modes are the following:\n              </p>\n              <ul>\n                  <li>\n                      <p>\n                        <code>global</code>\n                     </p>\n                  </li>\n                  <li>\n                      <p>\n                        <code>multimaster</code>\n                     </p>\n                  </li>\n                  <li>\n                      <p>\n                        <code>parallelquery</code>\n                     </p>\n                  </li>\n                  <li>\n                      <p>\n                        <code>provisioned</code>\n                     </p>\n                  </li>\n                  <li>\n                      <p>\n                        <code>serverless</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n              <p>\n                  <code>engine-version</code> - Accepts engine versions. \n                  The results list only includes information about\n                  the DB engine versions for these engine versions.\n              </p>\n            </li>\n            <li>\n              <p>\n                  <code>status</code> - Accepts engine version statuses. \n                  The results list only includes information about\n                  the DB engine versions for these statuses. Valid statuses \n                  are the following:\n              </p>\n              <ul>\n                  <li>\n                      <p>\n                        <code>available</code>\n                     </p>\n                  </li>\n                  <li>\n                      <p>\n                        <code>deprecated</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
           }
         },
         "MaxRecords": {
@@ -9657,7 +9663,7 @@
         "Filters": {
           "target": "com.amazonaws.rds#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A filter that specifies one or more DB instances to describe.</p>\n         <p>Supported filters:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB \n              cluster Amazon Resource Names (ARNs). The results list will only include information about \n              the DB instances associated with the DB clusters identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db-instance-id</code> - Accepts DB instance identifiers and DB \n              instance Amazon Resource Names (ARNs). The results list will only include information about\n              the DB instances identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list will \n              only include information about the DB instances identified by these DB instance resource identifiers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>domain</code> - Accepts Active Directory directory IDs. The results list will only \n              include information about the DB instances associated with these domains.</p>\n            </li>\n            <li>\n               <p>\n                  <code>engine</code> - Accepts engine names. The results list will only include information \n              about the DB instances for these engines.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A filter that specifies one or more DB instances to describe.</p>\n         <p>Supported filters:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB \n              cluster Amazon Resource Names (ARNs). The results list only includes information about \n              the DB instances associated with the DB clusters identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db-instance-id</code> - Accepts DB instance identifiers and DB \n              instance Amazon Resource Names (ARNs). The results list only includes information about\n              the DB instances identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>dbi-resource-id</code> - Accepts DB instance resource identifiers. The results list will \n              only include information about the DB instances identified by these DB instance resource identifiers.</p>\n            </li>\n            <li>\n               <p>\n                  <code>domain</code> - Accepts Active Directory directory IDs. The results list only includes \n              information about the DB instances associated with these domains.</p>\n            </li>\n            <li>\n               <p>\n                  <code>engine</code> - Accepts engine names. The results list only includes information \n              about the DB instances for these engines.</p>\n            </li>\n         </ul>"
           }
         },
         "MaxRecords": {
@@ -11279,7 +11285,7 @@
         "Filters": {
           "target": "com.amazonaws.rds#FilterList",
           "traits": {
-            "smithy.api#documentation": "<p>A filter that specifies one or more resources to return pending maintenance actions for.</p>\n         <p>Supported filters:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB \n              cluster Amazon Resource Names (ARNs). The results list will only include pending maintenance \n              actions for the DB clusters identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db-instance-id</code> - Accepts DB instance identifiers and DB \n            instance ARNs. The results list will only include pending maintenance \n            actions for the DB instances identified by these ARNs.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>A filter that specifies one or more resources to return pending maintenance actions for.</p>\n         <p>Supported filters:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB \n              cluster Amazon Resource Names (ARNs). The results list only includes pending maintenance \n              actions for the DB clusters identified by these ARNs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>db-instance-id</code> - Accepts DB instance identifiers and DB \n            instance ARNs. The results list only includes pending maintenance \n            actions for the DB instances identified by these ARNs.</p>\n            </li>\n         </ul>"
           }
         },
         "Marker": {
@@ -13962,7 +13968,7 @@
         "DBInstanceParameterGroupName": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the DB parameter group to apply to all instances of the DB cluster. </p>\n         <note>\n            <p>When you apply a parameter group using the <code>DBInstanceParameterGroupName</code> parameter, the DB\n                cluster isn't rebooted automatically. Also, parameter changes aren't\n                applied during the next maintenance window but instead are applied immediately.</p>\n         </note>  \n         <p>Default: The existing name setting</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>The DB parameter group must be in the same DB parameter group family as this DB cluster.</p>\n            </li>\n            <li>\n               <p>The <code>DBInstanceParameterGroupName</code> parameter is only valid in combination with \n              the <code>AllowMajorVersionUpgrade</code> parameter.</p>\n            </li>\n         </ul>\n         <p>Valid for: Aurora DB clusters only</p>"
+            "smithy.api#documentation": "<p>The name of the DB parameter group to apply to all instances of the DB cluster. </p>\n         <note>\n            <p>When you apply a parameter group using the <code>DBInstanceParameterGroupName</code> parameter, the DB\n          cluster isn't rebooted automatically. Also, parameter changes are applied immediately rather than \n             during the next maintenance window.</p>\n         </note>  \n         <p>Default: The existing name setting</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>The DB parameter group must be in the same DB parameter group family as this DB cluster.</p>\n            </li>\n            <li>\n               <p>The <code>DBInstanceParameterGroupName</code> parameter is valid in combination with the\n              <code>AllowMajorVersionUpgrade</code> parameter for a major version upgrade only.</p>\n            </li>\n         </ul>\n         <p>Valid for: Aurora DB clusters only</p>"
           }
         },
         "Domain": {
@@ -17985,7 +17991,7 @@
         "DBClusterInstanceClass": {
           "target": "com.amazonaws.rds#String",
           "traits": {
-            "smithy.api#documentation": "<p>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.\n            Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>      \n        <p>For the full list of DB instance classes, and availability for your engine, see\n            <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>\n        </p>\n        <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>"
+            "smithy.api#documentation": "<p>The compute and memory capacity of the each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge.\n            Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.</p>      \n        <p>For the full list of DB instance classes, and availability for your engine, see\n            <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html\">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>\n        </p>\n        <p>Valid for: Multi-AZ DB clusters only</p>"
           }
         },
         "StorageType": {
@@ -20590,6 +20596,12 @@
           "target": "com.amazonaws.rds#BooleanOptional",
           "traits": {
             "smithy.api#documentation": "<p>A value that indicates whether you can use Aurora global databases with the target engine version.</p>"
+          }
+        },
+        "SupportsBabelfish": {
+          "target": "com.amazonaws.rds#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that indicates whether you can use Babelfish for Aurora PostgreSQL with the target engine version.</p>"
           }
         }
       },

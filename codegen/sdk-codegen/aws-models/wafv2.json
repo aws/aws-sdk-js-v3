@@ -97,6 +97,9 @@
           "target": "com.amazonaws.wafv2#DisassociateWebACL"
         },
         {
+          "target": "com.amazonaws.wafv2#GenerateMobileSdkReleaseUrl"
+        },
+        {
           "target": "com.amazonaws.wafv2#GetIPSet"
         },
         {
@@ -104,6 +107,9 @@
         },
         {
           "target": "com.amazonaws.wafv2#GetManagedRuleSet"
+        },
+        {
+          "target": "com.amazonaws.wafv2#GetMobileSdkRelease"
         },
         {
           "target": "com.amazonaws.wafv2#GetPermissionPolicy"
@@ -140,6 +146,9 @@
         },
         {
           "target": "com.amazonaws.wafv2#ListManagedRuleSets"
+        },
+        {
+          "target": "com.amazonaws.wafv2#ListMobileSdkReleases"
         },
         {
           "target": "com.amazonaws.wafv2#ListRegexPatternSets"
@@ -2805,6 +2814,9 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.wafv2#DownloadUrl": {
+      "type": "string"
+    },
     "com.amazonaws.wafv2#EntityDescription": {
       "type": "string",
       "traits": {
@@ -2890,6 +2902,16 @@
             "name": "NO_MATCH"
           }
         ]
+      }
+    },
+    "com.amazonaws.wafv2#FieldIdentifier": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 512
+        },
+        "smithy.api#pattern": "\\S"
       }
     },
     "com.amazonaws.wafv2#FieldToMatch": {
@@ -3148,6 +3170,62 @@
         ]
       }
     },
+    "com.amazonaws.wafv2#GenerateMobileSdkReleaseUrl": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wafv2#GenerateMobileSdkReleaseUrlRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wafv2#GenerateMobileSdkReleaseUrlResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wafv2#WAFInternalErrorException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFInvalidOperationException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFInvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFNonexistentItemException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Generates a presigned download URL for the specified release of the mobile SDK.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#GenerateMobileSdkReleaseUrlRequest": {
+      "type": "structure",
+      "members": {
+        "Platform": {
+          "target": "com.amazonaws.wafv2#Platform",
+          "traits": {
+            "smithy.api#documentation": "<p>The device platform.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReleaseVersion": {
+          "target": "com.amazonaws.wafv2#VersionKeyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The release version. For the latest available version, specify <code>LATEST</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.wafv2#GenerateMobileSdkReleaseUrlResponse": {
+      "type": "structure",
+      "members": {
+        "Url": {
+          "target": "com.amazonaws.wafv2#DownloadUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The presigned download URL for the specified SDK release.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.wafv2#GeoMatchStatement": {
       "type": "structure",
       "members": {
@@ -3351,6 +3429,62 @@
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.wafv2#GetMobileSdkRelease": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wafv2#GetMobileSdkReleaseRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wafv2#GetMobileSdkReleaseResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wafv2#WAFInternalErrorException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFInvalidOperationException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFInvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFNonexistentItemException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves information for the specified mobile SDK release, including release notes and tags.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#GetMobileSdkReleaseRequest": {
+      "type": "structure",
+      "members": {
+        "Platform": {
+          "target": "com.amazonaws.wafv2#Platform",
+          "traits": {
+            "smithy.api#documentation": "<p>The device platform.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReleaseVersion": {
+          "target": "com.amazonaws.wafv2#VersionKeyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The release version. For the latest available version, specify <code>LATEST</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.wafv2#GetMobileSdkReleaseResponse": {
+      "type": "structure",
+      "members": {
+        "MobileSdkRelease": {
+          "target": "com.amazonaws.wafv2#MobileSdkRelease",
+          "traits": {
+            "smithy.api#documentation": "<p>Information for a specified SDK release, including release notes and tags.</p>"
           }
         }
       }
@@ -3827,6 +3961,12 @@
           "target": "com.amazonaws.wafv2#LockToken",
           "traits": {
             "smithy.api#documentation": "<p>A token used for optimistic locking. WAF returns a token to your <code>get</code> and <code>list</code> requests, to mark the state of the entity at the time of the request. To make changes to the entity associated with the token, you provide the token to operations like <code>update</code> and <code>delete</code>. WAF uses the token to ensure that no changes have been made to the entity since you last retrieved it. If a change has been made, the update fails with a <code>WAFOptimisticLockException</code>. If this happens, perform another <code>get</code>, and use the new token returned by that operation. </p>"
+          }
+        },
+        "ApplicationIntegrationURL": {
+          "target": "com.amazonaws.wafv2#OutputUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL to use in SDK integrations with Amazon Web Services managed rule groups. For example, you can use the integration SDKs with the account takeover prevention managed rule group <code>AWSManagedRulesATPRuleSet</code>. This is only populated if you are using a rule group in your web ACL that integrates with your applications in this way. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/waf-application-integration.html\">WAF application integration</a> in the <i>WAF Developer Guide</i>.</p>"
           }
         }
       }
@@ -4649,6 +4789,70 @@
         }
       }
     },
+    "com.amazonaws.wafv2#ListMobileSdkReleases": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.wafv2#ListMobileSdkReleasesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.wafv2#ListMobileSdkReleasesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.wafv2#WAFInternalErrorException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFInvalidOperationException"
+        },
+        {
+          "target": "com.amazonaws.wafv2#WAFInvalidParameterException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves a list of the available releases for the mobile SDK and the specified device platform. </p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#ListMobileSdkReleasesRequest": {
+      "type": "structure",
+      "members": {
+        "Platform": {
+          "target": "com.amazonaws.wafv2#Platform",
+          "traits": {
+            "smithy.api#documentation": "<p>The device platform to retrieve the list for.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.wafv2#NextMarker",
+          "traits": {
+            "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.wafv2#PaginationLimit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of objects that you want WAF to return for this request. If more \n          objects are available, in the response, WAF provides a \n         <code>NextMarker</code> value that you can use in a subsequent call to get the next batch of objects.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.wafv2#ListMobileSdkReleasesResponse": {
+      "type": "structure",
+      "members": {
+        "ReleaseSummaries": {
+          "target": "com.amazonaws.wafv2#ReleaseSummaries",
+          "traits": {
+            "smithy.api#documentation": "<p>High level information for the available SDK releases. </p>"
+          }
+        },
+        "NextMarker": {
+          "target": "com.amazonaws.wafv2#NextMarker",
+          "traits": {
+            "smithy.api#documentation": "<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available\n         for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> \n         value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.wafv2#ListRegexPatternSets": {
       "type": "operation",
       "input": {
@@ -5059,6 +5263,59 @@
         "smithy.api#documentation": "<p>Filtering that specifies which web requests are kept in the logs and which are dropped,\n         defined for a web ACL's <a>LoggingConfiguration</a>. </p>\n         <p>You can filter on the rule action and on the web request labels that were applied by\n         matching rules during web ACL evaluation. </p>"
       }
     },
+    "com.amazonaws.wafv2#LoginPathString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "\\S"
+      }
+    },
+    "com.amazonaws.wafv2#ManagedRuleGroupConfig": {
+      "type": "structure",
+      "members": {
+        "LoginPath": {
+          "target": "com.amazonaws.wafv2#LoginPathString",
+          "traits": {
+            "smithy.api#documentation": "<p>The login endpoint for your application. For example <code>https://example.com/web/login</code>.</p>"
+          }
+        },
+        "PayloadType": {
+          "target": "com.amazonaws.wafv2#PayloadType",
+          "traits": {
+            "smithy.api#documentation": "<p>The payload type for your login endpoint, either JSON or form encoded.</p>"
+          }
+        },
+        "UsernameField": {
+          "target": "com.amazonaws.wafv2#UsernameField",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about your login page username field. </p>"
+          }
+        },
+        "PasswordField": {
+          "target": "com.amazonaws.wafv2#PasswordField",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about your login page password field. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>\n         <p>Use this for the account takeover prevention managed rule group \n      <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#ManagedRuleGroupConfigs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wafv2#ManagedRuleGroupConfig"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
     "com.amazonaws.wafv2#ManagedRuleGroupStatement": {
       "type": "structure",
       "members": {
@@ -5092,6 +5349,12 @@
           "target": "com.amazonaws.wafv2#Statement",
           "traits": {
             "smithy.api#documentation": "<p>An optional nested statement that narrows the scope of the web requests that are\n         evaluated by the managed rule group. Requests are only evaluated by the rule group if they\n         match the scope-down statement. You can use any nestable <a>Statement</a> in the\n         scope-down statement, and you can nest statements at any level, the same as you can for a\n         rule statement. </p>"
+          }
+        },
+        "ManagedRuleGroupConfigs": {
+          "target": "com.amazonaws.wafv2#ManagedRuleGroupConfigs",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional information that's used by a managed rule group. Most managed rule groups don't require this.</p>\n         <p>Use this for the account takeover prevention managed rule group \n      <code>AWSManagedRulesATPRuleSet</code>, to provide information about the sign-in page of your application. </p>"
           }
         }
       },
@@ -5321,6 +5584,38 @@
         "smithy.api#pattern": "^[\\w#:\\.\\-/]+$"
       }
     },
+    "com.amazonaws.wafv2#MobileSdkRelease": {
+      "type": "structure",
+      "members": {
+        "ReleaseVersion": {
+          "target": "com.amazonaws.wafv2#VersionKeyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The release version. </p>"
+          }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.wafv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of the release. </p>"
+          }
+        },
+        "ReleaseNotes": {
+          "target": "com.amazonaws.wafv2#ReleaseNotes",
+          "traits": {
+            "smithy.api#documentation": "<p>Notes describing the release.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.wafv2#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>Tags that are associated with the release. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information for a release of the mobile SDK, including release notes and tags.</p>\n         <p>The mobile SDK is not generally available. Customers who have access to the mobile SDK can use it to establish and manage Security Token Service (STS) security tokens for use in HTTP(S) requests from a mobile device to WAF. </p>"
+      }
+    },
     "com.amazonaws.wafv2#NextMarker": {
       "type": "string",
       "traits": {
@@ -5367,6 +5662,9 @@
       "traits": {
         "smithy.api#documentation": "<p>A logical rule statement used to combine other rule statements with OR logic. You provide more than one <a>Statement</a> within the <code>OrStatement</code>. </p>"
       }
+    },
+    "com.amazonaws.wafv2#OutputUrl": {
+      "type": "string"
     },
     "com.amazonaws.wafv2#OverrideAction": {
       "type": "structure",
@@ -5629,6 +5927,14 @@
           {
             "value": "LOG_DESTINATION",
             "name": "LOG_DESTINATION"
+          },
+          {
+            "value": "MANAGED_RULE_GROUP_CONFIG",
+            "name": "MANAGED_RULE_GROUP_CONFIG"
+          },
+          {
+            "value": "PAYLOAD_TYPE",
+            "name": "PAYLOAD_TYPE"
           }
         ]
       }
@@ -5639,6 +5945,51 @@
         "smithy.api#length": {
           "min": 1
         }
+      }
+    },
+    "com.amazonaws.wafv2#PasswordField": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.wafv2#FieldIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the password field. For example <code>/form/password</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about your login page password field, used in a <code>ManagedRuleGroupConfig</code>. </p>"
+      }
+    },
+    "com.amazonaws.wafv2#PayloadType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "JSON",
+            "name": "JSON"
+          },
+          {
+            "value": "FORM_ENCODED",
+            "name": "FORM_ENCODED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.wafv2#Platform": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "IOS",
+            "name": "IOS"
+          },
+          {
+            "value": "ANDROID",
+            "name": "ANDROID"
+          }
+        ]
       }
     },
     "com.amazonaws.wafv2#PolicyString": {
@@ -6150,6 +6501,35 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.wafv2#Regex"
+      }
+    },
+    "com.amazonaws.wafv2#ReleaseNotes": {
+      "type": "string"
+    },
+    "com.amazonaws.wafv2#ReleaseSummaries": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.wafv2#ReleaseSummary"
+      }
+    },
+    "com.amazonaws.wafv2#ReleaseSummary": {
+      "type": "structure",
+      "members": {
+        "ReleaseVersion": {
+          "target": "com.amazonaws.wafv2#VersionKeyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The release version. </p>"
+          }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.wafv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp of the release. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>High level information for an SDK release. </p>"
       }
     },
     "com.amazonaws.wafv2#ResourceArn": {
@@ -7716,6 +8096,21 @@
         "smithy.api#documentation": "<p>The path component of the URI of a web request. This is the part of a web request that identifies a resource. For example, <code>/images/daily-ad.jpg</code>.</p>\n         <p>This is used only to indicate the web request component for WAF to inspect, in the <a>FieldToMatch</a> specification. </p> \n         <p>JSON specification: <code>\"UriPath\": {}</code>\n         </p>"
       }
     },
+    "com.amazonaws.wafv2#UsernameField": {
+      "type": "structure",
+      "members": {
+        "Identifier": {
+          "target": "com.amazonaws.wafv2#FieldIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the username field. For example <code>/form/username</code>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about your login page username field, used in a <code>ManagedRuleGroupConfig</code>. </p>"
+      }
+    },
     "com.amazonaws.wafv2#VendorName": {
       "type": "string",
       "traits": {
@@ -7928,7 +8323,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The operation failed because you don't have the permissions that your logging configuration requires. For information, see \n           <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/logging.html\">Logging web ACL traffic information</a> \n               in the <i>WAF Developer Guide</i>.</p>",
+        "smithy.api#documentation": "<p>The operation failed because you don't have the permissions that your logging configuration requires. For information, see\n           <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/logging.html\">Logging web ACL traffic information</a>\n               in the <i>WAF Developer Guide</i>.</p>",
         "smithy.api#error": "client"
       }
     },

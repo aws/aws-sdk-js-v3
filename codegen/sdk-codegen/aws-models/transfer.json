@@ -310,6 +310,12 @@
             "smithy.api#documentation": "<p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn\n      on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in\n      your CloudWatch logs.</p>"
           }
         },
+        "PostAuthenticationLoginBanner": {
+          "target": "com.amazonaws.transfer#PostAuthenticationLoginBanner"
+        },
+        "PreAuthenticationLoginBanner": {
+          "target": "com.amazonaws.transfer#PreAuthenticationLoginBanner"
+        },
         "Protocols": {
           "target": "com.amazonaws.transfer#Protocols",
           "traits": {
@@ -1384,6 +1390,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn\n      on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in\n      your CloudWatch logs.</p>"
           }
+        },
+        "PostAuthenticationLoginBanner": {
+          "target": "com.amazonaws.transfer#PostAuthenticationLoginBanner"
+        },
+        "PreAuthenticationLoginBanner": {
+          "target": "com.amazonaws.transfer#PreAuthenticationLoginBanner"
         },
         "Protocols": {
           "target": "com.amazonaws.transfer#Protocols",
@@ -3036,6 +3048,26 @@
         "smithy.api#documentation": "<p>The full POSIX identity, including user ID (<code>Uid</code>), group ID\n      (<code>Gid</code>), and any secondary groups IDs (<code>SecondaryGids</code>), that controls\n      your users' access to your Amazon EFS file systems. The POSIX permissions that are set on\n      files and directories in your file system determine the level of access your users get when\n      transferring files into and out of your Amazon EFS file systems.</p>"
       }
     },
+    "com.amazonaws.transfer#PostAuthenticationLoginBanner": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\x09-\\x0D\\x20-\\x7E]*$"
+      }
+    },
+    "com.amazonaws.transfer#PreAuthenticationLoginBanner": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^[\\x09-\\x0D\\x20-\\x7E]*$"
+      }
+    },
     "com.amazonaws.transfer#Protocol": {
       "type": "string",
       "traits": {
@@ -4296,6 +4328,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that allows a server to turn\n      on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, user activity can be viewed in\n      your CloudWatch logs.</p>"
           }
+        },
+        "PostAuthenticationLoginBanner": {
+          "target": "com.amazonaws.transfer#PostAuthenticationLoginBanner"
+        },
+        "PreAuthenticationLoginBanner": {
+          "target": "com.amazonaws.transfer#PreAuthenticationLoginBanner"
         },
         "Protocols": {
           "target": "com.amazonaws.transfer#Protocols",

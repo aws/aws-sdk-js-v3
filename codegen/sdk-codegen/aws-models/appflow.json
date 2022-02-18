@@ -3178,6 +3178,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The properties that are required to query the custom Connector.</p>"
           }
+        },
+        "SAPOData": {
+          "target": "com.amazonaws.appflow#SAPODataDestinationProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The properties required to query SAPOData.</p>"
+          }
         }
       },
       "traits": {
@@ -6126,6 +6132,36 @@
         "smithy.api#documentation": "<p> The connector-specific profile properties required when using SAPOData. </p>"
       }
     },
+    "com.amazonaws.appflow#SAPODataDestinationProperties": {
+      "type": "structure",
+      "members": {
+        "objectPath": {
+          "target": "com.amazonaws.appflow#Object",
+          "traits": {
+            "smithy.api#documentation": "<p>The object path specified in the SAPOData flow destination.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "successResponseHandlingConfig": {
+          "target": "com.amazonaws.appflow#SuccessResponseHandlingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Determines how Amazon AppFlow handles the success response that it gets\n      from the connector after placing data.</p>\n         <p>For example, this setting would determine where to write the response from a destination\n      connector upon a successful insert operation.</p>"
+          }
+        },
+        "idFieldNames": {
+          "target": "com.amazonaws.appflow#IdFieldNameList"
+        },
+        "errorHandlingConfig": {
+          "target": "com.amazonaws.appflow#ErrorHandlingConfig"
+        },
+        "writeOperationType": {
+          "target": "com.amazonaws.appflow#WriteOperationType"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The properties that are applied when using SAPOData as a flow destination</p>"
+      }
+    },
     "com.amazonaws.appflow#SAPODataMetadata": {
       "type": "structure",
       "members": {},
@@ -7440,6 +7476,26 @@
         "smithy.api#pattern": ".*"
       }
     },
+    "com.amazonaws.appflow#SuccessResponseHandlingConfig": {
+      "type": "structure",
+      "members": {
+        "bucketPrefix": {
+          "target": "com.amazonaws.appflow#BucketPrefix",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket prefix.</p>"
+          }
+        },
+        "bucketName": {
+          "target": "com.amazonaws.appflow#BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon S3 bucket.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Determines how Amazon AppFlow handles the success response that it gets\n      from the connector after placing data.</p>\n         <p>For example, this setting would determine\n      where to write the response from the destination connector upon a successful insert\n      operation.</p>"
+      }
+    },
     "com.amazonaws.appflow#SupportedApiVersion": {
       "type": "string",
       "traits": {
@@ -7664,6 +7720,10 @@
           {
             "value": "Merge",
             "name": "MERGE"
+          },
+          {
+            "value": "Passthrough",
+            "name": "PASSTHROUGH"
           },
           {
             "value": "Truncate",
