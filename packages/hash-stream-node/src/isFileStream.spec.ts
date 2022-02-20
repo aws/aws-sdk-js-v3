@@ -4,9 +4,16 @@ import { Readable } from "stream";
 import { isFileStream } from "./isFileStream";
 
 describe(isFileStream.name, () => {
-  it("returns true if readablestream is fs.ReadStream", () => {
-    const readStream = createReadStream(__filename);
-    expect(isFileStream(readStream)).toStrictEqual(true);
+  describe("returns true if readablestream is fs.ReadStream", () => {
+    it("with string path", () => {
+      const readStream = createReadStream(__filename);
+      expect(isFileStream(readStream)).toStrictEqual(true);
+    });
+
+    it("with buffer path", () => {
+      const readStream = createReadStream(Buffer.from(__filename, "utf-8"));
+      expect(isFileStream(readStream)).toStrictEqual(true);
+    });
   });
 
   it("returns false if readablestream is not an fs.ReadStream", () => {
