@@ -2,10 +2,12 @@ import { Hash } from "@aws-sdk/types";
 import { createReadStream } from "fs";
 import { Readable, Writable } from "stream";
 
+import { fsCreateReadStream } from "./fsCreateReadStream";
 import { HashCalculator } from "./HashCalculator";
 import { isFileStream } from "./isFileStream";
 import { readableStreamHasher } from "./readableStreamHasher";
 
+jest.mock("./fsCreateReadStream");
 jest.mock("./HashCalculator");
 jest.mock("./isFileStream");
 jest.mock("fs");
@@ -51,7 +53,7 @@ describe(readableStreamHasher.name, () => {
   });
 
   it("creates a copy in case of fileStream", () => {
-    (createReadStream as jest.Mock).mockReturnValue(
+    (fsCreateReadStream as jest.Mock).mockReturnValue(
       new Readable({
         read: (size) => {},
       })
@@ -62,10 +64,7 @@ describe(readableStreamHasher.name, () => {
     readableStreamHasher(mockHashCtor, fsReadStream);
 
     expect(isFileStream).toHaveBeenCalledWith(fsReadStream);
-    expect(createReadStream).toHaveBeenCalledWith(fsReadStream.path, {
-      start: (fsReadStream as any).start,
-      end: (fsReadStream as any).end,
-    });
+    expect(fsCreateReadStream).toHaveBeenCalledWith(fsReadStream);
   });
 
   it("computes hash for a readable stream", async () => {
