@@ -55,7 +55,9 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 public final class AddS3Config implements TypeScriptIntegration {
     private static final Logger LOGGER = Logger.getLogger(AddS3Config.class.getName());
 
-    private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
+    private static final Set<String> SSEC_INPUT_KEYS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
+
+    private static final Set<String> BUCKET_ENDPOINT_INPUT_KEYS = SetUtils.of("Bucket");
 
     private static final Set<String> NON_BUCKET_ENDPOINT_OPERATIONS = SetUtils.of(
         "CreateBucket",
@@ -178,14 +180,13 @@ public final class AddS3Config implements TypeScriptIntegration {
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS)
+                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_INPUT_KEYS)
                                             && testServiceId(s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
                                          HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket")
-                                            && testServiceId(s))
+                        .operationPredicate((m, s, o) -> o.getId().getName(s).equals("CreateBucket") && testServiceId(s))
                         .build(),
                  /**
                  * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
@@ -200,7 +201,8 @@ public final class AddS3Config implements TypeScriptIntegration {
                         .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
                                          HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName(s))
-                                            && testServiceId(s))
+                                            && testServiceId(s)
+                                            && testInputContainsMember(m, o, BUCKET_ENDPOINT_INPUT_KEYS))
                         .build()
         );
     }
