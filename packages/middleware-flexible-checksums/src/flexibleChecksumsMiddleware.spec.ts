@@ -53,7 +53,7 @@ describe(flexibleChecksumsMiddleware.name, () => {
     jest.clearAllMocks();
   });
 
-  describe("skips", () => {
+  describe("skips checksum computation", () => {
     it("if not an instance of HttpRequest", async () => {
       const { isInstance } = HttpRequest;
       (isInstance as unknown as jest.Mock).mockReturnValue(false);
