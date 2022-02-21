@@ -1,8 +1,6 @@
 import { Encoder, HashConstructor, StreamHasher } from "@aws-sdk/types";
 
-export interface FlexibleChecksumsInputConfig {}
-
-interface PreviouslyResolved {
+export interface PreviouslyResolved {
   /**
    * The function that will be used to convert binary data to a base64-encoded string.
    * @internal
@@ -33,9 +31,3 @@ interface PreviouslyResolved {
    */
   streamHasher: StreamHasher<any>;
 }
-
-export interface FlexibleChecksumsResolvedConfig extends PreviouslyResolved {}
-
-export const resolveFlexibleChecksumsConfig = <T>(
-  input: T & PreviouslyResolved & FlexibleChecksumsInputConfig
-): T & FlexibleChecksumsResolvedConfig => input;

@@ -7,20 +7,17 @@ import {
   MetadataBearer,
 } from "@aws-sdk/types";
 
+import { PreviouslyResolved } from "./configuration";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
-import { FlexibleChecksumsResolvedConfig } from "./resolveFlexibleChecksumsConfig";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
 export const flexibleChecksumsMiddleware =
-  (
-    config: FlexibleChecksumsResolvedConfig,
-    middlewareConfig: FlexibleChecksumsMiddlewareConfig
-  ): BuildMiddleware<any, any> =>
+  (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsMiddlewareConfig): BuildMiddleware<any, any> =>
   <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {

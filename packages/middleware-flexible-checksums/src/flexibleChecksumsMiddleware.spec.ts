@@ -1,6 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildHandlerArguments } from "@aws-sdk/types";
 
+import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 import { getChecksum } from "./getChecksum";
@@ -8,7 +9,6 @@ import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
-import { FlexibleChecksumsResolvedConfig } from "./resolveFlexibleChecksumsConfig";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
@@ -28,7 +28,7 @@ describe(flexibleChecksumsMiddleware.name, () => {
   const mockChecksumLocationName = "mock-checksum-location-name";
 
   const mockInput = {};
-  const mockConfig = {} as FlexibleChecksumsResolvedConfig;
+  const mockConfig = {} as PreviouslyResolved;
   const mockMiddlewareConfig = { input: mockInput } as FlexibleChecksumsMiddlewareConfig;
 
   const mockBody = {};

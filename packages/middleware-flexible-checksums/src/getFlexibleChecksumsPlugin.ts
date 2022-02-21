@@ -1,7 +1,7 @@
 import { BuildHandlerOptions, Pluggable } from "@aws-sdk/types";
 
+import { PreviouslyResolved } from "./configuration";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
-import { FlexibleChecksumsResolvedConfig } from "./resolveFlexibleChecksumsConfig";
 
 export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
   name: "flexibleChecksumsMiddleware",
@@ -40,7 +40,7 @@ export interface FlexibleChecksumsMiddlewareConfig {
 }
 
 export const getFlexibleChecksumsPlugin = (
-  config: FlexibleChecksumsResolvedConfig,
+  config: PreviouslyResolved,
   middlewareConfig: FlexibleChecksumsMiddlewareConfig
 ): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {

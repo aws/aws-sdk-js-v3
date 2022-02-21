@@ -1,10 +1,10 @@
 import { HttpResponse } from "@aws-sdk/protocol-http";
 
+import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
-import { FlexibleChecksumsResolvedConfig } from "./resolveFlexibleChecksumsConfig";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
@@ -17,7 +17,7 @@ describe(validateChecksumFromResponse.name, () => {
   const mockConfig = {
     streamHasher: jest.fn(),
     base64Encoder: jest.fn(),
-  } as unknown as FlexibleChecksumsResolvedConfig;
+  } as unknown as PreviouslyResolved;
 
   const mockBody = {};
   const mockHeaders = {};

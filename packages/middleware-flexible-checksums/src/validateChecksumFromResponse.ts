@@ -1,15 +1,15 @@
 import { HttpResponse } from "@aws-sdk/protocol-http";
 import { HashConstructor } from "@aws-sdk/types";
 
+import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";
-import { FlexibleChecksumsResolvedConfig } from "./resolveFlexibleChecksumsConfig";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 
 export interface ValidateChecksumFromResponseOptions {
-  config: FlexibleChecksumsResolvedConfig;
+  config: PreviouslyResolved;
 
   /**
    * Defines the checksum algorithms clients SHOULD look for when validating checksums
