@@ -130,31 +130,26 @@ describe("memoize", () => {
     });
 
     describe("when called with forceRefresh set to `true`", () => {
-      const isExpiredFalseTest = async (requiresRefresh?: any) => {
+      it("should reinvoke the underlying provider even if isExpired returns false", async () => {
         const memoized = memoize(provider, isExpired, requiresRefresh);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        for (const index in [...Array(repeatTimes).keys()]) {
-          expect(await memoized()).toEqual(mockReturn);
-        }
-
-        expect(isExpired).toHaveBeenCalledTimes(repeatTimes);
-        if (requiresRefresh) {
-          expect(requiresRefresh).toHaveBeenCalledTimes(repeatTimes);
-        }
-        expect(provider).toHaveBeenCalledTimes(repeatTimes + 1);
-      };
-
-      it("should reinvoke the underlying provider even if isExpired returns false", () => {
         isExpired.mockReturnValue(false);
+        for (const _ in [...Array(repeatTimes).keys()]) {
+          expect(await memoized({ forceRefresh: true })).toEqual(mockReturn);
+        }
+        expect(provider).toHaveBeenCalledTimes(repeatTimes);
       });
 
-      it("when requiresRefresh returns true", () => {
-        requiresRefresh.mockReturnValue(true);
-        return isExpiredTrueTest(requiresRefresh);
+      it("should reinvoke the underlying provider even if requiresRefresh returns false", async () => {
+        const memoized = memoize(provider, isExpired, requiresRefresh);
+        requiresRefresh.mockReturnValue(false);
+        for (const _ in [...Array(repeatTimes).keys()]) {
+          expect(await memoized({ forceRefresh: true })).toEqual(mockReturn);
+        }
+        expect(provider).toHaveBeenCalledTimes(repeatTimes);
       });
     });
 
-    describe("should return the same promise for invocations 2-infinity if `requiresRefresh` returns `false`", () => {
+    describe("when `requiresRefresh` returns `false`", () => {
       const requiresRefreshFalseTest = async () => {
         const memoized = memoize(provider, isExpired, requiresRefresh);
         const result = memoized();
@@ -169,13 +164,21 @@ describe("memoize", () => {
         expect(isExpired).not.toHaveBeenCalled();
       };
 
-      it("when isExpired returns true", () => {
+      it("should return the same promise for invocations 2-infinity if isExpired returns true", () => {
         return requiresRefreshFalseTest();
       });
 
-      it("when isExpired returns false", () => {
+      it("should return the same promise for invocations 2-infinity if isExpired returns false", () => {
         isExpired.mockReturnValue(false);
         return requiresRefreshFalseTest();
+      });
+
+      it("should re-evaluate `requiresRefresh` after force refresh", async () => {
+        const memoized = memoize(provider, isExpired, requiresRefresh);
+        for (const _ in [...Array(repeatTimes).keys()]) {
+          expect(await memoized({ forceRefresh: true })).toStrictEqual(mockReturn);
+        }
+        expect(requiresRefresh).toBeCalledTimes(repeatTimes);
       });
     });
 
