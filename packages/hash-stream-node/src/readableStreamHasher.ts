@@ -6,6 +6,7 @@ import { HashCalculator } from "./HashCalculator";
 import { isFileStream } from "./isFileStream";
 
 export const readableStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, readableStream: Readable) => {
+  // ToDo: create accurate copy if filestream is created from file descriptor.
   const streamToPipe = isFileStream(readableStream)
     ? createReadStream(readableStream.path, {
         start: (readableStream as any).start,

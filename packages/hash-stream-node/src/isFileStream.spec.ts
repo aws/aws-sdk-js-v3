@@ -14,6 +14,17 @@ describe(isFileStream.name, () => {
       const readStream = createReadStream(Buffer.from(__filename, "utf-8"));
       expect(isFileStream(readStream)).toStrictEqual(true);
     });
+
+    it("with filehandle", async () => {
+      const { promises } = await import("fs");
+      const fd = await promises.open(__filename, "r");
+      // @ts-expect-error createReadStream is added in v16.11.0
+      if (fd.createReadStream) {
+        // @ts-expect-error createReadStream is added in v16.11.0
+        const readStream = fd.createReadStream();
+        expect(isFileStream(readStream)).toStrictEqual(true);
+      }
+    });
   });
 
   it("returns false if readablestream is not an fs.ReadStream", () => {
