@@ -1583,7 +1583,7 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
 };
 
 const deserializeAws_json1_1AZList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1591,10 +1591,11 @@ const deserializeAws_json1_1AZList = (output: any, context: __SerdeContext): str
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ClientList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1602,6 +1603,7 @@ const deserializeAws_json1_1ClientList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CloudHsmInternalException = (
@@ -1743,7 +1745,7 @@ const deserializeAws_json1_1GetConfigResponse = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1HapgList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1751,10 +1753,11 @@ const deserializeAws_json1_1HapgList = (output: any, context: __SerdeContext): s
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1HsmList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1762,6 +1765,7 @@ const deserializeAws_json1_1HsmList = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
@@ -1853,7 +1857,7 @@ const deserializeAws_json1_1ModifyLunaClientResponse = (
 };
 
 const deserializeAws_json1_1PartitionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1861,10 +1865,11 @@ const deserializeAws_json1_1PartitionList = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PartitionSerialList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1872,6 +1877,7 @@ const deserializeAws_json1_1PartitionSerialList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
@@ -1891,7 +1897,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1899,6 +1905,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

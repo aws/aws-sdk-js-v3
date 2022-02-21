@@ -845,7 +845,7 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 };
 
 const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __SerdeContext): ApplicationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -853,6 +853,7 @@ const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __Se
       }
       return deserializeAws_restJson1ApplicationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {

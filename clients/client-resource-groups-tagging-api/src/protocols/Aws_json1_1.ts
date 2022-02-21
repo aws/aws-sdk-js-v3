@@ -1045,7 +1045,7 @@ const deserializeAws_json1_1ResourceTagMapping = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ResourceTagMappingList = (output: any, context: __SerdeContext): ResourceTagMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1053,6 +1053,7 @@ const deserializeAws_json1_1ResourceTagMappingList = (output: any, context: __Se
       }
       return deserializeAws_json1_1ResourceTagMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StartReportCreationOutput = (
@@ -1074,7 +1075,7 @@ const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Su
 };
 
 const deserializeAws_json1_1SummaryList = (output: any, context: __SerdeContext): Summary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1082,6 +1083,7 @@ const deserializeAws_json1_1SummaryList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Summary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -1092,7 +1094,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagKeyList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1100,10 +1102,11 @@ const deserializeAws_json1_1TagKeyList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1111,6 +1114,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourcesOutput = (output: any, context: __SerdeContext): TagResourcesOutput => {
@@ -1123,7 +1127,7 @@ const deserializeAws_json1_1TagResourcesOutput = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1TagValuesOutputList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1131,6 +1135,7 @@ const deserializeAws_json1_1TagValuesOutputList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {

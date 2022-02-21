@@ -2516,7 +2516,7 @@ const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1BatchPredictions = (output: any, context: __SerdeContext): BatchPrediction[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2524,6 +2524,7 @@ const deserializeAws_json1_1BatchPredictions = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1BatchPrediction(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CreateBatchPredictionOutput = (
@@ -2629,7 +2630,7 @@ const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1DataSources = (output: any, context: __SerdeContext): DataSource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2637,6 +2638,7 @@ const deserializeAws_json1_1DataSources = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1DataSource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeleteBatchPredictionOutput = (
@@ -2796,7 +2798,7 @@ const deserializeAws_json1_1Evaluation = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1Evaluations = (output: any, context: __SerdeContext): Evaluation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2804,6 +2806,7 @@ const deserializeAws_json1_1Evaluations = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Evaluation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetBatchPredictionOutput = (
@@ -3054,7 +3057,7 @@ const deserializeAws_json1_1MLModel = (output: any, context: __SerdeContext): ML
 };
 
 const deserializeAws_json1_1MLModels = (output: any, context: __SerdeContext): MLModel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3062,6 +3065,7 @@ const deserializeAws_json1_1MLModels = (output: any, context: __SerdeContext): M
       }
       return deserializeAws_json1_1MLModel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PerformanceMetrics = (output: any, context: __SerdeContext): PerformanceMetrics => {
@@ -3214,7 +3218,7 @@ const deserializeAws_json1_1TagLimitExceededException = (
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3222,6 +3226,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeContext): { [key: string]: string } => {

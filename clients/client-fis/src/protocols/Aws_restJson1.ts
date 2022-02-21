@@ -1763,7 +1763,7 @@ const deserializeAws_restJson1ActionSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1ActionSummaryList = (output: any, context: __SerdeContext): ActionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1771,6 +1771,7 @@ const deserializeAws_restJson1ActionSummaryList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1ActionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ActionTarget = (output: any, context: __SerdeContext): ActionTarget => {
@@ -1896,7 +1897,7 @@ const deserializeAws_restJson1ExperimentActionParameterMap = (
 };
 
 const deserializeAws_restJson1ExperimentActionStartAfterList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1904,6 +1905,7 @@ const deserializeAws_restJson1ExperimentActionStartAfterList = (output: any, con
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentActionState = (output: any, context: __SerdeContext): ExperimentActionState => {
@@ -1949,7 +1951,7 @@ const deserializeAws_restJson1ExperimentStopConditionList = (
   output: any,
   context: __SerdeContext
 ): ExperimentStopCondition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1957,6 +1959,7 @@ const deserializeAws_restJson1ExperimentStopConditionList = (
       }
       return deserializeAws_restJson1ExperimentStopCondition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentSummary = (output: any, context: __SerdeContext): ExperimentSummary => {
@@ -1979,7 +1982,7 @@ const deserializeAws_restJson1ExperimentSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1ExperimentSummaryList = (output: any, context: __SerdeContext): ExperimentSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1987,6 +1990,7 @@ const deserializeAws_restJson1ExperimentSummaryList = (output: any, context: __S
       }
       return deserializeAws_restJson1ExperimentSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTarget = (output: any, context: __SerdeContext): ExperimentTarget => {
@@ -2029,7 +2033,7 @@ const deserializeAws_restJson1ExperimentTargetFilterList = (
   output: any,
   context: __SerdeContext
 ): ExperimentTargetFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2037,10 +2041,11 @@ const deserializeAws_restJson1ExperimentTargetFilterList = (
       }
       return deserializeAws_restJson1ExperimentTargetFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTargetFilterValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2048,6 +2053,7 @@ const deserializeAws_restJson1ExperimentTargetFilterValues = (output: any, conte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTargetMap = (
@@ -2171,7 +2177,7 @@ const deserializeAws_restJson1ExperimentTemplateActionStartAfterList = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2179,6 +2185,7 @@ const deserializeAws_restJson1ExperimentTemplateActionStartAfterList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTemplateActionTargetMap = (
@@ -2210,7 +2217,7 @@ const deserializeAws_restJson1ExperimentTemplateStopConditionList = (
   output: any,
   context: __SerdeContext
 ): ExperimentTemplateStopCondition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2218,6 +2225,7 @@ const deserializeAws_restJson1ExperimentTemplateStopConditionList = (
       }
       return deserializeAws_restJson1ExperimentTemplateStopCondition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTemplateSummary = (
@@ -2246,7 +2254,7 @@ const deserializeAws_restJson1ExperimentTemplateSummaryList = (
   output: any,
   context: __SerdeContext
 ): ExperimentTemplateSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2254,6 +2262,7 @@ const deserializeAws_restJson1ExperimentTemplateSummaryList = (
       }
       return deserializeAws_restJson1ExperimentTemplateSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTemplateTarget = (
@@ -2299,7 +2308,7 @@ const deserializeAws_restJson1ExperimentTemplateTargetFilterList = (
   output: any,
   context: __SerdeContext
 ): ExperimentTemplateTargetFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2307,13 +2316,14 @@ const deserializeAws_restJson1ExperimentTemplateTargetFilterList = (
       }
       return deserializeAws_restJson1ExperimentTemplateTargetFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTemplateTargetFilterValues = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2321,6 +2331,7 @@ const deserializeAws_restJson1ExperimentTemplateTargetFilterValues = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ExperimentTemplateTargetMap = (
@@ -2357,7 +2368,7 @@ const deserializeAws_restJson1ExperimentTemplateTargetParameterMap = (
 };
 
 const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2365,6 +2376,7 @@ const deserializeAws_restJson1ResourceArnList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2432,7 +2444,7 @@ const deserializeAws_restJson1TargetResourceTypeSummaryList = (
   output: any,
   context: __SerdeContext
 ): TargetResourceTypeSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2440,6 +2452,7 @@ const deserializeAws_restJson1TargetResourceTypeSummaryList = (
       }
       return deserializeAws_restJson1TargetResourceTypeSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

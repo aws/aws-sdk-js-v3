@@ -1727,7 +1727,7 @@ const deserializeAws_restJson1PlacementSummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1PlacementSummaryList = (output: any, context: __SerdeContext): PlacementSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1735,6 +1735,7 @@ const deserializeAws_restJson1PlacementSummaryList = (output: any, context: __Se
       }
       return deserializeAws_restJson1PlacementSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PlacementTemplate = (output: any, context: __SerdeContext): PlacementTemplate => {
@@ -1794,7 +1795,7 @@ const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1ProjectSummaryList = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1802,6 +1803,7 @@ const deserializeAws_restJson1ProjectSummaryList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1ProjectSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

@@ -2121,7 +2121,7 @@ const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
   output: any,
   context: __SerdeContext
 ): (__PeriodTriggersElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2129,10 +2129,11 @@ const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2140,10 +2141,11 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfAssetShallow = (output: any, context: __SerdeContext): AssetShallow[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2151,10 +2153,11 @@ const deserializeAws_restJson1__listOfAssetShallow = (output: any, context: __Se
       }
       return deserializeAws_restJson1AssetShallow(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfDashManifest = (output: any, context: __SerdeContext): DashManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2162,10 +2165,11 @@ const deserializeAws_restJson1__listOfDashManifest = (output: any, context: __Se
       }
       return deserializeAws_restJson1DashManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfEgressEndpoint = (output: any, context: __SerdeContext): EgressEndpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2173,10 +2177,11 @@ const deserializeAws_restJson1__listOfEgressEndpoint = (output: any, context: __
       }
       return deserializeAws_restJson1EgressEndpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHlsManifest = (output: any, context: __SerdeContext): HlsManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2184,10 +2189,11 @@ const deserializeAws_restJson1__listOfHlsManifest = (output: any, context: __Ser
       }
       return deserializeAws_restJson1HlsManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfMssManifest = (output: any, context: __SerdeContext): MssManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2195,13 +2201,14 @@ const deserializeAws_restJson1__listOfMssManifest = (output: any, context: __Ser
       }
       return deserializeAws_restJson1MssManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPackagingConfiguration = (
   output: any,
   context: __SerdeContext
 ): PackagingConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2209,10 +2216,11 @@ const deserializeAws_restJson1__listOfPackagingConfiguration = (
       }
       return deserializeAws_restJson1PackagingConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfPackagingGroup = (output: any, context: __SerdeContext): PackagingGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2220,6 +2228,7 @@ const deserializeAws_restJson1__listOfPackagingGroup = (output: any, context: __
       }
       return deserializeAws_restJson1PackagingGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {

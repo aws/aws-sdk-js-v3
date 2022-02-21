@@ -1482,7 +1482,7 @@ const deserializeAws_json1_1AppliedTerminology = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1AppliedTerminologyList = (output: any, context: __SerdeContext): AppliedTerminology[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1490,6 +1490,7 @@ const deserializeAws_json1_1AppliedTerminologyList = (output: any, context: __Se
       }
       return deserializeAws_json1_1AppliedTerminology(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
@@ -1663,7 +1664,7 @@ const deserializeAws_json1_1JobDetails = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1LanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1671,6 +1672,7 @@ const deserializeAws_json1_1LanguageCodeStringList = (output: any, context: __Se
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -1789,7 +1791,7 @@ const deserializeAws_json1_1ParallelDataPropertiesList = (
   output: any,
   context: __SerdeContext
 ): ParallelDataProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1797,10 +1799,11 @@ const deserializeAws_json1_1ParallelDataPropertiesList = (
       }
       return deserializeAws_json1_1ParallelDataProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1808,6 +1811,7 @@ const deserializeAws_json1_1ResourceNameList = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
@@ -1849,7 +1853,7 @@ const deserializeAws_json1_1StopTextTranslationJobResponse = (
 };
 
 const deserializeAws_json1_1TargetLanguageCodeStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1857,6 +1861,7 @@ const deserializeAws_json1_1TargetLanguageCodeStringList = (output: any, context
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Term = (output: any, context: __SerdeContext): Term => {
@@ -1911,7 +1916,7 @@ const deserializeAws_json1_1TerminologyPropertiesList = (
   output: any,
   context: __SerdeContext
 ): TerminologyProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1919,10 +1924,11 @@ const deserializeAws_json1_1TerminologyPropertiesList = (
       }
       return deserializeAws_json1_1TerminologyProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TermList = (output: any, context: __SerdeContext): Term[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1930,6 +1936,7 @@ const deserializeAws_json1_1TermList = (output: any, context: __SerdeContext): T
       }
       return deserializeAws_json1_1Term(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TextSizeLimitExceededException = (
@@ -1995,7 +2002,7 @@ const deserializeAws_json1_1TextTranslationJobPropertiesList = (
   output: any,
   context: __SerdeContext
 ): TextTranslationJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2003,6 +2010,7 @@ const deserializeAws_json1_1TextTranslationJobPropertiesList = (
       }
       return deserializeAws_json1_1TextTranslationJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TooManyRequestsException = (

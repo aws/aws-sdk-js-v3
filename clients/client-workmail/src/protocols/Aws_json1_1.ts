@@ -6258,7 +6258,7 @@ const deserializeAws_json1_1AccessControlRule = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1AccessControlRuleNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6266,10 +6266,11 @@ const deserializeAws_json1_1AccessControlRuleNameList = (output: any, context: _
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AccessControlRulesList = (output: any, context: __SerdeContext): AccessControlRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6277,10 +6278,11 @@ const deserializeAws_json1_1AccessControlRulesList = (output: any, context: __Se
       }
       return deserializeAws_json1_1AccessControlRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ActionsList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6288,10 +6290,11 @@ const deserializeAws_json1_1ActionsList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Aliases = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6299,6 +6302,7 @@ const deserializeAws_json1_1Aliases = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AssociateDelegateToResourceResponse = (
@@ -6586,7 +6590,7 @@ const deserializeAws_json1_1DescribeUserResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1DeviceModelList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6594,10 +6598,11 @@ const deserializeAws_json1_1DeviceModelList = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeviceOperatingSystemList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6605,10 +6610,11 @@ const deserializeAws_json1_1DeviceOperatingSystemList = (output: any, context: _
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeviceTypeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6616,10 +6622,11 @@ const deserializeAws_json1_1DeviceTypeList = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeviceUserAgentList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6627,6 +6634,7 @@ const deserializeAws_json1_1DeviceUserAgentList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DirectoryInUseException = (
@@ -6679,7 +6687,7 @@ const deserializeAws_json1_1DnsRecord = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1DnsRecords = (output: any, context: __SerdeContext): DnsRecord[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6687,6 +6695,7 @@ const deserializeAws_json1_1DnsRecords = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1DnsRecord(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EmailAddressInUseException = (
@@ -6731,7 +6740,7 @@ const deserializeAws_json1_1FolderConfiguration = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1FolderConfigurations = (output: any, context: __SerdeContext): FolderConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6739,6 +6748,7 @@ const deserializeAws_json1_1FolderConfigurations = (output: any, context: __Serd
       }
       return deserializeAws_json1_1FolderConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetAccessControlEffectResponse = (
@@ -6843,7 +6853,7 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
 };
 
 const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Group[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6851,6 +6861,7 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
       }
       return deserializeAws_json1_1Group(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidConfigurationException = (
@@ -6890,7 +6901,7 @@ const deserializeAws_json1_1InvalidPasswordException = (
 };
 
 const deserializeAws_json1_1IpRangeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6898,10 +6909,11 @@ const deserializeAws_json1_1IpRangeList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Jobs = (output: any, context: __SerdeContext): MailboxExportJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6909,6 +6921,7 @@ const deserializeAws_json1_1Jobs = (output: any, context: __SerdeContext): Mailb
       }
       return deserializeAws_json1_1MailboxExportJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -7121,7 +7134,7 @@ const deserializeAws_json1_1MailDomainNotFoundException = (
 };
 
 const deserializeAws_json1_1MailDomains = (output: any, context: __SerdeContext): MailDomainSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7129,6 +7142,7 @@ const deserializeAws_json1_1MailDomains = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1MailDomainSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MailDomainStateException = (
@@ -7165,7 +7179,7 @@ const deserializeAws_json1_1Member = (output: any, context: __SerdeContext): Mem
 };
 
 const deserializeAws_json1_1Members = (output: any, context: __SerdeContext): Member[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7173,6 +7187,7 @@ const deserializeAws_json1_1Members = (output: any, context: __SerdeContext): Me
       }
       return deserializeAws_json1_1Member(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MobileDeviceAccessMatchedRule = (
@@ -7189,7 +7204,7 @@ const deserializeAws_json1_1MobileDeviceAccessMatchedRuleList = (
   output: any,
   context: __SerdeContext
 ): MobileDeviceAccessMatchedRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7197,6 +7212,7 @@ const deserializeAws_json1_1MobileDeviceAccessMatchedRuleList = (
       }
       return deserializeAws_json1_1MobileDeviceAccessMatchedRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MobileDeviceAccessOverride = (
@@ -7223,7 +7239,7 @@ const deserializeAws_json1_1MobileDeviceAccessOverridesList = (
   output: any,
   context: __SerdeContext
 ): MobileDeviceAccessOverride[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7231,6 +7247,7 @@ const deserializeAws_json1_1MobileDeviceAccessOverridesList = (
       }
       return deserializeAws_json1_1MobileDeviceAccessOverride(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MobileDeviceAccessRule = (output: any, context: __SerdeContext): MobileDeviceAccessRule => {
@@ -7286,7 +7303,7 @@ const deserializeAws_json1_1MobileDeviceAccessRulesList = (
   output: any,
   context: __SerdeContext
 ): MobileDeviceAccessRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7294,6 +7311,7 @@ const deserializeAws_json1_1MobileDeviceAccessRulesList = (
       }
       return deserializeAws_json1_1MobileDeviceAccessRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NameAvailabilityException = (
@@ -7324,7 +7342,7 @@ const deserializeAws_json1_1OrganizationStateException = (
 };
 
 const deserializeAws_json1_1OrganizationSummaries = (output: any, context: __SerdeContext): OrganizationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7332,6 +7350,7 @@ const deserializeAws_json1_1OrganizationSummaries = (output: any, context: __Ser
       }
       return deserializeAws_json1_1OrganizationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1OrganizationSummary = (output: any, context: __SerdeContext): OrganizationSummary => {
@@ -7356,7 +7375,7 @@ const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1Permissions = (output: any, context: __SerdeContext): Permission[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7364,10 +7383,11 @@ const deserializeAws_json1_1Permissions = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Permission(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PermissionValues = (output: any, context: __SerdeContext): (PermissionType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7375,6 +7395,7 @@ const deserializeAws_json1_1PermissionValues = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PutAccessControlRuleResponse = (
@@ -7462,7 +7483,7 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_json1_1ResourceDelegates = (output: any, context: __SerdeContext): Delegate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7470,6 +7491,7 @@ const deserializeAws_json1_1ResourceDelegates = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1Delegate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
@@ -7482,7 +7504,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 };
 
 const deserializeAws_json1_1Resources = (output: any, context: __SerdeContext): Resource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7490,6 +7512,7 @@ const deserializeAws_json1_1Resources = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Resource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StartMailboxExportJobResponse = (
@@ -7509,7 +7532,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7517,6 +7540,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -7594,7 +7618,7 @@ const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User 
 };
 
 const deserializeAws_json1_1UserIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7602,10 +7626,11 @@ const deserializeAws_json1_1UserIdList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7613,6 +7638,7 @@ const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): User
       }
       return deserializeAws_json1_1User(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

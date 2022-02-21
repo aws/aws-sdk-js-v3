@@ -1361,7 +1361,7 @@ const deserializeAws_json1_1KitchenSink = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ListOfKitchenSinks = (output: any, context: __SerdeContext): KitchenSink[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1369,10 +1369,11 @@ const deserializeAws_json1_1ListOfKitchenSinks = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1KitchenSink(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfListOfStrings = (output: any, context: __SerdeContext): string[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1380,13 +1381,14 @@ const deserializeAws_json1_1ListOfListOfStrings = (output: any, context: __Serde
       }
       return deserializeAws_json1_1ListOfStrings(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfMapsOfStrings = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string }[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1394,10 +1396,11 @@ const deserializeAws_json1_1ListOfMapsOfStrings = (
       }
       return deserializeAws_json1_1MapOfStrings(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfStrings = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1405,10 +1408,11 @@ const deserializeAws_json1_1ListOfStrings = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListOfStructs = (output: any, context: __SerdeContext): SimpleStruct[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1416,6 +1420,7 @@ const deserializeAws_json1_1ListOfStructs = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1SimpleStruct(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MapOfKitchenSinks = (
@@ -1601,7 +1606,7 @@ const deserializeAws_json1_1UnionInputOutput = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1609,6 +1614,7 @@ const deserializeAws_json1_1FooEnumList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FooEnumMap = (
@@ -1627,21 +1633,15 @@ const deserializeAws_json1_1FooEnumMap = (
 };
 
 const deserializeAws_json1_1FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  const uniqueValues = new Set<any>();
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = __expectString(entry) as any;
-      if (uniqueValues.has(parsedEntry)) {
-        throw new TypeError('All elements of the set "aws.protocoltests.shared#FooEnumSet" must be unique.');
-      } else {
-        uniqueValues.add(parsedEntry);
-        return parsedEntry;
-      }
+      return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
@@ -1651,12 +1651,13 @@ const deserializeAws_json1_1GreetingStruct = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1SparseStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => {
+  const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       return null as any;
     }
     return __expectString(entry) as any;
   });
+  return retVal;
 };
 
 const deserializeAws_json1_1SparseStringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -1672,7 +1673,7 @@ const deserializeAws_json1_1SparseStringMap = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1680,6 +1681,7 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

@@ -1930,7 +1930,7 @@ const deserializeAws_json1_1ProjectNotFoundException = (
 };
 
 const deserializeAws_json1_1ProjectsList = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1938,6 +1938,7 @@ const deserializeAws_json1_1ProjectsList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1ProjectSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ProjectStatus = (output: any, context: __SerdeContext): ProjectStatus => {
@@ -1961,7 +1962,7 @@ const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_json1_1ResourcesResult = (output: any, context: __SerdeContext): Resource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1969,6 +1970,7 @@ const deserializeAws_json1_1ResourcesResult = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1Resource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagProjectResult = (output: any, context: __SerdeContext): TagProjectResult => {
@@ -2017,7 +2019,7 @@ const deserializeAws_json1_1TeamMemberNotFoundException = (
 };
 
 const deserializeAws_json1_1TeamMemberResult = (output: any, context: __SerdeContext): TeamMember[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2025,6 +2027,7 @@ const deserializeAws_json1_1TeamMemberResult = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1TeamMember(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UntagProjectResult = (output: any, context: __SerdeContext): UntagProjectResult => {
@@ -2082,7 +2085,7 @@ const deserializeAws_json1_1UserProfileNotFoundException = (
 };
 
 const deserializeAws_json1_1UserProfilesList = (output: any, context: __SerdeContext): UserProfileSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2090,6 +2093,7 @@ const deserializeAws_json1_1UserProfilesList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1UserProfileSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UserProfileSummary = (output: any, context: __SerdeContext): UserProfileSummary => {

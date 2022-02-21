@@ -871,7 +871,7 @@ const deserializeAws_restJson1ResourceTag = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1ResourceTags = (output: any, context: __SerdeContext): ResourceTag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -879,6 +879,7 @@ const deserializeAws_restJson1ResourceTags = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1ResourceTag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RetentionPeriod = (output: any, context: __SerdeContext): RetentionPeriod => {
@@ -900,7 +901,7 @@ const deserializeAws_restJson1RuleSummary = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1RuleSummaryList = (output: any, context: __SerdeContext): RuleSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -908,6 +909,7 @@ const deserializeAws_restJson1RuleSummaryList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1RuleSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -918,7 +920,7 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -926,6 +928,7 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

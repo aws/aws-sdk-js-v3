@@ -3702,7 +3702,7 @@ const deserializeAws_json1_0ActivityTypeInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_0ActivityTypeInfoList = (output: any, context: __SerdeContext): ActivityTypeInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3710,6 +3710,7 @@ const deserializeAws_json1_0ActivityTypeInfoList = (output: any, context: __Serd
       }
       return deserializeAws_json1_0ActivityTypeInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ActivityTypeInfos = (output: any, context: __SerdeContext): ActivityTypeInfos => {
@@ -3992,7 +3993,7 @@ const deserializeAws_json1_0DomainInfo = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_0DomainInfoList = (output: any, context: __SerdeContext): DomainInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4000,6 +4001,7 @@ const deserializeAws_json1_0DomainInfoList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_0DomainInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0DomainInfos = (output: any, context: __SerdeContext): DomainInfos => {
@@ -4441,7 +4443,7 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_0HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4449,6 +4451,7 @@ const deserializeAws_json1_0HistoryEventList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_0HistoryEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0LambdaFunctionCompletedEventAttributes = (
@@ -4609,7 +4612,7 @@ const deserializeAws_json1_0ResourceTag = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_0ResourceTagList = (output: any, context: __SerdeContext): ResourceTag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4617,6 +4620,7 @@ const deserializeAws_json1_0ResourceTagList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_0ResourceTag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0Run = (output: any, context: __SerdeContext): Run => {
@@ -4749,7 +4753,7 @@ const deserializeAws_json1_0StartTimerFailedEventAttributes = (
 };
 
 const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4757,6 +4761,7 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TaskList = (output: any, context: __SerdeContext): TaskList => {
@@ -4996,7 +5001,7 @@ const deserializeAws_json1_0WorkflowExecutionInfoList = (
   output: any,
   context: __SerdeContext
 ): WorkflowExecutionInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5004,6 +5009,7 @@ const deserializeAws_json1_0WorkflowExecutionInfoList = (
       }
       return deserializeAws_json1_0WorkflowExecutionInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0WorkflowExecutionInfos = (output: any, context: __SerdeContext): WorkflowExecutionInfos => {
@@ -5155,7 +5161,7 @@ const deserializeAws_json1_0WorkflowTypeInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_0WorkflowTypeInfoList = (output: any, context: __SerdeContext): WorkflowTypeInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5163,6 +5169,7 @@ const deserializeAws_json1_0WorkflowTypeInfoList = (output: any, context: __Serd
       }
       return deserializeAws_json1_0WorkflowTypeInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0WorkflowTypeInfos = (output: any, context: __SerdeContext): WorkflowTypeInfos => {

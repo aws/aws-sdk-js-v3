@@ -1484,7 +1484,7 @@ const deserializeAws_json1_0ColumnInfo = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_0ColumnInfoList = (output: any, context: __SerdeContext): ColumnInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1492,6 +1492,7 @@ const deserializeAws_json1_0ColumnInfoList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_0ColumnInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ConflictException = (output: any, context: __SerdeContext): ConflictException => {
@@ -1529,7 +1530,7 @@ const deserializeAws_json1_0Datum = (output: any, context: __SerdeContext): Datu
 };
 
 const deserializeAws_json1_0DatumList = (output: any, context: __SerdeContext): Datum[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1537,6 +1538,7 @@ const deserializeAws_json1_0DatumList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_0Datum(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0DescribeEndpointsResponse = (
@@ -1571,7 +1573,7 @@ const deserializeAws_json1_0DimensionMapping = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_0DimensionMappingList = (output: any, context: __SerdeContext): DimensionMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1579,6 +1581,7 @@ const deserializeAws_json1_0DimensionMappingList = (output: any, context: __Serd
       }
       return deserializeAws_json1_0DimensionMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
@@ -1589,7 +1592,7 @@ const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): E
 };
 
 const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): Endpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1597,6 +1600,7 @@ const deserializeAws_json1_0Endpoints = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_0Endpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ErrorReportConfiguration = (
@@ -1688,7 +1692,7 @@ const deserializeAws_json1_0MixedMeasureMapping = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0MixedMeasureMappingList = (output: any, context: __SerdeContext): MixedMeasureMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1696,6 +1700,7 @@ const deserializeAws_json1_0MixedMeasureMappingList = (output: any, context: __S
       }
       return deserializeAws_json1_0MixedMeasureMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0MultiMeasureAttributeMapping = (
@@ -1713,7 +1718,7 @@ const deserializeAws_json1_0MultiMeasureAttributeMappingList = (
   output: any,
   context: __SerdeContext
 ): MultiMeasureAttributeMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1721,6 +1726,7 @@ const deserializeAws_json1_0MultiMeasureAttributeMappingList = (
       }
       return deserializeAws_json1_0MultiMeasureAttributeMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0MultiMeasureMappings = (output: any, context: __SerdeContext): MultiMeasureMappings => {
@@ -1754,7 +1760,7 @@ const deserializeAws_json1_0ParameterMapping = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_0ParameterMappingList = (output: any, context: __SerdeContext): ParameterMapping[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1762,6 +1768,7 @@ const deserializeAws_json1_0ParameterMappingList = (output: any, context: __Serd
       }
       return deserializeAws_json1_0ParameterMapping(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0PrepareQueryResponse = (output: any, context: __SerdeContext): PrepareQueryResponse => {
@@ -1834,7 +1841,7 @@ const deserializeAws_json1_0Row = (output: any, context: __SerdeContext): Row =>
 };
 
 const deserializeAws_json1_0RowList = (output: any, context: __SerdeContext): Row[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1842,6 +1849,7 @@ const deserializeAws_json1_0RowList = (output: any, context: __SerdeContext): Ro
       }
       return deserializeAws_json1_0Row(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0S3Configuration = (output: any, context: __SerdeContext): S3Configuration => {
@@ -1945,7 +1953,7 @@ const deserializeAws_json1_0ScheduledQueryDescription = (
 };
 
 const deserializeAws_json1_0ScheduledQueryList = (output: any, context: __SerdeContext): ScheduledQuery[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1953,6 +1961,7 @@ const deserializeAws_json1_0ScheduledQueryList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_0ScheduledQuery(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ScheduledQueryRunSummary = (
@@ -1985,7 +1994,7 @@ const deserializeAws_json1_0ScheduledQueryRunSummaryList = (
   output: any,
   context: __SerdeContext
 ): ScheduledQueryRunSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1993,6 +2002,7 @@ const deserializeAws_json1_0ScheduledQueryRunSummaryList = (
       }
       return deserializeAws_json1_0ScheduledQueryRunSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0SelectColumn = (output: any, context: __SerdeContext): SelectColumn => {
@@ -2007,7 +2017,7 @@ const deserializeAws_json1_0SelectColumn = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_0SelectColumnList = (output: any, context: __SerdeContext): SelectColumn[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2015,6 +2025,7 @@ const deserializeAws_json1_0SelectColumnList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_0SelectColumn(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ServiceQuotaExceededException = (
@@ -2040,7 +2051,7 @@ const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2048,6 +2059,7 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_0Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -2089,7 +2101,7 @@ const deserializeAws_json1_0TimeSeriesDataPoint = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0TimeSeriesDataPointList = (output: any, context: __SerdeContext): TimeSeriesDataPoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2097,6 +2109,7 @@ const deserializeAws_json1_0TimeSeriesDataPointList = (output: any, context: __S
       }
       return deserializeAws_json1_0TimeSeriesDataPoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TimestreamConfiguration = (

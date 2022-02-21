@@ -609,7 +609,7 @@ const deserializeAws_restJson1HumanLoopOutput = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1HumanLoopSummaries = (output: any, context: __SerdeContext): HumanLoopSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -617,6 +617,7 @@ const deserializeAws_restJson1HumanLoopSummaries = (output: any, context: __Serd
       }
       return deserializeAws_restJson1HumanLoopSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1HumanLoopSummary = (output: any, context: __SerdeContext): HumanLoopSummary => {

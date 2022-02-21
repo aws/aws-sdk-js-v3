@@ -3644,7 +3644,7 @@ const deserializeAws_json1_1Destination = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1Destinations = (output: any, context: __SerdeContext): Destination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3652,6 +3652,7 @@ const deserializeAws_json1_1Destinations = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1Destination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Dimensions = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -3697,7 +3698,7 @@ const deserializeAws_json1_1ExportTaskExecutionInfo = (
 };
 
 const deserializeAws_json1_1ExportTasks = (output: any, context: __SerdeContext): ExportTask[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3705,6 +3706,7 @@ const deserializeAws_json1_1ExportTasks = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1ExportTask(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExportTaskStatus = (output: any, context: __SerdeContext): ExportTaskStatus => {
@@ -3737,7 +3739,7 @@ const deserializeAws_json1_1FilteredLogEvent = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1FilteredLogEvents = (output: any, context: __SerdeContext): FilteredLogEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3745,6 +3747,7 @@ const deserializeAws_json1_1FilteredLogEvents = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1FilteredLogEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FilterLogEventsResponse = (
@@ -3877,7 +3880,7 @@ const deserializeAws_json1_1LogGroupField = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1LogGroupFieldList = (output: any, context: __SerdeContext): LogGroupField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3885,10 +3888,11 @@ const deserializeAws_json1_1LogGroupFieldList = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1LogGroupField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LogGroupNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3896,10 +3900,11 @@ const deserializeAws_json1_1LogGroupNames = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LogGroups = (output: any, context: __SerdeContext): LogGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3907,6 +3912,7 @@ const deserializeAws_json1_1LogGroups = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1LogGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LogRecord = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -3935,7 +3941,7 @@ const deserializeAws_json1_1LogStream = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1LogStreams = (output: any, context: __SerdeContext): LogStream[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3943,6 +3949,7 @@ const deserializeAws_json1_1LogStreams = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1LogStream(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MalformedQueryException = (
@@ -3972,7 +3979,7 @@ const deserializeAws_json1_1MetricFilter = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1MetricFilterMatches = (output: any, context: __SerdeContext): MetricFilterMatchRecord[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3980,6 +3987,7 @@ const deserializeAws_json1_1MetricFilterMatches = (output: any, context: __Serde
       }
       return deserializeAws_json1_1MetricFilterMatchRecord(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MetricFilterMatchRecord = (
@@ -3997,7 +4005,7 @@ const deserializeAws_json1_1MetricFilterMatchRecord = (
 };
 
 const deserializeAws_json1_1MetricFilters = (output: any, context: __SerdeContext): MetricFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4005,6 +4013,7 @@ const deserializeAws_json1_1MetricFilters = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1MetricFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MetricTransformation = (output: any, context: __SerdeContext): MetricTransformation => {
@@ -4022,7 +4031,7 @@ const deserializeAws_json1_1MetricTransformation = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1MetricTransformations = (output: any, context: __SerdeContext): MetricTransformation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4030,6 +4039,7 @@ const deserializeAws_json1_1MetricTransformations = (output: any, context: __Ser
       }
       return deserializeAws_json1_1MetricTransformation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1OperationAbortedException = (
@@ -4050,7 +4060,7 @@ const deserializeAws_json1_1OutputLogEvent = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1OutputLogEvents = (output: any, context: __SerdeContext): OutputLogEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4058,6 +4068,7 @@ const deserializeAws_json1_1OutputLogEvents = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1OutputLogEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PutDestinationResponse = (output: any, context: __SerdeContext): PutDestinationResponse => {
@@ -4134,7 +4145,7 @@ const deserializeAws_json1_1QueryDefinition = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1QueryDefinitionList = (output: any, context: __SerdeContext): QueryDefinition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4142,6 +4153,7 @@ const deserializeAws_json1_1QueryDefinitionList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1QueryDefinition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {
@@ -4155,7 +4167,7 @@ const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1QueryInfoList = (output: any, context: __SerdeContext): QueryInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4163,10 +4175,11 @@ const deserializeAws_json1_1QueryInfoList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1QueryInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1QueryResults = (output: any, context: __SerdeContext): ResultField[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4174,6 +4187,7 @@ const deserializeAws_json1_1QueryResults = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1ResultRows(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1QueryStatistics = (output: any, context: __SerdeContext): QueryStatistics => {
@@ -4211,7 +4225,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 };
 
 const deserializeAws_json1_1ResourcePolicies = (output: any, context: __SerdeContext): ResourcePolicy[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4219,6 +4233,7 @@ const deserializeAws_json1_1ResourcePolicies = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1ResourcePolicy(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
@@ -4237,7 +4252,7 @@ const deserializeAws_json1_1ResultField = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ResultRows = (output: any, context: __SerdeContext): ResultField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4245,6 +4260,7 @@ const deserializeAws_json1_1ResultRows = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1ResultField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SearchedLogStream = (output: any, context: __SerdeContext): SearchedLogStream => {
@@ -4255,7 +4271,7 @@ const deserializeAws_json1_1SearchedLogStream = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1SearchedLogStreams = (output: any, context: __SerdeContext): SearchedLogStream[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4263,6 +4279,7 @@ const deserializeAws_json1_1SearchedLogStreams = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1SearchedLogStream(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (
@@ -4299,7 +4316,7 @@ const deserializeAws_json1_1SubscriptionFilter = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1SubscriptionFilters = (output: any, context: __SerdeContext): SubscriptionFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4307,6 +4324,7 @@ const deserializeAws_json1_1SubscriptionFilters = (output: any, context: __Serde
       }
       return deserializeAws_json1_1SubscriptionFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {

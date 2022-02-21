@@ -740,7 +740,7 @@ const deserializeAws_restJson1Alternative = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeContext): Alternative[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -748,6 +748,7 @@ const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Alternative(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
@@ -774,7 +775,7 @@ const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): E
 };
 
 const deserializeAws_restJson1EntityList = (output: any, context: __SerdeContext): Entity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -782,6 +783,7 @@ const deserializeAws_restJson1EntityList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Entity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1InternalFailureException = (
@@ -807,7 +809,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
 };
 
 const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext): Item[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -815,10 +817,11 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Item(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LanguageIdentification = (output: any, context: __SerdeContext): LanguageWithScore[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -826,6 +829,7 @@ const deserializeAws_restJson1LanguageIdentification = (output: any, context: __
       }
       return deserializeAws_restJson1LanguageWithScore(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LanguageWithScore = (output: any, context: __SerdeContext): LanguageWithScore => {
@@ -859,7 +863,7 @@ const deserializeAws_restJson1MedicalAlternative = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __SerdeContext): MedicalAlternative[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -867,6 +871,7 @@ const deserializeAws_restJson1MedicalAlternativeList = (output: any, context: __
       }
       return deserializeAws_restJson1MedicalAlternative(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MedicalEntity = (output: any, context: __SerdeContext): MedicalEntity => {
@@ -880,7 +885,7 @@ const deserializeAws_restJson1MedicalEntity = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1MedicalEntityList = (output: any, context: __SerdeContext): MedicalEntity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -888,6 +893,7 @@ const deserializeAws_restJson1MedicalEntityList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1MedicalEntity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContext): MedicalItem => {
@@ -902,7 +908,7 @@ const deserializeAws_restJson1MedicalItem = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1MedicalItemList = (output: any, context: __SerdeContext): MedicalItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -910,6 +916,7 @@ const deserializeAws_restJson1MedicalItemList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1MedicalItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeContext): MedicalResult => {
@@ -927,7 +934,7 @@ const deserializeAws_restJson1MedicalResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1MedicalResultList = (output: any, context: __SerdeContext): MedicalResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -935,6 +942,7 @@ const deserializeAws_restJson1MedicalResultList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1MedicalResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MedicalTranscript = (output: any, context: __SerdeContext): MedicalTranscript => {
@@ -1021,7 +1029,7 @@ const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext): Result[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1029,6 +1037,7 @@ const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Result(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ServiceUnavailableException = (

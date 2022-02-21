@@ -6118,7 +6118,7 @@ const deserializeAws_json1_1FirewallConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1FirewallConfigList = (output: any, context: __SerdeContext): FirewallConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6126,6 +6126,7 @@ const deserializeAws_json1_1FirewallConfigList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1FirewallConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FirewallDomainList = (output: any, context: __SerdeContext): FirewallDomainList => {
@@ -6160,7 +6161,7 @@ const deserializeAws_json1_1FirewallDomainListMetadataList = (
   output: any,
   context: __SerdeContext
 ): FirewallDomainListMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6168,10 +6169,11 @@ const deserializeAws_json1_1FirewallDomainListMetadataList = (
       }
       return deserializeAws_json1_1FirewallDomainListMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FirewallDomains = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6179,6 +6181,7 @@ const deserializeAws_json1_1FirewallDomains = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FirewallRule = (output: any, context: __SerdeContext): FirewallRule => {
@@ -6239,7 +6242,7 @@ const deserializeAws_json1_1FirewallRuleGroupAssociations = (
   output: any,
   context: __SerdeContext
 ): FirewallRuleGroupAssociation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6247,6 +6250,7 @@ const deserializeAws_json1_1FirewallRuleGroupAssociations = (
       }
       return deserializeAws_json1_1FirewallRuleGroupAssociation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FirewallRuleGroupMetadata = (
@@ -6267,7 +6271,7 @@ const deserializeAws_json1_1FirewallRuleGroupMetadataList = (
   output: any,
   context: __SerdeContext
 ): FirewallRuleGroupMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6275,10 +6279,11 @@ const deserializeAws_json1_1FirewallRuleGroupMetadataList = (
       }
       return deserializeAws_json1_1FirewallRuleGroupMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FirewallRules = (output: any, context: __SerdeContext): FirewallRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6286,6 +6291,7 @@ const deserializeAws_json1_1FirewallRules = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1FirewallRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetFirewallConfigResponse = (
@@ -6509,7 +6515,7 @@ const deserializeAws_json1_1InvalidTagException = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1IpAddressesResponse = (output: any, context: __SerdeContext): IpAddressResponse[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6517,6 +6523,7 @@ const deserializeAws_json1_1IpAddressesResponse = (output: any, context: __Serde
       }
       return deserializeAws_json1_1IpAddressResponse(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IpAddressResponse = (output: any, context: __SerdeContext): IpAddressResponse => {
@@ -6781,7 +6788,7 @@ const deserializeAws_json1_1ResolverConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1ResolverConfigList = (output: any, context: __SerdeContext): ResolverConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6789,6 +6796,7 @@ const deserializeAws_json1_1ResolverConfigList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1ResolverConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResolverDnssecConfig = (output: any, context: __SerdeContext): ResolverDnssecConfig => {
@@ -6804,7 +6812,7 @@ const deserializeAws_json1_1ResolverDnssecConfigList = (
   output: any,
   context: __SerdeContext
 ): ResolverDnssecConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6812,6 +6820,7 @@ const deserializeAws_json1_1ResolverDnssecConfigList = (
       }
       return deserializeAws_json1_1ResolverDnssecConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeContext): ResolverEndpoint => {
@@ -6835,7 +6844,7 @@ const deserializeAws_json1_1ResolverEndpoint = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ResolverEndpoints = (output: any, context: __SerdeContext): ResolverEndpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6843,6 +6852,7 @@ const deserializeAws_json1_1ResolverEndpoints = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1ResolverEndpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResolverQueryLogConfig = (output: any, context: __SerdeContext): ResolverQueryLogConfig => {
@@ -6879,7 +6889,7 @@ const deserializeAws_json1_1ResolverQueryLogConfigAssociationList = (
   output: any,
   context: __SerdeContext
 ): ResolverQueryLogConfigAssociation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6887,13 +6897,14 @@ const deserializeAws_json1_1ResolverQueryLogConfigAssociationList = (
       }
       return deserializeAws_json1_1ResolverQueryLogConfigAssociation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResolverQueryLogConfigList = (
   output: any,
   context: __SerdeContext
 ): ResolverQueryLogConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6901,6 +6912,7 @@ const deserializeAws_json1_1ResolverQueryLogConfigList = (
       }
       return deserializeAws_json1_1ResolverQueryLogConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResolverRule = (output: any, context: __SerdeContext): ResolverRule => {
@@ -6943,7 +6955,7 @@ const deserializeAws_json1_1ResolverRuleAssociations = (
   output: any,
   context: __SerdeContext
 ): ResolverRuleAssociation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6951,10 +6963,11 @@ const deserializeAws_json1_1ResolverRuleAssociations = (
       }
       return deserializeAws_json1_1ResolverRuleAssociation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResolverRules = (output: any, context: __SerdeContext): ResolverRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6962,6 +6975,7 @@ const deserializeAws_json1_1ResolverRules = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1ResolverRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceExistsException = (
@@ -7002,7 +7016,7 @@ const deserializeAws_json1_1ResourceUnavailableException = (
 };
 
 const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7010,6 +7024,7 @@ const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -7020,7 +7035,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7028,6 +7043,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -7042,7 +7058,7 @@ const deserializeAws_json1_1TargetAddress = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1TargetList = (output: any, context: __SerdeContext): TargetAddress[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7050,6 +7066,7 @@ const deserializeAws_json1_1TargetList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1TargetAddress(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {

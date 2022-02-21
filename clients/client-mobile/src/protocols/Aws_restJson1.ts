@@ -1002,7 +1002,7 @@ const deserializeAws_restJson1BundleDetails = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1BundleList = (output: any, context: __SerdeContext): BundleDetails[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1010,10 +1010,11 @@ const deserializeAws_restJson1BundleList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1BundleDetails(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Platforms = (output: any, context: __SerdeContext): (Platform | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1021,6 +1022,7 @@ const deserializeAws_restJson1Platforms = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeContext): ProjectDetails => {
@@ -1046,7 +1048,7 @@ const deserializeAws_restJson1ProjectDetails = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeContext): ProjectSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1054,6 +1056,7 @@ const deserializeAws_restJson1ProjectSummaries = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1ProjectSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary => {
@@ -1077,7 +1080,7 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): Resource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1085,6 +1088,7 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Resource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

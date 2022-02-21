@@ -7166,7 +7166,7 @@ const deserializeAws_restJson1SparseStructMap = (
 };
 
 const deserializeAws_restJson1StructureList = (output: any, context: __SerdeContext): StructureListMember[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7174,6 +7174,7 @@ const deserializeAws_restJson1StructureList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1StructureListMember(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
@@ -7196,7 +7197,7 @@ const deserializeAws_restJson1RenamedGreeting = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1BooleanList = (output: any, context: __SerdeContext): boolean[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7204,10 +7205,11 @@ const deserializeAws_restJson1BooleanList = (output: any, context: __SerdeContex
       }
       return __expectBoolean(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7215,6 +7217,7 @@ const deserializeAws_restJson1FooEnumList = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FooEnumMap = (
@@ -7233,21 +7236,15 @@ const deserializeAws_restJson1FooEnumMap = (
 };
 
 const deserializeAws_restJson1FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
-  const uniqueValues = new Set<any>();
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = __expectString(entry) as any;
-      if (uniqueValues.has(parsedEntry)) {
-        throw new TypeError('All elements of the set "aws.protocoltests.shared#FooEnumSet" must be unique.');
-      } else {
-        uniqueValues.add(parsedEntry);
-        return parsedEntry;
-      }
+      return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
@@ -7257,7 +7254,7 @@ const deserializeAws_restJson1GreetingStruct = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7265,10 +7262,11 @@ const deserializeAws_restJson1IntegerList = (output: any, context: __SerdeContex
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1NestedStringList = (output: any, context: __SerdeContext): string[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7276,15 +7274,17 @@ const deserializeAws_restJson1NestedStringList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1StringList(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SparseStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || []).map((entry: any) => {
+  const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       return null as any;
     }
     return __expectString(entry) as any;
   });
+  return retVal;
 };
 
 const deserializeAws_restJson1SparseStringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -7300,7 +7300,7 @@ const deserializeAws_restJson1SparseStringMap = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7308,6 +7308,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -7323,25 +7324,19 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1StringSet = (output: any, context: __SerdeContext): string[] => {
-  const uniqueValues = new Set<any>();
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = __expectString(entry) as any;
-      if (uniqueValues.has(parsedEntry)) {
-        throw new TypeError('All elements of the set "aws.protocoltests.shared#StringSet" must be unique.');
-      } else {
-        uniqueValues.add(parsedEntry);
-        return parsedEntry;
-      }
+      return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TimestampList = (output: any, context: __SerdeContext): Date[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7349,6 +7344,7 @@ const deserializeAws_restJson1TimestampList = (output: any, context: __SerdeCont
       }
       return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Unit = (output: any, context: __SerdeContext): Unit => {

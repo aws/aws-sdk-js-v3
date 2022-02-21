@@ -2022,7 +2022,7 @@ const deserializeAws_restJson1JournalKinesisStreamDescriptionList = (
   output: any,
   context: __SerdeContext
 ): JournalKinesisStreamDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2030,6 +2030,7 @@ const deserializeAws_restJson1JournalKinesisStreamDescriptionList = (
       }
       return deserializeAws_restJson1JournalKinesisStreamDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1JournalS3ExportDescription = (
@@ -2065,7 +2066,7 @@ const deserializeAws_restJson1JournalS3ExportList = (
   output: any,
   context: __SerdeContext
 ): JournalS3ExportDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2073,6 +2074,7 @@ const deserializeAws_restJson1JournalS3ExportList = (
       }
       return deserializeAws_restJson1JournalS3ExportDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1KinesisConfiguration = (output: any, context: __SerdeContext): KinesisConfiguration => {
@@ -2097,7 +2099,7 @@ const deserializeAws_restJson1LedgerEncryptionDescription = (
 };
 
 const deserializeAws_restJson1LedgerList = (output: any, context: __SerdeContext): LedgerSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2105,6 +2107,7 @@ const deserializeAws_restJson1LedgerList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1LedgerSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LedgerSummary = (output: any, context: __SerdeContext): LedgerSummary => {

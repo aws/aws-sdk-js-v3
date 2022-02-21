@@ -1402,7 +1402,7 @@ const deserializeAws_json1_0Gateway = (output: any, context: __SerdeContext): Ga
 };
 
 const deserializeAws_json1_0Gateways = (output: any, context: __SerdeContext): Gateway[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1410,6 +1410,7 @@ const deserializeAws_json1_0Gateways = (output: any, context: __SerdeContext): G
       }
       return deserializeAws_json1_0Gateway(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0Hypervisor = (output: any, context: __SerdeContext): Hypervisor => {
@@ -1423,7 +1424,7 @@ const deserializeAws_json1_0Hypervisor = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_0Hypervisors = (output: any, context: __SerdeContext): Hypervisor[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1431,6 +1432,7 @@ const deserializeAws_json1_0Hypervisors = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_0Hypervisor(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ImportHypervisorConfigurationOutput = (
@@ -1529,7 +1531,7 @@ const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_0Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1537,6 +1539,7 @@ const deserializeAws_json1_0Tags = (output: any, context: __SerdeContext): Tag[]
       }
       return deserializeAws_json1_0Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TestHypervisorConfigurationOutput = (
@@ -1589,7 +1592,7 @@ const deserializeAws_json1_0VirtualMachine = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_0VirtualMachines = (output: any, context: __SerdeContext): VirtualMachine[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1597,6 +1600,7 @@ const deserializeAws_json1_0VirtualMachines = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_0VirtualMachine(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

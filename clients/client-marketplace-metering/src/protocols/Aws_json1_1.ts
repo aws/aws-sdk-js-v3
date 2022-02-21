@@ -850,7 +850,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -858,6 +858,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
@@ -886,7 +887,7 @@ const deserializeAws_json1_1UsageAllocation = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1UsageAllocations = (output: any, context: __SerdeContext): UsageAllocation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -894,6 +895,7 @@ const deserializeAws_json1_1UsageAllocations = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1UsageAllocation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext): UsageRecord => {
@@ -913,7 +915,7 @@ const deserializeAws_json1_1UsageRecord = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1UsageRecordList = (output: any, context: __SerdeContext): UsageRecord[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -921,6 +923,7 @@ const deserializeAws_json1_1UsageRecordList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1UsageRecord(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UsageRecordResult = (output: any, context: __SerdeContext): UsageRecordResult => {
@@ -935,7 +938,7 @@ const deserializeAws_json1_1UsageRecordResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1UsageRecordResultList = (output: any, context: __SerdeContext): UsageRecordResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -943,6 +946,7 @@ const deserializeAws_json1_1UsageRecordResultList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1UsageRecordResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

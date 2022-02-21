@@ -340,7 +340,7 @@ const deserializeAws_restJson1BucketInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1BucketList = (output: any, context: __SerdeContext): Bucket[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -348,6 +348,7 @@ const deserializeAws_restJson1BucketList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Bucket(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DocumentServiceWarning = (
@@ -363,7 +364,7 @@ const deserializeAws_restJson1DocumentServiceWarnings = (
   output: any,
   context: __SerdeContext
 ): DocumentServiceWarning[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -371,6 +372,7 @@ const deserializeAws_restJson1DocumentServiceWarnings = (
       }
       return deserializeAws_restJson1DocumentServiceWarning(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -423,7 +425,7 @@ const deserializeAws_restJson1FieldStats = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1FieldValue = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -431,6 +433,7 @@ const deserializeAws_restJson1FieldValue = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -464,7 +467,7 @@ const deserializeAws_restJson1Hit = (output: any, context: __SerdeContext): Hit 
 };
 
 const deserializeAws_restJson1HitList = (output: any, context: __SerdeContext): Hit[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -472,6 +475,7 @@ const deserializeAws_restJson1HitList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Hit(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Hits = (output: any, context: __SerdeContext): Hits => {
@@ -514,7 +518,7 @@ const deserializeAws_restJson1SuggestionMatch = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1Suggestions = (output: any, context: __SerdeContext): SuggestionMatch[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -522,6 +526,7 @@ const deserializeAws_restJson1Suggestions = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1SuggestionMatch(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SuggestModel = (output: any, context: __SerdeContext): SuggestModel => {

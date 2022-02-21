@@ -2582,7 +2582,7 @@ const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
   output: any,
   context: __SerdeContext
 ): (__PeriodTriggersElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2590,10 +2590,11 @@ const deserializeAws_restJson1__listOf__PeriodTriggersElement = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2601,10 +2602,11 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfChannel = (output: any, context: __SerdeContext): Channel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2612,10 +2614,11 @@ const deserializeAws_restJson1__listOfChannel = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Channel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHarvestJob = (output: any, context: __SerdeContext): HarvestJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2623,10 +2626,11 @@ const deserializeAws_restJson1__listOfHarvestJob = (output: any, context: __Serd
       }
       return deserializeAws_restJson1HarvestJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfHlsManifest = (output: any, context: __SerdeContext): HlsManifest[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2634,10 +2638,11 @@ const deserializeAws_restJson1__listOfHlsManifest = (output: any, context: __Ser
       }
       return deserializeAws_restJson1HlsManifest(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfIngestEndpoint = (output: any, context: __SerdeContext): IngestEndpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2645,10 +2650,11 @@ const deserializeAws_restJson1__listOfIngestEndpoint = (output: any, context: __
       }
       return deserializeAws_restJson1IngestEndpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfOriginEndpoint = (output: any, context: __SerdeContext): OriginEndpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2656,6 +2662,7 @@ const deserializeAws_restJson1__listOfOriginEndpoint = (output: any, context: __
       }
       return deserializeAws_restJson1OriginEndpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -2671,7 +2678,7 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1AdTriggers = (output: any, context: __SerdeContext): (__AdTriggersElement | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2679,6 +2686,7 @@ const deserializeAws_restJson1AdTriggers = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Authorization = (output: any, context: __SerdeContext): Authorization => {

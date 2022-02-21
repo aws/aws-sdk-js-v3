@@ -1814,7 +1814,7 @@ const deserializeAws_json1_1Field = (output: any, context: __SerdeContext): Fiel
 };
 
 const deserializeAws_json1_1fieldList = (output: any, context: __SerdeContext): Field[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1822,6 +1822,7 @@ const deserializeAws_json1_1fieldList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Field(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetPipelineDefinitionOutput = (
@@ -1845,7 +1846,7 @@ const deserializeAws_json1_1GetPipelineDefinitionOutput = (
 };
 
 const deserializeAws_json1_1idList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1853,6 +1854,7 @@ const deserializeAws_json1_1idList = (output: any, context: __SerdeContext): str
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
@@ -1889,7 +1891,7 @@ const deserializeAws_json1_1ParameterAttribute = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ParameterAttributeList = (output: any, context: __SerdeContext): ParameterAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1897,6 +1899,7 @@ const deserializeAws_json1_1ParameterAttributeList = (output: any, context: __Se
       }
       return deserializeAws_json1_1ParameterAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ParameterObject = (output: any, context: __SerdeContext): ParameterObject => {
@@ -1910,7 +1913,7 @@ const deserializeAws_json1_1ParameterObject = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ParameterObjectList = (output: any, context: __SerdeContext): ParameterObject[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1918,6 +1921,7 @@ const deserializeAws_json1_1ParameterObjectList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1ParameterObject(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ParameterValue = (output: any, context: __SerdeContext): ParameterValue => {
@@ -1928,7 +1932,7 @@ const deserializeAws_json1_1ParameterValue = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1ParameterValueList = (output: any, context: __SerdeContext): ParameterValue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1936,6 +1940,7 @@ const deserializeAws_json1_1ParameterValueList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1ParameterValue(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PipelineDeletedException = (
@@ -1964,7 +1969,7 @@ const deserializeAws_json1_1PipelineDescription = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1PipelineDescriptionList = (output: any, context: __SerdeContext): PipelineDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1972,6 +1977,7 @@ const deserializeAws_json1_1PipelineDescriptionList = (output: any, context: __S
       }
       return deserializeAws_json1_1PipelineDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PipelineIdName = (output: any, context: __SerdeContext): PipelineIdName => {
@@ -1982,7 +1988,7 @@ const deserializeAws_json1_1PipelineIdName = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1pipelineList = (output: any, context: __SerdeContext): PipelineIdName[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1990,6 +1996,7 @@ const deserializeAws_json1_1pipelineList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1PipelineIdName(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PipelineNotFoundException = (
@@ -2013,7 +2020,7 @@ const deserializeAws_json1_1PipelineObject = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1PipelineObjectList = (output: any, context: __SerdeContext): PipelineObject[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2021,6 +2028,7 @@ const deserializeAws_json1_1PipelineObjectList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1PipelineObject(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PipelineObjectMap = (
@@ -2107,7 +2115,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1tagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2115,6 +2123,7 @@ const deserializeAws_json1_1tagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TaskNotFoundException = (output: any, context: __SerdeContext): TaskNotFoundException => {
@@ -2163,7 +2172,7 @@ const deserializeAws_json1_1ValidationError = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ValidationErrors = (output: any, context: __SerdeContext): ValidationError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2171,10 +2180,11 @@ const deserializeAws_json1_1ValidationErrors = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1ValidationError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1validationMessages = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2182,6 +2192,7 @@ const deserializeAws_json1_1validationMessages = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ValidationWarning = (output: any, context: __SerdeContext): ValidationWarning => {
@@ -2195,7 +2206,7 @@ const deserializeAws_json1_1ValidationWarning = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1ValidationWarnings = (output: any, context: __SerdeContext): ValidationWarning[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2203,6 +2214,7 @@ const deserializeAws_json1_1ValidationWarnings = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1ValidationWarning(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

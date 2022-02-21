@@ -2306,7 +2306,7 @@ const deserializeAws_json1_0AccountEnrollmentStatuses = (
   output: any,
   context: __SerdeContext
 ): AccountEnrollmentStatus[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2314,6 +2314,7 @@ const deserializeAws_json1_0AccountEnrollmentStatuses = (
       }
       return deserializeAws_json1_0AccountEnrollmentStatus(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0AutoScalingGroupConfiguration = (
@@ -2393,7 +2394,7 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOptions = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroupRecommendationOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2401,13 +2402,14 @@ const deserializeAws_json1_0AutoScalingGroupRecommendationOptions = (
       }
       return deserializeAws_json1_0AutoScalingGroupRecommendationOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0AutoScalingGroupRecommendations = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroupRecommendation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2415,13 +2417,14 @@ const deserializeAws_json1_0AutoScalingGroupRecommendations = (
       }
       return deserializeAws_json1_0AutoScalingGroupRecommendation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0CpuVendorArchitectures = (
   output: any,
   context: __SerdeContext
 ): (CpuVendorArchitecture | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2429,6 +2432,7 @@ const deserializeAws_json1_0CpuVendorArchitectures = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0CurrentPerformanceRiskRatings = (
@@ -2472,7 +2476,7 @@ const deserializeAws_json1_0EBSUtilizationMetric = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_0EBSUtilizationMetrics = (output: any, context: __SerdeContext): EBSUtilizationMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2480,6 +2484,7 @@ const deserializeAws_json1_0EBSUtilizationMetrics = (output: any, context: __Ser
       }
       return deserializeAws_json1_0EBSUtilizationMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0EffectiveRecommendationPreferences = (
@@ -2693,7 +2698,7 @@ const deserializeAws_json1_0GetRecommendationErrors = (
   output: any,
   context: __SerdeContext
 ): GetRecommendationError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2701,6 +2706,7 @@ const deserializeAws_json1_0GetRecommendationErrors = (
       }
       return deserializeAws_json1_0GetRecommendationError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0GetRecommendationPreferencesResponse = (
@@ -2733,7 +2739,7 @@ const deserializeAws_json1_0InferredWorkloadTypes = (
   output: any,
   context: __SerdeContext
 ): (InferredWorkloadType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2741,6 +2747,7 @@ const deserializeAws_json1_0InferredWorkloadTypes = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0InstanceRecommendation = (output: any, context: __SerdeContext): InstanceRecommendation => {
@@ -2787,7 +2794,7 @@ const deserializeAws_json1_0InstanceRecommendationFindingReasonCodes = (
   output: any,
   context: __SerdeContext
 ): (InstanceRecommendationFindingReasonCode | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2795,6 +2802,7 @@ const deserializeAws_json1_0InstanceRecommendationFindingReasonCodes = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0InstanceRecommendationOption = (
@@ -2825,7 +2833,7 @@ const deserializeAws_json1_0InstanceRecommendations = (
   output: any,
   context: __SerdeContext
 ): InstanceRecommendation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2833,6 +2841,7 @@ const deserializeAws_json1_0InstanceRecommendations = (
       }
       return deserializeAws_json1_0InstanceRecommendation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0InternalServerException = (
@@ -2868,7 +2877,7 @@ const deserializeAws_json1_0LambdaFunctionMemoryProjectedMetrics = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionMemoryProjectedMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2876,6 +2885,7 @@ const deserializeAws_json1_0LambdaFunctionMemoryProjectedMetrics = (
       }
       return deserializeAws_json1_0LambdaFunctionMemoryProjectedMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0LambdaFunctionMemoryRecommendationOption = (
@@ -2900,7 +2910,7 @@ const deserializeAws_json1_0LambdaFunctionMemoryRecommendationOptions = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionMemoryRecommendationOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2908,6 +2918,7 @@ const deserializeAws_json1_0LambdaFunctionMemoryRecommendationOptions = (
       }
       return deserializeAws_json1_0LambdaFunctionMemoryRecommendationOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0LambdaFunctionRecommendation = (
@@ -2949,7 +2960,7 @@ const deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes = (
   output: any,
   context: __SerdeContext
 ): (LambdaFunctionRecommendationFindingReasonCode | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2957,13 +2968,14 @@ const deserializeAws_json1_0LambdaFunctionRecommendationFindingReasonCodes = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0LambdaFunctionRecommendations = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionRecommendation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2971,6 +2983,7 @@ const deserializeAws_json1_0LambdaFunctionRecommendations = (
       }
       return deserializeAws_json1_0LambdaFunctionRecommendation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0LambdaFunctionUtilizationMetric = (
@@ -2988,7 +3001,7 @@ const deserializeAws_json1_0LambdaFunctionUtilizationMetrics = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionUtilizationMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2996,6 +3009,7 @@ const deserializeAws_json1_0LambdaFunctionUtilizationMetrics = (
       }
       return deserializeAws_json1_0LambdaFunctionUtilizationMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -3005,7 +3019,7 @@ const deserializeAws_json1_0LimitExceededException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_0MetricValues = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3013,6 +3027,7 @@ const deserializeAws_json1_0MetricValues = (output: any, context: __SerdeContext
       }
       return __limitedParseDouble(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0MissingAuthenticationToken = (
@@ -3034,7 +3049,7 @@ const deserializeAws_json1_0PlatformDifferences = (
   output: any,
   context: __SerdeContext
 ): (PlatformDifference | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3042,6 +3057,7 @@ const deserializeAws_json1_0PlatformDifferences = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ProjectedMetric = (output: any, context: __SerdeContext): ProjectedMetric => {
@@ -3059,7 +3075,7 @@ const deserializeAws_json1_0ProjectedMetric = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_0ProjectedMetrics = (output: any, context: __SerdeContext): ProjectedMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3067,13 +3083,14 @@ const deserializeAws_json1_0ProjectedMetrics = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_0ProjectedMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ProjectedUtilizationMetrics = (
   output: any,
   context: __SerdeContext
 ): UtilizationMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3081,6 +3098,7 @@ const deserializeAws_json1_0ProjectedUtilizationMetrics = (
       }
       return deserializeAws_json1_0UtilizationMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0PutRecommendationPreferencesResponse = (
@@ -3091,7 +3109,7 @@ const deserializeAws_json1_0PutRecommendationPreferencesResponse = (
 };
 
 const deserializeAws_json1_0ReasonCodeSummaries = (output: any, context: __SerdeContext): ReasonCodeSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3099,6 +3117,7 @@ const deserializeAws_json1_0ReasonCodeSummaries = (output: any, context: __Serde
       }
       return deserializeAws_json1_0ReasonCodeSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ReasonCodeSummary = (output: any, context: __SerdeContext): ReasonCodeSummary => {
@@ -3136,7 +3155,7 @@ const deserializeAws_json1_0RecommendationExportJobs = (
   output: any,
   context: __SerdeContext
 ): RecommendationExportJob[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3144,13 +3163,14 @@ const deserializeAws_json1_0RecommendationExportJobs = (
       }
       return deserializeAws_json1_0RecommendationExportJob(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0RecommendationOptions = (
   output: any,
   context: __SerdeContext
 ): InstanceRecommendationOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3158,6 +3178,7 @@ const deserializeAws_json1_0RecommendationOptions = (
       }
       return deserializeAws_json1_0InstanceRecommendationOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0RecommendationPreferencesDetail = (
@@ -3179,7 +3200,7 @@ const deserializeAws_json1_0RecommendationPreferencesDetails = (
   output: any,
   context: __SerdeContext
 ): RecommendationPreferencesDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3187,6 +3208,7 @@ const deserializeAws_json1_0RecommendationPreferencesDetails = (
       }
       return deserializeAws_json1_0RecommendationPreferencesDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0RecommendationSource = (output: any, context: __SerdeContext): RecommendationSource => {
@@ -3197,7 +3219,7 @@ const deserializeAws_json1_0RecommendationSource = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_0RecommendationSources = (output: any, context: __SerdeContext): RecommendationSource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3205,13 +3227,14 @@ const deserializeAws_json1_0RecommendationSources = (output: any, context: __Ser
       }
       return deserializeAws_json1_0RecommendationSource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0RecommendationSummaries = (
   output: any,
   context: __SerdeContext
 ): RecommendationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3219,6 +3242,7 @@ const deserializeAws_json1_0RecommendationSummaries = (
       }
       return deserializeAws_json1_0RecommendationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
@@ -3258,7 +3282,7 @@ const deserializeAws_json1_0RecommendedOptionProjectedMetrics = (
   output: any,
   context: __SerdeContext
 ): RecommendedOptionProjectedMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3266,6 +3290,7 @@ const deserializeAws_json1_0RecommendedOptionProjectedMetrics = (
       }
       return deserializeAws_json1_0RecommendedOptionProjectedMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (
@@ -3312,7 +3337,7 @@ const deserializeAws_json1_0ServiceUnavailableException = (
 };
 
 const deserializeAws_json1_0Summaries = (output: any, context: __SerdeContext): Summary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3320,6 +3345,7 @@ const deserializeAws_json1_0Summaries = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_0Summary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0Summary = (output: any, context: __SerdeContext): Summary => {
@@ -3340,7 +3366,7 @@ const deserializeAws_json1_0ThrottlingException = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0Timestamps = (output: any, context: __SerdeContext): Date[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3348,6 +3374,7 @@ const deserializeAws_json1_0Timestamps = (output: any, context: __SerdeContext):
       }
       return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0UpdateEnrollmentStatusResponse = (
@@ -3369,7 +3396,7 @@ const deserializeAws_json1_0UtilizationMetric = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_0UtilizationMetrics = (output: any, context: __SerdeContext): UtilizationMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3377,6 +3404,7 @@ const deserializeAws_json1_0UtilizationMetrics = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_0UtilizationMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
@@ -3438,7 +3466,7 @@ const deserializeAws_json1_0VolumeRecommendationOptions = (
   output: any,
   context: __SerdeContext
 ): VolumeRecommendationOption[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3446,10 +3474,11 @@ const deserializeAws_json1_0VolumeRecommendationOptions = (
       }
       return deserializeAws_json1_0VolumeRecommendationOption(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0VolumeRecommendations = (output: any, context: __SerdeContext): VolumeRecommendation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3457,6 +3486,7 @@ const deserializeAws_json1_0VolumeRecommendations = (output: any, context: __Ser
       }
       return deserializeAws_json1_0VolumeRecommendation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

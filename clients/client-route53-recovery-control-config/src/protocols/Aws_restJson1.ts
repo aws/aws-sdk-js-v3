@@ -2252,7 +2252,7 @@ const serializeAws_restJson1RuleConfig = (input: RuleConfig, context: __SerdeCon
 };
 
 const deserializeAws_restJson1__listOf__stringMax36PatternS = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2260,13 +2260,14 @@ const deserializeAws_restJson1__listOf__stringMax36PatternS = (output: any, cont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09 = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2274,10 +2275,11 @@ const deserializeAws_restJson1__listOf__stringMin1Max256PatternAZaZ09 = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCluster = (output: any, context: __SerdeContext): Cluster[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2285,10 +2287,11 @@ const deserializeAws_restJson1__listOfCluster = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1Cluster(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfClusterEndpoint = (output: any, context: __SerdeContext): ClusterEndpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2296,10 +2299,11 @@ const deserializeAws_restJson1__listOfClusterEndpoint = (output: any, context: _
       }
       return deserializeAws_restJson1ClusterEndpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfControlPanel = (output: any, context: __SerdeContext): ControlPanel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2307,10 +2311,11 @@ const deserializeAws_restJson1__listOfControlPanel = (output: any, context: __Se
       }
       return deserializeAws_restJson1ControlPanel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfRoutingControl = (output: any, context: __SerdeContext): RoutingControl[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2318,10 +2323,11 @@ const deserializeAws_restJson1__listOfRoutingControl = (output: any, context: __
       }
       return deserializeAws_restJson1RoutingControl(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfRule = (output: any, context: __SerdeContext): Rule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2329,6 +2335,7 @@ const deserializeAws_restJson1__listOfRule = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Rule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__mapOf__stringMin0Max256PatternS = (

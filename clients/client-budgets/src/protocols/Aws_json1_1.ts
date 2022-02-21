@@ -2459,7 +2459,7 @@ const deserializeAws_json1_1Action = (output: any, context: __SerdeContext): Act
 };
 
 const deserializeAws_json1_1ActionHistories = (output: any, context: __SerdeContext): ActionHistory[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2467,6 +2467,7 @@ const deserializeAws_json1_1ActionHistories = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ActionHistory(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ActionHistory = (output: any, context: __SerdeContext): ActionHistory => {
@@ -2495,7 +2496,7 @@ const deserializeAws_json1_1ActionHistoryDetails = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1Actions = (output: any, context: __SerdeContext): Action[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2503,6 +2504,7 @@ const deserializeAws_json1_1Actions = (output: any, context: __SerdeContext): Ac
       }
       return deserializeAws_json1_1Action(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ActionThreshold = (output: any, context: __SerdeContext): ActionThreshold => {
@@ -2590,7 +2592,7 @@ const deserializeAws_json1_1BudgetedAndActualAmountsList = (
   output: any,
   context: __SerdeContext
 ): BudgetedAndActualAmounts[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2598,6 +2600,7 @@ const deserializeAws_json1_1BudgetedAndActualAmountsList = (
       }
       return deserializeAws_json1_1BudgetedAndActualAmounts(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1BudgetNotificationsForAccount = (
@@ -2617,7 +2620,7 @@ const deserializeAws_json1_1BudgetNotificationsForAccountList = (
   output: any,
   context: __SerdeContext
 ): BudgetNotificationsForAccount[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2625,6 +2628,7 @@ const deserializeAws_json1_1BudgetNotificationsForAccountList = (
       }
       return deserializeAws_json1_1BudgetNotificationsForAccount(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1BudgetPerformanceHistory = (
@@ -2651,7 +2655,7 @@ const deserializeAws_json1_1BudgetPerformanceHistory = (
 };
 
 const deserializeAws_json1_1Budgets = (output: any, context: __SerdeContext): Budget[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2659,6 +2663,7 @@ const deserializeAws_json1_1Budgets = (output: any, context: __SerdeContext): Bu
       }
       return deserializeAws_json1_1Budget(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CalculatedSpend = (output: any, context: __SerdeContext): CalculatedSpend => {
@@ -2917,7 +2922,7 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationResponse = (
 };
 
 const deserializeAws_json1_1DimensionValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2925,6 +2930,7 @@ const deserializeAws_json1_1DimensionValues = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DuplicateRecordException = (
@@ -2958,7 +2964,7 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
 };
 
 const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2966,6 +2972,7 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): str
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1HistoricalOptions = (output: any, context: __SerdeContext): HistoricalOptions => {
@@ -2994,7 +3001,7 @@ const deserializeAws_json1_1IamActionDefinition = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1InstanceIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3002,6 +3009,7 @@ const deserializeAws_json1_1InstanceIds = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
@@ -3045,7 +3053,7 @@ const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1Notifications = (output: any, context: __SerdeContext): Notification[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3053,6 +3061,7 @@ const deserializeAws_json1_1Notifications = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1Notification(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PlannedBudgetLimits = (output: any, context: __SerdeContext): { [key: string]: Spend } => {
@@ -3077,7 +3086,7 @@ const deserializeAws_json1_1ResourceLockedException = (
 };
 
 const deserializeAws_json1_1Roles = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3085,6 +3094,7 @@ const deserializeAws_json1_1Roles = (output: any, context: __SerdeContext): stri
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScpActionDefinition = (output: any, context: __SerdeContext): ScpActionDefinition => {
@@ -3123,7 +3133,7 @@ const deserializeAws_json1_1Subscriber = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1Subscribers = (output: any, context: __SerdeContext): Subscriber[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3131,10 +3141,11 @@ const deserializeAws_json1_1Subscribers = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Subscriber(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TargetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3142,6 +3153,7 @@ const deserializeAws_json1_1TargetIds = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
@@ -3194,7 +3206,7 @@ const deserializeAws_json1_1UpdateSubscriberResponse = (
 };
 
 const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3202,6 +3214,7 @@ const deserializeAws_json1_1Users = (output: any, context: __SerdeContext): stri
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

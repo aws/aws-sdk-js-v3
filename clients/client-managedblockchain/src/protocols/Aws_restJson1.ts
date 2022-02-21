@@ -2680,7 +2680,7 @@ const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1InvitationList = (output: any, context: __SerdeContext): Invitation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2688,6 +2688,7 @@ const deserializeAws_restJson1InvitationList = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1Invitation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1InviteAction = (output: any, context: __SerdeContext): InviteAction => {
@@ -2697,7 +2698,7 @@ const deserializeAws_restJson1InviteAction = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1InviteActionList = (output: any, context: __SerdeContext): InviteAction[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2705,6 +2706,7 @@ const deserializeAws_restJson1InviteActionList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1InviteAction(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
@@ -2812,7 +2814,7 @@ const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1MemberSummaryList = (output: any, context: __SerdeContext): MemberSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2820,6 +2822,7 @@ const deserializeAws_restJson1MemberSummaryList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1MemberSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): Network => {
@@ -2903,7 +2906,7 @@ const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1NetworkSummaryList = (output: any, context: __SerdeContext): NetworkSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2911,6 +2914,7 @@ const deserializeAws_restJson1NetworkSummaryList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1NetworkSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Node => {
@@ -3019,7 +3023,7 @@ const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1NodeSummaryList = (output: any, context: __SerdeContext): NodeSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3027,6 +3031,7 @@ const deserializeAws_restJson1NodeSummaryList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1NodeSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1OutputTagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -3105,7 +3110,7 @@ const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1ProposalSummaryList = (output: any, context: __SerdeContext): ProposalSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3113,10 +3118,11 @@ const deserializeAws_restJson1ProposalSummaryList = (output: any, context: __Ser
       }
       return deserializeAws_restJson1ProposalSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProposalVoteList = (output: any, context: __SerdeContext): VoteSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3124,6 +3130,7 @@ const deserializeAws_restJson1ProposalVoteList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1VoteSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RemoveAction = (output: any, context: __SerdeContext): RemoveAction => {
@@ -3133,7 +3140,7 @@ const deserializeAws_restJson1RemoveAction = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1RemoveActionList = (output: any, context: __SerdeContext): RemoveAction[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3141,6 +3148,7 @@ const deserializeAws_restJson1RemoveActionList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1RemoveAction(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VoteSummary = (output: any, context: __SerdeContext): VoteSummary => {

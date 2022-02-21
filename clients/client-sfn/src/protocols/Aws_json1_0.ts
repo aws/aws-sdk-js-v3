@@ -2230,7 +2230,7 @@ const deserializeAws_json1_0ActivityLimitExceeded = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_0ActivityList = (output: any, context: __SerdeContext): ActivityListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2238,6 +2238,7 @@ const deserializeAws_json1_0ActivityList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_0ActivityListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ActivityListItem = (output: any, context: __SerdeContext): ActivityListItem => {
@@ -2505,7 +2506,7 @@ const deserializeAws_json1_0ExecutionLimitExceeded = (output: any, context: __Se
 };
 
 const deserializeAws_json1_0ExecutionList = (output: any, context: __SerdeContext): ExecutionListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2513,6 +2514,7 @@ const deserializeAws_json1_0ExecutionList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_0ExecutionListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ExecutionListItem = (output: any, context: __SerdeContext): ExecutionListItem => {
@@ -2747,7 +2749,7 @@ const deserializeAws_json1_0HistoryEventExecutionDataDetails = (
 };
 
 const deserializeAws_json1_0HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2755,6 +2757,7 @@ const deserializeAws_json1_0HistoryEventList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_0HistoryEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0InvalidArn = (output: any, context: __SerdeContext): InvalidArn => {
@@ -2934,7 +2937,7 @@ const deserializeAws_json1_0LogDestination = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_0LogDestinationList = (output: any, context: __SerdeContext): LogDestination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2942,6 +2945,7 @@ const deserializeAws_json1_0LogDestinationList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_0LogDestination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
@@ -3114,7 +3118,7 @@ const deserializeAws_json1_0StateMachineLimitExceeded = (
 };
 
 const deserializeAws_json1_0StateMachineList = (output: any, context: __SerdeContext): StateMachineListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3122,6 +3126,7 @@ const deserializeAws_json1_0StateMachineList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_0StateMachineListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0StateMachineListItem = (output: any, context: __SerdeContext): StateMachineListItem => {
@@ -3162,7 +3167,7 @@ const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3170,6 +3175,7 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_0Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeContext): TagResourceOutput => {

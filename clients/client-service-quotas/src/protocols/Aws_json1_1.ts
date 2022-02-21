@@ -2263,7 +2263,7 @@ const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
 };
 
 const deserializeAws_json1_1OutputTags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2271,6 +2271,7 @@ const deserializeAws_json1_1OutputTags = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse = (
@@ -2334,7 +2335,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition = (
   output: any,
   context: __SerdeContext
 ): RequestedServiceQuotaChange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2342,6 +2343,7 @@ const deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition = (
       }
       return deserializeAws_json1_1RequestedServiceQuotaChange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RequestServiceQuotaIncreaseResponse = (
@@ -2379,7 +2381,7 @@ const deserializeAws_json1_1ServiceInfo = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ServiceInfoListDefinition = (output: any, context: __SerdeContext): ServiceInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2387,6 +2389,7 @@ const deserializeAws_json1_1ServiceInfoListDefinition = (output: any, context: _
       }
       return deserializeAws_json1_1ServiceInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => {
@@ -2435,7 +2438,7 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList = (
   output: any,
   context: __SerdeContext
 ): ServiceQuotaIncreaseRequestInTemplate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2443,10 +2446,11 @@ const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList = (
       }
       return deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceQuotaListDefinition = (output: any, context: __SerdeContext): ServiceQuota[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2454,6 +2458,7 @@ const deserializeAws_json1_1ServiceQuotaListDefinition = (output: any, context: 
       }
       return deserializeAws_json1_1ServiceQuota(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (

@@ -3212,7 +3212,7 @@ const deserializeAws_json1_1DependencyRevision = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1DependencyRevisions = (output: any, context: __SerdeContext): DependencyRevision[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3220,6 +3220,7 @@ const deserializeAws_json1_1DependencyRevisions = (output: any, context: __Serde
       }
       return deserializeAws_json1_1DependencyRevision(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeploySystemInstanceResponse = (
@@ -3286,7 +3287,7 @@ const deserializeAws_json1_1EntityDescription = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1EntityDescriptions = (output: any, context: __SerdeContext): EntityDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3294,6 +3295,7 @@ const deserializeAws_json1_1EntityDescriptions = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1EntityDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FlowExecutionMessage = (output: any, context: __SerdeContext): FlowExecutionMessage => {
@@ -3309,7 +3311,7 @@ const deserializeAws_json1_1FlowExecutionMessage = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1FlowExecutionMessages = (output: any, context: __SerdeContext): FlowExecutionMessage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3317,10 +3319,11 @@ const deserializeAws_json1_1FlowExecutionMessages = (output: any, context: __Ser
       }
       return deserializeAws_json1_1FlowExecutionMessage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FlowExecutionSummaries = (output: any, context: __SerdeContext): FlowExecutionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3328,6 +3331,7 @@ const deserializeAws_json1_1FlowExecutionSummaries = (output: any, context: __Se
       }
       return deserializeAws_json1_1FlowExecutionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FlowExecutionSummary = (output: any, context: __SerdeContext): FlowExecutionSummary => {
@@ -3365,7 +3369,7 @@ const deserializeAws_json1_1FlowTemplateDescription = (
 };
 
 const deserializeAws_json1_1FlowTemplateSummaries = (output: any, context: __SerdeContext): FlowTemplateSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3373,6 +3377,7 @@ const deserializeAws_json1_1FlowTemplateSummaries = (output: any, context: __Ser
       }
       return deserializeAws_json1_1FlowTemplateSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FlowTemplateSummary = (output: any, context: __SerdeContext): FlowTemplateSummary => {
@@ -3646,7 +3651,7 @@ const deserializeAws_json1_1SearchThingsResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3654,6 +3659,7 @@ const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SystemInstanceDescription = (
@@ -3687,7 +3693,7 @@ const deserializeAws_json1_1SystemInstanceSummaries = (
   output: any,
   context: __SerdeContext
 ): SystemInstanceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3695,6 +3701,7 @@ const deserializeAws_json1_1SystemInstanceSummaries = (
       }
       return deserializeAws_json1_1SystemInstanceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SystemInstanceSummary = (output: any, context: __SerdeContext): SystemInstanceSummary => {
@@ -3738,7 +3745,7 @@ const deserializeAws_json1_1SystemTemplateSummaries = (
   output: any,
   context: __SerdeContext
 ): SystemTemplateSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3746,6 +3753,7 @@ const deserializeAws_json1_1SystemTemplateSummaries = (
       }
       return deserializeAws_json1_1SystemTemplateSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SystemTemplateSummary = (output: any, context: __SerdeContext): SystemTemplateSummary => {
@@ -3768,7 +3776,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3776,6 +3784,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -3790,7 +3799,7 @@ const deserializeAws_json1_1Thing = (output: any, context: __SerdeContext): Thin
 };
 
 const deserializeAws_json1_1Things = (output: any, context: __SerdeContext): Thing[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3798,6 +3807,7 @@ const deserializeAws_json1_1Things = (output: any, context: __SerdeContext): Thi
       }
       return deserializeAws_json1_1Thing(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {

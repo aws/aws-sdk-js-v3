@@ -1324,7 +1324,7 @@ const serializeAws_restJson1Targets = (input: Target[], context: __SerdeContext)
 };
 
 const deserializeAws_restJson1EventTypeBatch = (output: any, context: __SerdeContext): EventTypeSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1332,6 +1332,7 @@ const deserializeAws_restJson1EventTypeBatch = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1EventTypeSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EventTypeSummary = (output: any, context: __SerdeContext): EventTypeSummary => {
@@ -1347,7 +1348,7 @@ const deserializeAws_restJson1NotificationRuleBatch = (
   output: any,
   context: __SerdeContext
 ): NotificationRuleSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1355,6 +1356,7 @@ const deserializeAws_restJson1NotificationRuleBatch = (
       }
       return deserializeAws_restJson1NotificationRuleSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1NotificationRuleSummary = (
@@ -1380,7 +1382,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
 };
 
 const deserializeAws_restJson1TargetsBatch = (output: any, context: __SerdeContext): TargetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1388,6 +1390,7 @@ const deserializeAws_restJson1TargetsBatch = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1TargetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {

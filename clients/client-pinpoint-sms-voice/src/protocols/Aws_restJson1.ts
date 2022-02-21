@@ -962,7 +962,7 @@ const deserializeAws_restJson1CloudWatchLogsDestination = (
 };
 
 const deserializeAws_restJson1ConfigurationSets = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -970,6 +970,7 @@ const deserializeAws_restJson1ConfigurationSets = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
@@ -996,7 +997,7 @@ const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1EventDestinations = (output: any, context: __SerdeContext): EventDestination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1004,10 +1005,11 @@ const deserializeAws_restJson1EventDestinations = (output: any, context: __Serde
       }
       return deserializeAws_restJson1EventDestination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext): (EventType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1015,6 +1017,7 @@ const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1KinesisFirehoseDestination = (

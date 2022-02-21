@@ -1406,7 +1406,7 @@ const deserializeAws_json1_0ResourceDescription = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0ResourceDescriptions = (output: any, context: __SerdeContext): ResourceDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1414,6 +1414,7 @@ const deserializeAws_json1_0ResourceDescriptions = (output: any, context: __Serd
       }
       return deserializeAws_json1_0ResourceDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (
@@ -1429,7 +1430,7 @@ const deserializeAws_json1_0ResourceRequestStatusSummaries = (
   output: any,
   context: __SerdeContext
 ): ProgressEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1437,6 +1438,7 @@ const deserializeAws_json1_0ResourceRequestStatusSummaries = (
       }
       return deserializeAws_json1_0ProgressEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ServiceInternalErrorException = (

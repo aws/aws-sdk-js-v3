@@ -5170,7 +5170,7 @@ const deserializeAws_restJson1AdditionalAuthenticationProviders = (
   output: any,
   context: __SerdeContext
 ): AdditionalAuthenticationProvider[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5178,6 +5178,7 @@ const deserializeAws_restJson1AdditionalAuthenticationProviders = (
       }
       return deserializeAws_restJson1AdditionalAuthenticationProvider(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ApiAssociation = (output: any, context: __SerdeContext): ApiAssociation => {
@@ -5210,7 +5211,7 @@ const deserializeAws_restJson1ApiKey = (output: any, context: __SerdeContext): A
 };
 
 const deserializeAws_restJson1ApiKeys = (output: any, context: __SerdeContext): ApiKey[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5218,6 +5219,7 @@ const deserializeAws_restJson1ApiKeys = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1ApiKey(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AuthorizationConfig = (output: any, context: __SerdeContext): AuthorizationConfig => {
@@ -5248,7 +5250,7 @@ const deserializeAws_restJson1CachingConfig = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1CachingKeys = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5256,6 +5258,7 @@ const deserializeAws_restJson1CachingKeys = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CognitoUserPoolConfig = (output: any, context: __SerdeContext): CognitoUserPoolConfig => {
@@ -5301,7 +5304,7 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1DataSources = (output: any, context: __SerdeContext): DataSource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5309,6 +5312,7 @@ const deserializeAws_restJson1DataSources = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1DataSource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeltaSyncConfig = (output: any, context: __SerdeContext): DeltaSyncConfig => {
@@ -5330,7 +5334,7 @@ const deserializeAws_restJson1DomainNameConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1DomainNameConfigs = (output: any, context: __SerdeContext): DomainNameConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5338,6 +5342,7 @@ const deserializeAws_restJson1DomainNameConfigs = (output: any, context: __Serde
       }
       return deserializeAws_restJson1DomainNameConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DynamodbDataSourceConfig = (
@@ -5385,7 +5390,7 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
 };
 
 const deserializeAws_restJson1Functions = (output: any, context: __SerdeContext): FunctionConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5393,10 +5398,11 @@ const deserializeAws_restJson1Functions = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1FunctionConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FunctionsIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5404,6 +5410,7 @@ const deserializeAws_restJson1FunctionsIds = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GraphqlApi = (output: any, context: __SerdeContext): GraphqlApi => {
@@ -5446,7 +5453,7 @@ const deserializeAws_restJson1GraphqlApi = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1GraphqlApis = (output: any, context: __SerdeContext): GraphqlApi[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5454,6 +5461,7 @@ const deserializeAws_restJson1GraphqlApis = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1GraphqlApi(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1HttpDataSourceConfig = (output: any, context: __SerdeContext): HttpDataSourceConfig => {
@@ -5595,7 +5603,7 @@ const deserializeAws_restJson1Resolver = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Resolvers = (output: any, context: __SerdeContext): Resolver[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5603,6 +5611,7 @@ const deserializeAws_restJson1Resolvers = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Resolver(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SyncConfig = (output: any, context: __SerdeContext): SyncConfig => {
@@ -5639,7 +5648,7 @@ const deserializeAws_restJson1Type = (output: any, context: __SerdeContext): Typ
 };
 
 const deserializeAws_restJson1TypeList = (output: any, context: __SerdeContext): Type[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5647,6 +5656,7 @@ const deserializeAws_restJson1TypeList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Type(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UserPoolConfig = (output: any, context: __SerdeContext): UserPoolConfig => {

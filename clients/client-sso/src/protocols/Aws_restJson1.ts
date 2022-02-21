@@ -415,7 +415,7 @@ const deserializeAws_restJson1AccountInfo = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1AccountListType = (output: any, context: __SerdeContext): AccountInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -423,6 +423,7 @@ const deserializeAws_restJson1AccountListType = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1AccountInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RoleCredentials = (output: any, context: __SerdeContext): RoleCredentials => {
@@ -442,7 +443,7 @@ const deserializeAws_restJson1RoleInfo = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1RoleListType = (output: any, context: __SerdeContext): RoleInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -450,6 +451,7 @@ const deserializeAws_restJson1RoleListType = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1RoleInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

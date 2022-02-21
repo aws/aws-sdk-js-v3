@@ -2549,7 +2549,7 @@ const deserializeAws_restJson1BatchError = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1BatchErrors = (output: any, context: __SerdeContext): BatchError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2557,6 +2557,7 @@ const deserializeAws_restJson1BatchErrors = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1BatchError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
@@ -2577,7 +2578,7 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1ChannelList = (output: any, context: __SerdeContext): ChannelSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2585,10 +2586,11 @@ const deserializeAws_restJson1ChannelList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1ChannelSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext): Channel[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2596,6 +2598,7 @@ const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Channel(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
@@ -2653,7 +2656,7 @@ const deserializeAws_restJson1PlaybackKeyPairList = (
   output: any,
   context: __SerdeContext
 ): PlaybackKeyPairSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2661,6 +2664,7 @@ const deserializeAws_restJson1PlaybackKeyPairList = (
       }
       return deserializeAws_restJson1PlaybackKeyPairSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PlaybackKeyPairSummary = (
@@ -2704,7 +2708,7 @@ const deserializeAws_restJson1RecordingConfigurationList = (
   output: any,
   context: __SerdeContext
 ): RecordingConfigurationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2712,6 +2716,7 @@ const deserializeAws_restJson1RecordingConfigurationList = (
       }
       return deserializeAws_restJson1RecordingConfigurationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RecordingConfigurationSummary = (
@@ -2769,7 +2774,7 @@ const deserializeAws_restJson1StreamEvent = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1StreamEvents = (output: any, context: __SerdeContext): StreamEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2777,6 +2782,7 @@ const deserializeAws_restJson1StreamEvents = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1StreamEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StreamKey = (output: any, context: __SerdeContext): StreamKey => {
@@ -2792,7 +2798,7 @@ const deserializeAws_restJson1StreamKey = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1StreamKeyList = (output: any, context: __SerdeContext): StreamKeySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2800,10 +2806,11 @@ const deserializeAws_restJson1StreamKeyList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1StreamKeySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StreamKeys = (output: any, context: __SerdeContext): StreamKey[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2811,6 +2818,7 @@ const deserializeAws_restJson1StreamKeys = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1StreamKey(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StreamKeySummary = (output: any, context: __SerdeContext): StreamKeySummary => {
@@ -2825,7 +2833,7 @@ const deserializeAws_restJson1StreamKeySummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext): StreamSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2833,6 +2841,7 @@ const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1StreamSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeContext): StreamSession => {
@@ -2866,7 +2875,7 @@ const deserializeAws_restJson1StreamSession = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1StreamSessionList = (output: any, context: __SerdeContext): StreamSessionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2874,6 +2883,7 @@ const deserializeAws_restJson1StreamSessionList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1StreamSessionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StreamSessionSummary = (output: any, context: __SerdeContext): StreamSessionSummary => {

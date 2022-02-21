@@ -306,7 +306,7 @@ const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1IceServerList = (output: any, context: __SerdeContext): IceServer[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -314,10 +314,11 @@ const deserializeAws_restJson1IceServerList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1IceServer(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Uris = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -325,6 +326,7 @@ const deserializeAws_restJson1Uris = (output: any, context: __SerdeContext): str
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

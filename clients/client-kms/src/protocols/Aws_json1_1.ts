@@ -4722,7 +4722,7 @@ const serializeAws_json1_1VerifyRequest = (input: VerifyRequest, context: __Serd
 };
 
 const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): AliasListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4730,6 +4730,7 @@ const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1AliasListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AliasListEntry = (output: any, context: __SerdeContext): AliasListEntry => {
@@ -4880,7 +4881,7 @@ const deserializeAws_json1_1CustomKeyStoresList = (
   output: any,
   context: __SerdeContext
 ): CustomKeyStoresListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4888,6 +4889,7 @@ const deserializeAws_json1_1CustomKeyStoresList = (
       }
       return deserializeAws_json1_1CustomKeyStoresListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CustomKeyStoresListEntry = (
@@ -4973,7 +4975,7 @@ const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
 ): (EncryptionAlgorithmSpec | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4981,6 +4983,7 @@ const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EncryptionContextType = (
@@ -5156,7 +5159,7 @@ const deserializeAws_json1_1GrantConstraints = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): GrantListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5164,6 +5167,7 @@ const deserializeAws_json1_1GrantList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1GrantListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GrantListEntry = (output: any, context: __SerdeContext): GrantListEntry => {
@@ -5193,7 +5197,7 @@ const deserializeAws_json1_1GrantOperationList = (
   output: any,
   context: __SerdeContext
 ): (GrantOperation | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5201,6 +5205,7 @@ const deserializeAws_json1_1GrantOperationList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ImportKeyMaterialResponse = (
@@ -5301,7 +5306,7 @@ const deserializeAws_json1_1InvalidMarkerException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1KeyList = (output: any, context: __SerdeContext): KeyListEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5309,6 +5314,7 @@ const deserializeAws_json1_1KeyList = (output: any, context: __SerdeContext): Ke
       }
       return deserializeAws_json1_1KeyListEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1KeyListEntry = (output: any, context: __SerdeContext): KeyListEntry => {
@@ -5497,7 +5503,7 @@ const deserializeAws_json1_1MultiRegionKey = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1MultiRegionKeyList = (output: any, context: __SerdeContext): MultiRegionKey[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5505,6 +5511,7 @@ const deserializeAws_json1_1MultiRegionKeyList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1MultiRegionKey(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
@@ -5514,7 +5521,7 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1PolicyNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5522,6 +5529,7 @@ const deserializeAws_json1_1PolicyNameList = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ReEncryptResponse = (output: any, context: __SerdeContext): ReEncryptResponse => {
@@ -5570,7 +5578,7 @@ const deserializeAws_json1_1SigningAlgorithmSpecList = (
   output: any,
   context: __SerdeContext
 ): (SigningAlgorithmSpec | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5578,6 +5586,7 @@ const deserializeAws_json1_1SigningAlgorithmSpecList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SignResponse = (output: any, context: __SerdeContext): SignResponse => {
@@ -5603,7 +5612,7 @@ const deserializeAws_json1_1TagException = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5611,6 +5620,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UnsupportedOperationException = (

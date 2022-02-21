@@ -2509,7 +2509,7 @@ const deserializeAws_restJson1DatasetDescription = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1DatasetEntryList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2517,6 +2517,7 @@ const deserializeAws_restJson1DatasetEntryList = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DatasetImageStats = (output: any, context: __SerdeContext): DatasetImageStats => {
@@ -2541,7 +2542,7 @@ const deserializeAws_restJson1DatasetMetadata = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1DatasetMetadataList = (output: any, context: __SerdeContext): DatasetMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2549,6 +2550,7 @@ const deserializeAws_restJson1DatasetMetadataList = (output: any, context: __Ser
       }
       return deserializeAws_restJson1DatasetMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DetectAnomalyResult = (output: any, context: __SerdeContext): DetectAnomalyResult => {
@@ -2658,7 +2660,7 @@ const deserializeAws_restJson1ModelMetadata = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1ModelMetadataList = (output: any, context: __SerdeContext): ModelMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2666,6 +2668,7 @@ const deserializeAws_restJson1ModelMetadataList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1ModelMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ModelPackagingConfiguration = (
@@ -2738,7 +2741,7 @@ const deserializeAws_restJson1ModelPackagingJobsList = (
   output: any,
   context: __SerdeContext
 ): ModelPackagingJobMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2746,6 +2749,7 @@ const deserializeAws_restJson1ModelPackagingJobsList = (
       }
       return deserializeAws_restJson1ModelPackagingJobMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ModelPackagingOutputDetails = (
@@ -2811,7 +2815,7 @@ const deserializeAws_restJson1ProjectMetadata = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1ProjectMetadataList = (output: any, context: __SerdeContext): ProjectMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2819,6 +2823,7 @@ const deserializeAws_restJson1ProjectMetadataList = (output: any, context: __Ser
       }
       return deserializeAws_restJson1ProjectMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
@@ -2836,7 +2841,7 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2844,6 +2849,7 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TargetPlatform = (output: any, context: __SerdeContext): TargetPlatform => {

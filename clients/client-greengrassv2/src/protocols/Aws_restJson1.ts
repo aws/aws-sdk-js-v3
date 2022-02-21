@@ -3472,7 +3472,7 @@ const deserializeAws_restJson1AssociateClientDeviceWithCoreDeviceErrorList = (
   output: any,
   context: __SerdeContext
 ): AssociateClientDeviceWithCoreDeviceErrorEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3480,6 +3480,7 @@ const deserializeAws_restJson1AssociateClientDeviceWithCoreDeviceErrorList = (
       }
       return deserializeAws_restJson1AssociateClientDeviceWithCoreDeviceErrorEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AssociatedClientDevice = (
@@ -3499,7 +3500,7 @@ const deserializeAws_restJson1AssociatedClientDeviceList = (
   output: any,
   context: __SerdeContext
 ): AssociatedClientDevice[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3507,6 +3508,7 @@ const deserializeAws_restJson1AssociatedClientDeviceList = (
       }
       return deserializeAws_restJson1AssociatedClientDevice(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CloudComponentStatus = (output: any, context: __SerdeContext): CloudComponentStatus => {
@@ -3532,7 +3534,7 @@ const deserializeAws_restJson1Component = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1ComponentConfigurationPathList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3540,6 +3542,7 @@ const deserializeAws_restJson1ComponentConfigurationPathList = (output: any, con
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ComponentConfigurationUpdate = (
@@ -3611,7 +3614,7 @@ const deserializeAws_restJson1ComponentLatestVersion = (
 };
 
 const deserializeAws_restJson1ComponentList = (output: any, context: __SerdeContext): Component[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3619,6 +3622,7 @@ const deserializeAws_restJson1ComponentList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1Component(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ComponentPlatform = (output: any, context: __SerdeContext): ComponentPlatform => {
@@ -3632,7 +3636,7 @@ const deserializeAws_restJson1ComponentPlatform = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1ComponentPlatformList = (output: any, context: __SerdeContext): ComponentPlatform[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3640,6 +3644,7 @@ const deserializeAws_restJson1ComponentPlatformList = (output: any, context: __S
       }
       return deserializeAws_restJson1ComponentPlatform(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ComponentRunWith = (output: any, context: __SerdeContext): ComponentRunWith => {
@@ -3657,7 +3662,7 @@ const deserializeAws_restJson1ComponentVersionList = (
   output: any,
   context: __SerdeContext
 ): ComponentVersionListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3665,6 +3670,7 @@ const deserializeAws_restJson1ComponentVersionList = (
       }
       return deserializeAws_restJson1ComponentVersionListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ComponentVersionListItem = (
@@ -3688,7 +3694,7 @@ const deserializeAws_restJson1ConnectivityInfo = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1connectivityInfoList = (output: any, context: __SerdeContext): ConnectivityInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3696,6 +3702,7 @@ const deserializeAws_restJson1connectivityInfoList = (output: any, context: __Se
       }
       return deserializeAws_restJson1ConnectivityInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CoreDevice = (output: any, context: __SerdeContext): CoreDevice => {
@@ -3710,7 +3717,7 @@ const deserializeAws_restJson1CoreDevice = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1CoreDevicesList = (output: any, context: __SerdeContext): CoreDevice[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3718,6 +3725,7 @@ const deserializeAws_restJson1CoreDevicesList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1CoreDevice(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
@@ -3775,7 +3783,7 @@ const deserializeAws_restJson1DeploymentIoTJobConfiguration = (
 };
 
 const deserializeAws_restJson1DeploymentList = (output: any, context: __SerdeContext): Deployment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3783,6 +3791,7 @@ const deserializeAws_restJson1DeploymentList = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1Deployment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DeploymentPolicies = (output: any, context: __SerdeContext): DeploymentPolicies => {
@@ -3814,7 +3823,7 @@ const deserializeAws_restJson1DisassociateClientDeviceFromCoreDeviceErrorList = 
   output: any,
   context: __SerdeContext
 ): DisassociateClientDeviceFromCoreDeviceErrorEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3822,6 +3831,7 @@ const deserializeAws_restJson1DisassociateClientDeviceFromCoreDeviceErrorList = 
       }
       return deserializeAws_restJson1DisassociateClientDeviceFromCoreDeviceErrorEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EffectiveDeployment = (output: any, context: __SerdeContext): EffectiveDeployment => {
@@ -3849,7 +3859,7 @@ const deserializeAws_restJson1EffectiveDeploymentsList = (
   output: any,
   context: __SerdeContext
 ): EffectiveDeployment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3857,6 +3867,7 @@ const deserializeAws_restJson1EffectiveDeploymentsList = (
       }
       return deserializeAws_restJson1EffectiveDeployment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1InstalledComponent = (output: any, context: __SerdeContext): InstalledComponent => {
@@ -3870,7 +3881,7 @@ const deserializeAws_restJson1InstalledComponent = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1InstalledComponentList = (output: any, context: __SerdeContext): InstalledComponent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3878,6 +3889,7 @@ const deserializeAws_restJson1InstalledComponentList = (output: any, context: __
       }
       return deserializeAws_restJson1InstalledComponent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1IoTJobAbortConfig = (output: any, context: __SerdeContext): IoTJobAbortConfig => {
@@ -3902,7 +3914,7 @@ const deserializeAws_restJson1IoTJobAbortCriteriaList = (
   output: any,
   context: __SerdeContext
 ): IoTJobAbortCriteria[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3910,6 +3922,7 @@ const deserializeAws_restJson1IoTJobAbortCriteriaList = (
       }
       return deserializeAws_restJson1IoTJobAbortCriteria(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1IoTJobExecutionsRolloutConfig = (
@@ -3986,7 +3999,7 @@ const deserializeAws_restJson1ResolvedComponentVersionsList = (
   output: any,
   context: __SerdeContext
 ): ResolvedComponentVersion[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3994,6 +4007,7 @@ const deserializeAws_restJson1ResolvedComponentVersionsList = (
       }
       return deserializeAws_restJson1ResolvedComponentVersion(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -4041,7 +4055,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4049,6 +4063,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
       }
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

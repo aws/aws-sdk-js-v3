@@ -6089,7 +6089,7 @@ const deserializeAws_json1_1AddIpRoutesResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1AdditionalRegions = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6097,6 +6097,7 @@ const deserializeAws_json1_1AdditionalRegions = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AddRegionResult = (output: any, context: __SerdeContext): AddRegionResult => {
@@ -6118,7 +6119,7 @@ const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext): Attribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6126,6 +6127,7 @@ const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1Attribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AuthenticationFailedException = (
@@ -6139,7 +6141,7 @@ const deserializeAws_json1_1AuthenticationFailedException = (
 };
 
 const deserializeAws_json1_1AvailabilityZones = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6147,6 +6149,7 @@ const deserializeAws_json1_1AvailabilityZones = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CancelSchemaExtensionResult = (
@@ -6232,7 +6235,7 @@ const deserializeAws_json1_1CertificateLimitExceededException = (
 };
 
 const deserializeAws_json1_1CertificatesInfo = (output: any, context: __SerdeContext): CertificateInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6240,6 +6243,7 @@ const deserializeAws_json1_1CertificatesInfo = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1CertificateInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ClientAuthenticationSettingInfo = (
@@ -6260,7 +6264,7 @@ const deserializeAws_json1_1ClientAuthenticationSettingsInfo = (
   output: any,
   context: __SerdeContext
 ): ClientAuthenticationSettingInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6268,6 +6272,7 @@ const deserializeAws_json1_1ClientAuthenticationSettingsInfo = (
       }
       return deserializeAws_json1_1ClientAuthenticationSettingInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ClientCertAuthSettings = (output: any, context: __SerdeContext): ClientCertAuthSettings => {
@@ -6306,7 +6311,7 @@ const deserializeAws_json1_1ConditionalForwarder = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1ConditionalForwarders = (output: any, context: __SerdeContext): ConditionalForwarder[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6314,6 +6319,7 @@ const deserializeAws_json1_1ConditionalForwarders = (output: any, context: __Ser
       }
       return deserializeAws_json1_1ConditionalForwarder(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConnectDirectoryResult = (output: any, context: __SerdeContext): ConnectDirectoryResult => {
@@ -6657,7 +6663,7 @@ const deserializeAws_json1_1DirectoryDescription = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1DirectoryDescriptions = (output: any, context: __SerdeContext): DirectoryDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6665,6 +6671,7 @@ const deserializeAws_json1_1DirectoryDescriptions = (output: any, context: __Ser
       }
       return deserializeAws_json1_1DirectoryDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DirectoryDoesNotExistException = (
@@ -6769,7 +6776,7 @@ const deserializeAws_json1_1DisableSsoResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1DnsIpAddrs = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6777,6 +6784,7 @@ const deserializeAws_json1_1DnsIpAddrs = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DomainController = (output: any, context: __SerdeContext): DomainController => {
@@ -6811,7 +6819,7 @@ const deserializeAws_json1_1DomainControllerLimitExceededException = (
 };
 
 const deserializeAws_json1_1DomainControllers = (output: any, context: __SerdeContext): DomainController[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6819,6 +6827,7 @@ const deserializeAws_json1_1DomainControllers = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1DomainController(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EnableClientAuthenticationResult = (
@@ -6874,7 +6883,7 @@ const deserializeAws_json1_1EventTopic = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1EventTopics = (output: any, context: __SerdeContext): EventTopic[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6882,6 +6891,7 @@ const deserializeAws_json1_1EventTopics = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1EventTopic(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetDirectoryLimitsResult = (
@@ -6986,7 +6996,7 @@ const deserializeAws_json1_1InvalidTargetException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1IpAddrs = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6994,6 +7004,7 @@ const deserializeAws_json1_1IpAddrs = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1IpRouteInfo = (output: any, context: __SerdeContext): IpRouteInfo => {
@@ -7021,7 +7032,7 @@ const deserializeAws_json1_1IpRouteLimitExceededException = (
 };
 
 const deserializeAws_json1_1IpRoutesInfo = (output: any, context: __SerdeContext): IpRouteInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7029,6 +7040,7 @@ const deserializeAws_json1_1IpRoutesInfo = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1IpRouteInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LDAPSSettingInfo = (output: any, context: __SerdeContext): LDAPSSettingInfo => {
@@ -7043,7 +7055,7 @@ const deserializeAws_json1_1LDAPSSettingInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1LDAPSSettingsInfo = (output: any, context: __SerdeContext): LDAPSSettingInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7051,6 +7063,7 @@ const deserializeAws_json1_1LDAPSSettingsInfo = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1LDAPSSettingInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ListCertificatesResult = (output: any, context: __SerdeContext): ListCertificatesResult => {
@@ -7122,7 +7135,7 @@ const deserializeAws_json1_1LogSubscription = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1LogSubscriptions = (output: any, context: __SerdeContext): LogSubscription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7130,6 +7143,7 @@ const deserializeAws_json1_1LogSubscriptions = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1LogSubscription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NoAvailableCertificateException = (
@@ -7225,7 +7239,7 @@ const deserializeAws_json1_1RegionLimitExceededException = (
 };
 
 const deserializeAws_json1_1RegionsDescription = (output: any, context: __SerdeContext): RegionDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7233,6 +7247,7 @@ const deserializeAws_json1_1RegionsDescription = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1RegionDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RegionsInfo = (output: any, context: __SerdeContext): RegionsInfo => {
@@ -7318,7 +7333,7 @@ const deserializeAws_json1_1SchemaExtensionInfo = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1SchemaExtensionsInfo = (output: any, context: __SerdeContext): SchemaExtensionInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7326,10 +7341,11 @@ const deserializeAws_json1_1SchemaExtensionsInfo = (output: any, context: __Serd
       }
       return deserializeAws_json1_1SchemaExtensionInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Servers = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7337,6 +7353,7 @@ const deserializeAws_json1_1Servers = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
@@ -7347,7 +7364,7 @@ const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1SharedDirectories = (output: any, context: __SerdeContext): SharedDirectory[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7355,6 +7372,7 @@ const deserializeAws_json1_1SharedDirectories = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1SharedDirectory(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SharedDirectory = (output: any, context: __SerdeContext): SharedDirectory => {
@@ -7426,7 +7444,7 @@ const deserializeAws_json1_1SnapshotLimits = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1Snapshots = (output: any, context: __SerdeContext): Snapshot[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7434,6 +7452,7 @@ const deserializeAws_json1_1Snapshots = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Snapshot(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StartSchemaExtensionResult = (
@@ -7446,7 +7465,7 @@ const deserializeAws_json1_1StartSchemaExtensionResult = (
 };
 
 const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7454,6 +7473,7 @@ const deserializeAws_json1_1SubnetIds = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -7474,7 +7494,7 @@ const deserializeAws_json1_1TagLimitExceededException = (
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7482,6 +7502,7 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Trust = (output: any, context: __SerdeContext): Trust => {
@@ -7510,7 +7531,7 @@ const deserializeAws_json1_1Trust = (output: any, context: __SerdeContext): Trus
 };
 
 const deserializeAws_json1_1Trusts = (output: any, context: __SerdeContext): Trust[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7518,6 +7539,7 @@ const deserializeAws_json1_1Trusts = (output: any, context: __SerdeContext): Tru
       }
       return deserializeAws_json1_1Trust(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UnshareDirectoryResult = (output: any, context: __SerdeContext): UnshareDirectoryResult => {

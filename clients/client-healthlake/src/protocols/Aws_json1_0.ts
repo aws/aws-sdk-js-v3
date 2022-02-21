@@ -1313,7 +1313,7 @@ const deserializeAws_json1_0DatastoreProperties = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0DatastorePropertiesList = (output: any, context: __SerdeContext): DatastoreProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1321,6 +1321,7 @@ const deserializeAws_json1_0DatastorePropertiesList = (output: any, context: __S
       }
       return deserializeAws_json1_0DatastoreProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0DeleteFHIRDatastoreResponse = (
@@ -1395,7 +1396,7 @@ const deserializeAws_json1_0ExportJobProperties = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0ExportJobPropertiesList = (output: any, context: __SerdeContext): ExportJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1403,6 +1404,7 @@ const deserializeAws_json1_0ExportJobPropertiesList = (output: any, context: __S
       }
       return deserializeAws_json1_0ExportJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ImportJobProperties = (output: any, context: __SerdeContext): ImportJobProperties => {
@@ -1433,7 +1435,7 @@ const deserializeAws_json1_0ImportJobProperties = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0ImportJobPropertiesList = (output: any, context: __SerdeContext): ImportJobProperties[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1441,6 +1443,7 @@ const deserializeAws_json1_0ImportJobPropertiesList = (output: any, context: __S
       }
       return deserializeAws_json1_0ImportJobProperties(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
@@ -1587,7 +1590,7 @@ const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1595,6 +1598,7 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_0Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {

@@ -3437,7 +3437,7 @@ const deserializeAws_restJson1__listOfDiscovererSummary = (
   output: any,
   context: __SerdeContext
 ): DiscovererSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3445,10 +3445,11 @@ const deserializeAws_restJson1__listOfDiscovererSummary = (
       }
       return deserializeAws_restJson1DiscovererSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfRegistrySummary = (output: any, context: __SerdeContext): RegistrySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3456,10 +3457,11 @@ const deserializeAws_restJson1__listOfRegistrySummary = (output: any, context: _
       }
       return deserializeAws_restJson1RegistrySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfSchemaSummary = (output: any, context: __SerdeContext): SchemaSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3467,13 +3469,14 @@ const deserializeAws_restJson1__listOfSchemaSummary = (output: any, context: __S
       }
       return deserializeAws_restJson1SchemaSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfSchemaVersionSummary = (
   output: any,
   context: __SerdeContext
 ): SchemaVersionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3481,13 +3484,14 @@ const deserializeAws_restJson1__listOfSchemaVersionSummary = (
       }
       return deserializeAws_restJson1SchemaVersionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfSearchSchemaSummary = (
   output: any,
   context: __SerdeContext
 ): SearchSchemaSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3495,13 +3499,14 @@ const deserializeAws_restJson1__listOfSearchSchemaSummary = (
       }
       return deserializeAws_restJson1SearchSchemaSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfSearchSchemaVersionSummary = (
   output: any,
   context: __SerdeContext
 ): SearchSchemaVersionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3509,6 +3514,7 @@ const deserializeAws_restJson1__listOfSearchSchemaVersionSummary = (
       }
       return deserializeAws_restJson1SearchSchemaVersionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DiscovererSummary = (output: any, context: __SerdeContext): DiscovererSummary => {

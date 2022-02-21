@@ -2508,7 +2508,7 @@ const deserializeAws_json1_1AccessDescription = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1AccessDescriptionList = (output: any, context: __SerdeContext): AccessDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2516,6 +2516,7 @@ const deserializeAws_json1_1AccessDescriptionList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1AccessDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AccessMethod = (output: any, context: __SerdeContext): AccessMethod => {
@@ -2526,7 +2527,7 @@ const deserializeAws_json1_1AccessMethod = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1ActionList = (output: any, context: __SerdeContext): (ActionType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2534,6 +2535,7 @@ const deserializeAws_json1_1ActionList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ASN1Subject = (output: any, context: __SerdeContext): ASN1Subject => {
@@ -2556,7 +2558,7 @@ const deserializeAws_json1_1ASN1Subject = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1CertificateAuthorities = (output: any, context: __SerdeContext): CertificateAuthority[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2564,6 +2566,7 @@ const deserializeAws_json1_1CertificateAuthorities = (output: any, context: __Se
       }
       return deserializeAws_json1_1CertificateAuthority(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CertificateAuthority = (output: any, context: __SerdeContext): CertificateAuthority => {
@@ -2950,7 +2953,7 @@ const deserializeAws_json1_1PermissionAlreadyExistsException = (
 };
 
 const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeContext): Permission[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2958,6 +2961,7 @@ const deserializeAws_json1_1PermissionList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1Permission(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RequestAlreadyProcessedException = (
@@ -3017,7 +3021,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3025,6 +3029,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {

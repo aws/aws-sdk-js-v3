@@ -457,7 +457,7 @@ const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __SerdeContext): Uint8Array[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -465,6 +465,7 @@ const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __S
       }
       return context.base64Decoder(entry);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0DescribeStreamOutput = (output: any, context: __SerdeContext): DescribeStreamOutput => {
@@ -515,7 +516,7 @@ const deserializeAws_json1_0InternalServerError = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): KeySchemaElement[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -523,6 +524,7 @@ const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_0KeySchemaElement(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
@@ -539,7 +541,7 @@ const deserializeAws_json1_0LimitExceededException = (output: any, context: __Se
 };
 
 const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeContext): AttributeValue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -547,6 +549,7 @@ const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_0AttributeValue(__expectUnion(entry), context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ListStreamsOutput = (output: any, context: __SerdeContext): ListStreamsOutput => {
@@ -575,7 +578,7 @@ const deserializeAws_json1_0MapAttributeValue = (
 };
 
 const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -583,6 +586,7 @@ const deserializeAws_json1_0NumberSetAttributeValue = (output: any, context: __S
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _Record => {
@@ -604,7 +608,7 @@ const deserializeAws_json1_0_Record = (output: any, context: __SerdeContext): _R
 };
 
 const deserializeAws_json1_0RecordList = (output: any, context: __SerdeContext): _Record[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -612,6 +616,7 @@ const deserializeAws_json1_0RecordList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_0_Record(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (
@@ -642,7 +647,7 @@ const deserializeAws_json1_0Shard = (output: any, context: __SerdeContext): Shar
 };
 
 const deserializeAws_json1_0ShardDescriptionList = (output: any, context: __SerdeContext): Shard[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -650,6 +655,7 @@ const deserializeAws_json1_0ShardDescriptionList = (output: any, context: __Serd
       }
       return deserializeAws_json1_0Shard(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0_Stream = (output: any, context: __SerdeContext): _Stream => {
@@ -684,7 +690,7 @@ const deserializeAws_json1_0StreamDescription = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_0StreamList = (output: any, context: __SerdeContext): _Stream[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -692,6 +698,7 @@ const deserializeAws_json1_0StreamList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_0_Stream(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext): StreamRecord => {
@@ -719,7 +726,7 @@ const deserializeAws_json1_0StreamRecord = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_0StringSetAttributeValue = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -727,6 +734,7 @@ const deserializeAws_json1_0StringSetAttributeValue = (output: any, context: __S
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_0TrimmedDataAccessException = (

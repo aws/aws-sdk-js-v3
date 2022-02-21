@@ -3701,7 +3701,7 @@ const deserializeAws_restJson1AccessPointDescriptions = (
   output: any,
   context: __SerdeContext
 ): AccessPointDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3709,6 +3709,7 @@ const deserializeAws_restJson1AccessPointDescriptions = (
       }
       return deserializeAws_restJson1AccessPointDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BackupPolicy = (output: any, context: __SerdeContext): BackupPolicy => {
@@ -3738,7 +3739,7 @@ const deserializeAws_restJson1Destination = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1Destinations = (output: any, context: __SerdeContext): Destination[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3746,6 +3747,7 @@ const deserializeAws_restJson1Destinations = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Destination(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FileSystemDescription = (output: any, context: __SerdeContext): FileSystemDescription => {
@@ -3783,7 +3785,7 @@ const deserializeAws_restJson1FileSystemDescriptions = (
   output: any,
   context: __SerdeContext
 ): FileSystemDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3791,6 +3793,7 @@ const deserializeAws_restJson1FileSystemDescriptions = (
       }
       return deserializeAws_restJson1FileSystemDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize => {
@@ -3806,7 +3809,7 @@ const deserializeAws_restJson1FileSystemSize = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1LifecyclePolicies = (output: any, context: __SerdeContext): LifecyclePolicy[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3814,6 +3817,7 @@ const deserializeAws_restJson1LifecyclePolicies = (output: any, context: __Serde
       }
       return deserializeAws_restJson1LifecyclePolicy(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
@@ -3845,7 +3849,7 @@ const deserializeAws_restJson1MountTargetDescriptions = (
   output: any,
   context: __SerdeContext
 ): MountTargetDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3853,6 +3857,7 @@ const deserializeAws_restJson1MountTargetDescriptions = (
       }
       return deserializeAws_restJson1MountTargetDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PosixUser = (output: any, context: __SerdeContext): PosixUser => {
@@ -3890,7 +3895,7 @@ const deserializeAws_restJson1ReplicationConfigurationDescriptions = (
   output: any,
   context: __SerdeContext
 ): ReplicationConfigurationDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3898,6 +3903,7 @@ const deserializeAws_restJson1ReplicationConfigurationDescriptions = (
       }
       return deserializeAws_restJson1ReplicationConfigurationDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResourceIdPreference = (output: any, context: __SerdeContext): ResourceIdPreference => {
@@ -3911,7 +3917,7 @@ const deserializeAws_restJson1ResourceIdPreference = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext): (Resource | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3919,6 +3925,7 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeContext): RootDirectory => {
@@ -3932,7 +3939,7 @@ const deserializeAws_restJson1RootDirectory = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1SecondaryGids = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3940,10 +3947,11 @@ const deserializeAws_restJson1SecondaryGids = (output: any, context: __SerdeCont
       }
       return __expectLong(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3951,6 +3959,7 @@ const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -3961,7 +3970,7 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3969,6 +3978,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

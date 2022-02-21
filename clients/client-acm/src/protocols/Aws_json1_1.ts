@@ -1659,7 +1659,7 @@ const deserializeAws_json1_1CertificateSummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1CertificateSummaryList = (output: any, context: __SerdeContext): CertificateSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1667,6 +1667,7 @@ const deserializeAws_json1_1CertificateSummaryList = (output: any, context: __Se
       }
       return deserializeAws_json1_1CertificateSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
@@ -1688,7 +1689,7 @@ const deserializeAws_json1_1DescribeCertificateResponse = (
 };
 
 const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1696,6 +1697,7 @@ const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DomainValidation = (output: any, context: __SerdeContext): DomainValidation => {
@@ -1716,7 +1718,7 @@ const deserializeAws_json1_1DomainValidation = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1DomainValidationList = (output: any, context: __SerdeContext): DomainValidation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1724,6 +1726,7 @@ const deserializeAws_json1_1DomainValidationList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1DomainValidation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ExpiryEventsConfiguration = (
@@ -1754,7 +1757,7 @@ const deserializeAws_json1_1ExtendedKeyUsage = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1ExtendedKeyUsageList = (output: any, context: __SerdeContext): ExtendedKeyUsage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1762,6 +1765,7 @@ const deserializeAws_json1_1ExtendedKeyUsageList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ExtendedKeyUsage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetAccountConfigurationResponse = (
@@ -1793,7 +1797,7 @@ const deserializeAws_json1_1ImportCertificateResponse = (
 };
 
 const deserializeAws_json1_1InUseList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1801,6 +1805,7 @@ const deserializeAws_json1_1InUseList = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
@@ -1852,7 +1857,7 @@ const deserializeAws_json1_1KeyUsage = (output: any, context: __SerdeContext): K
 };
 
 const deserializeAws_json1_1KeyUsageList = (output: any, context: __SerdeContext): KeyUsage[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1860,6 +1865,7 @@ const deserializeAws_json1_1KeyUsageList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1KeyUsage(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
@@ -1957,7 +1963,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1965,6 +1971,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
@@ -1986,7 +1993,7 @@ const deserializeAws_json1_1TooManyTagsException = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1ValidationEmailList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1994,6 +2001,7 @@ const deserializeAws_json1_1ValidationEmailList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {

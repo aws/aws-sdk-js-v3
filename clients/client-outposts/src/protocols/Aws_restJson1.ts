@@ -2257,7 +2257,7 @@ const deserializeAws_restJson1CatalogItem = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1CatalogItemListDefinition = (output: any, context: __SerdeContext): CatalogItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2265,6 +2265,7 @@ const deserializeAws_restJson1CatalogItemListDefinition = (output: any, context:
       }
       return deserializeAws_restJson1CatalogItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EC2Capacity = (output: any, context: __SerdeContext): EC2Capacity => {
@@ -2276,7 +2277,7 @@ const deserializeAws_restJson1EC2Capacity = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1EC2CapacityListDefinition = (output: any, context: __SerdeContext): EC2Capacity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2284,6 +2285,7 @@ const deserializeAws_restJson1EC2CapacityListDefinition = (output: any, context:
       }
       return deserializeAws_restJson1EC2Capacity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1InstanceTypeItem = (output: any, context: __SerdeContext): InstanceTypeItem => {
@@ -2296,7 +2298,7 @@ const deserializeAws_restJson1InstanceTypeListDefinition = (
   output: any,
   context: __SerdeContext
 ): InstanceTypeItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2304,6 +2306,7 @@ const deserializeAws_restJson1InstanceTypeListDefinition = (
       }
       return deserializeAws_restJson1InstanceTypeItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LineItem = (output: any, context: __SerdeContext): LineItem => {
@@ -2316,7 +2319,7 @@ const deserializeAws_restJson1LineItem = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1LineItemListDefinition = (output: any, context: __SerdeContext): LineItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2324,6 +2327,7 @@ const deserializeAws_restJson1LineItemListDefinition = (output: any, context: __
       }
       return deserializeAws_restJson1LineItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LineItemStatusCounts = (
@@ -2387,7 +2391,7 @@ const deserializeAws_restJson1OrderSummary = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1OrderSummaryListDefinition = (output: any, context: __SerdeContext): OrderSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2395,6 +2399,7 @@ const deserializeAws_restJson1OrderSummaryListDefinition = (output: any, context
       }
       return deserializeAws_restJson1OrderSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): Outpost => {
@@ -2418,7 +2423,7 @@ const deserializeAws_restJson1Outpost = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1outpostListDefinition = (output: any, context: __SerdeContext): Outpost[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2426,6 +2431,7 @@ const deserializeAws_restJson1outpostListDefinition = (output: any, context: __S
       }
       return deserializeAws_restJson1Outpost(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RackPhysicalProperties = (
@@ -2468,7 +2474,7 @@ const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Sit
 };
 
 const deserializeAws_restJson1siteListDefinition = (output: any, context: __SerdeContext): Site[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2476,13 +2482,14 @@ const deserializeAws_restJson1siteListDefinition = (output: any, context: __Serd
       }
       return deserializeAws_restJson1Site(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SupportedStorageList = (
   output: any,
   context: __SerdeContext
 ): (SupportedStorageEnum | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2490,10 +2497,11 @@ const deserializeAws_restJson1SupportedStorageList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SupportedUplinkGbpsListDefinition = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2501,6 +2509,7 @@ const deserializeAws_restJson1SupportedUplinkGbpsListDefinition = (output: any, 
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

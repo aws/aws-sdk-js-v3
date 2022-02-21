@@ -1844,7 +1844,7 @@ const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => 
 };
 
 const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1852,13 +1852,14 @@ const deserializeAws_restJson1__listOf__string = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfApplicationDependencySummary = (
   output: any,
   context: __SerdeContext
 ): ApplicationDependencySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1866,13 +1867,14 @@ const deserializeAws_restJson1__listOfApplicationDependencySummary = (
       }
       return deserializeAws_restJson1ApplicationDependencySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfApplicationPolicyStatement = (
   output: any,
   context: __SerdeContext
 ): ApplicationPolicyStatement[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1880,13 +1882,14 @@ const deserializeAws_restJson1__listOfApplicationPolicyStatement = (
       }
       return deserializeAws_restJson1ApplicationPolicyStatement(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfApplicationSummary = (
   output: any,
   context: __SerdeContext
 ): ApplicationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1894,10 +1897,11 @@ const deserializeAws_restJson1__listOfApplicationSummary = (
       }
       return deserializeAws_restJson1ApplicationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfCapability = (output: any, context: __SerdeContext): (Capability | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1905,13 +1909,14 @@ const deserializeAws_restJson1__listOfCapability = (output: any, context: __Serd
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfParameterDefinition = (
   output: any,
   context: __SerdeContext
 ): ParameterDefinition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1919,10 +1924,11 @@ const deserializeAws_restJson1__listOfParameterDefinition = (
       }
       return deserializeAws_restJson1ParameterDefinition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1__listOfVersionSummary = (output: any, context: __SerdeContext): VersionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1930,6 +1936,7 @@ const deserializeAws_restJson1__listOfVersionSummary = (output: any, context: __
       }
       return deserializeAws_restJson1VersionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ApplicationDependencySummary = (

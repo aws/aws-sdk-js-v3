@@ -707,7 +707,7 @@ const deserializeAws_json1_1DataPoint = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1DataPointsList = (output: any, context: __SerdeContext): DataPoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -715,6 +715,7 @@ const deserializeAws_json1_1DataPointsList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1DataPoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeDimensionKeysResponse = (
@@ -749,7 +750,7 @@ const deserializeAws_json1_1DimensionDetail = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1DimensionDetailList = (output: any, context: __SerdeContext): DimensionDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -757,6 +758,7 @@ const deserializeAws_json1_1DimensionDetailList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1DimensionDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DimensionGroupDetail = (output: any, context: __SerdeContext): DimensionGroupDetail => {
@@ -773,7 +775,7 @@ const deserializeAws_json1_1DimensionGroupDetailList = (
   output: any,
   context: __SerdeContext
 ): DimensionGroupDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -781,6 +783,7 @@ const deserializeAws_json1_1DimensionGroupDetailList = (
       }
       return deserializeAws_json1_1DimensionGroupDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DimensionKeyDescription = (
@@ -808,7 +811,7 @@ const deserializeAws_json1_1DimensionKeyDescriptionList = (
   output: any,
   context: __SerdeContext
 ): DimensionKeyDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -816,6 +819,7 @@ const deserializeAws_json1_1DimensionKeyDescriptionList = (
       }
       return deserializeAws_json1_1DimensionKeyDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DimensionKeyDetail = (output: any, context: __SerdeContext): DimensionKeyDetail => {
@@ -827,7 +831,7 @@ const deserializeAws_json1_1DimensionKeyDetail = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1DimensionKeyDetailList = (output: any, context: __SerdeContext): DimensionKeyDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -835,6 +839,7 @@ const deserializeAws_json1_1DimensionKeyDetailList = (output: any, context: __Se
       }
       return deserializeAws_json1_1DimensionKeyDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DimensionMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -969,7 +974,7 @@ const deserializeAws_json1_1MetricDimensionGroups = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1MetricDimensionsList = (output: any, context: __SerdeContext): MetricDimensionGroups[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -977,6 +982,7 @@ const deserializeAws_json1_1MetricDimensionsList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1MetricDimensionGroups(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MetricKeyDataPoints = (output: any, context: __SerdeContext): MetricKeyDataPoints => {
@@ -993,7 +999,7 @@ const deserializeAws_json1_1MetricKeyDataPoints = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1MetricKeyDataPointsList = (output: any, context: __SerdeContext): MetricKeyDataPoints[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1001,10 +1007,11 @@ const deserializeAws_json1_1MetricKeyDataPointsList = (output: any, context: __S
       }
       return deserializeAws_json1_1MetricKeyDataPoints(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1012,6 +1019,7 @@ const deserializeAws_json1_1MetricValuesList = (output: any, context: __SerdeCon
       }
       return __limitedParseDouble(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
@@ -1033,7 +1041,7 @@ const deserializeAws_json1_1ResponsePartitionKeyList = (
   output: any,
   context: __SerdeContext
 ): ResponsePartitionKey[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1041,6 +1049,7 @@ const deserializeAws_json1_1ResponsePartitionKeyList = (
       }
       return deserializeAws_json1_1ResponsePartitionKey(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResponseResourceMetric = (output: any, context: __SerdeContext): ResponseResourceMetric => {
@@ -1068,7 +1077,7 @@ const deserializeAws_json1_1ResponseResourceMetricList = (
   output: any,
   context: __SerdeContext
 ): ResponseResourceMetric[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1076,6 +1085,7 @@ const deserializeAws_json1_1ResponseResourceMetricList = (
       }
       return deserializeAws_json1_1ResponseResourceMetric(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

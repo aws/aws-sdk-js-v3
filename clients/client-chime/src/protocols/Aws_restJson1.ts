@@ -20690,7 +20690,7 @@ const deserializeAws_restJson1Account = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContext): Account[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20698,6 +20698,7 @@ const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1Account(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
@@ -20751,7 +20752,7 @@ const deserializeAws_restJson1AppInstanceAdminList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceAdminSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20759,6 +20760,7 @@ const deserializeAws_restJson1AppInstanceAdminList = (
       }
       return deserializeAws_restJson1AppInstanceAdminSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceAdminSummary = (
@@ -20774,7 +20776,7 @@ const deserializeAws_restJson1AppInstanceAdminSummary = (
 };
 
 const deserializeAws_restJson1AppInstanceList = (output: any, context: __SerdeContext): AppInstanceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20782,6 +20784,7 @@ const deserializeAws_restJson1AppInstanceList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1AppInstanceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceRetentionSettings = (
@@ -20810,7 +20813,7 @@ const deserializeAws_restJson1AppInstanceStreamingConfigurationList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceStreamingConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20818,6 +20821,7 @@ const deserializeAws_restJson1AppInstanceStreamingConfigurationList = (
       }
       return deserializeAws_restJson1AppInstanceStreamingConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceSummary = (output: any, context: __SerdeContext): AppInstanceSummary => {
@@ -20848,7 +20852,7 @@ const deserializeAws_restJson1AppInstanceUserList = (
   output: any,
   context: __SerdeContext
 ): AppInstanceUserSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20856,6 +20860,7 @@ const deserializeAws_restJson1AppInstanceUserList = (
       }
       return deserializeAws_restJson1AppInstanceUserSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AppInstanceUserMembershipSummary = (
@@ -20911,7 +20916,7 @@ const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1AttendeeIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20919,10 +20924,11 @@ const deserializeAws_restJson1AttendeeIdList = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeContext): Attendee[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20930,6 +20936,7 @@ const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Attendee(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AudioArtifactsConfiguration = (
@@ -20963,7 +20970,7 @@ const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
   output: any,
   context: __SerdeContext
 ): CreateAttendeeError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20971,6 +20978,7 @@ const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
       }
       return deserializeAws_restJson1CreateAttendeeError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchCreateChannelMembershipError = (
@@ -20988,7 +20996,7 @@ const deserializeAws_restJson1BatchCreateChannelMembershipErrors = (
   output: any,
   context: __SerdeContext
 ): BatchCreateChannelMembershipError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -20996,6 +21004,7 @@ const deserializeAws_restJson1BatchCreateChannelMembershipErrors = (
       }
       return deserializeAws_restJson1BatchCreateChannelMembershipError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Bot = (output: any, context: __SerdeContext): Bot => {
@@ -21019,7 +21028,7 @@ const deserializeAws_restJson1Bot = (output: any, context: __SerdeContext): Bot 
 };
 
 const deserializeAws_restJson1BotList = (output: any, context: __SerdeContext): Bot[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21027,6 +21036,7 @@ const deserializeAws_restJson1BotList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Bot(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BusinessCallingSettings = (
@@ -21039,7 +21049,7 @@ const deserializeAws_restJson1BusinessCallingSettings = (
 };
 
 const deserializeAws_restJson1CallingRegionList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21047,10 +21057,11 @@ const deserializeAws_restJson1CallingRegionList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CapabilityList = (output: any, context: __SerdeContext): (Capability | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21058,6 +21069,7 @@ const deserializeAws_restJson1CapabilityList = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
@@ -21114,7 +21126,7 @@ const deserializeAws_restJson1ChannelBanSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1ChannelBanSummaryList = (output: any, context: __SerdeContext): ChannelBanSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21122,6 +21134,7 @@ const deserializeAws_restJson1ChannelBanSummaryList = (output: any, context: __S
       }
       return deserializeAws_restJson1ChannelBanSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChannelMembership = (output: any, context: __SerdeContext): ChannelMembership => {
@@ -21167,7 +21180,7 @@ const deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipForAppInstanceUserSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21175,6 +21188,7 @@ const deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummaryList = (
       }
       return deserializeAws_restJson1ChannelMembershipForAppInstanceUserSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChannelMembershipSummary = (
@@ -21193,7 +21207,7 @@ const deserializeAws_restJson1ChannelMembershipSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelMembershipSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21201,6 +21215,7 @@ const deserializeAws_restJson1ChannelMembershipSummaryList = (
       }
       return deserializeAws_restJson1ChannelMembershipSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeContext): ChannelMessage => {
@@ -21261,7 +21276,7 @@ const deserializeAws_restJson1ChannelMessageSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelMessageSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21269,6 +21284,7 @@ const deserializeAws_restJson1ChannelMessageSummaryList = (
       }
       return deserializeAws_restJson1ChannelMessageSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary = (
@@ -21287,7 +21303,7 @@ const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratedByAppInstanceUserSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21295,6 +21311,7 @@ const deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummaryList = (
       }
       return deserializeAws_restJson1ChannelModeratedByAppInstanceUserSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChannelModerator = (output: any, context: __SerdeContext): ChannelModerator => {
@@ -21331,7 +21348,7 @@ const deserializeAws_restJson1ChannelModeratorSummaryList = (
   output: any,
   context: __SerdeContext
 ): ChannelModeratorSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21339,6 +21356,7 @@ const deserializeAws_restJson1ChannelModeratorSummaryList = (
       }
       return deserializeAws_restJson1ChannelModeratorSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChannelRetentionSettings = (
@@ -21365,7 +21383,7 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1ChannelSummaryList = (output: any, context: __SerdeContext): ChannelSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21373,6 +21391,7 @@ const deserializeAws_restJson1ChannelSummaryList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1ChannelSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ChimeSdkMeetingConfiguration = (
@@ -21433,7 +21452,7 @@ const deserializeAws_restJson1DNISEmergencyCallingConfigurationList = (
   output: any,
   context: __SerdeContext
 ): DNISEmergencyCallingConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21441,10 +21460,11 @@ const deserializeAws_restJson1DNISEmergencyCallingConfigurationList = (
       }
       return deserializeAws_restJson1DNISEmergencyCallingConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1E164PhoneNumberList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21452,6 +21472,7 @@ const deserializeAws_restJson1E164PhoneNumberList = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EmergencyCallingConfiguration = (
@@ -21475,7 +21496,7 @@ const deserializeAws_restJson1EventsConfiguration = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1ExternalUserIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21483,6 +21504,7 @@ const deserializeAws_restJson1ExternalUserIdList = (output: any, context: __Serd
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GeoMatchParams = (output: any, context: __SerdeContext): GeoMatchParams => {
@@ -21509,7 +21531,7 @@ const deserializeAws_restJson1Invite = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_restJson1InviteList = (output: any, context: __SerdeContext): Invite[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21517,10 +21539,11 @@ const deserializeAws_restJson1InviteList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Invite(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LicenseList = (output: any, context: __SerdeContext): (License | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21528,6 +21551,7 @@ const deserializeAws_restJson1LicenseList = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
@@ -21563,7 +21587,7 @@ const deserializeAws_restJson1MediaCapturePipelineList = (
   output: any,
   context: __SerdeContext
 ): MediaCapturePipeline[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21571,6 +21595,7 @@ const deserializeAws_restJson1MediaCapturePipelineList = (
       }
       return deserializeAws_restJson1MediaCapturePipeline(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeContext): MediaPlacement => {
@@ -21599,7 +21624,7 @@ const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1MeetingList = (output: any, context: __SerdeContext): Meeting[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21607,6 +21632,7 @@ const deserializeAws_restJson1MeetingList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1Meeting(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
@@ -21628,7 +21654,7 @@ const deserializeAws_restJson1MemberError = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1MemberErrorList = (output: any, context: __SerdeContext): MemberError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21636,10 +21662,11 @@ const deserializeAws_restJson1MemberErrorList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1MemberError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): Identity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21647,6 +21674,7 @@ const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Identity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MessagingSessionEndpoint = (
@@ -21666,7 +21694,7 @@ const deserializeAws_restJson1OrderedPhoneNumber = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1OrderedPhoneNumberList = (output: any, context: __SerdeContext): OrderedPhoneNumber[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21674,6 +21702,7 @@ const deserializeAws_restJson1OrderedPhoneNumberList = (output: any, context: __
       }
       return deserializeAws_restJson1OrderedPhoneNumber(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Origination = (output: any, context: __SerdeContext): Origination => {
@@ -21697,7 +21726,7 @@ const deserializeAws_restJson1OriginationRoute = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1OriginationRouteList = (output: any, context: __SerdeContext): OriginationRoute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21705,6 +21734,7 @@ const deserializeAws_restJson1OriginationRouteList = (output: any, context: __Se
       }
       return deserializeAws_restJson1OriginationRoute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Participant = (output: any, context: __SerdeContext): Participant => {
@@ -21715,7 +21745,7 @@ const deserializeAws_restJson1Participant = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1Participants = (output: any, context: __SerdeContext): Participant[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21723,6 +21753,7 @@ const deserializeAws_restJson1Participants = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Participant(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
@@ -21776,7 +21807,7 @@ const deserializeAws_restJson1PhoneNumberAssociationList = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberAssociation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21784,6 +21815,7 @@ const deserializeAws_restJson1PhoneNumberAssociationList = (
       }
       return deserializeAws_restJson1PhoneNumberAssociation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PhoneNumberCapabilities = (
@@ -21804,7 +21836,7 @@ const deserializeAws_restJson1PhoneNumberCountriesList = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberCountry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21812,6 +21844,7 @@ const deserializeAws_restJson1PhoneNumberCountriesList = (
       }
       return deserializeAws_restJson1PhoneNumberCountry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PhoneNumberCountry = (output: any, context: __SerdeContext): PhoneNumberCountry => {
@@ -21833,7 +21866,7 @@ const deserializeAws_restJson1PhoneNumberError = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1PhoneNumberErrorList = (output: any, context: __SerdeContext): PhoneNumberError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21841,10 +21874,11 @@ const deserializeAws_restJson1PhoneNumberErrorList = (output: any, context: __Se
       }
       return deserializeAws_restJson1PhoneNumberError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PhoneNumberList = (output: any, context: __SerdeContext): PhoneNumber[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21852,6 +21886,7 @@ const deserializeAws_restJson1PhoneNumberList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1PhoneNumber(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeContext): PhoneNumberOrder => {
@@ -21875,7 +21910,7 @@ const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1PhoneNumberOrderList = (output: any, context: __SerdeContext): PhoneNumberOrder[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21883,13 +21918,14 @@ const deserializeAws_restJson1PhoneNumberOrderList = (output: any, context: __Se
       }
       return deserializeAws_restJson1PhoneNumberOrder(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PhoneNumberTypeList = (
   output: any,
   context: __SerdeContext
 ): (PhoneNumberType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21897,6 +21933,7 @@ const deserializeAws_restJson1PhoneNumberTypeList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Proxy = (output: any, context: __SerdeContext): Proxy => {
@@ -21948,7 +21985,7 @@ const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1ProxySessions = (output: any, context: __SerdeContext): ProxySession[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21956,6 +21993,7 @@ const deserializeAws_restJson1ProxySessions = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1ProxySession(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RetentionSettings = (output: any, context: __SerdeContext): RetentionSettings => {
@@ -21989,7 +22027,7 @@ const deserializeAws_restJson1Room = (output: any, context: __SerdeContext): Roo
 };
 
 const deserializeAws_restJson1RoomList = (output: any, context: __SerdeContext): Room[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -21997,6 +22035,7 @@ const deserializeAws_restJson1RoomList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Room(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RoomMembership = (output: any, context: __SerdeContext): RoomMembership => {
@@ -22016,7 +22055,7 @@ const deserializeAws_restJson1RoomMembership = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1RoomMembershipList = (output: any, context: __SerdeContext): RoomMembership[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22024,6 +22063,7 @@ const deserializeAws_restJson1RoomMembershipList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1RoomMembership(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RoomRetentionSettings = (output: any, context: __SerdeContext): RoomRetentionSettings => {
@@ -22046,7 +22086,7 @@ const deserializeAws_restJson1SelectedVideoStreams = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1SensitiveStringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22054,6 +22094,7 @@ const deserializeAws_restJson1SensitiveStringList = (output: any, context: __Ser
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SigninDelegateGroup = (output: any, context: __SerdeContext): SigninDelegateGroup => {
@@ -22066,7 +22107,7 @@ const deserializeAws_restJson1SigninDelegateGroupList = (
   output: any,
   context: __SerdeContext
 ): SigninDelegateGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22074,6 +22115,7 @@ const deserializeAws_restJson1SigninDelegateGroupList = (
       }
       return deserializeAws_restJson1SigninDelegateGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SipMediaApplication = (output: any, context: __SerdeContext): SipMediaApplication => {
@@ -22118,7 +22160,7 @@ const deserializeAws_restJson1SipMediaApplicationEndpointList = (
   output: any,
   context: __SerdeContext
 ): SipMediaApplicationEndpoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22126,13 +22168,14 @@ const deserializeAws_restJson1SipMediaApplicationEndpointList = (
       }
       return deserializeAws_restJson1SipMediaApplicationEndpoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SipMediaApplicationList = (
   output: any,
   context: __SerdeContext
 ): SipMediaApplication[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22140,6 +22183,7 @@ const deserializeAws_restJson1SipMediaApplicationList = (
       }
       return deserializeAws_restJson1SipMediaApplication(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SipMediaApplicationLoggingConfiguration = (
@@ -22174,7 +22218,7 @@ const deserializeAws_restJson1SipRule = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restJson1SipRuleList = (output: any, context: __SerdeContext): SipRule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22182,6 +22226,7 @@ const deserializeAws_restJson1SipRuleList = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1SipRule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SipRuleTargetApplication = (
@@ -22199,7 +22244,7 @@ const deserializeAws_restJson1SipRuleTargetApplicationList = (
   output: any,
   context: __SerdeContext
 ): SipRuleTargetApplication[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22207,6 +22252,7 @@ const deserializeAws_restJson1SipRuleTargetApplicationList = (
       }
       return deserializeAws_restJson1SipRuleTargetApplication(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
@@ -22245,7 +22291,7 @@ const deserializeAws_restJson1StreamingNotificationTargetList = (
   output: any,
   context: __SerdeContext
 ): StreamingNotificationTarget[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22253,10 +22299,11 @@ const deserializeAws_restJson1StreamingNotificationTargetList = (
       }
       return deserializeAws_restJson1StreamingNotificationTarget(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22264,6 +22311,7 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
@@ -22274,7 +22322,7 @@ const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag 
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22282,6 +22330,7 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TelephonySettings = (output: any, context: __SerdeContext): TelephonySettings => {
@@ -22354,7 +22403,7 @@ const deserializeAws_restJson1UserError = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1UserErrorList = (output: any, context: __SerdeContext): UserError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22362,10 +22411,11 @@ const deserializeAws_restJson1UserErrorList = (output: any, context: __SerdeCont
       }
       return deserializeAws_restJson1UserError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UserList = (output: any, context: __SerdeContext): User[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22373,6 +22423,7 @@ const deserializeAws_restJson1UserList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1User(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UserSettings = (output: any, context: __SerdeContext): UserSettings => {
@@ -22437,7 +22488,7 @@ const deserializeAws_restJson1VoiceConnectorGroupList = (
   output: any,
   context: __SerdeContext
 ): VoiceConnectorGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22445,6 +22496,7 @@ const deserializeAws_restJson1VoiceConnectorGroupList = (
       }
       return deserializeAws_restJson1VoiceConnectorGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VoiceConnectorItem = (output: any, context: __SerdeContext): VoiceConnectorItem => {
@@ -22455,7 +22507,7 @@ const deserializeAws_restJson1VoiceConnectorItem = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1VoiceConnectorItemList = (output: any, context: __SerdeContext): VoiceConnectorItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22463,10 +22515,11 @@ const deserializeAws_restJson1VoiceConnectorItemList = (output: any, context: __
       }
       return deserializeAws_restJson1VoiceConnectorItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VoiceConnectorList = (output: any, context: __SerdeContext): VoiceConnector[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -22474,6 +22527,7 @@ const deserializeAws_restJson1VoiceConnectorList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1VoiceConnector(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VoiceConnectorSettings = (

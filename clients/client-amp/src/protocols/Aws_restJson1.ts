@@ -1948,7 +1948,7 @@ const deserializeAws_restJson1RuleGroupsNamespaceSummaryList = (
   output: any,
   context: __SerdeContext
 ): RuleGroupsNamespaceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1956,6 +1956,7 @@ const deserializeAws_restJson1RuleGroupsNamespaceSummaryList = (
       }
       return deserializeAws_restJson1RuleGroupsNamespaceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -1984,7 +1985,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1992,6 +1993,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
       }
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1WorkspaceDescription = (output: any, context: __SerdeContext): WorkspaceDescription => {
@@ -2042,7 +2044,7 @@ const deserializeAws_restJson1WorkspaceSummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1WorkspaceSummaryList = (output: any, context: __SerdeContext): WorkspaceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2050,6 +2052,7 @@ const deserializeAws_restJson1WorkspaceSummaryList = (output: any, context: __Se
       }
       return deserializeAws_restJson1WorkspaceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

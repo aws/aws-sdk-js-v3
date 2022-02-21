@@ -544,7 +544,7 @@ const deserializeAws_restJson1BatchGetRecordError = (output: any, context: __Ser
 };
 
 const deserializeAws_restJson1BatchGetRecordErrors = (output: any, context: __SerdeContext): BatchGetRecordError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -552,6 +552,7 @@ const deserializeAws_restJson1BatchGetRecordErrors = (output: any, context: __Se
       }
       return deserializeAws_restJson1BatchGetRecordError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchGetRecordIdentifier = (
@@ -589,7 +590,7 @@ const deserializeAws_restJson1BatchGetRecordResultDetails = (
   output: any,
   context: __SerdeContext
 ): BatchGetRecordResultDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -597,10 +598,11 @@ const deserializeAws_restJson1BatchGetRecordResultDetails = (
       }
       return deserializeAws_restJson1BatchGetRecordResultDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FeatureNames = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -608,6 +610,7 @@ const deserializeAws_restJson1FeatureNames = (output: any, context: __SerdeConte
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FeatureValue = (output: any, context: __SerdeContext): FeatureValue => {
@@ -618,7 +621,7 @@ const deserializeAws_restJson1FeatureValue = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1Record = (output: any, context: __SerdeContext): FeatureValue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -626,10 +629,11 @@ const deserializeAws_restJson1Record = (output: any, context: __SerdeContext): F
       }
       return deserializeAws_restJson1FeatureValue(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RecordIdentifiers = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -637,13 +641,14 @@ const deserializeAws_restJson1RecordIdentifiers = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1UnprocessedIdentifiers = (
   output: any,
   context: __SerdeContext
 ): BatchGetRecordIdentifier[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -651,6 +656,7 @@ const deserializeAws_restJson1UnprocessedIdentifiers = (
       }
       return deserializeAws_restJson1BatchGetRecordIdentifier(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -353,7 +353,7 @@ const serializeAws_json1_1GetProductsRequest = (input: GetProductsRequest, conte
 };
 
 const deserializeAws_json1_1AttributeNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -361,6 +361,7 @@ const deserializeAws_json1_1AttributeNameList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
@@ -370,7 +371,7 @@ const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1AttributeValueList = (output: any, context: __SerdeContext): AttributeValue[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -378,6 +379,7 @@ const deserializeAws_json1_1AttributeValueList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1AttributeValue(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeServicesResponse = (
@@ -458,7 +460,7 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1PriceList = (output: any, context: __SerdeContext): (__LazyJsonString | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -466,6 +468,7 @@ const deserializeAws_json1_1PriceList = (output: any, context: __SerdeContext): 
       }
       return new __LazyJsonString(entry);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
@@ -479,7 +482,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
 };
 
 const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext): Service[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -487,6 +490,7 @@ const deserializeAws_json1_1ServiceList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Service(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

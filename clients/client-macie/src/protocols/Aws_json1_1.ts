@@ -755,7 +755,7 @@ const deserializeAws_json1_1FailedS3Resource = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1FailedS3Resources = (output: any, context: __SerdeContext): FailedS3Resource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -763,6 +763,7 @@ const deserializeAws_json1_1FailedS3Resources = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1FailedS3Resource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
@@ -818,7 +819,7 @@ const deserializeAws_json1_1MemberAccount = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeContext): MemberAccount[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -826,6 +827,7 @@ const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1MemberAccount(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext): S3Resource => {
@@ -853,7 +855,7 @@ const deserializeAws_json1_1S3ResourcesClassification = (
   output: any,
   context: __SerdeContext
 ): S3ResourceClassification[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -861,6 +863,7 @@ const deserializeAws_json1_1S3ResourcesClassification = (
       }
       return deserializeAws_json1_1S3ResourceClassification(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UpdateS3ResourcesResult = (

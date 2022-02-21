@@ -943,7 +943,7 @@ const deserializeAws_json1_1Datapoint = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1Datapoints = (output: any, context: __SerdeContext): Datapoint[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -951,6 +951,7 @@ const deserializeAws_json1_1Datapoints = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1Datapoint(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeleteScalingPlanResponse = (
@@ -1030,7 +1031,7 @@ const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeContext): MetricDimension[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1038,6 +1039,7 @@ const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1MetricDimension(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ObjectNotFoundException = (
@@ -1098,7 +1100,7 @@ const deserializeAws_json1_1ScalingInstruction = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ScalingInstructions = (output: any, context: __SerdeContext): ScalingInstruction[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1106,6 +1108,7 @@ const deserializeAws_json1_1ScalingInstructions = (output: any, context: __Serde
       }
       return deserializeAws_json1_1ScalingInstruction(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext): ScalingPlan => {
@@ -1150,7 +1153,7 @@ const deserializeAws_json1_1ScalingPlanResource = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1ScalingPlanResources = (output: any, context: __SerdeContext): ScalingPlanResource[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1158,10 +1161,11 @@ const deserializeAws_json1_1ScalingPlanResources = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ScalingPlanResource(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScalingPlans = (output: any, context: __SerdeContext): ScalingPlan[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1169,10 +1173,11 @@ const deserializeAws_json1_1ScalingPlans = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1ScalingPlan(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeContext): ScalingPolicy[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1180,6 +1185,7 @@ const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ScalingPolicy(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
@@ -1204,7 +1210,7 @@ const deserializeAws_json1_1TagFilter = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1TagFilters = (output: any, context: __SerdeContext): TagFilter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1212,10 +1218,11 @@ const deserializeAws_json1_1TagFilters = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1TagFilter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1223,6 +1230,7 @@ const deserializeAws_json1_1TagValues = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TargetTrackingConfiguration = (
@@ -1256,7 +1264,7 @@ const deserializeAws_json1_1TargetTrackingConfigurations = (
   output: any,
   context: __SerdeContext
 ): TargetTrackingConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1264,6 +1272,7 @@ const deserializeAws_json1_1TargetTrackingConfigurations = (
       }
       return deserializeAws_json1_1TargetTrackingConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UpdateScalingPlanResponse = (

@@ -4637,7 +4637,7 @@ const deserializeAws_json1_1AlgorithmImage = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4645,6 +4645,7 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AutoMLConfig = (output: any, context: __SerdeContext): AutoMLConfig => {
@@ -4730,7 +4731,7 @@ const deserializeAws_json1_1BatchInferenceJobOutput = (
 };
 
 const deserializeAws_json1_1BatchInferenceJobs = (output: any, context: __SerdeContext): BatchInferenceJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4738,6 +4739,7 @@ const deserializeAws_json1_1BatchInferenceJobs = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1BatchInferenceJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1BatchInferenceJobSummary = (
@@ -4809,7 +4811,7 @@ const deserializeAws_json1_1BatchSegmentJobOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1BatchSegmentJobs = (output: any, context: __SerdeContext): BatchSegmentJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4817,6 +4819,7 @@ const deserializeAws_json1_1BatchSegmentJobs = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1BatchSegmentJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1BatchSegmentJobSummary = (output: any, context: __SerdeContext): BatchSegmentJobSummary => {
@@ -4874,7 +4877,7 @@ const deserializeAws_json1_1CampaignConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1Campaigns = (output: any, context: __SerdeContext): CampaignSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4882,6 +4885,7 @@ const deserializeAws_json1_1Campaigns = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1CampaignSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
@@ -4939,7 +4943,7 @@ const deserializeAws_json1_1CategoricalHyperParameterRanges = (
   output: any,
   context: __SerdeContext
 ): CategoricalHyperParameterRange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4947,10 +4951,11 @@ const deserializeAws_json1_1CategoricalHyperParameterRanges = (
       }
       return deserializeAws_json1_1CategoricalHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CategoricalValues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4958,6 +4963,7 @@ const deserializeAws_json1_1CategoricalValues = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ContinuousHyperParameterRange = (
@@ -4975,7 +4981,7 @@ const deserializeAws_json1_1ContinuousHyperParameterRanges = (
   output: any,
   context: __SerdeContext
 ): ContinuousHyperParameterRange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4983,6 +4989,7 @@ const deserializeAws_json1_1ContinuousHyperParameterRanges = (
       }
       return deserializeAws_json1_1ContinuousHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CreateBatchInferenceJobResponse = (
@@ -5142,7 +5149,7 @@ const deserializeAws_json1_1DatasetExportJobOutput = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1DatasetExportJobs = (output: any, context: __SerdeContext): DatasetExportJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5150,6 +5157,7 @@ const deserializeAws_json1_1DatasetExportJobs = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1DatasetExportJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DatasetExportJobSummary = (
@@ -5193,7 +5201,7 @@ const deserializeAws_json1_1DatasetGroup = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1DatasetGroups = (output: any, context: __SerdeContext): DatasetGroupSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5201,6 +5209,7 @@ const deserializeAws_json1_1DatasetGroups = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1DatasetGroupSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
@@ -5245,7 +5254,7 @@ const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1DatasetImportJobs = (output: any, context: __SerdeContext): DatasetImportJobSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5253,6 +5262,7 @@ const deserializeAws_json1_1DatasetImportJobs = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1DatasetImportJobSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DatasetImportJobSummary = (
@@ -5276,7 +5286,7 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
 };
 
 const deserializeAws_json1_1Datasets = (output: any, context: __SerdeContext): DatasetSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5284,6 +5294,7 @@ const deserializeAws_json1_1Datasets = (output: any, context: __SerdeContext): D
       }
       return deserializeAws_json1_1DatasetSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContext): DatasetSchema => {
@@ -5360,7 +5371,7 @@ const deserializeAws_json1_1DefaultCategoricalHyperParameterRanges = (
   output: any,
   context: __SerdeContext
 ): DefaultCategoricalHyperParameterRange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5368,6 +5379,7 @@ const deserializeAws_json1_1DefaultCategoricalHyperParameterRanges = (
       }
       return deserializeAws_json1_1DefaultCategoricalHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DefaultContinuousHyperParameterRange = (
@@ -5386,7 +5398,7 @@ const deserializeAws_json1_1DefaultContinuousHyperParameterRanges = (
   output: any,
   context: __SerdeContext
 ): DefaultContinuousHyperParameterRange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5394,6 +5406,7 @@ const deserializeAws_json1_1DefaultContinuousHyperParameterRanges = (
       }
       return deserializeAws_json1_1DefaultContinuousHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DefaultHyperParameterRanges = (
@@ -5432,7 +5445,7 @@ const deserializeAws_json1_1DefaultIntegerHyperParameterRanges = (
   output: any,
   context: __SerdeContext
 ): DefaultIntegerHyperParameterRange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5440,6 +5453,7 @@ const deserializeAws_json1_1DefaultIntegerHyperParameterRanges = (
       }
       return deserializeAws_json1_1DefaultIntegerHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DescribeAlgorithmResponse = (
@@ -5645,7 +5659,7 @@ const deserializeAws_json1_1EventTracker = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1EventTrackers = (output: any, context: __SerdeContext): EventTrackerSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5653,6 +5667,7 @@ const deserializeAws_json1_1EventTrackers = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1EventTrackerSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __SerdeContext): EventTrackerSummary => {
@@ -5741,7 +5756,7 @@ const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Fil
 };
 
 const deserializeAws_json1_1Filters = (output: any, context: __SerdeContext): FilterSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5749,6 +5764,7 @@ const deserializeAws_json1_1Filters = (output: any, context: __SerdeContext): Fi
       }
       return deserializeAws_json1_1FilterSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FilterSummary = (output: any, context: __SerdeContext): FilterSummary => {
@@ -5858,7 +5874,7 @@ const deserializeAws_json1_1IntegerHyperParameterRanges = (
   output: any,
   context: __SerdeContext
 ): IntegerHyperParameterRange[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5866,6 +5882,7 @@ const deserializeAws_json1_1IntegerHyperParameterRanges = (
       }
       return deserializeAws_json1_1IntegerHyperParameterRange(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
@@ -6093,7 +6110,7 @@ const deserializeAws_json1_1Recipe = (output: any, context: __SerdeContext): Rec
 };
 
 const deserializeAws_json1_1Recipes = (output: any, context: __SerdeContext): RecipeSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6101,6 +6118,7 @@ const deserializeAws_json1_1Recipes = (output: any, context: __SerdeContext): Re
       }
       return deserializeAws_json1_1RecipeSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RecipeSummary = (output: any, context: __SerdeContext): RecipeSummary => {
@@ -6158,7 +6176,7 @@ const deserializeAws_json1_1RecommenderConfig = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1Recommenders = (output: any, context: __SerdeContext): RecommenderSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6166,6 +6184,7 @@ const deserializeAws_json1_1Recommenders = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1RecommenderSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RecommenderSummary = (output: any, context: __SerdeContext): RecommenderSummary => {
@@ -6256,7 +6275,7 @@ const deserializeAws_json1_1S3DataConfig = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1Schemas = (output: any, context: __SerdeContext): DatasetSchemaSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6264,6 +6283,7 @@ const deserializeAws_json1_1Schemas = (output: any, context: __SerdeContext): Da
       }
       return deserializeAws_json1_1DatasetSchemaSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): Solution => {
@@ -6326,7 +6346,7 @@ const deserializeAws_json1_1SolutionConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1Solutions = (output: any, context: __SerdeContext): SolutionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6334,6 +6354,7 @@ const deserializeAws_json1_1Solutions = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1SolutionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeContext): SolutionSummary => {
@@ -6385,7 +6406,7 @@ const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1SolutionVersions = (output: any, context: __SerdeContext): SolutionVersionSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6393,6 +6414,7 @@ const deserializeAws_json1_1SolutionVersions = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1SolutionVersionSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __SerdeContext): SolutionVersionSummary => {

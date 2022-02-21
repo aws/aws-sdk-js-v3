@@ -8143,7 +8143,7 @@ const deserializeAws_restJson1AliasConfiguration = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1AliasList = (output: any, context: __SerdeContext): AliasConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8151,6 +8151,7 @@ const deserializeAws_restJson1AliasList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1AliasConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AliasRoutingConfiguration = (
@@ -8175,7 +8176,7 @@ const deserializeAws_restJson1AllowedPublishers = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1ArchitecturesList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8183,6 +8184,7 @@ const deserializeAws_restJson1ArchitecturesList = (output: any, context: __Serde
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CodeSigningConfig = (output: any, context: __SerdeContext): CodeSigningConfig => {
@@ -8203,7 +8205,7 @@ const deserializeAws_restJson1CodeSigningConfig = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1CodeSigningConfigList = (output: any, context: __SerdeContext): CodeSigningConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8211,6 +8213,7 @@ const deserializeAws_restJson1CodeSigningConfigList = (output: any, context: __S
       }
       return deserializeAws_restJson1CodeSigningConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CodeSigningPolicies = (output: any, context: __SerdeContext): CodeSigningPolicies => {
@@ -8223,7 +8226,7 @@ const deserializeAws_restJson1CompatibleArchitectures = (
   output: any,
   context: __SerdeContext
 ): (Architecture | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8231,10 +8234,11 @@ const deserializeAws_restJson1CompatibleArchitectures = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __SerdeContext): (Runtime | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8242,6 +8246,7 @@ const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __Serd
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Concurrency = (output: any, context: __SerdeContext): Concurrency => {
@@ -8270,7 +8275,7 @@ const deserializeAws_restJson1DestinationConfig = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1EndpointLists = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8278,6 +8283,7 @@ const deserializeAws_restJson1EndpointLists = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext): { [key: string]: string[] } => {
@@ -8392,7 +8398,7 @@ const deserializeAws_restJson1EventSourceMappingsList = (
   output: any,
   context: __SerdeContext
 ): EventSourceMappingConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8400,6 +8406,7 @@ const deserializeAws_restJson1EventSourceMappingsList = (
       }
       return deserializeAws_restJson1EventSourceMappingConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FileSystemConfig = (output: any, context: __SerdeContext): FileSystemConfig => {
@@ -8410,7 +8417,7 @@ const deserializeAws_restJson1FileSystemConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1FileSystemConfigList = (output: any, context: __SerdeContext): FileSystemConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8418,6 +8425,7 @@ const deserializeAws_restJson1FileSystemConfigList = (output: any, context: __Se
       }
       return deserializeAws_restJson1FileSystemConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Filter = (output: any, context: __SerdeContext): Filter => {
@@ -8436,7 +8444,7 @@ const deserializeAws_restJson1FilterCriteria = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1FilterList = (output: any, context: __SerdeContext): Filter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8444,10 +8452,11 @@ const deserializeAws_restJson1FilterList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Filter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FunctionArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8455,6 +8464,7 @@ const deserializeAws_restJson1FunctionArnList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __SerdeContext): FunctionCodeLocation => {
@@ -8550,7 +8560,7 @@ const deserializeAws_restJson1FunctionEventInvokeConfigList = (
   output: any,
   context: __SerdeContext
 ): FunctionEventInvokeConfig[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8558,10 +8568,11 @@ const deserializeAws_restJson1FunctionEventInvokeConfigList = (
       }
       return deserializeAws_restJson1FunctionEventInvokeConfig(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FunctionList = (output: any, context: __SerdeContext): FunctionConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8569,13 +8580,14 @@ const deserializeAws_restJson1FunctionList = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1FunctionConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FunctionResponseTypeList = (
   output: any,
   context: __SerdeContext
 ): (FunctionResponseType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8583,6 +8595,7 @@ const deserializeAws_restJson1FunctionResponseTypeList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ImageConfig = (output: any, context: __SerdeContext): ImageConfig => {
@@ -8629,7 +8642,7 @@ const deserializeAws_restJson1Layer = (output: any, context: __SerdeContext): La
 };
 
 const deserializeAws_restJson1LayersList = (output: any, context: __SerdeContext): LayersListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8637,6 +8650,7 @@ const deserializeAws_restJson1LayersList = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1LayersListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LayersListItem = (output: any, context: __SerdeContext): LayersListItem => {
@@ -8651,7 +8665,7 @@ const deserializeAws_restJson1LayersListItem = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1LayersReferenceList = (output: any, context: __SerdeContext): Layer[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8659,6 +8673,7 @@ const deserializeAws_restJson1LayersReferenceList = (output: any, context: __Ser
       }
       return deserializeAws_restJson1Layer(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LayerVersionContentOutput = (
@@ -8675,7 +8690,7 @@ const deserializeAws_restJson1LayerVersionContentOutput = (
 };
 
 const deserializeAws_restJson1LayerVersionsList = (output: any, context: __SerdeContext): LayerVersionsListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8683,6 +8698,7 @@ const deserializeAws_restJson1LayerVersionsList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1LayerVersionsListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LayerVersionsListItem = (output: any, context: __SerdeContext): LayerVersionsListItem => {
@@ -8719,7 +8735,7 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigList = (
   output: any,
   context: __SerdeContext
 ): ProvisionedConcurrencyConfigListItem[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8727,6 +8743,7 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigList = (
       }
       return deserializeAws_restJson1ProvisionedConcurrencyConfigListItem(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ProvisionedConcurrencyConfigListItem = (
@@ -8745,7 +8762,7 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigListItem = (
 };
 
 const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8753,10 +8770,11 @@ const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): s
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8764,6 +8782,7 @@ const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SelfManagedEventSource = (
@@ -8779,7 +8798,7 @@ const deserializeAws_restJson1SelfManagedEventSource = (
 };
 
 const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8787,6 +8806,7 @@ const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context:
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SourceAccessConfiguration = (
@@ -8803,7 +8823,7 @@ const deserializeAws_restJson1SourceAccessConfigurations = (
   output: any,
   context: __SerdeContext
 ): SourceAccessConfiguration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8811,10 +8831,11 @@ const deserializeAws_restJson1SourceAccessConfigurations = (
       }
       return deserializeAws_restJson1SourceAccessConfiguration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8822,10 +8843,11 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8833,6 +8855,7 @@ const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -8848,7 +8871,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
 };
 
 const deserializeAws_restJson1Topics = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8856,6 +8879,7 @@ const deserializeAws_restJson1Topics = (output: any, context: __SerdeContext): s
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TracingConfigResponse = (output: any, context: __SerdeContext): TracingConfigResponse => {

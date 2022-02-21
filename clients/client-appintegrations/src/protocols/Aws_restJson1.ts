@@ -1610,7 +1610,7 @@ const deserializeAws_restJson1DataIntegrationAssociationsList = (
   output: any,
   context: __SerdeContext
 ): DataIntegrationAssociationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1618,6 +1618,7 @@ const deserializeAws_restJson1DataIntegrationAssociationsList = (
       }
       return deserializeAws_restJson1DataIntegrationAssociationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DataIntegrationAssociationSummary = (
@@ -1635,7 +1636,7 @@ const deserializeAws_restJson1DataIntegrationsList = (
   output: any,
   context: __SerdeContext
 ): DataIntegrationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1643,6 +1644,7 @@ const deserializeAws_restJson1DataIntegrationsList = (
       }
       return deserializeAws_restJson1DataIntegrationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DataIntegrationSummary = (
@@ -1700,7 +1702,7 @@ const deserializeAws_restJson1EventIntegrationAssociationsList = (
   output: any,
   context: __SerdeContext
 ): EventIntegrationAssociation[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1708,10 +1710,11 @@ const deserializeAws_restJson1EventIntegrationAssociationsList = (
       }
       return deserializeAws_restJson1EventIntegrationAssociation(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EventIntegrationsList = (output: any, context: __SerdeContext): EventIntegration[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1719,6 +1722,7 @@ const deserializeAws_restJson1EventIntegrationsList = (output: any, context: __S
       }
       return deserializeAws_restJson1EventIntegration(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ScheduleConfiguration = (output: any, context: __SerdeContext): ScheduleConfiguration => {

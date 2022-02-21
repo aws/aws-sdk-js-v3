@@ -5890,7 +5890,7 @@ const deserializeAws_restJson1AwsCloudMapInstanceAttributes = (
   output: any,
   context: __SerdeContext
 ): AwsCloudMapInstanceAttribute[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5898,6 +5898,7 @@ const deserializeAws_restJson1AwsCloudMapInstanceAttributes = (
       }
       return deserializeAws_restJson1AwsCloudMapInstanceAttribute(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AwsCloudMapServiceDiscovery = (
@@ -5933,7 +5934,7 @@ const deserializeAws_restJson1BackendDefaults = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1Backends = (output: any, context: __SerdeContext): Backend[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5941,10 +5942,11 @@ const deserializeAws_restJson1Backends = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Backend(__expectUnion(entry), context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CertificateAuthorityArns = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5952,6 +5954,7 @@ const deserializeAws_restJson1CertificateAuthorityArns = (output: any, context: 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ClientPolicy = (output: any, context: __SerdeContext): ClientPolicy => {
@@ -6061,7 +6064,7 @@ const deserializeAws_restJson1GatewayRouteHostnameRewrite = (
 };
 
 const deserializeAws_restJson1GatewayRouteList = (output: any, context: __SerdeContext): GatewayRouteRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6069,6 +6072,7 @@ const deserializeAws_restJson1GatewayRouteList = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1GatewayRouteRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GatewayRouteRef = (output: any, context: __SerdeContext): GatewayRouteRef => {
@@ -6194,7 +6198,7 @@ const deserializeAws_restJson1GrpcGatewayRouteMetadataList = (
   output: any,
   context: __SerdeContext
 ): GrpcGatewayRouteMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6202,6 +6206,7 @@ const deserializeAws_restJson1GrpcGatewayRouteMetadataList = (
       }
       return deserializeAws_restJson1GrpcGatewayRouteMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GrpcGatewayRouteRewrite = (
@@ -6266,7 +6271,7 @@ const deserializeAws_restJson1GrpcRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
 ): (GrpcRetryPolicyEvent | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6274,6 +6279,7 @@ const deserializeAws_restJson1GrpcRetryPolicyEvents = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GrpcRoute = (output: any, context: __SerdeContext): GrpcRoute => {
@@ -6329,7 +6335,7 @@ const deserializeAws_restJson1GrpcRouteMetadata = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1GrpcRouteMetadataList = (output: any, context: __SerdeContext): GrpcRouteMetadata[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6337,6 +6343,7 @@ const deserializeAws_restJson1GrpcRouteMetadataList = (output: any, context: __S
       }
       return deserializeAws_restJson1GrpcRouteMetadata(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GrpcRouteMetadataMatchMethod = (
@@ -6456,7 +6463,7 @@ const deserializeAws_restJson1HttpGatewayRouteHeaders = (
   output: any,
   context: __SerdeContext
 ): HttpGatewayRouteHeader[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6464,6 +6471,7 @@ const deserializeAws_restJson1HttpGatewayRouteHeaders = (
       }
       return deserializeAws_restJson1HttpGatewayRouteHeader(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1HttpGatewayRouteMatch = (output: any, context: __SerdeContext): HttpGatewayRouteMatch => {
@@ -6546,7 +6554,7 @@ const deserializeAws_restJson1HttpQueryParameter = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1HttpQueryParameters = (output: any, context: __SerdeContext): HttpQueryParameter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6554,6 +6562,7 @@ const deserializeAws_restJson1HttpQueryParameters = (output: any, context: __Ser
       }
       return deserializeAws_restJson1HttpQueryParameter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1HttpRetryPolicy = (output: any, context: __SerdeContext): HttpRetryPolicy => {
@@ -6575,7 +6584,7 @@ const deserializeAws_restJson1HttpRetryPolicy = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1HttpRetryPolicyEvents = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6583,6 +6592,7 @@ const deserializeAws_restJson1HttpRetryPolicyEvents = (output: any, context: __S
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1HttpRoute = (output: any, context: __SerdeContext): HttpRoute => {
@@ -6627,7 +6637,7 @@ const deserializeAws_restJson1HttpRouteHeader = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1HttpRouteHeaders = (output: any, context: __SerdeContext): HttpRouteHeader[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6635,6 +6645,7 @@ const deserializeAws_restJson1HttpRouteHeaders = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1HttpRouteHeader(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1HttpRouteMatch = (output: any, context: __SerdeContext): HttpRouteMatch => {
@@ -6700,7 +6711,7 @@ const deserializeAws_restJson1Listener = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Listeners = (output: any, context: __SerdeContext): Listener[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6708,6 +6719,7 @@ const deserializeAws_restJson1Listeners = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Listener(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListenerTimeout = (output: any, context: __SerdeContext): ListenerTimeout => {
@@ -6866,7 +6878,7 @@ const deserializeAws_restJson1MeshData = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1MeshList = (output: any, context: __SerdeContext): MeshRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6874,6 +6886,7 @@ const deserializeAws_restJson1MeshList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1MeshRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MeshRef = (output: any, context: __SerdeContext): MeshRef => {
@@ -6932,21 +6945,15 @@ const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1PortSet = (output: any, context: __SerdeContext): number[] => {
-  const uniqueValues = new Set<any>();
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
         return null as any;
       }
-      const parsedEntry = __expectInt32(entry) as any;
-      if (uniqueValues.has(parsedEntry)) {
-        throw new TypeError('All elements of the set "com.amazonaws.appmesh#PortSet" must be unique.');
-      } else {
-        uniqueValues.add(parsedEntry);
-        return parsedEntry;
-      }
+      return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1QueryParameterMatch = (output: any, context: __SerdeContext): QueryParameterMatch => {
@@ -6994,7 +7001,7 @@ const deserializeAws_restJson1RouteData = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restJson1RouteList = (output: any, context: __SerdeContext): RouteRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7002,6 +7009,7 @@ const deserializeAws_restJson1RouteList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1RouteRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RouteRef = (output: any, context: __SerdeContext): RouteRef => {
@@ -7067,7 +7075,7 @@ const deserializeAws_restJson1ServiceDiscovery = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1SubjectAlternativeNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7075,6 +7083,7 @@ const deserializeAws_restJson1SubjectAlternativeNameList = (output: any, context
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SubjectAlternativeNameMatchers = (
@@ -7102,7 +7111,7 @@ const deserializeAws_restJson1SubjectAlternativeNames = (
 };
 
 const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): TagRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7110,6 +7119,7 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1TagRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagRef = (output: any, context: __SerdeContext): TagRef => {
@@ -7123,7 +7133,7 @@ const deserializeAws_restJson1TcpRetryPolicyEvents = (
   output: any,
   context: __SerdeContext
 ): (TcpRetryPolicyEvent | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7131,6 +7141,7 @@ const deserializeAws_restJson1TcpRetryPolicyEvents = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TcpRoute = (output: any, context: __SerdeContext): TcpRoute => {
@@ -7257,7 +7268,7 @@ const deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns = (
   output: any,
   context: __SerdeContext
 ): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7265,6 +7276,7 @@ const deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VirtualGatewayClientPolicy = (
@@ -7411,7 +7423,7 @@ const deserializeAws_restJson1VirtualGatewayHttpConnectionPool = (
 };
 
 const deserializeAws_restJson1VirtualGatewayList = (output: any, context: __SerdeContext): VirtualGatewayRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7419,6 +7431,7 @@ const deserializeAws_restJson1VirtualGatewayList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1VirtualGatewayRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VirtualGatewayListener = (
@@ -7449,7 +7462,7 @@ const deserializeAws_restJson1VirtualGatewayListeners = (
   output: any,
   context: __SerdeContext
 ): VirtualGatewayListener[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7457,6 +7470,7 @@ const deserializeAws_restJson1VirtualGatewayListeners = (
       }
       return deserializeAws_restJson1VirtualGatewayListener(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VirtualGatewayListenerTls = (
@@ -7763,7 +7777,7 @@ const deserializeAws_restJson1VirtualNodeHttpConnectionPool = (
 };
 
 const deserializeAws_restJson1VirtualNodeList = (output: any, context: __SerdeContext): VirtualNodeRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7771,6 +7785,7 @@ const deserializeAws_restJson1VirtualNodeList = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1VirtualNodeRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VirtualNodeRef = (output: any, context: __SerdeContext): VirtualNodeRef => {
@@ -7861,7 +7876,7 @@ const deserializeAws_restJson1VirtualRouterData = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1VirtualRouterList = (output: any, context: __SerdeContext): VirtualRouterRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7869,6 +7884,7 @@ const deserializeAws_restJson1VirtualRouterList = (output: any, context: __Serde
       }
       return deserializeAws_restJson1VirtualRouterRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VirtualRouterListener = (output: any, context: __SerdeContext): VirtualRouterListener => {
@@ -7884,7 +7900,7 @@ const deserializeAws_restJson1VirtualRouterListeners = (
   output: any,
   context: __SerdeContext
 ): VirtualRouterListener[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7892,6 +7908,7 @@ const deserializeAws_restJson1VirtualRouterListeners = (
       }
       return deserializeAws_restJson1VirtualRouterListener(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VirtualRouterRef = (output: any, context: __SerdeContext): VirtualRouterRef => {
@@ -7967,7 +7984,7 @@ const deserializeAws_restJson1VirtualServiceData = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1VirtualServiceList = (output: any, context: __SerdeContext): VirtualServiceRef[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7975,6 +7992,7 @@ const deserializeAws_restJson1VirtualServiceList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1VirtualServiceRef(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1VirtualServiceProvider = (
@@ -8036,7 +8054,7 @@ const deserializeAws_restJson1WeightedTarget = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1WeightedTargets = (output: any, context: __SerdeContext): WeightedTarget[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8044,6 +8062,7 @@ const deserializeAws_restJson1WeightedTargets = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1WeightedTarget(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

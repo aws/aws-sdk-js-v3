@@ -7484,7 +7484,7 @@ const deserializeAws_json1_1AddressBookData = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1AddressBookDataList = (output: any, context: __SerdeContext): AddressBookData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7492,6 +7492,7 @@ const deserializeAws_json1_1AddressBookDataList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1AddressBookData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
@@ -7547,7 +7548,7 @@ const deserializeAws_json1_1AssociateSkillWithUsersResponse = (
 };
 
 const deserializeAws_json1_1BulletPoints = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7555,6 +7556,7 @@ const deserializeAws_json1_1BulletPoints = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1BusinessReport = (output: any, context: __SerdeContext): BusinessReport => {
@@ -7627,7 +7629,7 @@ const deserializeAws_json1_1BusinessReportScheduleList = (
   output: any,
   context: __SerdeContext
 ): BusinessReportSchedule[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7635,6 +7637,7 @@ const deserializeAws_json1_1BusinessReportScheduleList = (
       }
       return deserializeAws_json1_1BusinessReportSchedule(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Category = (output: any, context: __SerdeContext): Category => {
@@ -7645,7 +7648,7 @@ const deserializeAws_json1_1Category = (output: any, context: __SerdeContext): C
 };
 
 const deserializeAws_json1_1CategoryList = (output: any, context: __SerdeContext): Category[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7653,6 +7656,7 @@ const deserializeAws_json1_1CategoryList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1Category(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
@@ -7691,7 +7695,7 @@ const deserializeAws_json1_1ConferenceProvider = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1ConferenceProvidersList = (output: any, context: __SerdeContext): ConferenceProvider[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7699,6 +7703,7 @@ const deserializeAws_json1_1ConferenceProvidersList = (output: any, context: __S
       }
       return deserializeAws_json1_1ConferenceProvider(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Contact = (output: any, context: __SerdeContext): Contact => {
@@ -7738,7 +7743,7 @@ const deserializeAws_json1_1ContactData = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ContactDataList = (output: any, context: __SerdeContext): ContactData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7746,6 +7751,7 @@ const deserializeAws_json1_1ContactDataList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ContactData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CreateAddressBookResponse = (
@@ -7964,7 +7970,7 @@ const deserializeAws_json1_1DeviceData = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1DeviceDataList = (output: any, context: __SerdeContext): DeviceData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7972,6 +7978,7 @@ const deserializeAws_json1_1DeviceDataList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1DeviceData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeviceEvent = (output: any, context: __SerdeContext): DeviceEvent => {
@@ -7986,7 +7993,7 @@ const deserializeAws_json1_1DeviceEvent = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1DeviceEventList = (output: any, context: __SerdeContext): DeviceEvent[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -7994,6 +8001,7 @@ const deserializeAws_json1_1DeviceEventList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1DeviceEvent(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeviceNetworkProfileInfo = (
@@ -8027,7 +8035,7 @@ const deserializeAws_json1_1DeviceStatusDetail = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1DeviceStatusDetails = (output: any, context: __SerdeContext): DeviceStatusDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8035,6 +8043,7 @@ const deserializeAws_json1_1DeviceStatusDetails = (output: any, context: __Serde
       }
       return deserializeAws_json1_1DeviceStatusDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DeviceStatusInfo = (output: any, context: __SerdeContext): DeviceStatusInfo => {
@@ -8098,7 +8107,7 @@ const deserializeAws_json1_1EndOfMeetingReminder = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1EndOfMeetingReminderMinutesList = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8106,6 +8115,7 @@ const deserializeAws_json1_1EndOfMeetingReminderMinutesList = (output: any, cont
       }
       return __expectInt32(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ForgetSmartHomeAppliancesResponse = (
@@ -8134,7 +8144,7 @@ const deserializeAws_json1_1GatewayGroup = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1GatewayGroupSummaries = (output: any, context: __SerdeContext): GatewayGroupSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8142,6 +8152,7 @@ const deserializeAws_json1_1GatewayGroupSummaries = (output: any, context: __Ser
       }
       return deserializeAws_json1_1GatewayGroupSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GatewayGroupSummary = (output: any, context: __SerdeContext): GatewayGroupSummary => {
@@ -8153,7 +8164,7 @@ const deserializeAws_json1_1GatewayGroupSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1GatewaySummaries = (output: any, context: __SerdeContext): GatewaySummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8161,6 +8172,7 @@ const deserializeAws_json1_1GatewaySummaries = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1GatewaySummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary => {
@@ -8174,7 +8186,7 @@ const deserializeAws_json1_1GatewaySummary = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1GenericKeywords = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8182,6 +8194,7 @@ const deserializeAws_json1_1GenericKeywords = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetAddressBookResponse = (output: any, context: __SerdeContext): GetAddressBookResponse => {
@@ -8566,7 +8579,7 @@ const deserializeAws_json1_1NetworkProfileData = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1NetworkProfileDataList = (output: any, context: __SerdeContext): NetworkProfileData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8574,10 +8587,11 @@ const deserializeAws_json1_1NetworkProfileDataList = (output: any, context: __Se
       }
       return deserializeAws_json1_1NetworkProfileData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NewInThisVersionBulletPoints = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8585,6 +8599,7 @@ const deserializeAws_json1_1NewInThisVersionBulletPoints = (output: any, context
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
@@ -8601,7 +8616,7 @@ const deserializeAws_json1_1PhoneNumber = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1PhoneNumberList = (output: any, context: __SerdeContext): PhoneNumber[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8609,6 +8624,7 @@ const deserializeAws_json1_1PhoneNumberList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1PhoneNumber(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Profile = (output: any, context: __SerdeContext): Profile => {
@@ -8649,7 +8665,7 @@ const deserializeAws_json1_1ProfileData = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ProfileDataList = (output: any, context: __SerdeContext): ProfileData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8657,6 +8673,7 @@ const deserializeAws_json1_1ProfileDataList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ProfileData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PSTNDialIn = (output: any, context: __SerdeContext): PSTNDialIn => {
@@ -8784,7 +8801,7 @@ const deserializeAws_json1_1RoomData = (output: any, context: __SerdeContext): R
 };
 
 const deserializeAws_json1_1RoomDataList = (output: any, context: __SerdeContext): RoomData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8792,6 +8809,7 @@ const deserializeAws_json1_1RoomDataList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1RoomData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1RoomSkillParameter = (output: any, context: __SerdeContext): RoomSkillParameter => {
@@ -8802,7 +8820,7 @@ const deserializeAws_json1_1RoomSkillParameter = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1RoomSkillParameters = (output: any, context: __SerdeContext): RoomSkillParameter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8810,10 +8828,11 @@ const deserializeAws_json1_1RoomSkillParameters = (output: any, context: __Serde
       }
       return deserializeAws_json1_1RoomSkillParameter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SampleUtterances = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8821,6 +8840,7 @@ const deserializeAws_json1_1SampleUtterances = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SearchAddressBooksResponse = (
@@ -8934,7 +8954,7 @@ const deserializeAws_json1_1SendInvitationResponse = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1ShortSkillIdList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8942,6 +8962,7 @@ const deserializeAws_json1_1ShortSkillIdList = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SipAddress = (output: any, context: __SerdeContext): SipAddress => {
@@ -8952,7 +8973,7 @@ const deserializeAws_json1_1SipAddress = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1SipAddressList = (output: any, context: __SerdeContext): SipAddress[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -8960,6 +8981,7 @@ const deserializeAws_json1_1SipAddressList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1SipAddress(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SkillDetails = (output: any, context: __SerdeContext): SkillDetails => {
@@ -9012,7 +9034,7 @@ const deserializeAws_json1_1SkillGroupData = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1SkillGroupDataList = (output: any, context: __SerdeContext): SkillGroupData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9020,6 +9042,7 @@ const deserializeAws_json1_1SkillGroupDataList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1SkillGroupData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SkillNotLinkedException = (
@@ -9050,7 +9073,7 @@ const deserializeAws_json1_1SkillsStoreSkill = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1SkillsStoreSkillList = (output: any, context: __SerdeContext): SkillsStoreSkill[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9058,6 +9081,7 @@ const deserializeAws_json1_1SkillsStoreSkillList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1SkillsStoreSkill(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SkillSummary = (output: any, context: __SerdeContext): SkillSummary => {
@@ -9071,7 +9095,7 @@ const deserializeAws_json1_1SkillSummary = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1SkillSummaryList = (output: any, context: __SerdeContext): SkillSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9079,10 +9103,11 @@ const deserializeAws_json1_1SkillSummaryList = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1SkillSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SkillTypes = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9090,6 +9115,7 @@ const deserializeAws_json1_1SkillTypes = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SmartHomeAppliance = (output: any, context: __SerdeContext): SmartHomeAppliance => {
@@ -9101,7 +9127,7 @@ const deserializeAws_json1_1SmartHomeAppliance = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1SmartHomeApplianceList = (output: any, context: __SerdeContext): SmartHomeAppliance[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9109,6 +9135,7 @@ const deserializeAws_json1_1SmartHomeApplianceList = (output: any, context: __Se
       }
       return deserializeAws_json1_1SmartHomeAppliance(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StartDeviceSyncResponse = (
@@ -9133,7 +9160,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9141,6 +9168,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
@@ -9148,7 +9176,7 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1TrustAnchorList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9156,6 +9184,7 @@ const deserializeAws_json1_1TrustAnchorList = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
@@ -9242,7 +9271,7 @@ const deserializeAws_json1_1UserData = (output: any, context: __SerdeContext): U
 };
 
 const deserializeAws_json1_1UserDataList = (output: any, context: __SerdeContext): UserData[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -9250,6 +9279,7 @@ const deserializeAws_json1_1UserDataList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1UserData(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

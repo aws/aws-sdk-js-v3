@@ -1207,7 +1207,7 @@ const serializeAws_restJson1SpeechMarkTypeList = (input: (SpeechMarkType | strin
 };
 
 const deserializeAws_restJson1EngineList = (output: any, context: __SerdeContext): (Engine | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1215,10 +1215,11 @@ const deserializeAws_restJson1EngineList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LanguageCodeList = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1226,6 +1227,7 @@ const deserializeAws_restJson1LanguageCodeList = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Lexicon = (output: any, context: __SerdeContext): Lexicon => {
@@ -1260,7 +1262,7 @@ const deserializeAws_restJson1LexiconDescription = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1LexiconDescriptionList = (output: any, context: __SerdeContext): LexiconDescription[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1268,10 +1270,11 @@ const deserializeAws_restJson1LexiconDescriptionList = (output: any, context: __
       }
       return deserializeAws_restJson1LexiconDescription(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LexiconNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1279,13 +1282,14 @@ const deserializeAws_restJson1LexiconNameList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SpeechMarkTypeList = (
   output: any,
   context: __SerdeContext
 ): (SpeechMarkType | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1293,6 +1297,7 @@ const deserializeAws_restJson1SpeechMarkTypeList = (
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeContext): SynthesisTask => {
@@ -1325,7 +1330,7 @@ const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1SynthesisTasks = (output: any, context: __SerdeContext): SynthesisTask[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1333,6 +1338,7 @@ const deserializeAws_restJson1SynthesisTasks = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1SynthesisTask(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Voice = (output: any, context: __SerdeContext): Voice => {
@@ -1354,7 +1360,7 @@ const deserializeAws_restJson1Voice = (output: any, context: __SerdeContext): Vo
 };
 
 const deserializeAws_restJson1VoiceList = (output: any, context: __SerdeContext): Voice[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1362,6 +1368,7 @@ const deserializeAws_restJson1VoiceList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Voice(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

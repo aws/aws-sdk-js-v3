@@ -3037,7 +3037,7 @@ const deserializeAws_restJson1ApiGatewayProxySummary = (
 };
 
 const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __SerdeContext): ApplicationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3045,6 +3045,7 @@ const deserializeAws_restJson1ApplicationSummaries = (output: any, context: __Se
       }
       return deserializeAws_restJson1ApplicationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
@@ -3082,7 +3083,7 @@ const deserializeAws_restJson1ApplicationSummary = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1CidrBlocks = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3090,10 +3091,11 @@ const deserializeAws_restJson1CidrBlocks = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EnvironmentSummaries = (output: any, context: __SerdeContext): EnvironmentSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3101,6 +3103,7 @@ const deserializeAws_restJson1EnvironmentSummaries = (output: any, context: __Se
       }
       return deserializeAws_restJson1EnvironmentSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1EnvironmentSummary = (output: any, context: __SerdeContext): EnvironmentSummary => {
@@ -3154,7 +3157,7 @@ const deserializeAws_restJson1EnvironmentVpc = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1EnvironmentVpcs = (output: any, context: __SerdeContext): EnvironmentVpc[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3162,6 +3165,7 @@ const deserializeAws_restJson1EnvironmentVpcs = (output: any, context: __SerdeCo
       }
       return deserializeAws_restJson1EnvironmentVpc(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ErrorResponse = (output: any, context: __SerdeContext): ErrorResponse => {
@@ -3179,7 +3183,7 @@ const deserializeAws_restJson1ErrorResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1HttpMethods = (output: any, context: __SerdeContext): (HttpMethod | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3187,6 +3191,7 @@ const deserializeAws_restJson1HttpMethods = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LambdaEndpointConfig = (output: any, context: __SerdeContext): LambdaEndpointConfig => {
@@ -3220,7 +3225,7 @@ const deserializeAws_restJson1PathResourceToId = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restJson1RouteSummaries = (output: any, context: __SerdeContext): RouteSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3228,6 +3233,7 @@ const deserializeAws_restJson1RouteSummaries = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1RouteSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RouteSummary = (output: any, context: __SerdeContext): RouteSummary => {
@@ -3271,7 +3277,7 @@ const deserializeAws_restJson1RouteSummary = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restJson1ServiceSummaries = (output: any, context: __SerdeContext): ServiceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3279,6 +3285,7 @@ const deserializeAws_restJson1ServiceSummaries = (output: any, context: __SerdeC
       }
       return deserializeAws_restJson1ServiceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {

@@ -1269,7 +1269,7 @@ const deserializeAws_restJson1AppMonitorSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_restJson1AppMonitorSummaryList = (output: any, context: __SerdeContext): AppMonitorSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1277,6 +1277,7 @@ const deserializeAws_restJson1AppMonitorSummaryList = (output: any, context: __S
       }
       return deserializeAws_restJson1AppMonitorSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CwLog = (output: any, context: __SerdeContext): CwLog => {
@@ -1296,7 +1297,7 @@ const deserializeAws_restJson1DataStorage = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1EventDataList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1304,10 +1305,11 @@ const deserializeAws_restJson1EventDataList = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1FavoritePages = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1315,10 +1317,11 @@ const deserializeAws_restJson1FavoritePages = (output: any, context: __SerdeCont
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Pages = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1326,6 +1329,7 @@ const deserializeAws_restJson1Pages = (output: any, context: __SerdeContext): st
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -1341,7 +1345,7 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 };
 
 const deserializeAws_restJson1Telemetries = (output: any, context: __SerdeContext): (Telemetry | string)[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1349,6 +1353,7 @@ const deserializeAws_restJson1Telemetries = (output: any, context: __SerdeContex
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

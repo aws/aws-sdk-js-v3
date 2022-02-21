@@ -6017,7 +6017,7 @@ const serializeAws_restJson1WaypointPositionList = (input: number[][], context: 
 };
 
 const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6025,6 +6025,7 @@ const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): 
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchDeleteDevicePositionHistoryError = (
@@ -6044,7 +6045,7 @@ const deserializeAws_restJson1BatchDeleteDevicePositionHistoryErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteDevicePositionHistoryError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6052,6 +6053,7 @@ const deserializeAws_restJson1BatchDeleteDevicePositionHistoryErrorList = (
       }
       return deserializeAws_restJson1BatchDeleteDevicePositionHistoryError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchDeleteGeofenceError = (
@@ -6071,7 +6073,7 @@ const deserializeAws_restJson1BatchDeleteGeofenceErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteGeofenceError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6079,6 +6081,7 @@ const deserializeAws_restJson1BatchDeleteGeofenceErrorList = (
       }
       return deserializeAws_restJson1BatchDeleteGeofenceError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchEvaluateGeofencesError = (
@@ -6102,7 +6105,7 @@ const deserializeAws_restJson1BatchEvaluateGeofencesErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchEvaluateGeofencesError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6110,6 +6113,7 @@ const deserializeAws_restJson1BatchEvaluateGeofencesErrorList = (
       }
       return deserializeAws_restJson1BatchEvaluateGeofencesError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchGetDevicePositionError = (
@@ -6129,7 +6133,7 @@ const deserializeAws_restJson1BatchGetDevicePositionErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchGetDevicePositionError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6137,6 +6141,7 @@ const deserializeAws_restJson1BatchGetDevicePositionErrorList = (
       }
       return deserializeAws_restJson1BatchGetDevicePositionError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchItemError = (output: any, context: __SerdeContext): BatchItemError => {
@@ -6160,7 +6165,7 @@ const deserializeAws_restJson1BatchPutGeofenceErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchPutGeofenceError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6168,6 +6173,7 @@ const deserializeAws_restJson1BatchPutGeofenceErrorList = (
       }
       return deserializeAws_restJson1BatchPutGeofenceError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchPutGeofenceSuccess = (
@@ -6191,7 +6197,7 @@ const deserializeAws_restJson1BatchPutGeofenceSuccessList = (
   output: any,
   context: __SerdeContext
 ): BatchPutGeofenceSuccess[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6199,6 +6205,7 @@ const deserializeAws_restJson1BatchPutGeofenceSuccessList = (
       }
       return deserializeAws_restJson1BatchPutGeofenceSuccess(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchUpdateDevicePositionError = (
@@ -6222,7 +6229,7 @@ const deserializeAws_restJson1BatchUpdateDevicePositionErrorList = (
   output: any,
   context: __SerdeContext
 ): BatchUpdateDevicePositionError[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6230,10 +6237,11 @@ const deserializeAws_restJson1BatchUpdateDevicePositionErrorList = (
       }
       return deserializeAws_restJson1BatchUpdateDevicePositionError(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BoundingBox = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6241,6 +6249,7 @@ const deserializeAws_restJson1BoundingBox = (output: any, context: __SerdeContex
       }
       return __limitedParseDouble(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1CalculateRouteMatrixSummary = (
@@ -6269,7 +6278,7 @@ const deserializeAws_restJson1CalculateRouteSummary = (output: any, context: __S
 };
 
 const deserializeAws_restJson1CountryCodeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6277,6 +6286,7 @@ const deserializeAws_restJson1CountryCodeList = (output: any, context: __SerdeCo
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DataSourceConfiguration = (
@@ -6315,7 +6325,7 @@ const deserializeAws_restJson1DevicePosition = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1DevicePositionList = (output: any, context: __SerdeContext): DevicePosition[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6323,6 +6333,7 @@ const deserializeAws_restJson1DevicePositionList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1DevicePosition(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1GeofenceGeometry = (output: any, context: __SerdeContext): GeofenceGeometry => {
@@ -6367,7 +6378,7 @@ const deserializeAws_restJson1LegGeometry = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1LegList = (output: any, context: __SerdeContext): Leg[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6375,10 +6386,11 @@ const deserializeAws_restJson1LegList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_restJson1Leg(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LinearRing = (output: any, context: __SerdeContext): number[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6386,10 +6398,11 @@ const deserializeAws_restJson1LinearRing = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Position(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LinearRings = (output: any, context: __SerdeContext): number[][][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6397,10 +6410,11 @@ const deserializeAws_restJson1LinearRings = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1LinearRing(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1LineString = (output: any, context: __SerdeContext): number[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6408,6 +6422,7 @@ const deserializeAws_restJson1LineString = (output: any, context: __SerdeContext
       }
       return deserializeAws_restJson1Position(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListDevicePositionsResponseEntry = (
@@ -6439,7 +6454,7 @@ const deserializeAws_restJson1ListDevicePositionsResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): ListDevicePositionsResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6447,6 +6462,7 @@ const deserializeAws_restJson1ListDevicePositionsResponseEntryList = (
       }
       return deserializeAws_restJson1ListDevicePositionsResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListGeofenceCollectionsResponseEntry = (
@@ -6473,7 +6489,7 @@ const deserializeAws_restJson1ListGeofenceCollectionsResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): ListGeofenceCollectionsResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6481,6 +6497,7 @@ const deserializeAws_restJson1ListGeofenceCollectionsResponseEntryList = (
       }
       return deserializeAws_restJson1ListGeofenceCollectionsResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListGeofenceResponseEntry = (
@@ -6509,7 +6526,7 @@ const deserializeAws_restJson1ListGeofenceResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): ListGeofenceResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6517,6 +6534,7 @@ const deserializeAws_restJson1ListGeofenceResponseEntryList = (
       }
       return deserializeAws_restJson1ListGeofenceResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListMapsResponseEntry = (output: any, context: __SerdeContext): ListMapsResponseEntry => {
@@ -6540,7 +6558,7 @@ const deserializeAws_restJson1ListMapsResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): ListMapsResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6548,6 +6566,7 @@ const deserializeAws_restJson1ListMapsResponseEntryList = (
       }
       return deserializeAws_restJson1ListMapsResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListPlaceIndexesResponseEntry = (
@@ -6574,7 +6593,7 @@ const deserializeAws_restJson1ListPlaceIndexesResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): ListPlaceIndexesResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6582,6 +6601,7 @@ const deserializeAws_restJson1ListPlaceIndexesResponseEntryList = (
       }
       return deserializeAws_restJson1ListPlaceIndexesResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListRouteCalculatorsResponseEntry = (
@@ -6608,7 +6628,7 @@ const deserializeAws_restJson1ListRouteCalculatorsResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): ListRouteCalculatorsResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6616,6 +6636,7 @@ const deserializeAws_restJson1ListRouteCalculatorsResponseEntryList = (
       }
       return deserializeAws_restJson1ListRouteCalculatorsResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1ListTrackersResponseEntry = (
@@ -6642,7 +6663,7 @@ const deserializeAws_restJson1ListTrackersResponseEntryList = (
   output: any,
   context: __SerdeContext
 ): ListTrackersResponseEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6650,6 +6671,7 @@ const deserializeAws_restJson1ListTrackersResponseEntryList = (
       }
       return deserializeAws_restJson1ListTrackersResponseEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1MapConfiguration = (output: any, context: __SerdeContext): MapConfiguration => {
@@ -6691,7 +6713,7 @@ const deserializeAws_restJson1PlaceGeometry = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restJson1Position = (output: any, context: __SerdeContext): number[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6699,6 +6721,7 @@ const deserializeAws_restJson1Position = (output: any, context: __SerdeContext):
       }
       return __limitedParseDouble(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PositionalAccuracy = (output: any, context: __SerdeContext): PositionalAccuracy => {
@@ -6708,7 +6731,7 @@ const deserializeAws_restJson1PositionalAccuracy = (output: any, context: __Serd
 };
 
 const deserializeAws_restJson1PositionList = (output: any, context: __SerdeContext): number[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6716,6 +6739,7 @@ const deserializeAws_restJson1PositionList = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Position(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1PropertyMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -6731,7 +6755,7 @@ const deserializeAws_restJson1PropertyMap = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restJson1RouteMatrix = (output: any, context: __SerdeContext): RouteMatrixEntry[][] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6739,6 +6763,7 @@ const deserializeAws_restJson1RouteMatrix = (output: any, context: __SerdeContex
       }
       return deserializeAws_restJson1RouteMatrixRow(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1RouteMatrixEntry = (output: any, context: __SerdeContext): RouteMatrixEntry => {
@@ -6760,7 +6785,7 @@ const deserializeAws_restJson1RouteMatrixEntryError = (output: any, context: __S
 };
 
 const deserializeAws_restJson1RouteMatrixRow = (output: any, context: __SerdeContext): RouteMatrixEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6768,6 +6793,7 @@ const deserializeAws_restJson1RouteMatrixRow = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1RouteMatrixEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SearchForPositionResult = (
@@ -6787,7 +6813,7 @@ const deserializeAws_restJson1SearchForPositionResultList = (
   output: any,
   context: __SerdeContext
 ): SearchForPositionResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6795,6 +6821,7 @@ const deserializeAws_restJson1SearchForPositionResultList = (
       }
       return deserializeAws_restJson1SearchForPositionResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SearchForSuggestionsResult = (
@@ -6810,7 +6837,7 @@ const deserializeAws_restJson1SearchForSuggestionsResultList = (
   output: any,
   context: __SerdeContext
 ): SearchForSuggestionsResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6818,6 +6845,7 @@ const deserializeAws_restJson1SearchForSuggestionsResultList = (
       }
       return deserializeAws_restJson1SearchForSuggestionsResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SearchForTextResult = (output: any, context: __SerdeContext): SearchForTextResult => {
@@ -6835,7 +6863,7 @@ const deserializeAws_restJson1SearchForTextResultList = (
   output: any,
   context: __SerdeContext
 ): SearchForTextResult[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6843,6 +6871,7 @@ const deserializeAws_restJson1SearchForTextResultList = (
       }
       return deserializeAws_restJson1SearchForTextResult(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1SearchPlaceIndexForPositionSummary = (
@@ -6929,7 +6958,7 @@ const deserializeAws_restJson1Step = (output: any, context: __SerdeContext): Ste
 };
 
 const deserializeAws_restJson1StepList = (output: any, context: __SerdeContext): Step[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6937,6 +6966,7 @@ const deserializeAws_restJson1StepList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_restJson1Step(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -6972,7 +7002,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -6980,6 +7010,7 @@ const deserializeAws_restJson1ValidationExceptionFieldList = (
       }
       return deserializeAws_restJson1ValidationExceptionField(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

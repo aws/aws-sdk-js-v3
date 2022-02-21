@@ -3989,7 +3989,7 @@ const deserializeAws_json1_1ACLAlreadyExistsFault = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1ACLClusterNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3997,10 +3997,11 @@ const deserializeAws_json1_1ACLClusterNameList = (output: any, context: __SerdeC
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ACLList = (output: any, context: __SerdeContext): ACL[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4008,10 +4009,11 @@ const deserializeAws_json1_1ACLList = (output: any, context: __SerdeContext): AC
       }
       return deserializeAws_json1_1ACL(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ACLNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4019,6 +4021,7 @@ const deserializeAws_json1_1ACLNameList = (output: any, context: __SerdeContext)
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ACLNotFoundFault = (output: any, context: __SerdeContext): ACLNotFoundFault => {
@@ -4164,7 +4167,7 @@ const deserializeAws_json1_1ClusterConfiguration = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1ClusterList = (output: any, context: __SerdeContext): Cluster[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4172,6 +4175,7 @@ const deserializeAws_json1_1ClusterList = (output: any, context: __SerdeContext)
       }
       return deserializeAws_json1_1Cluster(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ClusterNotFoundFault = (output: any, context: __SerdeContext): ClusterNotFoundFault => {
@@ -4474,7 +4478,7 @@ const deserializeAws_json1_1EngineVersionInfo = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1EngineVersionInfoList = (output: any, context: __SerdeContext): EngineVersionInfo[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4482,6 +4486,7 @@ const deserializeAws_json1_1EngineVersionInfoList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1EngineVersionInfo(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
@@ -4497,7 +4502,7 @@ const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Even
 };
 
 const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): Event[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4505,6 +4510,7 @@ const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Event(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1FailoverShardResponse = (output: any, context: __SerdeContext): FailoverShardResponse => {
@@ -4666,7 +4672,7 @@ const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node 
 };
 
 const deserializeAws_json1_1NodeList = (output: any, context: __SerdeContext): Node[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4674,6 +4680,7 @@ const deserializeAws_json1_1NodeList = (output: any, context: __SerdeContext): N
       }
       return deserializeAws_json1_1Node(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
@@ -4695,7 +4702,7 @@ const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
 };
 
 const deserializeAws_json1_1NodeTypeList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4703,6 +4710,7 @@ const deserializeAws_json1_1NodeTypeList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NoOperationFault = (output: any, context: __SerdeContext): NoOperationFault => {
@@ -4741,7 +4749,7 @@ const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
 };
 
 const deserializeAws_json1_1ParameterGroupList = (output: any, context: __SerdeContext): ParameterGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4749,6 +4757,7 @@ const deserializeAws_json1_1ParameterGroupList = (output: any, context: __SerdeC
       }
       return deserializeAws_json1_1ParameterGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ParameterGroupNotFoundFault = (
@@ -4770,7 +4779,7 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
 };
 
 const deserializeAws_json1_1ParametersList = (output: any, context: __SerdeContext): Parameter[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4778,6 +4787,7 @@ const deserializeAws_json1_1ParametersList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1Parameter(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PendingModifiedServiceUpdate = (
@@ -4794,7 +4804,7 @@ const deserializeAws_json1_1PendingModifiedServiceUpdateList = (
   output: any,
   context: __SerdeContext
 ): PendingModifiedServiceUpdate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4802,6 +4812,7 @@ const deserializeAws_json1_1PendingModifiedServiceUpdateList = (
       }
       return deserializeAws_json1_1PendingModifiedServiceUpdate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResetParameterGroupResponse = (
@@ -4839,7 +4850,7 @@ const deserializeAws_json1_1SecurityGroupMembershipList = (
   output: any,
   context: __SerdeContext
 ): SecurityGroupMembership[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4847,6 +4858,7 @@ const deserializeAws_json1_1SecurityGroupMembershipList = (
       }
       return deserializeAws_json1_1SecurityGroupMembership(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
@@ -4878,7 +4890,7 @@ const deserializeAws_json1_1ServiceUpdate = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1ServiceUpdateList = (output: any, context: __SerdeContext): ServiceUpdate[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4886,6 +4898,7 @@ const deserializeAws_json1_1ServiceUpdateList = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1ServiceUpdate(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceUpdateNotFoundFault = (
@@ -4933,7 +4946,7 @@ const deserializeAws_json1_1ShardDetail = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1ShardDetails = (output: any, context: __SerdeContext): ShardDetail[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4941,10 +4954,11 @@ const deserializeAws_json1_1ShardDetails = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1ShardDetail(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): Shard[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -4952,6 +4966,7 @@ const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): 
       }
       return deserializeAws_json1_1Shard(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ShardNotFoundFault = (output: any, context: __SerdeContext): ShardNotFoundFault => {
@@ -4999,7 +5014,7 @@ const deserializeAws_json1_1SnapshotAlreadyExistsFault = (
 };
 
 const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext): Snapshot[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5007,6 +5022,7 @@ const deserializeAws_json1_1SnapshotList = (output: any, context: __SerdeContext
       }
       return deserializeAws_json1_1Snapshot(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SnapshotNotFoundFault = (output: any, context: __SerdeContext): SnapshotNotFoundFault => {
@@ -5063,7 +5079,7 @@ const deserializeAws_json1_1SubnetGroupInUseFault = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1SubnetGroupList = (output: any, context: __SerdeContext): SubnetGroup[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5071,6 +5087,7 @@ const deserializeAws_json1_1SubnetGroupList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1SubnetGroup(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SubnetGroupNotFoundFault = (
@@ -5098,7 +5115,7 @@ const deserializeAws_json1_1SubnetInUse = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1SubnetList = (output: any, context: __SerdeContext): Subnet[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5106,6 +5123,7 @@ const deserializeAws_json1_1SubnetList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1Subnet(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1SubnetNotAllowedFault = (output: any, context: __SerdeContext): SubnetNotAllowedFault => {
@@ -5131,7 +5149,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5139,6 +5157,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
@@ -5183,7 +5202,7 @@ const deserializeAws_json1_1UnprocessedCluster = (output: any, context: __SerdeC
 };
 
 const deserializeAws_json1_1UnprocessedClusterList = (output: any, context: __SerdeContext): UnprocessedCluster[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5191,6 +5210,7 @@ const deserializeAws_json1_1UnprocessedClusterList = (output: any, context: __Se
       }
       return deserializeAws_json1_1UnprocessedCluster(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
@@ -5273,7 +5293,7 @@ const deserializeAws_json1_1UserAlreadyExistsFault = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): User[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5281,10 +5301,11 @@ const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): U
       }
       return deserializeAws_json1_1User(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UserNameList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -5292,6 +5313,7 @@ const deserializeAws_json1_1UserNameList = (output: any, context: __SerdeContext
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1UserNotFoundFault = (output: any, context: __SerdeContext): UserNotFoundFault => {

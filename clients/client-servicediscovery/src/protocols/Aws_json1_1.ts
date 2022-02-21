@@ -2696,7 +2696,7 @@ const deserializeAws_json1_1DnsRecord = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1DnsRecordList = (output: any, context: __SerdeContext): DnsRecord[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2704,6 +2704,7 @@ const deserializeAws_json1_1DnsRecordList = (output: any, context: __SerdeContex
       }
       return deserializeAws_json1_1DnsRecord(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
@@ -2793,7 +2794,7 @@ const deserializeAws_json1_1HttpInstanceSummary = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1HttpInstanceSummaryList = (output: any, context: __SerdeContext): HttpInstanceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2801,6 +2802,7 @@ const deserializeAws_json1_1HttpInstanceSummaryList = (output: any, context: __S
       }
       return deserializeAws_json1_1HttpInstanceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1HttpProperties = (output: any, context: __SerdeContext): HttpProperties => {
@@ -2852,7 +2854,7 @@ const deserializeAws_json1_1InstanceSummary = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1InstanceSummaryList = (output: any, context: __SerdeContext): InstanceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2860,6 +2862,7 @@ const deserializeAws_json1_1InstanceSummaryList = (output: any, context: __Serde
       }
       return deserializeAws_json1_1InstanceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
@@ -2968,7 +2971,7 @@ const deserializeAws_json1_1NamespaceProperties = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1NamespaceSummariesList = (output: any, context: __SerdeContext): NamespaceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2976,6 +2979,7 @@ const deserializeAws_json1_1NamespaceSummariesList = (output: any, context: __Se
       }
       return deserializeAws_json1_1NamespaceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1NamespaceSummary = (output: any, context: __SerdeContext): NamespaceSummary => {
@@ -3033,7 +3037,7 @@ const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3041,6 +3045,7 @@ const deserializeAws_json1_1OperationSummaryList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1OperationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1OperationTargetsMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -3138,7 +3143,7 @@ const deserializeAws_json1_1ServiceNotFound = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ServiceSummariesList = (output: any, context: __SerdeContext): ServiceSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3146,6 +3151,7 @@ const deserializeAws_json1_1ServiceSummariesList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1ServiceSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
@@ -3189,7 +3195,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3197,6 +3203,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {

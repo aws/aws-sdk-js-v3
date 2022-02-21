@@ -1187,7 +1187,7 @@ const deserializeAws_json1_1Alarm = (output: any, context: __SerdeContext): Alar
 };
 
 const deserializeAws_json1_1Alarms = (output: any, context: __SerdeContext): Alarm[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1195,6 +1195,7 @@ const deserializeAws_json1_1Alarms = (output: any, context: __SerdeContext): Ala
       }
       return deserializeAws_json1_1Alarm(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConcurrentUpdateException = (
@@ -1336,7 +1337,7 @@ const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeContext): MetricDimension[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1344,6 +1345,7 @@ const deserializeAws_json1_1MetricDimensions = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1MetricDimension(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ObjectNotFoundException = (
@@ -1419,7 +1421,7 @@ const deserializeAws_json1_1ScalableTargetAction = (output: any, context: __Serd
 };
 
 const deserializeAws_json1_1ScalableTargets = (output: any, context: __SerdeContext): ScalableTarget[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1427,10 +1429,11 @@ const deserializeAws_json1_1ScalableTargets = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ScalableTarget(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScalingActivities = (output: any, context: __SerdeContext): ScalingActivity[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1438,6 +1441,7 @@ const deserializeAws_json1_1ScalingActivities = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1ScalingActivity(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeContext): ScalingActivity => {
@@ -1463,7 +1467,7 @@ const deserializeAws_json1_1ScalingActivity = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeContext): ScalingPolicy[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1471,6 +1475,7 @@ const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1ScalingPolicy(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
@@ -1533,7 +1538,7 @@ const deserializeAws_json1_1ScheduledAction = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1ScheduledActions = (output: any, context: __SerdeContext): ScheduledAction[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1541,6 +1546,7 @@ const deserializeAws_json1_1ScheduledActions = (output: any, context: __SerdeCon
       }
       return deserializeAws_json1_1ScheduledAction(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
@@ -1552,7 +1558,7 @@ const deserializeAws_json1_1StepAdjustment = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1StepAdjustments = (output: any, context: __SerdeContext): StepAdjustment[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1560,6 +1566,7 @@ const deserializeAws_json1_1StepAdjustments = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1StepAdjustment(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1StepScalingPolicyConfiguration = (

@@ -1371,7 +1371,7 @@ const deserializeAws_restJson1AlarmState = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restJson1AlarmSummaries = (output: any, context: __SerdeContext): AlarmSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1379,6 +1379,7 @@ const deserializeAws_restJson1AlarmSummaries = (output: any, context: __SerdeCon
       }
       return deserializeAws_restJson1AlarmSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1AlarmSummary = (output: any, context: __SerdeContext): AlarmSummary => {
@@ -1402,7 +1403,7 @@ const deserializeAws_restJson1BatchAlarmActionErrorEntries = (
   output: any,
   context: __SerdeContext
 ): BatchAlarmActionErrorEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1410,6 +1411,7 @@ const deserializeAws_restJson1BatchAlarmActionErrorEntries = (
       }
       return deserializeAws_restJson1BatchAlarmActionErrorEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchAlarmActionErrorEntry = (
@@ -1427,7 +1429,7 @@ const deserializeAws_restJson1BatchPutMessageErrorEntries = (
   output: any,
   context: __SerdeContext
 ): BatchPutMessageErrorEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1435,6 +1437,7 @@ const deserializeAws_restJson1BatchPutMessageErrorEntries = (
       }
       return deserializeAws_restJson1BatchPutMessageErrorEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchPutMessageErrorEntry = (
@@ -1452,7 +1455,7 @@ const deserializeAws_restJson1BatchUpdateDetectorErrorEntries = (
   output: any,
   context: __SerdeContext
 ): BatchUpdateDetectorErrorEntry[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1460,6 +1463,7 @@ const deserializeAws_restJson1BatchUpdateDetectorErrorEntries = (
       }
       return deserializeAws_restJson1BatchUpdateDetectorErrorEntry(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1BatchUpdateDetectorErrorEntry = (
@@ -1540,7 +1544,7 @@ const deserializeAws_restJson1DetectorStateSummary = (output: any, context: __Se
 };
 
 const deserializeAws_restJson1DetectorSummaries = (output: any, context: __SerdeContext): DetectorSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1548,6 +1552,7 @@ const deserializeAws_restJson1DetectorSummaries = (output: any, context: __Serde
       }
       return deserializeAws_restJson1DetectorSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1DetectorSummary = (output: any, context: __SerdeContext): DetectorSummary => {
@@ -1654,7 +1659,7 @@ const deserializeAws_restJson1Timer = (output: any, context: __SerdeContext): Ti
 };
 
 const deserializeAws_restJson1Timers = (output: any, context: __SerdeContext): Timer[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1662,6 +1667,7 @@ const deserializeAws_restJson1Timers = (output: any, context: __SerdeContext): T
       }
       return deserializeAws_restJson1Timer(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext): Variable => {
@@ -1672,7 +1678,7 @@ const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restJson1Variables = (output: any, context: __SerdeContext): Variable[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -1680,6 +1686,7 @@ const deserializeAws_restJson1Variables = (output: any, context: __SerdeContext)
       }
       return deserializeAws_restJson1Variable(entry, context);
     });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -2633,7 +2633,7 @@ const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1BillingRecords = (output: any, context: __SerdeContext): BillingRecord[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2641,6 +2641,7 @@ const deserializeAws_json1_1BillingRecords = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1BillingRecord(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse = (
@@ -2757,7 +2758,7 @@ const deserializeAws_json1_1DomainPrice = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1DomainPriceList = (output: any, context: __SerdeContext): DomainPrice[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2765,10 +2766,11 @@ const deserializeAws_json1_1DomainPriceList = (output: any, context: __SerdeCont
       }
       return deserializeAws_json1_1DomainPrice(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DomainStatusList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2776,6 +2778,7 @@ const deserializeAws_json1_1DomainStatusList = (output: any, context: __SerdeCon
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DomainSuggestion = (output: any, context: __SerdeContext): DomainSuggestion => {
@@ -2786,7 +2789,7 @@ const deserializeAws_json1_1DomainSuggestion = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1DomainSuggestionsList = (output: any, context: __SerdeContext): DomainSuggestion[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2794,6 +2797,7 @@ const deserializeAws_json1_1DomainSuggestionsList = (output: any, context: __Ser
       }
       return deserializeAws_json1_1DomainSuggestion(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
@@ -2809,7 +2813,7 @@ const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_json1_1DomainSummaryList = (output: any, context: __SerdeContext): DomainSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2817,6 +2821,7 @@ const deserializeAws_json1_1DomainSummaryList = (output: any, context: __SerdeCo
       }
       return deserializeAws_json1_1DomainSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1DomainTransferability = (output: any, context: __SerdeContext): DomainTransferability => {
@@ -2855,7 +2860,7 @@ const deserializeAws_json1_1ExtraParam = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1ExtraParamList = (output: any, context: __SerdeContext): ExtraParam[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2863,6 +2868,7 @@ const deserializeAws_json1_1ExtraParamList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1ExtraParam(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
@@ -2958,7 +2964,7 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
 };
 
 const deserializeAws_json1_1GlueIpList = (output: any, context: __SerdeContext): string[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -2966,6 +2972,7 @@ const deserializeAws_json1_1GlueIpList = (output: any, context: __SerdeContext):
       }
       return __expectString(entry) as any;
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
@@ -3027,7 +3034,7 @@ const deserializeAws_json1_1Nameserver = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_json1_1NameserverList = (output: any, context: __SerdeContext): Nameserver[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3035,6 +3042,7 @@ const deserializeAws_json1_1NameserverList = (output: any, context: __SerdeConte
       }
       return deserializeAws_json1_1Nameserver(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1OperationLimitExceeded = (output: any, context: __SerdeContext): OperationLimitExceeded => {
@@ -3056,7 +3064,7 @@ const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1OperationSummaryList = (output: any, context: __SerdeContext): OperationSummary[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3064,6 +3072,7 @@ const deserializeAws_json1_1OperationSummaryList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1OperationSummary(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1PriceWithCurrency = (output: any, context: __SerdeContext): PriceWithCurrency => {
@@ -3122,7 +3131,7 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 };
 
 const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Tag[] => {
-  return (output || [])
+  const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
       if (entry === null) {
@@ -3130,6 +3139,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
       }
       return deserializeAws_json1_1Tag(entry, context);
     });
+  return retVal;
 };
 
 const deserializeAws_json1_1TLDRulesViolation = (output: any, context: __SerdeContext): TLDRulesViolation => {
