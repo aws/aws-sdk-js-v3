@@ -1,7 +1,7 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { BuildHandlerArguments } from "@aws-sdk/types";
 
-import { ChecksumAlgorithm } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
 import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";

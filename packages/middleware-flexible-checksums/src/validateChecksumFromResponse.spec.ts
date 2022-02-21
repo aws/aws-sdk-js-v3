@@ -1,6 +1,6 @@
 import { HttpResponse } from "@aws-sdk/protocol-http";
 
-import { ChecksumAlgorithm } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
 import { getChecksum } from "./getChecksum";
 import { getChecksumAlgorithmListForResponse } from "./getChecksumAlgorithmListForResponse";
 import { getChecksumLocationName } from "./getChecksumLocationName";

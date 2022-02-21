@@ -1,4 +1,4 @@
-import { ChecksumAlgorithm } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
 
 /**
  * Returns location (header/trailer) name to use to populate checksum in.

@@ -1,4 +1,4 @@
-import { ChecksumAlgorithm } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { CLIENT_SUPPORTED_ALGORITHMS } from "./types";
 

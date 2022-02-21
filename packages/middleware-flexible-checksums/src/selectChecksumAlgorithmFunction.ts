@@ -2,7 +2,7 @@ import { AwsCrc32 } from "@aws-crypto/crc32";
 import { AwsCrc32c } from "@aws-crypto/crc32c";
 import { HashConstructor } from "@aws-sdk/types";
 
-import { ChecksumAlgorithm } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
 import { FlexibleChecksumsResolvedConfig } from "./resolveFlexibleChecksumsConfig";
 
 /**

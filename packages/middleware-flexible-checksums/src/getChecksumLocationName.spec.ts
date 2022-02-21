@@ -1,4 +1,4 @@
-import { ChecksumAlgorithm } from "./configuration";
+import { ChecksumAlgorithm } from "./constants";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 
 describe(getChecksumLocationName.name, () => {
