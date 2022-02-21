@@ -53,11 +53,7 @@ describe(readableStreamHasher.name, () => {
   });
 
   it("creates a copy in case of fileStream", () => {
-    (fsCreateReadStream as jest.Mock).mockReturnValue(
-      new Readable({
-        read: (size) => {},
-      })
-    );
+    (fsCreateReadStream as jest.Mock).mockReturnValue(new Readable({ read: (size) => {} }));
     (isFileStream as unknown as jest.Mock).mockReturnValue(true);
 
     const fsReadStream = createReadStream(__filename);
@@ -68,9 +64,7 @@ describe(readableStreamHasher.name, () => {
   });
 
   it("computes hash for a readable stream", async () => {
-    const readableStream = new Readable({
-      read: (size) => {},
-    });
+    const readableStream = new Readable({ read: (size) => {} });
     const hashPromise = readableStreamHasher(mockHashCtor, readableStream);
 
     // @ts-ignore Property '_readableState' does not exist on type 'Readable'.
@@ -90,6 +84,20 @@ describe(readableStreamHasher.name, () => {
     );
     expect(mockDigest).toHaveBeenCalledTimes(1);
     expect(mockHashCalculatorEnd).toHaveBeenCalledTimes(1);
+  });
+
+  it("throws if readable stream is not a file stream and has started reading", async () => {
+    const readableStream = new Readable({ read: (size) => {} });
+    // Simulate readableFlowing to true.
+    readableStream.resume();
+
+    const expectedError = new Error("Unable to calculate hash for flowing readable stream");
+    try {
+      readableStreamHasher(mockHashCtor, readableStream);
+      fail(`expected ${expectedError}`);
+    } catch (error) {
+      expect(error).toStrictEqual(expectedError);
+    }
   });
 
   it("throws error if readable stream throws error", async () => {
