@@ -4,6 +4,7 @@ import { Readable } from "stream";
 
 import { HashCalculator } from "./HashCalculator";
 
+// ToDo: deprecate in favor of readableStreamHasher
 export const fileStreamHasher: StreamHasher<Readable> = (hashCtor: HashConstructor, fileStream: Readable) =>
   new Promise((resolve, reject) => {
     if (!isReadStream(fileStream)) {
