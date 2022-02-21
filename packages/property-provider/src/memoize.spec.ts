@@ -52,6 +52,20 @@ describe("memoize", () => {
       expect(await memoized()).toBe("Retry");
       expect(provider).toBeCalledTimes(2);
     });
+
+    it("should retry provider if forceRefresh parameter is used", async () => {
+      provider
+        .mockReset()
+        .mockResolvedValueOnce("1st")
+        .mockResolvedValueOnce("2nd")
+        .mockRejectedValueOnce("Should not call 3rd time");
+      const memoized = memoize(provider);
+      expect(await memoized()).toBe("1st");
+      expect(await memoized()).toBe("1st");
+      expect(await memoized({ forceRefresh: true })).toBe("2nd");
+      expect(await memoized()).toBe("2nd");
+      expect(provider).toBeCalledTimes(2);
+    });
   });
 
   describe("refreshing memoization", () => {
@@ -107,6 +121,31 @@ describe("memoize", () => {
 
       it("when requiresRefresh is not passed", () => {
         return isExpiredTrueTest();
+      });
+
+      it("when requiresRefresh returns true", () => {
+        requiresRefresh.mockReturnValue(true);
+        return isExpiredTrueTest(requiresRefresh);
+      });
+    });
+
+    describe("when called with forceRefresh set to `true`", () => {
+      const isExpiredFalseTest = async (requiresRefresh?: any) => {
+        const memoized = memoize(provider, isExpired, requiresRefresh);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        for (const index in [...Array(repeatTimes).keys()]) {
+          expect(await memoized()).toEqual(mockReturn);
+        }
+
+        expect(isExpired).toHaveBeenCalledTimes(repeatTimes);
+        if (requiresRefresh) {
+          expect(requiresRefresh).toHaveBeenCalledTimes(repeatTimes);
+        }
+        expect(provider).toHaveBeenCalledTimes(repeatTimes + 1);
+      };
+
+      it("should reinvoke the underlying provider even if isExpired returns false", () => {
+        isExpired.mockReturnValue(false);
       });
 
       it("when requiresRefresh returns true", () => {

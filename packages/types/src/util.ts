@@ -43,6 +43,24 @@ export interface Provider<T> {
 }
 
 /**
+ * A function that, when invoked, returns a promise that will be fulfilled with
+ * a value of type T. It memoizes the result from the previous invocation
+ * instead of calling the underlying resources every time.
+ *
+ * You can force the provider to refresh the memoized value by invoke the
+ * function with optional parameter hash with `forceRefresh` boolean key and
+ * value `true`.
+ *
+ * @example A function that reads credentials from IMDS service that could
+ * return expired credentials. The SDK will keep using the expired credentials
+ * until an unretryable service error requiring a force refresh of the
+ * credentials.
+ */
+export interface MemoizedProvider<T> {
+  (options?: { forceRefresh?: boolean }): Promise<T>;
+}
+
+/**
  * A function that, given a request body, determines the
  * length of the body. This is used to determine the Content-Length
  * that should be sent with a request.

@@ -9,6 +9,7 @@ import {
   InitializeHandlerOptions,
   InitializeHandlerOutput,
   InitializeMiddleware,
+  MemoizedProvider,
   MetadataBearer,
   Pluggable,
   Provider,
@@ -16,7 +17,7 @@ import {
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 interface PreviouslyResolved {
-  credentials: Provider<Credentials>;
+  credentials: MemoizedProvider<Credentials>;
   endpoint: Provider<Endpoint>;
   region: Provider<string>;
   sha256: HashConstructor;
