@@ -1,10 +1,16 @@
 import { Hash } from "@aws-sdk/types";
-import { Readable, Writable, WritableOptions } from "stream";
+import { createReadStream } from "fs";
+import { Readable, Writable } from "stream";
 
+import { fsCreateReadStream } from "./fsCreateReadStream";
 import { HashCalculator } from "./HashCalculator";
+import { isFileStream } from "./isFileStream";
 import { readableStreamHasher } from "./readableStreamHasher";
 
+jest.mock("./fsCreateReadStream");
 jest.mock("./HashCalculator");
+jest.mock("./isFileStream");
+jest.mock("fs");
 
 describe(readableStreamHasher.name, () => {
   const mockDigest = jest.fn();
@@ -38,11 +44,27 @@ describe(readableStreamHasher.name, () => {
     (HashCalculator as unknown as jest.Mock).mockImplementation(
       (hash) => new MockHashCalculator(hash, mockHashCalculatorWrite, mockHashCalculatorEnd)
     );
+    (isFileStream as unknown as jest.Mock).mockReturnValue(false);
     mockDigest.mockResolvedValue(mockHash);
   });
 
   afterEach(() => {
     jest.clearAllMocks();
+  });
+
+  it("creates a copy in case of fileStream", () => {
+    (fsCreateReadStream as jest.Mock).mockReturnValue(
+      new Readable({
+        read: (size) => {},
+      })
+    );
+    (isFileStream as unknown as jest.Mock).mockReturnValue(true);
+
+    const fsReadStream = createReadStream(__filename);
+    readableStreamHasher(mockHashCtor, fsReadStream);
+
+    expect(isFileStream).toHaveBeenCalledWith(fsReadStream);
+    expect(fsCreateReadStream).toHaveBeenCalledWith(fsReadStream);
   });
 
   it("computes hash for a readable stream", async () => {
